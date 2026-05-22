@@ -254,7 +254,7 @@ export function DashboardWorkspace() {
                 {analytics.assessment_progress.completion_percentage}% complete
               </p>
               <Link href="/app/assessment" className="mt-2 inline-block text-xs text-fiscmak-green hover:underline">
-                Continue →
+                View insights →
               </Link>
             </Card>
           </div>
@@ -327,7 +327,7 @@ export function DashboardWorkspace() {
                 </p>
               )}
               <Link href="/app/assessment" className="mt-2 inline-block text-sm text-fiscmak-green hover:underline">
-                Start assessment →
+                View patterns &amp; insights →
               </Link>
             </Card>
           )}
@@ -339,7 +339,7 @@ export function DashboardWorkspace() {
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <Link href="/app/assessment">
-                <Button variant="secondary">Assess patterns</Button>
+                <Button variant="secondary">View career insights</Button>
               </Link>
               <Link href="/app/output">
                 <Button>Create narrative</Button>

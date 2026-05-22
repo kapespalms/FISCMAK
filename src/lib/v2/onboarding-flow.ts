@@ -32,8 +32,8 @@ export const LAY_OF_LAND_STEPS: TourStep[] = [
   {
     id: "assessment",
     title: "Assessment — career patterns",
-    body: "Seven touchpoints over time. When Mak learns something in conversation, those questions are auto-filled — you won't see them again as forms.",
-    highlight: "Conversation-first, not checkbox-first",
+    body: "This page shows insights from everything Mak learns — touchpoint progress, strengths, recognition gaps, and coherence. You never answer forms here; conversation fills it in automatically.",
+    highlight: "Results and insights, not questions",
   },
   {
     id: "plan",
