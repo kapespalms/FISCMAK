@@ -10,13 +10,31 @@ import { DashboardOptionTabs } from "@/components/dashboard/DashboardOptionTabs"
 import { DASHBOARD_OPTION_TABS } from "@/lib/mak-sections";
 import { useAppShell } from "@/components/layout/AppShell";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
-import { ACCEPTED_CV_ACCEPT } from "@/lib/v2/document-upload";
+import {
+  ACCEPTED_CV_ACCEPT,
+  ACCEPTED_CV_LABEL,
+  isAcceptedCvFileName,
+} from "@/lib/v2/document-upload";
+
+const EMPTY_CV_METRICS: AnalyticsDashboard["cv_metrics"] = {
+  available: false,
+  s_index: null,
+  iwq: null,
+  promotion_aligned_pct: null,
+  bits_score: null,
+  domain_scores: null,
+  invisible_work_signals: [],
+  interpretation: { s_index: null, iwq: null },
+};
 
 export function DashboardWorkspace() {
   const { startMakFlow } = useAppShell();
   const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
   const [loading, setLoading] = useState(true);
   const [uploadOpen, setUploadOpen] = useState(false);
+  const [uploadProcessing, setUploadProcessing] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -30,28 +48,63 @@ export function DashboardWorkspace() {
     void load();
   }, [load]);
 
+  async function uploadFile(file: File) {
+    setUploadProcessing(true);
+    setUploadError(null);
+    setUploadSuccess(null);
+    try {
+      const form = new FormData();
+      form.append("file", file);
+      form.append("document_type", "CV");
+      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message ?? "Upload failed");
+      }
+
+      await fetch("/api/v1/mempalace/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({}),
+      });
+
+      setUploadSuccess(
+        data.cv_metrics?.s_index != null
+          ? `CV uploaded. S-Index: ${data.cv_metrics.s_index}`
+          : "CV uploaded successfully.",
+      );
+      await load();
+      startMakFlow("upload");
+    } catch (e) {
+      setUploadError(e instanceof Error ? e.message : "Upload failed");
+    } finally {
+      setUploadProcessing(false);
+    }
+  }
+
   async function handleUploadFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
-    if (!file) return;
-    const form = new FormData();
-    form.append("file", file);
-    form.append("document_type", "CV");
-    await fetch("/api/v1/documents", { method: "POST", body: form });
-    await fetch("/api/v1/mempalace/sync", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({}),
-    });
-    startMakFlow("upload", "/app/objective?tab=documents");
-    setUploadOpen(false);
-    void load();
     e.target.value = "";
+    if (!file) return;
+    if (!isAcceptedCvFileName(file.name)) {
+      setUploadError(`Upload ${ACCEPTED_CV_LABEL}.`);
+      return;
+    }
+    await uploadFile(file);
+  }
+
+  function openUploadPanel() {
+    setUploadOpen(true);
+    setUploadError(null);
+    setUploadSuccess(null);
   }
 
   function handleOptionTab(id: (typeof DASHBOARD_OPTION_TABS)[number]["id"], href: string) {
     setActiveTab(id);
     startMakFlow(id, href);
   }
+
+  const cvMetrics = analytics?.cv_metrics ?? EMPTY_CV_METRICS;
 
   return (
     <div className="mx-auto max-w-6xl space-y-5">
@@ -76,7 +129,7 @@ export function DashboardWorkspace() {
         </button>
         <button
           type="button"
-          onClick={() => setUploadOpen(true)}
+          onClick={openUploadPanel}
           className="flex min-h-12 items-center gap-3 rounded-lg border border-fiscmak-border bg-white px-4 py-3 text-left hover:bg-fiscmak-subtle"
         >
           <Upload size={22} className="text-fiscmak-muted" />
@@ -101,8 +154,31 @@ export function DashboardWorkspace() {
       {uploadOpen && (
         <Card>
           <h2 className="font-semibold">Upload document</h2>
-          <input type="file" accept={ACCEPTED_CV_ACCEPT} className="mt-4 block w-full text-sm" onChange={handleUploadFile} />
-          <Button variant="secondary" className="mt-3" onClick={() => setUploadOpen(false)}>Cancel</Button>
+          <p className="mt-1 text-sm text-fiscmak-muted">{ACCEPTED_CV_LABEL}</p>
+          <input
+            type="file"
+            accept={ACCEPTED_CV_ACCEPT}
+            className="mt-4 block w-full text-sm"
+            onChange={handleUploadFile}
+            disabled={uploadProcessing}
+          />
+          {uploadProcessing && (
+            <p className="mt-3 text-sm text-fiscmak-muted">Uploading and extracting CV text…</p>
+          )}
+          {uploadError && (
+            <p className="mt-3 text-sm text-fiscmak-red">{uploadError}</p>
+          )}
+          {uploadSuccess && (
+            <p className="mt-3 text-sm text-fiscmak-green">{uploadSuccess}</p>
+          )}
+          <Button
+            variant="secondary"
+            className="mt-3"
+            onClick={() => setUploadOpen(false)}
+            disabled={uploadProcessing}
+          >
+            {uploadSuccess ? "Done" : "Cancel"}
+          </Button>
         </Card>
       )}
 
@@ -115,9 +191,7 @@ export function DashboardWorkspace() {
                 Optional, but helps Mak personalize coaching and MemPalace memory.
               </p>
             </div>
-            <Link href="/app/onboarding/tier2">
-              <Button>Upload CV</Button>
-            </Link>
+            <Button onClick={openUploadPanel}>Upload CV</Button>
           </div>
         </Card>
       )}
@@ -132,24 +206,24 @@ export function DashboardWorkspace() {
               <p className="mt-2 text-4xl font-bold text-fiscmak-green">{analytics.career_readiness_index}</p>
               <p className="mt-1 text-xs text-fiscmak-muted">CRI composite score</p>
             </Card>
-            <Card accent={analytics.cv_metrics.available ? "green" : undefined}>
+            <Card accent={cvMetrics.available ? "green" : undefined}>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">S-Index</p>
               <p className="mt-2 text-4xl font-bold">
-                {analytics.cv_metrics.s_index ?? "—"}
+                {cvMetrics.s_index ?? "—"}
               </p>
               <p className="mt-1 text-xs text-fiscmak-muted">
-                {analytics.cv_metrics.available
+                {cvMetrics.available
                   ? "Documented service & invisible work"
                   : "Upload CV to compute"}
               </p>
             </Card>
-            <Card accent={analytics.cv_metrics.iwq != null && analytics.cv_metrics.iwq >= 50 ? "amber" : undefined}>
+            <Card accent={cvMetrics.iwq != null && cvMetrics.iwq >= 50 ? "amber" : undefined}>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">IWQ</p>
               <p className="mt-2 text-4xl font-bold">
-                {analytics.cv_metrics.iwq ?? "—"}
+                {cvMetrics.iwq ?? "—"}
               </p>
               <p className="mt-1 text-xs text-fiscmak-muted">
-                {analytics.cv_metrics.interpretation.iwq ?? "Invisible Work Quotient"}
+                {cvMetrics.interpretation.iwq ?? "Invisible Work Quotient"}
               </p>
             </Card>
             <Card>
@@ -166,25 +240,25 @@ export function DashboardWorkspace() {
             </Card>
           </div>
 
-          {analytics.cv_metrics.available && analytics.cv_metrics.domain_scores && (
+          {cvMetrics.available && cvMetrics.domain_scores && (
             <Card>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">CV domain scores</p>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {Object.entries(analytics.cv_metrics.domain_scores).map(([domain, score]) => (
+                {Object.entries(cvMetrics.domain_scores).map(([domain, score]) => (
                   <div key={domain} className="rounded-md border border-fiscmak-border px-3 py-2">
                     <p className="text-xs capitalize text-fiscmak-muted">{domain}</p>
                     <p className="text-2xl font-bold">{score}</p>
                   </div>
                 ))}
               </div>
-              {analytics.cv_metrics.invisible_work_signals.length > 0 && (
+              {cvMetrics.invisible_work_signals.length > 0 && (
                 <p className="mt-3 text-sm text-fiscmak-muted">
-                  Invisible work detected: {analytics.cv_metrics.invisible_work_signals.join(", ")}
+                  Invisible work detected: {cvMetrics.invisible_work_signals.join(", ")}
                 </p>
               )}
-              {analytics.cv_metrics.promotion_aligned_pct != null && (
+              {cvMetrics.promotion_aligned_pct != null && (
                 <p className="mt-1 text-sm text-fiscmak-muted">
-                  Promotion-aligned activities: {analytics.cv_metrics.promotion_aligned_pct}%
+                  Promotion-aligned activities: {cvMetrics.promotion_aligned_pct}%
                 </p>
               )}
             </Card>
