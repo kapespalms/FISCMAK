@@ -10,11 +10,7 @@ import { DashboardOptionTabs } from "@/components/dashboard/DashboardOptionTabs"
 import { DASHBOARD_OPTION_TABS } from "@/lib/mak-sections";
 import { useAppShell } from "@/components/layout/AppShell";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
-import {
-  ACCEPTED_CV_ACCEPT,
-  ACCEPTED_CV_LABEL,
-  isAcceptedCvFileName,
-} from "@/lib/v2/document-upload";
+import { CvUploadPanel } from "@/components/documents/CvUploadPanel";
 
 const EMPTY_CV_METRICS: AnalyticsDashboard["cv_metrics"] = {
   available: false,
@@ -32,7 +28,6 @@ export function DashboardWorkspace() {
   const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
   const [loading, setLoading] = useState(true);
   const [uploadOpen, setUploadOpen] = useState(false);
-  const [uploadProcessing, setUploadProcessing] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string | null>(null);
@@ -48,49 +43,29 @@ export function DashboardWorkspace() {
     void load();
   }, [load]);
 
-  async function uploadFile(file: File) {
-    setUploadProcessing(true);
-    setUploadError(null);
-    setUploadSuccess(null);
-    try {
-      const form = new FormData();
-      form.append("file", file);
-      form.append("document_type", "CV");
-      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message ?? "Upload failed");
-      }
-
-      await fetch("/api/v1/mempalace/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-      });
-
-      setUploadSuccess(
-        data.cv_metrics?.s_index != null
-          ? `CV uploaded. S-Index: ${data.cv_metrics.s_index}`
-          : "CV uploaded successfully.",
-      );
-      await load();
-      startMakFlow("upload");
-    } catch (e) {
-      setUploadError(e instanceof Error ? e.message : "Upload failed");
-    } finally {
-      setUploadProcessing(false);
+  async function uploadCvFile(file: File) {
+    const form = new FormData();
+    form.append("file", file);
+    form.append("document_type", "CV");
+    const res = await fetch("/api/v1/documents", { method: "POST", body: form });
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message ?? "Upload failed");
     }
-  }
 
-  async function handleUploadFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    e.target.value = "";
-    if (!file) return;
-    if (!isAcceptedCvFileName(file.name)) {
-      setUploadError(`Upload ${ACCEPTED_CV_LABEL}.`);
-      return;
-    }
-    await uploadFile(file);
+    await fetch("/api/v1/mempalace/sync", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+
+    setUploadSuccess(
+      data.cv_metrics?.s_index != null
+        ? `CV uploaded. S-Index: ${data.cv_metrics.s_index}`
+        : "CV uploaded successfully.",
+    );
+    await load();
+    startMakFlow("upload");
   }
 
   function openUploadPanel() {
@@ -154,17 +129,21 @@ export function DashboardWorkspace() {
       {uploadOpen && (
         <Card>
           <h2 className="font-semibold">Upload document</h2>
-          <p className="mt-1 text-sm text-fiscmak-muted">{ACCEPTED_CV_LABEL}</p>
-          <input
-            type="file"
-            accept={ACCEPTED_CV_ACCEPT}
-            className="mt-4 block w-full text-sm"
-            onChange={handleUploadFile}
-            disabled={uploadProcessing}
-          />
-          {uploadProcessing && (
-            <p className="mt-3 text-sm text-fiscmak-muted">Uploading and extracting CV text…</p>
-          )}
+          <div className="mt-4">
+            <CvUploadPanel
+              onUpload={async (file) => {
+                setUploadError(null);
+                setUploadSuccess(null);
+                try {
+                  await uploadCvFile(file);
+                } catch (e) {
+                  const message = e instanceof Error ? e.message : "Upload failed";
+                  setUploadError(message);
+                  throw e;
+                }
+              }}
+            />
+          </div>
           {uploadError && (
             <p className="mt-3 text-sm text-fiscmak-red">{uploadError}</p>
           )}
@@ -175,7 +154,6 @@ export function DashboardWorkspace() {
             variant="secondary"
             className="mt-3"
             onClick={() => setUploadOpen(false)}
-            disabled={uploadProcessing}
           >
             {uploadSuccess ? "Done" : "Cancel"}
           </Button>
