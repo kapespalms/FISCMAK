@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { ensureAppUser } from "@/lib/supabase/ensure-user";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -36,6 +37,9 @@ export default function LoginPage() {
       setLoading(false);
       return;
     }
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) await ensureAppUser(supabase, user);
 
     router.push("/app");
     router.refresh();

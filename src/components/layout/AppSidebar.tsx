@@ -8,6 +8,7 @@ import {
   MessageCircle,
   ClipboardList,
   FileText,
+  Target,
   User,
   Settings,
   LogOut,
@@ -22,6 +23,7 @@ const nav = [
   { href: "/app/mak", label: "Mak", icon: MessageCircle },
   { href: "/app/activities", label: "Activities", icon: ClipboardList },
   { href: "/app/studio", label: "Output Studio", icon: FileText },
+  { href: "/app/goals", label: "Goals", icon: Target },
   { href: "/app/profile", label: "Profile", icon: User },
   { href: "/app/settings", label: "Settings", icon: Settings },
 ];

@@ -818,14 +818,14 @@ CREATE INDEX idx_audit_logs_created ON audit_logs(created_at);
 -- ============================================================================
 
 INSERT INTO career_phases (name, definition, identity_task, key_challenges, default_instruments, mak_mode_priority) VALUES
-('Medical Student', 'Medical school enrollment', 'Am I becoming a physician?', 'Mistreatment, learning environment, burnout risk', '["PFI", "UWES-3"]', '["Coach"]'),
-('Resident/Fellow', 'Residency or fellowship training', 'What kind of physician am I becoming?', 'Dual status, intense learning, identity formation', '["PFI", "UWES-9", "Career Fit", "PIF"]', '["Coach", "Mentor"]'),
-('Early Career Attending', 'First attending role (0-5 years)', 'How do I establish myself?', 'Novel practice setting, autonomy, work-life integration', '["PFI", "UWES-9", "Career Fit", "JeffSPLL", "PIF"]', '["Coach", "Mentor", "Analyst"]'),
-('Mid-Career Attending', 'Established attending (10-20 years)', 'How do I sustain meaning while managing demands?', 'Highest burnout risk, admin burden, isolation', '["PFI", "UWES-9", "Career Fit", "JeffSPLL", "PIF", "Mini-Z"]', '["Analyst", "Sponsor-Prep"]'),
-('Late Career Attending', 'Senior attending (20+ years)', 'How do I finish well and prepare for transition?', 'Competency maintenance, finishing well, succession', '["PFI", "Career Fit", "PIF"]', '["Mentor"]'),
-('Transitioning', 'Career change or major shift', 'Who am I becoming next?', 'Identity reconstruction, support needs', '["PFI", "UWES-9", "Career Fit", "PIF"]', '["Coach", "Mentor"]'),
-('Nonclinical', 'Non-clinical physician roles', 'How do I contribute outside clinical care?', 'Role clarity, visibility, impact measurement', '["PFI", "UWES-9", "Career Fit"]', '["Coach", "Analyst"]'),
-('Retired', 'Post-practice physician', 'Who am I without my white coat?', 'Identity transition, purpose, continued contribution', '["PFI"]', '["Mentor"]');
+('Medical Student', 'Medical school enrollment', 'Am I becoming a physician?', 'Mistreatment, learning environment, burnout risk', '["PFI", "UWES-3"]', ARRAY['Coach']),
+('Resident/Fellow', 'Residency or fellowship training', 'What kind of physician am I becoming?', 'Dual status, intense learning, identity formation', '["PFI", "UWES-9", "Career Fit", "PIF"]', ARRAY['Coach', 'Mentor']),
+('Early Career Attending', 'First attending role (0-5 years)', 'How do I establish myself?', 'Novel practice setting, autonomy, work-life integration', '["PFI", "UWES-9", "Career Fit", "JeffSPLL", "PIF"]', ARRAY['Coach', 'Mentor', 'Analyst']),
+('Mid-Career Attending', 'Established attending (10-20 years)', 'How do I sustain meaning while managing demands?', 'Highest burnout risk, admin burden, isolation', '["PFI", "UWES-9", "Career Fit", "JeffSPLL", "PIF", "Mini-Z"]', ARRAY['Analyst', 'Sponsor-Prep']),
+('Late Career Attending', 'Senior attending (20+ years)', 'How do I finish well and prepare for transition?', 'Competency maintenance, finishing well, succession', '["PFI", "Career Fit", "PIF"]', ARRAY['Mentor']),
+('Transitioning', 'Career change or major shift', 'Who am I becoming next?', 'Identity reconstruction, support needs', '["PFI", "UWES-9", "Career Fit", "PIF"]', ARRAY['Coach', 'Mentor']),
+('Nonclinical', 'Non-clinical physician roles', 'How do I contribute outside clinical care?', 'Role clarity, visibility, impact measurement', '["PFI", "UWES-9", "Career Fit"]', ARRAY['Coach', 'Analyst']),
+('Retired', 'Post-practice physician', 'Who am I without my white coat?', 'Identity transition, purpose, continued contribution', '["PFI"]', ARRAY['Mentor']);
 
 -- ============================================================================
 -- SEED DATA: CAREER STATES
@@ -846,16 +846,16 @@ INSERT INTO career_states (name, definition, developmental_task, duration_years)
 -- ============================================================================
 
 INSERT INTO specialty_groups (name, included_specialties, description) VALUES
-('Psychiatry / Behavioral Health', '["Psychiatry", "Addiction Medicine", "Psychosomatic Medicine"]', 'Mental health specialists'),
-('Primary Care', '["Internal Medicine", "Family Medicine", "General Practice"]', 'First-line care providers'),
-('Hospital-Based Medicine', '["Hospitalist", "Internal Medicine", "Pediatrics"]', 'Hospital inpatient care'),
-('Surgical / Procedural', '["General Surgery", "Orthopedic Surgery", "Neurosurgery", "Ophthalmology"]', 'Surgical specialists'),
-('Emergency / Acute Care', '["Emergency Medicine", "Trauma Surgery", "Critical Care"]', 'Acute and emergency medicine'),
-('Pediatrics', '["Pediatrics", "Neonatal-Perinatal Medicine", "Pediatric Surgery"]', 'Children''s medicine'),
-('Diagnostic Specialties', '["Radiology", "Pathology", "Laboratory Medicine"]', 'Diagnostic and image-based specialties'),
-('Academic Research-Heavy', '["Oncology", "Infectious Disease", "Nephrology"]', 'Research-focused specialties'),
-('Administrative / Executive', '["Chief Medical Officer", "Medical Director", "Dean"]', 'Administrative physician roles'),
-('Nonclinical / Industry', '["Medical Informatics", "Health Policy", "Industry Medicine"]', 'Non-clinical physician roles');
+('Psychiatry / Behavioral Health', ARRAY['Psychiatry', 'Addiction Medicine', 'Psychosomatic Medicine'], 'Mental health specialists'),
+('Primary Care', ARRAY['Internal Medicine', 'Family Medicine', 'General Practice'], 'First-line care providers'),
+('Hospital-Based Medicine', ARRAY['Hospitalist', 'Internal Medicine', 'Pediatrics'], 'Hospital inpatient care'),
+('Surgical / Procedural', ARRAY['General Surgery', 'Orthopedic Surgery', 'Neurosurgery', 'Ophthalmology'], 'Surgical specialists'),
+('Emergency / Acute Care', ARRAY['Emergency Medicine', 'Trauma Surgery', 'Critical Care'], 'Acute and emergency medicine'),
+('Pediatrics', ARRAY['Pediatrics', 'Neonatal-Perinatal Medicine', 'Pediatric Surgery'], 'Children''s medicine'),
+('Diagnostic Specialties', ARRAY['Radiology', 'Pathology', 'Laboratory Medicine'], 'Diagnostic and image-based specialties'),
+('Academic Research-Heavy', ARRAY['Oncology', 'Infectious Disease', 'Nephrology'], 'Research-focused specialties'),
+('Administrative / Executive', ARRAY['Chief Medical Officer', 'Medical Director', 'Dean'], 'Administrative physician roles'),
+('Nonclinical / Industry', ARRAY['Medical Informatics', 'Health Policy', 'Industry Medicine'], 'Non-clinical physician roles');
 
 -- ============================================================================
 -- SEED DATA: TEMPLATES

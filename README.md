@@ -8,11 +8,19 @@ Built from the FISCMAK v1 specifications (Next.js + Supabase + Claude).
 
 ```bash
 cp .env.local.example .env.local
-# Add Supabase + Anthropic keys (optional for demo mode)
+```
 
+Edit `.env.local`:
+
+1. Replace `[YOUR-PASSWORD]` in `DATABASE_URL` with your Supabase database password
+2. Paste **anon public** key into `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Dashboard → Settings → API)
+
+```bash
 npm install
 npm run dev
 ```
+
+**Important:** The `postgresql://` URL is for running SQL in Supabase/psql. The Next.js app uses `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` only.
 
 Open [http://localhost:3000](http://localhost:3000).
 
@@ -30,7 +38,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 1. Create a Supabase project
 2. Run `docs/FISCMAK_SUPABASE_SCHEMA.sql` in the SQL editor
-3. Add URL + anon key to `.env.local`
+3. Run `docs/supabase-auth-bridge.sql` (links Supabase Auth to FISCMAK tables)
+4. Add URL + anon key to `.env.local`
+5. Sign up in the app — profile + activities persist per user
 
 ## Specs
 
@@ -38,10 +48,11 @@ See `docs/` for schema and brand guide. Full specs live in `~/Desktop/FISCMAK/lo
 
 ## Next phases
 
-- OpenAI activity classification
 - Lexical editor + evidence chips in Output Studio
 - Document upload + parsing
-- Live lattice from `activity_entries`
+- Live lattice from `activity_entries` ✓
+- Supabase profiles + activities ✓
+- Activity classification (OpenAI or keyword fallback) ✓
 - DOCX/PDF export
 
 ## Scripts

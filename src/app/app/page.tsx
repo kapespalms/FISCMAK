@@ -1,9 +1,61 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { getDashboardStats } from "@/lib/lattice";
+import type { ActivityEntry } from "@/lib/types/database";
 
 export default function DashboardPage() {
+  const [stats, setStats] = useState({
+    total: 0,
+    domainsActive: 0,
+    tracksActive: 0,
+    energizing: 0,
+    draining: 0,
+    recognitionGap: 0,
+  });
+  const [loading, setLoading] = useState(true);
+
+  const load = useCallback(async () => {
+    if (!isSupabaseConfigured()) {
+      setStats({
+        total: 24,
+        domainsActive: 6,
+        tracksActive: 4,
+        energizing: 14,
+        draining: 6,
+        recognitionGap: 34,
+      });
+      setLoading(false);
+      return;
+    }
+
+    const supabase = createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (!user) {
+      setLoading(false);
+      return;
+    }
+
+    const { data } = await supabase
+      .from("activity_entries")
+      .select("*")
+      .eq("user_id", user.id);
+
+    setStats(getDashboardStats((data as ActivityEntry[]) ?? []));
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
   return (
     <div className="mx-auto max-w-6xl space-y-8">
       <div>
@@ -11,31 +63,29 @@ export default function DashboardPage() {
         <p className="mt-1 text-fiscmak-muted">SOAP career intelligence</p>
       </div>
 
+      {loading && <p className="text-sm text-fiscmak-muted">Loading…</p>}
+
       <div className="grid gap-6 lg:grid-cols-2">
         <Card accent="green">
           <h2 className="text-lg font-semibold">Subjective</h2>
-          <p className="mt-2 text-sm text-fiscmak-muted">Energy this week</p>
+          <p className="mt-2 text-sm text-fiscmak-muted">Energy signals</p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <Badge energy="energizing">Teaching & mentoring</Badge>
-            <Badge energy="draining">Admin meetings</Badge>
+            <Badge energy="energizing">{stats.energizing} energizing</Badge>
+            <Badge energy="draining">{stats.draining} draining</Badge>
           </div>
-          <p className="mt-4 text-sm">
-            Most energizing:{" "}
-            <strong>Scholarship × Educator</strong>
-          </p>
         </Card>
 
         <Card>
           <h2 className="text-lg font-semibold">Objective</h2>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <strong>24</strong> activities logged
+              <strong>{stats.total}</strong> activities logged
             </li>
             <li>
-              <strong>6</strong> domains active
+              <strong>{stats.domainsActive}</strong> domains active
             </li>
             <li>
-              <strong>4</strong> tracks active
+              <strong>{stats.tracksActive}</strong> tracks active
             </li>
           </ul>
           <Link href="/app/lattice" className="mt-4 inline-block">
@@ -50,22 +100,27 @@ export default function DashboardPage() {
             <strong>Clinician-Educator with Emerging Systems Leadership</strong>
           </p>
           <ul className="mt-4 space-y-1 text-sm text-fiscmak-muted">
-            <li>Recognition gap: 34%</li>
-            <li>Alignment signal: 78%</li>
-            <li>Career coherence: 0.72</li>
+            <li>Recognition gap: {stats.recognitionGap}%</li>
+            <li>Alignment signal: —</li>
+            <li>Career coherence: —</li>
           </ul>
         </Card>
 
         <Card>
           <h2 className="text-lg font-semibold">Plan</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-sm">
-            <li>Log 2 more teaching activities</li>
+            <li>Log activities in under-documented domains</li>
             <li>Generate annual review draft</li>
             <li>Monthly reflection with Mak</li>
           </ul>
-          <Link href="/app/studio" className="mt-4 inline-block">
-            <Button>Generate output</Button>
-          </Link>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link href="/app/goals">
+              <Button variant="secondary">View goals</Button>
+            </Link>
+            <Link href="/app/studio">
+              <Button>Generate output</Button>
+            </Link>
+          </div>
         </Card>
       </div>
     </div>
