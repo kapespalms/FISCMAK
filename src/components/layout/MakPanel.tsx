@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Mic, X } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { ArrowUp, Mic } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
   MAK_SECTION_CONFIG,
   type AppSection,
@@ -19,6 +19,7 @@ import {
 import { useAppShell } from "@/components/layout/AppShell";
 
 type MakPanelProps = {
+  open: boolean;
   pendingFlow: { intent: MakFlowIntent; greeting: string } | null;
   flowNonce: number;
   onFlowHandled: () => void;
@@ -35,11 +36,12 @@ function greetingForSection(
 }
 
 export function MakPanel({
+  open,
   pendingFlow,
   flowNonce,
   onFlowHandled,
 }: MakPanelProps) {
-  const { section, setMakOpen, makInputRef, displayName } = useAppShell();
+  const { section, makInputRef, displayName } = useAppShell();
   const config = MAK_SECTION_CONFIG[section];
   const [messages, setMessages] = useState<MakMessage[]>([]);
   const [input, setInput] = useState("");
@@ -177,26 +179,18 @@ export function MakPanel({
   }
 
   return (
-    <aside className="flex w-[320px] shrink-0 flex-col border-r border-fiscmak-border bg-white">
-      <header className="flex h-[60px] shrink-0 items-center justify-between bg-fiscmak-green px-4 text-white">
-        <div>
-          <p className="text-lg font-semibold leading-tight">Coach Mak</p>
-          <p className="text-xs opacity-90">{config.mode} mode</p>
-        </div>
-        <button
-          type="button"
-          onClick={() => setMakOpen(false)}
-          className="rounded-md p-1 hover:bg-white/20"
-          aria-label="Close Mak panel"
+    <aside
+      className={cn(
+        "flex h-full shrink-0 flex-col overflow-hidden border-fiscmak-border bg-white transition-[width,border-color] duration-200 ease-in-out",
+        open ? "w-[320px] border-r shadow-sm" : "pointer-events-none w-0 border-r-0",
+      )}
+      aria-hidden={!open}
+    >
+      <div className="flex h-full min-w-[320px] flex-col">
+        <div
+          ref={scrollRef}
+          className="flex-1 space-y-3 overflow-y-auto bg-[#fafbfc] p-4 pt-5"
         >
-          <X size={18} />
-        </button>
-      </header>
-
-      <div
-        ref={scrollRef}
-        className="flex-1 space-y-3 overflow-y-auto bg-[#fafbfc] p-4"
-      >
         {messages.map((msg, i) => (
           <div
             key={i}
@@ -216,9 +210,9 @@ export function MakPanel({
         {loading && (
           <p className="text-sm text-fiscmak-muted">Mak is thinking…</p>
         )}
-      </div>
+        </div>
 
-      <div className="shrink-0 border-t border-fiscmak-border bg-white p-3">
+        <div className="shrink-0 border-t border-fiscmak-border bg-white p-3">
         <div className="mb-3 flex flex-wrap gap-2">
           {config.quickOptions.map((option) => (
             <button
@@ -259,13 +253,17 @@ export function MakPanel({
           >
             <Mic size={18} />
           </button>
-          <Button
+          <button
+            type="button"
             onClick={() => void sendMessage(input)}
-            disabled={loading || recording}
-            className="shrink-0 px-3"
+            disabled={loading || recording || !input.trim()}
+            title="Send message"
+            aria-label="Send message"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#111827] text-white transition-colors hover:bg-[#1f2937] disabled:cursor-not-allowed disabled:opacity-40"
           >
-            Send
-          </Button>
+            <ArrowUp size={18} strokeWidth={2.25} />
+          </button>
+        </div>
         </div>
       </div>
     </aside>

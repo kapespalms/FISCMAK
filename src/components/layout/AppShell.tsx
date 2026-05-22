@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -12,16 +13,20 @@ import { usePathname, useRouter } from "next/navigation";
 import {
   MAK_FLOW_GREETINGS,
   sectionFromPath,
-  type AppSection,
   type MakFlowIntent,
 } from "@/lib/mak-sections";
+import {
+  loadMakPanelOpen,
+  saveMakPanelOpen,
+} from "@/lib/mak-panel-preference";
 import { IconSidebar } from "@/components/layout/IconSidebar";
 import { MakPanel } from "@/components/layout/MakPanel";
 
 type AppShellContextValue = {
-  section: AppSection;
+  section: ReturnType<typeof sectionFromPath>;
   makOpen: boolean;
-  setMakOpen: (open: boolean) => void;
+  openMak: () => void;
+  closeMak: () => void;
   toggleMak: () => void;
   makInputRef: React.RefObject<HTMLInputElement | null>;
   focusMakInput: () => void;
@@ -51,6 +56,22 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     greeting: string;
   } | null>(null);
 
+  useEffect(() => {
+    setMakOpen(loadMakPanelOpen(true));
+  }, []);
+
+  useEffect(() => {
+    saveMakPanelOpen(makOpen);
+  }, [makOpen]);
+
+  const openMak = useCallback(() => {
+    setMakOpen(true);
+  }, []);
+
+  const closeMak = useCallback(() => {
+    setMakOpen(false);
+  }, []);
+
   const toggleMak = useCallback(() => {
     setMakOpen((open) => !open);
   }, []);
@@ -75,7 +96,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     () => ({
       section,
       makOpen,
-      setMakOpen,
+      openMak,
+      closeMak,
       toggleMak,
       makInputRef,
       focusMakInput,
@@ -86,6 +108,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     [
       section,
       makOpen,
+      openMak,
+      closeMak,
       toggleMak,
       focusMakInput,
       startMakFlow,
@@ -97,14 +121,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <AppShellContext.Provider value={value}>
       <div className="flex h-screen overflow-hidden bg-white">
         <IconSidebar />
-        {makOpen && (
-          <MakPanel
-            pendingFlow={pendingFlow}
-            flowNonce={flowNonce}
-            onFlowHandled={() => setPendingFlow(null)}
-          />
-        )}
-        <main className="min-w-0 flex-1 overflow-auto bg-[#fafbfc] p-6 md:p-8">
+        <MakPanel
+          open={makOpen}
+          pendingFlow={pendingFlow}
+          flowNonce={flowNonce}
+          onFlowHandled={() => setPendingFlow(null)}
+        />
+        <main className="min-w-0 flex-1 overflow-auto bg-fiscmak-subtle p-6 md:p-8">
           {children}
         </main>
       </div>

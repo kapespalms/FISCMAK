@@ -17,14 +17,46 @@ export const SECTION_NAV: {
   section: AppSection;
   href: string;
   label: string;
-  letter: string;
+  icon: string;
+  iconSize?: number;
 }[] = [
-  { section: "dashboard", href: "/app/dashboard", label: "Dashboard", letter: "⌂" },
-  { section: "subjective", href: "/app/subjective", label: "Subjective", letter: "S" },
-  { section: "objective", href: "/app/objective", label: "Objective", letter: "O" },
-  { section: "assessment", href: "/app/assessment", label: "Assessment", letter: "A" },
-  { section: "plan", href: "/app/plan", label: "Plan", letter: "P" },
-  { section: "output", href: "/app/output", label: "Output Studio", letter: "O" },
+  {
+    section: "dashboard",
+    href: "/app/dashboard",
+    label: "Dashboard",
+    icon: "/brand/nav/dashboard.png",
+    iconSize: 30,
+  },
+  {
+    section: "subjective",
+    href: "/app/subjective",
+    label: "Subjective",
+    icon: "/brand/nav/subjective.png",
+  },
+  {
+    section: "objective",
+    href: "/app/objective",
+    label: "Objective",
+    icon: "/brand/nav/objective.png",
+  },
+  {
+    section: "assessment",
+    href: "/app/assessment",
+    label: "Assessment",
+    icon: "/brand/nav/assessment.png",
+  },
+  {
+    section: "plan",
+    href: "/app/plan",
+    label: "Plan",
+    icon: "/brand/nav/plan.png",
+  },
+  {
+    section: "output",
+    href: "/app/output",
+    label: "Output Studio",
+    icon: "/brand/nav/output.png",
+  },
 ];
 
 export const FIVE_OPTIONS = [

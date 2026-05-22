@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  MessageCircle,
+  ChevronLeft,
+  ChevronRight,
   User,
   Settings,
   LogOut,
@@ -13,6 +14,8 @@ import { SECTION_NAV } from "@/lib/mak-sections";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { useAppShell } from "@/components/layout/AppShell";
+import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
+import { NavIcon } from "@/components/brand/NavIcon";
 
 export function IconSidebar() {
   const pathname = usePathname();
@@ -29,30 +32,42 @@ export function IconSidebar() {
   }
 
   return (
-    <aside className="flex w-[60px] shrink-0 flex-col border-r border-fiscmak-border bg-white">
-      <div className="flex h-[60px] items-center justify-center border-b border-fiscmak-border">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-fiscmak-green text-xs font-bold text-white">
-          ▶
+    <aside className="relative flex w-[60px] shrink-0 flex-col border-r border-fiscmak-border bg-white">
+      <div className="relative flex h-[60px] shrink-0 items-center border-b border-fiscmak-border">
+        <div
+          className={cn(
+            "flex h-full w-[60px] items-center justify-center",
+            makOpen && "ring-2 ring-inset ring-fiscmak-green/25",
+          )}
+          title="Coach Mak"
+        >
+          <CoachMakAvatar size={34} className={cn(!makOpen && "opacity-90")} />
         </div>
+
+        <button
+          type="button"
+          onClick={toggleMak}
+          aria-expanded={makOpen}
+          title={makOpen ? "Collapse Coach Mak" : "Open Coach Mak"}
+          aria-label={makOpen ? "Collapse Coach Mak" : "Open Coach Mak"}
+          className={cn(
+            "absolute left-[60px] top-1/2 z-50 flex h-11 w-8 -translate-y-1/2 items-center justify-center",
+            "rounded-r-md border border-l-0 border-fiscmak-border bg-white text-fiscmak-muted shadow-sm",
+            "transition-colors hover:bg-fiscmak-subtle hover:text-fiscmak-ink",
+            "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiscmak-green",
+            !makOpen && "border-l-2 border-l-fiscmak-green text-fiscmak-green",
+          )}
+        >
+          {makOpen ? (
+            <ChevronLeft size={18} strokeWidth={2.25} />
+          ) : (
+            <ChevronRight size={18} strokeWidth={2.25} />
+          )}
+        </button>
       </div>
 
       <nav className="flex flex-1 flex-col items-center gap-1 py-3">
-        <button
-          type="button"
-          title="Coach Mak"
-          onClick={toggleMak}
-          className={cn(
-            "group relative flex h-12 w-full items-center justify-center transition-colors",
-            !makOpen && "ring-2 ring-fiscmak-green/30 ring-inset",
-            makOpen
-              ? "border-l-4 border-fiscmak-green bg-fiscmak-subtle text-fiscmak-green"
-              : "border-l-4 border-transparent text-fiscmak-muted hover:bg-fiscmak-green-light hover:text-fiscmak-green",
-          )}
-        >
-          <MessageCircle size={24} strokeWidth={1.75} />
-        </button>
-
-        {SECTION_NAV.map(({ section: navSection, href, label, letter }) => {
+        {SECTION_NAV.map(({ section: navSection, href, label, icon, iconSize }) => {
           const active = section === navSection;
           return (
             <Link
@@ -62,12 +77,20 @@ export function IconSidebar() {
               className={cn(
                 "group relative flex h-12 w-full items-center justify-center transition-colors",
                 active
-                  ? "border-l-4 border-fiscmak-green bg-fiscmak-subtle text-fiscmak-green"
-                  : "border-l-4 border-transparent text-fiscmak-muted hover:bg-fiscmak-green-light hover:text-fiscmak-green",
+                  ? "border-l-4 border-fiscmak-green bg-fiscmak-subtle text-fiscmak-green-dark"
+                  : "border-l-4 border-transparent text-fiscmak-muted hover:bg-fiscmak-subtle hover:text-fiscmak-ink",
               )}
             >
-              <span className="text-sm font-bold tracking-tight">{letter}</span>
-              <span className="pointer-events-none absolute left-full z-50 ml-2 hidden whitespace-nowrap rounded-md bg-gray-800 px-2 py-1 text-xs text-white group-hover:block">
+              <NavIcon
+                src={icon}
+                alt={label}
+                size={iconSize ?? 22}
+                className={cn(
+                  "transition-opacity",
+                  active ? "opacity-100" : "opacity-75 group-hover:opacity-100",
+                )}
+              />
+              <span className="pointer-events-none absolute left-full z-50 ml-2 hidden whitespace-nowrap rounded-md bg-fiscmak-ink px-2 py-1 text-xs text-white group-hover:block">
                 {label}
               </span>
             </Link>
@@ -80,8 +103,8 @@ export function IconSidebar() {
           href="/app/profile"
           title="Profile"
           className={cn(
-            "flex h-10 w-full items-center justify-center text-fiscmak-muted hover:bg-fiscmak-subtle hover:text-fiscmak-green",
-            pathname.startsWith("/app/profile") && "text-fiscmak-green",
+            "flex h-10 w-full items-center justify-center text-fiscmak-muted hover:bg-fiscmak-subtle hover:text-fiscmak-ink",
+            pathname.startsWith("/app/profile") && "text-fiscmak-green-dark",
           )}
         >
           <User size={20} />
@@ -90,8 +113,8 @@ export function IconSidebar() {
           href="/app/settings"
           title="Settings"
           className={cn(
-            "flex h-10 w-full items-center justify-center text-fiscmak-muted hover:bg-fiscmak-subtle hover:text-fiscmak-green",
-            pathname.startsWith("/app/settings") && "text-fiscmak-green",
+            "flex h-10 w-full items-center justify-center text-fiscmak-muted hover:bg-fiscmak-subtle hover:text-fiscmak-ink",
+            pathname.startsWith("/app/settings") && "text-fiscmak-green-dark",
           )}
         >
           <Settings size={20} />

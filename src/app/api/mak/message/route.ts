@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { MAK_SECTION_CONFIG, type AppSection } from "@/lib/mak-sections";
+import { demoMakReply } from "@/lib/mak-demo-replies";
 
 const BASE_SYSTEM = `You are Mak, an empathetic career coach for physicians. Listen first, ask one question at a time, validate before suggesting. Warm and conversational. Do not provide therapy or diagnoses.`;
 
@@ -16,18 +17,21 @@ export async function POST(request: Request) {
   const { message, history, section } = await request.json();
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
-  if (!apiKey) {
+  if (!apiKey?.trim()) {
     return NextResponse.json({
-      reply: `Thanks for sharing: "${message.slice(0, 120)}${message.length > 120 ? "…" : ""}". Add ANTHROPIC_API_KEY to .env.local to enable Claude-powered Mak.`,
+      reply: demoMakReply(message, section as AppSection | undefined),
+      demo: true,
     });
   }
+
+  const anthropicKey = apiKey.trim();
 
   try {
     const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": apiKey,
+        "x-api-key": anthropicKey,
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({

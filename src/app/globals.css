@@ -2,15 +2,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #111827;
+  --foreground: #0f172a;
   --fiscmak-green: #5fd65f;
   --fiscmak-green-dark: #3ba33b;
   --fiscmak-green-light: #e8f8e8;
   --fiscmak-red: #dc2626;
   --fiscmak-amber: #d97706;
-  --fiscmak-border: #d1d5db;
-  --fiscmak-muted: #4b5563;
-  --fiscmak-subtle: #f9fafb;
+  --fiscmak-border: #e2e8f0;
+  --fiscmak-muted: #64748b;
+  --fiscmak-subtle: #f8fafc;
+  --fiscmak-surface: #f1f5f9;
+  --fiscmak-ink: #0f172a;
 }
 
 @theme inline {
@@ -24,8 +26,10 @@
   --color-fiscmak-border: var(--fiscmak-border);
   --color-fiscmak-muted: var(--fiscmak-muted);
   --color-fiscmak-subtle: var(--fiscmak-subtle);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif;
+  --color-fiscmak-surface: var(--fiscmak-surface);
+  --color-fiscmak-ink: var(--fiscmak-ink);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
 }
 
 body {
