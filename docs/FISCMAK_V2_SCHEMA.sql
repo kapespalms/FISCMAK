@@ -12,7 +12,10 @@ CREATE TABLE IF NOT EXISTS app_users (
   email TEXT NOT NULL,
   name TEXT,
   specialty TEXT,
-  career_stage TEXT CHECK (career_stage IN ('Student', 'Fellow', 'Attending', 'Other')),
+  career_stage TEXT CHECK (career_stage IN (
+    'Medical Student', 'Resident', 'Fellow',
+    'Early Attending', 'Mid-Career Attending', 'Senior Attending', 'Retired'
+  )),
   institution TEXT,
   cv_uploaded BOOLEAN NOT NULL DEFAULT FALSE,
   mempalace_id UUID,

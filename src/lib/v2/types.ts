@@ -1,4 +1,6 @@
-export type CareerStage = "Student" | "Fellow" | "Attending" | "Other";
+import type { CareerStage } from "@/lib/v2/onboarding-options";
+
+export type { CareerStage };
 
 export type AppUser = {
   user_id: string;

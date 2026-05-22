@@ -1,42 +1,49 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Input } from "@/components/ui/Input";
-
-const SPECIALTIES = [
-  "Cardiology",
-  "Internal Medicine",
-  "Emergency Medicine",
-  "Pediatrics",
-  "Surgery",
-  "Other",
-];
-
-const STAGES = ["Student", "Fellow", "Attending", "Other"] as const;
+import {
+  ACGME_SPECIALTIES,
+  CAREER_STAGES,
+  filterSpecialties,
+  type CareerStage,
+} from "@/lib/v2/onboarding-options";
 
 export function Tier1Onboarding() {
   const router = useRouter();
   const [step, setStep] = useState<"specialty" | "stage">("specialty");
+  const [specialtyQuery, setSpecialtyQuery] = useState("");
   const [specialty, setSpecialty] = useState("");
-  const [careerStage, setCareerStage] = useState<(typeof STAGES)[number]>("Fellow");
+  const [careerStage, setCareerStage] = useState<CareerStage>("Fellow");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [listOpen, setListOpen] = useState(false);
+
+  const filteredSpecialties = useMemo(
+    () => filterSpecialties(specialtyQuery),
+    [specialtyQuery],
+  );
 
   useEffect(() => {
     fetch("/api/v1/users/me")
       .then((r) => r.json())
       .then((u) => {
         if (u.tier1_complete) router.replace("/app/dashboard");
-        if (u.specialty) setSpecialty(u.specialty);
+        if (u.specialty) {
+          setSpecialty(u.specialty);
+          setSpecialtyQuery(u.specialty);
+        }
       })
       .catch(() => {});
   }, [router]);
 
   async function saveSpecialty() {
-    if (!specialty) return;
+    if (!specialty || !ACGME_SPECIALTIES.includes(specialty as (typeof ACGME_SPECIALTIES)[number])) {
+      setError("Select a specialty from the list.");
+      return;
+    }
     setLoading(true);
     setError("");
     const res = await fetch("/api/v1/onboarding/tier1/specialty", {
@@ -70,45 +77,85 @@ export function Tier1Onboarding() {
     router.refresh();
   }
 
+  function pickSpecialty(value: string) {
+    setSpecialty(value);
+    setSpecialtyQuery(value);
+    setListOpen(false);
+    setError("");
+  }
+
   return (
     <div className="mx-auto max-w-lg py-8">
       <Card>
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">Tier 1 onboarding</p>
+        <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+          Quick setup · Step {step === "specialty" ? "1" : "2"} of 2
+        </p>
         <h1 className="mt-1 text-2xl font-bold">
           {step === "specialty" ? "What's your specialty?" : "Where are you in your career?"}
         </h1>
-        <p className="mt-2 text-sm text-fiscmak-muted">Less than 2 minutes — then Coach Mak opens your dashboard.</p>
+        <p className="mt-2 text-sm text-fiscmak-muted">
+          Two questions — then straight to your dashboard. CV upload and goals are optional later.
+        </p>
 
         {step === "specialty" ? (
           <div className="mt-6 space-y-3">
-            <div className="flex flex-wrap gap-2">
-              {SPECIALTIES.map((s) => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setSpecialty(s)}
-                  className={`rounded-full border px-3 py-1.5 text-sm ${
-                    specialty === s
-                      ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                      : "border-fiscmak-border hover:bg-fiscmak-subtle"
-                  }`}
+            <div className="relative">
+              <label htmlFor="specialty-search" className="text-sm font-semibold">
+                Search ACGME specialties
+              </label>
+              <input
+                id="specialty-search"
+                type="text"
+                value={specialtyQuery}
+                onChange={(e) => {
+                  setSpecialtyQuery(e.target.value);
+                  setSpecialty("");
+                  setListOpen(true);
+                }}
+                onFocus={() => setListOpen(true)}
+                placeholder="Start typing, e.g. Cardiology, Pediatrics…"
+                className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4 text-base focus:border-fiscmak-green focus:outline-none"
+                autoComplete="off"
+              />
+              {listOpen && (
+                <ul
+                  className="absolute z-10 mt-1 max-h-56 w-full overflow-y-auto rounded-md border border-fiscmak-border bg-white shadow-md"
+                  role="listbox"
                 >
-                  {s}
-                </button>
-              ))}
+                  {filteredSpecialties.length === 0 ? (
+                    <li className="px-4 py-3 text-sm text-fiscmak-muted">No matches</li>
+                  ) : (
+                    filteredSpecialties.map((s) => (
+                      <li key={s}>
+                        <button
+                          type="button"
+                          role="option"
+                          aria-selected={specialty === s}
+                          onClick={() => pickSpecialty(s)}
+                          className={`w-full px-4 py-2.5 text-left text-sm hover:bg-fiscmak-subtle ${
+                            specialty === s ? "bg-fiscmak-green-light font-semibold" : ""
+                          }`}
+                        >
+                          {s}
+                        </button>
+                      </li>
+                    ))
+                  )}
+                </ul>
+              )}
             </div>
-            <Input
-              label="Or type your specialty"
-              value={specialty}
-              onChange={(e) => setSpecialty(e.target.value)}
-            />
+            {specialty && (
+              <p className="text-sm text-fiscmak-green-dark">
+                Selected: <span className="font-semibold">{specialty}</span>
+              </p>
+            )}
             <Button className="w-full" onClick={saveSpecialty} disabled={loading || !specialty}>
               Continue
             </Button>
           </div>
         ) : (
           <div className="mt-6 space-y-3">
-            {STAGES.map((s) => (
+            {CAREER_STAGES.map((s) => (
               <button
                 key={s}
                 type="button"
@@ -123,7 +170,7 @@ export function Tier1Onboarding() {
               </button>
             ))}
             <Button className="w-full" onClick={saveStage} disabled={loading}>
-              Finish & open dashboard
+              Open dashboard
             </Button>
           </div>
         )}
