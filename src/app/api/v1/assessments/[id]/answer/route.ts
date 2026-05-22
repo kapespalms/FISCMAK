@@ -1,8 +1,36 @@
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
-import { nextQuestion, questionsForTouchpoint } from "@/lib/v2/question-bank";
-import type { AssessmentAnswer, CareerAssessment } from "@/lib/v2/types";
+import { questionById } from "@/lib/v2/conversational-assessment";
+import { nextUnansweredQuestion } from "@/lib/v2/question-bank";
+import type { AssessmentAnswer } from "@/lib/v2/types";
+
+async function globalAnsweredIds(
+  userId: string,
+  demo: boolean,
+): Promise<string[]> {
+  if (demo) {
+    return [
+      ...new Set(
+        getServerDemo(userId).assessments.flatMap((a) =>
+          a.questions_answered.map((q) => q.q_id),
+        ),
+      ),
+    ];
+  }
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("career_assessments")
+    .select("questions_answered")
+    .eq("user_id", userId);
+  return [
+    ...new Set(
+      (data ?? []).flatMap((row) =>
+        (row.questions_answered as { q_id: string }[]).map((q) => q.q_id),
+      ),
+    ),
+  ];
+}
 
 export async function POST(
   request: Request,
@@ -13,30 +41,28 @@ export async function POST(
   const { id } = await params;
   const { q_id, answer, timestamp } = await request.json();
 
-  const findAndUpdate = (assessments: CareerAssessment[]) => {
-    const a = assessments.find((x) => x.assessment_id === id);
-    if (!a) return null;
-    const entry: AssessmentAnswer = {
-      q_id,
-      question: a.questions_answered.find((q) => q.q_id === q_id)?.question ?? q_id,
-      answer,
-      timestamp: timestamp ?? new Date().toISOString(),
-    };
-    const existing = a.questions_answered.filter((q) => q.q_id !== q_id);
-    a.questions_answered = [...existing, entry];
-    const answered = a.questions_answered.map((q) => q.q_id);
-    const nq = nextQuestion(a.touchpoint_number, answered);
-    return { a, nq };
+  const entry: AssessmentAnswer = {
+    q_id,
+    question: questionById(q_id)?.question ?? q_id,
+    answer,
+    timestamp: timestamp ?? new Date().toISOString(),
   };
 
   if (auth.demo) {
-    const result = findAndUpdate(getServerDemo(auth.userId).assessments);
-    if (!result) return jsonOk({ error: "not_found", message: "Assessment not found" }, 404);
+    const assessments = getServerDemo(auth.userId).assessments;
+    const a = assessments.find((x) => x.assessment_id === id);
+    if (!a) return jsonOk({ error: "not_found", message: "Assessment not found" }, 404);
+    a.questions_answered = [
+      ...a.questions_answered.filter((q) => q.q_id !== q_id),
+      entry,
+    ];
+    const global = await globalAnsweredIds(auth.userId, true);
+    const nq = nextUnansweredQuestion(a.touchpoint_number, global);
     return jsonOk({
       assessment_id: id,
       q_id,
       answer_saved: true,
-      next_question: result.nq,
+      next_question: nq,
     });
   }
 
@@ -48,9 +74,16 @@ export async function POST(
     .eq("user_id", auth.userId)
     .maybeSingle();
   if (!a) return jsonOk({ error: "not_found", message: "Assessment not found" }, 404);
-  const answered = [...(a.questions_answered as AssessmentAnswer[]), { q_id, question: q_id, answer, timestamp }];
-  await supabase.from("career_assessments").update({ questions_answered: answered }).eq("assessment_id", id);
-  const nq = nextQuestion(a.touchpoint_number, answered.map((q) => q.q_id));
+
+  const existing = (a.questions_answered as AssessmentAnswer[]).filter((q) => q.q_id !== q_id);
+  const updated = [...existing, entry];
+  await supabase
+    .from("career_assessments")
+    .update({ questions_answered: updated })
+    .eq("assessment_id", id);
+
+  const global = await globalAnsweredIds(auth.userId, false);
+  const nq = nextUnansweredQuestion(a.touchpoint_number, global);
   return jsonOk({
     assessment_id: id,
     q_id,

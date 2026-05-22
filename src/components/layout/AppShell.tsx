@@ -19,8 +19,10 @@ import {
   loadMakPanelOpen,
   saveMakPanelOpen,
 } from "@/lib/mak-panel-preference";
+import { formatDisplayName } from "@/lib/mak-greeting";
 import { IconSidebar } from "@/components/layout/IconSidebar";
 import { MakPanel } from "@/components/layout/MakPanel";
+import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
 
 type AppShellContextValue = {
   section: ReturnType<typeof sectionFromPath>;
@@ -49,6 +51,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const section = sectionFromPath(pathname);
   const [makOpen, setMakOpen] = useState(true);
   const [displayName, setDisplayName] = useState<string | null>(null);
+  const [onboardingActive, setOnboardingActive] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
   const makInputRef = useRef<HTMLInputElement>(null);
   const [flowNonce, setFlowNonce] = useState(0);
   const [pendingFlow, setPendingFlow] = useState<{
@@ -63,6 +67,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     saveMakPanelOpen(makOpen);
   }, [makOpen]);
+
+  useEffect(() => {
+    fetch("/api/v1/onboarding/status")
+      .then((r) => r.json())
+      .then((s) => {
+        if (s.name) {
+          const parts = String(s.name).trim().split(/\s+/);
+          setDisplayName(formatDisplayName(parts[0], parts.slice(1).join(" ")));
+        }
+        setOnboardingActive(Boolean(s.tier1_complete && !s.tier3_complete));
+      })
+      .catch(() => undefined);
+  }, [pathname]);
 
   const openMak = useCallback(() => {
     setMakOpen(true);
@@ -126,7 +143,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           pendingFlow={pendingFlow}
           flowNonce={flowNonce}
           onFlowHandled={() => setPendingFlow(null)}
+          onboardingActive={onboardingActive}
+          onOpenTour={() => setTourOpen(true)}
         />
+        <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
         <main className="min-w-0 flex-1 overflow-auto bg-fiscmak-subtle p-6 md:p-8">
           {children}
         </main>

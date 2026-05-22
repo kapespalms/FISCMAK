@@ -15,10 +15,18 @@ export function AssessmentWizard() {
   const [complete, setComplete] = useState(false);
   const [score, setScore] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
+  const [conversationComplete, setConversationComplete] = useState(false);
 
   const loadCurrent = useCallback(async () => {
     const res = await fetch("/api/v1/assessments/current");
     const data = await res.json();
+    if (data.all_answered) {
+      setConversationComplete(true);
+      setQuestion(null);
+      setAssessmentId(data.assessment_id);
+      return;
+    }
+    setConversationComplete(false);
     if (data.assessment_id) {
       setAssessmentId(data.assessment_id);
       setTouchpoint(data.touchpoint_number);
@@ -80,7 +88,8 @@ export function AssessmentWizard() {
       <div>
         <h1 className="text-2xl font-bold">Career assessments</h1>
         <p className="mt-1 text-sm text-fiscmak-muted">
-          7 touchpoints over 3 months — one question at a time with Coach Mak.
+          7 touchpoints over 3 months. Coach Mak captures many answers in conversation — forms
+          only show what&apos;s still missing.
         </p>
       </div>
 
@@ -104,7 +113,15 @@ export function AssessmentWizard() {
         ))}
       </div>
 
-      {complete && score != null ? (
+      {conversationComplete ? (
+        <Card accent="green">
+          <h2 className="font-semibold">Already covered with Coach Mak</h2>
+          <p className="mt-2 text-sm text-fiscmak-muted">
+            This touchpoint was answered in your onboarding conversation. Continue chatting with Mak
+            for the next topics, or pick another touchpoint above.
+          </p>
+        </Card>
+      ) : complete && score != null ? (
         <Card accent="green">
           <h2 className="font-semibold">Touchpoint {touchpoint} complete</h2>
           <p className="mt-2 text-3xl font-bold text-fiscmak-green">{score}</p>

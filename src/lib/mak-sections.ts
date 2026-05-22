@@ -146,6 +146,7 @@ export const DASHBOARD_OPTION_TABS = FIVE_OPTIONS.filter((o) => o.id !== "create
 export type MakFlowIntent =
   | "capture"
   | "upload"
+  | "onboarding"
   | (typeof FIVE_OPTIONS)[number]["id"];
 
 export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
@@ -214,6 +215,7 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
 export const MAK_FLOW_GREETINGS: Record<MakFlowIntent, string> = {
   capture: "Let's make your work visible. What did you do?",
   upload: "Let me read this. One moment…",
+  onboarding: "__welcome__",
   discuss: "How's your energy this week?",
   review: "Let's look at what you've been doing.",
   assess: "Let's talk about your patterns.",

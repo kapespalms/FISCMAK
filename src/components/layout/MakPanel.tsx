@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { ArrowUp, Mic } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -24,6 +25,8 @@ type MakPanelProps = {
   pendingFlow: { intent: MakFlowIntent; greeting: string } | null;
   flowNonce: number;
   onFlowHandled: () => void;
+  onboardingActive?: boolean;
+  onOpenTour?: () => void;
 };
 
 function greetingForSection(
@@ -41,7 +44,10 @@ export function MakPanel({
   pendingFlow,
   flowNonce,
   onFlowHandled,
+  onboardingActive = false,
+  onOpenTour,
 }: MakPanelProps) {
+  const router = useRouter();
   const { section, makInputRef, displayName } = useAppShell();
   const config = MAK_SECTION_CONFIG[section];
   const [messages, setMessages] = useState<MakMessage[]>([]);
@@ -104,6 +110,31 @@ export function MakPanel({
 
   useEffect(() => {
     if (!pendingFlow) return;
+    if (pendingFlow.greeting === "__welcome__") {
+      setLoading(true);
+      fetch("/api/v1/chat/message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: "__welcome__",
+          context: { section, onboarding: true, touchpoint_number: 1 },
+        }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          setMessages([{ role: "assistant", content: data.response }]);
+          setSuggestedActions(data.suggested_actions ?? []);
+        })
+        .catch(() => {
+          setMessages([{ role: "assistant", content: "Welcome — I'm Coach Mak." }]);
+        })
+        .finally(() => {
+          setLoading(false);
+          onFlowHandled();
+        });
+      setInput("");
+      return;
+    }
     const next = resetConversationGreeting(section, pendingFlow.greeting);
     setMessages(next);
     setInput("");
@@ -138,7 +169,12 @@ export function MakPanel({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: userMsg,
-          context: { section, touchpoint_number: section === "assessment" ? 3 : 1 },
+          history: history.slice(-8),
+          context: {
+            section,
+            touchpoint_number: section === "assessment" ? 3 : 1,
+            onboarding: onboardingActive,
+          },
         }),
       });
       const data = await res.json();
@@ -240,17 +276,31 @@ export function MakPanel({
 
         <div className="shrink-0 border-t border-fiscmak-border bg-white p-3">
         <div className="mb-3 flex flex-wrap gap-2">
-          {(suggestedActions.length > 0 ? suggestedActions.map((a) => a.action) : config.quickOptions).map((option) => (
+          {(suggestedActions.length > 0 ? suggestedActions : config.quickOptions.map((a) => ({ action: a, url: "" }))).map((item) => {
+            const label = typeof item === "string" ? item : item.action;
+            const url = typeof item === "string" ? "" : item.url;
+            return (
             <button
-              key={option}
+              key={label}
               type="button"
-              onClick={() => void sendMessage(option)}
+              onClick={() => {
+                if (url === "#tour" || label.includes("Lay of the Land")) {
+                  onOpenTour?.();
+                  return;
+                }
+                if (url && url.startsWith("/")) {
+                  router.push(url);
+                  return;
+                }
+                void sendMessage(label.replace(/^🗺️\s*/, ""));
+              }}
               disabled={loading}
               className="rounded-full border border-fiscmak-border bg-white px-3 py-1 text-xs font-medium text-fiscmak-muted transition-colors hover:border-fiscmak-green hover:bg-fiscmak-green-light hover:text-fiscmak-green-dark disabled:opacity-50"
             >
-              {option}
+              {label}
             </button>
-          ))}
+          );
+          })}
         </div>
         <div className="flex gap-2">
           <input

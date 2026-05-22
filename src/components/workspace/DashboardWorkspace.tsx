@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Zap, Upload } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -25,12 +26,21 @@ const EMPTY_CV_METRICS: AnalyticsDashboard["cv_metrics"] = {
 
 export function DashboardWorkspace() {
   const { startMakFlow } = useAppShell();
+  const searchParams = useSearchParams();
+  const welcome = searchParams.get("welcome") === "1";
   const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
   const [loading, setLoading] = useState(true);
   const [uploadOpen, setUploadOpen] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadSuccess, setUploadSuccess] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [showWelcome, setShowWelcome] = useState(false);
+  const [onboardingStatus, setOnboardingStatus] = useState<{
+    tier3_complete?: boolean;
+    specialty?: string;
+    career_stage?: string;
+    name?: string;
+  } | null>(null);
 
   const load = useCallback(async () => {
     const res = await fetch("/api/v1/analytics/dashboard");
@@ -42,6 +52,23 @@ export function DashboardWorkspace() {
   useEffect(() => {
     void load();
   }, [load]);
+
+  useEffect(() => {
+    fetch("/api/v1/onboarding/status")
+      .then((r) => r.json())
+      .then((s) => {
+        setOnboardingStatus(s);
+        if (s.tier1_complete && !s.tier3_complete) {
+          setShowWelcome(true);
+        }
+        if (welcome && s.tier1_complete && !s.tier3_complete) {
+          startMakFlow("onboarding");
+        }
+      })
+      .catch(() => {
+        if (welcome) startMakFlow("onboarding");
+      });
+  }, [welcome, startMakFlow]);
 
   async function uploadCvFile(file: File) {
     const form = new FormData();
@@ -89,6 +116,20 @@ export function DashboardWorkspace() {
       </div>
 
       <DashboardOptionTabs activeId={activeTab} onSelect={handleOptionTab} />
+
+      {showWelcome && onboardingStatus && !onboardingStatus.tier3_complete && (
+        <Card accent="green">
+          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Welcome</p>
+          <h2 className="mt-1 text-lg font-bold">
+            {onboardingStatus.name ? `${onboardingStatus.name}, your dashboard is ready` : "Your dashboard is ready"}
+          </h2>
+          <p className="mt-2 text-sm text-fiscmak-muted">
+            {onboardingStatus.specialty} · {onboardingStatus.career_stage}. Coach Mak is ready in
+            the panel — start with the Lay of the Land tour, then chat for about 10–15 minutes.
+            Questions you answer in conversation won&apos;t appear again as forms.
+          </p>
+        </Card>
+      )}
 
       <div className="grid gap-3 sm:grid-cols-3">
         <button

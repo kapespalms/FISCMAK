@@ -72,3 +72,12 @@ export function nextQuestion(
   const qs = questionsForTouchpoint(touchpoint);
   return qs.find((q) => !answeredIds.includes(q.q_id)) ?? null;
 }
+
+/** Skip questions already answered in any touchpoint (e.g. via Mak conversation). */
+export function nextUnansweredQuestion(
+  touchpoint: number,
+  allAnsweredIds: string[],
+): QuestionDef | null {
+  const qs = questionsForTouchpoint(touchpoint);
+  return qs.find((q) => !allAnsweredIds.includes(q.q_id)) ?? null;
+}
