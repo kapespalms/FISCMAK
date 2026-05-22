@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Upload } from "lucide-react";
+import {
+  ACCEPTED_CV_ACCEPT,
+  ACCEPTED_CV_LABEL,
+  isAcceptedCvFileName,
+} from "@/lib/v2/document-upload";
 
 type V2Document = {
   document_id: string;
@@ -67,8 +72,8 @@ export function DocumentsView() {
   async function onFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (!file.name.match(/\.(txt|md)$/i)) {
-      setError("MVP supports .txt and .md files. Paste PDF/DOCX content below.");
+    if (!isAcceptedCvFileName(file.name)) {
+      setError(`Upload ${ACCEPTED_CV_LABEL}, or paste your CV text below.`);
       return;
     }
     await uploadFile(file);
@@ -99,12 +104,12 @@ export function DocumentsView() {
           <Upload className="text-fiscmak-green" size={28} />
           <p className="mt-3 font-semibold">Drop or click to upload CV</p>
           <p className="mt-1 text-sm text-fiscmak-muted">
-            .txt or .md — syncs to MemPalace for Mak coaching
+            {ACCEPTED_CV_LABEL} — syncs to MemPalace for Mak coaching
           </p>
           <input
             id="file-upload-objective"
             type="file"
-            accept=".txt,.md,text/plain"
+            accept={ACCEPTED_CV_ACCEPT}
             className="hidden"
             onChange={onFileSelect}
             disabled={processing}

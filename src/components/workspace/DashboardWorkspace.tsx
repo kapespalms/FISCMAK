@@ -10,6 +10,7 @@ import { DashboardOptionTabs } from "@/components/dashboard/DashboardOptionTabs"
 import { DASHBOARD_OPTION_TABS } from "@/lib/mak-sections";
 import { useAppShell } from "@/components/layout/AppShell";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
+import { ACCEPTED_CV_ACCEPT } from "@/lib/v2/document-upload";
 
 export function DashboardWorkspace() {
   const { startMakFlow } = useAppShell();
@@ -100,7 +101,7 @@ export function DashboardWorkspace() {
       {uploadOpen && (
         <Card>
           <h2 className="font-semibold">Upload document</h2>
-          <input type="file" accept=".txt,.md,text/plain" className="mt-4 block w-full text-sm" onChange={handleUploadFile} />
+          <input type="file" accept={ACCEPTED_CV_ACCEPT} className="mt-4 block w-full text-sm" onChange={handleUploadFile} />
           <Button variant="secondary" className="mt-3" onClick={() => setUploadOpen(false)}>Cancel</Button>
         </Card>
       )}

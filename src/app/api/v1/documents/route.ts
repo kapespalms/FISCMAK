@@ -2,6 +2,10 @@ import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { fetchDocuments, extractCvMetadata } from "@/lib/v2/db";
 import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import {
+  DocumentExtractError,
+  extractDocumentText,
+} from "@/lib/v2/document-upload";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -28,12 +32,36 @@ export async function POST(request: Request) {
   if (!file) {
     return jsonOk({ error: "validation_error", message: "File required" }, 400);
   }
-  const text = await file.text();
+  let text: string;
+  let sourceFormat: string;
+  let wordCount: number;
+  try {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const extracted = await extractDocumentText(buffer, file.name, file.type);
+    text = extracted.text;
+    sourceFormat = extracted.format;
+    wordCount = extracted.wordCount;
+  } catch (e) {
+    if (e instanceof DocumentExtractError) {
+      return jsonOk({ error: e.code, message: e.message }, 400);
+    }
+    console.error("Document extraction failed:", e);
+    return jsonOk(
+      {
+        error: "extraction_failed",
+        message: "Could not read this file. Try .txt, .md, .pdf, or .docx.",
+      },
+      400,
+    );
+  }
+
   const docId = crypto.randomUUID();
   const now = new Date().toISOString();
   const metadata = {
     ...extractCvMetadata(text),
     file_name: file.name,
+    source_format: sourceFormat,
+    word_count: wordCount,
   };
 
   if (auth.demo) {

@@ -169,12 +169,25 @@ export async function buildAnalyticsDashboard(
 
 export function extractCvMetadata(text: string): Record<string, unknown> {
   const lines = text.split("\n").filter(Boolean);
+  const lower = text.toLowerCase();
+  const sections = [
+    "education",
+    "experience",
+    "publications",
+    "teaching",
+    "leadership",
+    "certifications",
+  ].filter((section) => lower.includes(section));
   return {
     preview: lines.slice(0, 5).join("\n"),
     line_count: lines.length,
-    institutions: lines.filter((l) => /university|hospital|clinic|medical/i.test(l)).slice(0, 5),
-    skills: ["clinical care", "teaching", "leadership"].filter((s) =>
-      text.toLowerCase().includes(s.slice(0, 4)),
+    word_count: text.split(/\s+/).filter(Boolean).length,
+    sections_detected: sections,
+    institutions: lines
+      .filter((l) => /university|hospital|clinic|medical|school of medicine/i.test(l))
+      .slice(0, 8),
+    skills: ["clinical care", "teaching", "leadership", "research"].filter((s) =>
+      lower.includes(s.slice(0, 4)),
     ),
   };
 }

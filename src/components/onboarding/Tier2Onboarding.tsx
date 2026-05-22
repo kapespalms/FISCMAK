@@ -5,6 +5,11 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Upload } from "lucide-react";
+import {
+  ACCEPTED_CV_ACCEPT,
+  ACCEPTED_CV_LABEL,
+  isAcceptedCvFileName,
+} from "@/lib/v2/document-upload";
 
 export function Tier2Onboarding() {
   const router = useRouter();
@@ -50,8 +55,8 @@ export function Tier2Onboarding() {
   async function onFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (!file.name.match(/\.(txt|md)$/i)) {
-      setError("For now, upload .txt or .md — or paste PDF/DOCX text below.");
+    if (!isAcceptedCvFileName(file.name)) {
+      setError(`Upload ${ACCEPTED_CV_LABEL}, or paste your CV text below.`);
       return;
     }
     await uploadFile(file);
@@ -89,11 +94,11 @@ export function Tier2Onboarding() {
           >
             <Upload className="text-fiscmak-green" size={28} />
             <p className="mt-3 font-semibold">Drop or click to upload CV</p>
-            <p className="mt-1 text-sm text-fiscmak-muted">.txt or .md</p>
+            <p className="mt-1 text-sm text-fiscmak-muted">{ACCEPTED_CV_LABEL}</p>
             <input
               id="tier2-cv-upload"
               type="file"
-              accept=".txt,.md,text/plain"
+              accept={ACCEPTED_CV_ACCEPT}
               className="hidden"
               onChange={onFileSelect}
               disabled={processing}
