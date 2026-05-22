@@ -105,6 +105,22 @@ export function DashboardWorkspace() {
         </Card>
       )}
 
+      {analytics && !analytics.onboarding_progress.tier2_complete && (
+        <Card className="border-fiscmak-green/40 bg-fiscmak-green-light/40">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="font-semibold">Complete Tier 2 — upload your CV</p>
+              <p className="text-sm text-fiscmak-muted">
+                Optional, but helps Mak personalize coaching and MemPalace memory.
+              </p>
+            </div>
+            <Link href="/app/onboarding/tier2">
+              <Button>Upload CV</Button>
+            </Link>
+          </div>
+        </Card>
+      )}
+
       {loading || !analytics ? (
         <p className="text-sm text-fiscmak-muted">Loading analytics…</p>
       ) : (

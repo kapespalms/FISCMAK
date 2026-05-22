@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
-import { fetchDocuments } from "@/lib/v2/db";
+import { fetchDocuments, extractCvMetadata } from "@/lib/v2/db";
 import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
 
 export async function GET() {
@@ -32,9 +32,7 @@ export async function POST(request: Request) {
   const docId = crypto.randomUUID();
   const now = new Date().toISOString();
   const metadata = {
-    institutions: [],
-    years_experience: null,
-    skills: [],
+    ...extractCvMetadata(text),
     file_name: file.name,
   };
 

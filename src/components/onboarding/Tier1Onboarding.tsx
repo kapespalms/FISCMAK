@@ -30,7 +30,9 @@ export function Tier1Onboarding() {
     fetch("/api/v1/users/me")
       .then((r) => r.json())
       .then((u) => {
-        if (u.tier1_complete) router.replace("/app/dashboard");
+        if (u.tier1_complete) {
+          router.replace(u.tier2_complete ? "/app/dashboard" : "/app/onboarding/tier2");
+        }
         if (u.specialty) {
           setSpecialty(u.specialty);
           setSpecialtyQuery(u.specialty);
@@ -73,7 +75,7 @@ export function Tier1Onboarding() {
       setLoading(false);
       return;
     }
-    router.replace("/app/dashboard");
+    router.replace("/app/onboarding/tier2");
     router.refresh();
   }
 
