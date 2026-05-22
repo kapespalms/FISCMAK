@@ -1,13 +1,10 @@
-import { AppSidebar } from "@/components/layout/AppSidebar";
+import { AppShell } from "@/components/layout/AppShell";
 import { AuthGuard } from "@/components/auth/AuthGuard";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-full">
-      <AppSidebar />
-      <main className="flex-1 overflow-auto bg-fiscmak-subtle p-6 md:p-8">
-        <AuthGuard>{children}</AuthGuard>
-      </main>
-    </div>
+    <AppShell>
+      <AuthGuard>{children}</AuthGuard>
+    </AppShell>
   );
 }

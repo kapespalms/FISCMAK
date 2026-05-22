@@ -1,9 +1,19 @@
 import { NextResponse } from "next/server";
+import { MAK_SECTION_CONFIG, type AppSection } from "@/lib/mak-sections";
 
-const MAK_SYSTEM = `You are Mak, an empathetic career coach for physicians. Listen first, ask one question at a time, validate before suggesting. Warm and conversational. Do not provide therapy or diagnoses.`;
+const BASE_SYSTEM = `You are Mak, an empathetic career coach for physicians. Listen first, ask one question at a time, validate before suggesting. Warm and conversational. Do not provide therapy or diagnoses.`;
+
+function systemForSection(section?: string) {
+  const key = section as AppSection | undefined;
+  if (key && MAK_SECTION_CONFIG[key]) {
+    const cfg = MAK_SECTION_CONFIG[key];
+    return `${BASE_SYSTEM}\n\nCurrent page: ${key}. Your mode is ${cfg.mode}. Start from: "${cfg.greeting}" Keep responses concise (2-4 sentences).`;
+  }
+  return BASE_SYSTEM;
+}
 
 export async function POST(request: Request) {
-  const { message, history } = await request.json();
+  const { message, history, section } = await request.json();
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
   if (!apiKey) {
@@ -23,7 +33,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         model: "claude-3-5-haiku-20241022",
         max_tokens: 512,
-        system: MAK_SYSTEM,
+        system: systemForSection(section),
         messages: [
           ...(history ?? []).map((m: { role: string; content: string }) => ({
             role: m.role === "assistant" ? "assistant" : "user",
