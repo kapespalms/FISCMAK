@@ -22,5 +22,6 @@ export async function GET() {
     burnout_trend: dashboard.burnout_trend,
     job_engagement: dashboard.job_engagement,
     next_touchpoint: dashboard.next_touchpoint,
+    cv_metrics: dashboard.cv_metrics,
   });
 }

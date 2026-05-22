@@ -62,7 +62,7 @@ export async function POST(request: Request) {
     file_name: file.name,
     source_format: sourceFormat,
     word_count: wordCount,
-  };
+  } as Record<string, unknown>;
 
   if (auth.demo) {
     const state = getServerDemo(auth.userId);
@@ -85,6 +85,11 @@ export async function POST(request: Request) {
       extracted_text_preview: text.slice(0, 200),
       extraction_status: "completed",
       uploaded_at: now,
+      cv_metrics: {
+        s_index: metadata.s_index as number,
+        iwq: metadata.iwq as number,
+        promotion_aligned_pct: metadata.promotion_aligned_pct as number,
+      },
     }, 201);
   }
 
@@ -113,5 +118,10 @@ export async function POST(request: Request) {
     extracted_text_preview: text.slice(0, 200),
     extraction_status: "completed",
     uploaded_at: data.uploaded_at,
+    cv_metrics: {
+      s_index: metadata.s_index as number,
+      iwq: metadata.iwq as number,
+      promotion_aligned_pct: metadata.promotion_aligned_pct as number,
+    },
   }, 201);
 }

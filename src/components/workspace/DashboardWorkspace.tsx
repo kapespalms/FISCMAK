@@ -132,13 +132,25 @@ export function DashboardWorkspace() {
               <p className="mt-2 text-4xl font-bold text-fiscmak-green">{analytics.career_readiness_index}</p>
               <p className="mt-1 text-xs text-fiscmak-muted">CRI composite score</p>
             </Card>
-            <Card>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Onboarding</p>
-              <ul className="mt-2 space-y-1 text-sm">
-                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Tier 1</li>
-                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Tier 2 CV</li>
-                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Tier 3 goals</li>
-              </ul>
+            <Card accent={analytics.cv_metrics.available ? "green" : undefined}>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">S-Index</p>
+              <p className="mt-2 text-4xl font-bold">
+                {analytics.cv_metrics.s_index ?? "—"}
+              </p>
+              <p className="mt-1 text-xs text-fiscmak-muted">
+                {analytics.cv_metrics.available
+                  ? "Documented service & invisible work"
+                  : "Upload CV to compute"}
+              </p>
+            </Card>
+            <Card accent={analytics.cv_metrics.iwq != null && analytics.cv_metrics.iwq >= 50 ? "amber" : undefined}>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">IWQ</p>
+              <p className="mt-2 text-4xl font-bold">
+                {analytics.cv_metrics.iwq ?? "—"}
+              </p>
+              <p className="mt-1 text-xs text-fiscmak-muted">
+                {analytics.cv_metrics.interpretation.iwq ?? "Invisible Work Quotient"}
+              </p>
             </Card>
             <Card>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">Assessments</p>
@@ -152,6 +164,41 @@ export function DashboardWorkspace() {
                 Continue →
               </Link>
             </Card>
+          </div>
+
+          {analytics.cv_metrics.available && analytics.cv_metrics.domain_scores && (
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">CV domain scores</p>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {Object.entries(analytics.cv_metrics.domain_scores).map(([domain, score]) => (
+                  <div key={domain} className="rounded-md border border-fiscmak-border px-3 py-2">
+                    <p className="text-xs capitalize text-fiscmak-muted">{domain}</p>
+                    <p className="text-2xl font-bold">{score}</p>
+                  </div>
+                ))}
+              </div>
+              {analytics.cv_metrics.invisible_work_signals.length > 0 && (
+                <p className="mt-3 text-sm text-fiscmak-muted">
+                  Invisible work detected: {analytics.cv_metrics.invisible_work_signals.join(", ")}
+                </p>
+              )}
+              {analytics.cv_metrics.promotion_aligned_pct != null && (
+                <p className="mt-1 text-sm text-fiscmak-muted">
+                  Promotion-aligned activities: {analytics.cv_metrics.promotion_aligned_pct}%
+                </p>
+              )}
+            </Card>
+          )}
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Onboarding</p>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Tier 1</li>
+                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Tier 2 CV</li>
+                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Tier 3 goals</li>
+              </ul>
+            </Card>
             <Card>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">Burnout trend</p>
               <p className="mt-2 text-3xl font-bold">
@@ -159,9 +206,6 @@ export function DashboardWorkspace() {
               </p>
               <p className="mt-1 text-xs capitalize text-fiscmak-muted">{analytics.burnout_trend.trend}</p>
             </Card>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
             <Card>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">Job engagement</p>
               <p className="mt-2 text-sm">
@@ -176,23 +220,24 @@ export function DashboardWorkspace() {
                 View job matches →
               </Link>
             </Card>
-            {analytics.next_touchpoint && (
-              <Card accent="amber">
-                <p className="text-xs font-semibold uppercase text-fiscmak-muted">Next touchpoint</p>
-                <p className="mt-2 font-semibold">
-                  TP{analytics.next_touchpoint.number}: {analytics.next_touchpoint.category}
-                </p>
-                {analytics.next_touchpoint.days_until_due != null && (
-                  <p className="mt-1 text-sm text-fiscmak-muted">
-                    Due in {analytics.next_touchpoint.days_until_due} days
-                  </p>
-                )}
-                <Link href="/app/assessment" className="mt-2 inline-block text-sm text-fiscmak-green hover:underline">
-                  Start assessment →
-                </Link>
-              </Card>
-            )}
           </div>
+
+          {analytics.next_touchpoint && (
+            <Card accent="amber">
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Next touchpoint</p>
+              <p className="mt-2 font-semibold">
+                TP{analytics.next_touchpoint.number}: {analytics.next_touchpoint.category}
+              </p>
+              {analytics.next_touchpoint.days_until_due != null && (
+                <p className="mt-1 text-sm text-fiscmak-muted">
+                  Due in {analytics.next_touchpoint.days_until_due} days
+                </p>
+              )}
+              <Link href="/app/assessment" className="mt-2 inline-block text-sm text-fiscmak-green hover:underline">
+                Start assessment →
+              </Link>
+            </Card>
+          )}
 
           <Card>
             <p className="text-xs font-semibold uppercase text-fiscmak-muted">Promotion readiness</p>

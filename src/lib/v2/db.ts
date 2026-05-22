@@ -14,6 +14,7 @@ import {
   computePathwayClarity,
   TOUCHPOINT_META,
 } from "@/lib/v2/formulas";
+import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 
 export async function fetchAssessments(
   userId: string,
@@ -134,6 +135,12 @@ export async function buildAnalyticsDashboard(
     ? Math.ceil((new Date(dueDate).getTime() - Date.now()) / 86400000)
     : null;
 
+  const documents = await fetchDocuments(user.user_id, demo);
+  const cv = documents.find((d) => d.document_type === "CV" && d.extracted_text);
+  const cvMetrics = cv?.extracted_text
+    ? computeCvMetrics(cv.extracted_text, assessments)
+    : null;
+
   return {
     career_readiness_index: cri,
     onboarding_progress: {
@@ -164,10 +171,35 @@ export async function buildAnalyticsDashboard(
           days_until_due: daysUntil,
         }
       : null,
+    cv_metrics: cvMetrics
+      ? {
+          available: true,
+          s_index: cvMetrics.s_index,
+          iwq: cvMetrics.iwq,
+          promotion_aligned_pct: cvMetrics.promotion_aligned_pct,
+          bits_score: cvMetrics.bits_score,
+          domain_scores: cvMetrics.domain_scores,
+          invisible_work_signals: cvMetrics.evidence.invisible_work_signals,
+          interpretation: cvMetrics.interpretation,
+        }
+      : {
+          available: false,
+          s_index: null,
+          iwq: null,
+          promotion_aligned_pct: null,
+          bits_score: null,
+          domain_scores: null,
+          invisible_work_signals: [],
+          interpretation: { s_index: null, iwq: null },
+        },
   };
 }
 
-export function extractCvMetadata(text: string): Record<string, unknown> {
+export function extractCvMetadata(
+  text: string,
+  assessments: CareerAssessment[] = [],
+): Record<string, unknown> {
+  const metrics = computeCvMetrics(text, assessments);
   const lines = text.split("\n").filter(Boolean);
   const lower = text.toLowerCase();
   const sections = [
@@ -189,5 +221,11 @@ export function extractCvMetadata(text: string): Record<string, unknown> {
     skills: ["clinical care", "teaching", "leadership", "research"].filter((s) =>
       lower.includes(s.slice(0, 4)),
     ),
+    s_index: metrics.s_index,
+    iwq: metrics.iwq,
+    promotion_aligned_pct: metrics.promotion_aligned_pct,
+    bits_score: metrics.bits_score,
+    domain_scores: metrics.domain_scores,
+    invisible_work_signals: metrics.evidence.invisible_work_signals,
   };
 }

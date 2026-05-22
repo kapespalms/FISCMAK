@@ -164,4 +164,22 @@ export type AnalyticsDashboard = {
     due_date: string | null;
     days_until_due: number | null;
   } | null;
+  cv_metrics: {
+    available: boolean;
+    s_index: number | null;
+    iwq: number | null;
+    promotion_aligned_pct: number | null;
+    bits_score: number | null;
+    domain_scores: {
+      teaching: number;
+      scholarship: number;
+      clinical: number;
+      service: number;
+    } | null;
+    invisible_work_signals: string[];
+    interpretation: {
+      s_index: string | null;
+      iwq: string | null;
+    };
+  };
 };
