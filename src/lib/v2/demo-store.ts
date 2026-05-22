@@ -5,6 +5,7 @@ import type {
   DocumentRecord,
   Job,
   MemPalaceExport,
+  NarrativeProgress,
   PromotionDossier,
 } from "@/lib/v2/types";
 
@@ -18,6 +19,7 @@ type DemoState = {
   mempalace: MemPalaceExport | null;
   jobMatches: { job_id: string; match_score: number; viewed_at?: string; saved_at?: string }[];
   dossiers: PromotionDossier[];
+  narrativeProgress: NarrativeProgress[];
 };
 
 function defaultUser(): AppUser {
@@ -43,24 +45,7 @@ function defaultUser(): AppUser {
 }
 
 function load(): DemoState {
-  if (typeof window === "undefined") {
-    return {
-      user: defaultUser(),
-      assessments: [],
-      documents: [],
-      chatMessages: [],
-      mempalace: null,
-      jobMatches: [],
-      dossiers: [],
-    };
-  }
-  try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) return JSON.parse(raw) as DemoState;
-  } catch {
-    /* ignore */
-  }
-  return {
+  const empty = (): DemoState => ({
     user: defaultUser(),
     assessments: [],
     documents: [],
@@ -68,7 +53,19 @@ function load(): DemoState {
     mempalace: null,
     jobMatches: [],
     dossiers: [],
-  };
+    narrativeProgress: [],
+  });
+  if (typeof window === "undefined") return empty();
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw) as Partial<DemoState>;
+      return { ...empty(), ...parsed, narrativeProgress: parsed.narrativeProgress ?? [] };
+    }
+  } catch {
+    /* ignore */
+  }
+  return empty();
 }
 
 function save(state: DemoState) {
@@ -159,6 +156,7 @@ export function getServerDemo(userId: string): DemoState {
       mempalace: null,
       jobMatches: [],
       dossiers: [],
+      narrativeProgress: [],
     });
   }
   return serverDemo.get(userId)!;

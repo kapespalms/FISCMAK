@@ -19,6 +19,7 @@ import {
   saveVersion,
   type DocumentVersion,
 } from "@/lib/studio-versions";
+import { PromotionNarrativeWizard } from "@/components/workspace/PromotionNarrativeWizard";
 
 type ReadinessProfile = {
   target_track: string;
@@ -169,6 +170,7 @@ export function OutputStudioWorkspace() {
   }
 
   const overLimit = wordCount > template.words * 1.1;
+  const isPromotionWizard = selected === "promotion_narrative";
 
   return (
     <div className="mx-auto flex h-[calc(100vh-10rem)] max-w-7xl gap-6">
@@ -232,31 +234,47 @@ export function OutputStudioWorkspace() {
           <div>
             <h2 className="text-xl font-bold">{template.name}</h2>
             <p className="text-sm text-fiscmak-muted">
-              Target ~{template.words} words
+              {isPromotionWizard
+                ? "Six-section wizard — Master Document template"
+                : `Target ~${template.words} words`}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <Button onClick={generate} disabled={generating}>
-              {generating ? "Generating…" : "Generate"}
-            </Button>
-            <Button variant="secondary" onClick={handleSaveVersion}>
-              Save version
-            </Button>
-            <Button variant="secondary" onClick={copyExport}>
-              Copy
-            </Button>
-            <Button variant="secondary" onClick={downloadDocx}>
-              DOCX
-            </Button>
-            <Button variant="secondary" onClick={downloadPdf}>
-              PDF
-            </Button>
+            {!isPromotionWizard && (
+              <>
+                <Button onClick={generate} disabled={generating}>
+                  {generating ? "Generating…" : "Generate"}
+                </Button>
+                <Button variant="secondary" onClick={handleSaveVersion}>
+                  Save version
+                </Button>
+                <Button variant="secondary" onClick={copyExport}>
+                  Copy
+                </Button>
+                <Button variant="secondary" onClick={downloadDocx}>
+                  DOCX
+                </Button>
+                <Button variant="secondary" onClick={downloadPdf}>
+                  PDF
+                </Button>
+              </>
+            )}
             {exportMsg && (
               <span className="text-sm text-fiscmak-green">{exportMsg}</span>
             )}
           </div>
         </div>
 
+        {isPromotionWizard ? (
+          <PromotionNarrativeWizard
+            readiness={readiness}
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full narrative copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : (
         <Card className="flex min-h-0 flex-1 flex-col overflow-hidden p-0">
           <StudioLexicalEditor
             key={selected}
@@ -281,8 +299,9 @@ export function OutputStudioWorkspace() {
             </span>
           </div>
         </Card>
-      </div>
+        )}
 
+        {!isPromotionWizard && (
       <EvidenceDrawer
         evidence={evidence}
         onInsertChip={(item) =>
@@ -293,6 +312,8 @@ export function OutputStudioWorkspace() {
         }
         onInsertText={(text) => editorRef.current?.insertPlainText(text)}
       />
+        )}
+      </div>
     </div>
   );
 }

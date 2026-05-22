@@ -115,6 +115,17 @@ export type PromotionDossier = {
   last_updated: string;
 };
 
+export type NarrativeProgress = {
+  progress_id: string;
+  dossier_id: string;
+  section: string;
+  content: string | null;
+  completion_percentage: number;
+  mak_feedback: string | null;
+  created_at: string;
+  last_edited: string;
+};
+
 export type QuestionDef = {
   q_id: string;
   touchpoint_number: number;
