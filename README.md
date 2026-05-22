@@ -44,6 +44,12 @@ Open [http://localhost:3000](http://localhost:3000).
 3. Add URL + anon key to `.env.local`
 4. Sign up — Tier 1 onboarding creates your `app_users` row
 
+### Google sign-in
+
+1. Supabase → **Authentication → Providers → Google** — enable and add OAuth client ID/secret
+2. Google Cloud Console: authorized redirect URI `https://<project-ref>.supabase.co/auth/v1/callback`
+3. Supabase → **Authentication → URL Configuration**: Site URL `http://localhost:3000`, redirect URL `http://localhost:3000/auth/callback`
+
 V1 lattice schema is archived at `docs/archive/FISCMAK_V1_SCHEMA.sql`. See `docs/MIGRATION_V1_TO_V2.md` — V1 activity/lattice data is **not** auto-migrated.
 
 ## Specs

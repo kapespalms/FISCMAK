@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -49,6 +50,15 @@ export default function SignupPage() {
           </Link>
         </p>
         <form onSubmit={handleSignup} className="mt-6 space-y-4">
+          <GoogleSignInButton next="/app/onboarding" label="Sign up with Google" />
+          <div className="relative py-1">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-fiscmak-border" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-white px-2 text-fiscmak-muted">or</span>
+            </div>
+          </div>
           <Input
             label="Email"
             id="email"

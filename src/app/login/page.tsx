@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import { ensureAppUser } from "@/lib/supabase/ensure-user";
+import { ensureAppUser } from "@/lib/v2/ensure-app-user";
+import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,11 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const authError = new URLSearchParams(window.location.search).get("error");
+    if (authError) setError(decodeURIComponent(authError));
+  }, []);
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -61,6 +67,15 @@ export default function LoginPage() {
           </Link>
         </p>
         <form onSubmit={handleLogin} className="mt-6 space-y-4">
+          <GoogleSignInButton next="/app" />
+          <div className="relative py-1">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-fiscmak-border" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-white px-2 text-fiscmak-muted">or</span>
+            </div>
+          </div>
           <Input
             label="Email"
             id="email"
