@@ -1,175 +1,71 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Zap, Upload } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { fetchActivities } from "@/lib/activities-storage";
-import { getDashboardStats } from "@/lib/lattice";
-import { loadEnergyHistory, loadSubjectiveCheckIn } from "@/lib/subjective-storage";
-import { FIVE_OPTIONS } from "@/lib/mak-sections";
-import { formatDisplayName } from "@/lib/mak-greeting";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import { useAppShell } from "@/components/layout/AppShell";
 import Link from "next/link";
+import { Zap, Upload } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { NavIcon } from "@/components/brand/NavIcon";
+import { DashboardOptionTabs } from "@/components/dashboard/DashboardOptionTabs";
+import { DASHBOARD_OPTION_TABS } from "@/lib/mak-sections";
+import { useAppShell } from "@/components/layout/AppShell";
+import type { AnalyticsDashboard } from "@/lib/v2/types";
 
 export function DashboardWorkspace() {
-  const { startMakFlow, setDisplayName } = useAppShell();
-  const [stats, setStats] = useState({
-    total: 0,
-    weekCount: 0,
-    energizing: 0,
-    recognitionGap: 0,
-    invisible: 0,
-    energyLevel: 6,
-    energyTrend: 0,
-  });
+  const { startMakFlow } = useAppShell();
+  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
   const [loading, setLoading] = useState(true);
   const [uploadOpen, setUploadOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
 
   const load = useCallback(async () => {
-    const activities = await fetchActivities();
-    const base = getDashboardStats(activities);
-    const weekAgo = new Date();
-    weekAgo.setDate(weekAgo.getDate() - 7);
-    const weekCount = activities.filter(
-      (a) => a.activity_date && new Date(a.activity_date) >= weekAgo,
-    ).length;
-    const documented = activities.filter(
-      (a) => a.evidence_strength === "documented",
-    ).length;
-    const checkIn = loadSubjectiveCheckIn();
-    const history = loadEnergyHistory();
-    const trend =
-      history.length >= 2
-        ? history[history.length - 1].level - history[history.length - 2].level
-        : 0;
-
-    setStats({
-      total: base.total,
-      weekCount,
-      energizing: base.energizing,
-      recognitionGap: base.recognitionGap,
-      invisible: base.total - documented,
-      energyLevel: checkIn.energyLevel,
-      energyTrend: trend,
-    });
+    const res = await fetch("/api/v1/analytics/dashboard");
+    const data = await res.json();
+    setAnalytics(data);
     setLoading(false);
   }, []);
 
   useEffect(() => {
-    load();
+    void load();
   }, [load]);
-
-  useEffect(() => {
-    async function loadName() {
-      if (!isSupabaseConfigured()) return;
-      const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (!user) return;
-      const { data } = await supabase
-        .from("profiles")
-        .select("first_name, last_name")
-        .eq("id", user.id)
-        .maybeSingle();
-      if (data) {
-        setDisplayName(
-          formatDisplayName(data.first_name, data.last_name),
-        );
-      }
-    }
-    void loadName();
-  }, [setDisplayName]);
 
   async function handleUploadFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
+    const form = new FormData();
+    form.append("file", file);
+    form.append("document_type", "CV");
+    await fetch("/api/v1/documents", { method: "POST", body: form });
+    await fetch("/api/v1/mempalace/sync", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
     startMakFlow("upload", "/app/objective?tab=documents");
     setUploadOpen(false);
+    void load();
     e.target.value = "";
   }
 
+  function handleOptionTab(id: (typeof DASHBOARD_OPTION_TABS)[number]["id"], href: string) {
+    setActiveTab(id);
+    startMakFlow(id, href);
+  }
+
   return (
-    <div className="mx-auto max-w-5xl space-y-8">
+    <div className="mx-auto max-w-6xl space-y-5">
       <div>
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="mt-1 text-sm text-fiscmak-muted">
-          Updated {new Date().toLocaleString()}
-        </p>
+        <h1 className="text-2xl font-bold">Dashboard: Your Career At A Glance</h1>
+        <p className="mt-1 text-sm text-fiscmak-muted">Career Readiness Index and coaching progress</p>
       </div>
 
-      {loading ? (
-        <p className="text-sm text-fiscmak-muted">Loading your summary…</p>
-      ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Link href="/app/objective?tab=activities">
-            <Card className="transition-shadow hover:shadow-md">
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-                Activities logged
-              </p>
-              <p className="mt-2 text-3xl font-bold">{stats.total}</p>
-              <p className="mt-1 text-sm text-fiscmak-muted">
-                This week: {stats.weekCount}
-              </p>
-            </Card>
-          </Link>
+      <DashboardOptionTabs activeId={activeTab} onSelect={handleOptionTab} />
 
-          <Link href="/app/subjective">
-            <Card className="transition-shadow hover:shadow-md">
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-                This week energy
-              </p>
-              <p className="mt-2 text-3xl font-bold text-fiscmak-green">
-                {stats.energyLevel}/10
-              </p>
-              <p className="mt-1 text-sm text-fiscmak-muted">
-                {stats.energyTrend >= 0 ? "↑" : "↓"}{" "}
-                {Math.abs(stats.energyTrend).toFixed(1)} trend
-              </p>
-            </Card>
-          </Link>
-
-          <Link href="/app/objective?tab=activities">
-            <Card
-              accent={stats.recognitionGap > 50 ? "red" : undefined}
-              className="transition-shadow hover:shadow-md"
-            >
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-                Recognition gap
-              </p>
-              <p className="mt-2 text-3xl font-bold">{stats.invisible}</p>
-              <p className="mt-1 text-sm text-fiscmak-muted">
-                invisible of {stats.total} total
-                {stats.recognitionGap > 30 && " · gap alert"}
-              </p>
-            </Card>
-          </Link>
-
-          <Link href="/app/subjective">
-            <Card className="transition-shadow hover:shadow-md">
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-                Energy trend
-              </p>
-              <p className="mt-2 text-3xl font-bold">
-                {stats.energizing}
-                <span className="text-base font-normal text-fiscmak-muted">
-                  {" "}
-                  energizing
-                </span>
-              </p>
-              <p className="mt-1 text-sm text-fiscmak-muted">Last 7 days</p>
-            </Card>
-          </Link>
-        </div>
-      )}
-
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid gap-3 sm:grid-cols-3">
         <button
           type="button"
           onClick={() => startMakFlow("capture")}
-          className="flex min-h-12 items-center gap-3 rounded-lg bg-fiscmak-green px-4 py-3 text-left text-white transition-colors hover:bg-fiscmak-green-dark"
+          className="flex min-h-12 items-center gap-3 rounded-lg bg-fiscmak-green px-4 py-3 text-left text-white hover:bg-fiscmak-green-dark"
         >
           <Zap size={22} />
           <div>
@@ -177,18 +73,26 @@ export function DashboardWorkspace() {
             <p className="text-xs opacity-90">Log an activity in 30 seconds</p>
           </div>
         </button>
-
         <button
           type="button"
           onClick={() => setUploadOpen(true)}
-          className="flex min-h-12 items-center gap-3 rounded-lg border border-fiscmak-border bg-white px-4 py-3 text-left transition-colors hover:bg-fiscmak-subtle"
+          className="flex min-h-12 items-center gap-3 rounded-lg border border-fiscmak-border bg-white px-4 py-3 text-left hover:bg-fiscmak-subtle"
         >
           <Upload size={22} className="text-fiscmak-muted" />
           <div>
             <p className="font-semibold">Upload Document</p>
-            <p className="text-xs text-fiscmak-muted">
-              CV, dossier, template, or PDF text
-            </p>
+            <p className="text-xs text-fiscmak-muted">CV, dossier, or template</p>
+          </div>
+        </button>
+        <button
+          type="button"
+          onClick={() => startMakFlow("create", "/app/output")}
+          className="flex min-h-12 items-center gap-3 rounded-lg border border-fiscmak-border bg-white px-4 py-3 text-left hover:bg-fiscmak-subtle"
+        >
+          <NavIcon src="/brand/nav/output.png" alt="Create" size={22} />
+          <div>
+            <p className="font-semibold">Create Output</p>
+            <p className="text-xs text-fiscmak-muted">Narrative, CV, or review</p>
           </div>
         </button>
       </div>
@@ -196,48 +100,99 @@ export function DashboardWorkspace() {
       {uploadOpen && (
         <Card>
           <h2 className="font-semibold">Upload document</h2>
-          <p className="mt-1 text-sm text-fiscmak-muted">
-            Select a file — Mak will help you review extracted activities.
-          </p>
-          <input
-            type="file"
-            accept=".txt,.md,text/plain"
-            className="mt-4 block w-full text-sm"
-            onChange={handleUploadFile}
-          />
-          <Button
-            variant="secondary"
-            className="mt-3"
-            onClick={() => setUploadOpen(false)}
-          >
-            Cancel
-          </Button>
+          <input type="file" accept=".txt,.md,text/plain" className="mt-4 block w-full text-sm" onChange={handleUploadFile} />
+          <Button variant="secondary" className="mt-3" onClick={() => setUploadOpen(false)}>Cancel</Button>
         </Card>
       )}
 
-      <div>
-        <h2 className="mb-3 text-sm font-semibold uppercase text-fiscmak-muted">
-          Mak suggestions
-        </h2>
-        <div className="grid gap-3">
-          {FIVE_OPTIONS.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              onClick={() =>
-                startMakFlow(option.id, option.href)
-              }
-              className={`flex min-h-12 w-full items-start gap-3 rounded-lg px-4 py-3 text-left transition-colors ${option.bg}`}
-            >
-              <span className="text-2xl leading-none">{option.icon}</span>
-              <div>
-                <p className="font-semibold">{option.title}</p>
-                <p className="text-sm text-fiscmak-muted">{option.subtitle}</p>
-              </div>
-            </button>
-          ))}
-        </div>
-      </div>
+      {loading || !analytics ? (
+        <p className="text-sm text-fiscmak-muted">Loading analytics…</p>
+      ) : (
+        <>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <Card accent="green">
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career Readiness</p>
+              <p className="mt-2 text-4xl font-bold text-fiscmak-green">{analytics.career_readiness_index}</p>
+              <p className="mt-1 text-xs text-fiscmak-muted">CRI composite score</p>
+            </Card>
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Onboarding</p>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Tier 1</li>
+                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Tier 2 CV</li>
+                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Tier 3 goals</li>
+              </ul>
+            </Card>
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Assessments</p>
+              <p className="mt-2 text-3xl font-bold">
+                {analytics.assessment_progress.completed_touchpoints}/7
+              </p>
+              <p className="mt-1 text-xs text-fiscmak-muted">
+                {analytics.assessment_progress.completion_percentage}% complete
+              </p>
+              <Link href="/app/assessment" className="mt-2 inline-block text-xs text-fiscmak-green hover:underline">
+                Continue →
+              </Link>
+            </Card>
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Burnout trend</p>
+              <p className="mt-2 text-3xl font-bold">
+                {analytics.burnout_trend.current_score ?? "—"}
+              </p>
+              <p className="mt-1 text-xs capitalize text-fiscmak-muted">{analytics.burnout_trend.trend}</p>
+            </Card>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Job engagement</p>
+              <p className="mt-2 text-sm">
+                Viewed {analytics.job_engagement.jobs_viewed} · Saved {analytics.job_engagement.jobs_saved}
+              </p>
+              {analytics.job_engagement.average_match_score != null && (
+                <p className="text-sm text-fiscmak-muted">
+                  Avg match {Math.round(analytics.job_engagement.average_match_score)}%
+                </p>
+              )}
+              <Link href="/app/jobs" className="mt-2 inline-block text-sm text-fiscmak-green hover:underline">
+                View job matches →
+              </Link>
+            </Card>
+            {analytics.next_touchpoint && (
+              <Card accent="amber">
+                <p className="text-xs font-semibold uppercase text-fiscmak-muted">Next touchpoint</p>
+                <p className="mt-2 font-semibold">
+                  TP{analytics.next_touchpoint.number}: {analytics.next_touchpoint.category}
+                </p>
+                {analytics.next_touchpoint.days_until_due != null && (
+                  <p className="mt-1 text-sm text-fiscmak-muted">
+                    Due in {analytics.next_touchpoint.days_until_due} days
+                  </p>
+                )}
+                <Link href="/app/assessment" className="mt-2 inline-block text-sm text-fiscmak-green hover:underline">
+                  Start assessment →
+                </Link>
+              </Card>
+            )}
+          </div>
+
+          <Card>
+            <p className="text-xs font-semibold uppercase text-fiscmak-muted">Promotion readiness</p>
+            <p className="mt-2 text-sm text-fiscmak-muted">
+              Build your promotion dossier from assessment and coaching data.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <Link href="/app/assessment">
+                <Button variant="secondary">Assess patterns</Button>
+              </Link>
+              <Link href="/app/output">
+                <Button>Create narrative</Button>
+              </Link>
+            </div>
+          </Card>
+        </>
+      )}
     </div>
   );
 }

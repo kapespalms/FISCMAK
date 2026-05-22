@@ -5,104 +5,57 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Upload } from "lucide-react";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import {
-  type UploadedDocument,
-  loadDemoDocuments,
-  saveDemoDocuments,
-} from "@/lib/documents";
+
+type V2Document = {
+  document_id: string;
+  document_type: string;
+  file_url: string | null;
+  uploaded_at: string;
+  extraction_status: string;
+  extracted_text_preview?: string;
+};
 
 export function DocumentsView() {
-  const [documents, setDocuments] = useState<UploadedDocument[]>([]);
+  const [documents, setDocuments] = useState<V2Document[]>([]);
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pasteText, setPasteText] = useState("");
 
   const loadDocuments = useCallback(async () => {
-    if (!isSupabaseConfigured()) {
-      setDocuments(loadDemoDocuments());
+    try {
+      const res = await fetch("/api/v1/documents");
+      const data = await res.json();
+      setDocuments(data.documents ?? []);
+    } catch {
+      setDocuments([]);
+    } finally {
       setLoading(false);
-      return;
     }
-
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      setDocuments(loadDemoDocuments());
-      setLoading(false);
-      return;
-    }
-
-    const { data } = await supabase
-      .from("uploaded_documents")
-      .select(
-        "id, file_name, file_type, parsed_text, detected_document_type, extracted_entities, created_at",
-      )
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false });
-
-    setDocuments((data as UploadedDocument[]) ?? []);
-    setLoading(false);
   }, []);
 
   useEffect(() => {
     loadDocuments();
   }, [loadDocuments]);
 
-  async function processText(text: string, fileName: string, fileType: string) {
+  async function uploadFile(file: File, documentType = "CV") {
     setProcessing(true);
     setError(null);
-
     try {
-      const parseRes = await fetch("/api/documents/parse", {
+      const form = new FormData();
+      form.append("file", file);
+      form.append("document_type", documentType);
+      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message ?? "Upload failed");
+      }
+      await fetch("/api/v1/mempalace/sync", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text, fileName, fileType }),
+        body: JSON.stringify({}),
       });
-      const parsed = await parseRes.json();
-
-      const doc: UploadedDocument = {
-        id: crypto.randomUUID(),
-        file_name: fileName,
-        file_type: fileType,
-        parsed_text: parsed.parsed_text ?? text,
-        detected_document_type: parsed.detected_document_type ?? null,
-        extracted_entities: parsed.extracted_entities ?? null,
-        created_at: new Date().toISOString(),
-      };
-
-      if (!isSupabaseConfigured()) {
-        const next = [doc, ...loadDemoDocuments()];
-        saveDemoDocuments(next);
-        setDocuments(next);
-      } else {
-        const supabase = createClient();
-        const {
-          data: { user },
-        } = await supabase.auth.getUser();
-        if (!user) throw new Error("Sign in to save documents");
-
-        const { data, error: insertError } = await supabase
-          .from("uploaded_documents")
-          .insert({
-            user_id: user.id,
-            file_name: fileName,
-            file_type: fileType,
-            parsed_text: doc.parsed_text,
-            detected_document_type: doc.detected_document_type,
-            extracted_entities: doc.extracted_entities,
-            processed_at: new Date().toISOString(),
-          })
-          .select()
-          .single();
-
-        if (insertError) throw insertError;
-        setDocuments((d) => [data as UploadedDocument, ...d]);
-      }
-
+      await loadDocuments();
       setPasteText("");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Upload failed");
@@ -114,21 +67,20 @@ export function DocumentsView() {
   async function onFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-
     if (!file.name.match(/\.(txt|md)$/i)) {
       setError("MVP supports .txt and .md files. Paste PDF/DOCX content below.");
       return;
     }
-
-    const text = await file.text();
-    await processText(text, file.name, file.type || "text/plain");
+    await uploadFile(file);
     e.target.value = "";
   }
 
   async function onPasteSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!pasteText.trim()) return;
-    await processText(pasteText.trim(), "pasted-document.txt", "text/plain");
+    const blob = new Blob([pasteText.trim()], { type: "text/plain" });
+    const file = new File([blob], "pasted-cv.txt", { type: "text/plain" });
+    await uploadFile(file);
   }
 
   return (
@@ -145,9 +97,9 @@ export function DocumentsView() {
           className="flex cursor-pointer flex-col items-center rounded-lg border-2 border-dashed border-fiscmak-border bg-fiscmak-subtle px-6 py-10 transition-colors hover:border-fiscmak-green hover:bg-fiscmak-green-light"
         >
           <Upload className="text-fiscmak-green" size={28} />
-          <p className="mt-3 font-semibold">Drop or click to upload</p>
+          <p className="mt-3 font-semibold">Drop or click to upload CV</p>
           <p className="mt-1 text-sm text-fiscmak-muted">
-            .txt or .md (paste PDF/DOCX text below)
+            .txt or .md — syncs to MemPalace for Mak coaching
           </p>
           <input
             id="file-upload-objective"
@@ -160,7 +112,7 @@ export function DocumentsView() {
         </label>
         {processing && (
           <p className="mt-4 text-center text-sm text-fiscmak-muted">
-            Processing document…
+            Processing document and syncing MemPalace…
           </p>
         )}
       </Card>
@@ -176,7 +128,7 @@ export function DocumentsView() {
             className="w-full rounded-md border border-fiscmak-border p-4 text-base"
           />
           <Button type="submit" disabled={processing || !pasteText.trim()}>
-            Parse pasted text
+            Upload pasted text
           </Button>
         </form>
       </Card>
@@ -188,16 +140,13 @@ export function DocumentsView() {
           <p className="text-sm text-fiscmak-muted">No documents yet.</p>
         )}
         {documents.map((doc) => (
-          <Card key={doc.id}>
+          <Card key={doc.document_id}>
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="font-medium">{doc.file_name}</p>
-              {doc.detected_document_type && (
-                <Badge>{doc.detected_document_type}</Badge>
-              )}
+              <p className="font-medium">{doc.document_type}</p>
+              <Badge>{doc.extraction_status}</Badge>
             </div>
-            <p className="mt-2 line-clamp-3 text-sm text-fiscmak-muted">
-              {doc.parsed_text?.slice(0, 280)}
-              {(doc.parsed_text?.length ?? 0) > 280 ? "…" : ""}
+            <p className="mt-2 text-xs text-fiscmak-muted">
+              Uploaded {new Date(doc.uploaded_at).toLocaleDateString()}
             </p>
           </Card>
         ))}

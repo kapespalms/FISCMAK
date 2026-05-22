@@ -1,6 +1,6 @@
 "use client";
 
-import { ensureAppUser } from "@/lib/supabase/ensure-user";
+import { ensureAppUser } from "@/lib/v2/ensure-app-user";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -28,7 +28,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
         setError(
           e instanceof Error
             ? e.message
-            : "Could not initialize your account. Run docs/supabase-auth-bridge.sql in Supabase.",
+            : "Could not initialize your account. Run docs/FISCMAK_V2_SCHEMA.sql in Supabase.",
         );
       }
     }

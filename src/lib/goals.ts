@@ -1,3 +1,5 @@
+import { isClientDemoMode } from "@/lib/demo-mode";
+
 export type CareerGoal = {
   id: string;
   user_id?: string;
@@ -52,7 +54,7 @@ export const DEMO_GOALS: CareerGoal[] = [
 const STORAGE_KEY = "fiscmak_goals_demo";
 
 export function loadDemoGoals(): CareerGoal[] {
-  if (typeof window === "undefined") return DEMO_GOALS;
+  if (typeof window === "undefined" || !isClientDemoMode()) return DEMO_GOALS;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw) as CareerGoal[];
@@ -63,7 +65,41 @@ export function loadDemoGoals(): CareerGoal[] {
 }
 
 export function saveDemoGoals(goals: CareerGoal[]) {
+  if (!isClientDemoMode()) return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
+}
+
+export async function fetchGoals(): Promise<CareerGoal[]> {
+  if (typeof window === "undefined") return DEMO_GOALS;
+
+  const { createClient, isSupabaseConfigured } = await import(
+    "@/lib/supabase/client"
+  );
+
+  if (!isSupabaseConfigured()) {
+    return loadDemoGoals();
+  }
+
+  const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return loadDemoGoals();
+  }
+
+  const { data, error } = await supabase
+    .from("career_goals")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("priority", { ascending: true });
+
+  if (error || !data?.length) {
+    return loadDemoGoals();
+  }
+
+  return data as CareerGoal[];
 }
 
 export function emptyGoalForm(): GoalFormData {

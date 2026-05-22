@@ -1,3 +1,4 @@
+/** @deprecated Prefer /api/v1/templates + promotion dossier prefill for V2 outputs. */
 import { NextResponse } from "next/server";
 
 const PLACEHOLDERS: Record<string, string> = {

@@ -1,3 +1,4 @@
+/** @deprecated Use POST /api/v1/documents — V1 parse route retained for legacy uploads. */
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {

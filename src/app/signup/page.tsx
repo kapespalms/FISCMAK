@@ -21,7 +21,7 @@ export default function SignupPage() {
     setError("");
 
     if (!isSupabaseConfigured()) {
-      router.push("/app/profile");
+      router.push("/app/onboarding");
       return;
     }
 
@@ -34,7 +34,7 @@ export default function SignupPage() {
       return;
     }
 
-    router.push("/app/profile");
+    router.push("/app/onboarding");
     router.refresh();
   }
 

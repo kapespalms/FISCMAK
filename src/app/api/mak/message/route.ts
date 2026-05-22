@@ -1,3 +1,4 @@
+/** @deprecated Use POST /api/v1/chat/message — V1 Mak route retained for legacy clients. */
 import { NextResponse } from "next/server";
 import { MAK_SECTION_CONFIG, type AppSection } from "@/lib/mak-sections";
 import { demoMakReply } from "@/lib/mak-demo-replies";

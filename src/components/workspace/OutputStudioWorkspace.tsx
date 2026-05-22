@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { OUTPUT_TEMPLATES } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 import { fetchActivities } from "@/lib/activities-storage";
 import type { ActivityEntry } from "@/lib/types/database";
 import { EvidenceDrawer } from "@/components/studio/EvidenceDrawer";
@@ -19,6 +20,22 @@ import {
   type DocumentVersion,
 } from "@/lib/studio-versions";
 
+type ReadinessProfile = {
+  target_track: string;
+  target_rank: string;
+  overall_readiness: number;
+  promotion_timeline: string;
+  strengths: { domain: string; score: number; note: string }[];
+  gaps: { domain: string; score: number; note: string; suggestion: string }[];
+};
+
+type V2Template = {
+  template_id: string;
+  name: string;
+  type: string;
+  description: string;
+};
+
 export function OutputStudioWorkspace() {
   const [selected, setSelected] = useState<string>(OUTPUT_TEMPLATES[0].id);
   const [generating, setGenerating] = useState(false);
@@ -29,6 +46,8 @@ export function OutputStudioWorkspace() {
     "saved",
   );
   const [versions, setVersions] = useState<DocumentVersion[]>([]);
+  const [readiness, setReadiness] = useState<ReadinessProfile | null>(null);
+  const [v2Templates, setV2Templates] = useState<V2Template[]>([]);
   const editorRef = useRef<StudioEditorHandle>(null);
 
   const template = OUTPUT_TEMPLATES.find((t) => t.id === selected)!;
@@ -40,22 +59,58 @@ export function OutputStudioWorkspace() {
   useEffect(() => {
     loadEvidence();
     setVersions(loadVersions(selected));
+    fetch("/api/v1/promotion/readiness")
+      .then((r) => r.json())
+      .then(setReadiness)
+      .catch(() => undefined);
+    fetch("/api/v1/templates?type=all")
+      .then((r) => r.json())
+      .then((d) => setV2Templates(d.templates ?? []))
+      .catch(() => undefined);
   }, [loadEvidence, selected]);
 
   async function generate() {
     setGenerating(true);
     try {
+      if (selected === "promotion_narrative") {
+        await fetch("/api/v1/promotion/dossier/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            target_rank: readiness?.target_rank,
+            target_track: readiness?.target_track,
+          }),
+        });
+      }
       const res = await fetch("/api/output/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ templateType: selected }),
+        body: JSON.stringify({
+          templateType: selected,
+          readiness,
+        }),
       });
       const data = await res.json();
-      editorRef.current?.setPlainText(data.content ?? "");
+      const prefill =
+        data.content ??
+        (selected === "promotion_narrative" && readiness
+          ? buildPromotionPrefill(readiness)
+          : "");
+      editorRef.current?.setPlainText(prefill);
       setSaveStatus("unsaved");
     } finally {
       setGenerating(false);
     }
+  }
+
+  function buildPromotionPrefill(profile: ReadinessProfile): string {
+    const strengths = profile.strengths
+      .map((s) => `- ${s.domain} (${s.score}%): ${s.note}`)
+      .join("\n");
+    const gaps = profile.gaps
+      .map((g) => `- ${g.domain} (${g.score}%): ${g.note}. ${g.suggestion}`)
+      .join("\n");
+    return `Promotion Narrative Draft\n\nTarget: ${profile.target_rank} (${profile.target_track})\nTimeline: ${profile.promotion_timeline}\nOverall readiness: ${profile.overall_readiness}%\n\nStrengths:\n${strengths}\n\nGaps to address:\n${gaps}\n\n[Section 1: Clinical Excellence — draft with Mak]\n\n[Section 2: Teaching & Mentorship]\n\n[Section 3: Scholarship & Research]\n\n[Section 4: Service & Leadership]\n\n[Section 5: Career Vision]\n\n[Section 6: Summary]`;
   }
 
   function handleSaveVersion() {
@@ -135,10 +190,44 @@ export function OutputStudioWorkspace() {
             {t.name}
           </button>
         ))}
+        {v2Templates.length > 0 && (
+          <>
+            <h2 className="mt-4 px-2 text-xs font-semibold uppercase text-fiscmak-muted">
+              Spec templates
+            </h2>
+            {v2Templates.map((t) => (
+              <button
+                key={t.template_id}
+                type="button"
+                onClick={() => setSelected(t.type === "promotion_narrative" ? "promotion_narrative" : t.type)}
+                title={t.description}
+                className="w-full rounded-md px-3 py-2 text-left text-sm hover:bg-white"
+              >
+                {t.name}
+              </button>
+            ))}
+          </>
+        )}
         <VersionHistoryPanel versions={versions} onRestore={restoreVersion} />
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col gap-4">
+        {readiness && (
+          <Card className="border-fiscmak-green/30 bg-fiscmak-green-light/30">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p className="text-sm font-semibold">Promotion readiness</p>
+                <p className="text-xs text-fiscmak-muted">
+                  {readiness.target_rank} · {readiness.target_track} ·{" "}
+                  {readiness.promotion_timeline}
+                </p>
+              </div>
+              <Badge energy={readiness.overall_readiness >= 70 ? "energizing" : "neutral"}>
+                {readiness.overall_readiness}% ready
+              </Badge>
+            </div>
+          </Card>
+        )}
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
             <h2 className="text-xl font-bold">{template.name}</h2>

@@ -1,3 +1,4 @@
+/** @deprecated Use V2 assessment engine — V1 activity classification retained for legacy Objective workspace. */
 import { classifyActivityFallback } from "@/lib/classify";
 import { NextResponse } from "next/server";
 

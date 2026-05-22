@@ -1,5 +1,5 @@
-import { AssessmentWorkspace } from "@/components/workspace/AssessmentWorkspace";
+import { AssessmentWizard } from "@/components/workspace/AssessmentWizard";
 
 export default function AssessmentPage() {
-  return <AssessmentWorkspace />;
+  return <AssessmentWizard />;
 }

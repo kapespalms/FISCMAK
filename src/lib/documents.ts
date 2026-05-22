@@ -8,10 +8,12 @@ export type UploadedDocument = {
   created_at: string;
 };
 
+import { isClientDemoMode } from "@/lib/demo-mode";
+
 const KEY = "fiscmak_documents_demo";
 
 export function loadDemoDocuments(): UploadedDocument[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined" || !isClientDemoMode()) return [];
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) return JSON.parse(raw) as UploadedDocument[];
@@ -22,5 +24,6 @@ export function loadDemoDocuments(): UploadedDocument[] {
 }
 
 export function saveDemoDocuments(docs: UploadedDocument[]) {
+  if (!isClientDemoMode()) return;
   localStorage.setItem(KEY, JSON.stringify(docs));
 }

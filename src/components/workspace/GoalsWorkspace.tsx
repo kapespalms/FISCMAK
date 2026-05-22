@@ -17,6 +17,7 @@ import {
   saveDemoGoals,
 } from "@/lib/goals";
 import { Target, Pencil, Trash2 } from "lucide-react";
+import { PathwaysExplorer } from "@/components/workspace/PathwaysExplorer";
 
 export function GoalsWorkspace() {
   const [goals, setGoals] = useState<CareerGoal[]>([]);
@@ -166,6 +167,8 @@ export function GoalsWorkspace() {
           {error}
         </p>
       )}
+
+      <PathwaysExplorer />
 
       {showForm && (
         <Card>

@@ -1,3 +1,5 @@
+import { isClientDemoMode } from "@/lib/demo-mode";
+
 export type SubjectiveCheckIn = {
   energyLevel: number;
   triggers: string[];
@@ -23,7 +25,7 @@ export const MOOD_TRIGGERS = [
 ] as const;
 
 export function loadSubjectiveCheckIn(): SubjectiveCheckIn {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || !isClientDemoMode()) {
     return { energyLevel: 6, triggers: [], updatedAt: new Date().toISOString() };
   }
   try {
@@ -38,11 +40,13 @@ export function loadSubjectiveCheckIn(): SubjectiveCheckIn {
 }
 
 export function saveSubjectiveCheckIn(checkIn: SubjectiveCheckIn) {
+  if (!isClientDemoMode()) return;
   localStorage.setItem(CHECKIN_KEY, JSON.stringify(checkIn));
   appendEnergyHistory(checkIn.energyLevel);
 }
 
 function appendEnergyHistory(level: number) {
+  if (!isClientDemoMode()) return;
   const today = new Date().toISOString().slice(0, 10);
   const history = loadEnergyHistory().filter((h) => h.date !== today);
   history.push({ date: today, level });
@@ -51,7 +55,7 @@ function appendEnergyHistory(level: number) {
 }
 
 export function loadEnergyHistory(): { date: string; level: number }[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined" || !isClientDemoMode()) return [];
   try {
     const raw = localStorage.getItem(HISTORY_KEY);
     return raw ? (JSON.parse(raw) as { date: string; level: number }[]) : [];

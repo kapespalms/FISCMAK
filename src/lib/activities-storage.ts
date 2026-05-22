@@ -1,4 +1,5 @@
 import type { ActivityEntry } from "@/lib/types/database";
+import { isClientDemoMode } from "@/lib/demo-mode";
 
 const KEY = "fiscmak_activities_demo";
 
@@ -22,7 +23,7 @@ export const DEMO_ACTIVITIES: ActivityEntry[] = [
 ];
 
 export function loadDemoActivities(): ActivityEntry[] {
-  if (typeof window === "undefined") return DEMO_ACTIVITIES;
+  if (typeof window === "undefined" || !isClientDemoMode()) return DEMO_ACTIVITIES;
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) return JSON.parse(raw) as ActivityEntry[];
@@ -33,6 +34,7 @@ export function loadDemoActivities(): ActivityEntry[] {
 }
 
 export function saveDemoActivities(items: ActivityEntry[]) {
+  if (!isClientDemoMode()) return;
   localStorage.setItem(KEY, JSON.stringify(items));
 }
 

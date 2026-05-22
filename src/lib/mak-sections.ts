@@ -112,6 +112,37 @@ export const FIVE_OPTIONS = [
   },
 ] as const;
 
+export const SOAP_SECTION_COLORS: Record<
+  "subjective" | "objective" | "assessment" | "plan",
+  string
+> = {
+  subjective: "#E8F8E8",
+  objective: "#DBEAFE",
+  assessment: "#F3E8FF",
+  plan: "#FEF3C7",
+};
+
+export const DASHBOARD_OPTION_TABS = FIVE_OPTIONS.filter((o) => o.id !== "create").map(
+  (option) => {
+    const nav = SECTION_NAV.find((n) => n.section === option.section)!;
+    return {
+      id: option.id,
+      href: option.href,
+      label:
+        option.id === "discuss"
+          ? "Discuss"
+          : option.id === "review"
+            ? "Review"
+            : option.id === "assess"
+              ? "Assess"
+              : "Plan",
+      icon: nav.icon,
+      color: SOAP_SECTION_COLORS[option.section as keyof typeof SOAP_SECTION_COLORS],
+      section: option.section,
+    };
+  },
+);
+
 export type MakFlowIntent =
   | "capture"
   | "upload"
