@@ -5,9 +5,8 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { fetchActivities } from "@/lib/activities-storage";
 import { getDashboardStats } from "@/lib/lattice";
-import type { ActivityEntry } from "@/lib/types/database";
 
 export default function DashboardPage() {
   const [stats, setStats] = useState({
@@ -21,34 +20,19 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
-    if (!isSupabaseConfigured()) {
+    const activities = await fetchActivities();
+    if (activities.length > 0) {
+      setStats(getDashboardStats(activities));
+    } else if (!activities.length) {
       setStats({
-        total: 24,
-        domainsActive: 6,
-        tracksActive: 4,
-        energizing: 14,
-        draining: 6,
-        recognitionGap: 34,
+        total: 0,
+        domainsActive: 0,
+        tracksActive: 0,
+        energizing: 0,
+        draining: 0,
+        recognitionGap: 0,
       });
-      setLoading(false);
-      return;
     }
-
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      setLoading(false);
-      return;
-    }
-
-    const { data } = await supabase
-      .from("activity_entries")
-      .select("*")
-      .eq("user_id", user.id);
-
-    setStats(getDashboardStats((data as ActivityEntry[]) ?? []));
     setLoading(false);
   }, []);
 

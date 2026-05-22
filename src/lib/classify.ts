@@ -26,8 +26,8 @@ const TRACK_KEYWORDS: Record<string, string[]> = {
 
 export function classifyActivityFallback(text: string): ClassificationResult {
   const lower = text.toLowerCase();
-  let domain = DOMAINS[4];
-  let track = TRACKS[0];
+  let domain: string = DOMAINS[4];
+  let track: string = TRACKS[0];
   let bestDomainScore = 0;
   let bestTrackScore = 0;
 

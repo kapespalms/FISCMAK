@@ -16,7 +16,7 @@ export default function ProfilePage() {
     first_name: "",
     last_name: "",
     specialty: "",
-    career_phase: CAREER_PHASES[2],
+    career_phase: CAREER_PHASES[2] as string,
     institution_name: "",
     department_name: "",
     goals: "",

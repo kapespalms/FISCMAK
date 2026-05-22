@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { ENERGY_OPTIONS } from "@/lib/constants";
+import { fetchActivities, loadDemoActivities, saveDemoActivities } from "@/lib/activities-storage";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { ClassificationResult } from "@/lib/types/database";
@@ -21,30 +22,10 @@ export default function ActivitiesPage() {
   const supabaseConfigured = isSupabaseConfigured();
 
   const loadActivities = useCallback(async () => {
-    if (!supabaseConfigured) {
-      setLoading(false);
-      return;
-    }
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      setLoading(false);
-      return;
-    }
-
-    const { data, error: fetchError } = await supabase
-      .from("activity_entries")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("activity_date", { ascending: false })
-      .limit(50);
-
-    if (fetchError) setError(fetchError.message);
-    else setActivities((data as ActivityEntry[]) ?? []);
+    const data = await fetchActivities();
+    setActivities(data);
     setLoading(false);
-  }, [supabaseConfigured]);
+  }, []);
 
   useEffect(() => {
     loadActivities();
@@ -53,11 +34,6 @@ export default function ActivitiesPage() {
   async function addActivity(e: React.FormEvent) {
     e.preventDefault();
     if (!text.trim()) return;
-
-    if (!supabaseConfigured) {
-      setError("Add Supabase keys to .env.local to save activities.");
-      return;
-    }
 
     setSaving(true);
     setError(null);
@@ -70,6 +46,31 @@ export default function ActivitiesPage() {
       });
       const classification: ClassificationResult = await classifyRes.json();
       setLastClassification(classification);
+
+      if (!supabaseConfigured) {
+        const entry: ActivityEntry = {
+          id: crypto.randomUUID(),
+          user_id: "demo",
+          created_at: new Date().toISOString(),
+          activity_date: new Date().toISOString().slice(0, 10),
+          raw_text: text.trim(),
+          input_source: "text",
+          energy_valence: energy,
+          primary_domain: classification.primary_domain,
+          primary_track: classification.primary_track,
+          primary_domain_confidence: classification.primary_domain_confidence,
+          primary_track_confidence: classification.primary_track_confidence,
+          scope: classification.scope,
+          evidence_strength: classification.evidence_strength,
+          confidence_score: classification.confidence_score,
+        };
+        const next = [entry, ...loadDemoActivities()];
+        saveDemoActivities(next);
+        setActivities(next);
+        setText("");
+        setSaving(false);
+        return;
+      }
 
       const supabase = createClient();
       const {
@@ -125,7 +126,8 @@ export default function ActivitiesPage() {
       <div>
         <h1 className="text-3xl font-bold">Activities</h1>
         <p className="mt-1 text-fiscmak-muted">
-          Capture career evidence — saved to Supabase when configured
+          Capture career evidence
+          {!supabaseConfigured && " · saved in browser (demo)"}
         </p>
       </div>
 

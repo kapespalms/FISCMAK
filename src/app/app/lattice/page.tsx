@@ -2,10 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { LatticeGrid } from "@/components/lattice/LatticeGrid";
-import { getDemoLatticeCells } from "@/lib/demo-data";
+import { fetchActivities } from "@/lib/activities-storage";
 import { activitiesToLatticeCells } from "@/lib/lattice";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import type { ActivityEntry } from "@/lib/types/database";
+import { getDemoLatticeCells } from "@/lib/demo-data";
 import type { LatticeCellState } from "@/lib/constants";
 
 export default function LatticePage() {
@@ -14,28 +13,7 @@ export default function LatticePage() {
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
-    if (!isSupabaseConfigured()) {
-      setCells(getDemoLatticeCells());
-      setUsingLive(false);
-      setLoading(false);
-      return;
-    }
-
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      setLoading(false);
-      return;
-    }
-
-    const { data } = await supabase
-      .from("activity_entries")
-      .select("*")
-      .eq("user_id", user.id);
-
-    const activities = (data as ActivityEntry[]) ?? [];
+    const activities = await fetchActivities();
     if (activities.length > 0) {
       setCells(activitiesToLatticeCells(activities));
       setUsingLive(true);
