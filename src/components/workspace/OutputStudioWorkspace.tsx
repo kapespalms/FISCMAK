@@ -39,10 +39,20 @@ type V2Template = {
   description: string;
 };
 
+type OutputContext = {
+  career_vault?: {
+    summary: string;
+    changes_since_quarter: string | null;
+    pending_review: number;
+  };
+  enrichment_delta?: string | null;
+};
+
 export function OutputStudioWorkspace() {
   const { startMakFlow } = useAppShell();
   const [selected, setSelected] = useState<string>(OUTPUT_TEMPLATES[0].id);
   const [generating, setGenerating] = useState(false);
+  const [outputContext, setOutputContext] = useState<OutputContext | null>(null);
   const [evidence, setEvidence] = useState<ActivityEntry[]>([]);
   const [exportMsg, setExportMsg] = useState("");
   const [wordCount, setWordCount] = useState(0);
@@ -71,6 +81,15 @@ export function OutputStudioWorkspace() {
       .then((r) => r.json())
       .then((d) => setV2Templates(d.templates ?? []))
       .catch(() => undefined);
+    fetch("/api/v1/output/generate")
+      .then((r) => r.json())
+      .then((d) =>
+        setOutputContext({
+          career_vault: d.career_vault,
+          enrichment_delta: d.enrichment_delta,
+        }),
+      )
+      .catch(() => undefined);
   }, [loadEvidence, selected]);
 
   async function generate() {
@@ -86,7 +105,7 @@ export function OutputStudioWorkspace() {
           }),
         });
       }
-      const res = await fetch("/api/output/generate", {
+      const res = await fetch("/api/v1/output/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -100,6 +119,16 @@ export function OutputStudioWorkspace() {
         (selected === "promotion_narrative" && readiness
           ? buildPromotionPrefill(readiness)
           : "");
+      if (data.enrichment_delta || data.vault_summary) {
+        setOutputContext({
+          career_vault: {
+            summary: data.vault_summary ?? outputContext?.career_vault?.summary ?? "",
+            changes_since_quarter: data.enrichment_delta ?? null,
+            pending_review: data.pending_review ?? 0,
+          },
+          enrichment_delta: data.enrichment_delta,
+        });
+      }
       editorRef.current?.setPlainText(prefill);
       setSaveStatus("unsaved");
     } finally {
@@ -187,17 +216,33 @@ export function OutputStudioWorkspace() {
         </div>
         <Button
           variant="secondary"
-          onClick={() =>
+          onClick={() => {
+            setSelected("cv_update");
             startMakFlow(
               "create",
               "/app/output",
-              "Let's update your CV with any new publications, grants, roles, or awards since your last version. What should we add?",
-            )
-          }
+              "Let's update your CV with any new publications, grants, roles, or awards since your last version. I'll merge them with your Career Data vault.",
+            );
+          }}
         >
           Update CV with Mak
         </Button>
       </div>
+      {(outputContext?.enrichment_delta || outputContext?.career_vault?.summary) && (
+        <Card accent="green">
+          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career Data source</p>
+          <p className="mt-1 text-sm font-medium">{outputContext.career_vault?.summary}</p>
+          {outputContext.enrichment_delta && (
+            <p className="mt-1 text-sm text-fm-strong">{outputContext.enrichment_delta}</p>
+          )}
+          {(outputContext.career_vault?.pending_review ?? 0) > 0 && (
+            <p className="mt-1 text-xs text-fm-developing">
+              {outputContext.career_vault?.pending_review} item(s) pending review — reconcile in
+              Objective before finalizing documents.
+            </p>
+          )}
+        </Card>
+      )}
       <div className="flex min-h-0 flex-1 gap-6">
       <aside className="w-56 shrink-0 space-y-2 overflow-y-auto">
         <h2 className="px-2 text-xs font-semibold uppercase text-fiscmak-muted">

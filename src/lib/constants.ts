@@ -41,6 +41,7 @@ export const CAREER_PHASES = [
 
 export const OUTPUT_TEMPLATES = [
   { id: "cv_bullets", name: "CV Bullets", words: 150 },
+  { id: "cv_update", name: "CV Update (delta)", words: 800 },
   { id: "annual_review", name: "Annual Review", words: 750 },
   { id: "promotion_narrative", name: "Promotion Narrative", words: 1500 },
   { id: "teaching_statement", name: "Teaching Statement", words: 500 },
