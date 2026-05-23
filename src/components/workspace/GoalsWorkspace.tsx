@@ -221,7 +221,7 @@ export function GoalsWorkspace() {
 
       <Card>
         <p className="text-data-label">Goal examples by profile</p>
-        <p className="mt-2 text-sm text-fiscmak-muted">
+        <p className="mt-2 text-sm text-cx-text-secondary">
           Development:{" "}
           {goalExamplesForProfile({
             setting: profile.practice_setting ?? "Academic",
@@ -261,7 +261,7 @@ export function GoalsWorkspace() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, goal_description: e.target.value }))
                 }
-                className="mt-2 w-full rounded-md border border-fiscmak-border p-4"
+                className="mt-2 w-full rounded-md border border-cx-border p-4"
               />
             </div>
             <div>
@@ -275,7 +275,7 @@ export function GoalsWorkspace() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, why_this_fits: e.target.value }))
                 }
-                className="mt-2 w-full rounded-md border border-fiscmak-border p-4"
+                className="mt-2 w-full rounded-md border border-cx-border p-4"
               />
             </div>
             <div>
@@ -289,7 +289,7 @@ export function GoalsWorkspace() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, missing_evidence: e.target.value }))
                 }
-                className="mt-2 w-full rounded-md border border-fiscmak-border p-4"
+                className="mt-2 w-full rounded-md border border-cx-border p-4"
                 placeholder="Committee leadership documentation"
               />
             </div>
@@ -307,7 +307,7 @@ export function GoalsWorkspace() {
                     recommended_actions: e.target.value,
                   }))
                 }
-                className="mt-2 w-full rounded-md border border-fiscmak-border p-4"
+                className="mt-2 w-full rounded-md border border-cx-border p-4"
                 placeholder="Log 3 leadership activities"
               />
             </div>
@@ -334,7 +334,7 @@ export function GoalsWorkspace() {
                       priority: Number(e.target.value),
                     }))
                   }
-                  className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4"
+                  className="mt-2 min-h-11 w-full rounded-md border border-cx-border px-4"
                 >
                   {[1, 2, 3, 4, 5].map((n) => (
                     <option key={n} value={n}>
@@ -356,7 +356,7 @@ export function GoalsWorkspace() {
                       status: e.target.value as CareerGoal["status"],
                     }))
                   }
-                  className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4"
+                  className="mt-2 min-h-11 w-full rounded-md border border-cx-border px-4"
                 >
                   {GOAL_STATUSES.map((s) => (
                     <option key={s} value={s}>
@@ -380,7 +380,7 @@ export function GoalsWorkspace() {
         </Card>
       )}
 
-      {loading && <p className="text-sm text-fiscmak-muted">Loading goals…</p>}
+      {loading && <p className="text-sm text-cx-text-secondary">Loading goals…</p>}
 
       {!loading && goals.length === 0 && (
         <EmptyState
@@ -406,7 +406,7 @@ export function GoalsWorkspace() {
                   )}
                 <h3 className="text-lg font-semibold">{goal.goal_title}</h3>
                 {goal.goal_description && (
-                  <p className="mt-1 text-sm text-fiscmak-muted">
+                  <p className="mt-1 text-sm text-cx-text-secondary">
                     {goal.goal_description}
                   </p>
                 )}
@@ -426,7 +426,7 @@ export function GoalsWorkspace() {
 
             {goal.missing_evidence && goal.missing_evidence.length > 0 && (
               <div className="mt-3">
-                <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+                <p className="text-xs font-semibold uppercase text-cx-text-secondary">
                   Missing evidence
                 </p>
                 <ul className="mt-1 list-disc pl-5 text-sm">
@@ -440,7 +440,7 @@ export function GoalsWorkspace() {
             {goal.recommended_actions &&
               goal.recommended_actions.length > 0 && (
                 <div className="mt-3">
-                  <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+                  <p className="text-xs font-semibold uppercase text-cx-text-secondary">
                     Milestones
                   </p>
                   <ul className="mt-1 list-disc pl-5 text-sm">
@@ -452,7 +452,7 @@ export function GoalsWorkspace() {
               )}
 
             {goal.target_date && (
-              <p className="mt-3 text-xs text-fiscmak-muted">
+              <p className="mt-3 text-xs text-cx-text-secondary">
                 Target: {goal.target_date}
               </p>
             )}
@@ -461,14 +461,14 @@ export function GoalsWorkspace() {
               <button
                 type="button"
                 onClick={() => openEdit(goal)}
-                className="flex items-center gap-1 text-sm text-fiscmak-green hover:underline"
+                className="flex items-center gap-1 text-sm text-cx-text hover:text-cx-primary"
               >
                 <Pencil size={14} /> Edit
               </button>
               <button
                 type="button"
                 onClick={() => deleteGoal(goal.id)}
-                className="flex items-center gap-1 text-sm text-fiscmak-red hover:underline"
+                className="flex items-center gap-1 text-sm text-cx-attention hover:text-cx-primary"
               >
                 <Trash2 size={14} /> Delete
               </button>

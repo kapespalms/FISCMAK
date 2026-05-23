@@ -42,10 +42,10 @@ export function PathwaysExplorer() {
     <section className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="flex items-center gap-2 text-lg font-semibold">
-          <Map className="text-fiscmak-green" size={22} />
+          <Map className="text-cx-text" size={22} />
           Career pathways
           {specialty && (
-            <span className="text-base font-normal text-fiscmak-muted">
+            <span className="text-base font-normal text-cx-text-secondary">
               · {specialty}
             </span>
           )}
@@ -59,11 +59,11 @@ export function PathwaysExplorer() {
         </Link>
       </div>
 
-      {loading && <p className="text-sm text-fiscmak-muted">Loading pathways…</p>}
+      {loading && <p className="text-sm text-cx-text-secondary">Loading pathways…</p>}
 
       {!loading && pathways.length === 0 && (
         <Card>
-          <p className="text-sm text-fiscmak-muted">
+          <p className="text-sm text-cx-text-secondary">
             Complete onboarding to see pathways for your specialty.
           </p>
         </Card>
@@ -78,10 +78,10 @@ export function PathwaysExplorer() {
                 {p.job_market_demand} demand
               </Badge>
             </div>
-            <p className="mt-2 text-sm text-fiscmak-muted">{p.description}</p>
+            <p className="mt-2 text-sm text-cx-text-secondary">{p.description}</p>
             <p className="mt-2 text-sm">{p.salary_range}</p>
             {p.open_positions != null && (
-              <p className="mt-1 text-xs text-fiscmak-muted">
+              <p className="mt-1 text-xs text-cx-text-secondary">
                 {p.open_positions} open positions
               </p>
             )}

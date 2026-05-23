@@ -231,7 +231,7 @@ export function OutputStudioWorkspace() {
       <AcademicSoapSectionGate intent="create" />
       {(outputContext?.enrichment_delta || outputContext?.career_vault?.summary) && (
         <Card accent="green">
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career Data source</p>
+          <p className="text-cx-label uppercase">Career Data source</p>
           <p className="mt-1 text-sm font-medium">{outputContext.career_vault?.summary}</p>
           {outputContext.enrichment_delta && (
             <p className="mt-1 text-sm text-fm-strong">{outputContext.enrichment_delta}</p>
@@ -246,7 +246,7 @@ export function OutputStudioWorkspace() {
       )}
       <div className="flex min-h-0 flex-1 gap-6">
       <aside className="w-56 shrink-0 space-y-2 overflow-y-auto">
-        <h2 className="px-2 text-xs font-semibold uppercase text-fiscmak-muted">
+        <h2 className="px-2 text-cx-label uppercase">
           FISCMAK templates
         </h2>
         {OUTPUT_TEMPLATES.map((t) => (
@@ -256,7 +256,7 @@ export function OutputStudioWorkspace() {
             onClick={() => setSelected(t.id)}
             className={`w-full rounded-md px-3 py-2 text-left text-sm ${
               selected === t.id
-                ? "bg-fiscmak-green-light font-semibold text-fiscmak-green-dark"
+                ? "bg-cx-accent-soft font-semibold text-cx-text"
                 : "hover:bg-white"
             }`}
           >
@@ -265,7 +265,7 @@ export function OutputStudioWorkspace() {
         ))}
         {v2Templates.length > 0 && (
           <>
-            <h2 className="mt-4 px-2 text-xs font-semibold uppercase text-fiscmak-muted">
+            <h2 className="mt-4 px-2 text-cx-label uppercase">
               Spec templates
             </h2>
             {v2Templates.map((t) => (
@@ -286,11 +286,11 @@ export function OutputStudioWorkspace() {
 
       <div className="flex min-w-0 flex-1 flex-col gap-4">
         {readiness && (
-          <Card className="border-fiscmak-green/30 bg-fiscmak-green-light/30">
+          <Card className="border-cx-accent/30 bg-cx-accent-soft/30">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
                 <p className="text-sm font-semibold">Promotion readiness</p>
-                <p className="text-xs text-fiscmak-muted">
+                <p className="text-xs text-cx-text-secondary">
                   {readiness.target_rank} · {readiness.target_track} ·{" "}
                   {readiness.promotion_timeline}
                 </p>
@@ -304,7 +304,7 @@ export function OutputStudioWorkspace() {
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
             <h2 className="text-xl font-bold">{template.name}</h2>
-            <p className="text-sm text-fiscmak-muted">
+            <p className="text-sm text-cx-text-secondary">
               {isPromotionWizard
                 ? "Six-section wizard — Master Document template"
                 : `Target ~${template.words} words`}
@@ -331,7 +331,7 @@ export function OutputStudioWorkspace() {
               </>
             )}
             {exportMsg && (
-              <span className="text-sm text-fiscmak-green">{exportMsg}</span>
+              <span className="text-sm text-cx-success">{exportMsg}</span>
             )}
           </div>
         </div>
@@ -356,8 +356,8 @@ export function OutputStudioWorkspace() {
               setSaveStatus((s) => (s === "saved" ? "unsaved" : s));
             }}
           />
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-fiscmak-border px-4 py-2 text-sm text-fiscmak-muted">
-            <span className={overLimit ? "font-medium text-fiscmak-amber" : ""}>
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-cx-border px-4 py-2 text-sm text-cx-text-secondary">
+            <span className={overLimit ? "font-medium text-cx-attention" : ""}>
               {wordCount} / {template.words} words
               {overLimit && " — over recommended limit"}
             </span>
