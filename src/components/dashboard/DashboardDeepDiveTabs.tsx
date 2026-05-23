@@ -17,6 +17,7 @@ type TabId = (typeof TABS)[number]["id"];
 
 type DashboardDeepDiveTabsProps = {
   bands: SoapBandSnapshot[];
+  jobEngagement?: { jobs_viewed: number; jobs_saved: number; average_match_score: number | null };
   onDiscuss: (href: string) => void;
 };
 
@@ -30,7 +31,21 @@ function bandForTab(bands: SoapBandSnapshot[], tab: TabId): SoapBandSnapshot | u
   return bands.find((b) => b.id === map[tab]);
 }
 
-function tabPreview(band: SoapBandSnapshot | undefined): string {
+function tabPreview(
+  band: SoapBandSnapshot | undefined,
+  tab: TabId,
+  jobEngagement?: DashboardDeepDiveTabsProps["jobEngagement"],
+): string {
+  if (tab === "jobs" && jobEngagement) {
+    const parts = [
+      `${jobEngagement.jobs_viewed} viewed`,
+      `${jobEngagement.jobs_saved} saved`,
+    ];
+    if (jobEngagement.average_match_score != null) {
+      parts.push(`avg match ${Math.round(jobEngagement.average_match_score)}%`);
+    }
+    return parts.join(" · ");
+  }
   if (!band) return "Open this section to explore.";
   if (band.vaultSummary) return band.vaultSummary;
   if (band.lines[0]) return band.lines[0];
@@ -38,7 +53,7 @@ function tabPreview(band: SoapBandSnapshot | undefined): string {
   return band.subtitle;
 }
 
-export function DashboardDeepDiveTabs({ bands, onDiscuss }: DashboardDeepDiveTabsProps) {
+export function DashboardDeepDiveTabs({ bands, jobEngagement, onDiscuss }: DashboardDeepDiveTabsProps) {
   const [active, setActive] = useState<TabId>("objective");
   const router = useRouter();
   const band = bandForTab(bands, active);
@@ -69,7 +84,7 @@ export function DashboardDeepDiveTabs({ bands, onDiscuss }: DashboardDeepDiveTab
       </div>
 
       <div className="cx-card mt-6">
-        <p className="text-cx-body">{tabPreview(band)}</p>
+        <p className="text-cx-body">{tabPreview(band, active, jobEngagement)}</p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link
             href={tab.href}

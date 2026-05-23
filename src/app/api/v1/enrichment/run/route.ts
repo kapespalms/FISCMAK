@@ -11,6 +11,7 @@ import {
   mergeEnrichmentIntoMetadata,
   runApiEnrichment,
 } from "@/lib/v2/api-enrichment";
+import { persistEnrichmentSnapshot } from "@/lib/v2/career-data-repo";
 
 export async function POST(request: Request) {
   const auth = await requireApiUser();
@@ -46,6 +47,10 @@ export async function POST(request: Request) {
     { onboarding_metadata: updatedMeta as Record<string, unknown> },
     auth.demo,
   );
+
+  if (!auth.demo) {
+    await persistEnrichmentSnapshot(user, auth.email, snapshot);
+  }
 
   return jsonOk({
     run_id: snapshot.run_id,

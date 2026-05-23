@@ -290,6 +290,7 @@ export function DashboardWorkspace() {
             analytics,
             notifications: analytics.engagement_notifications ?? [],
             quickActions,
+            jobSearchActive: analytics.job_search_active,
           })
         : [],
     [analytics, quickActions],
@@ -389,6 +390,7 @@ export function DashboardWorkspace() {
             <div className="rounded-2xl bg-cx-cream p-6 md:p-8">
               <DashboardDeepDiveTabs
                 bands={soapBands}
+                jobEngagement={analytics.job_engagement}
                 onDiscuss={(href) => startMakFlow("discuss", href)}
               />
             </div>

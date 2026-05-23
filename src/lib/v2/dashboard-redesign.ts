@@ -303,6 +303,7 @@ export function buildNextActions(input: {
   analytics: AnalyticsDashboard;
   notifications: EngagementNotification[];
   quickActions: DashboardQuickAction[];
+  jobSearchActive?: boolean;
 }): DashboardNextAction[] {
   const actions: DashboardNextAction[] = [];
 
@@ -348,6 +349,26 @@ export function buildNextActions(input: {
       status: "attention",
       href: "/app/plan",
     });
+  }
+
+  const jobs = input.analytics.job_engagement;
+  if (jobs.jobs_saved > 0) {
+    actions.push({
+      id: "saved-jobs",
+      label: `Review ${jobs.jobs_saved} saved position${jobs.jobs_saved > 1 ? "s" : ""}`,
+      status: "active",
+      href: "/app/jobs",
+    });
+  } else if (input.analytics.job_engagement.jobs_viewed === 0) {
+    const meta = input.jobSearchActive;
+    if (meta) {
+      actions.push({
+        id: "job-search",
+        label: "Review job matches",
+        status: "active",
+        href: "/app/jobs",
+      });
+    }
   }
 
   return actions.slice(0, 6);

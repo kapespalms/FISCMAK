@@ -257,6 +257,7 @@ const LEGACY_PATH_MAP: Record<string, AppSection> = {
   "/app/activities": "objective",
   "/app/documents": "objective",
   "/app/goals": "plan",
+  "/app/jobs": "plan",
   "/app/studio": "output",
   "/app/mak": "dashboard",
 };
@@ -269,6 +270,7 @@ export function sectionFromPath(pathname: string): AppSection {
   if (pathname.startsWith("/app/objective")) return "objective";
   if (pathname.startsWith("/app/assessment")) return "assessment";
   if (pathname.startsWith("/app/plan")) return "plan";
+  if (pathname.startsWith("/app/jobs")) return "plan";
   if (pathname.startsWith("/app/output")) return "output";
 
   for (const [prefix, section] of Object.entries(LEGACY_PATH_MAP)) {

@@ -11,6 +11,7 @@ import {
   mergeEnrichmentIntoMetadata,
   runApiEnrichment,
 } from "@/lib/v2/api-enrichment";
+import { persistEnrichmentSnapshot } from "@/lib/v2/career-data-repo";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -88,11 +89,13 @@ export async function POST(request: Request) {
         email,
         {
           cv_uploaded: true,
-          tier2_complete: true,
           onboarding_metadata: updatedMeta as Record<string, unknown>,
         },
         demo,
       );
+      if (!demo) {
+        await persistEnrichmentSnapshot(user, email, snapshot);
+      }
       return snapshot;
     } catch (e) {
       console.error("API enrichment failed:", e);
@@ -114,7 +117,6 @@ export async function POST(request: Request) {
       uploaded_at: now,
     });
     state.user.cv_uploaded = true;
-    state.user.tier2_complete = true;
     const enrichment = await runEnrichmentAfterUpload();
     return jsonOk({
       document_id: docId,
@@ -150,7 +152,7 @@ export async function POST(request: Request) {
   if (error) return jsonOk({ error: "server_error", message: error.message }, 500);
   await supabase
     .from("app_users")
-    .update({ cv_uploaded: true, tier2_complete: true })
+    .update({ cv_uploaded: true })
     .eq("user_id", userId);
 
   const enrichment = document_type === "CV" ? await runEnrichmentAfterUpload() : null;

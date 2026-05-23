@@ -199,6 +199,7 @@ export type AnalyticsDashboard = {
     jobs_saved: number;
     average_match_score: number | null;
   };
+  job_search_active?: boolean;
   next_touchpoint: {
     number: number;
     category: string;

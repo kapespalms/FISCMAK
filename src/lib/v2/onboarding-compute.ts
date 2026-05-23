@@ -68,6 +68,8 @@ export type OnboardingMetadata = {
     message: string;
     priority: string;
   }>;
+  job_search_active?: boolean;
+  job_search_activated_at?: string;
   invisible_work_hours_by_category?: Partial<
     Record<import("@/lib/v2/invisible-work-taxonomy").InvisibleWorkCategory, number>
   >;

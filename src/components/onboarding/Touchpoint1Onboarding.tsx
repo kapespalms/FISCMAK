@@ -25,6 +25,8 @@ import {
 } from "@/lib/v2/document-upload";
 
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
+import { useAppShell } from "@/components/layout/AppShell";
+import { buildReconcileGreeting } from "@/lib/v2/reconcile-mak-helpers";
 
 type OnboardingStep = "welcome" | "profile" | "documents" | "reconcile" | "instruments";
 
@@ -61,6 +63,7 @@ const STEPS: { id: OnboardingStep; label: string }[] = [
 export function Touchpoint1Onboarding() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { startMakFlow } = useAppShell();
   const [step, setStep] = useState<OnboardingStep>("welcome");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -92,6 +95,8 @@ export function Touchpoint1Onboarding() {
       tier1_complete?: boolean;
       tier2_complete?: boolean;
       tier3_complete?: boolean;
+      cv_uploaded?: boolean;
+      pending_reconcile_count?: number;
     }) => {
       if (u.tier3_complete) {
         router.replace("/app/dashboard");
@@ -103,7 +108,9 @@ export function Touchpoint1Onboarding() {
         return;
       }
       if (!u.tier1_complete) setStep("welcome");
-      else if (!u.tier2_complete) setStep("documents");
+      else if (u.cv_uploaded && (u.pending_reconcile_count ?? 0) > 0 && !u.tier2_complete) {
+        setStep("reconcile");
+      } else if (!u.tier2_complete) setStep("documents");
       else setStep("instruments");
     },
     [router, searchParams],
@@ -590,9 +597,23 @@ export function Touchpoint1Onboarding() {
             ))}
           </ul>
 
-          <Button className="mt-6 w-full" onClick={submitReconciliation} disabled={loading}>
-            {loading ? "Saving…" : "Continue to self-assessment"}
-          </Button>
+          <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+            <Button
+              className="flex-1"
+              onClick={() =>
+                startMakFlow(
+                  "review",
+                  "/app/objective?tab=reconcile",
+                  buildReconcileGreeting({ reconciliation: reconcileItems.map((i) => ({ id: i.id, status: i.status })) }),
+                )
+              }
+            >
+              Review with Mak
+            </Button>
+            <Button className="flex-1" variant="secondary" onClick={submitReconciliation} disabled={loading}>
+              {loading ? "Saving…" : "Continue to self-assessment"}
+            </Button>
+          </div>
           {error && <p className="mt-3 text-sm text-fiscmak-red">{error}</p>}
         </Card>
       )}

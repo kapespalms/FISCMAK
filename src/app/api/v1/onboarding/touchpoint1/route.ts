@@ -44,6 +44,8 @@ export async function GET() {
     tier1_complete: user.tier1_complete,
     tier2_complete: user.tier2_complete,
     tier3_complete: user.tier3_complete,
+    cv_uploaded: user.cv_uploaded,
+    pending_reconcile_count: (meta.reconciliation ?? []).filter((r) => r.status === "pending").length,
     reconciliation: meta.reconciliation ?? [],
     instrument_progress: meta.instrument_answers?.length ?? 0,
   });

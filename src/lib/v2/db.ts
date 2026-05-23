@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { fetchJobEngagementFromDb } from "@/lib/v2/career-data-repo";
 import type {
   AnalyticsDashboard,
   AppUser,
@@ -175,11 +176,17 @@ export async function buildAnalyticsDashboard(
   const jobMatches = demo
     ? getServerDemo(user.user_id).jobMatches
     : [];
-  const saved = jobMatches.filter((j) => j.saved_at);
-  const avgMatch =
-    jobMatches.length > 0
-      ? jobMatches.reduce((s, j) => s + j.match_score, 0) / jobMatches.length
-      : null;
+  let jobEngagement = {
+    jobs_viewed: jobMatches.filter((j) => j.viewed_at).length,
+    jobs_saved: jobMatches.filter((j) => j.saved_at).length,
+    average_match_score:
+      jobMatches.length > 0
+        ? jobMatches.reduce((s, j) => s + j.match_score, 0) / jobMatches.length
+        : null,
+  };
+  if (!demo) {
+    jobEngagement = await fetchJobEngagementFromDb(user.user_id);
+  }
 
   const nextTp = completedTouchpoints < 7 ? completedTouchpoints + 1 : null;
   const tpMeta = nextTp ? TOUCHPOINT_META[nextTp] : null;
@@ -296,11 +303,8 @@ export async function buildAnalyticsDashboard(
       previous_score: prevBurnout,
       trend,
     },
-    job_engagement: {
-      jobs_viewed: jobMatches.length,
-      jobs_saved: saved.length,
-      average_match_score: avgMatch,
-    },
+    job_engagement: jobEngagement,
+    job_search_active: onboardingMeta.job_search_active ?? false,
     next_touchpoint: tpMeta
       ? {
           number: nextTp!,

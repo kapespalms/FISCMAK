@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -20,6 +21,7 @@ type Props = {
 
 export function PlanActivationPanel({ setting, level, rank, track, specialty }: Props) {
   const { startMakFlow } = useAppShell();
+  const router = useRouter();
 
   const academic = isAcademicContext({ setting, level })
     ? resolveAcademicProfile({ setting, level, rank, track })
@@ -29,12 +31,14 @@ export function PlanActivationPanel({ setting, level, rank, track, specialty }: 
     startMakFlow("plan", "/app/plan", buildSkillTranslationGreeting(defaultSkillTranslation()));
   }
 
-  function beginJobSearch() {
+  async function beginJobSearch() {
+    await fetch("/api/v1/jobs/activate", { method: "POST" });
     startMakFlow(
       "plan",
-      "/app/plan",
-      `Let's explore academic job search options for ${specialty ?? "your specialty"} at the ${rank ?? level ?? "current"} stage. What type of role are you considering — same institution, external academic, or hybrid/community?`,
+      "/app/jobs",
+      `Position search is active. I found matches aligned with ${specialty ?? "your specialty"} at the ${rank ?? level ?? "current"} stage. Which roles interest you most — same institution, external academic, or hybrid?`,
     );
+    router.push("/app/jobs");
   }
 
   return (
@@ -50,8 +54,8 @@ export function PlanActivationPanel({ setting, level, rank, track, specialty }: 
         <Button variant="secondary" onClick={beginSkillTranslation}>
           Translate skills to new track
         </Button>
-        <Button variant="secondary" onClick={beginJobSearch}>
-          Explore academic job search
+        <Button variant="secondary" onClick={() => void beginJobSearch()}>
+          Activate position search
         </Button>
       </div>
       {academic && (

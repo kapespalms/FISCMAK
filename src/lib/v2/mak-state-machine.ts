@@ -206,6 +206,7 @@ export type ResolveGlobalStateInput = {
   tier1Complete?: boolean;
   tier2Complete?: boolean;
   tier3Complete?: boolean;
+  cvUploaded?: boolean;
   goalsConfirmed?: boolean;
   section?: AppSection;
   goalModify?: boolean;
@@ -216,6 +217,7 @@ export type ResolveGlobalStateInput = {
   annualResetDue?: boolean;
   quarterlyReviewDue?: boolean;
   newObjectiveItems?: boolean;
+  pendingReconcile?: boolean;
 };
 
 export function resolveGlobalMakState(input: ResolveGlobalStateInput): GlobalMakState {
@@ -225,6 +227,8 @@ export function resolveGlobalMakState(input: ResolveGlobalStateInput): GlobalMak
     return input.section === "dashboard" ? "ONBOARDWELCOME" : "ONBOARDPROFILE";
   }
   if (!input.tier2Complete) {
+    if (input.pendingReconcile) return "ONBOARDRECONCILE";
+    if (input.cvUploaded && input.section === "objective") return "ONBOARDRECONCILE";
     if (input.section === "objective") return "ONBOARDUPLOAD";
     return "ONBOARDPROFILE";
   }

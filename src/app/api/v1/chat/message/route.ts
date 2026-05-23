@@ -17,6 +17,12 @@ import {
   nextInstrumentPrompt,
   processInstrumentTurn,
 } from "@/lib/v2/instrument-conversation-service";
+import {
+  buildReconcileGreeting,
+  buildReconcileMakSystemContext,
+  pendingReconciliationCount,
+  processReconcileTurn,
+} from "@/lib/v2/reconcile-mak-flow";
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
@@ -79,8 +85,31 @@ export async function POST(request: Request) {
   let touchpointComplete = false;
   let instrumentCaptured: string[] = [];
 
+  let reconcileCaptured = false;
+  let reconcileCompleteFlag = false;
+  let reconcileNextPrompt: string | undefined;
+
   if (user && message && message !== "__welcome__") {
-    if (user.tier2_complete && !user.tier3_complete) {
+    const metaForReconcile = getOnboardingMetadata(user);
+    const needsReconcile =
+      user.cv_uploaded &&
+      !user.tier2_complete &&
+      pendingReconciliationCount(metaForReconcile) > 0;
+
+    if (needsReconcile) {
+      const turn = await processReconcileTurn(
+        user,
+        auth.userId,
+        auth.demo,
+        auth.email,
+        message,
+      );
+      reconcileCaptured = turn.captured;
+      reconcileCompleteFlag = turn.complete;
+      reconcileNextPrompt = turn.nextPrompt;
+      pendingCount = turn.pendingCount;
+      touchpointComplete = turn.complete;
+    } else if (user.tier2_complete && !user.tier3_complete) {
       const inst = await processInstrumentTurn(user, auth.userId, auth.demo, message);
       instrumentCaptured = inst.captured;
       pendingCount = inst.pendingCluster ? 1 : 0;
@@ -257,15 +286,23 @@ export async function POST(request: Request) {
     tier1Complete: user?.tier1_complete,
     tier2Complete: user?.tier2_complete,
     tier3Complete: user?.tier3_complete,
+    cvUploaded: user?.cv_uploaded,
     goalsConfirmed: Boolean(onboardingMeta.goals_confirmed),
     section: chatSection,
     escalationState: escalationGlobalState,
     quarterlyPulseDue,
     annualResetDue: annualRefreshDue,
     quarterlyReviewDue: quarterlyPulseDue,
-    newObjectiveItems: (activeMeta.reconciliation ?? []).some(
-      (r: { status?: string }) => r.status === "pending",
-    ),
+    jobSearchActive: Boolean(metaParsed.job_search_active),
+    pendingReconcile:
+      Boolean(user?.cv_uploaded) &&
+      !user?.tier2_complete &&
+      pendingReconciliationCount(metaParsed) > 0,
+    newObjectiveItems:
+      user?.tier3_complete &&
+      (activeMeta.reconciliation ?? []).some(
+        (r: { status?: string }) => r.status === "pending",
+      ),
   });
 
   const chatState = resolveChatState({
@@ -281,8 +318,31 @@ export async function POST(request: Request) {
   let suggested_actions: { action: string; url: string }[] = [];
 
   if (message === "__welcome__" && user) {
-    response = buildWelcomeGreeting(user);
-    suggested_actions = buildOnboardingSuggestedActions();
+    const welcomeMeta = getOnboardingMetadata(user);
+    if (
+      user.cv_uploaded &&
+      !user.tier2_complete &&
+      pendingReconciliationCount(welcomeMeta) > 0
+    ) {
+      response = buildReconcileGreeting(welcomeMeta);
+      suggested_actions = [
+        { action: "Yes, mine", url: "" },
+        { action: "Not mine", url: "" },
+        { action: "Use form instead", url: "/app/onboarding?step=reconcile" },
+      ];
+    } else {
+      response = buildWelcomeGreeting(user);
+      suggested_actions = buildOnboardingSuggestedActions();
+    }
+  } else if (reconcileCaptured && reconcileNextPrompt) {
+    response = reconcileNextPrompt;
+    if (reconcileCompleteFlag) {
+      response += "\n\nReconciliation complete — let's continue with your self-assessment.";
+    }
+    suggested_actions = [
+      { action: "Continue assessment", url: "/app/onboarding?step=instruments" },
+      { action: "Use form instead", url: "/app/onboarding?step=reconcile" },
+    ];
   } else if (!apiKey) {
     response = demoMakReply(message, chatSection);
     if (escalation) {
@@ -296,6 +356,14 @@ export async function POST(request: Request) {
         url: a.url,
       }));
     } else if (onboarding) {
+      if (reconcileCaptured && reconcileNextPrompt) {
+        response = reconcileNextPrompt;
+        if (reconcileCompleteFlag) {
+          response += "\n\nReconciliation complete — let's continue with your self-assessment.";
+        }
+      } else if (reconcileCaptured) {
+        response += `\n\n(Got it — item reconciled. ${pendingCount} remaining.)`;
+      }
       if (instrumentCaptured.length > 0) {
         response += `\n\n(Got it — captured ${instrumentCaptured.length} assessment detail${instrumentCaptured.length > 1 ? "s" : ""}.)`;
       }
@@ -337,6 +405,7 @@ export async function POST(request: Request) {
       careerHealth ? `Career Health Score: ${careerHealth.career_health_score}/100` : "",
       annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
       quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
+      globalState === "ONBOARDRECONCILE" ? buildReconcileMakSystemContext(activeMeta) : "",
       user ? buildConversationalPrompt(user, pendingTp1, onboarding) : "",
     ]
       .filter(Boolean)
