@@ -310,7 +310,7 @@ export function MakPanel({
       )}
       <aside
         className={cn(
-          "flex shrink-0 flex-col overflow-hidden border-fiscmak-border bg-white transition-[width,transform] duration-200 ease-in-out",
+          "flex shrink-0 flex-col overflow-hidden border-cx-border bg-cx-white transition-[width,transform] duration-200 ease-in-out",
           isMobile
             ? cn(
                 "fixed inset-0 z-50 w-full border-r-0 shadow-xl",

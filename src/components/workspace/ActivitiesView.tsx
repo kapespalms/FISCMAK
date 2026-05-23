@@ -5,8 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { ENERGY_OPTIONS } from "@/lib/constants";
-import { fetchActivities, loadDemoActivities, saveDemoActivities } from "@/lib/activities-storage";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { fetchActivities } from "@/lib/activities-storage";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { ClassificationResult } from "@/lib/types/database";
 
@@ -19,7 +18,6 @@ export function ActivitiesView() {
   const [lastClassification, setLastClassification] =
     useState<ClassificationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const supabaseConfigured = isSupabaseConfigured();
 
   const loadActivities = useCallback(async () => {
     const data = await fetchActivities();
@@ -42,67 +40,32 @@ export function ActivitiesView() {
     setError(null);
 
     try {
-      const classifyRes = await fetch("/api/classify/activity", {
+      const res = await fetch("/api/v1/activities", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: text.trim() }),
+        body: JSON.stringify({ text: text.trim(), energy_valence: energy }),
       });
-      const classification: ClassificationResult = await classifyRes.json();
-      setLastClassification(classification);
-
-      if (!supabaseConfigured) {
-        const entry: ActivityEntry = {
-          id: crypto.randomUUID(),
-          user_id: "demo",
-          created_at: new Date().toISOString(),
-          activity_date: new Date().toISOString().slice(0, 10),
-          raw_text: text.trim(),
-          input_source: "text",
-          energy_valence: energy,
-          primary_domain: classification.primary_domain,
-          primary_track: classification.primary_track,
-          primary_domain_confidence: classification.primary_domain_confidence,
-          primary_track_confidence: classification.primary_track_confidence,
-          scope: classification.scope,
-          evidence_strength: classification.evidence_strength,
-          confidence_score: classification.confidence_score,
-        };
-        const next = [entry, ...loadDemoActivities()];
-        saveDemoActivities(next);
-        setActivities(next);
-        setText("");
-        setSaving(false);
-        return;
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message ?? "Failed to save activity");
       }
 
-      const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (!user) throw new Error("Not signed in");
-
-      const { error: insertError } = await supabase
-        .from("activity_entries")
-        .insert({
-          user_id: user.id,
-          raw_text: text.trim(),
-          input_source: "text",
-          activity_date: new Date().toISOString().slice(0, 10),
-          energy_valence: energy,
-          primary_domain: classification.primary_domain,
-          primary_track: classification.primary_track,
-          primary_domain_confidence: classification.primary_domain_confidence,
-          primary_track_confidence: classification.primary_track_confidence,
-          scope: classification.scope,
-          evidence_strength: classification.evidence_strength,
-          confidence_score: classification.confidence_score,
-          mak_rationale: classification.rationale,
+      if (data.activity) {
+        setLastClassification({
+          primary_domain: data.activity.primary_domain ?? "",
+          primary_track: data.activity.primary_track ?? "",
+          primary_domain_confidence: data.activity.primary_domain_confidence ?? 0,
+          primary_track_confidence: data.activity.primary_track_confidence ?? 0,
+          scope: data.activity.scope ?? "",
+          evidence_strength: data.activity.evidence_strength ?? "",
+          confidence_score: data.activity.confidence_score ?? 0,
+          rationale: "",
         });
-
-      if (insertError) throw insertError;
+      }
 
       setText("");
       await loadActivities();
+      window.dispatchEvent(new CustomEvent("fiscmak:activity-logged"));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to save activity");
     } finally {
@@ -127,30 +90,30 @@ export function ActivitiesView() {
   return (
     <div className="space-y-6">
       {error && (
-        <p className="rounded-md bg-red-50 px-4 py-3 text-sm text-fiscmak-red">
+        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
           {error}
         </p>
       )}
 
       <Card>
-        <h2 className="font-semibold">Log activity</h2>
-        <p className="mt-1 text-sm text-fiscmak-muted">
-          Capture career evidence — or tell Mak in the panel
-          {!supabaseConfigured && " · saved in browser (demo)"}
+        <p className="text-cx-label uppercase">Activity log</p>
+        <h2 className="mt-1 font-semibold text-cx-text">Log career evidence</h2>
+        <p className="mt-1 text-cx-body">
+          Capture work that may not show on your CV — or tell Mak from the dashboard.
         </p>
         <form onSubmit={addActivity} className="mt-4 space-y-4">
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={4}
-            className="w-full rounded-md border border-fiscmak-border p-4 text-base focus:border-fiscmak-green"
+            className="cx-field w-full"
             placeholder="Something meaningful that might not show up on a CV…"
             aria-label="Activity description"
           />
           <select
             value={energy}
             onChange={(e) => setEnergy(e.target.value)}
-            className="min-h-11 w-full rounded-md border border-fiscmak-border px-4"
+            className="cx-field min-h-11 w-full"
             aria-label="Energy level"
           >
             {ENERGY_OPTIONS.map((o) => (
@@ -165,11 +128,10 @@ export function ActivitiesView() {
         </form>
 
         {lastClassification && (
-          <Card className="mt-4 bg-fiscmak-green-light p-4">
-            <p className="text-sm font-semibold">Classification</p>
-            <p className="mt-1 text-sm">
-              {lastClassification.primary_domain} ×{" "}
-              {lastClassification.primary_track} (
+          <Card accent="green" className="mt-4">
+            <p className="text-cx-label uppercase">Classification</p>
+            <p className="mt-1 text-cx-body">
+              {lastClassification.primary_domain} × {lastClassification.primary_track} (
               {Math.round(lastClassification.confidence_score * 100)}% confidence)
             </p>
           </Card>
@@ -177,23 +139,24 @@ export function ActivitiesView() {
       </Card>
 
       <div className="space-y-4">
-        <h2 className="font-semibold">Recent activities</h2>
-        {loading && <p className="text-sm text-fiscmak-muted">Loading…</p>}
+        <h2 className="font-semibold text-cx-text">Recent activities</h2>
+        {loading && <p className="text-sm text-cx-text-secondary">Loading…</p>}
         {!loading && activities.length === 0 && (
-          <p className="text-sm text-fiscmak-muted">
+          <p className="text-sm text-cx-text-secondary">
             No activities yet. Log your first one above or through Mak.
           </p>
         )}
         {activities.map((a) => (
           <Card key={a.id} accent={energyAccent(a.energy_valence)}>
-            <p className="text-sm">{a.raw_text}</p>
+            <p className="text-sm text-cx-text">{a.raw_text}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               <Badge energy={badgeEnergy(a.energy_valence)}>
                 {a.energy_valence?.replace(/_/g, " ") ?? "—"}
               </Badge>
               {a.primary_domain && <Badge>{a.primary_domain}</Badge>}
               {a.primary_track && <Badge>{a.primary_track}</Badge>}
-              <span className="text-xs text-fiscmak-muted">{a.activity_date}</span>
+              {a.input_source === "mak_capture" && <Badge>Mak</Badge>}
+              <span className="text-xs text-cx-text-secondary">{a.activity_date}</span>
             </div>
           </Card>
         ))}

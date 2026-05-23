@@ -15,9 +15,9 @@ type DashboardMetricBarProps = {
 
 function barColor(status?: MetricStatus): string {
   if (status === "strong") return "bg-fm-strong";
-  if (status === "needs_attention") return "bg-fm-attention";
+  if (status === "needs_attention") return "bg-cx-attention";
   if (status === "developing") return "bg-fm-developing";
-  return "bg-fm-neutral";
+  return "bg-cx-border";
 }
 
 function Sparkline({ values, trend }: { values: number[]; trend?: "up" | "flat" | "down" }) {
@@ -47,9 +47,9 @@ export function DashboardMetricBar({
   sparkline,
 }: DashboardMetricBarProps) {
   return (
-    <div className="group rounded-lg border border-fiscmak-border/60 bg-fm-background/50 px-3 py-2">
+    <div className="group rounded-xl border border-cx-border bg-cx-cream/40 px-3 py-2">
       <div className="flex items-start justify-between gap-2">
-        <p className="text-data-label">{label}</p>
+        <p className="text-cx-label">{label}</p>
         <div className="flex items-center gap-2">
           {sparkline && sparkline.length > 1 && (
             <span className="hidden group-hover:inline sm:inline">
@@ -59,8 +59,8 @@ export function DashboardMetricBar({
           {status && <StatusChip status={status} />}
         </div>
       </div>
-      <p className="mt-1 text-sm text-fiscmak-ink">{summary}</p>
-      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-fiscmak-subtle">
+      <p className="mt-1 text-sm text-cx-text">{summary}</p>
+      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-cx-border/60">
         <div
           className={cn("h-full rounded-full transition-all", barColor(status))}
           style={{ width: `${Math.min(100, Math.max(0, percent))}%` }}

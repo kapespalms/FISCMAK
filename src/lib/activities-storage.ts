@@ -39,6 +39,18 @@ export function saveDemoActivities(items: ActivityEntry[]) {
 }
 
 export async function fetchActivities(): Promise<ActivityEntry[]> {
+  if (typeof window !== "undefined") {
+    try {
+      const res = await fetch("/api/v1/activities");
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data.activities)) return data.activities as ActivityEntry[];
+      }
+    } catch {
+      /* fall through to legacy paths */
+    }
+  }
+
   const { createClient, isSupabaseConfigured } = await import(
     "@/lib/supabase/client"
   );

@@ -25,19 +25,26 @@ export function LatticeView() {
   }, []);
 
   useEffect(() => {
-    load();
+    void load();
+    const onUpdate = () => void load();
+    window.addEventListener("fiscmak:activity-logged", onUpdate);
+    window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
+    return () => {
+      window.removeEventListener("fiscmak:activity-logged", onUpdate);
+      window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
+    };
   }, [load]);
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-fiscmak-muted">
+      <p className="text-sm text-cx-text-secondary">
         8 domains × 8 tracks
         {usingLive
           ? " · Live from your activities"
           : " · Demo data (log activities to populate)"}
       </p>
       {loading ? (
-        <p className="text-fiscmak-muted">Loading lattice…</p>
+        <p className="text-cx-text-secondary">Loading lattice…</p>
       ) : (
         <LatticeGrid cells={cells} />
       )}

@@ -78,6 +78,7 @@ export async function captureActivityFromMak(params: {
   specialty?: string | null;
   careerPhase?: string | null;
   energyValence?: string | null;
+  inputSource?: string;
 }): Promise<ActivityEntry> {
   const classification = await classifyActivityText(
     params.text,
@@ -91,7 +92,7 @@ export async function captureActivityFromMak(params: {
     created_at: new Date().toISOString(),
     activity_date: new Date().toISOString().slice(0, 10),
     raw_text: params.text.trim(),
-    input_source: "mak_capture",
+    input_source: params.inputSource ?? "mak_capture",
     energy_valence: params.energyValence ?? null,
     primary_domain: classification.primary_domain,
     primary_track: classification.primary_track,
