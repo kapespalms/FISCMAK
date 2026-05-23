@@ -26,7 +26,11 @@ import { useAppShell } from "@/components/layout/AppShell";
 
 type MakPanelProps = {
   open: boolean;
-  pendingFlow: { intent: MakFlowIntent; greeting: string; annualRefresh?: boolean } | null;
+  pendingFlow: {
+    intent: MakFlowIntent;
+    greeting: string;
+    touchpoint?: import("@/components/layout/AppShell").MakFlowTouchpoint;
+  } | null;
   flowNonce: number;
   onFlowHandled: () => void;
   onClose: () => void;
@@ -67,7 +71,9 @@ export function MakPanel({
   const [recording, setRecording] = useState(false);
   const [suggestedActions, setSuggestedActions] = useState<{ action: string; url: string }[]>([]);
   const [activeEscalation, setActiveEscalation] = useState<MakEscalation | null>(null);
-  const [annualRefreshMode, setAnnualRefreshMode] = useState(false);
+  const [touchpointMode, setTouchpointMode] = useState<
+    import("@/components/layout/AppShell").MakFlowTouchpoint | null
+  >(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
 
@@ -150,7 +156,7 @@ export function MakPanel({
     }
     const next = resetConversationGreeting(section, pendingFlow.greeting);
     setMessages(next);
-    setAnnualRefreshMode(Boolean(pendingFlow.annualRefresh));
+    setTouchpointMode(pendingFlow.touchpoint ?? null);
     setInput("");
     onFlowHandled();
   }, [flowNonce, pendingFlow, section, onFlowHandled]);
@@ -195,12 +201,17 @@ export function MakPanel({
             section,
             touchpoint_number: section === "assessment" ? 3 : 1,
             onboarding: onboardingActive,
-            annual_refresh: annualRefreshMode,
+            annual_refresh: touchpointMode === "annual",
+            quarterly_pulse: touchpointMode === "quarterly",
           },
         }),
       });
       const data = await res.json();
       setSuggestedActions(data.suggested_actions ?? []);
+      if (data.touchpoint_submitted) {
+        setTouchpointMode(null);
+        window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
+      }
       if (data.escalation?.trigger) {
         setActiveEscalation({
           trigger: data.escalation.trigger,

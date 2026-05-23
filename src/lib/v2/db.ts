@@ -32,6 +32,7 @@ import {
 import { settingDocumentLabels } from "@/lib/v2/dashboard-architecture";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
 import { buildEngagementNotifications } from "@/lib/v2/engagement-tracking";
+import { buildCareerVaultModel } from "@/lib/v2/career-vault";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 
 export async function fetchAssessments(
@@ -256,6 +257,12 @@ export async function buildAnalyticsDashboard(
     enrichment: onboardingMeta.enrichment_snapshot ?? null,
   });
 
+  const career_vault = buildCareerVaultModel({
+    setting: user.practice_setting,
+    enrichment: onboardingMeta.enrichment_snapshot ?? null,
+    objective: objective_summary,
+  });
+
   return {
     career_readiness_index: careerHealth?.career_health_score ?? cri,
     career_health: careerHealth,
@@ -269,6 +276,7 @@ export async function buildAnalyticsDashboard(
     metric_history,
     dashboard_lattice,
     objective_summary,
+    career_vault,
     document_cards,
     goal_milestone_history: onboardingMeta.goal_milestone_history ?? [],
     stalled_goal_title: onboardingMeta.stalled_goal_title ?? null,

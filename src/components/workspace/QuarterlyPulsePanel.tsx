@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Props) {
-  const [open, setOpen] = useState(status.due);
+  const [showFallback, setShowFallback] = useState(false);
   const [exhaustion, setExhaustion] = useState("");
   const [depersonalization, setDepersonalization] = useState("");
   const [invisibleHours, setInvisibleHours] = useState("");
@@ -25,7 +25,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
   const [summary, setSummary] = useState<string | null>(null);
   const [error, setError] = useState("");
 
-  if (!status.due && !open) return null;
+  if (!status.due && !summary) return null;
 
   async function submit() {
     setLoading(true);
@@ -65,7 +65,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       <Card accent="green">
         <p className="text-xs font-semibold uppercase text-fiscmak-muted">{status.quarter_label} pulse complete</p>
         <pre className="mt-3 whitespace-pre-wrap text-sm">{summary}</pre>
-        <Button variant="secondary" className="mt-4" onClick={() => setOpen(false)}>
+        <Button variant="secondary" className="mt-4" onClick={() => setShowFallback(false)}>
           Done
         </Button>
       </Card>
@@ -77,7 +77,8 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       <p className="text-xs font-semibold uppercase text-fiscmak-muted">Touchpoint 2 · Quarterly pulse · ~5–8 min</p>
       <h2 className="mt-1 text-lg font-bold">{status.quarter_label} check-in</h2>
       <p className="mt-2 text-sm text-fiscmak-muted">
-        Quick update on well-being, unrecognized work, and career momentum — plain language, no jargon.
+        Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your
+        dashboard and Career Data vault automatically.
       </p>
       {status.days_since_last != null && (
         <p className="mt-1 text-xs text-fiscmak-muted">
@@ -85,13 +86,13 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
         </p>
       )}
 
-      {!open ? (
+      {!showFallback ? (
         <div className="mt-4 flex flex-wrap gap-2">
           {onBeginWithMak && (
             <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
           )}
-          <Button variant="secondary" onClick={() => setOpen(true)}>
-            Quick form (fallback)
+          <Button variant="secondary" onClick={() => setShowFallback(true)}>
+            Use form instead
           </Button>
         </div>
       ) : (
@@ -166,8 +167,8 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
             <Button onClick={submit} disabled={loading}>
               {loading ? "Saving…" : "Submit pulse"}
             </Button>
-            <Button variant="secondary" onClick={() => setOpen(false)}>
-              Later
+            <Button variant="secondary" onClick={() => setShowFallback(false)}>
+              Back to Mak
             </Button>
           </div>
           {error && <p className="text-sm text-fiscmak-red">{error}</p>}

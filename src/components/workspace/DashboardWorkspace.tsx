@@ -105,6 +105,14 @@ export function DashboardWorkspace() {
       });
   }, [welcome, startMakFlow]);
 
+  useEffect(() => {
+    const onTouchpointComplete = () => {
+      void load();
+    };
+    window.addEventListener("fiscmak:touchpoint-complete", onTouchpointComplete);
+    return () => window.removeEventListener("fiscmak:touchpoint-complete", onTouchpointComplete);
+  }, [load]);
+
   function handleBandOpen(intent: "discuss" | "review" | "assess" | "plan" | "create", href: string) {
     startMakFlow(intent, href);
   }
@@ -119,7 +127,7 @@ export function DashboardWorkspace() {
         "discuss",
         href,
         prompt ?? buildCareerDirectionAnnualGreeting(name),
-        true,
+        "annual",
       );
       if (href) router.push(href);
     });
@@ -134,7 +142,7 @@ export function DashboardWorkspace() {
         "discuss",
         "/app/subjective",
         prompt ?? "Let's begin your quarterly check-in. How has your well-being been this quarter?",
-        true,
+        "quarterly",
       );
     });
   }

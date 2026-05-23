@@ -25,6 +25,8 @@ import { IconSidebar } from "@/components/layout/IconSidebar";
 import { MakPanel } from "@/components/layout/MakPanel";
 import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
 
+export type MakFlowTouchpoint = "annual" | "quarterly";
+
 type AppShellContextValue = {
   section: ReturnType<typeof sectionFromPath>;
   makOpen: boolean;
@@ -37,7 +39,7 @@ type AppShellContextValue = {
     intent: MakFlowIntent,
     navigateTo?: string,
     customGreeting?: string,
-    annualRefresh?: boolean,
+    touchpoint?: MakFlowTouchpoint,
   ) => void;
   openMakWithMessage: (message?: string, navigateTo?: string) => void;
   displayName: string | null;
@@ -67,7 +69,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [pendingFlow, setPendingFlow] = useState<{
     intent: MakFlowIntent;
     greeting: string;
-    annualRefresh?: boolean;
+    touchpoint?: MakFlowTouchpoint;
   } | null>(null);
 
   useEffect(() => {
@@ -113,10 +115,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       intent: MakFlowIntent,
       navigateTo?: string,
       customGreeting?: string,
-      annualRefresh?: boolean,
+      touchpoint?: MakFlowTouchpoint,
     ) => {
       const greeting = customGreeting ?? MAK_FLOW_GREETINGS[intent];
-      setPendingFlow({ intent, greeting, annualRefresh });
+      setPendingFlow({ intent, greeting, touchpoint });
       setFlowNonce((n) => n + 1);
       setMakOpen(true);
       if (navigateTo) router.push(navigateTo);

@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props) {
-  const [open, setOpen] = useState(status.due);
+  const [showFallback, setShowFallback] = useState(false);
   const [careerObjective, setCareerObjective] = useState("");
   const [trackEnergy, setTrackEnergy] = useState("");
   const [invisibleHours, setInvisibleHours] = useState("");
@@ -23,7 +23,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
   const [summary, setSummary] = useState<string | null>(null);
   const [error, setError] = useState("");
 
-  if (!status.due && !open) return null;
+  if (!status.due && !summary) return null;
 
   async function submit() {
     setLoading(true);
@@ -83,7 +83,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
           {status.year} annual refresh complete
         </p>
         <pre className="mt-3 whitespace-pre-wrap text-sm">{summary}</pre>
-        <Button variant="secondary" className="mt-4" onClick={() => setOpen(false)}>
+        <Button variant="secondary" className="mt-4" onClick={() => setShowFallback(false)}>
           Done
         </Button>
       </Card>
@@ -97,8 +97,9 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
       </p>
       <h2 className="mt-1 text-lg font-bold">{status.year} annual career refresh</h2>
       <p className="mt-2 text-sm text-fiscmak-muted">
-        Reconfirm career direction, work engagement, task burden, and goals. API enrichment runs
-        automatically after submission.
+        Coach Mak guides seven modules — career direction, engagement, well-being, task burden,
+        unrecognized work, Career Data refresh, and goal reset. Enrichment runs automatically when
+        you finish.
       </p>
       {status.days_since_last != null && (
         <p className="mt-1 text-xs text-fiscmak-muted">
@@ -106,65 +107,69 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
         </p>
       )}
 
-      <div className="mt-4 space-y-3">
-        <label className="block text-sm">
-          <span className="font-medium">3-year career objective</span>
-          <input
-            className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2 text-sm"
-            value={careerObjective}
-            onChange={(e) => setCareerObjective(e.target.value)}
-            placeholder="e.g., Program Director within 3 years"
-          />
-        </label>
-        <label className="block text-sm">
-          <span className="font-medium">Track energy (1–10)</span>
-          <input
-            type="number"
-            min={1}
-            max={10}
-            className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2 text-sm"
-            value={trackEnergy}
-            onChange={(e) => setTrackEnergy(e.target.value)}
-          />
-        </label>
-        <label className="block text-sm">
-          <span className="font-medium">Unrecognized work (hrs/week)</span>
-          <input
-            type="number"
-            min={0}
-            className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2 text-sm"
-            value={invisibleHours}
-            onChange={(e) => setInvisibleHours(e.target.value)}
-          />
-        </label>
-        <label className="block text-sm">
-          <span className="font-medium">Goal review summary</span>
-          <input
-            className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2 text-sm"
-            value={goalReview}
-            onChange={(e) => setGoalReview(e.target.value)}
-            placeholder="Continue all 3 goals / modify sustainability goal"
-          />
-        </label>
-      </div>
-
-      {error && <p className="mt-3 text-sm text-fiscmak-red">{error}</p>}
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {onBeginWithMak && (
-          <Button variant="secondary" onClick={onBeginWithMak}>
-            Continue with Coach Mak
+      {!showFallback ? (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {onBeginWithMak && (
+            <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
+          )}
+          <Button variant="secondary" onClick={() => setShowFallback(true)}>
+            Use form instead
           </Button>
-        )}
-        <Button onClick={() => void submit()} disabled={loading}>
-          {loading ? "Saving…" : "Complete annual refresh"}
-        </Button>
-        {!status.due && (
-          <Button variant="secondary" onClick={() => setOpen(false)}>
-            Dismiss
-          </Button>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="mt-4 space-y-3">
+          <label className="block text-sm">
+            <span className="font-semibold">3-year career objective</span>
+            <textarea
+              value={careerObjective}
+              onChange={(e) => setCareerObjective(e.target.value)}
+              rows={2}
+              placeholder="e.g., Program Director within 3 years"
+              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+            />
+          </label>
+          <label className="block text-sm">
+            <span className="font-semibold">Track energy (1–10)</span>
+            <input
+              type="number"
+              min={1}
+              max={10}
+              value={trackEnergy}
+              onChange={(e) => setTrackEnergy(e.target.value)}
+              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+            />
+          </label>
+          <label className="block text-sm">
+            <span className="font-semibold">Unrecognized work (hours/week)</span>
+            <input
+              type="number"
+              min={0}
+              value={invisibleHours}
+              onChange={(e) => setInvisibleHours(e.target.value)}
+              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+            />
+          </label>
+          <label className="block text-sm">
+            <span className="font-semibold">Goal review summary</span>
+            <textarea
+              value={goalReview}
+              onChange={(e) => setGoalReview(e.target.value)}
+              rows={2}
+              placeholder="Continue all 3 goals / modify sustainability goal"
+              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+            />
+          </label>
+          <div className="flex gap-2">
+            <Button onClick={submit} disabled={loading}>
+              {loading ? "Saving…" : "Submit annual refresh"}
+            </Button>
+            <Button variant="secondary" onClick={() => setShowFallback(false)}>
+              Back to Mak
+            </Button>
+          </div>
+          {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+        </div>
+      )}
     </Card>
   );
 }

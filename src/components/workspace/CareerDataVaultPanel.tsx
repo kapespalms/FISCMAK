@@ -14,16 +14,6 @@ type ProfileMeta = {
   primary_career_track?: string | null;
 };
 
-const VAULT_SECTIONS = [
-  { key: "publications", label: "Publications", icon: "📄" },
-  { key: "grants", label: "Grants", icon: "💰" },
-  { key: "teaching", label: "Teaching", icon: "🎓" },
-  { key: "committees", label: "Committees & Service", icon: "🏛" },
-  { key: "presentations", label: "Presentations", icon: "🎤" },
-  { key: "awards", label: "Awards", icon: "🏆" },
-  { key: "certifications", label: "Certifications", icon: "✓" },
-] as const;
-
 export function CareerDataVaultPanel() {
   const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
   const [profile, setProfile] = useState<ProfileMeta>({});
@@ -44,12 +34,16 @@ export function CareerDataVaultPanel() {
 
   useEffect(() => {
     void load();
+    const onUpdate = () => void load();
+    window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
+    return () => window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
   }, [load]);
 
   if (loading) {
     return <p className="text-sm text-fiscmak-muted">Loading Career Data vault…</p>;
   }
 
+  const vault = analytics?.career_vault;
   const academic = isAcademicContext({
     setting: profile.practice_setting,
     level: profile.career_stage,
@@ -62,7 +56,16 @@ export function CareerDataVaultPanel() {
       })
     : null;
 
-  const objective = analytics?.objective_summary;
+  if (!vault?.sections.length) {
+    return (
+      <Card>
+        <p className="text-sm text-fiscmak-muted">
+          Upload a CV and run enrichment to populate your Career Data vault from OpenAlex, NIH
+          RePORTER, and CV parse.
+        </p>
+      </Card>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -71,47 +74,50 @@ export function CareerDataVaultPanel() {
         <h2 className="mt-1 text-lg font-bold">
           {academic?.objectiveLead ?? "Verified career record"}
         </h2>
-        <p className="mt-2 text-sm text-fiscmak-muted">
-          {objective?.vaultSummary ??
-            "Upload documents and run enrichment to populate your vault."}
-        </p>
-        {objective?.changesSinceQuarter && (
-          <p className="mt-2 text-sm text-fm-strong">{objective.changesSinceQuarter}</p>
+        <p className="mt-2 text-sm font-medium text-fiscmak-ink">{vault.summary}</p>
+        {vault.changes_since_quarter && (
+          <p className="mt-2 text-sm text-fm-strong">{vault.changes_since_quarter}</p>
+        )}
+        <div className="mt-3 flex flex-wrap gap-2 text-xs text-fiscmak-muted">
+          {vault.sources.map((s) => (
+            <Badge key={s}>{s}</Badge>
+          ))}
+          {vault.last_enrichment_at && (
+            <span>Last enriched {new Date(vault.last_enrichment_at).toLocaleDateString()}</span>
+          )}
+          {vault.citations_total != null && (
+            <span>{vault.citations_total.toLocaleString()} citations indexed</span>
+          )}
+        </div>
+        {vault.pending_review > 0 && (
+          <p className="mt-2 text-sm text-fm-developing">
+            {vault.pending_review} item{vault.pending_review > 1 ? "s" : ""} pending review in
+            Reconcile tab
+          </p>
         )}
       </Card>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {VAULT_SECTIONS.map(({ key, label, icon }) => {
-          const count =
-            key === "publications"
-              ? 38
-              : key === "grants"
-                ? 3
-                : key === "teaching"
-                  ? 12
-                  : key === "committees"
-                    ? 6
-                    : key === "presentations"
-                      ? 24
-                      : key === "awards"
-                        ? 5
-                        : 2;
-          return (
-            <Card key={key}>
-              <div className="flex items-start justify-between gap-2">
-                <span className="text-xl" aria-hidden>
-                  {icon}
-                </span>
-                <Badge>{count}</Badge>
-              </div>
-              <p className="mt-2 font-semibold">{label}</p>
-              <p className="mt-1 text-xs text-fiscmak-muted">
-                Verified from CV parse + API enrichment
-              </p>
-            </Card>
-          );
-        })}
+        {vault.sections.map(({ id, label, count }) => (
+          <Card key={id}>
+            <div className="flex items-start justify-between gap-2">
+              <p className="font-semibold">{label}</p>
+              <Badge>{count}</Badge>
+            </div>
+            <p className="mt-1 text-xs text-fiscmak-muted">Verified from enrichment + CV parse</p>
+          </Card>
+        ))}
       </div>
+
+      {(vault.npi_verified || vault.orcid) && (
+        <Card>
+          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Identifiers</p>
+          <ul className="mt-2 space-y-1 text-sm">
+            {vault.npi_verified && <li>NPI verified via NPPES</li>}
+            {vault.orcid && <li>ORCID: {vault.orcid}</li>}
+          </ul>
+        </Card>
+      )}
 
       {academic && (
         <Card>

@@ -87,7 +87,7 @@ export function SubjectiveWorkspace() {
                   "discuss",
                   undefined,
                   prompt ?? buildCareerDirectionAnnualGreeting(name),
-                  true,
+                  "annual",
                 );
               });
             } else {

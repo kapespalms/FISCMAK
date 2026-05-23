@@ -158,6 +158,7 @@ import type {
 import type { GoalMilestoneQuarterSnapshot } from "@/lib/v2/goal-milestone-tracking";
 import type { DashboardDocumentCard } from "@/lib/v2/dashboard-data";
 
+import type { CareerVaultModel } from "@/lib/v2/career-vault";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 
 export type AnalyticsDashboard = {
@@ -173,6 +174,7 @@ export type AnalyticsDashboard = {
   metric_history: MetricHistorySeries;
   dashboard_lattice: DashboardLatticeCell[];
   objective_summary: ObjectiveBandSummary;
+  career_vault: CareerVaultModel;
   document_cards: DashboardDocumentCard[];
   goal_milestone_history: GoalMilestoneQuarterSnapshot[];
   stalled_goal_title: string | null;

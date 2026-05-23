@@ -58,6 +58,11 @@ export type OnboardingMetadata = {
   quarterly_pulse_session?: import("@/lib/v2/quarterly-mak-flow").QuarterlyPulseSession;
   goals_confirmed?: boolean;
   goals_confirmed_at?: string;
+  touchpoint_session_mode?: "quarterly" | "annual";
+  touchpoint_session_answers?: Array<
+    | import("@/lib/v2/quarterly-pulse").PulseAnswer
+    | import("@/lib/v2/annual-refresh").AnnualRefreshAnswer
+  >;
   invisible_work_recommendations?: Array<{
     goalType: string;
     message: string;

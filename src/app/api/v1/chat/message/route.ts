@@ -21,21 +21,15 @@ import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onb
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
 import {
-  advanceAnnualRefreshSession,
   buildAnnualMakSystemContext,
-  buildAnnualModulePrompt,
-  currentAnnualModule,
   initAnnualRefreshSession,
-  isAnnualModuleAdvanceMessage,
 } from "@/lib/v2/annual-mak-flow";
 import {
-  advanceQuarterlyPulseSession,
   buildQuarterlyMakSystemContext,
-  buildQuarterlyModulePrompt,
-  currentQuarterlyModule,
   initQuarterlyPulseSession,
-  isQuarterlyModuleAdvanceMessage,
 } from "@/lib/v2/quarterly-mak-flow";
+import { processAnnualMakTurn, processQuarterlyMakTurn } from "@/lib/v2/touchpoint-mak-orchestrator";
+import type { TouchpointSubmitResult } from "@/lib/v2/touchpoint-submit";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 import {
@@ -160,7 +154,11 @@ export async function POST(request: Request) {
   );
 
   if (user && context?.annual_refresh && !activeMeta.annual_refresh_session) {
-    activeMeta = initAnnualRefreshSession(activeMeta);
+    activeMeta = {
+      ...initAnnualRefreshSession(activeMeta),
+      touchpoint_session_mode: "annual",
+      touchpoint_session_answers: [],
+    };
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -170,7 +168,11 @@ export async function POST(request: Request) {
   }
 
   if (user && context?.quarterly_pulse && !activeMeta.quarterly_pulse_session) {
-    activeMeta = initQuarterlyPulseSession(activeMeta);
+    activeMeta = {
+      ...initQuarterlyPulseSession(activeMeta),
+      touchpoint_session_mode: "quarterly",
+      touchpoint_session_answers: [],
+    };
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -178,38 +180,59 @@ export async function POST(request: Request) {
       auth.demo,
     );
   }
+
+  let touchpointSubmitted: TouchpointSubmitResult | null = null;
+  let touchpointNextPrompt: string | null = null;
 
   if (
     user &&
     message &&
     message !== "__welcome__" &&
     quarterlySessionActive &&
-    isQuarterlyModuleAdvanceMessage(message)
+    !annualSessionActive
   ) {
-    activeMeta = advanceQuarterlyPulseSession(activeMeta);
-    await upsertAppUser(
-      auth.userId,
-      auth.email,
-      { onboarding_metadata: activeMeta as Record<string, unknown> },
-      auth.demo,
-    );
+    const turn = await processQuarterlyMakTurn({
+      message,
+      meta: activeMeta,
+      userId: auth.userId,
+      email: auth.email,
+      demo: auth.demo,
+      user,
+      setting: user.practice_setting,
+    });
+    activeMeta = turn.meta;
+    touchpointSubmitted = turn.submitted;
+    touchpointNextPrompt = turn.nextPrompt;
+    if (!turn.submitted) {
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+  } else if (user && message && message !== "__welcome__" && annualSessionActive) {
+    const turn = await processAnnualMakTurn({
+      message,
+      meta: activeMeta,
+      userId: auth.userId,
+      email: auth.email,
+      demo: auth.demo,
+      user,
+    });
+    activeMeta = turn.meta;
+    touchpointSubmitted = turn.submitted;
+    touchpointNextPrompt = turn.nextPrompt;
+    if (!turn.submitted) {
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
   }
 
-  if (
-    user &&
-    message &&
-    message !== "__welcome__" &&
-    annualSessionActive &&
-    isAnnualModuleAdvanceMessage(message)
-  ) {
-    activeMeta = advanceAnnualRefreshSession(activeMeta);
-    await upsertAppUser(
-      auth.userId,
-      auth.email,
-      { onboarding_metadata: activeMeta as Record<string, unknown> },
-      auth.demo,
-    );
-  }
   const escalationInput = extractEscalationInputFromMetadata(
     message,
     activeMeta as Record<string, unknown>,
@@ -287,12 +310,14 @@ export async function POST(request: Request) {
       suggested_actions = buildOnboardingSuggestedActions();
     } else {
       suggested_actions =
-        annualSessionActive && currentAnnualModule(activeMeta)
-          ? [
-              { action: "Continue to next module", url: "" },
-              { action: "Review goals", url: "/app/plan" },
-            ]
-          : [{ action: "Begin quarterly assessment", url: "/app/subjective" }];
+        touchpointSubmitted
+          ? [{ action: "View updated dashboard", url: "/app/dashboard" }]
+          : annualSessionActive || quarterlySessionActive
+            ? [
+                { action: "Continue to next module", url: "" },
+                { action: "Review goals", url: "/app/plan" },
+              ]
+            : [{ action: "Begin quarterly check-in", url: "/app/dashboard" }];
     }
   } else {
     const contextBlock = [
@@ -371,7 +396,7 @@ export async function POST(request: Request) {
           ? [{ action: "View goals", url: "/app/plan" }]
           : chatSection === "assessment"
             ? [{ action: "View Career Map", url: "/app/assessment" }]
-            : annualSessionActive
+            : annualSessionActive || quarterlySessionActive
               ? [
                   { action: "Continue to next module", url: "" },
                   { action: "Review goals", url: "/app/plan" },
@@ -380,16 +405,11 @@ export async function POST(request: Request) {
     }
   }
 
-  if (
-    message &&
-    message !== "__welcome__" &&
-    annualSessionActive &&
-    isAnnualModuleAdvanceMessage(message)
-  ) {
-    const nextModule = currentAnnualModule(activeMeta);
-    if (nextModule) {
-      response = `${response}\n\n${buildAnnualModulePrompt(nextModule)}`;
-    }
+  if (touchpointSubmitted) {
+    response = `${response}\n\n✓ Check-in saved:\n${touchpointSubmitted.summary}\n\nYour dashboard and Career Data vault are updated.`;
+    suggested_actions = [{ action: "View updated dashboard", url: "/app/dashboard" }];
+  } else if (touchpointNextPrompt) {
+    response = `${response}\n\n---\n\n${touchpointNextPrompt}`;
   }
 
   const userMsg =
@@ -444,5 +464,7 @@ export async function POST(request: Request) {
         }
       : null,
     global_state: globalState,
+    touchpoint_submitted: Boolean(touchpointSubmitted),
+    touchpoint_summary: touchpointSubmitted?.summary ?? null,
   });
 }
