@@ -20,6 +20,7 @@ import {
   saveMakPanelOpen,
 } from "@/lib/mak-panel-preference";
 import { formatDisplayName } from "@/lib/mak-greeting";
+import { useIsMobile } from "@/lib/use-media-query";
 import { IconSidebar } from "@/components/layout/IconSidebar";
 import { MakPanel } from "@/components/layout/MakPanel";
 import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
@@ -32,7 +33,13 @@ type AppShellContextValue = {
   toggleMak: () => void;
   makInputRef: React.RefObject<HTMLInputElement | null>;
   focusMakInput: () => void;
-  startMakFlow: (intent: MakFlowIntent, navigateTo?: string, customGreeting?: string) => void;
+  startMakFlow: (
+    intent: MakFlowIntent,
+    navigateTo?: string,
+    customGreeting?: string,
+    annualRefresh?: boolean,
+  ) => void;
+  openMakWithMessage: (message?: string, navigateTo?: string) => void;
   displayName: string | null;
   setDisplayName: (name: string | null) => void;
 };
@@ -48,20 +55,24 @@ export function useAppShell() {
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
+  const isMobile = useIsMobile();
   const section = sectionFromPath(pathname);
-  const [makOpen, setMakOpen] = useState(true);
+  const [makOpen, setMakOpen] = useState(false);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const [onboardingActive, setOnboardingActive] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
+  const [pendingInitialMessage, setPendingInitialMessage] = useState<string | null>(null);
   const makInputRef = useRef<HTMLInputElement>(null);
   const [flowNonce, setFlowNonce] = useState(0);
   const [pendingFlow, setPendingFlow] = useState<{
     intent: MakFlowIntent;
     greeting: string;
+    annualRefresh?: boolean;
   } | null>(null);
 
   useEffect(() => {
-    setMakOpen(loadMakPanelOpen(true));
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    setMakOpen(mobile ? false : loadMakPanelOpen(true));
   }, []);
 
   useEffect(() => {
@@ -98,15 +109,29 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   const startMakFlow = useCallback(
-    (intent: MakFlowIntent, navigateTo?: string, customGreeting?: string) => {
+    (
+      intent: MakFlowIntent,
+      navigateTo?: string,
+      customGreeting?: string,
+      annualRefresh?: boolean,
+    ) => {
       const greeting = customGreeting ?? MAK_FLOW_GREETINGS[intent];
-      setPendingFlow({ intent, greeting });
+      setPendingFlow({ intent, greeting, annualRefresh });
       setFlowNonce((n) => n + 1);
       setMakOpen(true);
       if (navigateTo) router.push(navigateTo);
-      focusMakInput();
+      if (!isMobile) focusMakInput();
     },
-    [router, focusMakInput],
+    [router, focusMakInput, isMobile],
+  );
+
+  const openMakWithMessage = useCallback(
+    (message?: string, navigateTo?: string) => {
+      if (message?.trim()) setPendingInitialMessage(message.trim());
+      setMakOpen(true);
+      if (navigateTo) router.push(navigateTo);
+    },
+    [router],
   );
 
   const value = useMemo(
@@ -119,6 +144,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       makInputRef,
       focusMakInput,
       startMakFlow,
+      openMakWithMessage,
       displayName,
       setDisplayName,
     }),
@@ -130,6 +156,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       toggleMak,
       focusMakInput,
       startMakFlow,
+      openMakWithMessage,
       displayName,
     ],
   );
@@ -143,8 +170,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           pendingFlow={pendingFlow}
           flowNonce={flowNonce}
           onFlowHandled={() => setPendingFlow(null)}
+          onClose={closeMak}
           onboardingActive={onboardingActive}
           onOpenTour={() => setTourOpen(true)}
+          initialMessage={pendingInitialMessage}
+          onInitialMessageHandled={() => setPendingInitialMessage(null)}
         />
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
         <main className="min-w-0 flex-1 overflow-auto bg-fiscmak-subtle p-6 md:p-8">

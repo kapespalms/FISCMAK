@@ -148,14 +148,35 @@ export type QuestionDef = {
 import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { CareerCoachingBrief } from "@/lib/v2/career-recommendations";
 import type { QuarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
+import type { AnnualRefreshStatus } from "@/lib/v2/annual-refresh";
+import type {
+  DashboardLatticeCell,
+  MetricHistorySeries,
+  ObjectiveBandSummary,
+  PulseHistoryEntry,
+} from "@/lib/v2/dashboard-data";
+import type { GoalMilestoneQuarterSnapshot } from "@/lib/v2/goal-milestone-tracking";
+import type { DashboardDocumentCard } from "@/lib/v2/dashboard-data";
+
+import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 
 export type AnalyticsDashboard = {
   career_readiness_index: number;
   career_health: CareerHealthView | null;
   coaching_brief: CareerCoachingBrief | null;
   quarterly_pulse: QuarterlyPulseStatus | null;
+  annual_refresh: AnnualRefreshStatus | null;
+  engagement_notifications: EngagementNotification[];
   pulse_streak: number;
   previous_career_health_score: number | null;
+  pulse_history: PulseHistoryEntry[];
+  metric_history: MetricHistorySeries;
+  dashboard_lattice: DashboardLatticeCell[];
+  objective_summary: ObjectiveBandSummary;
+  document_cards: DashboardDocumentCard[];
+  goal_milestone_history: GoalMilestoneQuarterSnapshot[];
+  stalled_goal_title: string | null;
+  stalled_goal_quarters: number;
   onboarding_progress: {
     tier1_complete: boolean;
     tier2_complete: boolean;

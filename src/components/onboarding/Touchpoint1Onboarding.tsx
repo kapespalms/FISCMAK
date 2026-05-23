@@ -24,7 +24,9 @@ import {
   isAcceptedCvFileName,
 } from "@/lib/v2/document-upload";
 
-type OnboardingStep = "profile" | "documents" | "reconcile" | "instruments";
+import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
+
+type OnboardingStep = "welcome" | "profile" | "documents" | "reconcile" | "instruments";
 
 type DocSpec = {
   type: string;
@@ -49,6 +51,7 @@ type ReconcileItem = {
 };
 
 const STEPS: { id: OnboardingStep; label: string }[] = [
+  { id: "welcome", label: "Welcome" },
   { id: "profile", label: "Profile" },
   { id: "documents", label: "Documents" },
   { id: "reconcile", label: "Reconcile" },
@@ -58,7 +61,7 @@ const STEPS: { id: OnboardingStep; label: string }[] = [
 export function Touchpoint1Onboarding() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [step, setStep] = useState<OnboardingStep>("profile");
+  const [step, setStep] = useState<OnboardingStep>("welcome");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -99,7 +102,7 @@ export function Touchpoint1Onboarding() {
         setStep(param);
         return;
       }
-      if (!u.tier1_complete) setStep("profile");
+      if (!u.tier1_complete) setStep("welcome");
       else if (!u.tier2_complete) setStep("documents");
       else setStep("instruments");
     },
@@ -287,15 +290,22 @@ export function Touchpoint1Onboarding() {
         ))}
       </div>
 
+      {step === "welcome" && (
+        <OnboardingWelcome onBegin={() => {
+          setStep("profile");
+          router.replace("/app/onboarding?step=profile");
+        }} />
+      )}
+
       {step === "profile" && (
         <Card>
           <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-            Touchpoint 1 · Step 1 · ~2 minutes
+            Step 2 of 7 · Profile configuration · ~3 minutes
           </p>
-          <h1 className="mt-1 text-2xl font-bold">Your five identity anchors</h1>
+          <h1 className="mt-1 text-page-title">Profile configuration</h1>
           <p className="mt-2 text-sm text-fiscmak-muted">
-            These five fields determine your benchmarks, document requirements, questionnaire
-            modules, and career lattice positioning.
+            These fields determine benchmarks, document requirements, questionnaire modules, and
+            Career Map positioning.
           </p>
 
           <div className="mt-6 space-y-5">
@@ -592,11 +602,10 @@ export function Touchpoint1Onboarding() {
           <p className="text-xs font-semibold uppercase text-fiscmak-muted">
             Touchpoint 1 · Step 4 · ~{estimatedMinutes || 15} minutes
           </p>
-          <h1 className="mt-1 text-2xl font-bold">Self-assessment with Coach Mak</h1>
+          <h1 className="mt-1 text-page-title">Self-assessment with Coach Mak</h1>
           <p className="mt-2 text-sm text-fiscmak-muted">
-            No forms — Mak walks you through validated instruments conversationally. After
-            completion, your dashboard generates automatically with CDI, wellbeing, and lattice
-            positioning.
+            Validated instruments are embedded in a guided conversation — not a survey form.
+            After completion, your Career Profile and dashboard generate automatically.
           </p>
 
           <ul className="mt-4 space-y-2">

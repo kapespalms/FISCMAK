@@ -20,6 +20,8 @@ import {
   type DocumentVersion,
 } from "@/lib/studio-versions";
 import { PromotionNarrativeWizard } from "@/components/workspace/PromotionNarrativeWizard";
+import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
+import { useAppShell } from "@/components/layout/AppShell";
 
 type ReadinessProfile = {
   target_track: string;
@@ -38,6 +40,7 @@ type V2Template = {
 };
 
 export function OutputStudioWorkspace() {
+  const { startMakFlow } = useAppShell();
   const [selected, setSelected] = useState<string>(OUTPUT_TEMPLATES[0].id);
   const [generating, setGenerating] = useState(false);
   const [evidence, setEvidence] = useState<ActivityEntry[]>([]);
@@ -173,7 +176,29 @@ export function OutputStudioWorkspace() {
   const isPromotionWizard = selected === "promotion_narrative";
 
   return (
-    <div className="mx-auto flex h-[calc(100vh-10rem)] max-w-7xl gap-6">
+    <div className="mx-auto flex h-[calc(100vh-10rem)] max-w-7xl flex-col gap-4">
+      <AcademicSoapSectionGate intent="create" />
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <h1 className="text-page-title">Career Documents</h1>
+          <p className="mt-1 text-sm text-fiscmak-muted">
+            Generate and manage CVs, biosketches, reports, and career briefs from your Career Data
+          </p>
+        </div>
+        <Button
+          variant="secondary"
+          onClick={() =>
+            startMakFlow(
+              "create",
+              "/app/output",
+              "Let's update your CV with any new publications, grants, roles, or awards since your last version. What should we add?",
+            )
+          }
+        >
+          Update CV with Mak
+        </Button>
+      </div>
+      <div className="flex min-h-0 flex-1 gap-6">
       <aside className="w-56 shrink-0 space-y-2 overflow-y-auto">
         <h2 className="px-2 text-xs font-semibold uppercase text-fiscmak-muted">
           FISCMAK templates
@@ -314,6 +339,7 @@ export function OutputStudioWorkspace() {
       />
         )}
       </div>
+    </div>
     </div>
   );
 }

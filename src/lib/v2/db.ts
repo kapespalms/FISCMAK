@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import type {
   AnalyticsDashboard,
   AppUser,
@@ -18,7 +19,20 @@ import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 import { buildCareerHealthView } from "@/lib/v2/career-health-view";
 import { buildCareerRecommendations } from "@/lib/v2/career-recommendations";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
-import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { DEMO_ACTIVITIES } from "@/lib/activities-storage";
+import { DEMO_GOALS, type CareerGoal } from "@/lib/goals";
+import type { ActivityEntry } from "@/lib/types/database";
+import {
+  buildDashboardLattice,
+  buildDocumentCards,
+  buildMetricHistory,
+  buildObjectiveSummary,
+  extractPulseHistory,
+} from "@/lib/v2/dashboard-data";
+import { settingDocumentLabels } from "@/lib/v2/dashboard-architecture";
+import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
+import { buildEngagementNotifications } from "@/lib/v2/engagement-tracking";
+import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 
 export async function fetchAssessments(
   userId: string,
@@ -43,6 +57,42 @@ export async function fetchDocuments(userId: string, demo: boolean): Promise<Doc
     .eq("user_id", userId)
     .order("uploaded_at", { ascending: false });
   return (data ?? []) as DocumentRecord[];
+}
+
+export async function fetchActivities(userId: string, demo: boolean): Promise<ActivityEntry[]> {
+  if (demo) return DEMO_ACTIVITIES;
+  if (!isSupabaseConfigured()) return DEMO_ACTIVITIES;
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("activity_entries")
+    .select("*")
+    .eq("user_id", userId)
+    .order("activity_date", { ascending: false })
+    .limit(50);
+  return (data as ActivityEntry[]) ?? DEMO_ACTIVITIES;
+}
+
+export async function fetchCareerGoals(userId: string, demo: boolean): Promise<CareerGoal[]> {
+  if (demo) {
+    const stored = getOnboardingMetadata(getServerDemo(userId).user).stored_goals;
+    return stored?.length ? stored : DEMO_GOALS;
+  }
+  if (!isSupabaseConfigured()) return DEMO_GOALS;
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("career_goals")
+    .select("*")
+    .eq("user_id", userId)
+    .order("priority", { ascending: true });
+  if ((data as CareerGoal[])?.length) return data as CareerGoal[];
+
+  const { data: userRow } = await supabase
+    .from("app_users")
+    .select("onboarding_metadata")
+    .eq("user_id", userId)
+    .maybeSingle();
+  const meta = (userRow?.onboarding_metadata ?? {}) as { stored_goals?: CareerGoal[] };
+  return meta.stored_goals?.length ? meta.stored_goals : DEMO_GOALS;
 }
 
 export async function fetchLatestMemPalace(
@@ -140,6 +190,7 @@ export async function buildAnalyticsDashboard(
     : null;
 
   const documents = await fetchDocuments(user.user_id, demo);
+  const activities = await fetchActivities(user.user_id, demo);
   const cv = documents.find((d) => d.document_type === "CV" && d.extracted_text);
   const cvMetrics = cv?.extracted_text
     ? computeCvMetrics(cv.extracted_text, assessments)
@@ -155,18 +206,73 @@ export async function buildAnalyticsDashboard(
     : null;
 
   const onboardingMeta = getOnboardingMetadata(user);
-  const quarterlyPulse = user.tier3_complete ? quarterlyPulseStatus(onboardingMeta) : null;
+  const touchpointReady = demo || touchpointsEligible(user, onboardingMeta);
+  const quarterlyPulse = touchpointReady ? quarterlyPulseStatus(onboardingMeta) : null;
+  const annualRefresh = touchpointReady ? annualRefreshStatus(onboardingMeta) : null;
   const pulse_streak = onboardingMeta.pulse_history?.length ?? 0;
   const previous_career_health_score =
     onboardingMeta.pulse_history?.[0]?.career_health_score ?? null;
+  const pulse_history = extractPulseHistory(onboardingMeta);
+
+  const fulfillmentMetric = careerHealth?.wellbeing_metrics.find(
+    (m) => m.id === "professional_fulfillment",
+  );
+  const strainMetric = careerHealth?.wellbeing_metrics.find((m) => m.id === "burnout_risk");
+  const alignmentPct = careerHealth?.domains.length
+    ? Math.round(
+        careerHealth.domains.reduce((s, d) => s + d.score, 0) / careerHealth.domains.length,
+      )
+    : undefined;
+  const taskAlignmentPct =
+    cvMetrics?.bits_score != null ? Math.round(100 - cvMetrics.bits_score * 8) : undefined;
+
+  const metric_history = buildMetricHistory(onboardingMeta, {
+    fulfillment: fulfillmentMetric?.status === "strong" ? 72 : fulfillmentMetric?.status === "developing" ? 55 : 40,
+    strain: strainMetric?.status === "strong" ? 72 : strainMetric?.status === "developing" ? 55 : 40,
+    alignment: alignmentPct,
+    taskAlignment: taskAlignmentPct,
+  });
+
+  const dashboard_lattice = buildDashboardLattice({
+    activities,
+    health: careerHealth,
+  });
+
+  const docLabels = settingDocumentLabels(user.practice_setting);
+  const document_cards = buildDocumentCards(
+    documents,
+    user.practice_setting,
+    docLabels.primary,
+    docLabels.secondary,
+  );
+
+  const objective_summary = buildObjectiveSummary({
+    user,
+    meta: onboardingMeta,
+    cvText: cv?.extracted_text,
+    evidence: cvMetrics?.evidence ?? null,
+    cvAvailable: Boolean(cvMetrics),
+    setting: user.practice_setting,
+    enrichment: onboardingMeta.enrichment_snapshot ?? null,
+  });
 
   return {
     career_readiness_index: careerHealth?.career_health_score ?? cri,
     career_health: careerHealth,
     coaching_brief: coachingBrief,
     quarterly_pulse: quarterlyPulse,
+    annual_refresh: annualRefresh,
+    engagement_notifications: buildEngagementNotifications(onboardingMeta),
     pulse_streak,
     previous_career_health_score,
+    pulse_history,
+    metric_history,
+    dashboard_lattice,
+    objective_summary,
+    document_cards,
+    goal_milestone_history: onboardingMeta.goal_milestone_history ?? [],
+    stalled_goal_title: onboardingMeta.stalled_goal_title ?? null,
+    stalled_goal_quarters: onboardingMeta.stalled_goal_quarters ?? 0,
     onboarding_progress: {
       tier1_complete: user.tier1_complete,
       tier2_complete: user.tier2_complete,

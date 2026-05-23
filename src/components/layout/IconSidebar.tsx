@@ -10,7 +10,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SECTION_NAV } from "@/lib/mak-sections";
+import { SECTION_NAV, SECTION_TO_FLOW, type AppSection } from "@/lib/mak-sections";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -20,7 +20,16 @@ import { NavIcon } from "@/components/brand/NavIcon";
 export function IconSidebar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { section, makOpen, toggleMak } = useAppShell();
+  const { section, makOpen, toggleMak, startMakFlow } = useAppShell();
+
+  function navigateSection(navSection: AppSection, href: string) {
+    if (navSection === "dashboard") {
+      router.push(href);
+      return;
+    }
+    const intent = SECTION_TO_FLOW[navSection];
+    startMakFlow(intent as "discuss" | "review" | "assess" | "plan" | "create", href);
+  }
 
   async function signOut() {
     if (isSupabaseConfigured()) {
@@ -70,10 +79,11 @@ export function IconSidebar() {
         {SECTION_NAV.map(({ section: navSection, href, label, icon, iconSize }) => {
           const active = section === navSection;
           return (
-            <Link
+            <button
               key={href}
-              href={href}
+              type="button"
               title={label}
+              onClick={() => navigateSection(navSection, href)}
               className={cn(
                 "group relative flex h-12 w-full items-center justify-center transition-colors",
                 active
@@ -93,7 +103,7 @@ export function IconSidebar() {
               <span className="pointer-events-none absolute left-full z-50 ml-2 hidden whitespace-nowrap rounded-md bg-fiscmak-ink px-2 py-1 text-xs text-white group-hover:block">
                 {label}
               </span>
-            </Link>
+            </button>
           );
         })}
       </nav>

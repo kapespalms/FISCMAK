@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { useAppShell } from "@/components/layout/AppShell";
+import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
 
 function statusBadge(status: "not_started" | "in_progress" | "complete") {
@@ -58,11 +59,12 @@ export function AssessmentInsightsWorkspace() {
 
   return (
     <div className="mx-auto max-w-4xl space-y-6">
+      <AcademicSoapSectionGate intent="assess" />
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Assessment: Career patterns</h1>
+          <h1 className="text-page-title">Career Profile</h1>
           <p className="mt-1 text-sm text-fiscmak-muted">
-            Insights from your Career Profile — validated instruments and conversation data
+            Synthesized Career Health Score, Career Map, and benchmarked standing
           </p>
         </div>
         <Button onClick={discussWithMak}>Discuss with Coach Mak</Button>

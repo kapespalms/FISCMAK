@@ -158,6 +158,36 @@ export function buildQuarterlyPulseSummary(input: {
   return lines.join("\n");
 }
 
+export function parseInvisibleWorkFromAnswers(
+  answers: import("@/lib/v2/quarterly-pulse").PulseAnswer[],
+): {
+  hoursByCategory: Partial<
+    Record<import("@/lib/v2/invisible-work-taxonomy").InvisibleWorkCategory, number>
+  >;
+  totalHours: number;
+} {
+  const hoursByCategory: Partial<
+    Record<import("@/lib/v2/invisible-work-taxonomy").InvisibleWorkCategory, number>
+  > = {};
+  let totalHours = 0;
+
+  for (const answer of answers) {
+    if (answer.module_id !== "invisible_pulse") continue;
+    const id = answer.question_id as import("@/lib/v2/invisible-work-taxonomy").InvisibleWorkCategory;
+    const hours = Number(answer.value);
+    if (!Number.isNaN(hours) && hours > 0) {
+      hoursByCategory[id] = hours;
+      totalHours += hours;
+    }
+    if (answer.question_id === "weekly_hours") {
+      const weekly = Number(answer.value);
+      if (!Number.isNaN(weekly)) totalHours = weekly;
+    }
+  }
+
+  return { hoursByCategory, totalHours };
+}
+
 export function parsePulseAnswers(answers: PulseAnswer[]): Partial<PulseRecord> {
   const get = (module: string, q: string) =>
     answers.find((a) => a.module_id === module && a.question_id === q)?.value;

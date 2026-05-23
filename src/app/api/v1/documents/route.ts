@@ -1,11 +1,16 @@
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { fetchDocuments, extractCvMetadata } from "@/lib/v2/db";
-import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import { isErrorResponse, jsonOk, requireApiUser, getAppUser, upsertAppUser } from "@/lib/v2/api-helpers";
 import {
   DocumentExtractError,
   extractDocumentText,
 } from "@/lib/v2/document-upload";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import {
+  mergeEnrichmentIntoMetadata,
+  runApiEnrichment,
+} from "@/lib/v2/api-enrichment";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -26,6 +31,7 @@ export async function GET() {
 export async function POST(request: Request) {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
+  const { userId, email, demo } = auth;
   const form = await request.formData();
   const file = form.get("file") as File | null;
   const document_type = (form.get("document_type") as string) || "CV";
@@ -64,11 +70,41 @@ export async function POST(request: Request) {
     word_count: wordCount,
   } as Record<string, unknown>;
 
-  if (auth.demo) {
-    const state = getServerDemo(auth.userId);
+  async function runEnrichmentAfterUpload() {
+    if (document_type !== "CV") return null;
+    const user = await getAppUser(userId, demo);
+    if (!user) return null;
+    const meta = getOnboardingMetadata(user);
+    try {
+      const snapshot = await runApiEnrichment({
+        user,
+        cvText: text,
+        trigger: "cv_upload",
+        previousSnapshot: meta.enrichment_snapshot ?? null,
+      });
+      const updatedMeta = mergeEnrichmentIntoMetadata(meta, snapshot);
+      await upsertAppUser(
+        userId,
+        email,
+        {
+          cv_uploaded: true,
+          tier2_complete: true,
+          onboarding_metadata: updatedMeta as Record<string, unknown>,
+        },
+        demo,
+      );
+      return snapshot;
+    } catch (e) {
+      console.error("API enrichment failed:", e);
+      return null;
+    }
+  }
+
+  if (demo) {
+    const state = getServerDemo(userId);
     state.documents.unshift({
       document_id: docId,
-      user_id: auth.userId,
+      user_id: userId,
       document_type,
       file_url: null,
       file_name: file.name,
@@ -78,12 +114,17 @@ export async function POST(request: Request) {
       uploaded_at: now,
     });
     state.user.cv_uploaded = true;
+    state.user.tier2_complete = true;
+    const enrichment = await runEnrichmentAfterUpload();
     return jsonOk({
       document_id: docId,
       document_type,
       extracted_text_preview: text.slice(0, 200),
       extraction_status: "completed",
       uploaded_at: now,
+      enrichment: enrichment
+        ? { run_id: enrichment.run_id, status: enrichment.status, sources: enrichment.sources }
+        : null,
       cv_metrics: {
         s_index: metadata.s_index as number,
         iwq: metadata.iwq as number,
@@ -97,7 +138,7 @@ export async function POST(request: Request) {
     .from("documents")
     .insert({
       document_id: docId,
-      user_id: auth.userId,
+      user_id: userId,
       document_type,
       file_name: file.name,
       extracted_text: text.slice(0, 50000),
@@ -109,14 +150,20 @@ export async function POST(request: Request) {
   if (error) return jsonOk({ error: "server_error", message: error.message }, 500);
   await supabase
     .from("app_users")
-    .update({ cv_uploaded: true })
-    .eq("user_id", auth.userId);
+    .update({ cv_uploaded: true, tier2_complete: true })
+    .eq("user_id", userId);
+
+  const enrichment = document_type === "CV" ? await runEnrichmentAfterUpload() : null;
+
   return jsonOk({
     document_id: data.document_id,
     document_type: data.document_type,
     extracted_text_preview: text.slice(0, 200),
     extraction_status: "completed",
     uploaded_at: data.uploaded_at,
+    enrichment: enrichment
+      ? { run_id: enrichment.run_id, status: enrichment.status, sources: enrichment.sources }
+      : null,
     cv_metrics: {
       s_index: metadata.s_index as number,
       iwq: metadata.iwq as number,

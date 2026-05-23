@@ -8,6 +8,8 @@ import type {
   NarrativeProgress,
   PromotionDossier,
 } from "@/lib/v2/types";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 
 const KEY = "fiscmak_v2_demo";
 
@@ -150,10 +152,63 @@ export const demoStore = {
 /** Server-side in-memory demo for API routes without Supabase */
 const serverDemo = new Map<string, DemoState>();
 
+function dashboardReadyDemoUser(userId: string): AppUser {
+  const now = new Date().toISOString();
+  return {
+    user_id: userId,
+    email: "demo@fiscmak.app",
+    name: "Demo Physician",
+    specialty: "Internal Medicine",
+    career_stage: "Early Career (0–7 yr)",
+    institution: "Demo Academic Medical Center",
+    cv_uploaded: true,
+    mempalace_id: null,
+    tier1_complete: true,
+    tier2_complete: true,
+    tier3_complete: true,
+    practice_setting: "Academic",
+    academic_rank: "Assistant Professor",
+    primary_career_track: "Educator",
+    onboarding_metadata: {
+      computed_at: now,
+      career_objective: "Program Director within 3 years",
+      goals_confirmed: true,
+      goals_confirmed_at: now,
+    },
+    preferred_location: null,
+    salary_min: null,
+    salary_max: null,
+    created_at: now,
+    last_active: now,
+  };
+}
+
+function ensureDemoTouchpointReady(state: DemoState): DemoState {
+  const meta = getOnboardingMetadata(state.user);
+  if (touchpointsEligible(state.user, meta)) return state;
+
+  const ready = dashboardReadyDemoUser(state.user.user_id);
+  state.user = {
+    ...ready,
+    ...state.user,
+    tier1_complete: true,
+    tier2_complete: true,
+    tier3_complete: state.user.tier3_complete || true,
+    onboarding_metadata: {
+      ...(ready.onboarding_metadata as Record<string, unknown>),
+      ...((state.user.onboarding_metadata as Record<string, unknown> | null) ?? {}),
+      computed_at:
+        meta.computed_at ??
+        (ready.onboarding_metadata as { computed_at?: string })?.computed_at,
+    },
+  };
+  return state;
+}
+
 export function getServerDemo(userId: string): DemoState {
   if (!serverDemo.has(userId)) {
     serverDemo.set(userId, {
-      user: { ...defaultUser(), user_id: userId },
+      user: dashboardReadyDemoUser(userId),
       assessments: [],
       documents: [],
       chatMessages: [],
@@ -163,5 +218,7 @@ export function getServerDemo(userId: string): DemoState {
       narrativeProgress: [],
     });
   }
-  return serverDemo.get(userId)!;
+  const state = ensureDemoTouchpointReady(serverDemo.get(userId)!);
+  serverDemo.set(userId, state);
+  return state;
 }

@@ -4,13 +4,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import type { QuarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
+import { filterTouchpointAnswers } from "@/lib/v2/touchpoint-eligibility";
+import { postTouchpointJson } from "@/lib/v2/touchpoint-fetch";
 
 type Props = {
   status: QuarterlyPulseStatus;
   onComplete?: () => void;
+  onBeginWithMak?: () => void;
 };
 
-export function QuarterlyPulsePanel({ status, onComplete }: Props) {
+export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Props) {
   const [open, setOpen] = useState(status.due);
   const [exhaustion, setExhaustion] = useState("");
   const [depersonalization, setDepersonalization] = useState("");
@@ -28,27 +31,31 @@ export function QuarterlyPulsePanel({ status, onComplete }: Props) {
     setLoading(true);
     setError("");
     const now = new Date().toISOString();
-    const answers = [
-      { module_id: "pfi_screen", question_id: "exhaustion", value: Number(exhaustion), captured_at: now },
-      { module_id: "pfi_screen", question_id: "depersonalization", value: Number(depersonalization), captured_at: now },
-      { module_id: "invisible_pulse", question_id: "weekly_hours", value: Number(invisibleHours), captured_at: now },
-      { module_id: "invisible_pulse", question_id: "biggest_category", value: invisibleCategory, captured_at: now },
-      { module_id: "career_momentum", question_id: "track_energy", value: Number(trackEnergy), captured_at: now },
-      { module_id: "cv_update", question_id: "updates", value: cvUpdate, captured_at: now },
-    ].filter((a) => a.value !== "" && !Number.isNaN(a.value as number));
+    const answers = filterTouchpointAnswers([
+      { module_id: "pfi_screen", question_id: "exhaustion", value: exhaustion === "" ? "" : Number(exhaustion), captured_at: now },
+      { module_id: "pfi_screen", question_id: "depersonalization", value: depersonalization === "" ? "" : Number(depersonalization), captured_at: now },
+      { module_id: "invisible_pulse", question_id: "weekly_hours", value: invisibleHours === "" ? "" : Number(invisibleHours), captured_at: now },
+      { module_id: "invisible_pulse", question_id: "biggest_category", value: invisibleCategory.trim(), captured_at: now },
+      { module_id: "career_momentum", question_id: "track_energy", value: trackEnergy === "" ? "" : Number(trackEnergy), captured_at: now },
+      { module_id: "cv_update", question_id: "updates", value: cvUpdate.trim(), captured_at: now },
+    ]);
 
-    const res = await fetch("/api/v1/touchpoints/quarterly", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answers }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.message ?? "Could not save pulse");
+    if (answers.length === 0) {
+      setError("Add at least one field before submitting the pulse.");
       setLoading(false);
       return;
     }
-    setSummary(data.summary);
+
+    const result = await postTouchpointJson<{ summary: string }>(
+      "/api/v1/touchpoints/quarterly",
+      { answers },
+    );
+    if (!result.ok || !result.data) {
+      setError(result.error ?? "Could not save pulse");
+      setLoading(false);
+      return;
+    }
+    setSummary(result.data.summary);
     setLoading(false);
     onComplete?.();
   }
@@ -79,9 +86,14 @@ export function QuarterlyPulsePanel({ status, onComplete }: Props) {
       )}
 
       {!open ? (
-        <Button className="mt-4" onClick={() => setOpen(true)}>
-          Start quarterly pulse
-        </Button>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {onBeginWithMak && (
+            <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
+          )}
+          <Button variant="secondary" onClick={() => setOpen(true)}>
+            Quick form (fallback)
+          </Button>
+        </div>
       ) : (
         <div className="mt-4 space-y-4">
           <div className="grid gap-3 sm:grid-cols-2">

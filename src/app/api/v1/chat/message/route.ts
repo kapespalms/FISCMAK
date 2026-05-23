@@ -17,7 +17,26 @@ import {
   nextInstrumentPrompt,
   processInstrumentTurn,
 } from "@/lib/v2/instrument-conversation-service";
-import { computeTouchpoint1Dashboard } from "@/lib/v2/onboarding-compute";
+import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
+import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
+import {
+  advanceAnnualRefreshSession,
+  buildAnnualMakSystemContext,
+  buildAnnualModulePrompt,
+  currentAnnualModule,
+  initAnnualRefreshSession,
+  isAnnualModuleAdvanceMessage,
+} from "@/lib/v2/annual-mak-flow";
+import {
+  advanceQuarterlyPulseSession,
+  buildQuarterlyMakSystemContext,
+  buildQuarterlyModulePrompt,
+  currentQuarterlyModule,
+  initQuarterlyPulseSession,
+  isQuarterlyModuleAdvanceMessage,
+} from "@/lib/v2/quarterly-mak-flow";
+import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 import {
   buildOnboardingSuggestedActions,
@@ -26,6 +45,16 @@ import {
 import { buildCareerHealthView } from "@/lib/v2/career-health-view";
 import { buildCareerRecommendations, recommendationsContextForMak } from "@/lib/v2/career-recommendations";
 import { demoMakReply } from "@/lib/mak-demo-replies";
+import {
+  detectEscalation,
+  extractEscalationInputFromMetadata,
+  mapEscalationToGlobalState,
+  resolveGlobalMakState,
+  sectionSystemPrompt,
+  resolveChatState,
+  careerAlignmentFromHealth,
+} from "@/lib/mak-chatbot-states";
+import type { AppSection } from "@/lib/mak-sections";
 
 const MAK_SYSTEM = `You are Coach Mak, an empathetic physician career coach. Use MemPalace context and assessment data. No medical advice. One question at a time. Surface invisible work and promotion narrative when relevant. Keep replies under 120 words unless summarizing.
 
@@ -114,6 +143,116 @@ export async function POST(request: Request) {
     ? buildCareerRecommendations({ user: user!, careerHealth, cvMetrics: cvMetricsForCoach })
     : null;
 
+  const chatSection = (context?.section ?? "dashboard") as AppSection;
+  const onboardingMeta = (user?.onboarding_metadata ?? {}) as Record<string, unknown>;
+  const metaParsed = user ? getOnboardingMetadata(user) : {};
+  let activeMeta = metaParsed;
+  const touchpointReady = user ? touchpointsEligible(user, metaParsed) : false;
+  const quarterlyPulseDue = touchpointReady ? quarterlyPulseStatus(metaParsed).due : false;
+  const annualRefreshDue = touchpointReady ? annualRefreshStatus(metaParsed).due : false;
+  const annualSessionActive = Boolean(
+    activeMeta.annual_refresh_session ||
+      (annualRefreshDue && context?.annual_refresh === true),
+  );
+  const quarterlySessionActive = Boolean(
+    activeMeta.quarterly_pulse_session ||
+      (quarterlyPulseDue && context?.quarterly_pulse === true),
+  );
+
+  if (user && context?.annual_refresh && !activeMeta.annual_refresh_session) {
+    activeMeta = initAnnualRefreshSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (user && context?.quarterly_pulse && !activeMeta.quarterly_pulse_session) {
+    activeMeta = initQuarterlyPulseSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (
+    user &&
+    message &&
+    message !== "__welcome__" &&
+    quarterlySessionActive &&
+    isQuarterlyModuleAdvanceMessage(message)
+  ) {
+    activeMeta = advanceQuarterlyPulseSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (
+    user &&
+    message &&
+    message !== "__welcome__" &&
+    annualSessionActive &&
+    isAnnualModuleAdvanceMessage(message)
+  ) {
+    activeMeta = advanceAnnualRefreshSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+  const escalationInput = extractEscalationInputFromMetadata(
+    message,
+    activeMeta as Record<string, unknown>,
+  );
+  if (careerHealth) {
+    if (escalationInput.careerAlignmentPct == null) {
+      escalationInput.careerAlignmentPct =
+        metaParsed.career_alignment_pct ?? careerAlignmentFromHealth(careerHealth);
+    }
+    escalationInput.lowAlignmentQuarters =
+      activeMeta.low_alignment_quarters ?? escalationInput.lowAlignmentQuarters;
+  }
+
+  const escalation =
+    message && message !== "__welcome__" ? detectEscalation(escalationInput) : null;
+
+  const escalationGlobalState = escalation
+    ? mapEscalationToGlobalState(escalation.trigger)
+    : null;
+
+  const globalState = resolveGlobalMakState({
+    tier1Complete: user?.tier1_complete,
+    tier2Complete: user?.tier2_complete,
+    tier3Complete: user?.tier3_complete,
+    goalsConfirmed: Boolean(onboardingMeta.goals_confirmed),
+    section: chatSection,
+    escalationState: escalationGlobalState,
+    quarterlyPulseDue,
+    annualResetDue: annualRefreshDue,
+    quarterlyReviewDue: quarterlyPulseDue,
+    newObjectiveItems: (activeMeta.reconciliation ?? []).some(
+      (r: { status?: string }) => r.status === "pending",
+    ),
+  });
+
+  const chatState = resolveChatState({
+    section: chatSection,
+    burnoutScore: escalationInput.burnoutScore ?? null,
+    globalState,
+    quarterlyPulseDue,
+    annualRefreshDue,
+  });
+
   const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
   let response: string;
   let suggested_actions: { action: string; url: string }[] = [];
@@ -122,8 +261,18 @@ export async function POST(request: Request) {
     response = buildWelcomeGreeting(user);
     suggested_actions = buildOnboardingSuggestedActions();
   } else if (!apiKey) {
-    response = demoMakReply(message, context?.section ?? "dashboard");
-    if (onboarding) {
+    response = demoMakReply(message, chatSection);
+    if (escalation) {
+      response = escalation.pauseChatbot
+        ? escalation.message
+        : `${escalation.message}\n\n${response}`;
+    }
+    if (escalation?.suggestedActions?.length) {
+      suggested_actions = escalation.suggestedActions.map((a) => ({
+        action: a.action,
+        url: a.url,
+      }));
+    } else if (onboarding) {
       if (instrumentCaptured.length > 0) {
         response += `\n\n(Got it — captured ${instrumentCaptured.length} assessment detail${instrumentCaptured.length > 1 ? "s" : ""}.)`;
       }
@@ -137,7 +286,13 @@ export async function POST(request: Request) {
       }
       suggested_actions = buildOnboardingSuggestedActions();
     } else {
-      suggested_actions = [{ action: "Discuss my energy", url: "/app/subjective" }];
+      suggested_actions =
+        annualSessionActive && currentAnnualModule(activeMeta)
+          ? [
+              { action: "Continue to next module", url: "" },
+              { action: "Review goals", url: "/app/plan" },
+            ]
+          : [{ action: "Begin quarterly assessment", url: "/app/subjective" }];
     }
   } else {
     const contextBlock = [
@@ -155,6 +310,8 @@ export async function POST(request: Request) {
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",
       coachingBrief ? recommendationsContextForMak(coachingBrief) : "",
       careerHealth ? `Career Health Score: ${careerHealth.career_health_score}/100` : "",
+      annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
+      quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
       user ? buildConversationalPrompt(user, pendingTp1, onboarding) : "",
     ]
       .filter(Boolean)
@@ -177,19 +334,62 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           model: "claude-3-5-haiku-20241022",
           max_tokens: 512,
-          system: `${MAK_SYSTEM}\n\nContext:\n${contextBlock}`,
+          system: `${MAK_SYSTEM}\n\n${sectionSystemPrompt(chatSection, chatState, globalState)}\n\nContext:\n${contextBlock}`,
           messages,
         }),
       });
       const data = await res.json();
-      response = data.content?.[0]?.text ?? demoMakReply(message, context?.section ?? "dashboard");
+      response = data.content?.[0]?.text ?? demoMakReply(message, chatSection);
+      if (escalation) {
+        response = escalation.pauseChatbot
+          ? escalation.message
+          : `${escalation.message}\n\n${response}`;
+      }
     } catch {
-      response = demoMakReply(message, context?.section ?? "dashboard");
+      response = demoMakReply(message, chatSection);
+      if (escalation) {
+        response = escalation.pauseChatbot
+          ? escalation.message
+          : `${escalation.message}\n\n${response}`;
+      }
     }
 
+    if (escalation?.suggestedActions?.length) {
+      suggested_actions = escalation.suggestedActions.map((a) => ({
+        action: a.action,
+        url: a.url,
+      }));
+    } else {
     suggested_actions = onboarding
       ? buildOnboardingSuggestedActions()
-      : [{ action: "Capture invisible work", url: "/app/dashboard" }];
+      : chatSection === "output"
+        ? [
+            { action: "Update my CV", url: "/app/output" },
+            { action: "Promotion report", url: "/app/output" },
+          ]
+        : chatSection === "plan"
+          ? [{ action: "View goals", url: "/app/plan" }]
+          : chatSection === "assessment"
+            ? [{ action: "View Career Map", url: "/app/assessment" }]
+            : annualSessionActive
+              ? [
+                  { action: "Continue to next module", url: "" },
+                  { action: "Review goals", url: "/app/plan" },
+                ]
+              : [{ action: "Capture invisible work", url: "/app/dashboard" }];
+    }
+  }
+
+  if (
+    message &&
+    message !== "__welcome__" &&
+    annualSessionActive &&
+    isAnnualModuleAdvanceMessage(message)
+  ) {
+    const nextModule = currentAnnualModule(activeMeta);
+    if (nextModule) {
+      response = `${response}\n\n${buildAnnualModulePrompt(nextModule)}`;
+    }
   }
 
   const userMsg =
@@ -234,5 +434,15 @@ export async function POST(request: Request) {
     pending_questions: pendingCount,
     touchpoint_complete: touchpointComplete,
     context,
+    escalation: escalation
+      ? {
+          trigger: escalation.trigger,
+          action: escalation.action,
+          message: escalation.message,
+          pause_chatbot: escalation.pauseChatbot ?? false,
+          pause_career_coaching: escalation.pauseCareerCoaching ?? false,
+        }
+      : null,
+    global_state: globalState,
   });
 }

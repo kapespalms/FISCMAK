@@ -2,14 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowUp, Mic } from "lucide-react";
+import { ArrowUp, Mic, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/lib/use-media-query";
 import {
   MAK_SECTION_CONFIG,
   type AppSection,
   type MakFlowIntent,
 } from "@/lib/mak-sections";
 import { buildDashboardGreeting } from "@/lib/mak-greeting";
+import { buildSectionGateGreeting } from "@/lib/mak-chatbot-states";
 import { isClientDemoMode } from "@/lib/demo-mode";
 import {
   loadConversation,
@@ -18,15 +20,20 @@ import {
   resetConversationGreeting,
   type MakMessage,
 } from "@/lib/mak-conversations";
+import { EscalationResourcesPanel } from "@/components/layout/EscalationResourcesPanel";
+import type { MakEscalation } from "@/lib/v2/escalation-protocols";
 import { useAppShell } from "@/components/layout/AppShell";
 
 type MakPanelProps = {
   open: boolean;
-  pendingFlow: { intent: MakFlowIntent; greeting: string } | null;
+  pendingFlow: { intent: MakFlowIntent; greeting: string; annualRefresh?: boolean } | null;
   flowNonce: number;
   onFlowHandled: () => void;
+  onClose: () => void;
   onboardingActive?: boolean;
   onOpenTour?: () => void;
+  initialMessage?: string | null;
+  onInitialMessageHandled?: () => void;
 };
 
 function greetingForSection(
@@ -36,7 +43,7 @@ function greetingForSection(
   if (section === "dashboard") {
     return buildDashboardGreeting(displayName);
   }
-  return MAK_SECTION_CONFIG[section].greeting;
+  return buildSectionGateGreeting({ section, displayName });
 }
 
 export function MakPanel({
@@ -44,10 +51,14 @@ export function MakPanel({
   pendingFlow,
   flowNonce,
   onFlowHandled,
+  onClose,
   onboardingActive = false,
   onOpenTour,
+  initialMessage,
+  onInitialMessageHandled,
 }: MakPanelProps) {
   const router = useRouter();
+  const isMobile = useIsMobile();
   const { section, makInputRef, displayName } = useAppShell();
   const config = MAK_SECTION_CONFIG[section];
   const [messages, setMessages] = useState<MakMessage[]>([]);
@@ -55,12 +66,14 @@ export function MakPanel({
   const [loading, setLoading] = useState(false);
   const [recording, setRecording] = useState(false);
   const [suggestedActions, setSuggestedActions] = useState<{ action: string; url: string }[]>([]);
+  const [activeEscalation, setActiveEscalation] = useState<MakEscalation | null>(null);
+  const [annualRefreshMode, setAnnualRefreshMode] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
 
   useEffect(() => {
     if (!open || isClientDemoMode()) return;
-    fetch("/api/v1/chat/history?limit=40")
+    fetch(`/api/v1/chat/history?limit=40&section=${section}`)
       .then((r) => r.json())
       .then((d) => {
         const apiMessages = (d.messages ?? []) as {
@@ -72,7 +85,7 @@ export function MakPanel({
         }
       })
       .catch(() => undefined);
-  }, [open]);
+  }, [open, section]);
 
   useEffect(() => {
     const greeting = greetingForSection(section, displayName);
@@ -137,9 +150,17 @@ export function MakPanel({
     }
     const next = resetConversationGreeting(section, pendingFlow.greeting);
     setMessages(next);
+    setAnnualRefreshMode(Boolean(pendingFlow.annualRefresh));
     setInput("");
     onFlowHandled();
   }, [flowNonce, pendingFlow, section, onFlowHandled]);
+
+  useEffect(() => {
+    if (!open || !initialMessage?.trim()) return;
+    const msg = initialMessage.trim();
+    onInitialMessageHandled?.();
+    void sendMessage(msg);
+  }, [initialMessage]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
@@ -174,11 +195,24 @@ export function MakPanel({
             section,
             touchpoint_number: section === "assessment" ? 3 : 1,
             onboarding: onboardingActive,
+            annual_refresh: annualRefreshMode,
           },
         }),
       });
       const data = await res.json();
       setSuggestedActions(data.suggested_actions ?? []);
+      if (data.escalation?.trigger) {
+        setActiveEscalation({
+          trigger: data.escalation.trigger,
+          action: data.escalation.action,
+          pauseChatbot: data.escalation.pause_chatbot,
+          pauseCareerCoaching: data.escalation.pause_career_coaching,
+          message: data.escalation.message ?? "Professional support resources are available.",
+          suggestedActions: data.suggested_actions,
+        });
+      } else {
+        setActiveEscalation(null);
+      }
       setMessages((m) => [
         ...m,
         {
@@ -241,18 +275,52 @@ export function MakPanel({
   }
 
   return (
-    <aside
-      className={cn(
-        "flex h-full shrink-0 flex-col overflow-hidden border-fiscmak-border bg-white transition-[width,border-color] duration-200 ease-in-out",
-        open ? "w-[320px] border-r shadow-sm" : "pointer-events-none w-0 border-r-0",
+    <>
+      {open && isMobile && (
+        <button
+          type="button"
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          aria-label="Close Coach Mak"
+          onClick={onClose}
+        />
       )}
-      aria-hidden={!open}
-    >
-      <div className="flex h-full min-w-[320px] flex-col">
+      <aside
+        className={cn(
+          "flex shrink-0 flex-col overflow-hidden border-fiscmak-border bg-white transition-[width,transform] duration-200 ease-in-out",
+          isMobile
+            ? cn(
+                "fixed inset-0 z-50 w-full border-r-0 shadow-xl",
+                open ? "translate-x-0" : "pointer-events-none translate-x-full",
+              )
+            : cn(
+                "relative h-full",
+                open ? "w-[320px] border-r shadow-sm" : "pointer-events-none w-0 border-r-0",
+              ),
+        )}
+        aria-hidden={!open}
+      >
+        <div className={cn("flex h-full flex-col", !isMobile && "min-w-[320px]")}>
+          {isMobile && (
+            <div className="flex shrink-0 items-center justify-between border-b border-fiscmak-border px-4 py-3">
+              <div>
+                <p className="text-sm font-semibold text-fiscmak-ink">Coach Mak</p>
+                <p className="text-caption text-fiscmak-muted">{config.mode}</p>
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                className="flex h-9 w-9 items-center justify-center rounded-md border border-fiscmak-border text-fiscmak-muted hover:bg-fiscmak-subtle"
+                aria-label="Close Coach Mak"
+              >
+                <X size={18} />
+              </button>
+            </div>
+          )}
         <div
           ref={scrollRef}
           className="flex-1 space-y-3 overflow-y-auto bg-[#fafbfc] p-4 pt-5"
         >
+        {activeEscalation && <EscalationResourcesPanel escalation={activeEscalation} />}
         {messages.map((msg, i) => (
           <div
             key={i}
@@ -341,7 +409,8 @@ export function MakPanel({
           </button>
         </div>
         </div>
-      </div>
-    </aside>
+        </div>
+      </aside>
+    </>
   );
 }

@@ -16,17 +16,35 @@ import {
   loadDemoGoals,
   saveDemoGoals,
 } from "@/lib/goals";
+import { GOAL_FRAMEWORK_LABELS, SOAP_TAB, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
 import { Target, Pencil, Trash2 } from "lucide-react";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { PathwaysExplorer } from "@/components/workspace/PathwaysExplorer";
+import { GoalQuarterlyReviewPanel } from "@/components/workspace/GoalQuarterlyReviewPanel";
+import { useAppShell } from "@/components/layout/AppShell";
+import { goalExamplesForProfile } from "@/lib/v2/goal-framework";
+import { buildAnnualPlanResetGreeting } from "@/lib/mak-chatbot-states";
+import { PlanActivationPanel } from "@/components/workspace/PlanActivationPanel";
+import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
+import type { PracticeSetting, CareerStage, AcademicRank } from "@/lib/v2/onboarding-options";
+import type { AnalyticsDashboard } from "@/lib/v2/types";
 
 export function GoalsWorkspace() {
+  const { startMakFlow } = useAppShell();
   const [goals, setGoals] = useState<CareerGoal[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<GoalFormData>(emptyGoalForm());
   const [error, setError] = useState<string | null>(null);
+  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
+  const [profile, setProfile] = useState<{
+    practice_setting?: PracticeSetting | null;
+    career_stage?: CareerStage | null;
+    academic_rank?: AcademicRank | null;
+    primary_career_track?: string | null;
+    specialty?: string | null;
+  }>({});
 
   const loadGoals = useCallback(async () => {
     if (!isSupabaseConfigured()) {
@@ -57,7 +75,15 @@ export function GoalsWorkspace() {
   }, []);
 
   useEffect(() => {
-    loadGoals();
+    void loadGoals();
+    fetch("/api/v1/analytics/dashboard")
+      .then((r) => r.json())
+      .then((data) => setAnalytics(data as AnalyticsDashboard))
+      .catch(() => undefined);
+    fetch("/api/v1/onboarding/touchpoint1")
+      .then((r) => r.json())
+      .then((data) => setProfile(data))
+      .catch(() => undefined);
   }, [loadGoals]);
 
   function openCreate() {
@@ -149,14 +175,15 @@ export function GoalsWorkspace() {
 
   return (
     <div className="mx-auto max-w-3xl space-y-8">
+      <AcademicSoapSectionGate intent="plan" />
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="flex items-center gap-2 text-2xl font-bold">
+          <h1 className="flex items-center gap-2 text-page-title">
             <Target className="text-fiscmak-green" size={28} />
-            Plan: Strategy & goals
+            {SOAP_TAB.plan.title}
           </h1>
           <p className="mt-1 text-fiscmak-muted">
-            Career roadmap and evidence gaps
+            {SOAP_TAB.plan.description}
             {!isSupabaseConfigured() && " · saved in browser (demo)"}
           </p>
         </div>
@@ -170,6 +197,46 @@ export function GoalsWorkspace() {
       )}
 
       <PathwaysExplorer />
+
+      <GoalQuarterlyReviewPanel
+        annualDue={analytics?.annual_refresh?.due ?? false}
+        onGoalsUpdated={setGoals}
+        onDiscussWithMak={() => {
+          if (analytics?.annual_refresh?.due) {
+            startMakFlow(
+              "plan",
+              undefined,
+              buildAnnualPlanResetGreeting({ goals, analytics }),
+            );
+          } else {
+            startMakFlow("plan", undefined, "Begin quarterly goal review.");
+          }
+        }}
+      />
+
+      <PlanActivationPanel
+        setting={profile.practice_setting}
+        level={profile.career_stage}
+        rank={profile.academic_rank}
+        track={profile.primary_career_track}
+        specialty={profile.specialty}
+      />
+
+      <Card>
+        <p className="text-data-label">Goal examples by profile</p>
+        <p className="mt-2 text-sm text-fiscmak-muted">
+          Development:{" "}
+          {goalExamplesForProfile({
+            setting: profile.practice_setting ?? "Academic",
+            level: profile.career_stage,
+            rank: profile.academic_rank,
+            track: profile.primary_career_track,
+          })
+            ?.development.slice(0, 2)
+            .join("; ") ?? "Set profile for tailored examples"}
+          . Maintenance and Sustainability goals adapt similarly by setting, rank, and track.
+        </p>
+      </Card>
 
       {showForm && (
         <Card>
@@ -332,6 +399,14 @@ export function GoalsWorkspace() {
           <Card key={goal.id} accent="green">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
+                {goal.goal_type &&
+                  (goal.goal_type === "development" ||
+                    goal.goal_type === "maintenance" ||
+                    goal.goal_type === "sustainability") && (
+                    <p className="text-data-label">
+                      {GOAL_FRAMEWORK_LABELS[goal.goal_type as GoalFrameworkType].label}
+                    </p>
+                  )}
                 <h3 className="text-lg font-semibold">{goal.goal_title}</h3>
                 {goal.goal_description && (
                   <p className="mt-1 text-sm text-fiscmak-muted">
@@ -369,7 +444,7 @@ export function GoalsWorkspace() {
               goal.recommended_actions.length > 0 && (
                 <div className="mt-3">
                   <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-                    Next actions
+                    Milestones
                   </p>
                   <ul className="mt-1 list-disc pl-5 text-sm">
                     {goal.recommended_actions.map((item) => (

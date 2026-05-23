@@ -8,12 +8,17 @@ import { deployedInstruments, apiEnrichmentPlan } from "@/lib/v2/onboarding-touc
 import { buildCareerHealthView, buildCareerHealthIntroForMak } from "@/lib/v2/career-health-view";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 
+import type { EnrichmentRunLog, EnrichmentSnapshot } from "@/lib/v2/api-enrichment";
+
 export type OnboardingMetadata = {
   reconciliation?: { id: string; status: string }[];
   instrument_answers?: InstrumentAnswer[];
   instrument_ids?: string[];
   instrument_scores?: Record<string, unknown>;
   api_enrichment_plan?: ReturnType<typeof apiEnrichmentPlan>;
+  enrichment_snapshot?: EnrichmentSnapshot;
+  previous_enrichment_snapshot?: EnrichmentSnapshot;
+  enrichment_runs?: EnrichmentRunLog[];
   cdi?: { score: number; domains: Record<string, number> };
   career_health_summary?: string;
   iwq?: number;
@@ -29,6 +34,38 @@ export type OnboardingMetadata = {
     summary?: string;
   }>;
   last_quarterly_summary?: string;
+  goal_milestone_history?: import("@/lib/v2/goal-milestone-tracking").GoalMilestoneQuarterSnapshot[];
+  stalled_goal_quarters?: number;
+  stalled_goal_title?: string | null;
+  stalled_goal_id?: string | null;
+  annual_refresh_history?: Array<{
+    year: number;
+    completed_at: string;
+    summary: string;
+  }>;
+  career_objective?: string;
+  stored_goals?: import("@/lib/goals").CareerGoal[];
+  alignment_history?: Array<{
+    quarter: string;
+    alignment_pct: number;
+    captured_at: string;
+  }>;
+  career_alignment_pct?: number;
+  low_alignment_quarters?: number;
+  metric_quarter_history?: import("@/lib/v2/metric-decline-tracking").MetricQuarterSnapshot[];
+  metric_declines?: import("@/lib/v2/metric-decline-tracking").MetricDeclineRecord[];
+  annual_refresh_session?: import("@/lib/v2/annual-mak-flow").AnnualRefreshSession;
+  quarterly_pulse_session?: import("@/lib/v2/quarterly-mak-flow").QuarterlyPulseSession;
+  goals_confirmed?: boolean;
+  goals_confirmed_at?: string;
+  invisible_work_recommendations?: Array<{
+    goalType: string;
+    message: string;
+    priority: string;
+  }>;
+  invisible_work_hours_by_category?: Partial<
+    Record<import("@/lib/v2/invisible-work-taxonomy").InvisibleWorkCategory, number>
+  >;
 };
 
 export function getOnboardingMetadata(user: AppUser): OnboardingMetadata {

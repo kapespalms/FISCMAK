@@ -6,9 +6,14 @@ import { cn } from "@/lib/utils";
 import { LatticeView } from "@/components/workspace/LatticeView";
 import { ActivitiesView } from "@/components/workspace/ActivitiesView";
 import { DocumentsView } from "@/components/workspace/DocumentsView";
+import { CareerDataVaultPanel } from "@/components/workspace/CareerDataVaultPanel";
+import { CareerDataReconcilePanel } from "@/components/workspace/CareerDataReconcilePanel";
+import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 
 const TABS = [
   { id: "lattice", label: "Lattice" },
+  { id: "vault", label: "Vault" },
+  { id: "reconcile", label: "Reconcile" },
   { id: "activities", label: "Activities" },
   { id: "documents", label: "Documents" },
 ] as const;
@@ -19,7 +24,12 @@ export function ObjectiveWorkspace() {
   const searchParams = useSearchParams();
   const tabParam = searchParams.get("tab");
   const tab: TabId =
-    tabParam === "activities" || tabParam === "documents" ? tabParam : "lattice";
+    tabParam === "activities" ||
+    tabParam === "documents" ||
+    tabParam === "vault" ||
+    tabParam === "reconcile"
+      ? tabParam
+      : "lattice";
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -32,11 +42,14 @@ export function ObjectiveWorkspace() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
+      <AcademicSoapSectionGate intent="review" />
       <div>
-        <h1 className="text-2xl font-bold">Objective: Activities & evidence</h1>
-        <p className="mt-1 text-sm text-fiscmak-muted">
-          Lattice, activity log, and document uploads — updated as you work with Mak
-        </p>
+        <div>
+          <h1 className="text-page-title">Career Data</h1>
+          <p className="mt-1 text-sm text-fiscmak-muted">
+            Verified career data from uploaded documents and public databases
+          </p>
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-2 border-b border-fiscmak-border pb-2">
@@ -57,6 +70,8 @@ export function ObjectiveWorkspace() {
       </div>
 
       {tab === "lattice" && <LatticeView />}
+      {tab === "vault" && <CareerDataVaultPanel />}
+      {tab === "reconcile" && <CareerDataReconcilePanel />}
       {tab === "activities" && <ActivitiesView />}
       {tab === "documents" && <DocumentsView />}
     </div>

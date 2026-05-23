@@ -11,11 +11,20 @@ import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import {
   buildQuarterlyPulseSummary,
   parsePulseAnswers,
+  parseInvisibleWorkFromAnswers,
   quarterlyPulseStatus,
   type PulseAnswer,
 } from "@/lib/v2/quarterly-pulse";
+import { recommendGoalFromInvisibleWork } from "@/lib/v2/invisible-work-taxonomy";
 import { fetchDocuments } from "@/lib/v2/db";
 import { burnoutRiskFromPfi } from "@/lib/v2/career-language";
+import { runTouchpointSideEffects } from "@/lib/v2/touchpoint-side-effects";
+import { updateAlignmentTracking } from "@/lib/v2/career-alignment-tracking";
+import { careerAlignmentFromHealth } from "@/lib/mak-chatbot-states";
+import {
+  metricValuesForTracking,
+  updateMetricDeclineTracking,
+} from "@/lib/v2/metric-decline-tracking";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -89,13 +98,36 @@ export async function POST(request: Request) {
     summary,
   };
 
-  const updatedMeta = {
-    ...meta,
-    pulse_baseline: baseline,
-    pulse_history: [record, ...(meta.pulse_history ?? [])].slice(0, 8),
-    last_quarterly_summary: summary,
-    cdi: { score: newScore, domains: Object.fromEntries(health.domains.map((d) => [d.label, d.score])) },
-  };
+  const invisibleWork = parseInvisibleWorkFromAnswers(answers);
+  const invisibleRecommendations =
+    invisibleWork.totalHours > 0
+      ? recommendGoalFromInvisibleWork({
+          hoursByCategory: invisibleWork.hoursByCategory,
+          totalHours: invisibleWork.totalHours,
+        })
+      : [];
+
+  const updatedMeta = updateMetricDeclineTracking(
+    updateAlignmentTracking(
+      {
+        ...meta,
+        pulse_baseline: baseline,
+        pulse_history: [record, ...(meta.pulse_history ?? [])].slice(0, 8),
+        last_quarterly_summary: summary,
+        cdi: { score: newScore, domains: Object.fromEntries(health.domains.map((d) => [d.label, d.score])) },
+        invisible_work_hours_by_category: invisibleWork.hoursByCategory,
+        invisible_work_recommendations: invisibleRecommendations,
+      },
+      careerAlignmentFromHealth(health) ?? newScore,
+    ),
+    metricValuesForTracking({
+      health,
+      taskAlignmentScore:
+        parsed.invisible_hours != null
+          ? Math.max(0, Math.round(100 - parsed.invisible_hours * 5))
+          : null,
+    }),
+  );
 
   await upsertAppUser(
     auth.userId,
@@ -103,6 +135,15 @@ export async function POST(request: Request) {
     { onboarding_metadata: updatedMeta as Record<string, unknown> },
     auth.demo,
   );
+
+  const finalMeta = await runTouchpointSideEffects({
+    userId: auth.userId,
+    email: auth.email,
+    demo: auth.demo,
+    user,
+    meta: updatedMeta,
+    enrichmentTrigger: "quarterly",
+  });
 
   const triggers: string[] = [];
   if (parsed.burnout_screen != null && parsed.burnout_screen >= 4) {
@@ -121,5 +162,18 @@ export async function POST(request: Request) {
     career_health_score: newScore,
     triggers,
     completed_at: now,
+    enrichment: finalMeta.enrichment_snapshot
+      ? {
+          run_id: finalMeta.enrichment_snapshot.run_id,
+          status: finalMeta.enrichment_snapshot.status,
+          changes: finalMeta.enrichment_snapshot.changes_summary,
+        }
+      : null,
+    stalled_goal: finalMeta.stalled_goal_title
+      ? {
+          title: finalMeta.stalled_goal_title,
+          quarters: finalMeta.stalled_goal_quarters,
+        }
+      : null,
   });
 }
