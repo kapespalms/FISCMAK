@@ -41,21 +41,19 @@ export function DashboardRevealOverlay({ onComplete }: DashboardRevealOverlayPro
   const isLast = index >= BANDS.length - 1;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-fiscmak-ink/60 p-6">
-      <div className="max-w-lg rounded-xl bg-white p-8 shadow-xl">
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-          Step 6 of 7 · Dashboard reveal
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-cx-primary/60 p-6">
+      <div className="max-w-lg rounded-2xl bg-cx-white p-8 shadow-xl">
+        <p className="text-cx-label uppercase">Step 6 of 7 · Dashboard reveal</p>
+        <h2 className="mt-2 text-cx-h2">Your Career Dashboard</h2>
+        <p className="mt-2 text-cx-body">
+          Each section is available from the top navigation bar.
         </p>
-        <h2 className="mt-2 text-section-header">Your Career Dashboard</h2>
-        <p className="mt-2 text-sm text-fiscmak-muted">
-          Each section corresponds to a tab in the sidebar.
-        </p>
-        <div className="mt-6 rounded-lg border-2 border-fm-primary bg-fm-background p-5">
-          <p className="text-data-label">Band {index + 1} of 5</p>
-          <p className="mt-1 text-lg font-semibold">
+        <div className="mt-6 rounded-2xl border-2 border-cx-primary bg-cx-cream/50 p-5">
+          <p className="text-cx-label uppercase">Band {index + 1} of 5</p>
+          <p className="mt-1 text-lg font-semibold text-cx-text">
             {band.letter} — {band.title}
           </p>
-          <p className="mt-2 text-sm text-fiscmak-muted">{band.detail}</p>
+          <p className="mt-2 text-cx-body">{band.detail}</p>
         </div>
         <div className="mt-6 flex gap-3">
           {!isLast ? (

@@ -61,13 +61,13 @@ export function CareerDataReconcilePanel() {
   const pending = items.filter((i) => i.status === "pending");
 
   if (loading) {
-    return <p className="text-sm text-fiscmak-muted">Loading items pending review…</p>;
+    return <p className="text-sm text-cx-text-secondary">Loading items pending review…</p>;
   }
 
   if (!items.length) {
     return (
       <Card>
-        <p className="text-sm text-fiscmak-muted">
+        <p className="text-cx-body">
           No enrichment items pending review. Upload an updated CV to trigger API reconciliation.
         </p>
       </Card>
@@ -76,8 +76,8 @@ export function CareerDataReconcilePanel() {
 
   return (
     <Card accent={pending.length ? "amber" : "green"}>
-      <p className="text-xs font-semibold uppercase text-fiscmak-muted">O-2 · Reconciliation queue</p>
-      <h2 className="mt-1 text-lg font-bold">
+      <p className="text-cx-label uppercase">Reconciliation queue</p>
+      <h2 className="mt-1 text-cx-h3">
         {pending.length
           ? `${pending.length} item${pending.length > 1 ? "s" : ""} pending review`
           : "All items reviewed"}
@@ -86,13 +86,13 @@ export function CareerDataReconcilePanel() {
         {items.map((item) => (
           <li
             key={item.id}
-            className="rounded-lg border border-fiscmak-border bg-fiscmak-subtle/40 p-3 text-sm"
+            className="rounded-xl border border-cx-border bg-cx-cream/40 p-4 text-sm"
           >
-            <p className="font-semibold">{item.label}</p>
-            <p className="mt-1 text-fiscmak-muted">{item.detail}</p>
-            <p className="mt-1 text-xs text-fiscmak-muted">Source: {item.source}</p>
+            <p className="font-semibold text-cx-text">{item.label}</p>
+            <p className="mt-1 text-cx-body">{item.detail}</p>
+            <p className="mt-1 text-cx-label">Source: {item.source}</p>
             {item.status === "pending" ? (
-              <div className="mt-2 flex gap-2">
+              <div className="mt-3 flex gap-2">
                 <Button onClick={() => setStatus(item.id, "confirmed")}>
                   Confirm
                 </Button>
@@ -101,14 +101,16 @@ export function CareerDataReconcilePanel() {
                 </Button>
               </div>
             ) : (
-              <p className="mt-2 text-xs font-medium capitalize text-fiscmak-muted">
-                {item.status}
-              </p>
+              <p className="mt-2 text-cx-label capitalize">{item.status}</p>
             )}
           </li>
         ))}
       </ul>
-      {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+      {error && (
+        <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+          {error}
+        </p>
+      )}
       {pending.length > 0 && (
         <Button className="mt-4" onClick={() => void save()} disabled={saving}>
           {saving ? "Saving…" : "Save reconciliation"}
