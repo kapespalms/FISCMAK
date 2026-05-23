@@ -72,7 +72,13 @@ export function OutputStudioWorkspace() {
   }, []);
 
   useEffect(() => {
-    loadEvidence();
+    void loadEvidence();
+    const onLogged = () => void loadEvidence();
+    window.addEventListener("fiscmak:activity-logged", onLogged);
+    return () => window.removeEventListener("fiscmak:activity-logged", onLogged);
+  }, [loadEvidence]);
+
+  useEffect(() => {
     setVersions(loadVersions(selected));
     fetch("/api/v1/promotion/readiness")
       .then((r) => r.json())
@@ -91,7 +97,7 @@ export function OutputStudioWorkspace() {
         }),
       )
       .catch(() => undefined);
-  }, [loadEvidence, selected]);
+  }, [selected]);
 
   async function generate() {
     setGenerating(true);

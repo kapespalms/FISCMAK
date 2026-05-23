@@ -16,17 +16,15 @@ export function EvidenceDrawer({
 }) {
   return (
     <aside className="hidden w-64 shrink-0 space-y-4 overflow-y-auto lg:block">
-      <h2 className="text-xs font-semibold uppercase text-fiscmak-muted">
-        Evidence drawer
-      </h2>
+      <p className="text-cx-label uppercase">Evidence drawer</p>
       {evidence.length === 0 && (
-        <p className="text-sm text-fiscmak-muted">
+        <p className="text-sm text-cx-text-secondary">
           Log activities to populate evidence.
         </p>
       )}
       {evidence.map((item) => (
         <Card key={item.id} className="p-4">
-          <p className="line-clamp-3 text-sm font-medium">{item.raw_text}</p>
+          <p className="line-clamp-3 text-sm font-medium text-cx-text">{item.raw_text}</p>
           <div className="mt-2 flex flex-wrap gap-1">
             {item.primary_domain && (
               <Badge className="text-xs">{item.primary_domain}</Badge>
@@ -40,9 +38,7 @@ export function EvidenceDrawer({
               </Badge>
             )}
           </div>
-          <p className="mt-1 text-xs text-fiscmak-muted">
-            {item.activity_date}
-          </p>
+          <p className="mt-1 text-xs text-cx-text-secondary">{item.activity_date}</p>
           <div className="mt-2 flex flex-col gap-1">
             <Button
               variant="link"

@@ -25,7 +25,7 @@ function EvidenceChipComponent({
 }) {
   return (
     <span
-      className="mx-0.5 inline-flex cursor-pointer items-center rounded-full bg-fiscmak-green-light px-2 py-0.5 text-xs font-semibold text-fiscmak-green-dark"
+      className="mx-0.5 inline-flex cursor-pointer items-center rounded-full bg-cx-cream px-2 py-0.5 text-xs font-semibold text-cx-charcoal"
       title={text}
       contentEditable={false}
     >

@@ -33,17 +33,17 @@ export function LayOfTheLandTour({ open, onClose }: LayOfTheLandTourProps) {
       aria-modal="true"
       aria-labelledby="tour-title"
     >
-      <div className="w-full max-w-md rounded-xl border border-fiscmak-border bg-white p-6 shadow-xl">
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+      <div className="cx-card w-full max-w-md p-6 shadow-xl">
+        <p className="text-cx-label uppercase">
           Lay of the Land · {step + 1} / {LAY_OF_LAND_STEPS.length}
         </p>
-        <h2 id="tour-title" className="mt-2 text-xl font-bold">
+        <h2 id="tour-title" className="mt-2 text-cx-h2">
           {current.title}
         </h2>
         {current.highlight && (
-          <p className="mt-2 text-sm font-medium text-fiscmak-green">{current.highlight}</p>
+          <p className="mt-2 text-sm font-medium text-cx-primary">{current.highlight}</p>
         )}
-        <p className="mt-3 text-sm leading-relaxed text-fiscmak-muted">{current.body}</p>
+        <p className="mt-3 text-sm leading-relaxed text-cx-body">{current.body}</p>
 
         <div className="mt-6 flex gap-2">
           {step > 0 && (
@@ -61,7 +61,7 @@ export function LayOfTheLandTour({ open, onClose }: LayOfTheLandTourProps) {
         <button
           type="button"
           onClick={finish}
-          className="mt-3 w-full text-center text-xs text-fiscmak-muted hover:underline"
+          className="mt-3 w-full text-center text-xs text-cx-text-secondary hover:underline"
         >
           Skip tour
         </button>

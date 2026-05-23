@@ -72,11 +72,11 @@ export function CvUploadPanel({ disabled, onUpload, showPaste = true }: CvUpload
     <div className="space-y-4">
       <label
         htmlFor="cv-upload-input"
-        className="flex cursor-pointer flex-col items-center rounded-lg border-2 border-dashed border-fiscmak-border bg-fiscmak-subtle px-6 py-8 transition-colors hover:border-fiscmak-green hover:bg-fiscmak-green-light"
+        className="flex cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-cx-border bg-cx-cream/40 px-6 py-8 transition-colors hover:border-cx-charcoal hover:bg-cx-cream/70"
       >
-        <Upload className="text-fiscmak-green" size={28} />
-        <p className="mt-3 font-semibold">Choose CV file</p>
-        <p className="mt-1 text-sm text-fiscmak-muted">{ACCEPTED_CV_LABEL}</p>
+        <Upload className="text-cx-charcoal" size={28} />
+        <p className="mt-3 font-semibold text-cx-text">Choose CV file</p>
+        <p className="mt-1 text-sm text-cx-text-secondary">{ACCEPTED_CV_LABEL}</p>
         <input
           id="cv-upload-input"
           type="file"
@@ -88,8 +88,8 @@ export function CvUploadPanel({ disabled, onUpload, showPaste = true }: CvUpload
       </label>
 
       {selectedFile && (
-        <p className="text-sm">
-          Selected: <span className="font-medium">{selectedFile.name}</span>
+        <p className="text-sm text-cx-body">
+          Selected: <span className="font-medium text-cx-text">{selectedFile.name}</span>
         </p>
       )}
 
@@ -103,8 +103,8 @@ export function CvUploadPanel({ disabled, onUpload, showPaste = true }: CvUpload
       </Button>
 
       {showPaste && (
-        <form onSubmit={handlePasteSubmit} className="space-y-3 border-t border-fiscmak-border pt-4">
-          <label htmlFor="cv-paste-input" className="text-sm font-semibold">
+        <form onSubmit={handlePasteSubmit} className="space-y-3 border-t border-cx-border pt-4">
+          <label htmlFor="cv-paste-input" className="text-sm font-semibold text-cx-text">
             Or paste CV text
           </label>
           <textarea
@@ -113,7 +113,7 @@ export function CvUploadPanel({ disabled, onUpload, showPaste = true }: CvUpload
             onChange={(e) => setPasteText(e.target.value)}
             rows={4}
             placeholder="Paste CV content here…"
-            className="w-full rounded-md border border-fiscmak-border p-3 text-base"
+            className="cx-field w-full"
             disabled={busy}
           />
           <Button type="submit" variant="secondary" disabled={busy || !pasteText.trim()}>
@@ -123,9 +123,13 @@ export function CvUploadPanel({ disabled, onUpload, showPaste = true }: CvUpload
       )}
 
       {processing && (
-        <p className="text-sm text-fiscmak-muted">Uploading and extracting CV text…</p>
+        <p className="text-sm text-cx-text-secondary">Uploading and extracting CV text…</p>
       )}
-      {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+      {error && (
+        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

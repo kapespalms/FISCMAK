@@ -15,12 +15,12 @@ export function VersionHistoryPanel({
 
   return (
     <Card className="mt-4 p-4">
-      <h3 className="text-sm font-semibold">Version history</h3>
+      <p className="text-cx-label uppercase">Version history</p>
       <ul className="mt-3 max-h-40 space-y-2 overflow-y-auto">
         {versions.slice(0, 5).map((v) => (
           <li
             key={v.id}
-            className="flex items-center justify-between gap-2 text-xs text-fiscmak-muted"
+            className="flex items-center justify-between gap-2 text-xs text-cx-text-secondary"
           >
             <span>
               v{v.version_number} ·{" "}

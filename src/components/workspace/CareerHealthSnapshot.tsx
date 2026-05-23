@@ -12,14 +12,14 @@ function DomainRow({ domain }: { domain: CareerHealthDomain }) {
       : "Career Profile, validated instruments, CV parse";
 
   return (
-    <div className="rounded-lg border border-fiscmak-border bg-fm-surface p-4 shadow-sm">
+    <div className="rounded-lg border border-cx-border bg-cx-white p-4 shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <p className="text-data-value">{domain.label}</p>
             <StatusChip status={domain.status} />
           </div>
-          <p className="mt-2 text-sm text-fiscmak-muted">{domain.summary}</p>
+          <p className="mt-2 text-sm text-cx-text-secondary">{domain.summary}</p>
           <DataSourceTooltip sources={sources} />
         </div>
         <p className="text-data-value tabular-nums">{domain.score}</p>
@@ -31,12 +31,12 @@ function DomainRow({ domain }: { domain: CareerHealthDomain }) {
 
 function MetricRow({ metric }: { metric: CareerHealthMetric }) {
   return (
-    <div className="rounded-lg border border-fiscmak-border bg-fm-surface p-4 shadow-sm">
+    <div className="rounded-lg border border-cx-border bg-cx-white p-4 shadow-sm">
       <div className="flex flex-wrap items-center gap-2">
         <p className="text-data-value">{metric.label}</p>
         {metric.status && <StatusChip status={metric.status} />}
       </div>
-      <p className="mt-2 text-sm text-fiscmak-muted">{metric.summary}</p>
+      <p className="mt-2 text-sm text-cx-text-secondary">{metric.summary}</p>
       <TechnicalDetailToggle
         technical={metric.technical}
         sources="Stanford PFI, BITS, physician career development research"
@@ -57,15 +57,15 @@ export function CareerHealthSnapshot({
       <div>
         <p className="text-data-label">{view.dashboard_title}</p>
         <h2 className="text-section-header mt-1">Career Health snapshot</h2>
-        <p className="mt-2 text-sm text-fiscmak-muted">{view.intro}</p>
+        <p className="mt-2 text-sm text-cx-text-secondary">{view.intro}</p>
       </div>
 
-      <div className="rounded-xl border border-fiscmak-border bg-fm-surface p-6 shadow-sm">
+      <div className="rounded-xl border border-cx-border bg-cx-white p-6 shadow-sm">
         <p className="text-data-label">Career Health Score</p>
         <div className="mt-2">
           <ScoreDisplay value={view.career_health_score} previousValue={previousScore} />
         </div>
-        <p className="mt-3 text-sm text-fiscmak-ink">{view.career_health_summary}</p>
+        <p className="mt-3 text-sm text-cx-text">{view.career_health_summary}</p>
         <p className="mt-3 text-caption italic">{view.weights_adjustable_note}</p>
       </div>
 
@@ -84,8 +84,8 @@ export function CareerHealthSnapshot({
         </div>
       </div>
 
-      <p className="text-sm text-fiscmak-muted">
-        <span className="font-semibold text-fiscmak-ink">Reflection:</span> {view.aspiration_prompt}
+      <p className="text-sm text-cx-text-secondary">
+        <span className="font-semibold text-cx-text">Reflection:</span> {view.aspiration_prompt}
       </p>
     </div>
   );

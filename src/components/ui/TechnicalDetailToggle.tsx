@@ -29,14 +29,14 @@ export function TechnicalDetailToggle({
         Show technical detail
       </button>
       {open && (
-        <div className="mt-2 space-y-2 rounded-md border border-fiscmak-border bg-fm-background px-3 py-2">
-          {sources && <p className="text-caption">Source: {sources}</p>}
+        <div className="mt-2 space-y-2 rounded-xl border border-cx-border bg-cx-cream/40 px-3 py-2">
+          {sources && <p className="text-cx-label">Source: {sources}</p>}
           {entries.length > 0 && (
             <dl className="space-y-1 text-xs">
               {entries.map(([key, value]) => (
                 <div key={key} className="flex gap-2">
-                  <dt className="shrink-0 font-mono text-fiscmak-muted">{key}:</dt>
-                  <dd className="break-all text-fiscmak-ink">
+                  <dt className="shrink-0 font-mono text-cx-text-secondary">{key}:</dt>
+                  <dd className="break-all text-cx-text">
                     {Array.isArray(value) ? value.join(", ") : String(value)}
                   </dd>
                 </div>
