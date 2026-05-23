@@ -3,6 +3,24 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import type { AppUser } from "@/lib/v2/types";
+import { migrateLegacySpecialty } from "@/lib/v2/specialty-hierarchy";
+
+function withSpecialtyDefaults(user: AppUser): AppUser {
+  if (user.base_specialty != null) {
+    return {
+      ...user,
+      subspecialty_training_complete: Boolean(user.subspecialty_training_complete),
+    };
+  }
+  const migrated = migrateLegacySpecialty(user.specialty);
+  return {
+    ...user,
+    base_specialty: migrated.base_specialty,
+    subspecialty: migrated.subspecialty,
+    subspecialty_training_complete: migrated.subspecialty_training_complete,
+    specialty: migrated.specialty ?? user.specialty,
+  };
+}
 
 export function jsonOk<T>(data: T, status = 200) {
   return NextResponse.json(data, { status });
@@ -38,11 +56,12 @@ export async function requireApiUser(): Promise<
 
 export async function getAppUser(userId: string, demo: boolean): Promise<AppUser | null> {
   if (demo) {
-    return getServerDemo(userId).user;
+    return withSpecialtyDefaults(getServerDemo(userId).user);
   }
   const supabase = await createClient();
   const { data } = await supabase.from("app_users").select("*").eq("user_id", userId).maybeSingle();
-  return data as AppUser | null;
+  if (!data) return null;
+  return withSpecialtyDefaults(data as AppUser);
 }
 
 export async function upsertAppUser(
@@ -53,13 +72,13 @@ export async function upsertAppUser(
 ): Promise<AppUser> {
   if (demo) {
     const state = getServerDemo(userId);
-    state.user = {
+    state.user = withSpecialtyDefaults({
       ...state.user,
       ...patch,
       user_id: userId,
       email,
       last_active: new Date().toISOString(),
-    };
+    });
     return state.user;
   }
   const supabase = await createClient();
@@ -74,7 +93,7 @@ export async function upsertAppUser(
     .select("*")
     .single();
   if (error) throw error;
-  return data as AppUser;
+  return withSpecialtyDefaults(data as AppUser);
 }
 
 export async function touchLastActive(userId: string, demo: boolean) {

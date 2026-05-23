@@ -84,18 +84,18 @@ export function Tier1Onboarding() {
   return (
     <div className="mx-auto max-w-lg py-8">
       <Card>
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+        <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
           Welcome · About 2 minutes
         </p>
-        <h1 className="mt-1 text-2xl font-bold">Let&apos;s get you set up</h1>
-        <p className="mt-2 text-sm text-fiscmak-muted">
+        <h1 className="mt-1 text-xl font-semibold text-cx-forest-dark">Let&apos;s get you set up</h1>
+        <p className="mt-2 text-sm text-cx-forest-dark/80">
           Name, specialty, and role — then Coach Mak takes over. The rest of onboarding happens
           through conversation (about 10–15 minutes), not forms.
         </p>
 
         <div className="mt-6 space-y-5">
           <div>
-            <label htmlFor="onboarding-name" className="text-sm font-semibold">
+            <label htmlFor="onboarding-name" className="text-sm font-semibold text-cx-forest-dark">
               Your name
             </label>
             <input
@@ -104,13 +104,13 @@ export function Tier1Onboarding() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Jane Smith"
-              className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4 text-base focus:border-fiscmak-green focus:outline-none"
+              className="cx-field mt-2 min-h-11 w-full"
               autoComplete="name"
             />
           </div>
 
           <div className="relative">
-            <label htmlFor="specialty-search" className="text-sm font-semibold">
+            <label htmlFor="specialty-search" className="text-sm font-semibold text-cx-forest-dark">
               Specialty
             </label>
             <input
@@ -124,21 +124,23 @@ export function Tier1Onboarding() {
               }}
               onFocus={() => setListOpen(true)}
               placeholder="Start typing, e.g. Cardiology…"
-              className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4 text-base focus:border-fiscmak-green focus:outline-none"
+              className="cx-field mt-2 min-h-11 w-full"
               autoComplete="off"
             />
             {listOpen && (
-              <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-fiscmak-border bg-white shadow-md">
+              <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-xl border border-cx-forest-dark/15 bg-white shadow-md">
                 {filteredSpecialties.length === 0 ? (
-                  <li className="px-4 py-3 text-sm text-fiscmak-muted">No matches</li>
+                  <li className="px-4 py-3 text-sm text-cx-forest-dark/60">No matches</li>
                 ) : (
                   filteredSpecialties.map((s) => (
                     <li key={s}>
                       <button
                         type="button"
                         onClick={() => pickSpecialty(s)}
-                        className={`w-full px-4 py-2.5 text-left text-sm hover:bg-fiscmak-subtle ${
-                          specialty === s ? "bg-fiscmak-green-light font-semibold" : ""
+                        className={`w-full px-4 py-2.5 text-left text-sm hover:bg-cx-forest-dark/5 ${
+                          specialty === s
+                            ? "bg-cx-forest-dark/10 font-semibold text-cx-forest-dark"
+                            : "text-cx-forest-dark/80"
                         }`}
                       >
                         {s}
@@ -151,17 +153,17 @@ export function Tier1Onboarding() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold">Career stage / role</p>
+            <p className="text-sm font-semibold text-cx-forest-dark">Career stage / role</p>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">
               {CAREER_STAGES.map((s) => (
                 <button
                   key={s}
                   type="button"
                   onClick={() => setCareerStage(s)}
-                  className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
+                  className={`rounded-xl border px-3 py-2.5 text-left text-sm ${
                     careerStage === s
-                      ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                      : "border-fiscmak-border hover:bg-fiscmak-subtle"
+                      ? "border-cx-forest-dark bg-cx-forest-dark/10 font-semibold text-cx-forest-dark"
+                      : "border-cx-forest-dark/20 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
                   }`}
                 >
                   {s}
@@ -175,7 +177,11 @@ export function Tier1Onboarding() {
           </Button>
         </div>
 
-        {error && <p className="mt-3 text-sm text-fiscmak-red">{error}</p>}
+        {error && (
+          <p className="mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+            {error}
+          </p>
+        )}
       </Card>
     </div>
   );

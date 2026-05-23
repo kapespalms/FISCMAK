@@ -17,18 +17,18 @@ export function LoadingSteps({ steps, className }: { steps: Step[]; className?: 
           key={step.id}
           className={cn(
             "flex items-center gap-2 text-sm",
-            step.status === "done" && "text-fm-strong",
-            step.status === "active" && "font-medium text-fm-primary",
-            step.status === "pending" && "text-fiscmak-muted",
+            step.status === "done" && "text-cx-success",
+            step.status === "active" && "font-medium text-cx-forest-dark",
+            step.status === "pending" && "text-cx-forest-dark/50",
           )}
         >
           {step.status === "done" ? (
-            <Check size={16} className="shrink-0 text-fm-strong" aria-hidden />
+            <Check size={16} className="shrink-0 text-cx-success" aria-hidden />
           ) : (
             <span
               className={cn(
                 "inline-block h-4 w-4 shrink-0 rounded-full border-2",
-                step.status === "active" ? "border-fm-accent animate-pulse" : "border-fiscmak-border",
+                step.status === "active" ? "border-[#5FD65F] animate-pulse" : "border-cx-forest-dark/20",
               )}
               aria-hidden
             />

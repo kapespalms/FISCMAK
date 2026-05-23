@@ -1,0 +1,173 @@
+"use client";
+
+import { useMemo } from "react";
+import {
+  filterBaseSpecialties,
+  filterSubspecialties,
+  hasSubspecialtyOptions,
+} from "@/lib/v2/specialty-hierarchy";
+import type { CareerStage } from "@/lib/v2/onboarding-options";
+import { cn } from "@/lib/utils";
+
+type SpecialtyIntakeFieldsProps = {
+  baseSpecialty: string;
+  baseQuery: string;
+  onBaseQueryChange: (value: string) => void;
+  onPickBase: (value: string) => void;
+  baseListOpen: boolean;
+  onBaseListOpenChange: (open: boolean) => void;
+  subspecialty: string;
+  subspecialtyQuery: string;
+  onSubspecialtyQueryChange: (value: string) => void;
+  onPickSubspecialty: (value: string) => void;
+  subspecialtyListOpen: boolean;
+  onSubspecialtyListOpenChange: (open: boolean) => void;
+  trainingComplete: boolean;
+  onTrainingCompleteChange: (value: boolean) => void;
+  careerStage: CareerStage;
+};
+
+export function SpecialtyIntakeFields({
+  baseSpecialty,
+  baseQuery,
+  onBaseQueryChange,
+  onPickBase,
+  baseListOpen,
+  onBaseListOpenChange,
+  subspecialty,
+  subspecialtyQuery,
+  onSubspecialtyQueryChange,
+  onPickSubspecialty,
+  subspecialtyListOpen,
+  onSubspecialtyListOpenChange,
+  trainingComplete,
+  onTrainingCompleteChange,
+  careerStage,
+}: SpecialtyIntakeFieldsProps) {
+  const filteredBases = useMemo(() => filterBaseSpecialties(baseQuery), [baseQuery]);
+  const showSubspecialty = baseSpecialty && hasSubspecialtyOptions(baseSpecialty);
+  const filteredSubs = useMemo(
+    () => (baseSpecialty ? filterSubspecialties(baseSpecialty, subspecialtyQuery) : []),
+    [baseSpecialty, subspecialtyQuery],
+  );
+
+  return (
+    <div className="space-y-5">
+      <div className="relative">
+        <label htmlFor="base-specialty-search" className="text-sm font-semibold">
+          Base specialty
+        </label>
+        <p className="mt-0.5 text-xs text-cx-forest-dark/70">
+          Residency training program (e.g. Internal Medicine, Pediatrics).
+        </p>
+        <input
+          id="base-specialty-search"
+          type="text"
+          value={baseQuery}
+          onChange={(e) => {
+            onBaseQueryChange(e.target.value);
+            onBaseListOpenChange(true);
+          }}
+          onFocus={() => onBaseListOpenChange(true)}
+          placeholder="Start typing, e.g. Internal Medicine…"
+          className="cx-field mt-2"
+          autoComplete="off"
+        />
+        {baseListOpen && (
+          <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md">
+            {filteredBases.length === 0 ? (
+              <li className="px-4 py-3 text-sm text-cx-forest-dark/70">No matches</li>
+            ) : (
+              filteredBases.map((s) => (
+                <li key={s}>
+                  <button
+                    type="button"
+                    onClick={() => onPickBase(s)}
+                    className={cn(
+                      "w-full px-4 py-2.5 text-left text-sm hover:bg-cx-forest-dark/5",
+                      baseSpecialty === s && "bg-cx-forest-dark/10 font-semibold",
+                    )}
+                  >
+                    {s}
+                  </button>
+                </li>
+              ))
+            )}
+          </ul>
+        )}
+      </div>
+
+      {showSubspecialty && (
+        <>
+          <div className="relative">
+            <label htmlFor="subspecialty-search" className="text-sm font-semibold">
+              Fellowship / subspecialty <span className="font-normal text-cx-forest-dark/70">(optional)</span>
+            </label>
+            <p className="mt-0.5 text-xs text-cx-forest-dark/70">
+              e.g. Interventional Cardiology after Internal Medicine residency.
+            </p>
+            <input
+              id="subspecialty-search"
+              type="text"
+              value={subspecialtyQuery}
+              onChange={(e) => {
+                onSubspecialtyQueryChange(e.target.value);
+                onSubspecialtyListOpenChange(true);
+              }}
+              onFocus={() => onSubspecialtyListOpenChange(true)}
+              placeholder="Start typing subspecialty…"
+              className="cx-field mt-2"
+              autoComplete="off"
+            />
+            {subspecialtyListOpen && (
+              <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md">
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => onPickSubspecialty("")}
+                    className="w-full px-4 py-2.5 text-left text-sm text-cx-forest-dark/70 hover:bg-cx-forest-dark/5"
+                  >
+                    None — practicing in base specialty only
+                  </button>
+                </li>
+                {filteredSubs.map((s) => (
+                  <li key={s}>
+                    <button
+                      type="button"
+                      onClick={() => onPickSubspecialty(s)}
+                      className={cn(
+                        "w-full px-4 py-2.5 text-left text-sm hover:bg-cx-forest-dark/5",
+                        subspecialty === s && "bg-cx-forest-dark/10 font-semibold",
+                      )}
+                    >
+                      {s}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          {subspecialty && (
+            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-4 py-3">
+              <input
+                type="checkbox"
+                checked={trainingComplete}
+                onChange={(e) => onTrainingCompleteChange(e.target.checked)}
+                className="mt-1"
+              />
+              <span className="text-sm text-cx-forest-dark">
+                <span className="font-semibold">Fellowship training complete</span>
+                <span className="mt-0.5 block text-cx-forest-dark/70">
+                  {careerStage === "Fellow"
+                    ? "Leave unchecked while you are still in fellowship."
+                    : "Check when you are board-eligible or certified in this subspecialty."}
+                </span>
+              </span>
+            </label>
+          )}
+        </>
+      )}
+    </div>
+  );
+}

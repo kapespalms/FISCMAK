@@ -73,11 +73,14 @@ Sign up at http://localhost:3000/signup
 
 ## Step 5 — V2 + Career Data migrations (automated)
 
-Add **DATABASE_URL** to `.env.local` (Supabase → **Project Settings → Database → Connection string → URI**, use the `postgres` role password):
+Add **SESSION_POOLER_URL** (recommended) or **DATABASE_URL** to `.env.local`:
 
 ```env
-DATABASE_URL=postgresql://postgres.[ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
+# Supabase Dashboard → Connect → Session mode (port 5432)
+SESSION_POOLER_URL=postgresql://postgres.[ref]:[password]@aws-0-[region].pooler.supabase.com:5432/postgres
 ```
+
+Legacy direct host (`db.[ref].supabase.co`) may not resolve on IPv4-only networks — use the pooler URI instead.
 
 Then from the project root:
 

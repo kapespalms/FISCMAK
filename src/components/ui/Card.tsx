@@ -10,8 +10,8 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-cx-border/70 bg-cx-white p-6 shadow-sm",
-        accent === "green" && "border-l-4 border-l-cx-success",
+        "rounded-2xl border border-cx-forest-dark/10 bg-cx-white p-6 shadow-sm",
+        accent === "green" && "border-l-4 border-l-[#5FD65F]",
         accent === "red" && "border-l-4 border-l-red-500",
         accent === "amber" && "border-l-4 border-l-cx-attention",
         className,

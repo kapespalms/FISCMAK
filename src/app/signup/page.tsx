@@ -43,9 +43,9 @@ export default function SignupPage() {
     <div className="cx-page-gradient flex min-h-full items-center justify-center p-6">
       <Card className="w-full max-w-md">
         <h1 className="text-page-title">Get started</h1>
-        <p className="mt-2 text-cx-body">
+        <p className="mt-2 text-sm text-cx-forest-dark/70">
           Already have an account?{" "}
-          <Link href="/login" className="font-medium text-cx-text hover:text-cx-primary">
+          <Link href="/login" className="font-medium text-cx-forest-dark hover:text-cx-forest-dark/80">
             Sign in
           </Link>
         </p>
@@ -53,10 +53,10 @@ export default function SignupPage() {
           <GoogleSignInButton next="/app/onboarding" label="Sign up with Google" />
           <div className="relative py-1">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-cx-border" />
+              <span className="w-full border-t border-cx-forest-dark/15" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-cx-white px-2 text-cx-text-secondary">or</span>
+              <span className="bg-cx-white px-2 text-cx-forest-dark/60">or</span>
             </div>
           </div>
           <Input
@@ -77,7 +77,7 @@ export default function SignupPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
           {error && (
-            <p className="rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+            <p className="cx-alert-banner px-4 py-3 text-sm">
               {error}
             </p>
           )}

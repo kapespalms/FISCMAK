@@ -56,6 +56,7 @@ export type OnboardingMetadata = {
   metric_declines?: import("@/lib/v2/metric-decline-tracking").MetricDeclineRecord[];
   annual_refresh_session?: import("@/lib/v2/annual-mak-flow").AnnualRefreshSession;
   quarterly_pulse_session?: import("@/lib/v2/quarterly-mak-flow").QuarterlyPulseSession;
+  goal_setting_session?: import("@/lib/v2/goal-setting-mak-flow").GoalSettingSession;
   goals_confirmed?: boolean;
   goals_confirmed_at?: string;
   touchpoint_session_mode?: "quarterly" | "annual";

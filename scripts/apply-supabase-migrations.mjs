@@ -1,35 +1,15 @@
 #!/usr/bin/env node
 /**
- * Apply FISCMAK Supabase migrations using DATABASE_URL from .env.local
+ * Apply FISCMAK Supabase migrations using DATABASE_URL / SESSION_POOLER_URL from .env.local
  * Usage: npm run db:migrate
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import pg from "pg";
+import { buildConnectionCandidates, connectPostgres, loadEnvLocal } from "./supabase-connection.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-
-function loadEnvLocal() {
-  const envPath = path.join(root, ".env.local");
-  if (!fs.existsSync(envPath)) return;
-  for (const line of fs.readFileSync(envPath, "utf8").split("\n")) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-    const eq = trimmed.indexOf("=");
-    if (eq <= 0) continue;
-    const key = trimmed.slice(0, eq).trim();
-    let val = trimmed.slice(eq + 1).trim();
-    if (
-      (val.startsWith('"') && val.endsWith('"')) ||
-      (val.startsWith("'") && val.endsWith("'"))
-    ) {
-      val = val.slice(1, -1);
-    }
-    if (!process.env[key]) process.env[key] = val;
-  }
-}
 
 async function tableExists(client, name) {
   const { rows } = await client.query(
@@ -85,21 +65,11 @@ const VERIFY_TABLES = [
 
 async function main() {
   loadEnvLocal();
-  const connectionString = process.env.DATABASE_URL;
-  if (!connectionString) {
-    console.error("DATABASE_URL not set. Add it to .env.local (Supabase → Settings → Database → URI).");
-    process.exit(1);
-  }
-
-  const client = new pg.Client({
-    connectionString,
-    ssl: { rejectUnauthorized: false },
-  });
 
   console.log("FISCMAK Supabase migrations");
-  console.log("Connecting…");
+  console.log(`Trying ${buildConnectionCandidates().length} connection option(s)…`);
 
-  await client.connect();
+  const client = await connectPostgres();
 
   const hasAppUsers = await tableExists(client, "app_users");
   const hasPhysicians = await tableExists(client, "physicians");
@@ -170,7 +140,9 @@ async function main() {
   await client.end();
 
   if (failures > 0) {
-    console.error(`\nCompleted with ${failures} failure(s). Check errors above or run SQL manually in Supabase SQL Editor.`);
+    console.error(
+      `\nCompleted with ${failures} failure(s). Check errors above or run SQL manually in Supabase SQL Editor.`,
+    );
     process.exit(1);
   }
 
@@ -178,6 +150,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(err);
+  console.error(err instanceof Error ? err.message : err);
   process.exit(1);
 });

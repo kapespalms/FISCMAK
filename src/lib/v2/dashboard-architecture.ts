@@ -186,12 +186,12 @@ export function resolveBandOrder(
   return resolveDashboardAdaptation({ setting, level, rank, track }).bandOrder;
 }
 
+/** Specialty, setting, and career stage or academic rank — excludes career track. */
 export function formatProfileSummaryLine(input: {
   specialty?: string | null;
   setting?: PracticeSetting | null;
   rank?: AcademicRank | null;
   level?: CareerStage | null;
-  track?: string | null;
 }): string {
   const parts: string[] = [];
   if (input.specialty) parts.push(input.specialty);
@@ -209,7 +209,6 @@ export function formatProfileSummaryLine(input: {
   } else if (input.level) {
     parts.push(input.level);
   }
-  if (input.track) parts.push(input.track);
   return parts.join(" · ") || "Complete profile configuration";
 }
 
@@ -247,7 +246,6 @@ export function buildDashboardHeader(input: {
   setting?: PracticeSetting | null;
   rank?: AcademicRank | null;
   level?: CareerStage | null;
-  track?: string | null;
   analytics: AnalyticsDashboard;
   quarterlyPulse?: QuarterlyPulseStatus | null;
 }): DashboardHeaderModel {
@@ -272,7 +270,6 @@ export function buildDashboardHeader(input: {
       setting: input.setting,
       rank: input.rank,
       level: input.level,
-      track: input.track,
     }),
     careerHealthScore: score,
     previousScore: prev,

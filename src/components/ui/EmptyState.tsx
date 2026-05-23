@@ -24,7 +24,7 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg border border-dashed border-fiscmak-border bg-fm-surface p-8",
+        "relative overflow-hidden rounded-lg border border-dashed border-cx-forest-dark/20 bg-cx-forest-dark/[0.03] p-8",
         className,
       )}
     >
@@ -38,7 +38,7 @@ export function EmptyState({
       )}
       <div className="relative max-w-lg">
         <h2 className="text-section-header">{title}</h2>
-        <p className="mt-2 text-sm text-fiscmak-muted">{description}</p>
+        <p className="mt-2 text-sm text-cx-forest-dark/70">{description}</p>
         {actionLabel && actionHref && (
           <Link href={actionHref} className="mt-4 inline-block">
             <Button>{actionLabel}</Button>

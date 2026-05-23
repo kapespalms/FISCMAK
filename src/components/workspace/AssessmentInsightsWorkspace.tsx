@@ -2,12 +2,23 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Card } from "@/components/ui/Card";
+import {
+  EyeOff,
+  GitBranch,
+  MessageSquare,
+  Sparkles,
+  Target,
+  Users,
+} from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { CardSection } from "@/components/ui/CardSection";
+import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
 import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
+import { ASSESSMENT_MAK } from "@/lib/card-mak-prompts";
+import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
 
 function statusBadge(status: "not_started" | "in_progress" | "complete") {
@@ -38,96 +49,120 @@ export function AssessmentInsightsWorkspace() {
   }, [load]);
 
   function discussWithMak() {
-    startMakFlow("assess");
+    startMakFlow("assess", undefined, ASSESSMENT_MAK.overview.question);
   }
 
   if (loading) {
-    return <p className="text-sm text-cx-text-secondary">Loading your career insights…</p>;
+    return <p className="text-sm text-cx-forest-dark/70">Loading your career insights…</p>;
   }
 
   if (!insights) {
     return (
-      <PageShell eyebrow="Career profile" title="Assessment insights" maxWidth="lg">
-        <Card>
-          <p className="text-cx-body">
-            Insights appear as you talk with Coach Mak. No forms — just conversation.
-          </p>
-          <Button className="mt-4" onClick={discussWithMak}>
-            Talk with Coach Mak
-          </Button>
-        </Card>
+      <PageShell eyebrow={SOAP_TAB.assessment.nav} title={SOAP_TAB.assessment.title} maxWidth="lg">
+        <CardSection
+          eyebrow={SOAP_TAB.assessment.nav}
+          title="Insights from conversation"
+          description="Insights appear as you talk with Coach Mak. No forms — just conversation."
+          icon={Target}
+          mak={ASSESSMENT_MAK.overview}
+          footer={
+            <Button onClick={discussWithMak}>Talk with Coach Mak</Button>
+          }
+        />
       </PageShell>
     );
   }
 
   return (
     <PageShell
-      eyebrow="Career profile"
-      title="Assessment insights"
-      subtitle="Synthesized Career Health Score, Career Map, and benchmarked standing"
+      eyebrow={SOAP_TAB.assessment.nav}
+      title={SOAP_TAB.assessment.title}
+      subtitle={SOAP_TAB.assessment.description}
       maxWidth="lg"
       action={<Button onClick={discussWithMak}>Discuss with Coach Mak</Button>}
     >
       <AcademicSoapSectionGate intent="assess" />
 
-      <Card accent="green" className="mb-6">
-        <p className="text-cx-label uppercase">Career pattern</p>
-        <h2 className="mt-2 text-cx-h2">{insights.career_pattern.label}</h2>
-        <p className="mt-2 text-cx-body">{insights.career_pattern.narrative}</p>
-        <p className="mt-3 text-cx-label">
-          Conversation coverage: {insights.conversation_coverage_pct}% of coaching signals captured
-        </p>
-      </Card>
+      <CardSection
+        className="mb-6"
+        accent="green"
+        eyebrow="Career pattern"
+        title={insights.career_pattern.label}
+        description={insights.career_pattern.narrative}
+        icon={Target}
+        mak={ASSESSMENT_MAK.career_pattern}
+        footer={
+          <p className="text-xs font-medium text-cx-forest-dark/70">
+            Conversation coverage: {insights.conversation_coverage_pct}% of coaching signals captured
+          </p>
+        }
+      />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
-        <Card>
-          <p className="text-cx-label uppercase">Coherence</p>
-          <p className="mt-2 text-4xl font-bold text-cx-text">
-            {insights.coherence_score ?? "—"}
-          </p>
-          <p className="mt-1 text-xs text-cx-text-secondary">{insights.coherence_label}</p>
-        </Card>
-        <Card>
-          <p className="text-cx-label uppercase">Service Citizenship</p>
-          <p className="mt-2 text-4xl font-bold">{insights.s_index ?? "—"}</p>
-          <p className="mt-1 text-xs text-cx-text-secondary">
-            {insights.service_citizenship_summary ?? "Breadth of service beyond clinical care"}
-          </p>
-        </Card>
-        <Card>
-          <p className="text-cx-label uppercase">Unrecognized Work</p>
-          <p className="mt-2 text-sm text-cx-text-secondary">
-            {insights.unrecognized_work_summary ??
-              "Work that may not appear on your CV or in compensation — discuss with Mak."}
-          </p>
-        </Card>
+        <CardSection
+          compact
+          eyebrow="Coherence"
+          title={insights.coherence_score != null ? String(insights.coherence_score) : "—"}
+          description={insights.coherence_label}
+          icon={GitBranch}
+          mak={ASSESSMENT_MAK.coherence}
+        />
+        <CardSection
+          compact
+          eyebrow="Service citizenship"
+          title={insights.s_index != null ? String(insights.s_index) : "—"}
+          description={
+            insights.service_citizenship_summary ??
+            "Breadth of service beyond clinical care"
+          }
+          icon={Users}
+          mak={ASSESSMENT_MAK.service_citizenship}
+        />
+        <CardSection
+          compact
+          eyebrow="Unrecognized work"
+          title="Hidden contribution"
+          description={
+            insights.unrecognized_work_summary ??
+            "Work that may not appear on your CV or in compensation."
+          }
+          icon={EyeOff}
+          mak={ASSESSMENT_MAK.unrecognized_work}
+        />
       </div>
 
-      <Card>
-        <h2 className="font-semibold">Seven touchpoints — collected in conversation</h2>
-        <p className="mt-1 text-sm text-cx-text-secondary">
-          Mak weaves these topics into natural dialogue over weeks. Status updates automatically.
-        </p>
-        <div className="mt-4 space-y-3">
+      <CardSection
+        className="mb-6"
+        eyebrow="Seven touchpoints"
+        title="Collected in conversation"
+        description="Mak weaves these topics into natural dialogue over weeks. Status updates automatically."
+        icon={MessageSquare}
+        mak={ASSESSMENT_MAK.touchpoints}
+      >
+        <div className="space-y-3">
           {insights.touchpoints.map((tp) => (
             <div
               key={tp.number}
-              className="rounded-lg border border-cx-border p-4"
+              className="rounded-xl border border-cx-forest-dark/15 bg-white p-4"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <p className="font-semibold">
+                  <p className="font-semibold text-cx-forest-dark">
                     TP{tp.number}: {tp.title}
                   </p>
-                  <p className="text-xs text-cx-text-secondary">{tp.category}</p>
+                  <p className="text-xs text-cx-forest-dark/70">{tp.category}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   {statusBadge(tp.status)}
-                  <span className="text-xs text-cx-text-secondary">{tp.coverage_pct}% captured</span>
+                  <span className="text-xs text-cx-forest-dark/60">{tp.coverage_pct}% captured</span>
+                  <MakDiscussLink
+                    mak={ASSESSMENT_MAK.touchpoint(tp.number, tp.title)}
+                    className="text-xs text-cx-forest-dark hover:text-cx-forest-dark/80"
+                  />
                 </div>
               </div>
               {tp.insights.length > 0 && (
-                <ul className="mt-3 space-y-1 text-sm text-cx-text-secondary">
+                <ul className="mt-3 space-y-1 text-sm text-cx-forest-dark/70">
                   {tp.insights.map((line) => (
                     <li key={line}>• {line}</li>
                   ))}
@@ -138,10 +173,10 @@ export function AssessmentInsightsWorkspace() {
                   {tp.collected_signals.map((s) => (
                     <div
                       key={s.label}
-                      className="rounded-md bg-cx-cream/60 px-3 py-2 text-xs"
+                      className="rounded-md bg-cx-forest-dark/[0.04] px-3 py-2 text-xs"
                     >
-                      <p className="font-medium text-foreground">{s.label}</p>
-                      <p className="mt-0.5 text-cx-text-secondary">{s.value}</p>
+                      <p className="font-medium text-cx-forest-dark">{s.label}</p>
+                      <p className="mt-0.5 text-cx-forest-dark/70">{s.value}</p>
                     </div>
                   ))}
                 </div>
@@ -149,61 +184,75 @@ export function AssessmentInsightsWorkspace() {
             </div>
           ))}
         </div>
-      </Card>
+      </CardSection>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <h2 className="font-semibold">Strengths &amp; opportunities</h2>
-          <ul className="mt-3 space-y-3 text-sm">
+        <CardSection
+          eyebrow="Profile analysis"
+          title="Strengths & opportunities"
+          icon={Sparkles}
+          mak={ASSESSMENT_MAK.strengths}
+        >
+          <ul className="space-y-3 text-sm">
             {insights.strengths.map((s) => (
               <li key={`${s.domain}-${s.note}`} className="flex gap-2">
                 <span
                   className={`mt-1 h-2 w-2 shrink-0 rounded-full ${
                     s.status === "strength"
-                      ? "bg-cx-success"
+                      ? "bg-[#5FD65F]"
                       : s.status === "risk"
                         ? "bg-cx-attention"
-                        : "bg-cx-accent"
+                        : "bg-cx-forest-dark/40"
                   }`}
                 />
                 <div>
-                  <p className="font-medium">{s.domain}</p>
-                  <p className="text-cx-text-secondary">{s.note}</p>
+                  <p className="font-medium text-cx-forest-dark">{s.domain}</p>
+                  <p className="text-cx-forest-dark/70">{s.note}</p>
                 </div>
               </li>
             ))}
           </ul>
-        </Card>
+        </CardSection>
 
-        <Card>
-          <h2 className="font-semibold">Recognition gaps</h2>
-          <ul className="mt-3 space-y-3 text-sm">
+        <CardSection
+          eyebrow="CV gap analysis"
+          title="Recognition gaps"
+          icon={EyeOff}
+          mak={ASSESSMENT_MAK.recognition_gaps}
+        >
+          <ul className="space-y-3 text-sm">
             {insights.recognition_gaps.map((g) => (
-              <li key={g.domain} className="rounded-md border border-cx-border p-3">
-                <p className="font-medium">{g.domain}</p>
-                <p className="mt-1 text-cx-text-secondary">
+              <li key={g.domain} className="rounded-xl border border-cx-forest-dark/15 p-3">
+                <p className="font-medium text-cx-forest-dark">{g.domain}</p>
+                <p className="mt-1 text-cx-forest-dark/70">
                   Conversation: {g.from_conversation}
                 </p>
-                <p className="text-cx-text-secondary">CV: {g.documented_on_cv}</p>
+                <p className="text-cx-forest-dark/70">CV: {g.documented_on_cv}</p>
               </li>
             ))}
           </ul>
-        </Card>
+        </CardSection>
       </div>
 
-      <Card accent="amber">
-        <p className="font-semibold">Continue with Mak</p>
-        <p className="mt-2 text-sm text-cx-text-secondary">{insights.mak_suggested_opener}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          <Button onClick={discussWithMak}>Open Coach Mak</Button>
-          <Link href="/app/output">
-            <Button variant="secondary">Create output from insights</Button>
-          </Link>
-          <Link href="/app/plan">
-            <Button variant="secondary">Plan next steps</Button>
-          </Link>
-        </div>
-      </Card>
+      <CardSection
+        className="mt-6"
+        accent="amber"
+        eyebrow="Next step"
+        title="Continue with Mak"
+        description={insights.mak_suggested_opener}
+        icon={MessageSquare}
+        mak={ASSESSMENT_MAK.overview}
+        footer={
+          <>
+            <Link href="/app/output">
+              <Button variant="secondary">Create output from insights</Button>
+            </Link>
+            <Link href="/app/plan">
+              <Button variant="secondary">Plan next steps</Button>
+            </Link>
+          </>
+        }
+      />
     </PageShell>
   );
 }

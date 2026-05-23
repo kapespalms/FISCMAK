@@ -286,7 +286,7 @@ export function buildSoapDashboardBands(input: {
     id: "subjective",
     letter: "S",
     title: SOAP_TAB.subjective.nav,
-    subtitle: "Career Perspective",
+    subtitle: SOAP_TAB.subjective.title,
     href: SOAP_HREFS.subjective,
     background: SOAP_COLORS.subjective,
     flowIntent: "discuss",
@@ -302,14 +302,14 @@ export function buildSoapDashboardBands(input: {
     careerDirection: careerDirectionText,
     metrics: orderedSubjectiveMetrics,
     emphasis: settingBandEmphasis(setting ?? null, level ?? null, "subjective"),
-    actionLabel: "View full career perspective",
+    actionLabel: "Open Perspective",
   };
 
   const objectiveBand: SoapBandSnapshot = {
     id: "objective",
     letter: "O",
     title: SOAP_TAB.objective.nav,
-    subtitle: "Career Data",
+    subtitle: SOAP_TAB.objective.title,
     href: SOAP_HREFS.objective,
     background: SOAP_COLORS.objective,
     flowIntent: "review",
@@ -326,7 +326,7 @@ export function buildSoapDashboardBands(input: {
     newItemBadge: objective.newItemCount > 0 ? objective.newItemCount : undefined,
     certificationAlert: objective.certificationAlert ?? undefined,
     emphasis: settingBandEmphasis(setting ?? null, level ?? null, "objective"),
-    actionLabel: "View full career data",
+    actionLabel: "Open Objective",
   };
 
   const latticeCells = analytics.dashboard_lattice;
@@ -351,7 +351,7 @@ export function buildSoapDashboardBands(input: {
     id: "assessment",
     letter: "A",
     title: SOAP_TAB.assessment.nav,
-    subtitle: "Career Profile",
+    subtitle: SOAP_TAB.assessment.title,
     href: SOAP_HREFS.assessment,
     background: SOAP_COLORS.assessment,
     flowIntent: "assess",
@@ -367,7 +367,7 @@ export function buildSoapDashboardBands(input: {
             ? `Career Alignment: ${alignmentPct}% toward ${careerObjective ?? aspiration}`
             : health.promotion_label,
         ]
-      : ["Complete Career Profile setup to generate your Career Map"],
+      : ["Complete Insights setup to generate your Career Map"],
     showMiniMap: true,
     strengths,
     developmentArea: weakLattice
@@ -384,7 +384,7 @@ export function buildSoapDashboardBands(input: {
         : undefined,
     advancementReadiness: readiness,
     emphasis: settingBandEmphasis(setting ?? null, level ?? null, "assessment"),
-    actionLabel: "View full career profile",
+    actionLabel: "Open Insights",
   };
 
   const activeGoals = goals.filter((g) => g.status === "active").slice(0, 3);
@@ -421,7 +421,7 @@ export function buildSoapDashboardBands(input: {
     id: "plan",
     letter: "P",
     title: SOAP_TAB.plan.nav,
-    subtitle: "Career Strategy",
+    subtitle: SOAP_TAB.plan.title,
     href: SOAP_HREFS.plan,
     background: SOAP_COLORS.plan,
     flowIntent: "plan",
@@ -431,19 +431,19 @@ export function buildSoapDashboardBands(input: {
             (g) =>
               `${GOAL_FRAMEWORK_LABELS[g.goal_type as GoalFrameworkType]?.label ?? "Goal"}: ${g.goal_title}`,
           )
-        : ["Goals will be suggested after your Career Profile is generated"],
+        : ["Goals will be suggested after your Insights are generated"],
     progress: planProgress,
     nextMilestone: nextMilestoneFromGoals(activeGoals),
     stalledGoalIndex: stalledIdx >= 0 ? stalledIdx : undefined,
     emphasis: settingBandEmphasis(setting ?? null, level ?? null, "plan"),
-    actionLabel: "View full career strategy",
+    actionLabel: "Open Strategy",
   };
 
   const outputBand: SoapBandSnapshot = {
     id: "output",
     letter: "O",
     title: SOAP_TAB.output.nav,
-    subtitle: "Career Documents",
+    subtitle: SOAP_TAB.output.title,
     href: SOAP_HREFS.output,
     background: SOAP_COLORS.output,
     flowIntent: "create",
@@ -453,7 +453,7 @@ export function buildSoapDashboardBands(input: {
       ? { ...readiness, label: "Advancement Readiness Report" }
       : undefined,
     emphasis: settingBandEmphasis(setting ?? null, level ?? null, "output"),
-    actionLabel: "Generate new document",
+    actionLabel: "Open Output Studio",
   };
 
   const bandMap: Record<SoapBandId, SoapBandSnapshot> = {

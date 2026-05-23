@@ -81,7 +81,7 @@ export function GoogleSignInButton({
         <GoogleIcon />
         {loading ? "Redirecting…" : label}
       </Button>
-      {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+      {error && <p className="text-sm text-cx-attention">{error}</p>}
     </div>
   );
 }

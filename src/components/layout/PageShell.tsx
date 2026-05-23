@@ -30,9 +30,17 @@ export function PageShell({
     <div className={cn("mx-auto w-full", WIDTH[maxWidth], className)}>
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
-          {eyebrow && <p className="text-cx-label uppercase tracking-wide">{eyebrow}</p>}
-          <h1 className="text-cx-h1">{title}</h1>
-          {subtitle && <p className="mt-2 max-w-2xl text-cx-body">{subtitle}</p>}
+          {eyebrow && (
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+              {eyebrow}
+            </p>
+          )}
+          <h1 className="text-[32px] font-bold leading-snug text-cx-forest-dark">{title}</h1>
+          {subtitle && (
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-cx-forest-dark/70">
+              {subtitle}
+            </p>
+          )}
         </div>
         {action && <div className="shrink-0">{action}</div>}
       </header>

@@ -1,18 +1,29 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Camera, User } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import { PageShell } from "@/components/layout/PageShell";
+import { UserAvatar } from "@/components/profile/UserAvatar";
 import { CAREER_PHASES } from "@/lib/constants";
+import { PROFILE_MAK } from "@/lib/card-mak-prompts";
+import {
+  AVATAR_CHANGED_EVENT,
+  getProfileAvatarUrl,
+  processAvatarFile,
+} from "@/lib/profile-avatar";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import type { Profile } from "@/lib/types/database";
 
 export default function ProfilePage() {
+  const fileRef = useRef<HTMLInputElement>(null);
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+  const [avatarError, setAvatarError] = useState<string | null>(null);
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
@@ -22,6 +33,16 @@ export default function ProfilePage() {
     department_name: "",
     goals: "",
   });
+
+  useEffect(() => {
+    setAvatarUrl(getProfileAvatarUrl());
+    function onAvatarChange(e: Event) {
+      const detail = (e as CustomEvent<string | null>).detail;
+      setAvatarUrl(detail ?? getProfileAvatarUrl());
+    }
+    window.addEventListener(AVATAR_CHANGED_EVENT, onAvatarChange);
+    return () => window.removeEventListener(AVATAR_CHANGED_EVENT, onAvatarChange);
+  }, []);
 
   useEffect(() => {
     if (!isSupabaseConfigured()) {
@@ -57,12 +78,28 @@ export default function ProfilePage() {
           department_name: p.department_name ?? "",
           goals: p.goals ?? "",
         });
+        if (p.photo_url && !getProfileAvatarUrl()) {
+          setAvatarUrl(p.photo_url);
+        }
       }
       setLoading(false);
     }
 
     load();
   }, []);
+
+  async function handleAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    setAvatarError(null);
+    try {
+      await processAvatarFile(file);
+      setAvatarUrl(getProfileAvatarUrl());
+    } catch (err) {
+      setAvatarError(err instanceof Error ? err.message : "Could not update photo.");
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -102,14 +139,49 @@ export default function ProfilePage() {
       maxWidth="md"
     >
       {error && (
-        <p className="mb-6 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+        <p className="cx-alert-banner mb-6 px-4 py-3 text-sm">
           {error}
         </p>
       )}
 
-      <Card>
+      <CardSection
+        eyebrow="Account"
+        title="Profile photo"
+        description="Shown in the top bar. JPG or PNG, under 2 MB."
+        icon={Camera}
+      >
+        <div className="flex flex-wrap items-center gap-4">
+          <UserAvatar
+            src={avatarUrl}
+            name={`${form.first_name} ${form.last_name}`.trim() || null}
+            size="lg"
+          />
+          <div className="space-y-2">
+            <Button type="button" variant="secondary" onClick={() => fileRef.current?.click()}>
+              Change photo
+            </Button>
+            {avatarError && <p className="text-sm text-cx-attention">{avatarError}</p>}
+          </div>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="image/*"
+            className="sr-only"
+            aria-hidden
+            onChange={(e) => void handleAvatarChange(e)}
+          />
+        </div>
+      </CardSection>
+
+      <CardSection
+        eyebrow="Account"
+        title="Career context"
+        description="Specialty, institution, and stated goals feed Coach Mak and your Career Profile."
+        icon={User}
+        mak={PROFILE_MAK.context}
+      >
         {loading ? (
-          <p className="text-cx-body">Loading profile…</p>
+          <p className="text-sm text-cx-forest-dark/70">Loading profile…</p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -148,7 +220,7 @@ export default function ProfilePage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, career_phase: e.target.value }))
                 }
-                className="mt-2 min-h-11 w-full rounded-xl border border-cx-border px-4 text-cx-text"
+                className="mt-2 min-h-11 w-full rounded-xl border border-cx-forest-dark/20 px-4 text-cx-forest-dark"
               >
                 {CAREER_PHASES.map((p) => (
                   <option key={p} value={p}>
@@ -184,14 +256,14 @@ export default function ProfilePage() {
                   setForm((f) => ({ ...f, goals: e.target.value }))
                 }
                 rows={4}
-                className="mt-2 w-full rounded-xl border border-cx-border p-4 text-cx-text"
+                className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-4 text-cx-forest-dark"
                 placeholder="What are you working toward?"
               />
             </div>
             <Button type="submit">{saved ? "Saved" : "Save profile"}</Button>
           </form>
         )}
-      </Card>
+      </CardSection>
     </PageShell>
   );
 }

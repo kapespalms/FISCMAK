@@ -15,28 +15,26 @@ export function EscalationResourcesPanel({ escalation }: EscalationResourcesPane
   return (
     <div
       className={`mx-2 mb-3 rounded-xl border p-4 ${
-        isCrisis
-          ? "border-cx-attention bg-amber-50"
-          : "border-cx-border bg-cx-cream/60"
+        isCrisis ? "cx-alert-banner" : "border-white/20 bg-white/95"
       }`}
     >
       <div className="flex items-start gap-2">
         {isCrisis ? (
           <Phone className="mt-0.5 shrink-0 text-cx-attention" size={18} />
         ) : (
-          <AlertTriangle className="mt-0.5 shrink-0 text-cx-text-secondary" size={18} />
+          <AlertTriangle className="mt-0.5 shrink-0 text-amber-600" size={18} />
         )}
         <div className="min-w-0 flex-1">
-          <p className="text-cx-label">
+          <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
             {isCrisis ? "Crisis support" : "Professional support recommended"}
           </p>
-          <p className="mt-1 text-sm text-cx-text">{escalation.message}</p>
+          <p className="mt-1 text-sm text-cx-forest-dark">{escalation.message}</p>
           {isCrisis && (
             <ul className="mt-3 space-y-2">
               {CRISIS_RESOURCES.map((r) => (
-                <li key={r.label} className="text-sm text-cx-body">
-                  <span className="font-medium text-cx-text">{r.label}</span>
-                  <span className="text-cx-text-secondary"> — {r.detail}</span>
+                <li key={r.label} className="text-sm text-cx-forest-dark/80">
+                  <span className="font-medium text-cx-forest-dark">{r.label}</span>
+                  <span className="text-cx-forest-dark/70"> — {r.detail}</span>
                 </li>
               ))}
             </ul>
@@ -50,7 +48,7 @@ export function EscalationResourcesPanel({ escalation }: EscalationResourcesPane
                     href={a.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-cx-border bg-cx-white px-3 py-1 text-xs font-medium text-cx-text hover:bg-cx-cream"
+                    className="rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1 text-xs font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5"
                   >
                     {a.action}
                   </a>
@@ -58,7 +56,7 @@ export function EscalationResourcesPanel({ escalation }: EscalationResourcesPane
                   <Link
                     key={a.action}
                     href={a.url}
-                    className="rounded-full border border-cx-border bg-cx-white px-3 py-1 text-xs font-medium text-cx-text hover:bg-cx-cream"
+                    className="rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1 text-xs font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5"
                   >
                     {a.action}
                   </Link>
@@ -67,7 +65,7 @@ export function EscalationResourcesPanel({ escalation }: EscalationResourcesPane
             </div>
           )}
           {escalation.pauseCareerCoaching && !isCrisis && (
-            <p className="mt-2 text-xs text-cx-text-secondary">
+            <p className="mt-2 text-xs text-cx-forest-dark/70">
               Career-focused coaching is paused until you acknowledge these resources.
             </p>
           )}

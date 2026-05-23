@@ -1,10 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { Grid3x3 } from "lucide-react";
+import { CardSection } from "@/components/ui/CardSection";
 import { LatticeGrid } from "@/components/lattice/LatticeGrid";
 import { fetchActivities } from "@/lib/activities-storage";
 import { activitiesToLatticeCells } from "@/lib/lattice";
 import { getDemoLatticeCells } from "@/lib/demo-data";
+import { LATTICE_MAK } from "@/lib/card-mak-prompts";
 import type { LatticeCellState } from "@/lib/constants";
 
 export function LatticeView() {
@@ -37,14 +40,20 @@ export function LatticeView() {
 
   return (
     <div className="space-y-4">
-      <p className="text-sm text-cx-text-secondary">
-        8 domains × 8 tracks
-        {usingLive
-          ? " · Live from your activities"
-          : " · Demo data (log activities to populate)"}
-      </p>
+      <CardSection
+        compact
+        eyebrow="Career Map"
+        title="8 domains × 8 tracks"
+        description={
+          usingLive
+            ? "Live from your logged activities."
+            : "Demo data — log activities to populate your map."
+        }
+        icon={Grid3x3}
+        mak={LATTICE_MAK.overview}
+      />
       {loading ? (
-        <p className="text-cx-text-secondary">Loading lattice…</p>
+        <p className="text-sm text-cx-forest-dark/70">Loading lattice…</p>
       ) : (
         <LatticeGrid cells={cells} />
       )}

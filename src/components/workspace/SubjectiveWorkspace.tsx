@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { Card } from "@/components/ui/Card";
+import { ChevronRight, Compass, TrendingUp } from "lucide-react";
+import { CardSection } from "@/components/ui/CardSection";
 import { MetricRow } from "@/components/ui/MetricRow";
 import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -18,6 +18,7 @@ import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
 import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
 import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
+import { SUBJECTIVE_MAK } from "@/lib/card-mak-prompts";
 
 type ProfileMeta = {
   career_track?: string | null;
@@ -98,7 +99,7 @@ export function SubjectiveWorkspace() {
   const alignment = health ? careerAlignmentFromHealth(health) : null;
 
   if (loading) {
-    return <p className="text-sm text-cx-text-secondary">Loading career perspective…</p>;
+    return <p className="text-sm text-cx-forest-dark/70">Loading career perspective…</p>;
   }
 
   const subtitle = [
@@ -112,7 +113,7 @@ export function SubjectiveWorkspace() {
 
   return (
     <PageShell
-      eyebrow="Career perspective"
+      eyebrow={SOAP_TAB.subjective.nav}
       title={SOAP_TAB.subjective.title}
       subtitle={subtitle}
       maxWidth="lg"
@@ -140,13 +141,14 @@ export function SubjectiveWorkspace() {
       )}
 
       {!touchpointDue && (
-        <Card className="mb-6">
-          <p className="text-cx-body">
-            {SOAP_TAB.subjective.chatEntry} The following brief assessment takes
-            approximately 5 minutes and covers professional satisfaction, task alignment, and
-            career direction.
-          </p>
-        </Card>
+        <CardSection
+          className="mb-6"
+          eyebrow="Getting started"
+          title={`${SOAP_TAB.subjective.title} assessment`}
+          description={SOAP_TAB.subjective.chatEntry}
+          icon={Compass}
+          mak={SUBJECTIVE_MAK.intro}
+        />
       )}
 
       <div className="cx-section-surface space-y-3">
@@ -158,16 +160,18 @@ export function SubjectiveWorkspace() {
               : `Primary career track: ${profile.career_track ?? "Set with Coach Mak"}. Stated objective: pending quarterly check-in`
           }
           status="developing"
+          mak={SUBJECTIVE_MAK.career_direction}
         />
 
         <MetricRow
           label="Professional fulfillment"
           summary={
             fulfillment?.summary ??
-            "Complete your Career Perspective assessment with Coach Mak to populate this metric."
+            "Complete your Perspective assessment with Coach Mak to populate this metric."
           }
           status={fulfillment?.status}
           trend={fulfillment ? "Updated from validated professional fulfillment instrument" : undefined}
+          mak={SUBJECTIVE_MAK.professional_fulfillment}
         />
 
         <MetricRow
@@ -177,6 +181,7 @@ export function SubjectiveWorkspace() {
             "Work-related strain indicators appear after your first validated check-in."
           }
           status={strain?.status}
+          mak={SUBJECTIVE_MAK.work_strain}
         />
 
         <MetricRow
@@ -186,12 +191,14 @@ export function SubjectiveWorkspace() {
             "Task alignment data identifies work time aligned with core professional role versus tasks outside primary responsibilities."
           }
           status={taskBurden?.status ?? "developing"}
+          mak={SUBJECTIVE_MAK.task_alignment}
         />
 
         <MetricRow
           label="Work engagement"
-          summary="Work engagement is measured annually using validated instruments. Complete the full Career Perspective assessment with Coach Mak."
+          summary="Work engagement is measured annually using validated instruments. Complete the full Perspective assessment with Coach Mak."
           status="stable"
+          mak={SUBJECTIVE_MAK.work_engagement}
         />
 
         <MetricRow
@@ -201,6 +208,7 @@ export function SubjectiveWorkspace() {
             `${dominantInvisibleWorkByLevel(profile.career_stage ?? null)} Estimate hours by category during your quarterly check-in.`
           }
           status={unrecognized?.status ?? "developing"}
+          mak={SUBJECTIVE_MAK.unrecognized_work}
         />
 
         <MetricRow
@@ -208,25 +216,31 @@ export function SubjectiveWorkspace() {
           summary={
             alignment != null
               ? `Career Alignment: ${alignment}% — Current professional activities are ${alignment >= 70 ? "well" : alignment >= 50 ? "moderately" : "partially"} aligned with stated career objectives`
-              : "Career alignment is computed from aspirations versus your Career Map — complete Assessment to populate."
+              : "Career alignment is computed from aspirations versus your Career Map — complete Insights to populate."
           }
           status={alignment != null ? (alignment >= 70 ? "strong" : alignment >= 50 ? "developing" : "needs_attention") : undefined}
           percentile={alignment}
+          mak={SUBJECTIVE_MAK.career_alignment}
         />
       </div>
 
-      <Card className="mt-6">
-        <p className="text-cx-body">
-          Longitudinal trends for each metric appear after two or more quarterly updates.
-        </p>
-        <Link
-          href="/app/plan"
-          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-primary"
-        >
-          View sustainability goals
-          <ChevronRight size={16} />
-        </Link>
-      </Card>
+      <CardSection
+        className="mt-6"
+        eyebrow="Longitudinal view"
+        title="Trends over time"
+        description="Longitudinal trends for each metric appear after two or more quarterly updates."
+        icon={TrendingUp}
+        mak={SUBJECTIVE_MAK.trends}
+        footer={
+          <Link
+            href="/app/plan"
+            className="inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+          >
+            View sustainability goals
+            <ChevronRight size={16} />
+          </Link>
+        }
+      />
     </PageShell>
   );
 }

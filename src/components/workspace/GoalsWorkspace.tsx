@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { CardSection } from "@/components/ui/CardSection";
 import { Input } from "@/components/ui/Input";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import {
   type CareerGoal,
   type GoalFormData,
@@ -13,66 +13,68 @@ import {
   emptyGoalForm,
   formToGoalPayload,
   goalToForm,
-  loadDemoGoals,
-  saveDemoGoals,
+  persistGoals,
 } from "@/lib/goals";
-import { GOAL_FRAMEWORK_LABELS, SOAP_TAB, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
-import { Pencil, Trash2 } from "lucide-react";
-import { EmptyState } from "@/components/ui/EmptyState";
+import { SOAP_TAB, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
+import { careerGoalsToStructuredGoals } from "@/lib/v2/goal-framework";
 import { PageShell } from "@/components/layout/PageShell";
-import { PathwaysExplorer } from "@/components/workspace/PathwaysExplorer";
-import { GoalQuarterlyReviewPanel } from "@/components/workspace/GoalQuarterlyReviewPanel";
+import { CareerStrategyGoalCard } from "@/components/workspace/CareerStrategyGoalCard";
 import { useAppShell } from "@/components/layout/AppShell";
-import { goalExamplesForProfile } from "@/lib/v2/goal-framework";
 import { buildAnnualPlanResetGreeting } from "@/lib/mak-chatbot-states";
-import { PlanActivationPanel } from "@/components/workspace/PlanActivationPanel";
-import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
-import type { PracticeSetting, CareerStage, AcademicRank } from "@/lib/v2/onboarding-options";
+import { buildGoalSettingIntro } from "@/lib/v2/goal-setting-mak-flow";
+import { PLAN_MAK } from "@/lib/card-mak-prompts";
+import {
+  findCurrentMilestoneIndex,
+  type MilestoneStatus,
+} from "@/lib/v2/goal-milestone-actions";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
+
+const FRAMEWORK_ORDER: GoalFrameworkType[] = [
+  "development",
+  "maintenance",
+  "sustainability",
+];
+
+function sortGoals(goals: CareerGoal[]): CareerGoal[] {
+  return [...goals].sort((a, b) => {
+    const ai = FRAMEWORK_ORDER.indexOf(a.goal_type as GoalFrameworkType);
+    const bi = FRAMEWORK_ORDER.indexOf(b.goal_type as GoalFrameworkType);
+    const aRank = ai === -1 ? 99 : ai;
+    const bRank = bi === -1 ? 99 : bi;
+    return aRank - bRank || a.priority - b.priority;
+  });
+}
+
+function currentQuarterLabel(): string {
+  const now = new Date();
+  return `Q${Math.floor(now.getMonth() / 3) + 1} ${now.getFullYear()}`;
+}
 
 export function GoalsWorkspace() {
   const { startMakFlow } = useAppShell();
+  const formRef = useRef<HTMLDivElement>(null);
   const [goals, setGoals] = useState<CareerGoal[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<GoalFormData>(emptyGoalForm());
   const [error, setError] = useState<string | null>(null);
+  const [milestoneUpdating, setMilestoneUpdating] = useState<string | null>(null);
   const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
-  const [profile, setProfile] = useState<{
-    practice_setting?: PracticeSetting | null;
-    career_stage?: CareerStage | null;
-    academic_rank?: AcademicRank | null;
-    primary_career_track?: string | null;
-    specialty?: string | null;
-  }>({});
+  const [goalsConfirmed, setGoalsConfirmed] = useState(false);
 
   const loadGoals = useCallback(async () => {
-    if (!isSupabaseConfigured()) {
-      setGoals(loadDemoGoals());
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/v1/goals");
+      const data = await res.json();
+      setGoals((data.goals as CareerGoal[]) ?? []);
+      setGoalsConfirmed(Boolean(data.goals_confirmed));
+    } catch {
+      setError("Could not load goals.");
+    } finally {
       setLoading(false);
-      return;
     }
-
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) {
-      setGoals(loadDemoGoals());
-      setLoading(false);
-      return;
-    }
-
-    const { data, error: fetchError } = await supabase
-      .from("career_goals")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("priority", { ascending: true });
-
-    if (fetchError) setError(fetchError.message);
-    else setGoals((data as CareerGoal[]) ?? []);
-    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -81,22 +83,70 @@ export function GoalsWorkspace() {
       .then((r) => r.json())
       .then((data) => setAnalytics(data as AnalyticsDashboard))
       .catch(() => undefined);
-    fetch("/api/v1/onboarding/touchpoint1")
-      .then((r) => r.json())
-      .then((data) => setProfile(data))
-      .catch(() => undefined);
+
+    const refresh = () => void loadGoals();
+    window.addEventListener("fiscmak:goals-updated", refresh);
+    return () => window.removeEventListener("fiscmak:goals-updated", refresh);
   }, [loadGoals]);
 
-  function openCreate() {
-    setEditingId(null);
-    setForm(emptyGoalForm());
-    setShowForm(true);
+  const sortedGoals = useMemo(() => sortGoals(goals.filter((g) => g.status !== "completed")), [goals]);
+  const structuredByType = useMemo(() => {
+    const map = new Map<GoalFrameworkType, ReturnType<typeof careerGoalsToStructuredGoals>[0]>();
+    for (const s of careerGoalsToStructuredGoals(sortedGoals)) {
+      map.set(s.type, s);
+    }
+    return map;
+  }, [sortedGoals]);
+
+  const annualDue = analytics?.annual_refresh?.due ?? false;
+
+  function startGoalSettingWithMak() {
+    startMakFlow(
+      "plan",
+      undefined,
+      buildGoalSettingIntro(),
+      undefined,
+      "set",
+      undefined,
+      PLAN_MAK.setup.autoMessage,
+    );
+  }
+
+  function reviewWithMak() {
+    if (annualDue) {
+      startMakFlow(
+        "plan",
+        undefined,
+        buildAnnualPlanResetGreeting({ goals, analytics }),
+        "annual",
+        undefined,
+        undefined,
+        "Begin annual goal review.",
+      );
+    } else {
+      startMakFlow(
+        "plan",
+        undefined,
+        `${currentQuarterLabel()} — let's review milestone progress on your three goals.`,
+        "quarterly",
+        undefined,
+        undefined,
+        PLAN_MAK.review.autoMessage,
+      );
+    }
   }
 
   function openEdit(goal: CareerGoal) {
     setEditingId(goal.id);
     setForm(goalToForm(goal));
-    setShowForm(true);
+    requestAnimationFrame(() => {
+      formRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  }
+
+  function closeEdit() {
+    setEditingId(null);
+    setForm(emptyGoalForm());
   }
 
   async function saveGoal(e: React.FormEvent) {
@@ -105,246 +155,141 @@ export function GoalsWorkspace() {
     setError(null);
 
     const payload = formToGoalPayload(form, editingId ?? undefined);
+    const existing = goals.find((g) => g.id === editingId);
+    const next = editingId
+      ? goals.map((g) =>
+          g.id === editingId
+            ? ({ ...g, ...payload, goal_type: existing?.goal_type ?? g.goal_type } as CareerGoal)
+            : g,
+        )
+      : goals;
 
-    if (!isSupabaseConfigured()) {
-      const next = editingId
-        ? goals.map((g) =>
-            g.id === editingId ? ({ ...g, ...payload } as CareerGoal) : g,
-          )
-        : [...goals, payload as CareerGoal];
-      saveDemoGoals(next);
-      setGoals(next);
-      setShowForm(false);
+    const result = await persistGoals(next);
+    if (!result.ok) {
+      setError(result.error ?? "Could not save goal.");
       return;
     }
-
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) return;
-
-    const row = {
-      ...payload,
-      user_id: user.id,
-      updated_at: new Date().toISOString(),
-    };
-
-    if (editingId) {
-      const { error: updateError } = await supabase
-        .from("career_goals")
-        .update(row)
-        .eq("id", editingId);
-      if (updateError) {
-        setError(updateError.message);
-        return;
-      }
-    } else {
-      const { error: insertError } = await supabase
-        .from("career_goals")
-        .insert(row);
-      if (insertError) {
-        setError(insertError.message);
-        return;
-      }
-    }
-
-    setShowForm(false);
-    await loadGoals();
+    setGoals(next);
+    closeEdit();
   }
 
   async function deleteGoal(id: string) {
     if (!confirm("Delete this goal?")) return;
-
-    if (!isSupabaseConfigured()) {
-      const next = goals.filter((g) => g.id !== id);
-      saveDemoGoals(next);
-      setGoals(next);
+    const next = goals.filter((g) => g.id !== id);
+    const result = await persistGoals(next);
+    if (!result.ok) {
+      setError(result.error ?? "Could not delete goal.");
       return;
     }
-
-    const supabase = createClient();
-    await supabase.from("career_goals").delete().eq("id", id);
-    await loadGoals();
+    setGoals(next);
   }
 
-  function statusBadge(status: CareerGoal["status"]) {
-    if (status === "completed") return "energizing";
-    if (status === "paused") return "neutral";
-    return "default";
+  async function updateMilestone(
+    goalId: string,
+    milestoneIndex: number,
+    status: MilestoneStatus,
+  ) {
+    setMilestoneUpdating(`${goalId}-${status}`);
+    setError(null);
+    try {
+      const res = await fetch("/api/v1/goals/milestone", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ goal_id: goalId, milestone_index: milestoneIndex, status }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.message ?? "Could not update milestone.");
+        return;
+      }
+      const next = (data.goals as CareerGoal[]) ?? goals;
+      setGoals(next);
+      await persistGoals(next);
+    } catch {
+      setError("Could not update milestone.");
+    } finally {
+      setMilestoneUpdating(null);
+    }
   }
 
   return (
     <PageShell
-      eyebrow="Career strategy"
+      eyebrow={SOAP_TAB.plan.nav}
       title={SOAP_TAB.plan.title}
-      subtitle={
-        SOAP_TAB.plan.description +
-        (!isSupabaseConfigured() ? " · saved in browser (demo)" : "")
-      }
+      subtitle={SOAP_TAB.plan.description}
       maxWidth="md"
-      action={<Button onClick={openCreate}>Add goal</Button>}
+      action={
+        !goalsConfirmed ? (
+          <Button onClick={startGoalSettingWithMak}>Set up with Mak</Button>
+        ) : undefined
+      }
     >
-      <AcademicSoapSectionGate intent="plan" />
-
       {error && (
-        <p className="mb-6 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+        <p className="cx-alert-banner mb-6 px-4 py-3 text-sm">
           {error}
         </p>
       )}
 
-      <PathwaysExplorer />
-
-      <GoalQuarterlyReviewPanel
-        annualDue={analytics?.annual_refresh?.due ?? false}
-        onGoalsUpdated={setGoals}
-        onDiscussWithMak={() => {
-          if (analytics?.annual_refresh?.due) {
-            startMakFlow(
-              "plan",
-              undefined,
-              buildAnnualPlanResetGreeting({ goals, analytics }),
-            );
-          } else {
-            startMakFlow("plan", undefined, "Begin quarterly goal review.");
+      {!loading && sortedGoals.length > 0 && (
+        <CardSection
+          className="mb-6"
+          compact
+          eyebrow={annualDue ? "Annual review" : currentQuarterLabel()}
+          title={annualDue ? "Confirm or reset your three goals" : "Mark milestone status below"}
+          mak={PLAN_MAK.review}
+          footer={
+            <Button variant="secondary" className="shrink-0" onClick={reviewWithMak}>
+              Review with Mak
+            </Button>
           }
-        }}
-      />
+        />
+      )}
 
-      <PlanActivationPanel
-        setting={profile.practice_setting}
-        level={profile.career_stage}
-        rank={profile.academic_rank}
-        track={profile.primary_career_track}
-        specialty={profile.specialty}
-      />
-
-      <Card>
-        <p className="text-data-label">Goal examples by profile</p>
-        <p className="mt-2 text-sm text-cx-text-secondary">
-          Development:{" "}
-          {goalExamplesForProfile({
-            setting: profile.practice_setting ?? "Academic",
-            level: profile.career_stage,
-            rank: profile.academic_rank,
-            track: profile.primary_career_track,
-          })
-            ?.development.slice(0, 2)
-            .join("; ") ?? "Set profile for tailored examples"}
-          . Maintenance and Sustainability goals adapt similarly by setting, rank, and track.
-        </p>
-      </Card>
-
-      {showForm && (
-        <Card>
-          <h2 className="font-semibold">
-            {editingId ? "Edit goal" : "New goal"}
-          </h2>
-          <form onSubmit={saveGoal} className="mt-4 space-y-4">
-            <Input
-              label="Goal title"
-              id="title"
-              required
-              value={form.goal_title}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, goal_title: e.target.value }))
-              }
-            />
-            <div>
-              <label htmlFor="desc" className="text-sm font-semibold">
-                Description
-              </label>
-              <textarea
-                id="desc"
-                rows={3}
-                value={form.goal_description}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, goal_description: e.target.value }))
-                }
-                className="mt-2 w-full rounded-md border border-cx-border p-4"
-              />
-            </div>
-            <div>
-              <label htmlFor="why" className="text-sm font-semibold">
-                Why this fits
-              </label>
-              <textarea
-                id="why"
-                rows={2}
-                value={form.why_this_fits}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, why_this_fits: e.target.value }))
-                }
-                className="mt-2 w-full rounded-md border border-cx-border p-4"
-              />
-            </div>
-            <div>
-              <label htmlFor="missing" className="text-sm font-semibold">
-                Missing evidence (one per line)
-              </label>
-              <textarea
-                id="missing"
-                rows={2}
-                value={form.missing_evidence}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, missing_evidence: e.target.value }))
-                }
-                className="mt-2 w-full rounded-md border border-cx-border p-4"
-                placeholder="Committee leadership documentation"
-              />
-            </div>
-            <div>
-              <label htmlFor="actions" className="text-sm font-semibold">
-                Recommended actions (one per line)
-              </label>
-              <textarea
-                id="actions"
-                rows={2}
-                value={form.recommended_actions}
-                onChange={(e) =>
-                  setForm((f) => ({
-                    ...f,
-                    recommended_actions: e.target.value,
-                  }))
-                }
-                className="mt-2 w-full rounded-md border border-cx-border p-4"
-                placeholder="Log 3 leadership activities"
-              />
-            </div>
-            <div className="grid gap-4 sm:grid-cols-3">
+      {editingId && (
+        <div ref={formRef} className="mb-6">
+          <CardSection
+            eyebrow="Template edit"
+            title="Edit goal"
+            mak={PLAN_MAK.editGoal}
+          >
+            <form onSubmit={saveGoal} className="space-y-4">
               <Input
-                label="Target date"
-                id="date"
-                type="date"
-                value={form.target_date}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, target_date: e.target.value }))
-                }
+                label="Title"
+                id="title"
+                required
+                value={form.goal_title}
+                onChange={(e) => setForm((f) => ({ ...f, goal_title: e.target.value }))}
               />
               <div>
-                <label htmlFor="priority" className="text-sm font-semibold">
-                  Priority (1–5)
+                <label htmlFor="desc" className="text-sm font-semibold text-cx-forest-dark">
+                  Description
                 </label>
-                <select
-                  id="priority"
-                  value={form.priority}
+                <textarea
+                  id="desc"
+                  rows={2}
+                  value={form.goal_description}
                   onChange={(e) =>
-                    setForm((f) => ({
-                      ...f,
-                      priority: Number(e.target.value),
-                    }))
+                    setForm((f) => ({ ...f, goal_description: e.target.value }))
                   }
-                  className="mt-2 min-h-11 w-full rounded-md border border-cx-border px-4"
-                >
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <option key={n} value={n}>
-                      {n}
-                    </option>
-                  ))}
-                </select>
+                  className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-forest-dark"
+                />
               </div>
               <div>
-                <label htmlFor="status" className="text-sm font-semibold">
+                <label htmlFor="actions" className="text-sm font-semibold text-cx-forest-dark">
+                  Milestones (one per line)
+                </label>
+                <textarea
+                  id="actions"
+                  rows={4}
+                  value={form.recommended_actions}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, recommended_actions: e.target.value }))
+                  }
+                  className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-forest-dark"
+                />
+              </div>
+              <div>
+                <label htmlFor="status" className="text-sm font-semibold text-cx-forest-dark">
                   Status
                 </label>
                 <select
@@ -356,7 +301,7 @@ export function GoalsWorkspace() {
                       status: e.target.value as CareerGoal["status"],
                     }))
                   }
-                  className="mt-2 min-h-11 w-full rounded-md border border-cx-border px-4"
+                  className="mt-2 min-h-11 w-full rounded-xl border border-cx-forest-dark/20 px-4 text-sm text-cx-forest-dark"
                 >
                   {GOAL_STATUSES.map((s) => (
                     <option key={s} value={s}>
@@ -365,117 +310,66 @@ export function GoalsWorkspace() {
                   ))}
                 </select>
               </div>
-            </div>
-            <div className="flex gap-2">
-              <Button type="submit">Save goal</Button>
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={() => setShowForm(false)}
-              >
-                Cancel
-              </Button>
-            </div>
-          </form>
-        </Card>
+              <div className="flex gap-2">
+                <Button type="submit">Save</Button>
+                <Button type="button" variant="secondary" onClick={closeEdit}>
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </CardSection>
+        </div>
       )}
 
-      {loading && <p className="text-sm text-cx-text-secondary">Loading goals…</p>}
+      {loading && (
+        <p className="text-sm text-cx-forest-dark/70">Loading goals…</p>
+      )}
 
-      {!loading && goals.length === 0 && (
-        <EmptyState
-          title="Career goals will appear here"
-          description="Goals are suggested after your Career Profile is generated — structured as Development, Maintenance, and Sustainability objectives with quarterly milestones."
-          actionLabel="Complete assessment first"
-          actionHref="/app/assessment"
+      {!loading && sortedGoals.length === 0 && (
+        <CardSection
+          eyebrow="Career strategy"
+          title="No goals yet"
+          description="Coach Mak walks you through Development, Maintenance, and Sustainability goals — or edit the template directly."
+          mak={PLAN_MAK.setup}
+          footer={<Button onClick={startGoalSettingWithMak}>Set up with Mak</Button>}
         />
       )}
 
       <div className="space-y-4">
-        {goals.map((goal) => (
-          <Card key={goal.id} accent="green">
-            <div className="flex flex-wrap items-start justify-between gap-2">
-              <div>
-                {goal.goal_type &&
-                  (goal.goal_type === "development" ||
-                    goal.goal_type === "maintenance" ||
-                    goal.goal_type === "sustainability") && (
-                    <p className="text-data-label">
-                      {GOAL_FRAMEWORK_LABELS[goal.goal_type as GoalFrameworkType].label}
-                    </p>
-                  )}
-                <h3 className="text-lg font-semibold">{goal.goal_title}</h3>
-                {goal.goal_description && (
-                  <p className="mt-1 text-sm text-cx-text-secondary">
-                    {goal.goal_description}
-                  </p>
-                )}
-              </div>
-              <div className="flex gap-2">
-                <Badge energy={statusBadge(goal.status)}>{goal.status}</Badge>
-                <Badge>P{goal.priority}</Badge>
-              </div>
-            </div>
+        {sortedGoals.map((goal) => {
+          const type = goal.goal_type as GoalFrameworkType | null;
+          const structured =
+            type && FRAMEWORK_ORDER.includes(type)
+              ? structuredByType.get(type) ?? null
+              : null;
 
-            {goal.why_this_fits && (
-              <p className="mt-3 text-sm">
-                <span className="font-semibold">Why: </span>
-                {goal.why_this_fits}
-              </p>
-            )}
-
-            {goal.missing_evidence && goal.missing_evidence.length > 0 && (
-              <div className="mt-3">
-                <p className="text-xs font-semibold uppercase text-cx-text-secondary">
-                  Missing evidence
-                </p>
-                <ul className="mt-1 list-disc pl-5 text-sm">
-                  {goal.missing_evidence.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {goal.recommended_actions &&
-              goal.recommended_actions.length > 0 && (
-                <div className="mt-3">
-                  <p className="text-xs font-semibold uppercase text-cx-text-secondary">
-                    Milestones
-                  </p>
-                  <ul className="mt-1 list-disc pl-5 text-sm">
-                    {goal.recommended_actions.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-            {goal.target_date && (
-              <p className="mt-3 text-xs text-cx-text-secondary">
-                Target: {goal.target_date}
-              </p>
-            )}
-
-            <div className="mt-4 flex gap-2">
-              <button
-                type="button"
-                onClick={() => openEdit(goal)}
-                className="flex items-center gap-1 text-sm text-cx-text hover:text-cx-primary"
-              >
-                <Pencil size={14} /> Edit
-              </button>
-              <button
-                type="button"
-                onClick={() => deleteGoal(goal.id)}
-                className="flex items-center gap-1 text-sm text-cx-attention hover:text-cx-primary"
-              >
-                <Trash2 size={14} /> Delete
-              </button>
-            </div>
-          </Card>
-        ))}
+          return (
+            <CareerStrategyGoalCard
+              key={goal.id}
+              goal={goal}
+              structured={structured}
+              updating={milestoneUpdating != null}
+              onEdit={() => openEdit(goal)}
+              onDelete={() => deleteGoal(goal.id)}
+              onMilestoneStatus={(index, status) =>
+                void updateMilestone(goal.id, index, status)
+              }
+            />
+          );
+        })}
       </div>
+
+      {!loading && sortedGoals.length > 0 && (
+        <p className="mt-8 text-center text-sm text-cx-forest-dark/70">
+          <Link
+            href="/app/jobs"
+            className="inline-flex items-center gap-1 font-medium text-cx-forest-dark hover:underline"
+          >
+            Pathways & position search
+            <ArrowRight size={14} />
+          </Link>
+        </p>
+      )}
     </PageShell>
   );
 }

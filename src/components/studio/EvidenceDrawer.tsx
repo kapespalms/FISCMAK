@@ -1,8 +1,11 @@
 "use client";
 
+import { Paperclip } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
+import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
+import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
 import type { ActivityEntry } from "@/lib/types/database";
 
 export function EvidenceDrawer({
@@ -16,15 +19,24 @@ export function EvidenceDrawer({
 }) {
   return (
     <aside className="hidden w-64 shrink-0 space-y-4 overflow-y-auto lg:block">
-      <p className="text-cx-label uppercase">Evidence drawer</p>
-      {evidence.length === 0 && (
-        <p className="text-sm text-cx-text-secondary">
-          Log activities to populate evidence.
-        </p>
-      )}
+      <CardSection
+        compact
+        eyebrow="Evidence"
+        title="Career evidence"
+        description={
+          evidence.length === 0
+            ? "Log activities to populate evidence."
+            : `${evidence.length} item${evidence.length > 1 ? "s" : ""} available to cite.`
+        }
+        icon={Paperclip}
+        mak={OUTPUT_MAK.evidence}
+      />
       {evidence.map((item) => (
-        <Card key={item.id} className="p-4">
-          <p className="line-clamp-3 text-sm font-medium text-cx-text">{item.raw_text}</p>
+        <div
+          key={item.id}
+          className="cx-surface-elevated rounded-xl p-4 shadow-sm"
+        >
+          <p className="line-clamp-3 text-sm font-medium text-cx-forest-dark">{item.raw_text}</p>
           <div className="mt-2 flex flex-wrap gap-1">
             {item.primary_domain && (
               <Badge className="text-xs">{item.primary_domain}</Badge>
@@ -38,7 +50,7 @@ export function EvidenceDrawer({
               </Badge>
             )}
           </div>
-          <p className="mt-1 text-xs text-cx-text-secondary">{item.activity_date}</p>
+          <p className="mt-1 text-xs text-cx-forest-dark/70">{item.activity_date}</p>
           <div className="mt-2 flex flex-col gap-1">
             <Button
               variant="link"
@@ -55,7 +67,16 @@ export function EvidenceDrawer({
               Insert text
             </Button>
           </div>
-        </Card>
+          <div className="mt-2 border-t border-cx-forest-dark/15 pt-2">
+            <MakDiscussLink
+              mak={{
+                ...OUTPUT_MAK.evidence,
+                question: `Help me use this evidence in my document: "${(item.raw_text ?? "").slice(0, 80)}…"`,
+              }}
+              className="text-xs"
+            />
+          </div>
+        </div>
       ))}
     </aside>
   );

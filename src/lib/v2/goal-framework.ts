@@ -389,7 +389,7 @@ Rationale: Your Career Profile shows strong clinical and teaching foundations. T
 
 Proposed milestones will be generated for the next four quarters based on your Career Map gaps.
 
-Confirm, modify, or start over.`;
+Choose an option below.`;
 }
 
 export function buildQuarterlyGoalReview(input: {

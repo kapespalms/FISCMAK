@@ -1,30 +1,5 @@
 #!/usr/bin/env node
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import pg from "pg";
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-
-function loadEnvLocal() {
-  const envPath = path.join(root, ".env.local");
-  if (!fs.existsSync(envPath)) return;
-  for (const line of fs.readFileSync(envPath, "utf8").split("\n")) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-    const eq = trimmed.indexOf("=");
-    if (eq <= 0) continue;
-    const key = trimmed.slice(0, eq).trim();
-    let val = trimmed.slice(eq + 1).trim();
-    if (
-      (val.startsWith('"') && val.endsWith('"')) ||
-      (val.startsWith("'") && val.endsWith("'"))
-    ) {
-      val = val.slice(1, -1);
-    }
-    if (!process.env[key]) process.env[key] = val;
-  }
-}
+import { connectPostgres, loadEnvLocal } from "./supabase-connection.mjs";
 
 const TABLES = [
   "app_users",
@@ -39,28 +14,25 @@ const TABLES = [
   "mempalace_exports",
 ];
 
+async function tableExists(client, name) {
+  const { rows } = await client.query(
+    `SELECT EXISTS (
+      SELECT 1 FROM information_schema.tables
+      WHERE table_schema = 'public' AND table_name = $1
+    ) AS ok`,
+    [name],
+  );
+  return Boolean(rows[0]?.ok);
+}
+
 async function main() {
   loadEnvLocal();
-  if (!process.env.DATABASE_URL) {
-    console.error("DATABASE_URL missing from .env.local");
-    process.exit(1);
-  }
-  const client = new pg.Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: { rejectUnauthorized: false },
-  });
-  await client.connect();
+  const client = await connectPostgres();
 
-  console.log("Supabase table check:\n");
+  console.log("\nSupabase table check:\n");
   for (const t of TABLES) {
-    const { rows } = await client.query(
-      `SELECT EXISTS (
-        SELECT 1 FROM information_schema.tables
-        WHERE table_schema = 'public' AND table_name = $1
-      ) AS ok`,
-      [t],
-    );
-    console.log(`${rows[0]?.ok ? "✓" : "✗"} ${t}`);
+    const ok = await tableExists(client, t);
+    console.log(`${ok ? "✓" : "✗"} ${t}`);
   }
 
   if (await tableExists(client, "app_users")) {
@@ -75,18 +47,7 @@ async function main() {
   await client.end();
 }
 
-async function tableExists(client, name) {
-  const { rows } = await client.query(
-    `SELECT EXISTS (
-      SELECT 1 FROM information_schema.tables
-      WHERE table_schema = 'public' AND table_name = $1
-    ) AS ok`,
-    [name],
-  );
-  return Boolean(rows[0]?.ok);
-}
-
 main().catch((e) => {
-  console.error(e);
+  console.error(e instanceof Error ? e.message : e);
   process.exit(1);
 });

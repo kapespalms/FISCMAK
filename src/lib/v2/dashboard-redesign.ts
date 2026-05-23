@@ -7,17 +7,6 @@ import { TOUCHPOINT_META } from "@/lib/v2/formulas";
 import { GOAL_FRAMEWORK_LABELS, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
 import { computeGoalProgressWithHistory } from "@/lib/v2/goal-milestone-tracking";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
-import type { LucideIcon } from "lucide-react";
-import {
-  BarChart3,
-  ClipboardList,
-  FileText,
-  Map,
-  MessageCircle,
-  Upload,
-  Zap,
-} from "lucide-react";
-import { MAK_FLOW_GREETINGS } from "@/lib/mak-sections";
 
 export type TouchpointBarState = "done" | "active" | "locked";
 
@@ -35,93 +24,6 @@ export type DashboardNextAction = {
   href?: string;
   intent?: DashboardQuickAction["intent"];
 };
-
-export type DashboardMakAction = {
-  id: string;
-  label: string;
-  subtitle: string;
-  icon: LucideIcon;
-  intent: DashboardQuickAction["intent"];
-  href: string;
-  message?: string;
-  tier: "primary" | "flow";
-};
-
-/** Post-onboarding dashboard Mak entry points (primary + SOAPO flows). */
-export const DASHBOARD_MAK_ACTIONS: DashboardMakAction[] = [
-  {
-    id: "capture",
-    label: "Capture invisible work",
-    subtitle: "Log an activity in 30 seconds",
-    icon: Zap,
-    intent: "capture",
-    href: "/app/dashboard",
-    tier: "primary",
-  },
-  {
-    id: "upload",
-    label: "Upload document",
-    subtitle: "CV, dossier, or PDF",
-    icon: Upload,
-    intent: "upload",
-    href: "/app/objective?tab=documents&upload=1",
-    tier: "primary",
-  },
-  {
-    id: "discuss-energy",
-    label: "Discuss your energy",
-    subtitle: "How are you feeling this week?",
-    icon: MessageCircle,
-    intent: "discuss",
-    href: "/app/subjective",
-    message: "How's my energy and well-being this week?",
-    tier: "flow",
-  },
-  {
-    id: "review-activities",
-    label: "Review your activities",
-    subtitle: "See what you have logged",
-    icon: ClipboardList,
-    intent: "review",
-    href: "/app/objective?tab=activities",
-    message: "Let's review my recent activities and recognition gaps.",
-    tier: "flow",
-  },
-  {
-    id: "assess-patterns",
-    label: "Assess your patterns",
-    subtitle: "Career story and coherence",
-    icon: BarChart3,
-    intent: "assess",
-    href: "/app/assessment",
-    tier: "flow",
-  },
-  {
-    id: "plan-strategy",
-    label: "Plan your strategy",
-    subtitle: "Goals and quarterly milestones",
-    icon: Map,
-    intent: "plan",
-    href: "/app/plan",
-    tier: "flow",
-  },
-  {
-    id: "create-outputs",
-    label: "Create your outputs",
-    subtitle: "CV, biosketch, or narrative",
-    icon: FileText,
-    intent: "create",
-    href: "/app/output",
-    tier: "flow",
-  },
-];
-
-/** @deprecated Use DASHBOARD_MAK_ACTIONS */
-export const PROFILE_QUICK_ACTIONS = DASHBOARD_MAK_ACTIONS.filter((a) => a.tier === "flow");
-
-export function makActionGreeting(action: DashboardMakAction): string {
-  return action.message ?? MAK_FLOW_GREETINGS[action.intent];
-}
 
 export type ActiveTouchpointView = {
   id: string;
@@ -461,7 +363,7 @@ export function buildGoalCards(
       const { percent, stalled } = computeGoalProgressWithHistory(goal, history);
       const type = (goal.goal_type ?? "development") as GoalFrameworkType;
       const typeLabel =
-        GOAL_FRAMEWORK_LABELS[type]?.label.replace(/\s+Goal$/i, "").toUpperCase() ?? "DEVELOP";
+        GOAL_FRAMEWORK_LABELS[type]?.label.replace(/\s+Goal$/i, "") ?? "Development";
 
       const pending = goal.recommended_actions?.find((a) => !/COMPLETED/i.test(a));
       const nextMilestone = pending
@@ -500,3 +402,44 @@ export function statusIcon(status: DashboardNextAction["status"] | TouchpointBar
 }
 
 export type StatusKind = "done" | "active" | "attention" | "locked";
+
+export type DashboardDueNowItem = {
+  label: string;
+  title: string;
+  detail?: string;
+  kind: ActiveTouchpointView["kind"];
+};
+
+export function buildDashboardDueNow(
+  analytics: AnalyticsDashboard,
+  touchpoints: { active: ActiveTouchpointView | null },
+): DashboardDueNowItem | null {
+  if (analytics.annual_refresh?.due) {
+    return {
+      label: "Annual refresh",
+      title: "Reconfirm direction, energy, and goals",
+      detail: "~20 min",
+      kind: "annual",
+    };
+  }
+  if (analytics.quarterly_pulse?.due) {
+    return {
+      label: "Quarterly pulse",
+      title: analytics.quarterly_pulse.quarter_label
+        ? `${analytics.quarterly_pulse.quarter_label} check-in`
+        : "Quarterly check-in",
+      detail: "~5–8 min",
+      kind: "quarterly",
+    };
+  }
+  const active = touchpoints.active;
+  if (active) {
+    return {
+      label: active.statusLabel,
+      title: active.title,
+      detail: active.description ?? active.duration,
+      kind: active.kind,
+    };
+  }
+  return null;
+}

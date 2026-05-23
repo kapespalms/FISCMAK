@@ -2,6 +2,8 @@
 
 import { StatusChip } from "@/components/ui/StatusChip";
 import { TechnicalDetailToggle } from "@/components/ui/TechnicalDetailToggle";
+import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
+import type { MakDiscussConfig } from "@/lib/card-mak-prompts";
 import type { MetricStatus } from "@/lib/design-system";
 
 type MetricRowProps = {
@@ -12,6 +14,7 @@ type MetricRowProps = {
   trend?: string;
   technical?: Record<string, unknown>;
   sourceAttribution?: string;
+  mak?: MakDiscussConfig;
 };
 
 export function MetricRow({
@@ -22,23 +25,29 @@ export function MetricRow({
   trend,
   technical,
   sourceAttribution,
+  mak,
 }: MetricRowProps) {
   return (
-    <div className="rounded-lg border border-fiscmak-border bg-white p-4">
+    <div className="rounded-xl border border-cx-forest-dark/10 bg-white p-4 shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <p className="text-data-label">{label}</p>
+        <p className="text-sm font-semibold text-cx-forest-dark">{label}</p>
         {status && <StatusChip status={status} />}
       </div>
-      <p className="mt-2 text-sm text-fiscmak-ink">{summary}</p>
+      <p className="mt-2 text-sm leading-relaxed text-cx-forest-dark/80">{summary}</p>
       {percentile != null && (
-        <p className="mt-1 text-caption">Benchmark: {percentile}th percentile</p>
+        <p className="mt-1 text-xs text-cx-forest-dark/60">Benchmark: {percentile}th percentile</p>
       )}
-      {trend && <p className="mt-1 text-caption">{trend}</p>}
+      {trend && <p className="mt-1 text-xs text-cx-forest-dark/60">{trend}</p>}
       {(technical || sourceAttribution) && (
-        <TechnicalDetailToggle
-          technical={technical}
-          sources={sourceAttribution}
-        />
+        <TechnicalDetailToggle technical={technical} sources={sourceAttribution} />
+      )}
+      {mak && (
+        <div className="mt-3 border-t border-cx-forest-dark/15 pt-3">
+          <MakDiscussLink
+            mak={mak}
+            className="text-cx-forest-dark hover:text-cx-forest-dark/80"
+          />
+        </div>
       )}
     </div>
   );

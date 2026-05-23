@@ -1,5 +1,9 @@
-import { Card } from "@/components/ui/Card";
+"use client";
+
+import { Shield } from "lucide-react";
+import { CardSection } from "@/components/ui/CardSection";
 import { PageShell } from "@/components/layout/PageShell";
+import { SETTINGS_MAK } from "@/lib/card-mak-prompts";
 
 export default function SettingsPage() {
   return (
@@ -9,19 +13,19 @@ export default function SettingsPage() {
       subtitle="Privacy and preferences"
       maxWidth="md"
     >
-      <Card>
-        <p className="text-cx-label uppercase">Privacy</p>
-        <h2 className="mt-2 text-cx-h3">Institution data sharing</h2>
-        <p className="mt-2 text-cx-body">Share my data with my institution?</p>
+      <CardSection
+        eyebrow="Privacy"
+        title="Institution data sharing"
+        description="Your institution cannot see Mak conversations, energy signals, or private reflections. Only aggregate trends if you opt in (n≥5)."
+        icon={Shield}
+        mak={SETTINGS_MAK.privacy}
+      >
+        <p className="text-sm text-cx-forest-dark/80">Share my data with my institution?</p>
         <label className="mt-4 flex items-center gap-3">
-          <input type="checkbox" className="h-5 w-5 rounded border-cx-border" />
-          <span className="text-sm text-cx-text">No (default) — keep my data private</span>
+          <input type="checkbox" className="h-5 w-5 rounded border-cx-forest-dark/30" />
+          <span className="text-sm text-cx-forest-dark">No (default) — keep my data private</span>
         </label>
-        <p className="mt-4 text-cx-label">
-          Your institution cannot see Mak conversations, energy signals, or
-          private reflections. Only aggregate trends if you opt in (n≥5).
-        </p>
-      </Card>
+      </CardSection>
     </PageShell>
   );
 }

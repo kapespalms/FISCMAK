@@ -23,20 +23,20 @@ export function TechnicalDetailToggle({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex min-h-[44px] items-center gap-1 text-xs font-medium text-fm-accent hover:underline"
+        className="flex min-h-[44px] items-center gap-1 text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark hover:underline"
       >
         {open ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
         Show technical detail
       </button>
       {open && (
-        <div className="mt-2 space-y-2 rounded-xl border border-cx-border bg-cx-cream/40 px-3 py-2">
+        <div className="mt-2 space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-3 py-2">
           {sources && <p className="text-cx-label">Source: {sources}</p>}
           {entries.length > 0 && (
             <dl className="space-y-1 text-xs">
               {entries.map(([key, value]) => (
                 <div key={key} className="flex gap-2">
-                  <dt className="shrink-0 font-mono text-cx-text-secondary">{key}:</dt>
-                  <dd className="break-all text-cx-text">
+                  <dt className="shrink-0 font-mono text-cx-forest-dark/60">{key}:</dt>
+                  <dd className="break-all text-cx-forest-dark">
                     {Array.isArray(value) ? value.join(", ") : String(value)}
                   </dd>
                 </div>

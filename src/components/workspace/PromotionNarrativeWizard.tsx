@@ -2,8 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
+import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
 import { Badge } from "@/components/ui/Badge";
+import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
 import {
   PROMOTION_NARRATIVE_SECTIONS,
   prefillSection,
@@ -113,14 +115,14 @@ export function PromotionNarrativeWizard({
   }
 
   if (loading || !data) {
-    return <p className="text-sm text-fiscmak-muted">Loading promotion narrative…</p>;
+    return <p className="text-sm text-cx-forest-dark/70">Loading promotion narrative…</p>;
   }
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4 lg:flex-row">
       <aside className="w-full shrink-0 space-y-2 lg:w-64">
         <div className="flex items-center justify-between px-1">
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">6 sections</p>
+          <p className="text-xs font-semibold uppercase text-cx-forest-dark/70">6 sections</p>
           <Badge energy={data.overall_completion >= 70 ? "energizing" : "neutral"}>
             {data.overall_completion}%
           </Badge>
@@ -132,12 +134,12 @@ export function PromotionNarrativeWizard({
             onClick={() => setActive(s.section)}
             className={`w-full rounded-md border px-3 py-2 text-left text-sm ${
               active === s.section
-                ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                : "border-fiscmak-border hover:bg-fiscmak-subtle"
+                ? "border-[#5FD65F] bg-[#5FD65F]/10 font-semibold text-cx-forest-dark"
+                : "border-cx-forest-dark/15 text-cx-forest-dark hover:bg-cx-forest-dark/[0.04]"
             }`}
           >
             <p>{s.title}</p>
-            <p className="text-xs text-fiscmak-muted">
+            <p className="text-xs text-cx-forest-dark/70">
               {s.completion_percentage}% · ~{s.target_words} words
             </p>
           </button>
@@ -147,13 +149,14 @@ export function PromotionNarrativeWizard({
         </Button>
       </aside>
 
-      <Card className="flex min-h-0 min-w-0 flex-1 flex-col gap-4">
-        <div>
-          <h3 className="text-lg font-bold">{sectionDef.title}</h3>
-          <p className="text-sm text-fiscmak-muted">{sectionDef.subtitle}</p>
-        </div>
-
-        <ul className="list-disc space-y-1 pl-5 text-sm text-fiscmak-muted">
+      <CardSection
+        className="flex min-h-0 min-w-0 flex-1 flex-col"
+        eyebrow="Promotion narrative"
+        title={sectionDef.title}
+        description={sectionDef.subtitle}
+        mak={OUTPUT_MAK.promotion_section(sectionDef.title)}
+      >
+        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
           {sectionDef.prompts.map((p) => (
             <li key={p}>{p}</li>
           ))}
@@ -164,24 +167,28 @@ export function PromotionNarrativeWizard({
           onChange={(e) => setDraft(e.target.value)}
           rows={14}
           placeholder={sectionDef.placeholder}
-          className="min-h-[280px] w-full flex-1 rounded-md border border-fiscmak-border p-4 text-base leading-relaxed"
+          className="min-h-[280px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-forest-dark"
         />
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm text-fiscmak-muted">
+          <p className="text-sm text-cx-forest-dark/70">
             {wordCount} / {sectionDef.targetWords} words
           </p>
           <div className="flex gap-2">
+            <MakDiscussLink
+              mak={OUTPUT_MAK.promotion_section(sectionDef.title)}
+              variant="button"
+            />
             <Button variant="secondary" onClick={applyPrefill}>
-              Prefill with Mak hints
+              Prefill hints
             </Button>
             <Button onClick={saveSection} disabled={saving}>
               {saving ? "Saving…" : "Save section"}
             </Button>
           </div>
         </div>
-        {message && <p className="text-sm text-fiscmak-green">{message}</p>}
-      </Card>
+        {message && <p className="text-sm text-cx-success">{message}</p>}
+      </CardSection>
     </div>
   );
 }

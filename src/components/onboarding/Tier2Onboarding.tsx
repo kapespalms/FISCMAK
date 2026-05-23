@@ -87,11 +87,11 @@ export function Tier2Onboarding() {
       <Card>
         <label
           htmlFor="tier2-cv-upload"
-          className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-border bg-cx-cream/50 px-6 py-10 transition-colors hover:border-cx-accent hover:bg-cx-accent-soft/30"
+          className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] px-6 py-10 transition-colors hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/[0.06]"
         >
-          <Upload className="text-cx-text" size={28} />
-          <p className="mt-3 font-semibold text-cx-text">Drop or click to upload CV</p>
-          <p className="mt-1 text-sm text-cx-text-secondary">{ACCEPTED_CV_LABEL}</p>
+          <Upload className="text-cx-forest-dark" size={28} />
+          <p className="mt-3 font-semibold text-cx-forest-dark">Drop or click to upload CV</p>
+          <p className="mt-1 text-sm text-cx-forest-dark/70">{ACCEPTED_CV_LABEL}</p>
           <input
             id="tier2-cv-upload"
             type="file"
@@ -103,7 +103,7 @@ export function Tier2Onboarding() {
         </label>
 
         <form onSubmit={onPasteSubmit} className="mt-6 space-y-3">
-          <label htmlFor="tier2-paste" className="text-cx-label">
+          <label htmlFor="tier2-paste" className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
             Or paste CV text
           </label>
           <textarea
@@ -112,7 +112,7 @@ export function Tier2Onboarding() {
             onChange={(e) => setPasteText(e.target.value)}
             rows={5}
             placeholder="Paste CV content here…"
-            className="w-full rounded-xl border border-cx-border p-4 text-base text-cx-text"
+            className="w-full rounded-xl border border-cx-forest-dark/20 p-4 text-base text-cx-forest-dark"
           />
           <Button type="submit" disabled={processing || !pasteText.trim()}>
             Upload pasted text
@@ -120,12 +120,12 @@ export function Tier2Onboarding() {
         </form>
 
         {processing && (
-          <p className="mt-4 text-center text-sm text-cx-text-secondary">
+          <p className="mt-4 text-center text-sm text-cx-forest-dark/70">
             Uploading and syncing to MemPalace…
           </p>
         )}
         {error && (
-          <p className="mt-4 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+          <p className="cx-alert-banner mt-4 px-4 py-3 text-sm">
             {error}
           </p>
         )}

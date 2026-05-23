@@ -3,7 +3,6 @@ import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 import {
   buildOutputDocumentGreeting,
-  buildPlanOnboardingGreeting,
   buildQuarterlyGoalReview,
   buildSkillTranslationGreeting,
   buildAnnualGoalResetSummary,
@@ -11,6 +10,7 @@ import {
   defaultSkillTranslation,
   defaultStructuredGoals,
 } from "@/lib/v2/goal-framework";
+import { buildGoalSettingIntro } from "@/lib/v2/goal-setting-mak-flow";
 import type { CareerGoal } from "@/lib/goals";
 import {
   type MakEscalation,
@@ -257,7 +257,7 @@ Key changes since last quarter are highlighted in your dashboard. Would you like
   }
 
   if (input.section === "plan") {
-    if (state === "P-GoalSet") return buildPlanOnboardingGreeting();
+    if (state === "P-GoalSet") return buildGoalSettingIntro();
     if (state === "P-Pivot") return buildSkillTranslationGreeting(defaultSkillTranslation());
     if (state === "P-JobSearch") {
       return `Position search is active. The platform matches open positions against your Career Profile — specialty, setting, career track, and geographic preferences.

@@ -9,13 +9,17 @@ import {
   isValidCareerLevel,
   isValidCareerTrack,
   isValidPracticeSetting,
-  isValidSpecialty,
   requiresAcademicRank,
   type AcademicRank,
   type CareerLevel,
   type PracticeSetting,
   type PrimaryCareerTrack,
 } from "@/lib/v2/onboarding-options";
+import {
+  buildSpecialtyStorage,
+  isValidBaseSpecialty,
+  isValidSubspecialtyForBase,
+} from "@/lib/v2/specialty-hierarchy";
 import { seedAnswersFromProfile } from "@/lib/v2/conversational-assessment";
 import {
   applyExtractedAnswers,
@@ -30,6 +34,9 @@ export async function POST(request: Request) {
   const {
     name,
     specialty,
+    base_specialty,
+    subspecialty,
+    subspecialty_training_complete,
     career_stage,
     practice_setting,
     academic_rank,
@@ -37,17 +44,28 @@ export async function POST(request: Request) {
   } = body as {
     name?: string;
     specialty?: string;
+    base_specialty?: string;
+    subspecialty?: string | null;
+    subspecialty_training_complete?: boolean;
     career_stage?: CareerLevel;
     practice_setting?: PracticeSetting;
     academic_rank?: AcademicRank | null;
     primary_career_track?: PrimaryCareerTrack;
   };
 
+  const resolvedBase = base_specialty ?? specialty;
+
   if (!name?.trim() || name.trim().length < 2) {
     return jsonOk({ error: "validation_error", message: "Enter your name." }, 400);
   }
-  if (!specialty || !isValidSpecialty(specialty)) {
-    return jsonOk({ error: "validation_error", message: "Select a valid specialty." }, 400);
+  if (!resolvedBase || !isValidBaseSpecialty(resolvedBase)) {
+    return jsonOk({ error: "validation_error", message: "Select a valid base specialty." }, 400);
+  }
+  if (subspecialty && !isValidSubspecialtyForBase(resolvedBase, subspecialty)) {
+    return jsonOk(
+      { error: "validation_error", message: "Select a subspecialty that matches your base specialty." },
+      400,
+    );
   }
   if (!career_stage || !isValidCareerLevel(career_stage)) {
     return jsonOk({ error: "validation_error", message: "Select a valid career level." }, 400);
@@ -64,12 +82,19 @@ export async function POST(request: Request) {
 
   const instrumentIds = deployedInstruments(career_stage, practice_setting).map((i) => i.id);
 
+  const specialtyFields = buildSpecialtyStorage({
+    base_specialty: resolvedBase,
+    subspecialty: subspecialty ?? null,
+    subspecialty_training_complete,
+    career_stage,
+  });
+
   const user = await upsertAppUser(
     auth.userId,
     auth.email,
     {
       name: name.trim(),
-      specialty,
+      ...specialtyFields,
       career_stage,
       practice_setting,
       academic_rank: requiresAcademicRank(practice_setting) ? (academic_rank ?? null) : null,
@@ -94,6 +119,9 @@ export async function POST(request: Request) {
     user_id: user.user_id,
     name: user.name,
     specialty: user.specialty,
+    base_specialty: user.base_specialty,
+    subspecialty: user.subspecialty,
+    subspecialty_training_complete: user.subspecialty_training_complete,
     career_stage: user.career_stage,
     practice_setting: user.practice_setting,
     academic_rank: user.academic_rank,

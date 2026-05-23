@@ -34,6 +34,13 @@ import {
   buildQuarterlyMakSystemContext,
   initQuarterlyPulseSession,
 } from "@/lib/v2/quarterly-mak-flow";
+import {
+  buildGoalSettingMakSystemContext,
+  getGoalSettingSession,
+  initGoalSettingSession,
+  processGoalSettingTurn,
+  type GoalSettingTurnResult,
+} from "@/lib/v2/goal-setting-mak-flow";
 import { processAnnualMakTurn, processQuarterlyMakTurn } from "@/lib/v2/touchpoint-mak-orchestrator";
 import type { TouchpointSubmitResult } from "@/lib/v2/touchpoint-submit";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
@@ -215,6 +222,47 @@ export async function POST(request: Request) {
     );
   }
 
+  const goalModifyId =
+    typeof context?.goal_modify_id === "string" ? context.goal_modify_id : undefined;
+  const goalSettingRequested =
+    context?.goal_setting === true || context?.goal_flow === "set" || context?.goal_flow === "modify";
+  let goalSettingActive = Boolean(
+    activeMeta.goal_setting_session || goalSettingRequested,
+  );
+
+  if (
+    user &&
+    goalSettingRequested &&
+    !activeMeta.goal_setting_session &&
+    message !== "__welcome__"
+  ) {
+    activeMeta = initGoalSettingSession(
+      activeMeta,
+      context?.goal_flow === "modify" || goalModifyId ? "modify" : "initial",
+      goalModifyId,
+    );
+    goalSettingActive = true;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  let goalSettingTurn: GoalSettingTurnResult | null = null;
+
+  if (user && message && message !== "__welcome__" && goalSettingActive) {
+    goalSettingTurn = processGoalSettingTurn({ message, meta: activeMeta });
+    activeMeta = goalSettingTurn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
   let touchpointSubmitted: TouchpointSubmitResult | null = null;
   let touchpointNextPrompt: string | null = null;
 
@@ -338,6 +386,8 @@ export async function POST(request: Request) {
     globalState,
     quarterlyPulseDue,
     annualRefreshDue,
+    goalSettingMode: Boolean(getGoalSettingSession(activeMeta)),
+    goalModify: context?.goal_flow === "modify",
   });
 
   const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
@@ -370,6 +420,9 @@ export async function POST(request: Request) {
       { action: "Continue assessment", url: "/app/onboarding?step=instruments" },
       { action: "Use form instead", url: "/app/onboarding?step=reconcile" },
     ];
+  } else if (goalSettingTurn) {
+    response = goalSettingTurn.response;
+    suggested_actions = goalSettingTurn.suggested_actions;
   } else if (!apiKey) {
     response = demoMakReply(message, chatSection);
     if (escalation) {
@@ -432,6 +485,9 @@ export async function POST(request: Request) {
       careerHealth ? `Career Health Score: ${careerHealth.career_health_score}/100` : "",
       annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
       quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
+      getGoalSettingSession(activeMeta)
+        ? buildGoalSettingMakSystemContext(activeMeta)
+        : "",
       globalState === "ONBOARDRECONCILE" ? buildReconcileMakSystemContext(activeMeta) : "",
       flowIntent === "capture"
         ? "Activity capture mode: the physician is logging invisible work. Acknowledge what they shared, reflect why it matters for promotion/advancement, confirm domain and track in plain language, and ask one follow-up (energy level or another recent invisible task). Do not repeat raw classification jargon."
@@ -579,5 +635,11 @@ export async function POST(request: Request) {
           primary_track: activityCaptured.primary_track,
         }
       : null,
+    goals_updated: Boolean(
+      goalSettingTurn?.completed ||
+        goalSettingTurn?.goals?.length ||
+        goalSettingTurn?.meta.stored_goals?.length,
+    ),
+    goals: goalSettingTurn?.goals ?? null,
   });
 }

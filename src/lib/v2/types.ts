@@ -11,7 +11,11 @@ export type AppUser = {
   user_id: string;
   email: string;
   name: string | null;
+  /** @deprecated Use base_specialty + subspecialty — kept for display/back-compat */
   specialty: string | null;
+  base_specialty: string | null;
+  subspecialty: string | null;
+  subspecialty_training_complete: boolean;
   career_stage: CareerStage | null;
   practice_setting: PracticeSetting | null;
   academic_rank: AcademicRank | null;
@@ -78,6 +82,9 @@ export type Job = {
   location: string | null;
   salary: number | null;
   specialties: string[];
+  /** When set, user must have completed this fellowship subspecialty */
+  required_subspecialty?: string | null;
+  required_base_specialty?: string | null;
   description: string | null;
   growth_potential: string | null;
   posted_date: string;

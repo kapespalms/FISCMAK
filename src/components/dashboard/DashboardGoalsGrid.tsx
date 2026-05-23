@@ -8,72 +8,83 @@ import { cn } from "@/lib/utils";
 
 type DashboardGoalCardProps = {
   goal: GoalCardModel;
-  onStart: (goalId: string) => void;
-  onDetails: (goalId: string) => void;
+  compact?: boolean;
+  nested?: boolean;
+  hideActions?: boolean;
+  onDetails?: (goalId: string) => void;
 };
 
 const borderColors = {
-  primary: "border-l-cx-primary",
-  attention: "border-l-cx-attention",
-  success: "border-l-green-500",
+  primary: "border-l-cx-forest-dark",
+  attention: "border-l-amber-500",
+  success: "border-l-[#5FD65F]",
 };
 
 const fillClasses = {
-  primary: "cx-progress-fill-primary",
-  attention: "cx-progress-fill-attention",
-  success: "cx-progress-fill-success",
+  primary: "bg-cx-forest-dark",
+  attention: "bg-amber-500",
+  success: "bg-[#5FD65F]",
 };
 
-export function DashboardGoalCard({ goal, onStart, onDetails }: DashboardGoalCardProps) {
+export function DashboardGoalCard({
+  goal,
+  compact = false,
+  nested = false,
+  hideActions = false,
+  onDetails,
+}: DashboardGoalCardProps) {
   return (
     <article
       className={cn(
-        "cx-card flex h-[320px] w-full max-w-[280px] flex-col border-l-4",
+        "flex w-full flex-col rounded-xl border border-cx-forest-dark/10 border-l-4",
+        nested
+          ? "bg-cx-forest-dark/[0.03] p-2.5 shadow-none"
+          : cn("bg-white shadow-sm", compact ? "p-3" : "max-w-[280px] p-5"),
         borderColors[goal.borderColor],
       )}
     >
-      <span className="inline-flex w-fit rounded-md bg-cx-light-blue px-2 py-0.5 text-cx-label font-medium text-cx-primary">
+      <p className={cn("font-bold text-cx-forest-dark", compact ? "text-sm" : "text-lg")}>
         {goal.typeLabel}
-      </span>
-
-      <div className="mt-4">
-        <div className="cx-progress-track">
-          <div
-            className={fillClasses[goal.fillColor]}
-            style={{ width: `${Math.max(goal.percent, 4)}%` }}
-          />
-        </div>
-        <p className="mt-2 text-sm text-cx-text">{goal.percent}%</p>
-      </div>
-
-      <h3 className="mt-4 line-clamp-2 text-cx-h3">{goal.title}</h3>
-
-      <p className="mt-2 line-clamp-2 text-cx-label">
-        Next: {goal.nextMilestone}
       </p>
 
-      <div className="mt-auto flex flex-wrap gap-2 pt-4">
-        <button
-          type="button"
-          onClick={() => onStart(goal.id)}
-          className="inline-flex items-center gap-2 rounded-xl bg-cx-nav-active px-3 py-2 text-xs font-medium text-white hover:opacity-90"
-        >
-          Start <ArrowRight size={14} />
-        </button>
-        <button
-          type="button"
-          onClick={() => onDetails(goal.id)}
-          className="rounded-lg border border-cx-border px-3 py-2 text-xs font-medium text-cx-text hover:bg-cx-cream"
-        >
-          Details
-        </button>
+      <h3
+        className={cn(
+          "mt-1 line-clamp-2 font-semibold text-cx-forest-dark",
+          compact ? "text-xs" : "text-base",
+        )}
+      >
+        {goal.title}
+      </h3>
+
+      <div className={compact ? "mt-2" : "mt-4"}>
+        <div className="flex items-center justify-between gap-2">
+          <div className="h-2 min-w-0 flex-1 overflow-hidden rounded-full bg-cx-forest-dark/10">
+            <div
+              className={cn("h-full rounded-full", fillClasses[goal.fillColor])}
+              style={{ width: `${Math.max(goal.percent, 4)}%` }}
+            />
+          </div>
+          <span className="shrink-0 text-xs font-semibold text-cx-forest-dark">{goal.percent}%</span>
+        </div>
       </div>
 
       {goal.stalled && (
-        <p className="mt-3 flex items-center gap-1.5 text-cx-label text-cx-attention">
+        <p className="mt-2 flex items-center gap-1.5 text-xs text-amber-600">
           <StatusIndicator status="attention" size={14} />
           Needs attention
         </p>
+      )}
+
+      {!hideActions && onDetails && (
+        <div className={cn("flex gap-2", compact ? "mt-2" : "mt-4")}>
+          <button
+            type="button"
+            onClick={() => onDetails(goal.id)}
+            className="rounded-full border border-cx-forest-dark/20 px-3 py-1.5 text-xs font-semibold text-cx-forest-dark hover:bg-cx-forest-dark/5"
+          >
+            Details
+          </button>
+        </div>
       )}
     </article>
   );
@@ -81,22 +92,29 @@ export function DashboardGoalCard({ goal, onStart, onDetails }: DashboardGoalCar
 
 type DashboardGoalsGridProps = {
   goals: GoalCardModel[];
-  onStart: (goalId: string) => void;
-  onDetails: (goalId: string) => void;
+  onDetails?: (goalId: string) => void;
+  variant?: "section" | "inline";
 };
 
-export function DashboardGoalsGrid({ goals, onStart, onDetails }: DashboardGoalsGridProps) {
+export function DashboardGoalsGrid({
+  goals,
+  onDetails,
+  variant = "section",
+}: DashboardGoalsGridProps) {
+  const inline = variant === "inline";
+
   if (goals.length === 0) {
+    if (inline) return null;
     return (
       <section aria-labelledby="goals-heading">
-        <h2 id="goals-heading" className="text-cx-h2">
+        <h2 id="goals-heading" className="text-xl font-semibold text-cx-forest-dark">
           Your Goals
         </h2>
-        <div className="cx-card mt-6">
-          <p className="text-cx-body">No active goals yet.</p>
+        <div className="mt-6 rounded-xl bg-white p-5 shadow-sm">
+          <p className="text-sm text-cx-forest-dark/70">No active goals yet.</p>
           <Link
             href="/app/plan"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-primary hover:underline"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:underline"
           >
             Set goals <ArrowRight size={14} />
           </Link>
@@ -105,9 +123,31 @@ export function DashboardGoalsGrid({ goals, onStart, onDetails }: DashboardGoals
     );
   }
 
+  if (inline) {
+    return (
+      <div className="rounded-xl bg-white p-3 shadow-sm">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="text-sm font-bold text-cx-forest-dark">Goals</h3>
+          <Link
+            href="/app/plan"
+            className="inline-flex items-center gap-0.5 text-[10px] font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          >
+            Strategy
+            <ArrowRight size={12} />
+          </Link>
+        </div>
+        <div className="mt-2 space-y-2">
+          {goals.map((goal) => (
+            <DashboardGoalCard key={goal.id} goal={goal} compact nested hideActions />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <section aria-labelledby="goals-heading">
-      <h2 id="goals-heading" className="text-cx-h2">
+      <h2 id="goals-heading" className="text-xl font-semibold text-cx-forest-dark">
         Your Goals
       </h2>
       <div className="mt-6 grid justify-items-center gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -115,7 +155,6 @@ export function DashboardGoalsGrid({ goals, onStart, onDetails }: DashboardGoals
           <DashboardGoalCard
             key={goal.id}
             goal={goal}
-            onStart={onStart}
             onDetails={onDetails}
           />
         ))}

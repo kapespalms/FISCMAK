@@ -41,6 +41,9 @@ type AppShellContextValue = {
     navigateTo?: string,
     customGreeting?: string,
     touchpoint?: MakFlowTouchpoint,
+    goalFlow?: "set" | "modify",
+    goalModifyId?: string,
+    autoMessage?: string,
   ) => void;
   openMakWithMessage: (message?: string, navigateTo?: string) => void;
   displayName: string | null;
@@ -71,6 +74,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     intent: MakFlowIntent;
     greeting: string;
     touchpoint?: MakFlowTouchpoint;
+    goalFlow?: "set" | "modify";
+    goalModifyId?: string;
   } | null>(null);
 
   useEffect(() => {
@@ -117,10 +122,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       navigateTo?: string,
       customGreeting?: string,
       touchpoint?: MakFlowTouchpoint,
+      goalFlow?: "set" | "modify",
+      goalModifyId?: string,
+      autoMessage?: string,
     ) => {
       const greeting = customGreeting ?? MAK_FLOW_GREETINGS[intent];
-      setPendingFlow({ intent, greeting, touchpoint });
+      setPendingFlow({ intent, greeting, touchpoint, goalFlow, goalModifyId });
       setFlowNonce((n) => n + 1);
+      if (autoMessage?.trim()) setPendingInitialMessage(autoMessage.trim());
       setMakOpen(true);
       if (navigateTo) router.push(navigateTo);
       if (!isMobile) focusMakInput();
@@ -166,23 +175,25 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <AppShellContext.Provider value={value}>
-      <div className="flex h-screen overflow-hidden bg-cx-gradient-from">
-        <IconSidebar />
-        <MakPanel
-          open={makOpen}
-          pendingFlow={pendingFlow}
-          flowNonce={flowNonce}
-          onFlowHandled={() => setPendingFlow(null)}
-          onClose={closeMak}
-          onboardingActive={onboardingActive}
-          onOpenTour={() => setTourOpen(true)}
-          initialMessage={pendingInitialMessage}
-          onInitialMessageHandled={() => setPendingInitialMessage(null)}
-        />
+      <div className="flex h-screen overflow-hidden bg-cx-forest-dark">
+        <div className="flex h-full shrink-0">
+          <IconSidebar />
+          <MakPanel
+            open={makOpen}
+            pendingFlow={pendingFlow}
+            flowNonce={flowNonce}
+            onFlowHandled={() => setPendingFlow(null)}
+            onClose={closeMak}
+            onboardingActive={onboardingActive}
+            onOpenTour={() => setTourOpen(true)}
+            initialMessage={pendingInitialMessage}
+            onInitialMessageHandled={() => setPendingInitialMessage(null)}
+          />
+        </div>
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
-        <div className="flex min-w-0 flex-1 flex-col">
+        <div className="cx-main-shell flex min-w-0 flex-1 flex-col">
           <TopNavBar />
-          <main className="cx-page-gradient min-h-0 flex-1 overflow-auto p-4 md:p-8">
+          <main className="min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
             {children}
           </main>
         </div>

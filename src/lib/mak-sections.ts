@@ -1,3 +1,10 @@
+import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
+import {
+  DASHBOARD_MECE_GREETING,
+  DASHBOARD_MECE_OPTIONS,
+  findDashboardMeceOptionByLabel,
+} from "@/lib/v2/dashboard-mak-menu";
+
 export type AppSection =
   | "dashboard"
   | "subjective"
@@ -12,6 +19,51 @@ export type MakSectionConfig = {
   placeholder: string;
   mode: string;
 };
+
+export const SOAP_SECTION_NAV: {
+  section: Exclude<AppSection, "dashboard">;
+  href: string;
+  label: string;
+  shortLabel: string;
+  icon: string;
+  iconSize?: number;
+}[] = [
+  {
+    section: "subjective",
+    href: "/app/subjective",
+    label: SOAP_TAB.subjective.nav,
+    shortLabel: SOAP_TAB.subjective.nav,
+    icon: "/brand/nav/subjective.png",
+  },
+  {
+    section: "objective",
+    href: "/app/objective",
+    label: SOAP_TAB.objective.nav,
+    shortLabel: SOAP_TAB.objective.nav,
+    icon: "/brand/nav/objective.png",
+  },
+  {
+    section: "assessment",
+    href: "/app/assessment",
+    label: SOAP_TAB.assessment.nav,
+    shortLabel: SOAP_TAB.assessment.nav,
+    icon: "/brand/nav/assessment.png",
+  },
+  {
+    section: "plan",
+    href: "/app/plan",
+    label: SOAP_TAB.plan.nav,
+    shortLabel: SOAP_TAB.plan.nav,
+    icon: "/brand/nav/plan.png",
+  },
+  {
+    section: "output",
+    href: "/app/output",
+    label: SOAP_TAB.output.nav,
+    shortLabel: SOAP_TAB.output.nav,
+    icon: "/brand/nav/output.png",
+  },
+];
 
 export const SECTION_NAV: {
   section: AppSection;
@@ -29,93 +81,57 @@ export const SECTION_NAV: {
     icon: "/brand/nav/dashboard.png",
     iconSize: 30,
   },
-  {
-    section: "subjective",
-    href: "/app/subjective",
-    label: "Career Perspective",
-    shortLabel: "Perspective",
-    icon: "/brand/nav/subjective.png",
-  },
-  {
-    section: "objective",
-    href: "/app/objective",
-    label: "Career Data",
-    shortLabel: "Data",
-    icon: "/brand/nav/objective.png",
-  },
-  {
-    section: "assessment",
-    href: "/app/assessment",
-    label: "Career Profile",
-    shortLabel: "Profile",
-    icon: "/brand/nav/assessment.png",
-  },
-  {
-    section: "plan",
-    href: "/app/plan",
-    label: "Career Strategy",
-    shortLabel: "Strategy",
-    icon: "/brand/nav/plan.png",
-  },
-  {
-    section: "output",
-    href: "/app/output",
-    label: "Career Documents",
-    shortLabel: "Documents",
-    icon: "/brand/nav/output.png",
-  },
+  ...SOAP_SECTION_NAV,
 ];
 
 export const FIVE_OPTIONS = [
   {
     id: "discuss",
     icon: "S",
-    title: "Career Perspective",
-    subtitle: "Career direction, satisfaction, and task alignment",
+    title: SOAP_TAB.subjective.title,
+    subtitle: SOAP_TAB.subjective.description,
     href: "/app/subjective",
-    greeting:
-      "This section captures your professional perspective — career direction, work engagement, and task alignment.",
+    greeting: SOAP_TAB.subjective.chatEntry,
     bg: "bg-[#E8F4F8] hover:bg-[#D1E9F0]",
     section: "subjective" as AppSection,
   },
   {
     id: "review",
     icon: "O",
-    title: "Career Data",
-    subtitle: "Verified data from documents and databases",
+    title: SOAP_TAB.objective.title,
+    subtitle: SOAP_TAB.objective.description,
     href: "/app/objective?tab=activities",
-    greeting: "This section displays verified career data from your uploaded documents and public databases.",
+    greeting: SOAP_TAB.objective.chatEntry,
     bg: "bg-[#DBEAFE] hover:bg-[#93C5FD]",
     section: "objective" as AppSection,
   },
   {
     id: "assess",
     icon: "A",
-    title: "Career Profile",
-    subtitle: "Career Health Score and benchmarked standing",
+    title: SOAP_TAB.assessment.title,
+    subtitle: SOAP_TAB.assessment.description,
     href: "/app/assessment",
-    greeting:
-      "This section synthesizes your Career Perspective and Career Data into a comprehensive Career Profile.",
+    greeting: SOAP_TAB.assessment.chatEntry,
     bg: "bg-[#EDE9FE] hover:bg-[#D8BFD8]",
     section: "assessment" as AppSection,
   },
   {
     id: "plan",
     icon: "P",
-    title: "Career Strategy",
-    subtitle: "Development, maintenance, and sustainability goals",
+    title: SOAP_TAB.plan.title,
+    subtitle: SOAP_TAB.plan.description,
     href: "/app/plan",
-    greeting: "This section tracks your career goals and quarterly milestones.",
+    greeting: SOAP_TAB.plan.chatEntry,
     bg: "bg-[#FEF3C7] hover:bg-[#FCD34D]",
     section: "plan" as AppSection,
   },
   {
     id: "create",
     icon: "O",
-    title: "Career Documents",
-    subtitle: "CV, biosketch, and career briefs",
+    title: SOAP_TAB.output.title,
+    subtitle: SOAP_TAB.output.description,
     href: "/app/output",
-    greeting: "This section generates and manages your career documents.",
+    greeting: SOAP_TAB.output.chatEntry,
     bg: "bg-[#FEE2E2] hover:bg-[#FECACA]",
     section: "output" as AppSection,
   },
@@ -138,14 +154,7 @@ export const DASHBOARD_OPTION_TABS = FIVE_OPTIONS.filter((o) => o.id !== "create
     return {
       id: option.id,
       href: option.href,
-      label:
-        option.id === "discuss"
-          ? "Career Perspective"
-          : option.id === "review"
-            ? "Career Data"
-            : option.id === "assess"
-              ? "Career Profile"
-              : "Career Strategy",
+      label: option.title,
       icon: nav.icon,
       color: SOAP_SECTION_COLORS[option.section as keyof typeof SOAP_SECTION_COLORS],
       section: option.section,
@@ -172,22 +181,13 @@ export type MakFlowIntent =
 
 export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   dashboard: {
-    greeting: "How can I help today?",
-    quickOptions: [
-      "Capture invisible work",
-      "Upload document",
-      "Discuss your energy",
-      "Review your activities",
-      "Assess your patterns",
-      "Plan your strategy",
-      "Create your outputs",
-    ],
+    greeting: DASHBOARD_MECE_GREETING,
+    quickOptions: DASHBOARD_MECE_OPTIONS.map((o) => o.label),
     placeholder: "Type or click voice…",
     mode: "Coach",
   },
   subjective: {
-    greeting:
-      "This section captures your professional perspective — career direction, work engagement, and task alignment.",
+    greeting: SOAP_TAB.subjective.chatEntry,
     quickOptions: [
       "Begin quarterly assessment",
       "Review task alignment",
@@ -198,7 +198,7 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   },
   objective: {
     greeting:
-      "Here's what's in your Career Data. I'll flag new items and anything needing your confirmation.",
+      "Here's what's in your Objective data. I'll flag new items and anything needing your confirmation.",
     quickOptions: [
       "Show new items",
       "Upload a document",
@@ -210,7 +210,7 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   },
   assessment: {
     greeting:
-      "Here's your Career Map. I'll highlight what improved, what needs attention, and how aligned you are with your goals.",
+      "Here's your Insights view — Career Map, health score, and what needs attention.",
     quickOptions: [
       "Explain my Career Health Score",
       "Show growth opportunities",
@@ -222,19 +222,14 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   },
   plan: {
     greeting:
-      "This section tracks your Development, Maintenance, and Sustainability goals — including milestones due this quarter.",
-    quickOptions: [
-      "Review goal progress",
-      "Modify a goal",
-      "Skill translation pathway",
-      "Activate position search",
-    ],
+      "This section tracks your Strategy — Development, Maintenance, and Sustainability goals with quarterly milestones.",
+    quickOptions: ["Set up with Mak", "Edit in template"],
     placeholder: "Talk through your career strategy…",
     mode: "Strategist",
   },
   output: {
     greeting:
-      "Which document would you like to work on? CV, biosketch, cover letter, personal statement, advancement readiness report, or career brief.",
+      "Which document would you like to work on in Output Studio? CV, biosketch, cover letter, personal statement, or career brief.",
     quickOptions: [
       "Update my CV",
       "NIH Biosketch",
@@ -251,15 +246,11 @@ export const MAK_FLOW_GREETINGS: Record<MakFlowIntent, string> = {
   capture: "Let's make your work visible. What did you accomplish that might not be on your CV?",
   upload: "I'll read this and update your Career Data. One moment…",
   onboarding: "__welcome__",
-  discuss:
-    "This section captures your professional perspective — career direction, work engagement, and task alignment.",
-  review:
-    "This section displays verified career data from your uploaded documents and public databases.",
-  assess:
-    "This section synthesizes your Career Perspective and Career Data into a comprehensive Career Profile.",
-  plan: "This section tracks your Development, Maintenance, and Sustainability goals.",
-  create:
-    "This section generates and manages your career documents — CV, biosketch, cover letter, or advancement readiness report.",
+  discuss: SOAP_TAB.subjective.chatEntry,
+  review: SOAP_TAB.objective.chatEntry,
+  assess: SOAP_TAB.assessment.chatEntry,
+  plan: SOAP_TAB.plan.chatEntry,
+  create: SOAP_TAB.output.chatEntry,
 };
 
 const LEGACY_PATH_MAP: Record<string, AppSection> = {
@@ -291,3 +282,18 @@ export function sectionFromPath(pathname: string): AppSection {
 
   return "dashboard";
 }
+
+const MAK_CONTEXT_LABELS: Record<AppSection, string> = {
+  dashboard: "Career conversation",
+  subjective: SOAP_TAB.subjective.nav,
+  objective: SOAP_TAB.objective.nav,
+  assessment: SOAP_TAB.assessment.nav,
+  plan: SOAP_TAB.plan.nav,
+  output: SOAP_TAB.output.nav,
+};
+
+export function makContextLabel(section: AppSection): string {
+  return MAK_CONTEXT_LABELS[section];
+}
+
+export const MAK_INPUT_PLACEHOLDER = "Tell me one thing.";

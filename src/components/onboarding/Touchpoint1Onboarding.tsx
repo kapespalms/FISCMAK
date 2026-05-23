@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -8,18 +8,22 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Upload, CheckCircle2, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
-  ACGME_SPECIALTIES,
   CAREER_LEVELS,
   PRACTICE_SETTINGS,
   ACADEMIC_RANKS,
   PRIMARY_CAREER_TRACKS,
-  filterSpecialties,
   requiresAcademicRank,
   type AcademicRank,
   type CareerLevel,
   type PracticeSetting,
   type PrimaryCareerTrack,
 } from "@/lib/v2/onboarding-options";
+import {
+  defaultTrainingComplete,
+  isValidBaseSpecialty,
+  migrateLegacySpecialty,
+} from "@/lib/v2/specialty-hierarchy";
+import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import {
   ACCEPTED_CV_ACCEPT,
   ACCEPTED_CV_LABEL,
@@ -72,13 +76,46 @@ export function Touchpoint1Onboarding() {
 
   // Profile fields
   const [name, setName] = useState("");
-  const [specialtyQuery, setSpecialtyQuery] = useState("");
-  const [specialty, setSpecialty] = useState("");
+  const [baseSpecialty, setBaseSpecialty] = useState("");
+  const [baseQuery, setBaseQuery] = useState("");
+  const [baseListOpen, setBaseListOpen] = useState(false);
+  const [subspecialty, setSubspecialty] = useState("");
+  const [subspecialtyQuery, setSubspecialtyQuery] = useState("");
+  const [subspecialtyListOpen, setSubspecialtyListOpen] = useState(false);
+  const [trainingComplete, setTrainingComplete] = useState(false);
   const [careerLevel, setCareerLevel] = useState<CareerLevel>("Fellow");
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
   const [academicRank, setAcademicRank] = useState<AcademicRank>("Assistant Professor");
   const [careerTrack, setCareerTrack] = useState<PrimaryCareerTrack>("Clinician");
-  const [listOpen, setListOpen] = useState(false);
+
+  function applyProfileSpecialty(profile: {
+    base_specialty?: string | null;
+    subspecialty?: string | null;
+    specialty?: string | null;
+    subspecialty_training_complete?: boolean;
+    career_stage?: CareerLevel | null;
+  }) {
+    const normalized = profile.base_specialty
+      ? {
+          base_specialty: profile.base_specialty,
+          subspecialty: profile.subspecialty ?? null,
+          subspecialty_training_complete: Boolean(profile.subspecialty_training_complete),
+        }
+      : migrateLegacySpecialty(profile.specialty ?? null);
+
+    if (normalized.base_specialty) {
+      setBaseSpecialty(normalized.base_specialty);
+      setBaseQuery(normalized.base_specialty);
+    }
+    if (normalized.subspecialty) {
+      setSubspecialty(normalized.subspecialty);
+      setSubspecialtyQuery(normalized.subspecialty);
+      setTrainingComplete(
+        profile.subspecialty_training_complete ??
+          defaultTrainingComplete(profile.career_stage ?? careerLevel, normalized.subspecialty),
+      );
+    }
+  }
 
   // Plan data
   const [docSpecs, setDocSpecs] = useState<DocSpec[]>([]);
@@ -86,11 +123,6 @@ export function Touchpoint1Onboarding() {
   const [uploadedTypes, setUploadedTypes] = useState<Set<string>>(new Set());
   const [reconcileItems, setReconcileItems] = useState<ReconcileItem[]>([]);
   const [pasteText, setPasteText] = useState("");
-
-  const filteredSpecialties = useMemo(
-    () => filterSpecialties(specialtyQuery),
-    [specialtyQuery],
-  );
 
   const resolveStep = useCallback(
     (u: {
@@ -123,9 +155,8 @@ export function Touchpoint1Onboarding() {
       .then((r) => r.json())
       .then((data) => {
         if (data.profile?.name) setName(data.profile.name);
-        if (data.profile?.specialty) {
-          setSpecialty(data.profile.specialty);
-          setSpecialtyQuery(data.profile.specialty);
+        if (data.profile) {
+          applyProfileSpecialty(data.profile);
         }
         if (data.profile?.career_stage) setCareerLevel(data.profile.career_stage);
         if (data.profile?.practice_setting) setPracticeSetting(data.profile.practice_setting);
@@ -162,8 +193,8 @@ export function Touchpoint1Onboarding() {
       setError("Enter your name.");
       return;
     }
-    if (!specialty || !ACGME_SPECIALTIES.includes(specialty as (typeof ACGME_SPECIALTIES)[number])) {
-      setError("Select a specialty from the list.");
+    if (!baseSpecialty || !isValidBaseSpecialty(baseSpecialty)) {
+      setError("Select a base specialty from the list.");
       return;
     }
     setLoading(true);
@@ -173,7 +204,9 @@ export function Touchpoint1Onboarding() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: name.trim(),
-        specialty,
+        base_specialty: baseSpecialty,
+        subspecialty: subspecialty || null,
+        subspecialty_training_complete: subspecialty ? trainingComplete : false,
         career_stage: careerLevel,
         practice_setting: practiceSetting,
         academic_rank: requiresAcademicRank(practiceSetting) ? academicRank : null,
@@ -273,10 +306,21 @@ export function Touchpoint1Onboarding() {
     router.refresh();
   }
 
-  function pickSpecialty(value: string) {
-    setSpecialty(value);
-    setSpecialtyQuery(value);
-    setListOpen(false);
+  function pickBaseSpecialty(value: string) {
+    setBaseSpecialty(value);
+    setBaseQuery(value);
+    setBaseListOpen(false);
+    setSubspecialty("");
+    setSubspecialtyQuery("");
+    setTrainingComplete(false);
+    setError("");
+  }
+
+  function pickSubspecialty(value: string) {
+    setSubspecialty(value);
+    setSubspecialtyQuery(value);
+    setSubspecialtyListOpen(false);
+    setTrainingComplete(defaultTrainingComplete(careerLevel, value || null));
     setError("");
   }
 
@@ -300,7 +344,7 @@ export function Touchpoint1Onboarding() {
               i === stepIndex
                 ? "cx-nav-pill-active"
                 : i < stepIndex
-                  ? "cx-nav-pill-inactive bg-cx-accent-soft/40"
+                  ? "cx-nav-pill-inactive bg-cx-forest-dark/10"
                   : "cx-nav-pill-inactive opacity-60",
             )}
           >
@@ -323,7 +367,7 @@ export function Touchpoint1Onboarding() {
             Step 2 of 7 · Profile configuration · ~3 minutes
           </p>
           <h1 className="mt-1 text-page-title">Profile configuration</h1>
-          <p className="mt-2 text-cx-body">
+          <p className="mt-2 text-sm text-cx-forest-dark/80">
             These fields determine benchmarks, document requirements, questionnaire modules, and
             Career Map positioning.
           </p>
@@ -344,46 +388,23 @@ export function Touchpoint1Onboarding() {
               />
             </div>
 
-            <div className="relative">
-              <label htmlFor="specialty-search" className="text-sm font-semibold">
-                Primary specialty
-              </label>
-              <input
-                id="specialty-search"
-                type="text"
-                value={specialtyQuery}
-                onChange={(e) => {
-                  setSpecialtyQuery(e.target.value);
-                  setSpecialty("");
-                  setListOpen(true);
-                }}
-                onFocus={() => setListOpen(true)}
-                placeholder="Start typing, e.g. Psychiatry…"
-                className="cx-field mt-2"
-                autoComplete="off"
-              />
-              {listOpen && (
-                <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-border bg-white shadow-md">
-                  {filteredSpecialties.length === 0 ? (
-                    <li className="px-4 py-3 text-cx-body">No matches</li>
-                  ) : (
-                    filteredSpecialties.map((s) => (
-                      <li key={s}>
-                        <button
-                          type="button"
-                          onClick={() => pickSpecialty(s)}
-                          className={`w-full px-4 py-2.5 text-left text-sm hover:bg-cx-cream/60 ${
-                            specialty === s ? "bg-cx-accent-soft font-semibold" : ""
-                          }`}
-                        >
-                          {s}
-                        </button>
-                      </li>
-                    ))
-                  )}
-                </ul>
-              )}
-            </div>
+            <SpecialtyIntakeFields
+              baseSpecialty={baseSpecialty}
+              baseQuery={baseQuery}
+              onBaseQueryChange={setBaseQuery}
+              onPickBase={pickBaseSpecialty}
+              baseListOpen={baseListOpen}
+              onBaseListOpenChange={setBaseListOpen}
+              subspecialty={subspecialty}
+              subspecialtyQuery={subspecialtyQuery}
+              onSubspecialtyQueryChange={setSubspecialtyQuery}
+              onPickSubspecialty={pickSubspecialty}
+              subspecialtyListOpen={subspecialtyListOpen}
+              onSubspecialtyListOpenChange={setSubspecialtyListOpen}
+              trainingComplete={trainingComplete}
+              onTrainingCompleteChange={setTrainingComplete}
+              careerStage={careerLevel}
+            />
 
             <div>
               <p className="text-sm font-semibold">Career level</p>
@@ -392,11 +413,16 @@ export function Touchpoint1Onboarding() {
                   <button
                     key={s}
                     type="button"
-                    onClick={() => setCareerLevel(s)}
+                    onClick={() => {
+                      setCareerLevel(s);
+                      if (subspecialty) {
+                        setTrainingComplete(defaultTrainingComplete(s, subspecialty));
+                      }
+                    }}
                     className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                       careerLevel === s
-                        ? "border-cx-primary bg-cx-accent-soft font-semibold"
-                        : "border-cx-border hover:bg-cx-cream/60"
+                        ? "border-cx-forest-dark bg-cx-forest-dark/10 font-semibold"
+                        : "border-cx-forest-dark/20 hover:bg-cx-forest-dark/5"
                     }`}
                   >
                     {s}
@@ -415,8 +441,8 @@ export function Touchpoint1Onboarding() {
                     onClick={() => setPracticeSetting(s)}
                     className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                       practiceSetting === s
-                        ? "border-cx-primary bg-cx-accent-soft font-semibold"
-                        : "border-cx-border hover:bg-cx-cream/60"
+                        ? "border-cx-forest-dark bg-cx-forest-dark/10 font-semibold"
+                        : "border-cx-forest-dark/20 hover:bg-cx-forest-dark/5"
                     }`}
                   >
                     {s}
@@ -436,8 +462,8 @@ export function Touchpoint1Onboarding() {
                       onClick={() => setAcademicRank(r)}
                       className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                         academicRank === r
-                          ? "border-cx-primary bg-cx-accent-soft font-semibold"
-                          : "border-cx-border hover:bg-cx-cream/60"
+                          ? "border-cx-forest-dark bg-cx-forest-dark/10 font-semibold"
+                          : "border-cx-forest-dark/20 hover:bg-cx-forest-dark/5"
                       }`}
                     >
                       {r}
@@ -457,8 +483,8 @@ export function Touchpoint1Onboarding() {
                     onClick={() => setCareerTrack(t)}
                     className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                       careerTrack === t
-                        ? "border-cx-primary bg-cx-accent-soft font-semibold"
-                        : "border-cx-border hover:bg-cx-cream/60"
+                        ? "border-cx-forest-dark bg-cx-forest-dark/10 font-semibold"
+                        : "border-cx-forest-dark/20 hover:bg-cx-forest-dark/5"
                     }`}
                   >
                     {t}
@@ -472,7 +498,7 @@ export function Touchpoint1Onboarding() {
             </Button>
           </div>
           {error && (
-            <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
               {error}
             </p>
           )}
@@ -485,7 +511,7 @@ export function Touchpoint1Onboarding() {
             Touchpoint 1 · Step 2 · ~5 minutes
           </p>
           <h1 className="mt-1 text-page-title">Upload your documents</h1>
-          <p className="mt-2 text-cx-body">
+          <p className="mt-2 text-sm text-cx-forest-dark/80">
             Requirements vary by career level and setting. AI parsing and API enrichment run
             automatically after upload.
           </p>
@@ -494,7 +520,7 @@ export function Touchpoint1Onboarding() {
             {docSpecs.map((d) => (
               <li
                 key={d.type}
-                className="flex items-center justify-between rounded-md border border-cx-border px-3 py-2 text-sm"
+                className="flex items-center justify-between rounded-md border border-cx-forest-dark/15 px-3 py-2 text-sm"
               >
                 <span>
                   {d.label}{" "}
@@ -502,7 +528,7 @@ export function Touchpoint1Onboarding() {
                     className={
                       d.requirement === "required"
                         ? "text-cx-attention"
-                        : "text-cx-text-secondary"
+                        : "text-cx-forest-dark/70"
                     }
                   >
                     ({d.requirement})
@@ -511,7 +537,7 @@ export function Touchpoint1Onboarding() {
                 {uploadedTypes.has(d.type === "CV" ? "CV" : d.type) ? (
                   <CheckCircle2 size={16} className="text-cx-success" />
                 ) : (
-                  <Circle size={16} className="text-cx-text-secondary" />
+                  <Circle size={16} className="text-cx-forest-dark/70" />
                 )}
               </li>
             ))}
@@ -520,11 +546,11 @@ export function Touchpoint1Onboarding() {
           <div className="mt-6 space-y-4">
             <label
               htmlFor="tp1-cv-upload"
-              className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-border bg-cx-cream/50 px-6 py-8 transition-colors hover:border-cx-accent hover:bg-cx-accent-soft/30"
+              className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] px-6 py-8 transition-colors hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/5"
             >
-              <Upload className="text-cx-text" size={24} />
+              <Upload className="text-cx-forest-dark" size={24} />
               <p className="mt-2 font-semibold">Upload CV / Resume</p>
-              <p className="text-cx-body">{ACCEPTED_CV_LABEL}</p>
+              <p className="text-sm text-cx-forest-dark/80">{ACCEPTED_CV_LABEL}</p>
               <input
                 id="tp1-cv-upload"
                 type="file"
@@ -544,7 +570,7 @@ export function Touchpoint1Onboarding() {
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 rows={4}
-                className="w-full rounded-md border border-cx-border p-3 text-sm"
+                className="w-full rounded-md border border-cx-forest-dark/15 p-3 text-sm"
                 placeholder="Paste CV content…"
               />
               <Button type="submit" variant="secondary" disabled={loading || !pasteText.trim()}>
@@ -568,7 +594,7 @@ export function Touchpoint1Onboarding() {
             )}
           </div>
           {error && (
-            <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
               {error}
             </p>
           )}
@@ -581,11 +607,11 @@ export function Touchpoint1Onboarding() {
             Touchpoint 1 · Step 3 · ~2–3 minutes
           </p>
           <h1 className="mt-1 text-page-title">Confirm discovered items</h1>
-          <p className="mt-2 text-cx-body">
+          <p className="mt-2 text-sm text-cx-forest-dark/80">
             Review API-discovered items not explicitly on your CV. Confirm or reject each match.
           </p>
 
-          <p className="mt-2 text-cx-body">
+          <p className="mt-2 text-sm text-cx-forest-dark/80">
             {reconcileItems.length} items to review — estimated 2 minutes. Swipe through each card.
           </p>
 
@@ -593,11 +619,11 @@ export function Touchpoint1Onboarding() {
             {reconcileItems.map((item) => (
               <li
                 key={item.id}
-                className="rounded-xl border border-cx-border bg-cx-white p-5 shadow-sm"
+                className="rounded-xl border border-cx-forest-dark/15 bg-white p-5 shadow-sm"
               >
                 <p className="text-cx-label uppercase">{item.source}</p>
                 <p className="mt-2 text-cx-h3">{item.label}</p>
-                <p className="mt-2 text-cx-body">{item.detail}</p>
+                <p className="mt-2 text-sm text-cx-forest-dark/80">{item.detail}</p>
                 <div className="mt-4 flex gap-3">
                   <Button
                     variant={item.status === "confirmed" ? "primary" : "secondary"}
@@ -636,7 +662,7 @@ export function Touchpoint1Onboarding() {
             </Button>
           </div>
           {error && (
-            <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
               {error}
             </p>
           )}
@@ -649,7 +675,7 @@ export function Touchpoint1Onboarding() {
             Touchpoint 1 · Step 4 · ~{estimatedMinutes || 15} minutes
           </p>
           <h1 className="mt-1 text-page-title">Self-assessment with Coach Mak</h1>
-          <p className="mt-2 text-cx-body">
+          <p className="mt-2 text-sm text-cx-forest-dark/80">
             Validated instruments are embedded in a guided conversation — not a survey form.
             After completion, your Career Profile and dashboard generate automatically.
           </p>
@@ -658,10 +684,10 @@ export function Touchpoint1Onboarding() {
             {instruments.map((inst) => (
               <li
                 key={inst.id}
-                className="rounded-md border border-cx-border px-3 py-2 text-sm"
+                className="rounded-md border border-cx-forest-dark/15 px-3 py-2 text-sm"
               >
                 <span className="font-semibold">{inst.name}</span>
-                <span className="text-cx-text-secondary">
+                <span className="text-cx-forest-dark/70">
                   {" "}
                   · {inst.items} items · ~{inst.minutes} min — {inst.description}
                 </span>
@@ -672,7 +698,7 @@ export function Touchpoint1Onboarding() {
           <Button className="mt-6 w-full" onClick={startMakConversation}>
             Start conversation with Coach Mak
           </Button>
-          <p className="mt-3 text-center text-xs text-cx-text-secondary">
+          <p className="mt-3 text-center text-xs text-cx-forest-dark/70">
             Step 5 (dashboard generation) runs automatically when Mak finishes your instrument
             battery.
           </p>

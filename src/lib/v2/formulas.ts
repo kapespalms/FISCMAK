@@ -1,4 +1,5 @@
 import type { AppUser, CareerAssessment, Job } from "@/lib/v2/types";
+import { computeSpecialtyMatchScore } from "@/lib/v2/specialty-hierarchy";
 
 /** Assessment score: (weighted sum / max) × 100 for Likert 1-5 answers */
 export function computeAssessmentScore(answers: { answer: string | number }[]): number {
@@ -33,13 +34,22 @@ export function computePathwayClarity(
   return 50;
 }
 
-/** Job match from spec: specialty×0.5 + salary×0.2 + location×0.2 + growth×0.1 */
+/** Job match: specialty×0.5 + salary×0.2 + location×0.2 + growth×0.1 */
 export function computeJobMatchScore(
   job: Job,
-  user: Pick<AppUser, "specialty" | "preferred_location" | "salary_min" | "salary_max">,
+  user: Pick<
+    AppUser,
+    | "specialty"
+    | "base_specialty"
+    | "subspecialty"
+    | "subspecialty_training_complete"
+    | "career_stage"
+    | "preferred_location"
+    | "salary_min"
+    | "salary_max"
+  >,
 ): number {
-  const specialtyMatch =
-    user.specialty && job.specialties.includes(user.specialty) ? 1.0 : 0.7;
+  const specialtyMatch = computeSpecialtyMatchScore(job, user);
   const salaryMatch =
     user.salary_min != null &&
     user.salary_max != null &&

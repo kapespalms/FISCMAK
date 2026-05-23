@@ -47,7 +47,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   if (error) {
     return (
       <div className="flex flex-1 items-center justify-center p-8">
-        <p className="max-w-md text-center text-fiscmak-red">{error}</p>
+        <p className="max-w-md text-center text-cx-attention">{error}</p>
       </div>
     );
   }
@@ -55,7 +55,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   if (!ready) {
     return (
       <div className="flex flex-1 items-center justify-center p-8">
-        <p className="text-fiscmak-muted">Loading…</p>
+        <p className="text-cx-forest-dark/70">Loading…</p>
       </div>
     );
   }

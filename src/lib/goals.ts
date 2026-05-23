@@ -121,7 +121,7 @@ export function saveOnboardingGoalsFromProposal(
     priority: i + 1,
     status: "active",
   }));
-  saveDemoGoals(mapped);
+  void persistGoals(mapped);
   void confirmGoalsOnServer(mapped);
   if (typeof window !== "undefined") {
     localStorage.setItem("fiscmak_goals_onboarding_complete", "1");
@@ -143,53 +143,49 @@ export function loadDemoGoals(): CareerGoal[] {
 export function saveDemoGoals(goals: CareerGoal[]) {
   if (!isClientDemoMode()) return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
-  void syncGoalsToServer(goals);
 }
 
 export async function syncGoalsToServer(goals: CareerGoal[]): Promise<void> {
-  if (typeof window === "undefined") return;
+  await persistGoals(goals);
+}
+
+export async function persistGoals(
+  goals: CareerGoal[],
+): Promise<{ ok: boolean; error?: string }> {
+  if (typeof window === "undefined") return { ok: true };
+
+  saveDemoGoals(goals);
+
   try {
-    await fetch("/api/v1/goals", {
+    const res = await fetch("/api/v1/goals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ goals }),
     });
+    if (!res.ok) {
+      const data = (await res.json().catch(() => ({}))) as { message?: string };
+      return { ok: false, error: data.message ?? "Could not save goals." };
+    }
+    return { ok: true };
   } catch {
-    /* server sync is best-effort */
+    return { ok: false, error: "Could not save goals." };
   }
 }
 
 export async function fetchGoals(): Promise<CareerGoal[]> {
   if (typeof window === "undefined") return DEMO_GOALS;
 
-  const { createClient, isSupabaseConfigured } = await import(
-    "@/lib/supabase/client"
-  );
-
-  if (!isSupabaseConfigured()) {
-    return loadDemoGoals();
+  try {
+    const res = await fetch("/api/v1/goals");
+    if (res.ok) {
+      const data = (await res.json()) as { goals?: CareerGoal[] };
+      if (data.goals?.length) return data.goals;
+    }
+  } catch {
+    /* fall through to local demo cache */
   }
 
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return loadDemoGoals();
-  }
-
-  const { data, error } = await supabase
-    .from("career_goals")
-    .select("*")
-    .eq("user_id", user.id)
-    .order("priority", { ascending: true });
-
-  if (error || !data?.length) {
-    return loadDemoGoals();
-  }
-
-  return data as CareerGoal[];
+  return loadDemoGoals();
 }
 
 export function emptyGoalForm(): GoalFormData {

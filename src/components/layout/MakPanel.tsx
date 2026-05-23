@@ -2,11 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowUp, Mic, X } from "lucide-react";
+import { Briefcase, Maximize2, Minimize2, Paperclip, PanelRightClose, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/lib/use-media-query";
 import {
   MAK_SECTION_CONFIG,
+  MAK_INPUT_PLACEHOLDER,
+  makContextLabel,
   type AppSection,
   type MakFlowIntent,
 } from "@/lib/mak-sections";
@@ -24,9 +26,13 @@ import { EscalationResourcesPanel } from "@/components/layout/EscalationResource
 import type { MakEscalation } from "@/lib/v2/escalation-protocols";
 import { useAppShell } from "@/components/layout/AppShell";
 import {
-  DASHBOARD_MAK_ACTIONS,
-  makActionGreeting,
-} from "@/lib/v2/dashboard-redesign";
+  DASHBOARD_MECE_OPTIONS,
+  findDashboardMeceOptionByLabel,
+} from "@/lib/v2/dashboard-mak-menu";
+import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions } from "@/lib/v2/goal-setting-mak-flow";
+import { PLAN_MAK } from "@/lib/card-mak-prompts";
+import { CoachMakMark } from "@/components/brand/CoachMakMark";
+import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
 
 type MakPanelProps = {
   open: boolean;
@@ -34,6 +40,8 @@ type MakPanelProps = {
     intent: MakFlowIntent;
     greeting: string;
     touchpoint?: import("@/components/layout/AppShell").MakFlowTouchpoint;
+    goalFlow?: "set" | "modify";
+    goalModifyId?: string;
   } | null;
   flowNonce: number;
   onFlowHandled: () => void;
@@ -44,6 +52,20 @@ type MakPanelProps = {
   onInitialMessageHandled?: () => void;
 };
 
+function formatMessageTime(iso?: string): string {
+  const d = iso ? new Date(iso) : new Date();
+  return d.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
+
+function isLastInAssistantRun(messages: MakMessage[], index: number): boolean {
+  const msg = messages[index];
+  if (msg.role !== "assistant") return false;
+  return messages[index + 1]?.role !== "assistant";
+}
 function greetingForSection(
   section: AppSection,
   displayName: string | null,
@@ -79,8 +101,21 @@ export function MakPanel({
     import("@/components/layout/AppShell").MakFlowTouchpoint | null
   >(null);
   const [activeFlowIntent, setActiveFlowIntent] = useState<MakFlowIntent | null>(null);
+  const [goalFlowActive, setGoalFlowActive] = useState<"set" | "modify" | null>(null);
+  const [goalModifyId, setGoalModifyId] = useState<string | null>(null);
+  const [goalsConfirmed, setGoalsConfirmed] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
+
+  useEffect(() => {
+    if (!open) setExpanded(false);
+  }, [open]);
+
+  function handleClose() {
+    setExpanded(false);
+    onClose();
+  }
 
   useEffect(() => {
     if (!open || isClientDemoMode()) return;
@@ -97,6 +132,23 @@ export function MakPanel({
       })
       .catch(() => undefined);
   }, [open, section]);
+
+  useEffect(() => {
+    if (section !== "plan" || isClientDemoMode()) return;
+    fetch("/api/v1/goals")
+      .then((r) => r.json())
+      .then((d) => setGoalsConfirmed(Boolean(d.goals_confirmed)))
+      .catch(() => undefined);
+
+    const onGoalsUpdated = () => {
+      fetch("/api/v1/goals")
+        .then((r) => r.json())
+        .then((d) => setGoalsConfirmed(Boolean(d.goals_confirmed)))
+        .catch(() => undefined);
+    };
+    window.addEventListener("fiscmak:goals-updated", onGoalsUpdated);
+    return () => window.removeEventListener("fiscmak:goals-updated", onGoalsUpdated);
+  }, [section]);
 
   useEffect(() => {
     const greeting = greetingForSection(section, displayName);
@@ -117,6 +169,7 @@ export function MakPanel({
         );
       }
       setInput("");
+      setSuggestedActions([]);
     } else if (section === "dashboard" && displayName && isClientDemoMode()) {
       setMessages((current) => {
         if (current.length === 0) {
@@ -163,6 +216,20 @@ export function MakPanel({
     setMessages(next);
     setTouchpointMode(pendingFlow.touchpoint ?? null);
     setActiveFlowIntent(pendingFlow.intent);
+    setGoalFlowActive(pendingFlow.goalFlow ?? null);
+    setGoalModifyId(pendingFlow.goalModifyId ?? null);
+    if (section === "plan" && pendingFlow.goalFlow === "set") {
+      setSuggestedActions(goalSettingSuggestedActions(null, 0));
+    } else if (section === "plan" && pendingFlow.goalFlow === "modify") {
+      setSuggestedActions(goalSettingSuggestedActions(
+        { mode: "modify", step_index: 1, started_at: new Date().toISOString(), modify_goal_id: pendingFlow.goalModifyId },
+        1,
+      ));
+    } else if (section === "plan" && pendingFlow.touchpoint) {
+      setSuggestedActions(planMakQuickActions(true));
+    } else if (section === "plan") {
+      setSuggestedActions([]);
+    }
     setInput("");
     onFlowHandled();
   }, [flowNonce, pendingFlow, section, onFlowHandled]);
@@ -189,9 +256,10 @@ export function MakPanel({
     const userMsg = text.trim();
     setInput("");
     const history = messages;
+    const now = new Date().toISOString();
     const nextMessages: MakMessage[] = [
       ...history,
-      { role: "user", content: userMsg },
+      { role: "user", content: userMsg, at: now },
     ];
     setMessages(nextMessages);
     setLoading(true);
@@ -210,6 +278,9 @@ export function MakPanel({
             annual_refresh: touchpointMode === "annual",
             quarterly_pulse: touchpointMode === "quarterly",
             flow_intent: activeFlowIntent ?? undefined,
+            goal_setting: goalFlowActive != null,
+            goal_flow: goalFlowActive ?? undefined,
+            goal_modify_id: goalModifyId ?? undefined,
           },
         }),
       });
@@ -223,6 +294,14 @@ export function MakPanel({
         window.dispatchEvent(new CustomEvent("fiscmak:activity-logged"));
         if (activeFlowIntent === "capture") {
           setActiveFlowIntent(null);
+        }
+      }
+      if (data.goals_updated) {
+        window.dispatchEvent(new CustomEvent("fiscmak:goals-updated"));
+        if (goalFlowActive && data.goals) {
+          setGoalFlowActive(null);
+          setGoalModifyId(null);
+          setGoalsConfirmed(true);
         }
       }
       if (data.escalation?.trigger) {
@@ -244,6 +323,7 @@ export function MakPanel({
           content:
             data.response ??
             "Thanks for sharing. I'm here to help with your career journey.",
+          at: new Date().toISOString(),
         },
       ]);
     } catch {
@@ -253,6 +333,7 @@ export function MakPanel({
           role: "assistant",
           content:
             "I heard you. For now I'm in demo mode — add ANTHROPIC_API_KEY to enable Claude-powered Mak.",
+          at: new Date().toISOString(),
         },
       ]);
     } finally {
@@ -298,122 +379,287 @@ export function MakPanel({
     recognition.start();
   }
 
+  function handleDashboardMeceOption(option: (typeof DASHBOARD_MECE_OPTIONS)[number]) {
+    startMakFlow(option.intent, option.href, option.message);
+    if (option.href !== "/app/dashboard") {
+      router.push(option.href);
+    }
+    if (option.focusInput) {
+      focusMakInput();
+    }
+  }
+
+  function startPlanGoalSetup() {
+    setGoalFlowActive("set");
+    setGoalModifyId(null);
+    setTouchpointMode(null);
+    setActiveFlowIntent("plan");
+    const intro = buildGoalSettingIntro();
+    setMessages(resetConversationGreeting(section, intro));
+    setSuggestedActions(goalSettingSuggestedActions(null, 0));
+  }
+
+  function startPlanReview(quarterly: boolean) {
+    startMakFlow(
+      "plan",
+      undefined,
+      quarterly
+        ? "Let's review milestone progress on your three career goals this quarter."
+        : "Let's review your annual goals and reset for the year ahead.",
+      quarterly ? "quarterly" : "annual",
+      undefined,
+      undefined,
+      quarterly ? PLAN_MAK.review.autoMessage : "Begin annual goal review.",
+    );
+  }
+
+  function handleQuickOptionClick(label: string, url = "") {
+    if (url === "#tour" || label.includes("Lay of the Land")) {
+      onOpenTour?.();
+      return;
+    }
+    if (url && url.startsWith("/")) {
+      router.push(url);
+      return;
+    }
+    if (section === "plan") {
+      if (
+        label === "Set up with Mak" ||
+        label === "Set goals with Mak" ||
+        label === "Begin Development Goal"
+      ) {
+        startPlanGoalSetup();
+        if (label === "Begin Development Goal") {
+          void sendMessage(label);
+        }
+        return;
+      }
+      if (
+        label === "Review with Mak" ||
+        label === "Review goal progress" ||
+        label === "Begin quarterly review"
+      ) {
+        startPlanReview(true);
+        return;
+      }
+      if (label === "Edit in template") {
+        router.push("/app/plan");
+        return;
+      }
+    }
+    if (section === "dashboard") {
+      const mece = findDashboardMeceOptionByLabel(label);
+      if (mece) {
+        handleDashboardMeceOption(mece);
+        return;
+      }
+    }
+    void sendMessage(label);
+  }
+
+  const planQuickActions =
+    section === "plan"
+      ? suggestedActions.length > 0
+        ? suggestedActions
+        : goalFlowActive
+          ? goalSettingSuggestedActions(null, 0)
+          : planMakQuickActions(goalsConfirmed)
+      : [];
+
+  const quickActionItems =
+    section === "dashboard"
+      ? DASHBOARD_MECE_OPTIONS.map((o) => ({
+          key: o.id,
+          label: o.label,
+          onClick: () => handleDashboardMeceOption(o),
+        }))
+      : section === "plan"
+        ? planQuickActions.map((item) => ({
+            key: item.action,
+            label: item.action,
+            onClick: () => handleQuickOptionClick(item.action, item.url),
+          }))
+        : suggestedActions.length > 0
+          ? suggestedActions.map((item) => ({
+              key: item.action,
+              label: item.action,
+              onClick: () => handleQuickOptionClick(item.action, item.url),
+            }))
+          : config.quickOptions.map((label) => ({
+              key: label,
+              label,
+              onClick: () => handleQuickOptionClick(label),
+            }));
+
+  const makQuickPillClass =
+    "cx-forest-pill disabled:opacity-50";
+
   return (
     <>
-      {open && isMobile && (
+      {open && isMobile && !expanded && (
         <button
           type="button"
-          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          className="fixed inset-y-0 right-0 z-40 bg-black/40 md:hidden"
+          style={{ left: "min(calc(3.5rem + 320px), 100vw)" }}
           aria-label="Close Coach Mak"
-          onClick={onClose}
+          onClick={handleClose}
+        />
+      )}
+      {open && expanded && (
+        <button
+          type="button"
+          className="fixed inset-0 z-40 bg-black/40"
+          aria-label="Close Coach Mak"
+          onClick={handleClose}
         />
       )}
       <aside
         className={cn(
-          "flex shrink-0 flex-col overflow-hidden border-cx-border bg-cx-white transition-[width,transform] duration-200 ease-in-out",
-          isMobile
+          "cx-mak-panel flex shrink-0 flex-col overflow-hidden border-r transition-[width,transform] duration-200 ease-in-out",
+          expanded
             ? cn(
-                "fixed inset-0 z-50 w-full border-r-0 shadow-xl",
+                "fixed inset-0 z-50 w-full border-r-0 shadow-2xl",
                 open ? "translate-x-0" : "pointer-events-none translate-x-full",
               )
-            : cn(
-                "relative h-full",
-                open ? "w-[320px] border-r shadow-sm" : "pointer-events-none w-0 border-r-0",
-              ),
+            : isMobile
+              ? cn(
+                  "fixed left-14 top-0 z-50 h-full w-[320px] max-w-[calc(100vw-3.5rem)]",
+                  open ? "translate-x-0" : "pointer-events-none -translate-x-full",
+                )
+              : cn(
+                  "relative h-full border-l border-white/10",
+                  open ? "w-[320px]" : "pointer-events-none w-0 border-l-0",
+                ),
         )}
         aria-hidden={!open}
       >
-        <div className={cn("flex h-full flex-col", !isMobile && "min-w-[320px]")}>
-          <div className="flex shrink-0 items-center justify-between border-b border-cx-border px-4 py-3">
-            <div>
-              <p className="text-sm font-semibold text-cx-text">Coach Mak</p>
-              <p className="flex items-center gap-1.5 text-cx-label text-cx-text-secondary">
-                <span className="inline-block h-2 w-2 rounded-full bg-green-500" aria-hidden />
-                Active · {config.mode}
-              </p>
+        <div className={cn("flex h-full flex-col", !expanded && !isMobile && "min-w-[320px]", expanded && "min-w-0")}>
+          <header className="cx-mak-panel-header shrink-0 border-b border-white/10">
+            <div className="flex h-14 items-center justify-between gap-2 px-3">
+              <div className="flex min-w-0 items-center gap-2.5">
+                <div className="rounded-xl bg-white/10 p-1 ring-1 ring-white/15">
+                  <CoachMakMark size={28} />
+                </div>
+                <p className="truncate text-base font-semibold text-white">Coach Mak</p>
+              </div>
+              <div className="flex shrink-0 items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => setExpanded((v) => !v)}
+                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
+                  aria-label={expanded ? "Exit full screen" : "Full screen"}
+                  title={expanded ? "Exit full screen" : "Full screen"}
+                >
+                  {expanded ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
+                  aria-label="Close Coach Mak"
+                >
+                  <X size={18} />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
+                  aria-label="Collapse Coach Mak panel"
+                >
+                  <PanelRightClose size={18} />
+                </button>
+              </div>
             </div>
-            {isMobile && (
-              <button
-                type="button"
-                onClick={onClose}
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-cx-border text-cx-text-secondary hover:bg-cx-cream"
-                aria-label="Close Coach Mak"
-              >
-                <X size={18} />
-              </button>
-            )}
-          </div>
+            <p className="cx-mak-panel-context text-center text-xs">
+              {makContextLabel(section)}
+            </p>
+          </header>
+
         <div
           ref={scrollRef}
-          className="flex-1 space-y-3 overflow-y-auto bg-cx-white p-4"
+          className="cx-mak-panel-chat flex-1 space-y-4 overflow-y-auto px-4 py-4"
         >
         {activeEscalation && <EscalationResourcesPanel escalation={activeEscalation} />}
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-          >
-            <div
-              className={cn(
-                "max-w-[90%] whitespace-pre-line rounded-xl px-4 py-3 text-sm leading-relaxed text-cx-text",
-                msg.role === "user" ? "bg-cx-user-bubble" : "bg-cx-mak-bubble",
-              )}
-            >
-              {msg.content}
+        {messages.map((msg, i) => {
+          const showAvatar =
+            msg.role === "assistant" && messages[i - 1]?.role !== "assistant";
+          const showTimestamp = isLastInAssistantRun(messages, i);
+
+          if (msg.role === "assistant") {
+            return (
+              <div key={`${i}-${msg.content.slice(0, 12)}`} className="space-y-2">
+                <div className="flex items-start gap-2.5">
+                  {showAvatar ? (
+                    <div className="mt-0.5 shrink-0">
+                      <CoachMakMark size={28} />
+                    </div>
+                  ) : (
+                    <div className="w-7 shrink-0" aria-hidden />
+                  )}
+                  <div className="max-w-[calc(100%-2.25rem)] whitespace-pre-line rounded-2xl border border-white/10 bg-white px-4 py-3 text-sm leading-relaxed text-cx-forest-dark shadow-sm">
+                    {msg.content}
+                  </div>
+                </div>
+                {showTimestamp && (
+                  <p className="ml-9 font-mono text-[11px] tracking-wide text-white/65">
+                    {formatMessageTime(msg.at)}
+                  </p>
+                )}
+              </div>
+            );
+          }
+
+          return (
+            <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex justify-end">
+              <div className="max-w-[85%] whitespace-pre-line rounded-2xl border border-white/15 bg-white/95 px-4 py-3 text-sm leading-relaxed text-cx-forest-dark">
+                {msg.content}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
         {loading && (
-          <p className="text-sm text-cx-text-secondary">Mak is thinking…</p>
+          <div className="flex items-start gap-2.5">
+            <CoachMakMark size={28} />
+            <p className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-sm text-cx-forest-dark/70 shadow-sm">
+              Mak is thinking…
+            </p>
+          </div>
         )}
         </div>
 
-        <div className="shrink-0 border-t border-cx-border bg-cx-white p-4">
-        <p className="mb-2 text-cx-label font-medium text-cx-text-secondary">Quick actions</p>
-        <div className="mb-3 space-y-1">
-          {(suggestedActions.length > 0 ? suggestedActions : config.quickOptions.map((a) => ({ action: a, url: "" }))).map((item) => {
-            const label = typeof item === "string" ? item : item.action;
-            const url = typeof item === "string" ? "" : item.url;
-            return (
-            <button
-              key={label}
-              type="button"
-              onClick={() => {
-                if (url === "#tour" || label.includes("Lay of the Land")) {
-                  onOpenTour?.();
-                  return;
-                }
-                if (url && url.startsWith("/")) {
-                  router.push(url);
-                  return;
-                }
-                if (section === "dashboard") {
-                  const action = DASHBOARD_MAK_ACTIONS.find(
-                    (a) => a.label.toLowerCase() === label.toLowerCase(),
-                  );
-                  if (action) {
-                    startMakFlow(action.intent, action.href, makActionGreeting(action));
-                    if (action.intent === "capture") {
-                      focusMakInput();
-                      return;
-                    }
-                    if (action.href !== "/app/dashboard") {
-                      router.push(action.href);
-                    }
-                    return;
-                  }
-                }
-                void sendMessage(label);
-              }}
-              disabled={loading}
-              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-cx-label text-cx-text transition-colors hover:bg-[#F9F7F3] disabled:opacity-50"
-            >
-              {label}
-            </button>
-          );
-          })}
-        </div>
-        <div className="flex gap-2">
+        <div className="cx-mak-panel-footer shrink-0 border-t px-3 py-3">
+        {quickActionItems.length > 0 && (
+          <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1">
+            {quickActionItems.slice(0, 6).map((item) => (
+              <button
+                key={item.key}
+                type="button"
+                onClick={item.onClick}
+                disabled={loading}
+                className={makQuickPillClass}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        )}
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => router.push("/app/objective?tab=documents&upload=1")}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/85 transition-colors hover:bg-white/15 hover:text-white"
+            aria-label="Attach document"
+          >
+            <Paperclip size={18} />
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/app/objective?tab=vault")}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/85 transition-colors hover:bg-white/15 hover:text-white"
+            aria-label="Career data vault"
+          >
+            <Briefcase size={18} />
+          </button>
           <input
             ref={makInputRef}
             value={input}
@@ -424,33 +670,22 @@ export function MakPanel({
                 void sendMessage(input);
               }
             }}
-            placeholder={config.placeholder}
+            placeholder={MAK_INPUT_PLACEHOLDER}
             disabled={loading || recording}
-            className="h-12 min-h-12 flex-1 rounded-xl border border-cx-border px-4 text-sm text-cx-text focus:border-cx-primary focus:outline-none focus:ring-2 focus:ring-cx-primary/30"
+            className="cx-mak-panel-input h-11 min-h-11 flex-1 border-0 bg-transparent px-1 text-sm focus:outline-none"
             aria-label="Message to Coach Mak"
           />
-          <button
-            type="button"
-            onClick={handleVoice}
+          <MakHexMicButton
+            recording={recording}
             disabled={loading}
-            title={recording ? "Recording…" : "Voice input"}
-            className={cn(
-              "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white transition-colors",
-              recording ? "bg-red-500" : "bg-cx-text-secondary hover:bg-cx-text",
-            )}
-          >
-            <Mic size={18} />
-          </button>
-          <button
-            type="button"
-            onClick={() => void sendMessage(input)}
-            disabled={loading || recording || !input.trim()}
-            title="Send message"
-            aria-label="Send message"
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cx-nav-active text-white transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            <ArrowUp size={18} strokeWidth={2.25} />
-          </button>
+            onClick={() => {
+              if (input.trim()) {
+                void sendMessage(input);
+              } else {
+                handleVoice();
+              }
+            }}
+          />
         </div>
         </div>
         </div>

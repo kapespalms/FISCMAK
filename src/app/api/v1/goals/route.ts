@@ -6,16 +6,19 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
+import { fetchCareerGoals } from "@/lib/v2/db";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 
 export async function GET() {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
-  const user = await getAppUser(auth.userId, auth.demo);
-  if (!user) return jsonOk({ goals: [] });
 
-  const meta = getOnboardingMetadata(user);
-  return jsonOk({ goals: meta.stored_goals ?? [] });
+  const user = await getAppUser(auth.userId, auth.demo);
+  const goals = await fetchCareerGoals(auth.userId, auth.demo);
+  const goalsConfirmed = user
+    ? Boolean(getOnboardingMetadata(user).goals_confirmed)
+    : false;
+  return jsonOk({ goals, goals_confirmed: goalsConfirmed });
 }
 
 export async function POST(request: Request) {

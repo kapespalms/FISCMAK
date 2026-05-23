@@ -1,45 +1,54 @@
-/** Professional SOAPO tab labels and display copy (spec Part 2–3) */
+/** SOAP section labels and display copy */
 
 export const SOAP_TAB = {
   subjective: {
-    nav: "Career Perspective",
-    title: "Career Perspective",
+    nav: "Perspective",
+    title: "Perspective",
     description:
       "Self-reported career direction, professional satisfaction, task alignment, and work engagement.",
     chatEntry:
-      "This section captures your professional perspective — career direction, work engagement, and task alignment.",
+      "This section captures your perspective — career direction, work engagement, and task alignment.",
   },
   objective: {
-    nav: "Career Data",
-    title: "Career Data",
+    nav: "Objective",
+    title: "Objective",
     description:
       "Verified career data from uploaded documents and public databases.",
     chatEntry:
-      "This section displays verified career data from your uploaded documents and public databases.",
+      "This section displays verified objective data from your documents and public databases.",
   },
   assessment: {
-    nav: "Career Profile",
-    title: "Career Profile",
+    nav: "Insights",
+    title: "Insights",
     description:
       "Synthesized Career Health Score, Career Map, and benchmarked standing.",
     chatEntry:
-      "This section synthesizes your Career Perspective and Career Data into a comprehensive Career Profile.",
+      "This section synthesizes your Perspective and Objective data into actionable insights.",
   },
   plan: {
-    nav: "Career Strategy",
-    title: "Career Strategy",
+    nav: "Strategy",
+    title: "Strategy",
     description: "Development, maintenance, and sustainability goals with quarterly milestones.",
-    chatEntry:
-      "This section tracks your career goals and quarterly milestones.",
+    chatEntry: "This section tracks your strategy — goals and quarterly milestones.",
   },
   output: {
-    nav: "Career Documents",
-    title: "Career Documents",
+    nav: "Output Studio",
+    title: "Output Studio",
     description: "Generated CVs, biosketches, reports, and career briefs.",
     chatEntry:
-      "This section generates and manages your career documents from Career Data.",
+      "This section generates and manages your career documents from Objective data.",
   },
 } as const;
+
+export const SOAP_SECTION_ORDER = [
+  "subjective",
+  "objective",
+  "assessment",
+  "plan",
+  "output",
+] as const;
+
+export type SoapSectionKey = (typeof SOAP_SECTION_ORDER)[number];
 
 export type GoalFrameworkType = "development" | "maintenance" | "sustainability";
 
