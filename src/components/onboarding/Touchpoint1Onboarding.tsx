@@ -547,24 +547,33 @@ export function Touchpoint1Onboarding() {
             Review API-discovered items not explicitly on your CV. Confirm or reject each match.
           </p>
 
-          <ul className="mt-6 space-y-3">
+          <p className="mt-2 text-sm text-fiscmak-muted">
+            {reconcileItems.length} items to review — estimated 2 minutes. Swipe through each card.
+          </p>
+
+          <ul className="mt-6 space-y-4">
             {reconcileItems.map((item) => (
-              <li key={item.id} className="rounded-lg border border-fiscmak-border p-4">
-                <p className="text-xs font-semibold uppercase text-fiscmak-muted">{item.source}</p>
-                <p className="mt-1 font-semibold">{item.label}</p>
-                <p className="mt-1 text-sm text-fiscmak-muted">{item.detail}</p>
-                <div className="mt-3 flex gap-2">
+              <li
+                key={item.id}
+                className="rounded-xl border border-fiscmak-border bg-fm-surface p-5 shadow-sm"
+              >
+                <p className="text-data-label">{item.source}</p>
+                <p className="mt-2 text-section-header text-base">{item.label}</p>
+                <p className="mt-2 text-sm text-fiscmak-muted">{item.detail}</p>
+                <div className="mt-4 flex gap-3">
                   <Button
                     variant={item.status === "confirmed" ? "primary" : "secondary"}
+                    className="min-h-[44px] flex-1"
                     onClick={() => toggleReconcile(item.id, "confirmed")}
                   >
-                    Confirm
+                    Mine
                   </Button>
                   <Button
                     variant={item.status === "rejected" ? "primary" : "secondary"}
+                    className="min-h-[44px] flex-1"
                     onClick={() => toggleReconcile(item.id, "rejected")}
                   >
-                    Reject
+                    Not mine
                   </Button>
                 </div>
               </li>

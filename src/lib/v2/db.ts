@@ -156,12 +156,17 @@ export async function buildAnalyticsDashboard(
 
   const onboardingMeta = getOnboardingMetadata(user);
   const quarterlyPulse = user.tier3_complete ? quarterlyPulseStatus(onboardingMeta) : null;
+  const pulse_streak = onboardingMeta.pulse_history?.length ?? 0;
+  const previous_career_health_score =
+    onboardingMeta.pulse_history?.[0]?.career_health_score ?? null;
 
   return {
     career_readiness_index: careerHealth?.career_health_score ?? cri,
     career_health: careerHealth,
     coaching_brief: coachingBrief,
     quarterly_pulse: quarterlyPulse,
+    pulse_streak,
+    previous_career_health_score,
     onboarding_progress: {
       tier1_complete: user.tier1_complete,
       tier2_complete: user.tier2_complete,

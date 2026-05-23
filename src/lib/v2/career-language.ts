@@ -26,6 +26,12 @@ export const METRIC_LABELS = {
 
 export type MetricKey = keyof typeof METRIC_LABELS;
 
+import type { MetricStatus } from "@/lib/design-system";
+import { scoreToMetricStatus } from "@/lib/design-system";
+
+export type { MetricStatus };
+
+/** @deprecated Use MetricStatus */
 export type TrafficLight = "green" | "amber" | "red";
 
 export type CareerLevelLabel =
@@ -149,59 +155,66 @@ export function promotionReadinessLabel(
   return "Advancement readiness";
 }
 
+export function scoreToStatus(score: number): MetricStatus {
+  return scoreToMetricStatus(score);
+}
+
+/** @deprecated Use scoreToStatus */
 export function scoreToTrafficLight(score: number): TrafficLight {
-  if (score >= 70) return "green";
-  if (score >= 50) return "amber";
+  const s = scoreToMetricStatus(score);
+  if (s === "strong") return "green";
+  if (s === "developing") return "amber";
   return "red";
 }
 
 export function burnoutRiskFromPfi(burnoutScore: number | null | undefined): {
-  light: TrafficLight;
+  status: MetricStatus;
   label: string;
   summary: string;
 } {
   if (burnoutScore == null) {
     return {
-      light: "amber",
-      label: "Burnout Risk",
-      summary: "Complete your well-being check with Coach Mak to see your burnout risk level.",
+      status: "stable",
+      label: "Professional Sustainability",
+      summary: "Complete your well-being check with Coach Mak to establish a baseline.",
     };
   }
   if (burnoutScore >= 3.325) {
     return {
-      light: "red",
-      label: "Burnout Risk",
+      status: "needs_attention",
+      label: "Professional Sustainability",
       summary:
-        "Your well-being check shows 🔴 High Burnout Risk — your energy and engagement may need attention. Coach Mak can help you explore what's driving this.",
+        "Professional Sustainability: Needs Attention — elevated strain indicators suggest your energy and engagement may need structured support.",
     };
   }
   if (burnoutScore >= 2.5) {
     return {
-      light: "amber",
-      label: "Burnout Risk",
+      status: "developing",
+      label: "Professional Sustainability",
       summary:
-        "Your well-being check shows 🟡 Moderate Burnout Risk — worth monitoring as workloads shift.",
+        "Professional Sustainability: Developing — monitor workload shifts and task burden as clinical demands change.",
     };
   }
   return {
-    light: "green",
-    label: "Burnout Risk",
+    status: "strong",
+    label: "Professional Sustainability",
     summary:
-      "Your well-being check shows 🟢 Low Burnout Risk — your energy and engagement are in a healthy range.",
+      "Professional Sustainability: Strong — energy and engagement indicators are in a healthy range.",
   };
 }
 
 export function fulfillmentSummary(fulfillmentScore: number | null | undefined): string {
   if (fulfillmentScore == null) {
-    return "Tell Coach Mak about your sense of meaning at work to capture professional fulfillment.";
+    return "Professional Fulfillment: pending — complete your well-being conversation with Coach Mak.";
   }
+  const pct = Math.min(99, Math.round((fulfillmentScore / 4) * 100));
   if (fulfillmentScore >= 3) {
-    return "Your professional fulfillment is strong — you're finding meaningful satisfaction in your work.";
+    return `Professional Fulfillment: ${pct}${ordinalSuffix(pct)} percentile — Strong`;
   }
   if (fulfillmentScore >= 2) {
-    return "Your professional fulfillment is moderate — there may be room to reconnect with what gives your work meaning.";
+    return `Professional Fulfillment: ${pct}${ordinalSuffix(pct)} percentile — Developing`;
   }
-  return "Your professional fulfillment appears lower than ideal — this is worth exploring with Coach Mak.";
+  return `Professional Fulfillment: ${pct}${ordinalSuffix(pct)} percentile — Needs Attention`;
 }
 
 export function researchInfluenceSummary(input: {
@@ -294,11 +307,13 @@ function ordinalSuffix(n: number): string {
   }
 }
 
-export function trafficLightEmoji(light: TrafficLight): string {
-  return light === "green" ? "🟢" : light === "amber" ? "🟡" : "🔴";
+export function domainStatusLabel(score: number): string {
+  const status = scoreToMetricStatus(score);
+  const labels = { strong: "Strong", developing: "Developing", needs_attention: "Needs Attention", stable: "Stable" };
+  return `${labels[status]} · ${score}/100`;
 }
 
-export function domainStatusLabel(score: number): string {
-  const light = scoreToTrafficLight(score);
-  return `${trafficLightEmoji(light)} ${score}/100`;
+/** @deprecated No emojis in status labels — use StatusChip */
+export function trafficLightEmoji(_light: TrafficLight): string {
+  return "";
 }

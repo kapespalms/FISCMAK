@@ -55,7 +55,7 @@ export function IconSidebar() {
             "rounded-r-md border border-l-0 border-fiscmak-border bg-white text-fiscmak-muted shadow-sm",
             "transition-colors hover:bg-fiscmak-subtle hover:text-fiscmak-ink",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fiscmak-green",
-            !makOpen && "border-l-2 border-l-fiscmak-green text-fiscmak-green",
+            !makOpen && "border-l-2 border-l-fm-primary text-fm-primary",
           )}
         >
           {makOpen ? (
@@ -77,8 +77,8 @@ export function IconSidebar() {
               className={cn(
                 "group relative flex h-12 w-full items-center justify-center transition-colors",
                 active
-                  ? "border-l-4 border-fiscmak-green bg-fiscmak-subtle text-fiscmak-green-dark"
-                  : "border-l-4 border-transparent text-fiscmak-muted hover:bg-fiscmak-subtle hover:text-fiscmak-ink",
+                  ? "border-l-4 border-fm-primary bg-fm-background text-fm-primary"
+                  : "border-l-4 border-transparent text-fiscmak-muted hover:bg-fm-background hover:text-fm-primary",
               )}
             >
               <NavIcon

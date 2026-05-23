@@ -60,10 +60,9 @@ export function AssessmentInsightsWorkspace() {
     <div className="mx-auto max-w-4xl space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Assessment: Patterns &amp; insights</h1>
+          <h1 className="text-2xl font-bold">Assessment: Career patterns</h1>
           <p className="mt-1 text-sm text-fiscmak-muted">
-            Everything Coach Mak learns in conversation shows up here — you never fill out
-            touchpoint forms on this page.
+            Insights from your Career Profile — validated instruments and conversation data
           </p>
         </div>
         <Button onClick={discussWithMak}>Discuss with Coach Mak</Button>

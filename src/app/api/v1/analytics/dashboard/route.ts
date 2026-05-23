@@ -20,6 +20,8 @@ export async function GET() {
     career_health: dashboard.career_health,
     coaching_brief: dashboard.coaching_brief,
     quarterly_pulse: dashboard.quarterly_pulse,
+    pulse_streak: dashboard.pulse_streak,
+    previous_career_health_score: dashboard.previous_career_health_score,
     onboarding_progress: dashboard.onboarding_progress,
     assessment_progress: dashboard.assessment_progress,
     burnout_trend: dashboard.burnout_trend,

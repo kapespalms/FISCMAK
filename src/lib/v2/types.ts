@@ -154,6 +154,8 @@ export type AnalyticsDashboard = {
   career_health: CareerHealthView | null;
   coaching_brief: CareerCoachingBrief | null;
   quarterly_pulse: QuarterlyPulseStatus | null;
+  pulse_streak: number;
+  previous_career_health_score: number | null;
   onboarding_progress: {
     tier1_complete: boolean;
     tier2_complete: boolean;

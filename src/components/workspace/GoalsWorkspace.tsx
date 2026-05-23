@@ -17,6 +17,7 @@ import {
   saveDemoGoals,
 } from "@/lib/goals";
 import { Target, Pencil, Trash2 } from "lucide-react";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { PathwaysExplorer } from "@/components/workspace/PathwaysExplorer";
 
 export function GoalsWorkspace() {
@@ -318,12 +319,12 @@ export function GoalsWorkspace() {
       {loading && <p className="text-sm text-fiscmak-muted">Loading goals…</p>}
 
       {!loading && goals.length === 0 && (
-        <Card>
-          <p className="text-sm text-fiscmak-muted">
-            No goals yet. Add one to connect your lattice to your next career
-            move — or talk through strategy with Mak.
-          </p>
-        </Card>
+        <EmptyState
+          title="Career goals will appear here"
+          description="Goals are suggested after your Career Profile is generated — structured as Development, Maintenance, and Sustainability objectives with quarterly milestones."
+          actionLabel="Complete assessment first"
+          actionHref="/app/assessment"
+        />
       )}
 
       <div className="space-y-4">

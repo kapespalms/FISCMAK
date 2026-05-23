@@ -11,11 +11,11 @@ import {
   promotionReadinessLabel,
   researchInfluencePhrase,
   researchInfluenceSummary,
-  scoreToTrafficLight,
+  scoreToStatus,
   serviceCitizenshipSummary,
   taskBurdenSummary,
   unrecognizedWorkSummary,
-  type TrafficLight,
+  type MetricStatus,
 } from "@/lib/v2/career-language";
 import {
   cdiDomainDisplayLabels,
@@ -30,7 +30,7 @@ export type CareerHealthDomain = {
   key: CdiDomainKey;
   label: string;
   score: number;
-  traffic_light: TrafficLight;
+  status: MetricStatus;
   summary: string;
   weight: number;
   technical: Record<string, unknown>;
@@ -40,7 +40,7 @@ export type CareerHealthMetric = {
   id: string;
   label: string;
   summary: string;
-  traffic_light?: TrafficLight;
+  status?: MetricStatus;
   show_score: boolean;
   technical: Record<string, unknown>;
 };
@@ -223,7 +223,7 @@ export function buildCareerHealthView(input: {
       key,
       label,
       score: domainScore,
-      traffic_light: scoreToTrafficLight(domainScore),
+      status: scoreToStatus(domainScore),
       summary: domainSummary(key, domainScore, user, cvMetrics, meta),
       weight,
       technical: buildDomainTechnical(key, domainScore, user, cvMetrics, meta),
@@ -231,8 +231,8 @@ export function buildCareerHealthView(input: {
   }
 
   domains.sort((a, b) => b.score - a.score);
-  const strongest = domains.filter((d) => d.traffic_light === "green").slice(0, 2).map((d) => d.label);
-  const growth = domains.filter((d) => d.traffic_light !== "green").slice(-2).map((d) => d.label);
+  const strongest = domains.filter((d) => d.status === "strong").slice(0, 2).map((d) => d.label);
+  const growth = domains.filter((d) => d.status !== "strong").slice(-2).map((d) => d.label);
 
   const pfi = instrumentScore(meta, "pfi");
   const bits = instrumentScore(meta, "bits");
@@ -242,9 +242,9 @@ export function buildCareerHealthView(input: {
   const wellbeing_metrics: CareerHealthMetric[] = [
     {
       id: "burnout_risk",
-      label: "Burnout Risk",
+      label: "Professional Sustainability",
       summary: burnout.summary,
-      traffic_light: burnout.light,
+      status: burnout.status,
       show_score: false,
       technical: {
         backend_metric: "pfi_burnout",

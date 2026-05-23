@@ -9,11 +9,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-fiscmak-green text-white hover:bg-fiscmak-green-dark active:border-2 active:border-black",
+    "bg-fm-primary text-white hover:bg-fiscmak-green-dark active:border-2 active:border-fm-accent",
   secondary:
-    "bg-fiscmak-subtle text-foreground border-2 border-fiscmak-border hover:bg-gray-100",
-  destructive: "bg-fiscmak-red text-white hover:bg-red-700",
-  link: "bg-transparent text-fiscmak-green hover:text-fiscmak-green-dark hover:underline p-0 min-h-0",
+    "bg-fm-surface text-foreground border border-fiscmak-border hover:bg-fm-background",
+  destructive: "bg-fm-attention text-white hover:opacity-90",
+  link: "bg-transparent text-fm-accent hover:underline p-0 min-h-0",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

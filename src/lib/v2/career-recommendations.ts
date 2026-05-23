@@ -3,7 +3,8 @@ import type { PracticeSetting } from "@/lib/v2/onboarding-options";
 import type { CvMetrics } from "@/lib/v2/cv-metrics";
 import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import { getOnboardingMetadata, type OnboardingMetadata } from "@/lib/v2/onboarding-compute";
-import { promotionReadinessLabel, trafficLightEmoji } from "@/lib/v2/career-language";
+import { promotionReadinessLabel } from "@/lib/v2/career-language";
+import { STATUS_LABELS } from "@/lib/design-system";
 import type { InstrumentScore } from "@/lib/v2/onboarding-instruments";
 
 export type RecommendationPriority = "urgent" | "high" | "medium" | "celebration";
@@ -327,7 +328,7 @@ export function buildCareerRecommendations(input: {
       priority: "medium",
       category: "growth",
       title: `Growth opportunity: ${domain.label}`,
-      message: `${trafficLightEmoji(domain.traffic_light)} ${domain.label} (${domain.score}/100) — ${domain.summary.split(".")[0]}.`,
+      message: `${domain.label} (${domain.score}/100) — ${STATUS_LABELS[domain.status]} — ${domain.summary.split(".")[0]}.`,
       coach_prompt: `Explore one actionable step to strengthen ${domain.label.toLowerCase()} this quarter.`,
       trigger: `${domain.label} score < 50`,
       suggested_actions: [{ action: `Discuss ${domain.label}`, url: "/app/plan" }],

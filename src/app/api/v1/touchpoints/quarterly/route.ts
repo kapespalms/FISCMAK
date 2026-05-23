@@ -64,16 +64,16 @@ export async function POST(request: Request) {
       ? ((parsed.invisible_hours - baseline.invisible_hours) / baseline.invisible_hours) * 100
       : null;
 
-  const burnoutLight = burnoutRiskFromPfi(
+  const burnout = burnoutRiskFromPfi(
     parsed.burnout_screen != null ? parsed.burnout_screen / 1.2 : null,
-  ).light;
+  );
 
   const cvAchievement = answers.find((a) => a.module_id === "cv_update")?.value;
   const summary = buildQuarterlyPulseSummary({
     quarter,
     prevScore,
     newScore,
-    burnoutLight,
+    sustainabilityStatus: burnout.status,
     invisibleHours: parsed.invisible_hours ?? null,
     invisibleDeltaPct,
     achievements: cvAchievement ? String(cvAchievement).slice(0, 120) : undefined,
@@ -85,6 +85,7 @@ export async function POST(request: Request) {
     burnout_screen: parsed.burnout_screen,
     invisible_hours: parsed.invisible_hours,
     track_energy: parsed.track_energy,
+    career_health_score: newScore,
     summary,
   };
 

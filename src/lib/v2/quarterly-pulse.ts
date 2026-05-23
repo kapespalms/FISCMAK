@@ -119,7 +119,7 @@ export function buildQuarterlyPulseSummary(input: {
   quarter: string;
   prevScore: number | null;
   newScore: number;
-  burnoutLight: "green" | "amber" | "red";
+  sustainabilityStatus: "strong" | "developing" | "needs_attention" | "stable";
   invisibleHours: number | null;
   invisibleDeltaPct: number | null;
   achievements?: string;
@@ -127,12 +127,16 @@ export function buildQuarterlyPulseSummary(input: {
   const lines: string[] = [`${input.quarter} Update:`];
 
   if (input.achievements) {
-    lines.push(`✅ ${input.achievements}`);
+    lines.push(`New: ${input.achievements}`);
   }
 
-  const burnoutEmoji =
-    input.burnoutLight === "green" ? "🟢" : input.burnoutLight === "amber" ? "🟡" : "🔴";
-  lines.push(`Burnout screen: ${burnoutEmoji} ${input.burnoutLight === "green" ? "Low Risk" : input.burnoutLight === "amber" ? "Moderate Risk" : "High Risk"}`);
+  const statusLabels = {
+    strong: "Strong",
+    developing: "Developing",
+    needs_attention: "Needs Attention",
+    stable: "Stable",
+  };
+  lines.push(`Professional Sustainability: ${statusLabels[input.sustainabilityStatus]}`);
 
   if (input.invisibleHours != null) {
     const delta =

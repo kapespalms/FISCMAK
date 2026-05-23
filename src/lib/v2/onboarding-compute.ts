@@ -25,6 +25,7 @@ export type OnboardingMetadata = {
     burnout_screen?: number;
     invisible_hours?: number;
     track_energy?: number;
+    career_health_score?: number;
     summary?: string;
   }>;
   last_quarterly_summary?: string;

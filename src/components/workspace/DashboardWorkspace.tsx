@@ -15,6 +15,7 @@ import { CvUploadPanel } from "@/components/documents/CvUploadPanel";
 import { CareerHealthSnapshot } from "@/components/workspace/CareerHealthSnapshot";
 import { CareerRecommendationsPanel } from "@/components/workspace/CareerRecommendationsPanel";
 import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
+import { EmptyState } from "@/components/ui/EmptyState";
 import type { CareerRecommendation } from "@/lib/v2/career-recommendations";
 
 const EMPTY_CV_METRICS: AnalyticsDashboard["cv_metrics"] = {
@@ -122,11 +123,19 @@ export function DashboardWorkspace() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-5">
-      <div>
-        <h1 className="text-2xl font-bold">Dashboard: Your Career At A Glance</h1>
-        <p className="mt-1 text-sm text-fiscmak-muted">
-          Career Health Score and coaching progress — plain language, no jargon
-        </p>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-page-title">Dashboard</h1>
+          <p className="mt-1 text-sm text-fiscmak-muted">
+            Career Health snapshot and coaching progress
+          </p>
+        </div>
+        {analytics && analytics.pulse_streak > 0 && (
+          <p className="text-caption">
+            {analytics.pulse_streak} consecutive quarter{analytics.pulse_streak !== 1 ? "s" : ""}{" "}
+            of career check-ins
+          </p>
+        )}
       </div>
 
       <DashboardOptionTabs activeId={activeTab} onSelect={handleOptionTab} />
@@ -249,16 +258,25 @@ export function DashboardWorkspace() {
 
           {analytics.career_health ? (
             <Card>
-              <CareerHealthSnapshot view={analytics.career_health} />
+              <CareerHealthSnapshot
+                view={analytics.career_health}
+                previousScore={analytics.previous_career_health_score}
+              />
             </Card>
           ) : (
-            <Card accent="green">
-              <p className="font-semibold">Complete onboarding to see your Career Health snapshot</p>
-              <p className="mt-2 text-sm text-fiscmak-muted">
-                Finish your profile and conversation with Coach Mak — scores appear in plain career
-                language, not formulas.
-              </p>
-            </Card>
+            <EmptyState
+              title="Complete your Career Profile setup"
+              description="Finish onboarding to see your Career Health snapshot. Setup takes about 20 minutes and adapts to your specialty, setting, and career track."
+              actionLabel="Begin setup"
+              actionHref="/app/onboarding"
+              ghost={
+                <div className="grid w-full max-w-md grid-cols-2 gap-2 p-8">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="h-16 rounded-md bg-fm-primary" />
+                  ))}
+                </div>
+              }
+            />
           )}
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
