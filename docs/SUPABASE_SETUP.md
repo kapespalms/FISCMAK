@@ -71,6 +71,33 @@ Sign up at http://localhost:3000/signup
 
 ---
 
+## Step 5 — V2 + Career Data migrations (automated)
+
+Add **DATABASE_URL** to `.env.local` (Supabase → **Project Settings → Database → Connection string → URI**, use the `postgres` role password):
+
+```env
+DATABASE_URL=postgresql://postgres.[ref]:[password]@aws-0-[region].pooler.supabase.com:6543/postgres
+```
+
+Then from the project root:
+
+```bash
+npm install
+npm run db:migrate
+npm run db:verify
+```
+
+This applies (in order, skipping what already exists):
+
+1. `docs/FISCMAK_V2_SCHEMA.sql` — app_users, assessments, chat, jobs…
+2. `docs/migrations/20260521_touchpoint1_onboarding.sql`
+3. `docs/migrations/20260522_activity_entries_v2.sql` — Mak activity capture
+4. `docs/migrations/20260521_career_data_schema.sql` — physicians, enrichment, reconciliation
+
+Manual alternative: paste each file into [SQL Editor](https://supabase.com/dashboard/project/qnskxioqsgnkkuyalqcn/sql/new) in that order.
+
+---
+
 ## If Step 2 fails
 
 **`relation "users" already exists`** — tables were created on a previous run. **Do not re-run the full schema.** Use one of:
