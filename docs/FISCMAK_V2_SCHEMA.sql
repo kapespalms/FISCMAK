@@ -14,8 +14,19 @@ CREATE TABLE IF NOT EXISTS app_users (
   specialty TEXT,
   career_stage TEXT CHECK (career_stage IN (
     'Medical Student', 'Resident', 'Fellow',
-    'Early Attending', 'Mid-Career Attending', 'Senior Attending', 'Retired'
+    'Early Career (0–7 yr)', 'Mid-Career (8–20 yr)', 'Late Career (20+ yr)', 'Retired',
+    'Early Attending', 'Mid-Career Attending', 'Senior Attending'
   )),
+  practice_setting TEXT CHECK (practice_setting IN ('Academic', 'Community', 'Industry', 'Hybrid')),
+  academic_rank TEXT CHECK (academic_rank IN (
+    'Instructor', 'Assistant Professor', 'Associate Professor',
+    'Full Professor', 'Chair', 'Emeritus'
+  )),
+  primary_career_track TEXT CHECK (primary_career_track IN (
+    'Clinician', 'Educator', 'Researcher', 'Leader', 'Advocate',
+    'Innovator', 'Quality-Safety', 'Wellness Champion'
+  )),
+  onboarding_metadata JSONB DEFAULT '{}'::jsonb,
   institution TEXT,
   cv_uploaded BOOLEAN NOT NULL DEFAULT FALSE,
   mempalace_id UUID,

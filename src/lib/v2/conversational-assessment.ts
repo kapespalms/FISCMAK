@@ -12,10 +12,16 @@ const CAREER_STAGE_TO_RANK: Partial<Record<CareerStage, string>> = {
   "Medical Student": "Student",
   Resident: "Resident",
   Fellow: "Fellow",
+  "Early Career (0–7 yr)": "Assistant Professor",
+  "Mid-Career (8–20 yr)": "Associate Professor",
+  "Late Career (20+ yr)": "Full Professor",
+  Retired: "Full Professor",
+};
+
+const LEGACY_RANK: Record<string, string> = {
   "Early Attending": "Assistant Professor",
   "Mid-Career Attending": "Associate Professor",
   "Senior Attending": "Full Professor",
-  Retired: "Full Professor",
 };
 
 export function getGloballyAnsweredIds(assessments: CareerAssessment[]): string[] {
@@ -37,12 +43,15 @@ export function getPendingQuestions(
 export function seedAnswersFromProfile(user: AppUser): ExtractedAnswer[] {
   const seeded: ExtractedAnswer[] = [];
   if (user.career_stage) {
-    const rank = CAREER_STAGE_TO_RANK[user.career_stage];
+    const rank =
+      CAREER_STAGE_TO_RANK[user.career_stage] ?? LEGACY_RANK[user.career_stage];
     if (rank) {
       seeded.push({ q_id: "Q1.1", answer: rank, confidence: "high" });
     }
   }
-  if (user.specialty) {
+  if (user.primary_career_track) {
+    seeded.push({ q_id: "Q1.6", answer: user.primary_career_track, confidence: "high" });
+  } else if (user.specialty) {
     seeded.push({
       q_id: "Q1.6",
       answer: inferPrimaryDomain(user.specialty),

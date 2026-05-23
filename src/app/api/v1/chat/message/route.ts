@@ -14,6 +14,11 @@ import {
 } from "@/lib/v2/conversational-assessment";
 import { processConversationalTurn } from "@/lib/v2/conversational-assessment-service";
 import {
+  nextInstrumentPrompt,
+  processInstrumentTurn,
+} from "@/lib/v2/instrument-conversation-service";
+import { computeTouchpoint1Dashboard } from "@/lib/v2/onboarding-compute";
+import {
   buildOnboardingSuggestedActions,
   buildWelcomeGreeting,
 } from "@/lib/v2/onboarding-flow";
@@ -42,21 +47,47 @@ export async function POST(request: Request) {
   let autoAnswered: string[] = [];
   let pendingCount = 0;
   let touchpointComplete = false;
+  let instrumentCaptured: string[] = [];
 
   if (user && message && message !== "__welcome__") {
-    const turn = await processConversationalTurn(
-      user,
-      auth.userId,
-      auth.demo,
-      message,
-      context?.touchpoint_number ?? 1,
-    );
-    autoAnswered = turn.autoAnswered;
-    pendingCount = turn.pendingCount;
-    touchpointComplete = turn.touchpointComplete;
+    if (user.tier2_complete && !user.tier3_complete) {
+      const inst = await processInstrumentTurn(user, auth.userId, auth.demo, message);
+      instrumentCaptured = inst.captured;
+      pendingCount = inst.pendingCluster ? 1 : 0;
+      touchpointComplete = inst.instrumentsComplete;
+    } else if (!user.tier3_complete) {
+      const turn = await processConversationalTurn(
+        user,
+        auth.userId,
+        auth.demo,
+        message,
+        context?.touchpoint_number ?? 1,
+      );
+      autoAnswered = turn.autoAnswered;
+      pendingCount = turn.pendingCount;
+      touchpointComplete = turn.touchpointComplete;
+    }
 
     if (touchpointComplete && onboarding) {
-      await upsertAppUser(auth.userId, auth.email, { tier3_complete: true }, auth.demo);
+      const refreshedUser = await getAppUser(auth.userId, auth.demo);
+      if (refreshedUser) {
+        const cv = docs.find((d) => d.document_type === "CV");
+        const computed = computeTouchpoint1Dashboard(refreshedUser, cv?.extracted_text);
+        await upsertAppUser(
+          auth.userId,
+          auth.email,
+          {
+            tier3_complete: true,
+            onboarding_metadata: {
+              ...(refreshedUser.onboarding_metadata ?? {}),
+              ...computed,
+            } as Record<string, unknown>,
+          },
+          auth.demo,
+        );
+      } else {
+        await upsertAppUser(auth.userId, auth.email, { tier3_complete: true }, auth.demo);
+      }
     }
   }
 
@@ -73,13 +104,16 @@ export async function POST(request: Request) {
   } else if (!apiKey) {
     response = demoMakReply(message, context?.section ?? "dashboard");
     if (onboarding) {
-      if (autoAnswered.length > 0) {
-        response += `\n\n(Noted — I captured ${autoAnswered.length} assessment detail${autoAnswered.length > 1 ? "s" : ""} from that.)`;
+      if (instrumentCaptured.length > 0) {
+        response += `\n\n(Got it — captured ${instrumentCaptured.length} assessment detail${instrumentCaptured.length > 1 ? "s" : ""}.)`;
       }
-      if (pendingCount > 0) {
+      if (pendingCount > 0 && user?.tier2_complete) {
+        const next = nextInstrumentPrompt(user);
+        if (next) response += `\n\n${next}`;
+      } else if (pendingCount > 0) {
         response += `\n\nTell me about your promotion track or biggest career goal over the next few years.`;
       } else if (touchpointComplete) {
-        response += `\n\nGreat — we've covered your professional identity. Upload your CV anytime, or tell me about invisible work you're doing.`;
+        response += `\n\nYour Touchpoint 1 dashboard is ready — CDI baseline and wellbeing scores are live.`;
       }
       suggested_actions = buildOnboardingSuggestedActions();
     } else {
@@ -94,6 +128,10 @@ export async function POST(request: Request) {
         : "",
       docs.length ? `Documents: ${docs.length} uploaded` : "",
       autoAnswered.length ? `Auto-captured this turn: ${autoAnswered.join(", ")}` : "",
+      instrumentCaptured.length ? `Instrument clusters captured: ${instrumentCaptured.join(", ")}` : "",
+      user?.tier2_complete && !user?.tier3_complete && nextInstrumentPrompt(user)
+        ? `Next instrument prompt: ${nextInstrumentPrompt(user)}`
+        : "",
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",
       user ? buildConversationalPrompt(user, pendingTp1, onboarding) : "",
     ]
@@ -170,6 +208,7 @@ export async function POST(request: Request) {
     suggested_actions,
     memory_updated: Boolean(mp),
     auto_answered: autoAnswered,
+    instrument_captured: instrumentCaptured,
     pending_questions: pendingCount,
     touchpoint_complete: touchpointComplete,
     context,

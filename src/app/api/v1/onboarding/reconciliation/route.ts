@@ -1,0 +1,78 @@
+import { createClient } from "@/lib/supabase/server";
+import { getServerDemo } from "@/lib/v2/demo-store";
+import { fetchDocuments } from "@/lib/v2/db";
+import {
+  getAppUser,
+  isErrorResponse,
+  jsonOk,
+  requireApiUser,
+  upsertAppUser,
+} from "@/lib/v2/api-helpers";
+import {
+  apiEnrichmentPlan,
+  buildReconciliationCandidates,
+  type ReconciliationItem,
+} from "@/lib/v2/onboarding-touchpoint1";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+
+export async function GET() {
+  const auth = await requireApiUser();
+  if (isErrorResponse(auth)) return auth;
+  const user = await getAppUser(auth.userId, auth.demo);
+  if (!user) return jsonOk({ error: "not_found", message: "User not found" }, 404);
+
+  const docs = await fetchDocuments(auth.userId, auth.demo);
+  const cv = docs.find((d) => d.document_type === "CV");
+  const plan = apiEnrichmentPlan(user.practice_setting, user.career_stage);
+  const meta = getOnboardingMetadata(user);
+
+  const built = buildReconciliationCandidates({
+    cvText: cv?.extracted_text,
+    specialty: user.specialty,
+    enrichmentPlan: plan,
+  });
+  const statusMap = new Map(
+    (meta.reconciliation ?? []).map((r: { id: string; status: string }) => [r.id, r.status]),
+  );
+  const items = built.map((item) => ({
+    ...item,
+    status: (statusMap.get(item.id) as ReconciliationItem["status"]) ?? item.status,
+  }));
+
+  return jsonOk({ items, cv_uploaded: Boolean(cv) });
+}
+
+export async function POST(request: Request) {
+  const auth = await requireApiUser();
+  if (isErrorResponse(auth)) return auth;
+  const body = await request.json();
+  const { items } = body as { items?: { id: string; status: "confirmed" | "rejected" }[] };
+  if (!items?.length) {
+    return jsonOk({ error: "validation_error", message: "Reconciliation items required." }, 400);
+  }
+
+  const user = await getAppUser(auth.userId, auth.demo);
+  if (!user) return jsonOk({ error: "not_found", message: "User not found" }, 404);
+
+  const meta = getOnboardingMetadata(user);
+  const updated = {
+    ...meta,
+    reconciliation: items,
+  };
+
+  const saved = await upsertAppUser(
+    auth.userId,
+    auth.email,
+    {
+      tier2_complete: true,
+      onboarding_metadata: updated as Record<string, unknown>,
+    },
+    auth.demo,
+  );
+
+  return jsonOk({
+    tier2_complete: saved.tier2_complete,
+    reconciliation: items,
+    next_step: "instruments",
+  });
+}

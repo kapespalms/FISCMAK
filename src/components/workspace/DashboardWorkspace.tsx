@@ -287,9 +287,9 @@ export function DashboardWorkspace() {
             <Card>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">Onboarding</p>
               <ul className="mt-2 space-y-1 text-sm">
-                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Tier 1</li>
-                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Tier 2 CV</li>
-                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Tier 3 goals</li>
+                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Profile (5 anchors)</li>
+                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Documents + reconcile</li>
+                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Mak self-assessment</li>
               </ul>
             </Card>
             <Card>

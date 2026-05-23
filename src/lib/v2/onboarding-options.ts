@@ -1,4 +1,4 @@
-/** ACGME-accredited specialties and common subspecialties (alphabetical). */
+/** ABMS/AOA specialties + subspecialties (alphabetical). */
 export const ACGME_SPECIALTIES = [
   "Addiction Psychiatry",
   "Adolescent Medicine",
@@ -103,17 +103,67 @@ export const ACGME_SPECIALTIES = [
 
 export type AcgmeSpecialty = (typeof ACGME_SPECIALTIES)[number];
 
-export const CAREER_STAGES = [
+/** Touchpoint 1 career levels (ADDIE onboarding spec). */
+export const CAREER_LEVELS = [
   "Medical Student",
   "Resident",
   "Fellow",
-  "Early Attending",
-  "Mid-Career Attending",
-  "Senior Attending",
+  "Early Career (0–7 yr)",
+  "Mid-Career (8–20 yr)",
+  "Late Career (20+ yr)",
   "Retired",
 ] as const;
 
-export type CareerStage = (typeof CAREER_STAGES)[number];
+export type CareerLevel = (typeof CAREER_LEVELS)[number];
+
+/** @deprecated Use CAREER_LEVELS — alias for backward compatibility */
+export const CAREER_STAGES = CAREER_LEVELS;
+export type CareerStage = CareerLevel;
+
+export const PRACTICE_SETTINGS = [
+  "Academic",
+  "Community",
+  "Industry",
+  "Hybrid",
+] as const;
+
+export type PracticeSetting = (typeof PRACTICE_SETTINGS)[number];
+
+export const ACADEMIC_RANKS = [
+  "Instructor",
+  "Assistant Professor",
+  "Associate Professor",
+  "Full Professor",
+  "Chair",
+  "Emeritus",
+] as const;
+
+export type AcademicRank = (typeof ACADEMIC_RANKS)[number];
+
+export const PRIMARY_CAREER_TRACKS = [
+  "Clinician",
+  "Educator",
+  "Researcher",
+  "Leader",
+  "Advocate",
+  "Innovator",
+  "Quality-Safety",
+  "Wellness Champion",
+] as const;
+
+export type PrimaryCareerTrack = (typeof PRIMARY_CAREER_TRACKS)[number];
+
+const LEGACY_CAREER_MAP: Record<string, CareerLevel> = {
+  "Early Attending": "Early Career (0–7 yr)",
+  "Mid-Career Attending": "Mid-Career (8–20 yr)",
+  "Senior Attending": "Late Career (20+ yr)",
+};
+
+export function normalizeCareerLevel(value: string | null | undefined): CareerLevel | null {
+  if (!value) return null;
+  if ((CAREER_LEVELS as readonly string[]).includes(value)) return value as CareerLevel;
+  return LEGACY_CAREER_MAP[value] ?? null;
+}
 
 export function filterSpecialties(query: string): AcgmeSpecialty[] {
   const q = query.trim().toLowerCase();
@@ -125,6 +175,26 @@ export function isValidSpecialty(value: string): value is AcgmeSpecialty {
   return (ACGME_SPECIALTIES as readonly string[]).includes(value);
 }
 
-export function isValidCareerStage(value: string): value is CareerStage {
-  return (CAREER_STAGES as readonly string[]).includes(value);
+export function isValidCareerLevel(value: string): value is CareerLevel {
+  return (CAREER_LEVELS as readonly string[]).includes(value) || value in LEGACY_CAREER_MAP;
+}
+
+export function isValidPracticeSetting(value: string): value is PracticeSetting {
+  return (PRACTICE_SETTINGS as readonly string[]).includes(value);
+}
+
+export function isValidAcademicRank(value: string): value is AcademicRank {
+  return (ACADEMIC_RANKS as readonly string[]).includes(value);
+}
+
+export function isValidCareerTrack(value: string): value is PrimaryCareerTrack {
+  return (PRIMARY_CAREER_TRACKS as readonly string[]).includes(value);
+}
+
+export function isValidCareerStage(value: string): value is CareerLevel {
+  return isValidCareerLevel(value);
+}
+
+export function requiresAcademicRank(setting: PracticeSetting | null): boolean {
+  return setting === "Academic" || setting === "Hybrid";
 }

@@ -1,5 +1,5 @@
-import { Tier1Onboarding } from "@/components/onboarding/Tier1Onboarding";
+import { Touchpoint1Onboarding } from "@/components/onboarding/Touchpoint1Onboarding";
 
 export default function OnboardingPage() {
-  return <Tier1Onboarding />;
+  return <Touchpoint1Onboarding />;
 }

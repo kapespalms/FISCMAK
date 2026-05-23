@@ -1,4 +1,9 @@
-import type { CareerStage } from "@/lib/v2/onboarding-options";
+import type {
+  AcademicRank,
+  CareerStage,
+  PracticeSetting,
+  PrimaryCareerTrack,
+} from "@/lib/v2/onboarding-options";
 
 export type { CareerStage };
 
@@ -8,12 +13,16 @@ export type AppUser = {
   name: string | null;
   specialty: string | null;
   career_stage: CareerStage | null;
+  practice_setting: PracticeSetting | null;
+  academic_rank: AcademicRank | null;
+  primary_career_track: PrimaryCareerTrack | null;
   institution: string | null;
   cv_uploaded: boolean;
   mempalace_id: string | null;
   tier1_complete: boolean;
   tier2_complete: boolean;
   tier3_complete: boolean;
+  onboarding_metadata: Record<string, unknown> | null;
   preferred_location: string | null;
   salary_min: number | null;
   salary_max: number | null;

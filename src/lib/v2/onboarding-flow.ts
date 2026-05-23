@@ -60,13 +60,15 @@ export function buildWelcomeGreeting(user: AppUser): string {
     formatDisplayName(user.name?.split(" ")[0], user.name?.split(" ").slice(1).join(" ")) ??
     (user.name ? `Dr. ${user.name.split(" ").pop()}` : null);
   const salutation = name ? `Welcome, ${name}.` : "Welcome.";
+  const setting = user.practice_setting ? ` · ${user.practice_setting}` : "";
+  const track = user.primary_career_track ? ` · ${user.primary_career_track} track` : "";
   return `${salutation} I'm Coach Mak.
 
-You're set up as ${user.specialty ?? "a physician"} · ${user.career_stage ?? "career stage pending"}.
+You're set up as ${user.specialty ?? "a physician"} · ${user.career_stage ?? "career stage pending"}${setting}${track}.
 
-Over the next 10–15 minutes, we'll talk through your career — no forms. I'll learn about your identity, goals, and invisible work naturally.
+Next we'll walk through your self-assessment battery conversationally — PFI wellbeing, career aspirations, and more. No forms.
 
-When you're ready, take the **Lay of the Land** tour (link below) — then tell me: what's on your mind about your career right now?`;
+When you're ready, take the **Lay of the Land** tour (link below) — then tell me: on a 0–4 scale, how fulfilled do you feel in your work overall?`;
 }
 
 export function buildOnboardingSuggestedActions() {

@@ -78,7 +78,6 @@ export async function POST(request: Request) {
       uploaded_at: now,
     });
     state.user.cv_uploaded = true;
-    state.user.tier2_complete = true;
     return jsonOk({
       document_id: docId,
       document_type,
@@ -110,7 +109,7 @@ export async function POST(request: Request) {
   if (error) return jsonOk({ error: "server_error", message: error.message }, 500);
   await supabase
     .from("app_users")
-    .update({ cv_uploaded: true, tier2_complete: true })
+    .update({ cv_uploaded: true })
     .eq("user_id", auth.userId);
   return jsonOk({
     document_id: data.document_id,
