@@ -319,18 +319,18 @@ export function Touchpoint1Onboarding() {
 
       {step === "profile" && (
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+          <p className="text-cx-label uppercase">
             Step 2 of 7 · Profile configuration · ~3 minutes
           </p>
           <h1 className="mt-1 text-page-title">Profile configuration</h1>
-          <p className="mt-2 text-sm text-fiscmak-muted">
+          <p className="mt-2 text-cx-body">
             These fields determine benchmarks, document requirements, questionnaire modules, and
             Career Map positioning.
           </p>
 
           <div className="mt-6 space-y-5">
             <div>
-              <label htmlFor="onboarding-name" className="text-sm font-semibold">
+              <label htmlFor="onboarding-name" className="cx-field-label">
                 Your name
               </label>
               <input
@@ -339,7 +339,7 @@ export function Touchpoint1Onboarding() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Jane Smith"
-                className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4 text-base focus:border-fiscmak-green focus:outline-none"
+                className="cx-field mt-2"
                 autoComplete="name"
               />
             </div>
@@ -359,21 +359,21 @@ export function Touchpoint1Onboarding() {
                 }}
                 onFocus={() => setListOpen(true)}
                 placeholder="Start typing, e.g. Psychiatry…"
-                className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4 text-base focus:border-fiscmak-green focus:outline-none"
+                className="cx-field mt-2"
                 autoComplete="off"
               />
               {listOpen && (
-                <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-fiscmak-border bg-white shadow-md">
+                <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-border bg-white shadow-md">
                   {filteredSpecialties.length === 0 ? (
-                    <li className="px-4 py-3 text-sm text-fiscmak-muted">No matches</li>
+                    <li className="px-4 py-3 text-cx-body">No matches</li>
                   ) : (
                     filteredSpecialties.map((s) => (
                       <li key={s}>
                         <button
                           type="button"
                           onClick={() => pickSpecialty(s)}
-                          className={`w-full px-4 py-2.5 text-left text-sm hover:bg-fiscmak-subtle ${
-                            specialty === s ? "bg-fiscmak-green-light font-semibold" : ""
+                          className={`w-full px-4 py-2.5 text-left text-sm hover:bg-cx-cream/60 ${
+                            specialty === s ? "bg-cx-accent-soft font-semibold" : ""
                           }`}
                         >
                           {s}
@@ -395,8 +395,8 @@ export function Touchpoint1Onboarding() {
                     onClick={() => setCareerLevel(s)}
                     className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                       careerLevel === s
-                        ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                        : "border-fiscmak-border hover:bg-fiscmak-subtle"
+                        ? "border-cx-primary bg-cx-accent-soft font-semibold"
+                        : "border-cx-border hover:bg-cx-cream/60"
                     }`}
                   >
                     {s}
@@ -415,8 +415,8 @@ export function Touchpoint1Onboarding() {
                     onClick={() => setPracticeSetting(s)}
                     className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                       practiceSetting === s
-                        ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                        : "border-fiscmak-border hover:bg-fiscmak-subtle"
+                        ? "border-cx-primary bg-cx-accent-soft font-semibold"
+                        : "border-cx-border hover:bg-cx-cream/60"
                     }`}
                   >
                     {s}
@@ -436,8 +436,8 @@ export function Touchpoint1Onboarding() {
                       onClick={() => setAcademicRank(r)}
                       className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                         academicRank === r
-                          ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                          : "border-fiscmak-border hover:bg-fiscmak-subtle"
+                          ? "border-cx-primary bg-cx-accent-soft font-semibold"
+                          : "border-cx-border hover:bg-cx-cream/60"
                       }`}
                     >
                       {r}
@@ -457,8 +457,8 @@ export function Touchpoint1Onboarding() {
                     onClick={() => setCareerTrack(t)}
                     className={`rounded-lg border px-3 py-2.5 text-left text-sm ${
                       careerTrack === t
-                        ? "border-fiscmak-green bg-fiscmak-green-light font-semibold"
-                        : "border-fiscmak-border hover:bg-fiscmak-subtle"
+                        ? "border-cx-primary bg-cx-accent-soft font-semibold"
+                        : "border-cx-border hover:bg-cx-cream/60"
                     }`}
                   >
                     {t}
@@ -471,17 +471,21 @@ export function Touchpoint1Onboarding() {
               {loading ? "Saving…" : "Continue to documents"}
             </Button>
           </div>
-          {error && <p className="mt-3 text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+              {error}
+            </p>
+          )}
         </Card>
       )}
 
       {step === "documents" && (
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+          <p className="text-cx-label uppercase">
             Touchpoint 1 · Step 2 · ~5 minutes
           </p>
-          <h1 className="mt-1 text-2xl font-bold">Upload your documents</h1>
-          <p className="mt-2 text-sm text-fiscmak-muted">
+          <h1 className="mt-1 text-page-title">Upload your documents</h1>
+          <p className="mt-2 text-cx-body">
             Requirements vary by career level and setting. AI parsing and API enrichment run
             automatically after upload.
           </p>
@@ -490,24 +494,24 @@ export function Touchpoint1Onboarding() {
             {docSpecs.map((d) => (
               <li
                 key={d.type}
-                className="flex items-center justify-between rounded-md border border-fiscmak-border px-3 py-2 text-sm"
+                className="flex items-center justify-between rounded-md border border-cx-border px-3 py-2 text-sm"
               >
                 <span>
                   {d.label}{" "}
                   <span
                     className={
                       d.requirement === "required"
-                        ? "text-fiscmak-red"
-                        : "text-fiscmak-muted"
+                        ? "text-cx-attention"
+                        : "text-cx-text-secondary"
                     }
                   >
                     ({d.requirement})
                   </span>
                 </span>
                 {uploadedTypes.has(d.type === "CV" ? "CV" : d.type) ? (
-                  <CheckCircle2 size={16} className="text-fiscmak-green" />
+                  <CheckCircle2 size={16} className="text-cx-success" />
                 ) : (
-                  <Circle size={16} className="text-fiscmak-muted" />
+                  <Circle size={16} className="text-cx-text-secondary" />
                 )}
               </li>
             ))}
@@ -516,11 +520,11 @@ export function Touchpoint1Onboarding() {
           <div className="mt-6 space-y-4">
             <label
               htmlFor="tp1-cv-upload"
-              className="flex cursor-pointer flex-col items-center rounded-lg border-2 border-dashed border-fiscmak-border bg-fiscmak-subtle px-6 py-8 transition-colors hover:border-fiscmak-green"
+              className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-border bg-cx-cream/50 px-6 py-8 transition-colors hover:border-cx-accent hover:bg-cx-accent-soft/30"
             >
-              <Upload className="text-fiscmak-green" size={24} />
+              <Upload className="text-cx-text" size={24} />
               <p className="mt-2 font-semibold">Upload CV / Resume</p>
-              <p className="text-sm text-fiscmak-muted">{ACCEPTED_CV_LABEL}</p>
+              <p className="text-cx-body">{ACCEPTED_CV_LABEL}</p>
               <input
                 id="tp1-cv-upload"
                 type="file"
@@ -540,7 +544,7 @@ export function Touchpoint1Onboarding() {
                 value={pasteText}
                 onChange={(e) => setPasteText(e.target.value)}
                 rows={4}
-                className="w-full rounded-md border border-fiscmak-border p-3 text-sm"
+                className="w-full rounded-md border border-cx-border p-3 text-sm"
                 placeholder="Paste CV content…"
               />
               <Button type="submit" variant="secondary" disabled={loading || !pasteText.trim()}>
@@ -563,21 +567,25 @@ export function Touchpoint1Onboarding() {
               </Button>
             )}
           </div>
-          {error && <p className="mt-3 text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+              {error}
+            </p>
+          )}
         </Card>
       )}
 
       {step === "reconcile" && (
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+          <p className="text-cx-label uppercase">
             Touchpoint 1 · Step 3 · ~2–3 minutes
           </p>
-          <h1 className="mt-1 text-2xl font-bold">Confirm discovered items</h1>
-          <p className="mt-2 text-sm text-fiscmak-muted">
+          <h1 className="mt-1 text-page-title">Confirm discovered items</h1>
+          <p className="mt-2 text-cx-body">
             Review API-discovered items not explicitly on your CV. Confirm or reject each match.
           </p>
 
-          <p className="mt-2 text-sm text-fiscmak-muted">
+          <p className="mt-2 text-cx-body">
             {reconcileItems.length} items to review — estimated 2 minutes. Swipe through each card.
           </p>
 
@@ -585,11 +593,11 @@ export function Touchpoint1Onboarding() {
             {reconcileItems.map((item) => (
               <li
                 key={item.id}
-                className="rounded-xl border border-fiscmak-border bg-fm-surface p-5 shadow-sm"
+                className="rounded-xl border border-cx-border bg-cx-white p-5 shadow-sm"
               >
-                <p className="text-data-label">{item.source}</p>
-                <p className="mt-2 text-section-header text-base">{item.label}</p>
-                <p className="mt-2 text-sm text-fiscmak-muted">{item.detail}</p>
+                <p className="text-cx-label uppercase">{item.source}</p>
+                <p className="mt-2 text-cx-h3">{item.label}</p>
+                <p className="mt-2 text-cx-body">{item.detail}</p>
                 <div className="mt-4 flex gap-3">
                   <Button
                     variant={item.status === "confirmed" ? "primary" : "secondary"}
@@ -627,17 +635,21 @@ export function Touchpoint1Onboarding() {
               {loading ? "Saving…" : "Continue to self-assessment"}
             </Button>
           </div>
-          {error && <p className="mt-3 text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+              {error}
+            </p>
+          )}
         </Card>
       )}
 
       {step === "instruments" && (
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+          <p className="text-cx-label uppercase">
             Touchpoint 1 · Step 4 · ~{estimatedMinutes || 15} minutes
           </p>
           <h1 className="mt-1 text-page-title">Self-assessment with Coach Mak</h1>
-          <p className="mt-2 text-sm text-fiscmak-muted">
+          <p className="mt-2 text-cx-body">
             Validated instruments are embedded in a guided conversation — not a survey form.
             After completion, your Career Profile and dashboard generate automatically.
           </p>
@@ -646,10 +658,10 @@ export function Touchpoint1Onboarding() {
             {instruments.map((inst) => (
               <li
                 key={inst.id}
-                className="rounded-md border border-fiscmak-border px-3 py-2 text-sm"
+                className="rounded-md border border-cx-border px-3 py-2 text-sm"
               >
                 <span className="font-semibold">{inst.name}</span>
-                <span className="text-fiscmak-muted">
+                <span className="text-cx-text-secondary">
                   {" "}
                   · {inst.items} items · ~{inst.minutes} min — {inst.description}
                 </span>
@@ -660,7 +672,7 @@ export function Touchpoint1Onboarding() {
           <Button className="mt-6 w-full" onClick={startMakConversation}>
             Start conversation with Coach Mak
           </Button>
-          <p className="mt-3 text-center text-xs text-fiscmak-muted">
+          <p className="mt-3 text-center text-xs text-cx-text-secondary">
             Step 5 (dashboard generation) runs automatically when Mak finishes your instrument
             battery.
           </p>

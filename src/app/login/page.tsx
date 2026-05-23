@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
@@ -44,7 +45,9 @@ export default function LoginPage() {
       return;
     }
 
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     if (user) await ensureAppUser(supabase, user);
 
     router.push("/app");
@@ -52,17 +55,16 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-full items-center justify-center bg-fiscmak-subtle p-6">
+    <div className="cx-page-gradient flex min-h-full items-center justify-center p-6">
       <Card className="w-full max-w-md">
-        <h1 className="text-2xl font-bold">Sign in</h1>
-        <p className="mt-2 text-sm text-fiscmak-muted">
+        <h1 className="text-page-title">Sign in</h1>
+        <p className="mt-2 text-cx-body">
           {!isSupabaseConfigured() && (
-            <span className="text-fiscmak-amber">
-              Demo mode: Supabase not configured — you&apos;ll enter the app
-              without auth.{" "}
+            <span className="text-cx-attention">
+              Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
             </span>
           )}
-          <Link href="/signup" className="text-fiscmak-green hover:underline">
+          <Link href="/signup" className="font-medium text-cx-text hover:text-cx-primary">
             Create an account
           </Link>
         </p>
@@ -70,10 +72,10 @@ export default function LoginPage() {
           <GoogleSignInButton next="/app" />
           <div className="relative py-1">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-fiscmak-border" />
+              <span className="w-full border-t border-cx-border" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-fiscmak-muted">or</span>
+              <span className="bg-cx-white px-2 text-cx-text-secondary">or</span>
             </div>
           </div>
           <Input
@@ -92,14 +94,22 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+              {error}
+            </p>
+          )}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? "Signing in…" : "Sign in"}
           </Button>
         </form>
         <p className="mt-4 text-center text-sm">
-          <Link href="/" className="text-fiscmak-green hover:underline">
-            ← Back to home
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1 font-medium text-cx-text hover:text-cx-primary"
+          >
+            <ChevronLeft size={16} />
+            Back to home
           </Link>
         </p>
       </Card>

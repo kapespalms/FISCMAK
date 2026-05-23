@@ -135,7 +135,7 @@ body {
   font-size: 48px;
   font-weight: 700;
   line-height: 1;
-  color: var(--fm-primary);
+  color: var(--cx-text);
   font-variant-numeric: tabular-nums;
 }
 
@@ -295,4 +295,45 @@ body {
   height: 100%;
   border-radius: 4px;
   background: var(--cx-attention);
+}
+
+.cx-field {
+  min-height: 2.75rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--cx-border);
+  padding: 0 1rem;
+  font-size: 1rem;
+  color: var(--cx-text);
+}
+
+.cx-field:focus {
+  outline: none;
+  border-color: var(--cx-accent);
+}
+
+.cx-field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cx-text);
+}
+
+.cx-select-tile {
+  border-radius: 0.75rem;
+  border: 1px solid var(--cx-border);
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  font-size: 0.875rem;
+  color: var(--cx-text);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cx-select-tile:hover {
+  background: rgba(247, 244, 235, 0.8);
+}
+
+.cx-select-tile-active {
+  border-color: var(--cx-primary);
+  background: var(--cx-accent-soft);
+  font-weight: 600;
 }

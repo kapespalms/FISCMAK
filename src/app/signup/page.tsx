@@ -40,12 +40,12 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="flex min-h-full items-center justify-center bg-fiscmak-subtle p-6">
+    <div className="cx-page-gradient flex min-h-full items-center justify-center p-6">
       <Card className="w-full max-w-md">
-        <h1 className="text-2xl font-bold">Get started</h1>
-        <p className="mt-2 text-sm text-fiscmak-muted">
+        <h1 className="text-page-title">Get started</h1>
+        <p className="mt-2 text-cx-body">
           Already have an account?{" "}
-          <Link href="/login" className="text-fiscmak-green hover:underline">
+          <Link href="/login" className="font-medium text-cx-text hover:text-cx-primary">
             Sign in
           </Link>
         </p>
@@ -53,10 +53,10 @@ export default function SignupPage() {
           <GoogleSignInButton next="/app/onboarding" label="Sign up with Google" />
           <div className="relative py-1">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-fiscmak-border" />
+              <span className="w-full border-t border-cx-border" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-fiscmak-muted">or</span>
+              <span className="bg-cx-white px-2 text-cx-text-secondary">or</span>
             </div>
           </div>
           <Input
@@ -76,7 +76,11 @@ export default function SignupPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+              {error}
+            </p>
+          )}
           <Button type="submit" className="w-full" disabled={loading}>
             {loading ? "Creating account…" : "Create account"}
           </Button>
