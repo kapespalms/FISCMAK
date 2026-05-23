@@ -2,7 +2,6 @@ import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import {
   DASHBOARD_MECE_GREETING,
   DASHBOARD_MECE_OPTIONS,
-  findDashboardMeceOptionByLabel,
 } from "@/lib/v2/dashboard-mak-menu";
 
 export type AppSection =
@@ -148,20 +147,6 @@ export const SOAP_SECTION_COLORS: Record<
   output: "#FEE2E2",
 };
 
-export const DASHBOARD_OPTION_TABS = FIVE_OPTIONS.filter((o) => o.id !== "create").map(
-  (option) => {
-    const nav = SECTION_NAV.find((n) => n.section === option.section)!;
-    return {
-      id: option.id,
-      href: option.href,
-      label: option.title,
-      icon: nav.icon,
-      color: SOAP_SECTION_COLORS[option.section as keyof typeof SOAP_SECTION_COLORS],
-      section: option.section,
-    };
-  },
-);
-
 export const SECTION_TO_FLOW: Record<
   Exclude<AppSection, "dashboard">,
   "discuss" | "review" | "assess" | "plan" | "create"
@@ -189,9 +174,9 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   subjective: {
     greeting: SOAP_TAB.subjective.chatEntry,
     quickOptions: [
-      "Begin quarterly assessment",
-      "Review task alignment",
-      "Update career objective",
+      "Begin quarterly check-in",
+      "Review career direction",
+      "Discuss task alignment",
     ],
     placeholder: "Describe your professional trajectory…",
     mode: "Listener",
@@ -200,10 +185,10 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
     greeting:
       "Here's what's in your Objective data. I'll flag new items and anything needing your confirmation.",
     quickOptions: [
-      "Show new items",
+      "Capture activity",
       "Upload a document",
-      "Confirm a publication",
       "Review career vault",
+      "Open career lattice",
     ],
     placeholder: "Describe an activity or accomplishment…",
     mode: "Documenter",

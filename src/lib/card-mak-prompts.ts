@@ -81,8 +81,9 @@ export const OBJECTIVE_MAK = {
     { navigateTo: "/app/objective?tab=activities" },
   ),
   documents: makDiscuss(
-    "review",
+    "upload",
     "Help me understand which documents to upload and how they feed my Career Data.",
+    { navigateTo: "/app/objective?tab=documents&upload=1" },
   ),
 } as const;
 

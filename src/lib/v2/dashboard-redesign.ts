@@ -2,11 +2,10 @@ import type { CareerGoal } from "@/lib/goals";
 import type { MetricStatus } from "@/lib/design-system";
 import type { DashboardBandMetric } from "@/lib/v2/dashboard-snapshot";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
-import type { DashboardHeaderModel, DashboardQuickAction } from "@/lib/v2/dashboard-architecture";
+import type { DashboardHeaderModel } from "@/lib/v2/dashboard-architecture";
 import { TOUCHPOINT_META } from "@/lib/v2/formulas";
 import { GOAL_FRAMEWORK_LABELS, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
 import { computeGoalProgressWithHistory } from "@/lib/v2/goal-milestone-tracking";
-import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 
 export type TouchpointBarState = "done" | "active" | "locked";
 
@@ -15,14 +14,6 @@ export type ProfileRow = {
   label: string;
   value: string;
   status?: MetricStatus;
-};
-
-export type DashboardNextAction = {
-  id: string;
-  label: string;
-  status: "done" | "active" | "attention" | "locked";
-  href?: string;
-  intent?: DashboardQuickAction["intent"];
 };
 
 export type ActiveTouchpointView = {
@@ -34,6 +25,7 @@ export type ActiveTouchpointView = {
   upNext?: { title: string; label: string };
   kind: "annual" | "quarterly" | "assessment";
 };
+
 export function touchpointBarStates(completed: number): TouchpointBarState[] {
   return Array.from({ length: 7 }, (_, i) => {
     const n = i + 1;
@@ -264,82 +256,6 @@ function touchpointDescription(tp: number): string {
   return descriptions[tp] ?? "Continue your assessment pathway.";
 }
 
-export function buildNextActions(input: {
-  analytics: AnalyticsDashboard;
-  notifications: EngagementNotification[];
-  quickActions: DashboardQuickAction[];
-  jobSearchActive?: boolean;
-}): DashboardNextAction[] {
-  const actions: DashboardNextAction[] = [];
-
-  if (input.analytics.annual_refresh?.due) {
-    actions.push({
-      id: "annual",
-      label: "Complete annual refresh",
-      status: "active",
-      href: "/app/subjective",
-    });
-  } else if (input.analytics.quarterly_pulse?.due) {
-    actions.push({
-      id: "quarterly",
-      label: "Complete quarterly pulse",
-      status: "active",
-      href: "/app/subjective",
-    });
-  }
-
-  for (const note of input.notifications.slice(0, 3)) {
-    actions.push({
-      id: note.id,
-      label: note.title,
-      status: note.severity === "urgent" ? "attention" : "active",
-      href: note.href,
-    });
-  }
-
-  for (const qa of input.quickActions.slice(0, 2)) {
-    if (actions.some((a) => a.label === qa.label)) continue;
-    actions.push({
-      id: qa.label,
-      label: qa.label,
-      status: "active",
-      href: qa.href,
-      intent: qa.intent,
-    });
-  }
-
-  if (input.analytics.stalled_goal_title) {
-    actions.push({
-      id: "stalled-goal",
-      label: `Review: ${input.analytics.stalled_goal_title}`,
-      status: "attention",
-      href: "/app/plan",
-    });
-  }
-
-  const jobs = input.analytics.job_engagement;
-  if (jobs.jobs_saved > 0) {
-    actions.push({
-      id: "saved-jobs",
-      label: `Review ${jobs.jobs_saved} saved position${jobs.jobs_saved > 1 ? "s" : ""}`,
-      status: "active",
-      href: "/app/jobs",
-    });
-  } else if (input.analytics.job_engagement.jobs_viewed === 0) {
-    const meta = input.jobSearchActive;
-    if (meta) {
-      actions.push({
-        id: "job-search",
-        label: "Review job matches",
-        status: "active",
-        href: "/app/jobs",
-      });
-    }
-  }
-
-  return actions.slice(0, 6);
-}
-
 export type GoalCardModel = {
   id: string;
   type: string;
@@ -393,15 +309,6 @@ export function buildGoalCards(
       };
     });
 }
-
-export function statusIcon(status: DashboardNextAction["status"] | TouchpointBarState): StatusKind {
-  if (status === "done") return "done";
-  if (status === "active") return "active";
-  if (status === "attention") return "attention";
-  return "locked";
-}
-
-export type StatusKind = "done" | "active" | "attention" | "locked";
 
 export type DashboardDueNowItem = {
   label: string;

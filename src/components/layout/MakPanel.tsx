@@ -27,8 +27,8 @@ import type { MakEscalation } from "@/lib/v2/escalation-protocols";
 import { useAppShell } from "@/components/layout/AppShell";
 import {
   DASHBOARD_MECE_OPTIONS,
-  findDashboardMeceOptionByLabel,
 } from "@/lib/v2/dashboard-mak-menu";
+import { resolveSectionQuickAction, type SectionQuickAction } from "@/lib/v2/section-mak-routes";
 import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions } from "@/lib/v2/goal-setting-mak-flow";
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { CoachMakMark } from "@/components/brand/CoachMakMark";
@@ -379,14 +379,28 @@ export function MakPanel({
     recognition.start();
   }
 
-  function handleDashboardMeceOption(option: (typeof DASHBOARD_MECE_OPTIONS)[number]) {
-    startMakFlow(option.intent, option.href, option.message);
-    if (option.href !== "/app/dashboard") {
-      router.push(option.href);
+  function applySectionQuickAction(action: SectionQuickAction) {
+    startMakFlow(
+      action.intent,
+      action.href,
+      action.message,
+      action.touchpoint,
+    );
+    if (action.href && action.href !== "/app/dashboard") {
+      router.push(action.href);
     }
-    if (option.focusInput) {
+    if (action.focusInput) {
       focusMakInput();
     }
+  }
+
+  function handleDashboardMeceOption(option: (typeof DASHBOARD_MECE_OPTIONS)[number]) {
+    applySectionQuickAction({
+      intent: option.intent,
+      message: option.message,
+      href: option.href,
+      focusInput: option.focusInput,
+    });
   }
 
   function startPlanGoalSetup() {
@@ -447,12 +461,10 @@ export function MakPanel({
         return;
       }
     }
-    if (section === "dashboard") {
-      const mece = findDashboardMeceOptionByLabel(label);
-      if (mece) {
-        handleDashboardMeceOption(mece);
-        return;
-      }
+    const routed = resolveSectionQuickAction(section, label);
+    if (routed) {
+      applySectionQuickAction(routed);
+      return;
     }
     void sendMessage(label);
   }

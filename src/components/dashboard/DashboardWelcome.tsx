@@ -66,7 +66,14 @@ export function DashboardWelcome({
       )}
 
       <div className="mt-4 border-t border-white/10 pt-4">
-        <TouchpointProgressStrip states={touchpointStates} />
+        <TouchpointProgressStrip
+          states={touchpointStates}
+          href={
+            dueNow?.kind === "annual" || dueNow?.kind === "quarterly"
+              ? "/app/subjective"
+              : "/app/assessment"
+          }
+        />
       </div>
 
       <DashboardMakButton className="mt-4" />

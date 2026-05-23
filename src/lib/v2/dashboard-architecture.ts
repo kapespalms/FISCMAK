@@ -227,19 +227,6 @@ export type DashboardHeaderModel = {
   pulseStreak: number;
 };
 
-export type DashboardQuickAction = {
-  label: string;
-  intent:
-    | "discuss"
-    | "review"
-    | "assess"
-    | "plan"
-    | "create"
-    | "capture"
-    | "upload";
-  href: string;
-};
-
 export function buildDashboardHeader(input: {
   name?: string | null;
   specialty?: string | null;
@@ -281,49 +268,6 @@ export function buildDashboardHeader(input: {
     annualRefreshDue: input.analytics.annual_refresh?.due ?? false,
     pulseStreak: input.analytics.pulse_streak,
   };
-}
-
-export function buildContextualQuickActions(input: {
-  quarterlyPulseDue: boolean;
-  annualRefreshDue: boolean;
-  cvNeedsUpdate: boolean;
-  goalMilestoneDue: boolean;
-  tier2Complete: boolean;
-}): DashboardQuickAction[] {
-  if (input.annualRefreshDue) {
-    return [
-      { label: "Annual refresh", intent: "discuss", href: "/app/subjective" },
-      { label: "Review goals", intent: "plan", href: "/app/plan" },
-    ];
-  }
-  if (input.quarterlyPulseDue) {
-    return [
-      { label: "Quarterly check-in", intent: "discuss", href: "/app/subjective" },
-      { label: "Explore map", intent: "assess", href: "/app/assessment" },
-    ];
-  }
-  if (input.cvNeedsUpdate) {
-    return [
-      { label: "Update CV", intent: "create", href: "/app/output" },
-      { label: "Review data", intent: "review", href: "/app/objective" },
-    ];
-  }
-  if (input.goalMilestoneDue) {
-    return [
-      { label: "Review goals", intent: "plan", href: "/app/plan" },
-      { label: "Explore map", intent: "assess", href: "/app/assessment" },
-    ];
-  }
-  if (!input.tier2Complete) {
-    return [
-      { label: "Upload CV", intent: "upload", href: "/app/objective?tab=documents" },
-      { label: "Complete setup", intent: "discuss", href: "/app/onboarding" },
-    ];
-  }
-  return [
-    { label: "Assess patterns", intent: "assess", href: "/app/assessment" },
-    { label: "Generate document", intent: "create", href: "/app/output" },
-  ];
 }
 
 export function settingDocumentLabels(

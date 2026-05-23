@@ -17,19 +17,21 @@ function segmentClass(state: TouchpointBarState): string {
 
 export function TouchpointProgressStrip({
   states,
-  href = "/app/subjective",
+  href = "/app/assessment",
 }: {
   states: TouchpointBarState[];
   href?: string;
 }) {
   const completed = states.filter((s) => s === "done").length;
   const hasActive = states.some((s) => s === "active");
+  const destination =
+    href === "/app/subjective" ? "Perspective for check-ins" : "Insights for touchpoint status";
 
   return (
     <Link
       href={href}
       className="block rounded-lg transition-opacity hover:opacity-90"
-      aria-label="7 Touch Points progress — open Perspective for check-ins"
+      aria-label={`7 Touch Points progress — open ${destination}`}
     >
       <div className="flex items-center justify-between gap-2">
         <p className="text-[10px] font-medium uppercase tracking-wide text-white/70">
