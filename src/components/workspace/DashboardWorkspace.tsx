@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { DashboardWelcome } from "@/components/dashboard/DashboardWelcome";
 import { TouchpointStatusBar } from "@/components/dashboard/TouchpointStatusBar";
 import { DashboardHeroMetrics } from "@/components/dashboard/DashboardHeroMetrics";
 import { DashboardProfileSection } from "@/components/dashboard/DashboardProfileSection";
@@ -12,10 +13,10 @@ import { DashboardActiveTouchpoint } from "@/components/dashboard/DashboardActiv
 import { useAppShell } from "@/components/layout/AppShell";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 import { buildSoapDashboardBands } from "@/lib/v2/dashboard-snapshot";
+import type { DashboardQuickAction } from "@/lib/v2/dashboard-architecture";
 import {
   buildContextualQuickActions,
   buildDashboardHeader,
-  type DashboardQuickAction,
 } from "@/lib/v2/dashboard-architecture";
 import { loadSubjectiveCheckIn } from "@/lib/subjective-storage";
 import { fetchGoals, saveOnboardingGoalsFromProposal, type CareerGoal } from "@/lib/goals";
@@ -41,8 +42,10 @@ import {
   buildProfileRows,
   buildProgressStatus,
   touchpointBarStates,
-  PROFILE_QUICK_ACTIONS,
+  DASHBOARD_MAK_ACTIONS,
+  makActionGreeting,
   type ActiveTouchpointView,
+  type DashboardMakAction,
 } from "@/lib/v2/dashboard-redesign";
 type ProfileState = {
   name?: string | null;
@@ -70,7 +73,7 @@ function DashboardSkeleton() {
 }
 
 export function DashboardWorkspace() {
-  const { startMakFlow, openMakWithMessage, displayName } = useAppShell();
+  const { startMakFlow, openMak, focusMakInput, displayName } = useAppShell();
   const router = useRouter();
   const searchParams = useSearchParams();
   const welcome = searchParams.get("welcome") === "1";
@@ -138,6 +141,14 @@ export function DashboardWorkspace() {
     return () => window.removeEventListener("fiscmak:touchpoint-complete", onTouchpointComplete);
   }, [load]);
 
+  useEffect(() => {
+    if (loading || onboardingPhase || !profile?.tier3_complete) return;
+    if (typeof window === "undefined") return;
+    if (localStorage.getItem("fiscmak_dashboard_mak_intro")) return;
+    localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
+    openMak();
+  }, [loading, onboardingPhase, profile?.tier3_complete, openMak]);
+
   function beginAnnualMak(href?: string) {
     const name = displayName ?? "there";
     void initAnnualMakSession().then(({ prompt, error: sessionError }) => {
@@ -174,6 +185,14 @@ export function DashboardWorkspace() {
       router.push(action.href);
       return;
     }
+    if (action.intent === "capture") {
+      const captureAction = DASHBOARD_MAK_ACTIONS.find((a) => a.id === "capture");
+      if (captureAction) {
+        startMakFlow("capture", action.href, makActionGreeting(captureAction));
+        focusMakInput();
+      }
+      return;
+    }
     if (action.label === "Review goals" && analytics?.annual_refresh?.due) {
       startMakFlow("plan", action.href, buildAnnualPlanResetGreeting({ goals, analytics }));
     } else {
@@ -182,17 +201,19 @@ export function DashboardWorkspace() {
     router.push(action.href);
   }
 
-  function handleProfileQuickAction(action: (typeof PROFILE_QUICK_ACTIONS)[number]) {
-    if (action.label === "Discuss energy") {
+  function handleMakAction(action: DashboardMakAction) {
+    if (action.id === "discuss-energy" && analytics?.quarterly_pulse?.due) {
       beginQuarterlyMak();
       return;
     }
-    if (action.message) {
-      startMakFlow(action.intent, action.href, action.message);
-    } else {
-      startMakFlow(action.intent, action.href);
+    startMakFlow(action.intent, action.href, makActionGreeting(action));
+    if (action.intent === "capture") {
+      focusMakInput();
+      return;
     }
-    router.push(action.href);
+    if (action.href !== "/app/dashboard") {
+      router.push(action.href);
+    }
   }
 
   function handleTouchpointContinue(tp: ActiveTouchpointView) {
@@ -350,6 +371,11 @@ export function DashboardWorkspace() {
 
             <TouchpointStatusBar states={tpStates} />
 
+            <DashboardWelcome
+              displayName={headerModel.displayName}
+              lastUpdated={headerModel.lastUpdated}
+            />
+
             <div className="cx-section-surface space-y-8">
               <DashboardHeroMetrics
                 header={headerModel}
@@ -362,7 +388,7 @@ export function DashboardWorkspace() {
               <DashboardProfileSection
                 displayName={headerModel.displayName}
                 rows={profileRows}
-                onQuickAction={handleProfileQuickAction}
+                onMakAction={handleMakAction}
               />
             </div>
 
@@ -381,11 +407,17 @@ export function DashboardWorkspace() {
               onDetails={() => router.push("/app/plan")}
             />
 
-            <DashboardNextActions actions={nextActions} onAction={(a) => a.href && handleQuickAction({
-              label: a.label,
-              intent: "discuss",
-              href: a.href,
-            })} />
+            <DashboardNextActions
+              actions={nextActions}
+              onAction={(a) => {
+                if (!a.href) return;
+                handleQuickAction({
+                  label: a.label,
+                  intent: a.intent ?? "discuss",
+                  href: a.href,
+                });
+              }}
+            />
 
             <div className="cx-section-surface">
               <DashboardDeepDiveTabs

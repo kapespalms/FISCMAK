@@ -23,6 +23,10 @@ import {
 import { EscalationResourcesPanel } from "@/components/layout/EscalationResourcesPanel";
 import type { MakEscalation } from "@/lib/v2/escalation-protocols";
 import { useAppShell } from "@/components/layout/AppShell";
+import {
+  DASHBOARD_MAK_ACTIONS,
+  makActionGreeting,
+} from "@/lib/v2/dashboard-redesign";
 
 type MakPanelProps = {
   open: boolean;
@@ -63,7 +67,7 @@ export function MakPanel({
 }: MakPanelProps) {
   const router = useRouter();
   const isMobile = useIsMobile();
-  const { section, makInputRef, displayName } = useAppShell();
+  const { section, makInputRef, displayName, startMakFlow, focusMakInput } = useAppShell();
   const config = MAK_SECTION_CONFIG[section];
   const [messages, setMessages] = useState<MakMessage[]>([]);
   const [input, setInput] = useState("");
@@ -373,6 +377,22 @@ export function MakPanel({
                 if (url && url.startsWith("/")) {
                   router.push(url);
                   return;
+                }
+                if (section === "dashboard") {
+                  const action = DASHBOARD_MAK_ACTIONS.find(
+                    (a) => a.label.toLowerCase() === label.toLowerCase(),
+                  );
+                  if (action) {
+                    startMakFlow(action.intent, action.href, makActionGreeting(action));
+                    if (action.intent === "capture") {
+                      focusMakInput();
+                      return;
+                    }
+                    if (action.href !== "/app/dashboard") {
+                      router.push(action.href);
+                    }
+                    return;
+                  }
                 }
                 void sendMessage(label);
               }}

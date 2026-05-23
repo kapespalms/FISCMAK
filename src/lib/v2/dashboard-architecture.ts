@@ -230,7 +230,14 @@ export type DashboardHeaderModel = {
 
 export type DashboardQuickAction = {
   label: string;
-  intent: "discuss" | "review" | "assess" | "plan" | "create";
+  intent:
+    | "discuss"
+    | "review"
+    | "assess"
+    | "plan"
+    | "create"
+    | "capture"
+    | "upload";
   href: string;
 };
 
@@ -312,13 +319,13 @@ export function buildContextualQuickActions(input: {
   }
   if (!input.tier2Complete) {
     return [
-      { label: "Upload CV", intent: "review", href: "/app/objective" },
+      { label: "Upload CV", intent: "upload", href: "/app/objective?tab=documents" },
       { label: "Complete setup", intent: "discuss", href: "/app/onboarding" },
     ];
   }
   return [
-    { label: "Explore map", intent: "assess", href: "/app/assessment" },
-    { label: "Generate doc", intent: "create", href: "/app/output" },
+    { label: "Assess patterns", intent: "assess", href: "/app/assessment" },
+    { label: "Generate document", intent: "create", href: "/app/output" },
   ];
 }
 

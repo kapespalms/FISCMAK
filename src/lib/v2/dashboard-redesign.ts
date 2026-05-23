@@ -8,7 +8,16 @@ import { GOAL_FRAMEWORK_LABELS, type GoalFrameworkType } from "@/lib/v2/soap-tab
 import { computeGoalProgressWithHistory } from "@/lib/v2/goal-milestone-tracking";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 import type { LucideIcon } from "lucide-react";
-import { ClipboardList, Target, Upload, Zap } from "lucide-react";
+import {
+  BarChart3,
+  ClipboardList,
+  FileText,
+  Map,
+  MessageCircle,
+  Upload,
+  Zap,
+} from "lucide-react";
+import { MAK_FLOW_GREETINGS } from "@/lib/mak-sections";
 
 export type TouchpointBarState = "done" | "active" | "locked";
 
@@ -24,7 +33,95 @@ export type DashboardNextAction = {
   label: string;
   status: "done" | "active" | "attention" | "locked";
   href?: string;
+  intent?: DashboardQuickAction["intent"];
 };
+
+export type DashboardMakAction = {
+  id: string;
+  label: string;
+  subtitle: string;
+  icon: LucideIcon;
+  intent: DashboardQuickAction["intent"];
+  href: string;
+  message?: string;
+  tier: "primary" | "flow";
+};
+
+/** Post-onboarding dashboard Mak entry points (primary + SOAPO flows). */
+export const DASHBOARD_MAK_ACTIONS: DashboardMakAction[] = [
+  {
+    id: "capture",
+    label: "Capture invisible work",
+    subtitle: "Log an activity in 30 seconds",
+    icon: Zap,
+    intent: "capture",
+    href: "/app/dashboard",
+    tier: "primary",
+  },
+  {
+    id: "upload",
+    label: "Upload document",
+    subtitle: "CV, dossier, or PDF",
+    icon: Upload,
+    intent: "upload",
+    href: "/app/objective?tab=documents",
+    tier: "primary",
+  },
+  {
+    id: "discuss-energy",
+    label: "Discuss your energy",
+    subtitle: "How are you feeling this week?",
+    icon: MessageCircle,
+    intent: "discuss",
+    href: "/app/subjective",
+    message: "How's my energy and well-being this week?",
+    tier: "flow",
+  },
+  {
+    id: "review-activities",
+    label: "Review your activities",
+    subtitle: "See what you have logged",
+    icon: ClipboardList,
+    intent: "review",
+    href: "/app/objective?tab=activities",
+    message: "Let's review my recent activities and recognition gaps.",
+    tier: "flow",
+  },
+  {
+    id: "assess-patterns",
+    label: "Assess your patterns",
+    subtitle: "Career story and coherence",
+    icon: BarChart3,
+    intent: "assess",
+    href: "/app/assessment",
+    tier: "flow",
+  },
+  {
+    id: "plan-strategy",
+    label: "Plan your strategy",
+    subtitle: "Goals and quarterly milestones",
+    icon: Map,
+    intent: "plan",
+    href: "/app/plan",
+    tier: "flow",
+  },
+  {
+    id: "create-outputs",
+    label: "Create your outputs",
+    subtitle: "CV, biosketch, or narrative",
+    icon: FileText,
+    intent: "create",
+    href: "/app/output",
+    tier: "flow",
+  },
+];
+
+/** @deprecated Use DASHBOARD_MAK_ACTIONS */
+export const PROFILE_QUICK_ACTIONS = DASHBOARD_MAK_ACTIONS.filter((a) => a.tier === "flow");
+
+export function makActionGreeting(action: DashboardMakAction): string {
+  return action.message ?? MAK_FLOW_GREETINGS[action.intent];
+}
 
 export type ActiveTouchpointView = {
   id: string;
@@ -35,42 +132,6 @@ export type ActiveTouchpointView = {
   upNext?: { title: string; label: string };
   kind: "annual" | "quarterly" | "assessment";
 };
-
-export const PROFILE_QUICK_ACTIONS: Array<{
-  label: string;
-  icon: LucideIcon;
-  intent: DashboardQuickAction["intent"];
-  href: string;
-  message?: string;
-}> = [
-  {
-    label: "Capture work",
-    icon: Target,
-    intent: "discuss",
-    href: "/app/subjective",
-    message: "I want to capture invisible work from this week.",
-  },
-  {
-    label: "Discuss energy",
-    icon: Zap,
-    intent: "discuss",
-    href: "/app/subjective",
-    message: "Let's discuss my energy and well-being.",
-  },
-  {
-    label: "Review activities",
-    icon: ClipboardList,
-    intent: "review",
-    href: "/app/activities",
-  },
-  {
-    label: "Upload doc",
-    icon: Upload,
-    intent: "review",
-    href: "/app/objective",
-  },
-];
-
 export function touchpointBarStates(completed: number): TouchpointBarState[] {
   return Array.from({ length: 7 }, (_, i) => {
     const n = i + 1;
@@ -341,6 +402,7 @@ export function buildNextActions(input: {
       label: qa.label,
       status: "active",
       href: qa.href,
+      intent: qa.intent,
     });
   }
 
