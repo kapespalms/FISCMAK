@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ChevronRight, Map } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { Map } from "lucide-react";
 
 type Pathway = {
   pathway_id: string;
@@ -52,9 +52,10 @@ export function PathwaysExplorer() {
         </h2>
         <Link
           href="/app/jobs"
-          className="text-sm font-medium text-fiscmak-green hover:underline"
+          className="inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-primary"
         >
-          View job matches →
+          View job matches
+          <ChevronRight size={16} />
         </Link>
       </div>
 

@@ -3,10 +3,9 @@
 import Link from "next/link";
 import {
   statusIcon,
-  statusIconClass,
   type DashboardNextAction,
 } from "@/lib/v2/dashboard-redesign";
-import { cn } from "@/lib/utils";
+import { StatusIndicator } from "@/components/ui/StatusIndicator";
 
 type DashboardNextActionsProps = {
   actions: DashboardNextAction[];
@@ -25,12 +24,7 @@ export function DashboardNextActions({ actions, onAction }: DashboardNextActions
         {actions.map((action) => {
           const content = (
             <>
-              <span
-                className={cn("shrink-0 text-base", statusIconClass(action.status))}
-                aria-hidden
-              >
-                {statusIcon(action.status)}
-              </span>
+              <StatusIndicator status={statusIcon(action.status)} size={16} />
               <span className="text-sm text-cx-text">{action.label}</span>
             </>
           );
@@ -41,7 +35,7 @@ export function DashboardNextActions({ actions, onAction }: DashboardNextActions
                 <Link
                   href={action.href}
                   onClick={() => onAction?.(action)}
-                  className="flex items-center gap-3 py-3 transition-colors hover:text-cx-primary"
+                  className="flex items-center gap-3 py-3 transition-colors hover:text-cx-text"
                 >
                   {content}
                 </Link>

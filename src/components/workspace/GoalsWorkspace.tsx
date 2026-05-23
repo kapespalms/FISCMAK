@@ -17,8 +17,9 @@ import {
   saveDemoGoals,
 } from "@/lib/goals";
 import { GOAL_FRAMEWORK_LABELS, SOAP_TAB, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
-import { Target, Pencil, Trash2 } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { EmptyState } from "@/components/ui/EmptyState";
+import { PageShell } from "@/components/layout/PageShell";
 import { PathwaysExplorer } from "@/components/workspace/PathwaysExplorer";
 import { GoalQuarterlyReviewPanel } from "@/components/workspace/GoalQuarterlyReviewPanel";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -174,24 +175,20 @@ export function GoalsWorkspace() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
+    <PageShell
+      eyebrow="Career strategy"
+      title={SOAP_TAB.plan.title}
+      subtitle={
+        SOAP_TAB.plan.description +
+        (!isSupabaseConfigured() ? " · saved in browser (demo)" : "")
+      }
+      maxWidth="md"
+      action={<Button onClick={openCreate}>Add goal</Button>}
+    >
       <AcademicSoapSectionGate intent="plan" />
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="flex items-center gap-2 text-page-title">
-            <Target className="text-fiscmak-green" size={28} />
-            {SOAP_TAB.plan.title}
-          </h1>
-          <p className="mt-1 text-fiscmak-muted">
-            {SOAP_TAB.plan.description}
-            {!isSupabaseConfigured() && " · saved in browser (demo)"}
-          </p>
-        </div>
-        <Button onClick={openCreate}>Add goal</Button>
-      </div>
 
       {error && (
-        <p className="rounded-md bg-red-50 px-4 py-3 text-sm text-fiscmak-red">
+        <p className="mb-6 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
           {error}
         </p>
       )}
@@ -479,6 +476,6 @@ export function GoalsWorkspace() {
           </Card>
         ))}
       </div>
-    </div>
+    </PageShell>
   );
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { StatusIndicator } from "@/components/ui/StatusIndicator";
 import type { GoalCardModel } from "@/lib/v2/dashboard-redesign";
 import { cn } from "@/lib/utils";
 
@@ -55,9 +56,9 @@ export function DashboardGoalCard({ goal, onStart, onDetails }: DashboardGoalCar
         <button
           type="button"
           onClick={() => onStart(goal.id)}
-          className="inline-flex items-center gap-1 rounded-lg bg-cx-primary px-3 py-2 text-xs font-medium text-white hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-xl bg-cx-nav-active px-3 py-2 text-xs font-medium text-white hover:opacity-90"
         >
-          → Start
+          Start <ArrowRight size={14} />
         </button>
         <button
           type="button"
@@ -69,7 +70,10 @@ export function DashboardGoalCard({ goal, onStart, onDetails }: DashboardGoalCar
       </div>
 
       {goal.stalled && (
-        <p className="mt-3 text-cx-label text-cx-attention">⚠ Needs attention</p>
+        <p className="mt-3 flex items-center gap-1.5 text-cx-label text-cx-attention">
+          <StatusIndicator status="attention" size={14} />
+          Needs attention
+        </p>
       )}
     </article>
   );

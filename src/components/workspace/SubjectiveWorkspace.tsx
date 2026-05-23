@@ -2,9 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { MetricRow } from "@/components/ui/MetricRow";
+import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
 import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
@@ -61,22 +63,23 @@ export function SubjectiveWorkspace() {
   const alignment = health ? careerAlignmentFromHealth(health) : null;
 
   if (loading) {
-    return <p className="text-sm text-fiscmak-muted">Loading career perspective…</p>;
+    return <p className="text-sm text-cx-text-secondary">Loading career perspective…</p>;
   }
 
+  const subtitle = [
+    SOAP_TAB.subjective.description,
+    lastUpdate ? `Last updated ${new Date(lastUpdate).toLocaleDateString()}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
   return (
-    <div className="mx-auto max-w-4xl space-y-6">
-      <AcademicSoapSectionGate intent="discuss" />
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-page-title">{SOAP_TAB.subjective.title}</h1>
-          <p className="mt-1 text-sm text-fiscmak-muted">
-            {SOAP_TAB.subjective.description}
-            {lastUpdate && (
-              <> · Last updated {new Date(lastUpdate).toLocaleDateString()}</>
-            )}
-          </p>
-        </div>
+    <PageShell
+      eyebrow="Career perspective"
+      title={SOAP_TAB.subjective.title}
+      subtitle={subtitle}
+      maxWidth="lg"
+      action={
         <Button
           onClick={() => {
             const name = displayName ?? "there";
@@ -97,17 +100,19 @@ export function SubjectiveWorkspace() {
         >
           {analytics?.annual_refresh?.due ? "Begin annual refresh" : "Begin quarterly assessment"}
         </Button>
-      </div>
+      }
+    >
+      <AcademicSoapSectionGate intent="discuss" />
 
-      <Card>
-        <p className="text-sm text-fiscmak-muted">
+      <Card className="mb-6">
+        <p className="text-cx-body">
           {SOAP_TAB.subjective.chatEntry} The following brief assessment takes
           approximately 5 minutes and covers professional satisfaction, task alignment, and
           career direction.
         </p>
       </Card>
 
-      <div className="space-y-3">
+      <div className="cx-section-surface space-y-3">
         <MetricRow
           label="Career direction"
           summary={
@@ -173,14 +178,18 @@ export function SubjectiveWorkspace() {
         />
       </div>
 
-      <Card>
-        <p className="text-sm text-fiscmak-muted">
+      <Card className="mt-6">
+        <p className="text-cx-body">
           Longitudinal trends for each metric appear after two or more quarterly updates.
         </p>
-        <Link href="/app/plan" className="mt-3 inline-block text-sm font-medium text-fm-accent">
-          View sustainability goals →
+        <Link
+          href="/app/plan"
+          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-primary"
+        >
+          View sustainability goals
+          <ChevronRight size={16} />
         </Link>
       </Card>
-    </div>
+    </PageShell>
   );
 }

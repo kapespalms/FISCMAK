@@ -17,6 +17,7 @@ export const SECTION_NAV: {
   section: AppSection;
   href: string;
   label: string;
+  shortLabel: string;
   icon: string;
   iconSize?: number;
 }[] = [
@@ -24,6 +25,7 @@ export const SECTION_NAV: {
     section: "dashboard",
     href: "/app/dashboard",
     label: "Dashboard",
+    shortLabel: "Dashboard",
     icon: "/brand/nav/dashboard.png",
     iconSize: 30,
   },
@@ -31,30 +33,35 @@ export const SECTION_NAV: {
     section: "subjective",
     href: "/app/subjective",
     label: "Career Perspective",
+    shortLabel: "Perspective",
     icon: "/brand/nav/subjective.png",
   },
   {
     section: "objective",
     href: "/app/objective",
     label: "Career Data",
+    shortLabel: "Data",
     icon: "/brand/nav/objective.png",
   },
   {
     section: "assessment",
     href: "/app/assessment",
     label: "Career Profile",
+    shortLabel: "Profile",
     icon: "/brand/nav/assessment.png",
   },
   {
     section: "plan",
     href: "/app/plan",
     label: "Career Strategy",
+    shortLabel: "Strategy",
     icon: "/brand/nav/plan.png",
   },
   {
     section: "output",
     href: "/app/output",
     label: "Career Documents",
+    shortLabel: "Documents",
     icon: "/brand/nav/output.png",
   },
 ];
@@ -167,10 +174,10 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   dashboard: {
     greeting: "How can I help today?",
     quickOptions: [
-      "🎯 Capture invisible work",
-      "⚡ Discuss my energy",
-      "📋 Review my activities",
-      "📤 Upload document",
+      "Capture invisible work",
+      "Discuss my energy",
+      "Review my activities",
+      "Upload document",
     ],
     placeholder: "Type or click voice…",
     mode: "Coach",

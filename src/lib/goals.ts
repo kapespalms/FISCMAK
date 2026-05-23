@@ -116,7 +116,7 @@ export function saveOnboardingGoalsFromProposal(
     goal_type: g.type,
     why_this_fits: g.rationale,
     missing_evidence: null,
-    recommended_actions: g.milestones.map((m) => m.replace(/^[✓☐]\s*/, "")),
+    recommended_actions: g.milestones.map((m) => m.replace(/^\[[x ]\]\s*|^[✓☐]\s*/, "")),
     target_date: null,
     priority: i + 1,
     status: "active",

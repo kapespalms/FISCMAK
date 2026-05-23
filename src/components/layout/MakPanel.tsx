@@ -374,7 +374,7 @@ export function MakPanel({
                   router.push(url);
                   return;
                 }
-                void sendMessage(label.replace(/^[🎯⚡📋📤🗺️]\s*/, ""));
+                void sendMessage(label);
               }}
               disabled={loading}
               className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-cx-label text-cx-text transition-colors hover:bg-[#F9F7F3] disabled:opacity-50"
@@ -418,7 +418,7 @@ export function MakPanel({
             disabled={loading || recording || !input.trim()}
             title="Send message"
             aria-label="Send message"
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cx-primary text-white transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cx-nav-active text-white transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ArrowUp size={18} strokeWidth={2.25} />
           </button>

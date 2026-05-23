@@ -73,7 +73,7 @@ When you're ready, take the **Lay of the Land** tour (link below) — then tell 
 
 export function buildOnboardingSuggestedActions() {
   return [
-    { action: "🗺️ Lay of the Land tour", url: "#tour" },
+    { action: "Lay of the Land tour", url: "#tour" },
     { action: "I'm focused on promotion", url: "/app/dashboard" },
     { action: "Help me see invisible work", url: "/app/dashboard" },
   ];

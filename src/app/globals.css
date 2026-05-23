@@ -25,18 +25,23 @@
   --fiscmak-subtle: #f7fafc;
   --fiscmak-surface: #ffffff;
   --fiscmak-ink: #1a365d;
-  /* Crextio dashboard palette */
-  --cx-cream: #f5f3ee;
-  --cx-light-blue: #f0f4ff;
+  /* Crextio design system */
+  --cx-cream: #f7f4eb;
+  --cx-light-blue: #f5f2ea;
   --cx-white: #ffffff;
-  --cx-text: #2d2d2d;
-  --cx-text-secondary: #7a7a7a;
-  --cx-primary: #4f46e5;
-  --cx-success: #a3e635;
-  --cx-attention: #f59e0b;
-  --cx-border: #e8e8e8;
-  --cx-mak-bubble: #f5f3ee;
-  --cx-user-bubble: #e8e9f8;
+  --cx-text: #1c1c1e;
+  --cx-text-secondary: #6b6b6f;
+  --cx-primary: #1c1c1e;
+  --cx-accent: #e4d058;
+  --cx-accent-soft: #f5efb8;
+  --cx-success: #3d8b5f;
+  --cx-attention: #c4841d;
+  --cx-border: #e8e4dc;
+  --cx-nav-active: #1c1c1e;
+  --cx-mak-bubble: #f5f2ea;
+  --cx-user-bubble: #ebe8e0;
+  --cx-gradient-from: #fefbf0;
+  --cx-gradient-to: #f3efe4;
 }
 
 @theme inline {
@@ -66,6 +71,9 @@
   --color-cx-text: var(--cx-text);
   --color-cx-text-secondary: var(--cx-text-secondary);
   --color-cx-primary: var(--cx-primary);
+  --color-cx-accent: var(--cx-accent);
+  --color-cx-accent-soft: var(--cx-accent-soft);
+  --color-cx-nav-active: var(--cx-nav-active);
   --color-cx-success: var(--cx-success);
   --color-cx-attention: var(--cx-attention);
   --color-cx-border: var(--cx-border);
@@ -76,8 +84,8 @@
 }
 
 body {
-  background: var(--fm-background);
-  color: var(--foreground);
+  background: var(--cx-gradient-from);
+  color: var(--cx-text);
   font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.5;
@@ -90,10 +98,10 @@ body {
 
 /* Typography scale */
 .text-page-title {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--fm-primary);
+  color: var(--cx-text);
 }
 
 .text-section-header {
@@ -213,14 +221,55 @@ body {
 
 .cx-card {
   background: var(--cx-white);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(28, 28, 30, 0.06), 0 4px 12px rgba(28, 28, 30, 0.04);
+  border: 1px solid rgba(232, 228, 220, 0.6);
   transition: box-shadow 0.2s ease;
 }
 
 .cx-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(28, 28, 30, 0.08), 0 8px 24px rgba(28, 28, 30, 0.06);
+}
+
+.cx-card-dark {
+  background: var(--cx-nav-active);
+  color: #f5f5f5;
+  border-radius: 16px;
+  padding: 24px;
+  border: none;
+}
+
+.cx-page-gradient {
+  background: linear-gradient(135deg, var(--cx-gradient-from) 0%, var(--cx-gradient-to) 50%, var(--cx-gradient-from) 100%);
+}
+
+.cx-section-surface {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.cx-nav-pill {
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cx-nav-pill-active {
+  background: var(--cx-nav-active);
+  color: #ffffff;
+}
+
+.cx-nav-pill-inactive {
+  color: var(--cx-text-secondary);
+}
+
+.cx-nav-pill-inactive:hover {
+  background: rgba(28, 28, 30, 0.06);
+  color: var(--cx-text);
 }
 
 .cx-progress-track {
@@ -233,7 +282,7 @@ body {
 .cx-progress-fill-primary {
   height: 100%;
   border-radius: 4px;
-  background: var(--cx-primary);
+  background: var(--cx-accent);
 }
 
 .cx-progress-fill-success {

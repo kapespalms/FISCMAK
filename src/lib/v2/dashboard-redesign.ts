@@ -7,6 +7,8 @@ import { TOUCHPOINT_META } from "@/lib/v2/formulas";
 import { GOAL_FRAMEWORK_LABELS, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
 import { computeGoalProgressWithHistory } from "@/lib/v2/goal-milestone-tracking";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
+import type { LucideIcon } from "lucide-react";
+import { ClipboardList, Target, Upload, Zap } from "lucide-react";
 
 export type TouchpointBarState = "done" | "active" | "locked";
 
@@ -36,34 +38,34 @@ export type ActiveTouchpointView = {
 
 export const PROFILE_QUICK_ACTIONS: Array<{
   label: string;
-  icon: string;
+  icon: LucideIcon;
   intent: DashboardQuickAction["intent"];
   href: string;
   message?: string;
 }> = [
   {
     label: "Capture work",
-    icon: "🎯",
+    icon: Target,
     intent: "discuss",
     href: "/app/subjective",
     message: "I want to capture invisible work from this week.",
   },
   {
     label: "Discuss energy",
-    icon: "⚡",
+    icon: Zap,
     intent: "discuss",
     href: "/app/subjective",
     message: "Let's discuss my energy and well-being.",
   },
   {
     label: "Review activities",
-    icon: "📋",
+    icon: ClipboardList,
     intent: "review",
     href: "/app/activities",
   },
   {
     label: "Upload doc",
-    icon: "📤",
+    icon: Upload,
     intent: "review",
     href: "/app/objective",
   },
@@ -428,18 +430,11 @@ export function buildGoalCards(
     });
 }
 
-export function statusIcon(status: DashboardNextAction["status"] | TouchpointBarState): string {
-  if (status === "done") return "✓";
-  if (status === "active") return "→";
-  if (status === "attention") return "⚠";
-  return "◯";
+export function statusIcon(status: DashboardNextAction["status"] | TouchpointBarState): StatusKind {
+  if (status === "done") return "done";
+  if (status === "active") return "active";
+  if (status === "attention") return "attention";
+  return "locked";
 }
 
-export function statusIconClass(
-  status: DashboardNextAction["status"] | TouchpointBarState,
-): string {
-  if (status === "done") return "text-green-600";
-  if (status === "active") return "text-cx-primary";
-  if (status === "attention") return "text-cx-attention";
-  return "text-cx-text-secondary";
-}
+export type StatusKind = "done" | "active" | "attention" | "locked";

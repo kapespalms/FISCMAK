@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { PageShell } from "@/components/layout/PageShell";
 import type { Job } from "@/lib/v2/types";
 import { cn } from "@/lib/utils";
 
@@ -64,17 +65,10 @@ export function JobsWorkspace() {
             {job.salary && (
               <p className="mt-1 text-sm text-cx-text">${job.salary.toLocaleString()}</p>
             )}
-            <p className="mt-2 text-xs font-semibold text-cx-primary">
-              Match {job.match_score}%
-            </p>
+            <p className="mt-2 text-xs font-semibold text-cx-accent">Match {job.match_score}%</p>
           </div>
           <div className="flex shrink-0 flex-col gap-2">
-            <Button
-              variant="secondary"
-              onClick={() => {
-                void logView(job.job_id);
-              }}
-            >
+            <Button variant="secondary" onClick={() => void logView(job.job_id)}>
               View
             </Button>
             <Button
@@ -92,25 +86,25 @@ export function JobsWorkspace() {
   const list = tab === "matches" ? jobs : savedJobs;
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
-      <div>
-        <p className="text-cx-label text-cx-primary">P-3 · Position search</p>
-        <h1 className="text-cx-h1">Job matches</h1>
-        <p className="mt-1 text-cx-body">{commentary}</p>
-        <Link href="/app/plan" className="mt-2 inline-block text-sm font-medium text-cx-primary hover:underline">
-          ← Back to strategy
-        </Link>
-      </div>
+    <PageShell
+      eyebrow="Position search"
+      title="Job matches"
+      subtitle={commentary || undefined}
+      maxWidth="lg"
+    >
+      <Link href="/app/plan" className="mb-6 inline-block text-sm font-medium text-cx-text-secondary hover:text-cx-text">
+        Back to strategy
+      </Link>
 
-      <div className="flex gap-2">
+      <div className="mb-6 flex gap-2">
         {(["matches", "saved"] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
             onClick={() => setTab(t)}
             className={cn(
-              "rounded-lg px-4 py-2 text-sm font-medium capitalize",
-              tab === t ? "bg-cx-primary text-white" : "bg-cx-cream text-cx-text-secondary",
+              "cx-nav-pill capitalize",
+              tab === t ? "cx-nav-pill-active" : "cx-nav-pill-inactive",
             )}
           >
             {t}
@@ -129,6 +123,6 @@ export function JobsWorkspace() {
       ) : (
         <div className="space-y-4">{list.map(renderJob)}</div>
       )}
-    </div>
+    </PageShell>
   );
 }

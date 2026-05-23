@@ -22,6 +22,7 @@ import {
 import { formatDisplayName } from "@/lib/mak-greeting";
 import { useIsMobile } from "@/lib/use-media-query";
 import { IconSidebar } from "@/components/layout/IconSidebar";
+import { TopNavBar } from "@/components/layout/TopNavBar";
 import { MakPanel } from "@/components/layout/MakPanel";
 import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
 
@@ -165,7 +166,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <AppShellContext.Provider value={value}>
-      <div className="flex h-screen overflow-hidden bg-white">
+      <div className="flex h-screen overflow-hidden bg-cx-gradient-from">
         <IconSidebar />
         <MakPanel
           open={makOpen}
@@ -179,9 +180,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           onInitialMessageHandled={() => setPendingInitialMessage(null)}
         />
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
-        <main className="min-w-0 flex-1 overflow-auto bg-cx-white p-6 md:p-8">
-          {children}
-        </main>
+        <div className="flex min-w-0 flex-1 flex-col">
+          <TopNavBar />
+          <main className="cx-page-gradient min-h-0 flex-1 overflow-auto p-4 md:p-8">
+            {children}
+          </main>
+        </div>
       </div>
     </AppShellContext.Provider>
   );

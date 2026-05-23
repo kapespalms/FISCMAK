@@ -310,7 +310,7 @@ export function DashboardWorkspace() {
   }, [goals, analytics]);
 
   return (
-    <div className="-m-6 md:-m-8">
+    <>
       {onboardingPhase === "reveal" && (
         <DashboardRevealOverlay onComplete={() => setOnboardingPhase("goals")} />
       )}
@@ -337,7 +337,7 @@ export function DashboardWorkspace() {
         </div>
       )}
 
-      <div className="mx-auto max-w-[1200px] space-y-8 px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1200px] space-y-8">
         {loading || !analytics || !headerModel ? (
           <DashboardSkeleton />
         ) : (
@@ -350,7 +350,7 @@ export function DashboardWorkspace() {
 
             <TouchpointStatusBar states={tpStates} />
 
-            <div className="space-y-8 rounded-2xl bg-cx-cream p-6 md:p-8">
+            <div className="cx-section-surface space-y-8">
               <DashboardHeroMetrics
                 header={headerModel}
                 track={profile?.primary_career_track ?? null}
@@ -358,7 +358,7 @@ export function DashboardWorkspace() {
               />
             </div>
 
-            <div className="space-y-8 rounded-2xl bg-cx-light-blue p-6 md:p-8">
+            <div className="cx-section-surface space-y-8">
               <DashboardProfileSection
                 displayName={headerModel.displayName}
                 rows={profileRows}
@@ -387,7 +387,7 @@ export function DashboardWorkspace() {
               href: a.href,
             })} />
 
-            <div className="rounded-2xl bg-cx-cream p-6 md:p-8">
+            <div className="cx-section-surface">
               <DashboardDeepDiveTabs
                 bands={soapBands}
                 jobEngagement={analytics.job_engagement}
@@ -397,6 +397,6 @@ export function DashboardWorkspace() {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }

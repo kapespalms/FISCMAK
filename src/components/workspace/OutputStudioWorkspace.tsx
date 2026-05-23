@@ -5,6 +5,7 @@ import { OUTPUT_TEMPLATES } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { PageShell } from "@/components/layout/PageShell";
 import { fetchActivities } from "@/lib/activities-storage";
 import type { ActivityEntry } from "@/lib/types/database";
 import { EvidenceDrawer } from "@/components/studio/EvidenceDrawer";
@@ -205,15 +206,13 @@ export function OutputStudioWorkspace() {
   const isPromotionWizard = selected === "promotion_narrative";
 
   return (
-    <div className="mx-auto flex h-[calc(100vh-10rem)] max-w-7xl flex-col gap-4">
-      <AcademicSoapSectionGate intent="create" />
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-page-title">Career Documents</h1>
-          <p className="mt-1 text-sm text-fiscmak-muted">
-            Generate and manage CVs, biosketches, reports, and career briefs from your Career Data
-          </p>
-        </div>
+    <PageShell
+      eyebrow="Documents"
+      title="Career Documents"
+      subtitle="Generate and manage CVs, biosketches, reports, and career briefs from your Career Data"
+      maxWidth="full"
+      className="flex h-[calc(100vh-10rem)] flex-col gap-4"
+      action={
         <Button
           variant="secondary"
           onClick={() => {
@@ -227,7 +226,9 @@ export function OutputStudioWorkspace() {
         >
           Update CV with Mak
         </Button>
-      </div>
+      }
+    >
+      <AcademicSoapSectionGate intent="create" />
       {(outputContext?.enrichment_delta || outputContext?.career_vault?.summary) && (
         <Card accent="green">
           <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career Data source</p>
@@ -384,7 +385,7 @@ export function OutputStudioWorkspace() {
       />
         )}
       </div>
-    </div>
-    </div>
+      </div>
+    </PageShell>
   );
 }

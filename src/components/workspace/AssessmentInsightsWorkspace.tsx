@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
@@ -41,45 +42,44 @@ export function AssessmentInsightsWorkspace() {
   }
 
   if (loading) {
-    return <p className="text-sm text-fiscmak-muted">Loading your career insights…</p>;
+    return <p className="text-sm text-cx-text-secondary">Loading your career insights…</p>;
   }
 
   if (!insights) {
     return (
-      <Card>
-        <p className="text-sm text-fiscmak-muted">
-          Insights appear as you talk with Coach Mak. No forms — just conversation.
-        </p>
-        <Button className="mt-4" onClick={discussWithMak}>
-          Talk with Coach Mak
-        </Button>
-      </Card>
+      <PageShell eyebrow="Career profile" title="Assessment insights" maxWidth="lg">
+        <Card>
+          <p className="text-cx-body">
+            Insights appear as you talk with Coach Mak. No forms — just conversation.
+          </p>
+          <Button className="mt-4" onClick={discussWithMak}>
+            Talk with Coach Mak
+          </Button>
+        </Card>
+      </PageShell>
     );
   }
 
   return (
-    <div className="mx-auto max-w-4xl space-y-6">
+    <PageShell
+      eyebrow="Career profile"
+      title="Assessment insights"
+      subtitle="Synthesized Career Health Score, Career Map, and benchmarked standing"
+      maxWidth="lg"
+      action={<Button onClick={discussWithMak}>Discuss with Coach Mak</Button>}
+    >
       <AcademicSoapSectionGate intent="assess" />
-      <div className="flex flex-wrap items-start justify-between gap-4">
-        <div>
-          <h1 className="text-page-title">Career Profile</h1>
-          <p className="mt-1 text-sm text-fiscmak-muted">
-            Synthesized Career Health Score, Career Map, and benchmarked standing
-          </p>
-        </div>
-        <Button onClick={discussWithMak}>Discuss with Coach Mak</Button>
-      </div>
 
-      <Card accent="green">
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career pattern</p>
-        <h2 className="mt-2 text-xl font-bold">{insights.career_pattern.label}</h2>
-        <p className="mt-2 text-sm text-fiscmak-muted">{insights.career_pattern.narrative}</p>
-        <p className="mt-3 text-xs text-fiscmak-muted">
+      <Card accent="green" className="mb-6">
+        <p className="text-cx-label uppercase">Career pattern</p>
+        <h2 className="mt-2 text-cx-h2">{insights.career_pattern.label}</h2>
+        <p className="mt-2 text-cx-body">{insights.career_pattern.narrative}</p>
+        <p className="mt-3 text-cx-label">
           Conversation coverage: {insights.conversation_coverage_pct}% of coaching signals captured
         </p>
       </Card>
 
-      <div className="grid gap-4 sm:grid-cols-3">
+      <div className="mb-6 grid gap-4 sm:grid-cols-3">
         <Card>
           <p className="text-xs font-semibold uppercase text-fiscmak-muted">Coherence</p>
           <p className="mt-2 text-4xl font-bold text-fiscmak-green">
@@ -204,6 +204,6 @@ export function AssessmentInsightsWorkspace() {
           </Link>
         </div>
       </Card>
-    </div>
+    </PageShell>
   );
 }

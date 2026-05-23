@@ -1,10 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import Link from "next/link";
+import { PageShell } from "@/components/layout/PageShell";
 import { fetchActivities } from "@/lib/activities-storage";
 import { getDashboardStats } from "@/lib/lattice";
 
@@ -44,31 +46,27 @@ export function AssessmentWorkspace() {
       : null;
 
   return (
-    <div className="mx-auto max-w-4xl space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">Assessment: Patterns & signals</h1>
-        <p className="mt-1 text-sm text-fiscmak-muted">
-          Career pattern, recognition gaps, and coherence — explore with Mak
-        </p>
-      </div>
+    <PageShell
+      eyebrow="Assessment"
+      title="Patterns and signals"
+      subtitle="Career pattern, recognition gaps, and coherence — explore with Mak"
+      maxWidth="lg"
+    >
+      {loading && <p className="text-sm text-cx-text-secondary">Loading…</p>}
 
-      {loading && <p className="text-sm text-fiscmak-muted">Loading…</p>}
-
-      <Card accent="green">
-        <h2 className="text-lg font-semibold">Career pattern</h2>
-        <p className="mt-2 text-sm">
-          <strong>Clinician-Educator with Emerging Systems Leadership</strong>
-        </p>
-        <p className="mt-2 text-sm text-fiscmak-muted">
+      <Card accent="green" className="mb-6">
+        <p className="text-cx-label uppercase">Career pattern</p>
+        <p className="mt-2 text-cx-h3">Clinician-Educator with Emerging Systems Leadership</p>
+        <p className="mt-2 text-cx-body">
           Based on {stats.total} logged activities across {stats.domainsActive}{" "}
           domains and {stats.tracksActive} tracks.
         </p>
       </Card>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="mb-6 grid gap-6 md:grid-cols-2">
         <Card>
-          <h2 className="font-semibold">Strengths</h2>
-          <ul className="mt-3 space-y-2 text-sm">
+          <h2 className="text-cx-h3">Strengths</h2>
+          <ul className="mt-3 space-y-2 text-sm text-cx-text">
             <li className="flex items-start gap-2">
               <Badge energy="energizing">{stats.energizing}</Badge>
               <span>Energizing activities logged</span>
@@ -79,55 +77,35 @@ export function AssessmentWorkspace() {
         </Card>
 
         <Card>
-          <h2 className="font-semibold">Opportunities</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li className="flex items-start gap-2">
-              <Badge energy="draining">{stats.draining}</Badge>
-              <span>Draining activities to rebalance</span>
-            </li>
-            <li>Recognition gap: {stats.recognitionGap}%</li>
-            <li>Leadership evidence under-documented</li>
-          </ul>
+          <h2 className="text-cx-h3">Recognition gaps</h2>
+          <p className="mt-3 text-cx-body">
+            {stats.recognitionGap > 0
+              ? `${stats.recognitionGap} activities may be under-documented on your CV.`
+              : "Log more activities to surface recognition gaps."}
+          </p>
         </Card>
       </div>
 
-      <Card>
-        <h2 className="font-semibold">Career coherence</h2>
-        <p className="mt-2 text-sm text-fiscmak-muted">
-          How well your logged work aligns with energizing, visible career signals
+      <Card className="mb-6">
+        <p className="text-cx-label uppercase">Coherence score</p>
+        <p className="mt-2 text-score-hero">{coherenceScore ?? "—"}</p>
+        <p className="mt-2 text-cx-body">
+          How well your logged work aligns across domains and energy levels.
         </p>
-        <div className="mt-4">
-          {coherenceScore !== null ? (
-            <>
-              <div className="flex items-end gap-2">
-                <span className="text-4xl font-bold text-fiscmak-green">
-                  {coherenceScore}
-                </span>
-                <span className="pb-1 text-fiscmak-muted">/ 100</span>
-              </div>
-              <div className="mt-3 h-3 overflow-hidden rounded-full bg-fiscmak-subtle">
-                <div
-                  className="h-full rounded-full bg-fiscmak-green"
-                  style={{ width: `${coherenceScore}%` }}
-                />
-              </div>
-            </>
-          ) : (
-            <p className="text-sm text-fiscmak-muted">
-              Log activities in Objective to calculate coherence.
-            </p>
-          )}
-        </div>
       </Card>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/app/objective?tab=lattice">
-          <Button variant="secondary">View lattice</Button>
+        <Link href="/app/assessment">
+          <Button variant="secondary">Full career profile</Button>
         </Link>
-        <Link href="/app/plan">
-          <Button>Plan next move</Button>
+        <Link
+          href="/app/objective"
+          className="inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-primary"
+        >
+          Open career data
+          <ChevronRight size={16} />
         </Link>
       </div>
-    </div>
+    </PageShell>
   );
 }

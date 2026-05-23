@@ -1,34 +1,29 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import {
-  statusIcon,
-  statusIconClass,
-  type TouchpointBarState,
-} from "@/lib/v2/dashboard-redesign";
+import type { TouchpointBarState } from "@/lib/v2/dashboard-redesign";
+import { StatusIndicator, type StatusKind } from "@/components/ui/StatusIndicator";
 
 type TouchpointStatusBarProps = {
   states: TouchpointBarState[];
 };
 
+function tpStatus(state: TouchpointBarState): StatusKind {
+  if (state === "done") return "done";
+  if (state === "active") return "upcoming";
+  return "locked";
+}
+
 export function TouchpointStatusBar({ states }: TouchpointStatusBarProps) {
   return (
     <div
-      className="flex flex-wrap items-center gap-2 rounded-xl bg-cx-white px-4 py-3 shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+      className="cx-card flex flex-wrap items-center gap-3 py-4"
       aria-label="Touchpoint progress"
     >
       {states.map((state, i) => (
         <div key={i} className="flex items-center gap-2">
-          {i > 0 && <span className="text-cx-text-secondary">|</span>}
-          <span className="text-cx-label font-medium text-cx-text-secondary">
-            TP{i + 1}
-          </span>
-          <span
-            className={cn("text-base leading-none", statusIconClass(state))}
-            aria-hidden
-          >
-            {state === "active" ? "◎" : statusIcon(state === "done" ? "done" : "locked")}
-          </span>
+          {i > 0 && <span className="text-cx-border">|</span>}
+          <span className="text-cx-label font-medium text-cx-text-secondary">TP{i + 1}</span>
+          <StatusIndicator status={tpStatus(state)} size={14} />
         </div>
       ))}
     </div>

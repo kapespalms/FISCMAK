@@ -11,7 +11,7 @@ type DashboardProfileSectionProps = {
 };
 
 function rowStatusClass(status?: ProfileRow["status"]): string {
-  if (status === "strong") return "text-green-700";
+  if (status === "strong") return "text-cx-success";
   if (status === "developing") return "text-cx-attention";
   if (status === "needs_attention") return "text-cx-attention";
   return "text-cx-text";
@@ -37,7 +37,7 @@ export function DashboardProfileSection({
             {rows.map((row) => (
               <div key={row.id} className="min-w-0">
                 <dt className="text-cx-label">{row.label}</dt>
-                <dd className={cn("mt-1 text-sm font-medium", rowStatusClass(row.status))}>
+                <dd className={cn("mt-1 text-sm font-semibold", rowStatusClass(row.status))}>
                   {row.value}
                 </dd>
               </div>
@@ -48,18 +48,21 @@ export function DashboardProfileSection({
         <div className="cx-card">
           <h3 className="text-cx-h3">Quick Actions</h3>
           <ul className="mt-4 space-y-1">
-            {PROFILE_QUICK_ACTIONS.map((action) => (
-              <li key={action.label}>
-                <button
-                  type="button"
-                  onClick={() => onQuickAction(action)}
-                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-cx-label text-cx-text transition-colors hover:bg-[#F9F7F3]"
-                >
-                  <span aria-hidden>{action.icon}</span>
-                  {action.label}
-                </button>
-              </li>
-            ))}
+            {PROFILE_QUICK_ACTIONS.map((action) => {
+              const Icon = action.icon;
+              return (
+                <li key={action.label}>
+                  <button
+                    type="button"
+                    onClick={() => onQuickAction(action)}
+                    className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm text-cx-text transition-colors hover:bg-cx-cream"
+                  >
+                    <Icon size={16} className="shrink-0 text-cx-text-secondary" aria-hidden />
+                    {action.label}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

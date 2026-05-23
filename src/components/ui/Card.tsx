@@ -7,20 +7,13 @@ export function Card({
   children,
   ...props
 }: HTMLAttributes<HTMLDivElement> & { accent?: "green" | "red" | "amber" }) {
-  const accentBorder =
-    accent === "green"
-      ? "border-l-4 border-l-fiscmak-green bg-fiscmak-green-light"
-      : accent === "red"
-        ? "border-l-4 border-l-fiscmak-red bg-red-50"
-        : accent === "amber"
-          ? "border-l-4 border-l-fiscmak-amber"
-          : "";
-
   return (
     <div
       className={cn(
-        "rounded-lg border border-fiscmak-border bg-white p-6 shadow-sm",
-        accentBorder,
+        "rounded-2xl border border-cx-border/70 bg-cx-white p-6 shadow-sm",
+        accent === "green" && "border-l-4 border-l-cx-success",
+        accent === "red" && "border-l-4 border-l-red-500",
+        accent === "amber" && "border-l-4 border-l-cx-attention",
         className,
       )}
       {...props}

@@ -475,7 +475,7 @@ export async function POST(request: Request) {
   }
 
   if (touchpointSubmitted) {
-    response = `${response}\n\n✓ Check-in saved:\n${touchpointSubmitted.summary}\n\nYour dashboard and Career Data vault are updated.`;
+    response = `${response}\n\nCheck-in saved:\n${touchpointSubmitted.summary}\n\nYour dashboard and Career Data vault are updated.`;
     suggested_actions = [{ action: "View updated dashboard", url: "/app/dashboard" }];
   } else if (touchpointNextPrompt) {
     response = `${response}\n\n---\n\n${touchpointNextPrompt}`;

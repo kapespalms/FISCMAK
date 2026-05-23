@@ -185,7 +185,7 @@ export default function ProfilePage() {
                 placeholder="What are you working toward?"
               />
             </div>
-            <Button type="submit">{saved ? "Saved ✓" : "Save profile"}</Button>
+            <Button type="submit">{saved ? "Saved" : "Save profile"}</Button>
           </form>
         )}
       </Card>
