@@ -43,11 +43,9 @@ export function PlanActivationPanel({ setting, level, rank, track, specialty }: 
 
   return (
     <Card accent="green">
-      <p className="text-xs font-semibold uppercase text-fiscmak-muted">P-2 · P-3 · Career transitions</p>
-      <h2 className="mt-1 text-lg font-bold">
-        {academic?.planLead ?? "Career strategy tools"}
-      </h2>
-      <p className="mt-2 text-sm text-fiscmak-muted">
+      <p className="text-cx-label uppercase">P-2 · P-3 · Career transitions</p>
+      <h2 className="mt-1 text-cx-h3">{academic?.planLead ?? "Career strategy tools"}</h2>
+      <p className="mt-2 text-cx-body">
         Skill translation and job search flows run through Coach Mak — no separate forms required.
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -59,7 +57,7 @@ export function PlanActivationPanel({ setting, level, rank, track, specialty }: 
         </Button>
       </div>
       {academic && (
-        <ul className="mt-4 space-y-1 text-sm text-fiscmak-muted">
+        <ul className="mt-4 space-y-1 text-sm text-cx-text-secondary">
           {academic.developmentExamples.slice(0, 3).map((ex) => (
             <li key={ex}>• {ex}</li>
           ))}

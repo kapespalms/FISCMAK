@@ -21,9 +21,9 @@ export function LatticeGrid({ cells }: { cells: LatticeCellState[] }) {
 
   return (
     <div className="space-y-6">
-      <p className="text-fiscmak-muted">
+      <p className="text-sm text-cx-text-secondary">
         Your career pattern:{" "}
-        <strong className="text-foreground">
+        <strong className="text-cx-text">
           Clinician-Educator with Emerging Systems Leadership
         </strong>
       </p>
@@ -38,7 +38,7 @@ export function LatticeGrid({ cells }: { cells: LatticeCellState[] }) {
           {TRACKS.map((track) => (
             <div
               key={track}
-              className="px-1 py-2 text-center text-[10px] font-semibold leading-tight text-fiscmak-muted"
+              className="px-1 py-2 text-center text-[10px] font-semibold leading-tight text-cx-text-secondary"
             >
               {track.split("/")[0]}
             </div>
@@ -46,7 +46,7 @@ export function LatticeGrid({ cells }: { cells: LatticeCellState[] }) {
           {DOMAINS.map((domain, di) => (
             <Fragment key={domain}>
               <div
-                className="flex items-center pr-2 text-right text-[10px] font-medium text-fiscmak-muted"
+                className="flex items-center pr-2 text-right text-[10px] font-medium text-cx-text-secondary"
               >
                 {domain.split(" ")[0]}
               </div>
@@ -77,12 +77,12 @@ export function LatticeGrid({ cells }: { cells: LatticeCellState[] }) {
           <h3 className="text-lg font-semibold">
             {DOMAINS[selected.domainIndex]} × {TRACKS[selected.trackIndex]}
           </h3>
-          <p className="mt-2 text-sm text-fiscmak-muted">
+          <p className="mt-2 text-sm text-cx-text-secondary">
             {selected.activityCount} activities · Energy:{" "}
             {selected.energy?.replace("_", " ") ?? "mixed"}
           </p>
-          <p className="mt-4 text-sm">
-            Connect Supabase and log activities to populate live lattice data.
+          <p className="mt-4 text-sm text-cx-body">
+            Log activities through Mak or Career Data → Activities to populate live lattice data.
           </p>
         </Card>
       )}

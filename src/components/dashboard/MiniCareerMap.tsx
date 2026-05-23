@@ -81,7 +81,7 @@ export function MiniCareerMap({ cells, href = "/app/assessment", glowCell }: Min
           )}
         </div>
       </Link>
-      <p className="mt-2 text-caption text-fiscmak-muted">
+      <p className="mt-2 text-cx-label text-cx-text-secondary">
         Warm cells = strong positioning · Cool cells = developing · Click to open Career Profile
       </p>
     </div>

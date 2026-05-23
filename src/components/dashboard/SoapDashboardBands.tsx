@@ -28,7 +28,7 @@ function SubjectiveBandContent({ band }: { band: SoapBandSnapshot }) {
     );
   }
   return (
-    <ul className="space-y-1.5 text-sm text-fiscmak-ink">
+    <ul className="space-y-1.5 text-sm text-cx-text">
       {band.lines.map((line) => (
         <li key={line}>{line}</li>
       ))}
@@ -41,7 +41,7 @@ function ObjectiveBandContent({ band }: { band: SoapBandSnapshot }) {
   return (
     <div className="space-y-2 text-sm">
       {band.vaultSummary && (
-        <p className="font-medium text-fiscmak-ink">{band.vaultSummary}</p>
+        <p className="font-medium text-cx-text">{band.vaultSummary}</p>
       )}
       {band.changesSinceQuarter && (
         <p className="text-fm-strong">{band.changesSinceQuarter}</p>
@@ -100,7 +100,7 @@ function AssessmentBandContent({
               Career Alignment: {band.careerAlignment.percent}% toward{" "}
               {band.careerAlignment.label}
             </p>
-            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-fiscmak-subtle">
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-cx-border/60">
               <div
                 className="h-full rounded-full bg-fm-primary"
                 style={{ width: `${band.careerAlignment.percent}%` }}
@@ -109,7 +109,7 @@ function AssessmentBandContent({
           </div>
         )}
         {band.advancementReadiness && (
-          <p className="text-fiscmak-muted">
+          <p className="text-cx-text-secondary">
             Advancement Readiness: {band.advancementReadiness.met}/
             {band.advancementReadiness.total} criteria met for{" "}
             {band.advancementReadiness.label}
@@ -123,7 +123,7 @@ function AssessmentBandContent({
 function PlanBandContent({ band }: { band: SoapBandSnapshot }) {
   if (!band.progress?.length) {
     return (
-      <ul className="space-y-1.5 text-sm text-fiscmak-ink">
+      <ul className="space-y-1.5 text-sm text-cx-text">
         {band.lines.map((line) => (
           <li key={line}>{line}</li>
         ))}
@@ -136,15 +136,15 @@ function PlanBandContent({ band }: { band: SoapBandSnapshot }) {
         <div
           key={p.label}
           className={cn(
-            "rounded-lg border border-fiscmak-border/60 px-3 py-2",
+            "rounded-lg border border-cx-border/60 px-3 py-2",
             p.stalled && "border-l-4 border-l-fm-developing",
           )}
         >
           <div className="flex items-center justify-between gap-2">
-            <p className="text-sm font-medium text-fiscmak-ink">{p.label}</p>
+            <p className="text-sm font-medium text-cx-text">{p.label}</p>
             {p.status && p.status !== "stable" && <StatusChip status={p.status} />}
           </div>
-          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-fiscmak-subtle">
+          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-cx-border/60">
             <div
               className={cn(
                 "h-full rounded-full transition-all",
@@ -159,14 +159,14 @@ function PlanBandContent({ band }: { band: SoapBandSnapshot }) {
               style={{ width: `${Math.min(100, Math.max(0, p.percent))}%` }}
             />
           </div>
-          <p className="mt-1 text-xs text-fiscmak-muted">{p.percent}%</p>
+          <p className="mt-1 text-xs text-cx-text-secondary">{p.percent}%</p>
           {band.stalledGoalIndex === i && (
             <p className="mt-1 text-caption text-fm-developing">No milestone progress for 2 quarters</p>
           )}
         </div>
       ))}
       {band.nextMilestone && (
-        <p className="text-sm text-fiscmak-muted">
+        <p className="text-sm text-cx-text-secondary">
           Next Milestone: {band.nextMilestone}
         </p>
       )}
@@ -182,7 +182,7 @@ function OutputBandContent({ band }: { band: SoapBandSnapshot }) {
         {band.documentCards?.map((doc) => (
           <div
             key={doc.type}
-            className="flex items-start gap-2 rounded-lg border border-fiscmak-border/60 px-3 py-2"
+            className="flex items-start gap-2 rounded-lg border border-cx-border/60 px-3 py-2"
           >
             <span
               className={cn("mt-1.5 h-2 w-2 shrink-0 rounded-full", documentFreshnessClass(doc.freshness))}
@@ -190,7 +190,7 @@ function OutputBandContent({ band }: { band: SoapBandSnapshot }) {
             />
             <div className="min-w-0">
               <p className="text-sm font-medium">{doc.title}</p>
-              <p className="text-caption text-fiscmak-muted">{doc.detail}</p>
+              <p className="text-caption text-cx-text-secondary">{doc.detail}</p>
               {doc.actionLabel && (
                 <button
                   type="button"
@@ -279,10 +279,10 @@ function BandCard({
         </span>
       )}
       {band.bandLead && (
-        <p className="text-sm font-semibold text-fiscmak-ink">{band.bandLead}</p>
+        <p className="text-sm font-semibold text-cx-text">{band.bandLead}</p>
       )}
       {band.emphasis && (
-        <p className="text-caption text-fiscmak-muted">{band.emphasis}</p>
+        <p className="text-caption text-cx-text-secondary">{band.emphasis}</p>
       )}
       <BandBody band={band} latticeCells={latticeCells} glowCell={glowCell} />
       <button

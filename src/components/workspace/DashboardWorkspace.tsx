@@ -10,6 +10,8 @@ import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
 import { DashboardNextActions } from "@/components/dashboard/DashboardNextActions";
 import { DashboardDeepDiveTabs } from "@/components/dashboard/DashboardDeepDiveTabs";
 import { DashboardActiveTouchpoint } from "@/components/dashboard/DashboardActiveTouchpoint";
+import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
+import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
 import { useAppShell } from "@/components/layout/AppShell";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 import { buildSoapDashboardBands } from "@/lib/v2/dashboard-snapshot";
@@ -220,6 +222,11 @@ export function DashboardWorkspace() {
     }
   }
 
+  function handleTouchpointComplete() {
+    void load();
+    window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
+  }
+
   function handleTouchpointContinue(tp: ActiveTouchpointView) {
     if (tp.kind === "annual") {
       beginAnnualMak("/app/subjective");
@@ -402,6 +409,22 @@ export function DashboardWorkspace() {
                 upcoming={touchpointViews.upcoming}
                 onContinue={handleTouchpointContinue}
                 onViewHistory={() => router.push("/app/assessment")}
+              />
+            )}
+
+            {analytics.annual_refresh?.due && (
+              <AnnualRefreshPanel
+                status={analytics.annual_refresh}
+                onBeginWithMak={() => beginAnnualMak("/app/subjective")}
+                onComplete={handleTouchpointComplete}
+              />
+            )}
+
+            {!analytics.annual_refresh?.due && analytics.quarterly_pulse?.due && (
+              <QuarterlyPulsePanel
+                status={analytics.quarterly_pulse}
+                onBeginWithMak={beginQuarterlyMak}
+                onComplete={handleTouchpointComplete}
               />
             )}
 

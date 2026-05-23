@@ -63,9 +63,9 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
   if (summary) {
     return (
       <Card accent="green">
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">{status.quarter_label} pulse complete</p>
-        <pre className="mt-3 whitespace-pre-wrap text-sm">{summary}</pre>
-        <Button variant="secondary" className="mt-4" onClick={() => setShowFallback(false)}>
+        <p className="text-cx-label uppercase">{status.quarter_label} pulse complete</p>
+        <pre className="mt-3 whitespace-pre-wrap text-sm text-cx-body">{summary}</pre>
+        <Button variant="secondary" className="mt-4" onClick={() => setSummary(null)}>
           Done
         </Button>
       </Card>
@@ -74,14 +74,14 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
 
   return (
     <Card accent="amber">
-      <p className="text-xs font-semibold uppercase text-fiscmak-muted">Touchpoint 2 · Quarterly pulse · ~5–8 min</p>
-      <h2 className="mt-1 text-lg font-bold">{status.quarter_label} check-in</h2>
-      <p className="mt-2 text-sm text-fiscmak-muted">
+      <p className="text-cx-label uppercase">Touchpoint 2 · Quarterly pulse · ~5–8 min</p>
+      <h2 className="mt-1 text-cx-h3">{status.quarter_label} check-in</h2>
+      <p className="mt-2 text-cx-body">
         Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your
         dashboard and Career Data vault automatically.
       </p>
       {status.days_since_last != null && (
-        <p className="mt-1 text-xs text-fiscmak-muted">
+        <p className="mt-1 text-xs text-cx-text-secondary">
           Last pulse: {status.days_since_last} days ago
         </p>
       )}
@@ -98,7 +98,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       ) : (
         <div className="mt-4 space-y-4">
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="text-sm">
+            <label className="text-sm text-cx-text">
               <span className="font-semibold">Emotional exhaustion (0–6)</span>
               <input
                 type="number"
@@ -106,10 +106,10 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
                 max={6}
                 value={exhaustion}
                 onChange={(e) => setExhaustion(e.target.value)}
-                className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+                className="cx-field mt-1 w-full"
               />
             </label>
-            <label className="text-sm">
+            <label className="text-sm text-cx-text">
               <span className="font-semibold">Depersonalization (0–6)</span>
               <input
                 type="number"
@@ -117,11 +117,11 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
                 max={6}
                 value={depersonalization}
                 onChange={(e) => setDepersonalization(e.target.value)}
-                className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+                className="cx-field mt-1 w-full"
               />
             </label>
           </div>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Unrecognized work hours per week</span>
             <input
               type="number"
@@ -129,20 +129,20 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               max={80}
               value={invisibleHours}
               onChange={(e) => setInvisibleHours(e.target.value)}
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Biggest unrecognized work category this quarter</span>
             <input
               type="text"
               value={invisibleCategory}
               onChange={(e) => setInvisibleCategory(e.target.value)}
               placeholder="e.g. after-hours charting, prior auth…"
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Energy for primary career track (1–10)</span>
             <input
               type="number"
@@ -150,28 +150,32 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               max={10}
               value={trackEnergy}
               onChange={(e) => setTrackEnergy(e.target.value)}
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">New achievements since last update (optional)</span>
             <textarea
               value={cvUpdate}
               onChange={(e) => setCvUpdate(e.target.value)}
               rows={2}
               placeholder="Publications, grants, roles, awards…"
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
           <div className="flex gap-2">
-            <Button onClick={submit} disabled={loading}>
+            <Button onClick={() => void submit()} disabled={loading}>
               {loading ? "Saving…" : "Submit pulse"}
             </Button>
             <Button variant="secondary" onClick={() => setShowFallback(false)}>
               Back to Mak
             </Button>
           </div>
-          {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+              {error}
+            </p>
+          )}
         </div>
       )}
     </Card>

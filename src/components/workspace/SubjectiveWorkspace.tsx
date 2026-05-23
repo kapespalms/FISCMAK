@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
 import { MetricRow } from "@/components/ui/MetricRow";
 import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -16,6 +15,9 @@ import type { PracticeSetting, CareerStage } from "@/lib/v2/onboarding-options";
 import { buildCareerDirectionAnnualGreeting, careerAlignmentFromHealth } from "@/lib/mak-chatbot-states";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
+import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
+import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
+import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
 
 type ProfileMeta = {
   career_track?: string | null;
@@ -38,10 +40,10 @@ export function SubjectiveWorkspace() {
         fetch("/api/v1/analytics/dashboard"),
         fetch("/api/v1/onboarding/touchpoint1"),
       ]);
-      const analytics = await analyticsRes.json();
+      const analyticsData = await analyticsRes.json();
       const profileData = await profileRes.json();
-      setHealth(analytics.career_health ?? null);
-      setAnalytics(analytics as AnalyticsDashboard);
+      setHealth(analyticsData.career_health ?? null);
+      setAnalytics(analyticsData as AnalyticsDashboard);
       setProfile(profileData.profile ?? {});
       setLastUpdate(profileData.profile?.updated_at ?? null);
     } catch {
@@ -54,7 +56,40 @@ export function SubjectiveWorkspace() {
 
   useEffect(() => {
     void load();
+    const onUpdate = () => void load();
+    window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
+    return () => window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
   }, [load]);
+
+  function handleTouchpointComplete() {
+    void load();
+    window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
+  }
+
+  function beginAnnualMak() {
+    const name = displayName ?? "there";
+    void initAnnualMakSession().then(({ prompt, error: sessionError }) => {
+      if (sessionError) console.error(sessionError);
+      startMakFlow(
+        "discuss",
+        undefined,
+        prompt ?? buildCareerDirectionAnnualGreeting(name),
+        "annual",
+      );
+    });
+  }
+
+  function beginQuarterlyMak() {
+    void initQuarterlyMakSession().then(({ prompt, error: sessionError }) => {
+      if (sessionError) console.error(sessionError);
+      startMakFlow(
+        "discuss",
+        undefined,
+        prompt ?? "Let's begin your quarterly check-in. How has your well-being been this quarter?",
+        "quarterly",
+      );
+    });
+  }
 
   const fulfillment = health?.wellbeing_metrics.find((m) => m.id === "professional_fulfillment");
   const strain = health?.wellbeing_metrics.find((m) => m.id === "burnout_risk");
@@ -73,44 +108,46 @@ export function SubjectiveWorkspace() {
     .filter(Boolean)
     .join(" · ");
 
+  const touchpointDue = analytics?.annual_refresh?.due || analytics?.quarterly_pulse?.due;
+
   return (
     <PageShell
       eyebrow="Career perspective"
       title={SOAP_TAB.subjective.title}
       subtitle={subtitle}
       maxWidth="lg"
-      action={
-        <Button
-          onClick={() => {
-            const name = displayName ?? "there";
-            if (analytics?.annual_refresh?.due) {
-              void initAnnualMakSession().then(({ prompt, error: sessionError }) => {
-                if (sessionError) console.error(sessionError);
-                startMakFlow(
-                  "discuss",
-                  undefined,
-                  prompt ?? buildCareerDirectionAnnualGreeting(name),
-                  "annual",
-                );
-              });
-            } else {
-              startMakFlow("discuss");
-            }
-          }}
-        >
-          {analytics?.annual_refresh?.due ? "Begin annual refresh" : "Begin quarterly assessment"}
-        </Button>
-      }
     >
       <AcademicSoapSectionGate intent="discuss" />
 
-      <Card className="mb-6">
-        <p className="text-cx-body">
-          {SOAP_TAB.subjective.chatEntry} The following brief assessment takes
-          approximately 5 minutes and covers professional satisfaction, task alignment, and
-          career direction.
-        </p>
-      </Card>
+      {analytics?.annual_refresh?.due && (
+        <div className="mb-6">
+          <AnnualRefreshPanel
+            status={analytics.annual_refresh}
+            onBeginWithMak={beginAnnualMak}
+            onComplete={handleTouchpointComplete}
+          />
+        </div>
+      )}
+
+      {!analytics?.annual_refresh?.due && analytics?.quarterly_pulse?.due && (
+        <div className="mb-6">
+          <QuarterlyPulsePanel
+            status={analytics.quarterly_pulse}
+            onBeginWithMak={beginQuarterlyMak}
+            onComplete={handleTouchpointComplete}
+          />
+        </div>
+      )}
+
+      {!touchpointDue && (
+        <Card className="mb-6">
+          <p className="text-cx-body">
+            {SOAP_TAB.subjective.chatEntry} The following brief assessment takes
+            approximately 5 minutes and covers professional satisfaction, task alignment, and
+            career direction.
+          </p>
+        </Card>
+      )}
 
       <div className="cx-section-surface space-y-3">
         <MetricRow

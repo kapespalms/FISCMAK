@@ -79,11 +79,9 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
   if (summary) {
     return (
       <Card accent="green">
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-          {status.year} annual refresh complete
-        </p>
-        <pre className="mt-3 whitespace-pre-wrap text-sm">{summary}</pre>
-        <Button variant="secondary" className="mt-4" onClick={() => setShowFallback(false)}>
+        <p className="text-cx-label uppercase">{status.year} annual refresh complete</p>
+        <pre className="mt-3 whitespace-pre-wrap text-sm text-cx-body">{summary}</pre>
+        <Button variant="secondary" className="mt-4" onClick={() => setSummary(null)}>
           Done
         </Button>
       </Card>
@@ -92,17 +90,17 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
 
   return (
     <Card accent="amber">
-      <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+      <p className="text-cx-label uppercase">
         Touchpoint 3 · Annual deep refresh · ~{status.estimated_minutes} min
       </p>
-      <h2 className="mt-1 text-lg font-bold">{status.year} annual career refresh</h2>
-      <p className="mt-2 text-sm text-fiscmak-muted">
+      <h2 className="mt-1 text-cx-h3">{status.year} annual career refresh</h2>
+      <p className="mt-2 text-cx-body">
         Coach Mak guides seven modules — career direction, engagement, well-being, task burden,
         unrecognized work, Career Data refresh, and goal reset. Enrichment runs automatically when
         you finish.
       </p>
       {status.days_since_last != null && (
-        <p className="mt-1 text-xs text-fiscmak-muted">
+        <p className="mt-1 text-xs text-cx-text-secondary">
           Last annual refresh: {status.days_since_last} days ago
         </p>
       )}
@@ -118,17 +116,17 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
         </div>
       ) : (
         <div className="mt-4 space-y-3">
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">3-year career objective</span>
             <textarea
               value={careerObjective}
               onChange={(e) => setCareerObjective(e.target.value)}
               rows={2}
               placeholder="e.g., Program Director within 3 years"
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Track energy (1–10)</span>
             <input
               type="number"
@@ -136,38 +134,42 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               max={10}
               value={trackEnergy}
               onChange={(e) => setTrackEnergy(e.target.value)}
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Unrecognized work (hours/week)</span>
             <input
               type="number"
               min={0}
               value={invisibleHours}
               onChange={(e) => setInvisibleHours(e.target.value)}
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Goal review summary</span>
             <textarea
               value={goalReview}
               onChange={(e) => setGoalReview(e.target.value)}
               rows={2}
               placeholder="Continue all 3 goals / modify sustainability goal"
-              className="mt-1 w-full rounded-md border border-fiscmak-border px-3 py-2"
+              className="cx-field mt-1 w-full"
             />
           </label>
           <div className="flex gap-2">
-            <Button onClick={submit} disabled={loading}>
+            <Button onClick={() => void submit()} disabled={loading}>
               {loading ? "Saving…" : "Submit annual refresh"}
             </Button>
             <Button variant="secondary" onClick={() => setShowFallback(false)}>
               Back to Mak
             </Button>
           </div>
-          {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+          {error && (
+            <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+              {error}
+            </p>
+          )}
         </div>
       )}
     </Card>

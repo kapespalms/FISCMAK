@@ -95,7 +95,7 @@ export function GoalQuarterlyReviewPanel({
   if (loading) {
     return (
       <Card accent="amber">
-        <p className="text-sm text-fiscmak-muted">Loading goal review…</p>
+        <p className="text-sm text-cx-text-secondary">Loading goal review…</p>
       </Card>
     );
   }
@@ -104,10 +104,10 @@ export function GoalQuarterlyReviewPanel({
     <Card accent="amber">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-data-label">
+          <p className="text-cx-label">
             {annualDue ? "Annual goal reset" : `Quarterly goal review — ${quarterLabel}`}
           </p>
-          <p className="mt-1 text-sm text-fiscmak-muted">
+          <p className="mt-1 text-cx-body">
             {annualDue
               ? "Review all three goals for the year ahead. Mark milestones complete to sync progress across dashboard and Coach Mak."
               : "Review milestone status for each Development, Maintenance, and Sustainability objective."}
@@ -121,7 +121,9 @@ export function GoalQuarterlyReviewPanel({
       </div>
 
       {error && (
-        <p className="mt-3 text-sm text-fiscmak-red">{error}</p>
+        <p className="mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+          {error}
+        </p>
       )}
 
       <div className="mt-4 space-y-4">
@@ -138,10 +140,10 @@ export function GoalQuarterlyReviewPanel({
           return (
             <div
               key={goal.type}
-              className="rounded-lg border border-fiscmak-border bg-white p-4"
+              className="rounded-xl border border-cx-border bg-cx-white p-4"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-data-label">
+                <p className="text-cx-label">
                   {GOAL_FRAMEWORK_LABELS[goal.type].label}
                 </p>
                 <StatusChip
@@ -154,14 +156,14 @@ export function GoalQuarterlyReviewPanel({
                   }
                 />
               </div>
-              <h3 className="mt-1 font-semibold">{goal.title}</h3>
-              <p className="mt-1 text-sm">Progress: {goal.progress}%</p>
+              <h3 className="mt-1 font-semibold text-cx-text">{goal.title}</h3>
+              <p className="mt-1 text-sm text-cx-body">Progress: {goal.progress}%</p>
               {due && goalId && (
                 <div className="mt-3">
-                  <p className="text-xs font-semibold uppercase text-fiscmak-muted">
+                  <p className="text-cx-label uppercase">
                     Milestone due this quarter
                   </p>
-                  <p className="mt-1 text-sm">{due.label}</p>
+                  <p className="mt-1 text-sm text-cx-body">{due.label}</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {(["completed", "in_progress", "not_started", "deferred"] as const).map(
                       (status) => (
@@ -176,7 +178,7 @@ export function GoalQuarterlyReviewPanel({
                           onClick={() =>
                             void updateMilestone(goalId, milestoneIndex, status)
                           }
-                          className="rounded-full border border-fiscmak-border px-2 py-0.5 text-xs capitalize transition-colors hover:border-fiscmak-green hover:bg-fiscmak-green-light disabled:opacity-50"
+                          className="rounded-full border border-cx-border px-2 py-0.5 text-xs capitalize transition-colors hover:border-cx-charcoal hover:bg-cx-cream disabled:opacity-50"
                         >
                           {updating === `${goalId}-${status}` ? "Saving…" : status.replace("_", " ")}
                         </button>

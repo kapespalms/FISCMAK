@@ -23,7 +23,7 @@ export function DashboardSection({
   return (
     <section
       className={cn(
-        "flex flex-col overflow-hidden rounded-xl border border-fiscmak-border",
+        "flex flex-col overflow-hidden rounded-xl border border-cx-border",
         tall && "min-h-[460px]",
         className,
       )}
@@ -33,12 +33,12 @@ export function DashboardSection({
         className="block shrink-0 px-5 py-4 transition-opacity hover:opacity-95"
         style={{ background }}
       >
-        <p className="text-xs font-bold uppercase tracking-wide text-fiscmak-ink/70">
+        <p className="text-cx-label uppercase text-cx-text/70">
           {title}
         </p>
-        <h2 className="mt-0.5 text-lg font-semibold text-fiscmak-ink">{subtitle}</h2>
+        <h2 className="mt-0.5 text-lg font-semibold text-cx-text">{subtitle}</h2>
       </Link>
-      <div className="flex flex-1 flex-col gap-3 bg-white p-4">{children}</div>
+      <div className="flex flex-1 flex-col gap-3 bg-cx-white p-4">{children}</div>
     </section>
   );
 }
