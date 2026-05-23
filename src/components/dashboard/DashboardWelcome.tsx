@@ -1,6 +1,7 @@
 "use client";
 
 import { DashboardDueNow, type DashboardDueItem } from "@/components/dashboard/DashboardDueNow";
+import { DashboardAlerts } from "@/components/dashboard/DashboardAlerts";
 import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
 import { DashboardMakButton } from "@/components/dashboard/DashboardMakButton";
 import { ProfileSummaryCard } from "@/components/dashboard/ProfileSummaryCard";
@@ -8,6 +9,7 @@ import { TouchpointProgressStrip } from "@/components/dashboard/TouchpointProgre
 import type { DashboardHeaderModel } from "@/lib/v2/dashboard-architecture";
 import type { DashboardLatticeCell } from "@/lib/v2/dashboard-data";
 import type { DashboardDueNowItem, GoalCardModel, ProfileRow, TouchpointBarState } from "@/lib/v2/dashboard-redesign";
+import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 import { timeOfDayGreeting } from "@/lib/mak-greeting";
 
 type DashboardWelcomeProps = {
@@ -21,6 +23,7 @@ type DashboardWelcomeProps = {
   touchpointStates: TouchpointBarState[];
   latticeCells?: DashboardLatticeCell[];
   dueNow?: DashboardDueItem | null;
+  secondaryAlerts?: EngagementNotification[];
   onDueNowContinue?: () => void;
 };
 
@@ -35,6 +38,7 @@ export function DashboardWelcome({
   touchpointStates,
   latticeCells = [],
   dueNow,
+  secondaryAlerts = [],
   onDueNowContinue,
 }: DashboardWelcomeProps) {
   const salutation = timeOfDayGreeting();
@@ -64,6 +68,8 @@ export function DashboardWelcome({
           <DashboardDueNow item={dueNow} onContinue={onDueNowContinue} />
         </div>
       )}
+
+      <DashboardAlerts items={secondaryAlerts} />
 
       <div className="mt-4 border-t border-white/10 pt-4">
         <TouchpointProgressStrip

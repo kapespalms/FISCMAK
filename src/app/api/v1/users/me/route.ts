@@ -6,6 +6,12 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
+import {
+  buildSpecialtyStorage,
+  isValidBaseSpecialty,
+  isValidSubspecialtyForBase,
+} from "@/lib/v2/specialty-hierarchy";
+import type { CareerStage } from "@/lib/v2/onboarding-options";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -41,12 +47,41 @@ export async function PUT(request: Request) {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
   const body = await request.json();
-  const user = await upsertAppUser(auth.userId, auth.email, {
+
+  const patch: Record<string, unknown> = {
     name: body.name,
-    specialty: body.specialty,
     institution: body.institution,
-    career_stage: body.career_stage,
+    career_stage: body.career_stage as CareerStage | undefined,
     preferred_location: body.preferred_location,
-  }, auth.demo);
+  };
+
+  const resolvedBase = body.base_specialty ?? body.specialty;
+  if (resolvedBase !== undefined) {
+    if (resolvedBase && !isValidBaseSpecialty(resolvedBase)) {
+      return jsonError("validation_error", "Select a valid base specialty.", 400);
+    }
+    if (body.subspecialty && !isValidSubspecialtyForBase(resolvedBase, body.subspecialty)) {
+      return jsonError(
+        "validation_error",
+        "Select a subspecialty that matches your base specialty.",
+        400,
+      );
+    }
+    if (resolvedBase) {
+      Object.assign(
+        patch,
+        buildSpecialtyStorage({
+          base_specialty: resolvedBase,
+          subspecialty: body.subspecialty ?? null,
+          subspecialty_training_complete: body.subspecialty_training_complete,
+          career_stage: body.career_stage,
+        }),
+      );
+    }
+  } else if (body.specialty !== undefined) {
+    patch.specialty = body.specialty;
+  }
+
+  const user = await upsertAppUser(auth.userId, auth.email, patch, auth.demo);
   return jsonOk({ message: "Profile updated", ...user });
 }

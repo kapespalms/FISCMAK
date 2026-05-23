@@ -26,6 +26,7 @@ import { fetchDashboardWithTouchpoints } from "@/lib/v2/touchpoint-fetch";
 import {
   buildActiveTouchpointView,
   buildDashboardDueNow,
+  buildDashboardSecondaryAlerts,
   buildGoalCards,
   buildHealthStatusRow,
   buildProfileRows,
@@ -231,6 +232,14 @@ export function DashboardWorkspace() {
     [analytics, touchpointViews],
   );
 
+  const secondaryAlerts = useMemo(
+    () =>
+      analytics
+        ? buildDashboardSecondaryAlerts(analytics.engagement_notifications, dueNow)
+        : [],
+    [analytics, dueNow],
+  );
+
   const tpStates = useMemo(
     () => touchpointBarStates(analytics?.assessment_progress.completed_touchpoints ?? 0),
     [analytics],
@@ -317,6 +326,7 @@ export function DashboardWorkspace() {
               touchpointStates={tpStates}
               latticeCells={analytics.dashboard_lattice}
               dueNow={dueNow}
+              secondaryAlerts={secondaryAlerts}
               onDueNowContinue={handleDueNowContinue}
             />
           </>

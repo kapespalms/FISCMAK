@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 const FOREST = "#243b31";
 const LIME = "#5FD65F";
 const TICK_COUNT = 72;
+/** 6 o'clock — fill ticks clockwise (increasing angle in SVG coordinates). */
+const GAUGE_START_ANGLE = Math.PI / 2;
 
 function mixHex(from: string, to: string, t: number): string {
   const pf = parseInt(from.slice(1), 16);
@@ -48,10 +50,14 @@ function CircularTickGauge({
   const tickSpan = (Math.PI * 2) / TICK_COUNT;
 
   const ticks = Array.from({ length: TICK_COUNT }, (_, i) => {
-    const midAngle = Math.PI / 2 + i * tickSpan;
+    const midAngle = GAUGE_START_ANGLE + i * tickSpan;
     const filled = i < filledTicks;
     const color = filled
-      ? mixHex(FOREST, LIME, filledTicks <= 1 ? 1 : i / (filledTicks - 1))
+      ? mixHex(
+          FOREST,
+          LIME,
+          filledTicks <= 1 ? 1 : i / Math.max(filledTicks - 1, 1),
+        )
       : "#ffffff";
     return {
       key: i,

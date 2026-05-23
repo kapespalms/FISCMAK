@@ -35,7 +35,7 @@ export function buildEngagementNotifications(
       message:
         pulse.last_summary ??
         "Quick well-being, unrecognized work, and momentum update (~5–8 min).",
-      href: "/app/dashboard",
+      href: "/app/subjective",
       actionLabel: "Start check-in",
     });
   }

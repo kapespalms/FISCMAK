@@ -6,6 +6,7 @@ import type { DashboardHeaderModel } from "@/lib/v2/dashboard-architecture";
 import { TOUCHPOINT_META } from "@/lib/v2/formulas";
 import { GOAL_FRAMEWORK_LABELS, type GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
 import { computeGoalProgressWithHistory } from "@/lib/v2/goal-milestone-tracking";
+import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 
 export type TouchpointBarState = "done" | "active" | "locked";
 
@@ -349,4 +350,16 @@ export function buildDashboardDueNow(
     };
   }
   return null;
+}
+
+/** Secondary alerts — excludes items already shown in due-now banner. */
+export function buildDashboardSecondaryAlerts(
+  notifications: EngagementNotification[],
+  dueNow: DashboardDueNowItem | null,
+): EngagementNotification[] {
+  const skip = new Set<string>();
+  if (dueNow?.kind === "annual") skip.add("annual_refresh");
+  if (dueNow?.kind === "quarterly") skip.add("quarterly_pulse");
+
+  return notifications.filter((n) => !skip.has(n.id)).slice(0, 3);
 }

@@ -106,4 +106,4 @@ Satellite: `/app/jobs` (linked from Strategy, not top nav).
 `/app/lattice`, `/app/activities`, `/app/documents` → Objective tabs  
 `/app/goals`, `/app/jobs` → Plan  
 `/app/studio` → Output  
-`/app/mak` → Dashboard (Mak is global panel)
+`/app/mak` → `/app/dashboard` (Mak is the global panel)

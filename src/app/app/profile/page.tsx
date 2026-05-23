@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/Input";
 import { CardSection } from "@/components/ui/CardSection";
 import { PageShell } from "@/components/layout/PageShell";
 import { UserAvatar } from "@/components/profile/UserAvatar";
-import { CAREER_PHASES } from "@/lib/constants";
+import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { PROFILE_MAK } from "@/lib/card-mak-prompts";
 import {
   AVATAR_CHANGED_EVENT,
@@ -16,6 +16,19 @@ import {
 } from "@/lib/profile-avatar";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import type { Profile } from "@/lib/types/database";
+import { CAREER_LEVELS, type CareerLevel } from "@/lib/v2/onboarding-options";
+import {
+  defaultTrainingComplete,
+  migrateLegacySpecialty,
+} from "@/lib/v2/specialty-hierarchy";
+import type { AppUser } from "@/lib/v2/types";
+
+function splitName(full: string | null | undefined): { first: string; last: string } {
+  if (!full?.trim()) return { first: "", last: "" };
+  const parts = full.trim().split(/\s+/);
+  if (parts.length === 1) return { first: parts[0], last: "" };
+  return { first: parts[0], last: parts.slice(1).join(" ") };
+}
 
 export default function ProfilePage() {
   const fileRef = useRef<HTMLInputElement>(null);
@@ -24,15 +37,46 @@ export default function ProfilePage() {
   const [error, setError] = useState<string | null>(null);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [avatarError, setAvatarError] = useState<string | null>(null);
+
+  const [baseSpecialty, setBaseSpecialty] = useState("");
+  const [baseQuery, setBaseQuery] = useState("");
+  const [baseListOpen, setBaseListOpen] = useState(false);
+  const [subspecialty, setSubspecialty] = useState("");
+  const [subspecialtyQuery, setSubspecialtyQuery] = useState("");
+  const [subspecialtyListOpen, setSubspecialtyListOpen] = useState(false);
+  const [trainingComplete, setTrainingComplete] = useState(false);
+
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
-    specialty: "",
-    career_phase: CAREER_PHASES[2] as string,
+    career_stage: CAREER_LEVELS[3] as CareerLevel,
     institution_name: "",
     department_name: "",
     goals: "",
   });
+
+  function applySpecialtyFromUser(user: Pick<AppUser, "base_specialty" | "subspecialty" | "specialty" | "subspecialty_training_complete" | "career_stage">) {
+    const normalized = user.base_specialty
+      ? {
+          base_specialty: user.base_specialty,
+          subspecialty: user.subspecialty ?? null,
+          subspecialty_training_complete: Boolean(user.subspecialty_training_complete),
+        }
+      : migrateLegacySpecialty(user.specialty ?? null);
+
+    if (normalized.base_specialty) {
+      setBaseSpecialty(normalized.base_specialty);
+      setBaseQuery(normalized.base_specialty);
+    }
+    if (normalized.subspecialty) {
+      setSubspecialty(normalized.subspecialty);
+      setSubspecialtyQuery(normalized.subspecialty);
+      setTrainingComplete(
+        user.subspecialty_training_complete ??
+          defaultTrainingComplete(user.career_stage, normalized.subspecialty),
+      );
+    }
+  }
 
   useEffect(() => {
     setAvatarUrl(getProfileAvatarUrl());
@@ -45,48 +89,76 @@ export default function ProfilePage() {
   }, []);
 
   useEffect(() => {
-    if (!isSupabaseConfigured()) {
-      setLoading(false);
-      return;
-    }
-
     async function load() {
-      const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (!user) {
-        setLoading(false);
-        return;
-      }
+      try {
+        const meRes = await fetch("/api/v1/users/me");
+        const me = (await meRes.json()) as AppUser & { institution?: string | null };
 
-      const { data, error: fetchError } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", user.id)
-        .maybeSingle();
+        const { first, last } = splitName(me.name);
+        setForm((f) => ({
+          ...f,
+          first_name: first,
+          last_name: last,
+          career_stage: (me.career_stage as CareerLevel) ?? f.career_stage,
+          institution_name: me.institution ?? f.institution_name,
+        }));
+        applySpecialtyFromUser(me);
 
-      if (fetchError) setError(fetchError.message);
-      else if (data) {
-        const p = data as Profile;
-        setForm({
-          first_name: p.first_name ?? "",
-          last_name: p.last_name ?? "",
-          specialty: p.specialty ?? "",
-          career_phase: p.career_phase ?? CAREER_PHASES[2],
-          institution_name: p.institution_name ?? "",
-          department_name: p.department_name ?? "",
-          goals: p.goals ?? "",
-        });
-        if (p.photo_url && !getProfileAvatarUrl()) {
-          setAvatarUrl(p.photo_url);
+        if (isSupabaseConfigured()) {
+          const supabase = createClient();
+          const {
+            data: { user },
+          } = await supabase.auth.getUser();
+          if (user) {
+            const { data } = await supabase
+              .from("profiles")
+              .select("*")
+              .eq("id", user.id)
+              .maybeSingle();
+            if (data) {
+              const p = data as Profile;
+              setForm((f) => ({
+                ...f,
+                first_name: p.first_name ?? f.first_name,
+                last_name: p.last_name ?? f.last_name,
+                institution_name: p.institution_name ?? f.institution_name,
+                department_name: p.department_name ?? "",
+                goals: p.goals ?? "",
+              }));
+              if (p.photo_url && !getProfileAvatarUrl()) {
+                setAvatarUrl(p.photo_url);
+              }
+              if (!me.base_specialty && p.specialty) {
+                applySpecialtyFromUser({ ...me, specialty: p.specialty });
+              }
+            }
+          }
         }
+      } catch {
+        setError("Could not load profile.");
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     }
 
-    load();
+    void load();
   }, []);
+
+  function pickBase(value: string) {
+    setBaseSpecialty(value);
+    setBaseQuery(value);
+    setBaseListOpen(false);
+    setSubspecialty("");
+    setSubspecialtyQuery("");
+    setTrainingComplete(false);
+  }
+
+  function pickSubspecialty(value: string) {
+    setSubspecialty(value);
+    setSubspecialtyQuery(value);
+    setSubspecialtyListOpen(false);
+    setTrainingComplete(defaultTrainingComplete(form.career_stage, value));
+  }
 
   async function handleAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -103,28 +175,54 @@ export default function ProfilePage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!isSupabaseConfigured()) {
-      setSaved(true);
-      setTimeout(() => setSaved(false), 2000);
+    setError(null);
+
+    if (!baseSpecialty) {
+      setError("Select a base specialty from the list.");
       return;
     }
 
-    setError(null);
-    const supabase = createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (!user) return;
-
-    const { error: upsertError } = await supabase.from("profiles").upsert({
-      id: user.id,
-      ...form,
-      updated_at: new Date().toISOString(),
+    const fullName = `${form.first_name} ${form.last_name}`.trim();
+    const meRes = await fetch("/api/v1/users/me", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: fullName || undefined,
+        base_specialty: baseSpecialty,
+        subspecialty: subspecialty || null,
+        subspecialty_training_complete: subspecialty ? trainingComplete : false,
+        career_stage: form.career_stage,
+        institution: form.institution_name || undefined,
+      }),
     });
-
-    if (upsertError) {
-      setError(upsertError.message);
+    const meData = await meRes.json();
+    if (!meRes.ok) {
+      setError(meData.message ?? "Could not save career profile.");
       return;
+    }
+
+    if (isSupabaseConfigured()) {
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (user) {
+        const { error: upsertError } = await supabase.from("profiles").upsert({
+          id: user.id,
+          first_name: form.first_name,
+          last_name: form.last_name,
+          specialty: meData.specialty ?? baseSpecialty,
+          career_phase: form.career_stage,
+          institution_name: form.institution_name,
+          department_name: form.department_name,
+          goals: form.goals,
+          updated_at: new Date().toISOString(),
+        });
+        if (upsertError) {
+          setError(upsertError.message);
+          return;
+        }
+      }
     }
 
     setSaved(true);
@@ -139,9 +237,7 @@ export default function ProfilePage() {
       maxWidth="md"
     >
       {error && (
-        <p className="cx-alert-banner mb-6 px-4 py-3 text-sm">
-          {error}
-        </p>
+        <p className="cx-alert-banner mb-6 px-4 py-3 text-sm">{error}</p>
       )}
 
       <CardSection
@@ -176,14 +272,14 @@ export default function ProfilePage() {
       <CardSection
         eyebrow="Account"
         title="Career context"
-        description="Specialty, institution, and stated goals feed Coach Mak and your Career Profile."
+        description="Specialty hierarchy matches onboarding — base residency program plus optional fellowship."
         icon={User}
         mak={PROFILE_MAK.context}
       >
         {loading ? (
           <p className="text-sm text-cx-forest-dark/70">Loading profile…</p>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={(e) => void handleSubmit(e)} className="space-y-5">
             <div className="grid gap-4 sm:grid-cols-2">
               <Input
                 label="First name"
@@ -202,33 +298,49 @@ export default function ProfilePage() {
                 }
               />
             </div>
-            <Input
-              label="Specialty"
-              id="specialty"
-              value={form.specialty}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, specialty: e.target.value }))
-              }
+
+            <SpecialtyIntakeFields
+              baseSpecialty={baseSpecialty}
+              baseQuery={baseQuery}
+              onBaseQueryChange={setBaseQuery}
+              onPickBase={pickBase}
+              baseListOpen={baseListOpen}
+              onBaseListOpenChange={setBaseListOpen}
+              subspecialty={subspecialty}
+              subspecialtyQuery={subspecialtyQuery}
+              onSubspecialtyQueryChange={setSubspecialtyQuery}
+              onPickSubspecialty={pickSubspecialty}
+              subspecialtyListOpen={subspecialtyListOpen}
+              onSubspecialtyListOpenChange={setSubspecialtyListOpen}
+              trainingComplete={trainingComplete}
+              onTrainingCompleteChange={setTrainingComplete}
+              careerStage={form.career_stage}
             />
+
             <div>
-              <label htmlFor="phase" className="text-cx-label">
-                Career phase
+              <label htmlFor="career-stage" className="text-cx-label">
+                Career level
               </label>
               <select
-                id="phase"
-                value={form.career_phase}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, career_phase: e.target.value }))
-                }
+                id="career-stage"
+                value={form.career_stage}
+                onChange={(e) => {
+                  const career_stage = e.target.value as CareerLevel;
+                  setForm((f) => ({ ...f, career_stage }));
+                  if (subspecialty) {
+                    setTrainingComplete(defaultTrainingComplete(career_stage, subspecialty));
+                  }
+                }}
                 className="mt-2 min-h-11 w-full rounded-xl border border-cx-forest-dark/20 px-4 text-cx-forest-dark"
               >
-                {CAREER_PHASES.map((p) => (
-                  <option key={p} value={p}>
-                    {p}
+                {CAREER_LEVELS.map((level) => (
+                  <option key={level} value={level}>
+                    {level}
                   </option>
                 ))}
               </select>
             </div>
+
             <Input
               label="Institution"
               id="institution"
@@ -247,7 +359,7 @@ export default function ProfilePage() {
             />
             <div>
               <label htmlFor="goals" className="text-cx-label">
-                Career goals
+                Career goals (notes)
               </label>
               <textarea
                 id="goals"
@@ -257,7 +369,7 @@ export default function ProfilePage() {
                 }
                 rows={4}
                 className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-4 text-cx-forest-dark"
-                placeholder="What are you working toward?"
+                placeholder="Free-form notes — structured goals live on Strategy."
               />
             </div>
             <Button type="submit">{saved ? "Saved" : "Save profile"}</Button>
