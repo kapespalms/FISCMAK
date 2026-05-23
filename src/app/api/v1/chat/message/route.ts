@@ -54,6 +54,11 @@ import {
   resolveChatState,
   careerAlignmentFromHealth,
 } from "@/lib/mak-chatbot-states";
+import {
+  captureActivityFromMak,
+  shouldCaptureActivityMessage,
+} from "@/lib/v2/activity-capture";
+import type { ActivityEntry } from "@/lib/types/database";
 import type { AppSection } from "@/lib/mak-sections";
 
 const MAK_SYSTEM = `You are Coach Mak, an empathetic physician career coach. Use MemPalace context and assessment data. No medical advice. One question at a time. Surface invisible work and promotion narrative when relevant. Keep replies under 120 words unless summarizing.
@@ -262,6 +267,28 @@ export async function POST(request: Request) {
     }
   }
 
+  const flowIntent = (context?.flow_intent as string | undefined) ?? null;
+  let activityCaptured: ActivityEntry | null = null;
+
+  if (
+    user?.tier3_complete &&
+    message &&
+    message !== "__welcome__" &&
+    shouldCaptureActivityMessage(message, flowIntent)
+  ) {
+    try {
+      activityCaptured = await captureActivityFromMak({
+        userId: auth.userId,
+        demo: auth.demo,
+        text: message,
+        specialty: user.specialty,
+        careerPhase: user.career_stage,
+      });
+    } catch (e) {
+      console.error("Mak activity capture failed:", e);
+    }
+  }
+
   const escalationInput = extractEscalationInputFromMetadata(
     message,
     activeMeta as Record<string, unknown>,
@@ -406,6 +433,9 @@ export async function POST(request: Request) {
       annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
       quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
       globalState === "ONBOARDRECONCILE" ? buildReconcileMakSystemContext(activeMeta) : "",
+      flowIntent === "capture"
+        ? "Activity capture mode: the physician is logging invisible work. Acknowledge what they shared, reflect why it matters for promotion/advancement, confirm domain and track in plain language, and ask one follow-up (energy level or another recent invisible task). Do not repeat raw classification jargon."
+        : "",
       user ? buildConversationalPrompt(user, pendingTp1, onboarding) : "",
     ]
       .filter(Boolean)
@@ -477,6 +507,12 @@ export async function POST(request: Request) {
   if (touchpointSubmitted) {
     response = `${response}\n\nCheck-in saved:\n${touchpointSubmitted.summary}\n\nYour dashboard and Career Data vault are updated.`;
     suggested_actions = [{ action: "View updated dashboard", url: "/app/dashboard" }];
+  } else if (activityCaptured) {
+    response = `${response}\n\nLogged to Career Data: "${activityCaptured.raw_text}" → ${activityCaptured.primary_domain} · ${activityCaptured.primary_track}.`;
+    suggested_actions = [
+      { action: "View activities", url: "/app/objective?tab=activities" },
+      { action: "Capture another", url: "/app/dashboard" },
+    ];
   } else if (touchpointNextPrompt) {
     response = `${response}\n\n---\n\n${touchpointNextPrompt}`;
   }
@@ -535,5 +571,13 @@ export async function POST(request: Request) {
     global_state: globalState,
     touchpoint_submitted: Boolean(touchpointSubmitted),
     touchpoint_summary: touchpointSubmitted?.summary ?? null,
+    activity_captured: activityCaptured
+      ? {
+          id: activityCaptured.id,
+          raw_text: activityCaptured.raw_text,
+          primary_domain: activityCaptured.primary_domain,
+          primary_track: activityCaptured.primary_track,
+        }
+      : null,
   });
 }

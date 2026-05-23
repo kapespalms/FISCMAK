@@ -29,6 +29,9 @@ export function ActivitiesView() {
 
   useEffect(() => {
     loadActivities();
+    const onLogged = () => void loadActivities();
+    window.addEventListener("fiscmak:activity-logged", onLogged);
+    return () => window.removeEventListener("fiscmak:activity-logged", onLogged);
   }, [loadActivities]);
 
   async function addActivity(e: React.FormEvent) {

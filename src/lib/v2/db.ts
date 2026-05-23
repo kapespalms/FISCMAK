@@ -62,8 +62,8 @@ export async function fetchDocuments(userId: string, demo: boolean): Promise<Doc
 }
 
 export async function fetchActivities(userId: string, demo: boolean): Promise<ActivityEntry[]> {
-  if (demo) return DEMO_ACTIVITIES;
-  if (!isSupabaseConfigured()) return DEMO_ACTIVITIES;
+  if (demo) return getServerDemo(userId).activities;
+  if (!isSupabaseConfigured()) return getServerDemo(userId).activities;
   const supabase = await createClient();
   const { data } = await supabase
     .from("activity_entries")

@@ -64,7 +64,7 @@ export const DASHBOARD_MAK_ACTIONS: DashboardMakAction[] = [
     subtitle: "CV, dossier, or PDF",
     icon: Upload,
     intent: "upload",
-    href: "/app/objective?tab=documents",
+    href: "/app/objective?tab=documents&upload=1",
     tier: "primary",
   },
   {

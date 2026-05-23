@@ -1,3 +1,5 @@
+import type { ActivityEntry } from "@/lib/types/database";
+import { DEMO_ACTIVITIES } from "@/lib/activities-storage";
 import type {
   AppUser,
   CareerAssessment,
@@ -17,6 +19,7 @@ type DemoState = {
   user: AppUser;
   assessments: CareerAssessment[];
   documents: DocumentRecord[];
+  activities: ActivityEntry[];
   chatMessages: ChatMessage[];
   mempalace: MemPalaceExport | null;
   jobMatches: { job_id: string; match_score: number; viewed_at?: string; saved_at?: string }[];
@@ -55,6 +58,7 @@ function load(): DemoState {
     user: defaultUser(),
     assessments: [],
     documents: [],
+    activities: [...DEMO_ACTIVITIES],
     chatMessages: [],
     mempalace: null,
     jobMatches: [],
@@ -66,7 +70,12 @@ function load(): DemoState {
     const raw = localStorage.getItem(KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Partial<DemoState>;
-      return { ...empty(), ...parsed, narrativeProgress: parsed.narrativeProgress ?? [] };
+      return {
+        ...empty(),
+        ...parsed,
+        activities: parsed.activities?.length ? parsed.activities : [...DEMO_ACTIVITIES],
+        narrativeProgress: parsed.narrativeProgress ?? [],
+      };
     }
   } catch {
     /* ignore */
@@ -231,6 +240,7 @@ export function getServerDemo(userId: string): DemoState {
       user: dashboardReadyDemoUser(userId),
       assessments: [],
       documents: [],
+      activities: [...DEMO_ACTIVITIES],
       chatMessages: [],
       mempalace: null,
       jobMatches: [],
@@ -241,4 +251,10 @@ export function getServerDemo(userId: string): DemoState {
   const state = ensureDemoTouchpointReady(serverDemo.get(userId)!);
   serverDemo.set(userId, state);
   return state;
+}
+
+export function addServerDemoActivity(userId: string, entry: ActivityEntry) {
+  const state = getServerDemo(userId);
+  state.activities = [entry, ...state.activities];
+  serverDemo.set(userId, state);
 }

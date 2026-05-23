@@ -134,11 +134,15 @@ export function DashboardWorkspace() {
   }, [welcome, startMakFlow]);
 
   useEffect(() => {
-    const onTouchpointComplete = () => {
+    const onRefresh = () => {
       void load();
     };
-    window.addEventListener("fiscmak:touchpoint-complete", onTouchpointComplete);
-    return () => window.removeEventListener("fiscmak:touchpoint-complete", onTouchpointComplete);
+    window.addEventListener("fiscmak:touchpoint-complete", onRefresh);
+    window.addEventListener("fiscmak:activity-logged", onRefresh);
+    return () => {
+      window.removeEventListener("fiscmak:touchpoint-complete", onRefresh);
+      window.removeEventListener("fiscmak:activity-logged", onRefresh);
+    };
   }, [load]);
 
   useEffect(() => {

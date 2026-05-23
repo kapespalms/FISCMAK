@@ -36,11 +36,15 @@ export function CareerDataVaultPanel() {
     void load();
     const onUpdate = () => void load();
     window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
-    return () => window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
+    window.addEventListener("fiscmak:activity-logged", onUpdate);
+    return () => {
+      window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
+      window.removeEventListener("fiscmak:activity-logged", onUpdate);
+    };
   }, [load]);
 
   if (loading) {
-    return <p className="text-sm text-fiscmak-muted">Loading Career Data vault…</p>;
+    return <p className="text-sm text-cx-text-secondary">Loading Career Data vault…</p>;
   }
 
   const vault = analytics?.career_vault;
@@ -59,7 +63,7 @@ export function CareerDataVaultPanel() {
   if (!vault?.sections.length) {
     return (
       <Card>
-        <p className="text-sm text-fiscmak-muted">
+        <p className="text-cx-body">
           Upload a CV and run enrichment to populate your Career Data vault from OpenAlex, NIH
           RePORTER, and CV parse.
         </p>
@@ -69,16 +73,16 @@ export function CareerDataVaultPanel() {
 
   return (
     <div className="space-y-4">
-      <Card accent="green">
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career Data Vault</p>
-        <h2 className="mt-1 text-lg font-bold">
+      <Card accent={vault.pending_review > 0 ? "amber" : "green"}>
+        <p className="text-cx-label uppercase">Career Data Vault</p>
+        <h2 className="mt-1 text-cx-h3">
           {academic?.objectiveLead ?? "Verified career record"}
         </h2>
-        <p className="mt-2 text-sm font-medium text-fiscmak-ink">{vault.summary}</p>
+        <p className="mt-2 text-cx-body">{vault.summary}</p>
         {vault.changes_since_quarter && (
-          <p className="mt-2 text-sm text-fm-strong">{vault.changes_since_quarter}</p>
+          <p className="mt-2 text-sm font-medium text-cx-text">{vault.changes_since_quarter}</p>
         )}
-        <div className="mt-3 flex flex-wrap gap-2 text-xs text-fiscmak-muted">
+        <div className="mt-3 flex flex-wrap gap-2 text-xs text-cx-text-secondary">
           {vault.sources.map((s) => (
             <Badge key={s}>{s}</Badge>
           ))}
@@ -90,7 +94,7 @@ export function CareerDataVaultPanel() {
           )}
         </div>
         {vault.pending_review > 0 && (
-          <p className="mt-2 text-sm text-fm-developing">
+          <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-2 text-sm text-cx-text">
             {vault.pending_review} item{vault.pending_review > 1 ? "s" : ""} pending review in
             Reconcile tab
           </p>
@@ -101,18 +105,20 @@ export function CareerDataVaultPanel() {
         {vault.sections.map(({ id, label, count }) => (
           <Card key={id}>
             <div className="flex items-start justify-between gap-2">
-              <p className="font-semibold">{label}</p>
+              <p className="font-semibold text-cx-text">{label}</p>
               <Badge>{count}</Badge>
             </div>
-            <p className="mt-1 text-xs text-fiscmak-muted">Verified from enrichment + CV parse</p>
+            <p className="mt-1 text-xs text-cx-text-secondary">
+              Verified from enrichment + CV parse
+            </p>
           </Card>
         ))}
       </div>
 
       {(vault.npi_verified || vault.orcid) && (
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Identifiers</p>
-          <ul className="mt-2 space-y-1 text-sm">
+          <p className="text-cx-label uppercase">Identifiers</p>
+          <ul className="mt-2 space-y-1 text-sm text-cx-body">
             {vault.npi_verified && <li>NPI verified via NPPES</li>}
             {vault.orcid && <li>ORCID: {vault.orcid}</li>}
           </ul>
@@ -121,9 +127,9 @@ export function CareerDataVaultPanel() {
 
       {academic && (
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Academic focus</p>
-          <p className="mt-2 text-sm">{academic.promotionFocus}</p>
-          <p className="mt-2 text-xs text-fiscmak-muted">
+          <p className="text-cx-label uppercase">Academic focus</p>
+          <p className="mt-2 text-cx-body">{academic.promotionFocus}</p>
+          <p className="mt-2 text-xs text-cx-text-secondary">
             Primary output templates: {academic.outputTemplates.join(" · ")}
           </p>
         </Card>

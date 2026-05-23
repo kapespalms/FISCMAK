@@ -78,6 +78,7 @@ export function MakPanel({
   const [touchpointMode, setTouchpointMode] = useState<
     import("@/components/layout/AppShell").MakFlowTouchpoint | null
   >(null);
+  const [activeFlowIntent, setActiveFlowIntent] = useState<MakFlowIntent | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
 
@@ -161,6 +162,7 @@ export function MakPanel({
     const next = resetConversationGreeting(section, pendingFlow.greeting);
     setMessages(next);
     setTouchpointMode(pendingFlow.touchpoint ?? null);
+    setActiveFlowIntent(pendingFlow.intent);
     setInput("");
     onFlowHandled();
   }, [flowNonce, pendingFlow, section, onFlowHandled]);
@@ -207,6 +209,7 @@ export function MakPanel({
             onboarding: onboardingActive,
             annual_refresh: touchpointMode === "annual",
             quarterly_pulse: touchpointMode === "quarterly",
+            flow_intent: activeFlowIntent ?? undefined,
           },
         }),
       });
@@ -215,6 +218,12 @@ export function MakPanel({
       if (data.touchpoint_submitted) {
         setTouchpointMode(null);
         window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
+      }
+      if (data.activity_captured) {
+        window.dispatchEvent(new CustomEvent("fiscmak:activity-logged"));
+        if (activeFlowIntent === "capture") {
+          setActiveFlowIntent(null);
+        }
       }
       if (data.escalation?.trigger) {
         setActiveEscalation({
