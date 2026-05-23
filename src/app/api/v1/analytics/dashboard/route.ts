@@ -17,6 +17,9 @@ export async function GET() {
   const dashboard = await buildAnalyticsDashboard(user, auth.demo);
   return jsonOk({
     career_readiness_index: dashboard.career_readiness_index,
+    career_health: dashboard.career_health,
+    coaching_brief: dashboard.coaching_brief,
+    quarterly_pulse: dashboard.quarterly_pulse,
     onboarding_progress: dashboard.onboarding_progress,
     assessment_progress: dashboard.assessment_progress,
     burnout_trend: dashboard.burnout_trend,

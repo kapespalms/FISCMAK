@@ -145,8 +145,15 @@ export type QuestionDef = {
   required?: boolean;
 };
 
+import type { CareerHealthView } from "@/lib/v2/career-health-view";
+import type { CareerCoachingBrief } from "@/lib/v2/career-recommendations";
+import type { QuarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
+
 export type AnalyticsDashboard = {
   career_readiness_index: number;
+  career_health: CareerHealthView | null;
+  coaching_brief: CareerCoachingBrief | null;
+  quarterly_pulse: QuarterlyPulseStatus | null;
   onboarding_progress: {
     tier1_complete: boolean;
     tier2_complete: boolean;

@@ -1,6 +1,10 @@
 import type { AppUser, CareerAssessment, DocumentRecord } from "@/lib/v2/types";
 import { getGloballyAnsweredIds, getPendingQuestions } from "@/lib/v2/conversational-assessment";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
+import {
+  serviceCitizenshipSummary,
+  unrecognizedWorkSummary,
+} from "@/lib/v2/career-language";
 import { TOUCHPOINT_META, computeAssessmentScore } from "@/lib/v2/formulas";
 import { questionsForTouchpoint, QUESTION_BANK } from "@/lib/v2/question-bank";
 
@@ -29,6 +33,8 @@ export type AssessmentInsights = {
   coherence_label: string;
   s_index: number | null;
   iwq: number | null;
+  service_citizenship_summary: string | null;
+  unrecognized_work_summary: string | null;
   conversation_coverage_pct: number;
   mak_suggested_opener: string;
 };
@@ -334,6 +340,18 @@ export function buildAssessmentInsights(input: {
     coherence_label: coherence.label,
     s_index: cvMetrics?.s_index ?? null,
     iwq: cvMetrics?.iwq ?? null,
+    service_citizenship_summary: cvMetrics
+      ? serviceCitizenshipSummary({
+          score: cvMetrics.s_index,
+          committeeRoles: cvMetrics.evidence.committee_roles,
+          mentoringMentions: cvMetrics.evidence.mentoring_mentions,
+        })
+      : null,
+    unrecognized_work_summary: unrecognizedWorkSummary({
+      weeklyHours: undefined,
+      specialty: user.specialty,
+      aboveAverage: (cvMetrics?.iwq ?? 0) >= 50,
+    }),
     conversation_coverage_pct,
     mak_suggested_opener: nextPendingTp
       ? `Let's explore ${nextPendingTp.title.toLowerCase()} — tell me what's been most true for you lately.`

@@ -14,7 +14,7 @@ export const LAY_OF_LAND_STEPS: TourStep[] = [
   {
     id: "dashboard",
     title: "Dashboard — your career at a glance",
-    body: "Career Readiness, S-Index, and IWQ scores live here. Quick actions capture work, upload documents, and create outputs.",
+    body: "Career Health Score, service citizenship, and unrecognized work — all in plain career language. Quick actions capture work, upload documents, and create outputs.",
     highlight: "Home base for coaching progress",
   },
   {

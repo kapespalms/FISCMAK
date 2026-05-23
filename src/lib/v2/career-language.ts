@@ -1,0 +1,304 @@
+import type { PrimaryCareerTrack, PracticeSetting } from "@/lib/v2/onboarding-options";
+
+/** Backend metric keys → user-facing labels (never show raw keys in UI). */
+export const METRIC_LABELS = {
+  h_index: "Research Influence",
+  m_quotient: "Research Influence",
+  g_index: "Research Influence",
+  rcr: "Research Impact per Paper",
+  wrcr: "Total Research Footprint",
+  epsilon_index: "Career-Adjusted Research Standing",
+  publication_velocity: "Publication Momentum",
+  s_index: "Service Citizenship",
+  wrvu: "Clinical Volume",
+  sop_score: "Clinical Breadth",
+  pfi_burnout: "Burnout Risk",
+  pfi_fulfillment: "Professional Fulfillment",
+  bits_score: "Task Burden",
+  iwq: "Unrecognized Work",
+  cdi: "Career Health Score",
+  lps: "Career Map",
+  track_alignment: "Career Alignment",
+  grant_portfolio: "Funding Track Record",
+  promotion_readiness: "Advancement Readiness",
+  cri: "Career Health Score",
+} as const;
+
+export type MetricKey = keyof typeof METRIC_LABELS;
+
+export type TrafficLight = "green" | "amber" | "red";
+
+export type CareerLevelLabel =
+  | "Career Explorer"
+  | "Career Builder"
+  | "Career Launcher"
+  | "Career Accelerator"
+  | "Career Legacy"
+  | "Career Reflection";
+
+const CAREER_LEVEL_LABELS: Record<string, CareerLevelLabel> = {
+  "Medical Student": "Career Explorer",
+  Resident: "Career Builder",
+  Fellow: "Career Builder",
+  "Early Career (0–7 yr)": "Career Launcher",
+  "Mid-Career (8–20 yr)": "Career Accelerator",
+  "Late Career (20+ yr)": "Career Legacy",
+  Retired: "Career Reflection",
+  "Early Attending": "Career Launcher",
+  "Mid-Career Attending": "Career Accelerator",
+  "Senior Attending": "Career Legacy",
+};
+
+export function careerLevelDashboardTitle(careerStage: string | null): CareerLevelLabel {
+  if (!careerStage) return "Career Launcher";
+  return CAREER_LEVEL_LABELS[careerStage] ?? "Career Launcher";
+}
+
+export function careerLevelAspirationPrompt(careerStage: string | null): string {
+  const prompts: Record<string, string> = {
+    "Medical Student": "Which parts of medicine excite you most?",
+    Resident: "What kind of physician do you want to become?",
+    Fellow: "What kind of physician do you want to become?",
+    "Early Career (0–7 yr)": "Where do you want to be in 5 years?",
+    "Mid-Career (8–20 yr)": "What's your next big move?",
+    "Late Career (20+ yr)": "How do you want to be remembered?",
+    Retired: "What still gives you purpose?",
+  };
+  return prompts[careerStage ?? ""] ?? "Where do you want to be in 5 years?";
+}
+
+export type SpecialtyGroup = "cognitive" | "procedural" | "diagnostic" | "primary_care" | "other";
+
+export function specialtyGroup(specialty: string | null): SpecialtyGroup {
+  if (!specialty) return "other";
+  const s = specialty.toLowerCase();
+  if (/psychiatr|neurolog|internal medicine|pediatric/.test(s) && !/surgery|radiology/.test(s)) {
+    if (/family medicine/.test(s)) return "primary_care";
+    if (/psychiatr|neurolog|internal medicine|pediatric/.test(s)) return "cognitive";
+  }
+  if (/family medicine|general internal|general pediatr/.test(s)) return "primary_care";
+  if (/surgery|emergency|obstetric|gynecolog|orthop|anesthes|otolaryng/.test(s)) return "procedural";
+  if (/radiology|pathology|diagnostic/.test(s)) return "diagnostic";
+  if (/psychiatr|neurolog/.test(s)) return "cognitive";
+  return "other";
+}
+
+export function normalizeCdiTrack(
+  track: PrimaryCareerTrack | null,
+): "Researcher" | "Clinician-Educator" | "Clinician" | "Leader/Admin" {
+  switch (track) {
+    case "Researcher":
+      return "Researcher";
+    case "Educator":
+      return "Clinician-Educator";
+    case "Leader":
+      return "Leader/Admin";
+    case "Clinician":
+    case "Advocate":
+    case "Innovator":
+    case "Quality-Safety":
+    case "Wellness Champion":
+    default:
+      return "Clinician";
+  }
+}
+
+export function clinicalVolumePhrase(specialty: string | null): string {
+  const s = (specialty ?? "").toLowerCase();
+  if (/psychiatr/.test(s)) return "patient encounters and therapy hours";
+  if (/family medicine|internal medicine|pediatric/.test(s)) return "patient panel size and visit volume";
+  if (/emergency/.test(s)) return "patients per shift and shift volume";
+  if (/surgery|orthop|urolog|obstetric/.test(s)) return "operative cases and procedures";
+  return "clinical activity and patient volume";
+}
+
+export function invisibleWorkExamples(specialty: string | null): string {
+  const s = (specialty ?? "").toLowerCase();
+  if (/psychiatr/.test(s)) {
+    return "after-hours crisis calls, involuntary commitment paperwork, care coordination with social services";
+  }
+  if (/family medicine/.test(s)) {
+    return "prior authorizations, insurance appeals, care coordination calls, community resource navigation";
+  }
+  if (/emergency/.test(s)) {
+    return "post-shift charting, callbacks, medical-legal documentation, EMS medical direction";
+  }
+  if (/surgery|orthop/.test(s)) {
+    return "tumor boards, M&M preparation, pre-op planning, post-op family calls";
+  }
+  return "after-hours charting, prior authorizations, care coordination, and informal mentoring";
+}
+
+export function researchInfluencePhrase(specialty: string | null): string {
+  const s = (specialty ?? "").toLowerCase();
+  if (/psychiatr/.test(s)) return "your published work and its influence on the field of psychiatry";
+  if (/family medicine/.test(s)) return "your contributions to the family medicine knowledge base";
+  if (/emergency/.test(s)) return "your scholarly output and its impact on emergency medicine practice";
+  if (/surgery|orthop/.test(s)) return "your research contributions and their influence on surgical practice";
+  return "your published work and its influence in your field";
+}
+
+export function promotionReadinessLabel(
+  setting: PracticeSetting | null,
+  specialty: string | null,
+): string {
+  const s = (specialty ?? "").toLowerCase();
+  if (setting === "Community") return "Career milestone progress";
+  if (/emergency/.test(s)) return "Promotion benchmarks";
+  if (/surgery/.test(s)) return "Academic advancement metrics";
+  return "Advancement readiness";
+}
+
+export function scoreToTrafficLight(score: number): TrafficLight {
+  if (score >= 70) return "green";
+  if (score >= 50) return "amber";
+  return "red";
+}
+
+export function burnoutRiskFromPfi(burnoutScore: number | null | undefined): {
+  light: TrafficLight;
+  label: string;
+  summary: string;
+} {
+  if (burnoutScore == null) {
+    return {
+      light: "amber",
+      label: "Burnout Risk",
+      summary: "Complete your well-being check with Coach Mak to see your burnout risk level.",
+    };
+  }
+  if (burnoutScore >= 3.325) {
+    return {
+      light: "red",
+      label: "Burnout Risk",
+      summary:
+        "Your well-being check shows 🔴 High Burnout Risk — your energy and engagement may need attention. Coach Mak can help you explore what's driving this.",
+    };
+  }
+  if (burnoutScore >= 2.5) {
+    return {
+      light: "amber",
+      label: "Burnout Risk",
+      summary:
+        "Your well-being check shows 🟡 Moderate Burnout Risk — worth monitoring as workloads shift.",
+    };
+  }
+  return {
+    light: "green",
+    label: "Burnout Risk",
+    summary:
+      "Your well-being check shows 🟢 Low Burnout Risk — your energy and engagement are in a healthy range.",
+  };
+}
+
+export function fulfillmentSummary(fulfillmentScore: number | null | undefined): string {
+  if (fulfillmentScore == null) {
+    return "Tell Coach Mak about your sense of meaning at work to capture professional fulfillment.";
+  }
+  if (fulfillmentScore >= 3) {
+    return "Your professional fulfillment is strong — you're finding meaningful satisfaction in your work.";
+  }
+  if (fulfillmentScore >= 2) {
+    return "Your professional fulfillment is moderate — there may be room to reconnect with what gives your work meaning.";
+  }
+  return "Your professional fulfillment appears lower than ideal — this is worth exploring with Coach Mak.";
+}
+
+export function researchInfluenceSummary(input: {
+  percentile: number;
+  specialty: string | null;
+  rank?: string | null;
+  trend?: "up" | "stable" | "down";
+}): string {
+  const field = input.specialty ?? "your specialty";
+  const rank = input.rank ? ` ${input.rank.toLowerCase()}` : "";
+  const trend =
+    input.trend === "up"
+      ? " and trending upward"
+      : input.trend === "down"
+        ? " — momentum may be slowing"
+        : "";
+  return `Your published work is being cited and building influence at the ${input.percentile}${ordinalSuffix(input.percentile)} percentile for ${field}${rank}${trend}.`;
+}
+
+export function serviceCitizenshipSummary(input: {
+  score: number;
+  committeeRoles?: number;
+  mentoringMentions?: number;
+}): string {
+  const parts: string[] = [];
+  if (input.committeeRoles && input.committeeRoles > 0) {
+    parts.push(`${input.committeeRoles} committee role${input.committeeRoles > 1 ? "s" : ""}`);
+  }
+  if (input.mentoringMentions && input.mentoringMentions > 0) {
+    parts.push(`${input.mentoringMentions} mentoring signal${input.mentoringMentions > 1 ? "s" : ""}`);
+  }
+  const detail = parts.length ? parts.join(", ") : "contributions beyond clinical care";
+  if (input.score >= 70) {
+    return `Your service contributions (${detail}) place you in a strong range for your setting.`;
+  }
+  if (input.score >= 45) {
+    return `Your service contributions span ${detail} — solid citizenship with room to make more visible.`;
+  }
+  return `Your documented service footprint is still emerging — ${detail}.`;
+}
+
+export function unrecognizedWorkSummary(input: {
+  weeklyHours?: number;
+  specialty: string | null;
+  aboveAverage?: boolean;
+}): string {
+  const examples = invisibleWorkExamples(input.specialty);
+  if (!input.weeklyHours) {
+    return `Unrecognized work — ${examples} — often doesn't show up on your CV or in compensation. Tell Mak your weekly estimate to quantify this.`;
+  }
+  const avgNote = input.aboveAverage ? " This is above average for your specialty." : "";
+  return `Your unrecognized work load is significant — about ${input.weeklyHours} hours/week on ${examples}.${avgNote}`;
+}
+
+export function taskBurdenSummary(input: {
+  unnecessary?: number;
+  unreasonable?: number;
+  weeklyHours?: number;
+}): string {
+  const hours = input.weeklyHours ?? 0;
+  if (input.unreasonable != null && input.unreasonable >= 3.5) {
+    return `You're spending an estimated ${hours || 8} hours/week on tasks that feel outside your core responsibilities — higher than average for your specialty.`;
+  }
+  if (input.unnecessary != null && input.unnecessary >= 3) {
+    return `A meaningful share of your time goes to tasks that feel unnecessary — worth discussing delegation with Coach Mak.`;
+  }
+  return `Your task burden appears manageable relative to peers, though seasonal spikes are common.`;
+}
+
+export function careerHealthScoreSummary(score: number, strongest: string[], growth: string[]): string {
+  const strong =
+    strongest.length > 0 ? `Strongest areas: ${strongest.join(" and ")}.` : "";
+  const grow =
+    growth.length > 0 ? `Growth opportunity: ${growth.join(" and ")}.` : "";
+  return `Your overall Career Health Score is ${score}/100. ${strong} ${grow}`.trim();
+}
+
+function ordinalSuffix(n: number): string {
+  const mod100 = n % 100;
+  if (mod100 >= 11 && mod100 <= 13) return "th";
+  switch (n % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+}
+
+export function trafficLightEmoji(light: TrafficLight): string {
+  return light === "green" ? "🟢" : light === "amber" ? "🟡" : "🔴";
+}
+
+export function domainStatusLabel(score: number): string {
+  const light = scoreToTrafficLight(score);
+  return `${trafficLightEmoji(light)} ${score}/100`;
+}

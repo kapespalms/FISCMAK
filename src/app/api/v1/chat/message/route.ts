@@ -18,13 +18,20 @@ import {
   processInstrumentTurn,
 } from "@/lib/v2/instrument-conversation-service";
 import { computeTouchpoint1Dashboard } from "@/lib/v2/onboarding-compute";
+import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 import {
   buildOnboardingSuggestedActions,
   buildWelcomeGreeting,
 } from "@/lib/v2/onboarding-flow";
+import { buildCareerHealthView } from "@/lib/v2/career-health-view";
+import { buildCareerRecommendations, recommendationsContextForMak } from "@/lib/v2/career-recommendations";
 import { demoMakReply } from "@/lib/mak-demo-replies";
 
-const MAK_SYSTEM = `You are Coach Mak, an empathetic physician career coach. Use MemPalace context and assessment data. No medical advice. One question at a time. Surface invisible work and promotion narrative when relevant. Keep replies under 120 words unless summarizing.`;
+const MAK_SYSTEM = `You are Coach Mak, an empathetic physician career coach. Use MemPalace context and assessment data. No medical advice. One question at a time. Surface invisible work and promotion narrative when relevant. Keep replies under 120 words unless summarizing.
+
+CRITICAL: Speak in career outcomes, not formulas. Never say h-index, RCR, BITS, IWQ, or CDI unless the physician asks for technical detail. Use: Career Health Score, Research Influence, Burnout Risk, Unrecognized Work, Service Citizenship, Advancement Readiness.
+
+When coaching recommendations are provided, prioritize the urgent/high items first. Use plain language and actionable next steps.`;
 
 type HistoryTurn = { role: "user" | "assistant"; content: string };
 
@@ -94,6 +101,19 @@ export async function POST(request: Request) {
   const refreshedAssessments = await fetchAssessments(auth.userId, auth.demo);
   const pendingTp1 = user ? getPendingQuestions(1, refreshedAssessments) : [];
 
+  const cvDoc = docs.find((d) => d.document_type === "CV");
+  const cvMetricsForCoach =
+    cvDoc?.extracted_text && user
+      ? computeCvMetrics(cvDoc.extracted_text, refreshedAssessments)
+      : null;
+  const careerHealth =
+    user?.tier1_complete
+      ? buildCareerHealthView({ user, cvMetrics: cvMetricsForCoach, assessments: refreshedAssessments })
+      : null;
+  const coachingBrief = careerHealth
+    ? buildCareerRecommendations({ user: user!, careerHealth, cvMetrics: cvMetricsForCoach })
+    : null;
+
   const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
   let response: string;
   let suggested_actions: { action: string; url: string }[] = [];
@@ -113,7 +133,7 @@ export async function POST(request: Request) {
       } else if (pendingCount > 0) {
         response += `\n\nTell me about your promotion track or biggest career goal over the next few years.`;
       } else if (touchpointComplete) {
-        response += `\n\nYour Touchpoint 1 dashboard is ready — CDI baseline and wellbeing scores are live.`;
+        response += `\n\nYour Career Health snapshot is ready — open the dashboard to see your score in plain language.`;
       }
       suggested_actions = buildOnboardingSuggestedActions();
     } else {
@@ -133,6 +153,8 @@ export async function POST(request: Request) {
         ? `Next instrument prompt: ${nextInstrumentPrompt(user)}`
         : "",
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",
+      coachingBrief ? recommendationsContextForMak(coachingBrief) : "",
+      careerHealth ? `Career Health Score: ${careerHealth.career_health_score}/100` : "",
       user ? buildConversationalPrompt(user, pendingTp1, onboarding) : "",
     ]
       .filter(Boolean)

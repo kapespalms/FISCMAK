@@ -87,14 +87,18 @@ export function AssessmentInsightsWorkspace() {
           <p className="mt-1 text-xs text-fiscmak-muted">{insights.coherence_label}</p>
         </Card>
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">S-Index</p>
+          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Service Citizenship</p>
           <p className="mt-2 text-4xl font-bold">{insights.s_index ?? "—"}</p>
-          <p className="mt-1 text-xs text-fiscmak-muted">Documented service on CV</p>
+          <p className="mt-1 text-xs text-fiscmak-muted">
+            {insights.service_citizenship_summary ?? "Breadth of service beyond clinical care"}
+          </p>
         </Card>
         <Card>
-          <p className="text-xs font-semibold uppercase text-fiscmak-muted">IWQ</p>
-          <p className="mt-2 text-4xl font-bold">{insights.iwq ?? "—"}</p>
-          <p className="mt-1 text-xs text-fiscmak-muted">Invisible work quotient</p>
+          <p className="text-xs font-semibold uppercase text-fiscmak-muted">Unrecognized Work</p>
+          <p className="mt-2 text-sm text-fiscmak-muted">
+            {insights.unrecognized_work_summary ??
+              "Work that may not appear on your CV or in compensation — discuss with Mak."}
+          </p>
         </Card>
       </div>
 

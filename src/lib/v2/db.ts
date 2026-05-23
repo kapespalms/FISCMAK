@@ -15,6 +15,10 @@ import {
   TOUCHPOINT_META,
 } from "@/lib/v2/formulas";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
+import { buildCareerHealthView } from "@/lib/v2/career-health-view";
+import { buildCareerRecommendations } from "@/lib/v2/career-recommendations";
+import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 
 export async function fetchAssessments(
   userId: string,
@@ -127,9 +131,9 @@ export async function buildAnalyticsDashboard(
       : null;
 
   const nextTp = completedTouchpoints < 7 ? completedTouchpoints + 1 : null;
-  const meta = nextTp ? TOUCHPOINT_META[nextTp] : null;
-  const dueDate = meta
-    ? new Date(new Date(user.created_at).getTime() + meta.daysFromStart * 86400000).toISOString()
+  const tpMeta = nextTp ? TOUCHPOINT_META[nextTp] : null;
+  const dueDate = tpMeta
+    ? new Date(new Date(user.created_at).getTime() + tpMeta.daysFromStart * 86400000).toISOString()
     : null;
   const daysUntil = dueDate
     ? Math.ceil((new Date(dueDate).getTime() - Date.now()) / 86400000)
@@ -141,8 +145,23 @@ export async function buildAnalyticsDashboard(
     ? computeCvMetrics(cv.extracted_text, assessments)
     : null;
 
+  const careerHealth =
+    user.tier1_complete
+      ? buildCareerHealthView({ user, cvMetrics, assessments })
+      : null;
+
+  const coachingBrief = careerHealth
+    ? buildCareerRecommendations({ user, careerHealth, cvMetrics })
+    : null;
+
+  const onboardingMeta = getOnboardingMetadata(user);
+  const quarterlyPulse = user.tier3_complete ? quarterlyPulseStatus(onboardingMeta) : null;
+
   return {
-    career_readiness_index: cri,
+    career_readiness_index: careerHealth?.career_health_score ?? cri,
+    career_health: careerHealth,
+    coaching_brief: coachingBrief,
+    quarterly_pulse: quarterlyPulse,
     onboarding_progress: {
       tier1_complete: user.tier1_complete,
       tier2_complete: user.tier2_complete,
@@ -163,10 +182,10 @@ export async function buildAnalyticsDashboard(
       jobs_saved: saved.length,
       average_match_score: avgMatch,
     },
-    next_touchpoint: meta
+    next_touchpoint: tpMeta
       ? {
           number: nextTp!,
-          category: meta.title,
+          category: tpMeta.title,
           due_date: dueDate,
           days_until_due: daysUntil,
         }

@@ -12,6 +12,10 @@ import { DASHBOARD_OPTION_TABS } from "@/lib/mak-sections";
 import { useAppShell } from "@/components/layout/AppShell";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 import { CvUploadPanel } from "@/components/documents/CvUploadPanel";
+import { CareerHealthSnapshot } from "@/components/workspace/CareerHealthSnapshot";
+import { CareerRecommendationsPanel } from "@/components/workspace/CareerRecommendationsPanel";
+import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
+import type { CareerRecommendation } from "@/lib/v2/career-recommendations";
 
 const EMPTY_CV_METRICS: AnalyticsDashboard["cv_metrics"] = {
   available: false,
@@ -88,7 +92,7 @@ export function DashboardWorkspace() {
 
     setUploadSuccess(
       data.cv_metrics?.s_index != null
-        ? `CV uploaded. S-Index: ${data.cv_metrics.s_index}`
+        ? "CV uploaded. Your Service Citizenship and Career Health snapshot are updating."
         : "CV uploaded successfully.",
     );
     await load();
@@ -106,13 +110,23 @@ export function DashboardWorkspace() {
     startMakFlow(id, href);
   }
 
+  function discussRecommendation(rec: CareerRecommendation) {
+    startMakFlow(
+      "assess",
+      undefined,
+      `I'd like to focus on: ${rec.title}. ${rec.message}`,
+    );
+  }
+
   const cvMetrics = analytics?.cv_metrics ?? EMPTY_CV_METRICS;
 
   return (
     <div className="mx-auto max-w-6xl space-y-5">
       <div>
         <h1 className="text-2xl font-bold">Dashboard: Your Career At A Glance</h1>
-        <p className="mt-1 text-sm text-fiscmak-muted">Career Readiness Index and coaching progress</p>
+        <p className="mt-1 text-sm text-fiscmak-muted">
+          Career Health Score and coaching progress — plain language, no jargon
+        </p>
       </div>
 
       <DashboardOptionTabs activeId={activeTab} onSelect={handleOptionTab} />
@@ -219,32 +233,35 @@ export function DashboardWorkspace() {
         <p className="text-sm text-fiscmak-muted">Loading analytics…</p>
       ) : (
         <>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {analytics.quarterly_pulse && (
+            <QuarterlyPulsePanel
+              status={analytics.quarterly_pulse}
+              onComplete={() => void load()}
+            />
+          )}
+
+          {analytics.coaching_brief && (
+            <CareerRecommendationsPanel
+              brief={analytics.coaching_brief}
+              onDiscuss={discussRecommendation}
+            />
+          )}
+
+          {analytics.career_health ? (
+            <Card>
+              <CareerHealthSnapshot view={analytics.career_health} />
+            </Card>
+          ) : (
             <Card accent="green">
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Career Readiness</p>
-              <p className="mt-2 text-4xl font-bold text-fiscmak-green">{analytics.career_readiness_index}</p>
-              <p className="mt-1 text-xs text-fiscmak-muted">CRI composite score</p>
-            </Card>
-            <Card accent={cvMetrics.available ? "green" : undefined}>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">S-Index</p>
-              <p className="mt-2 text-4xl font-bold">
-                {cvMetrics.s_index ?? "—"}
-              </p>
-              <p className="mt-1 text-xs text-fiscmak-muted">
-                {cvMetrics.available
-                  ? "Documented service & invisible work"
-                  : "Upload CV to compute"}
+              <p className="font-semibold">Complete onboarding to see your Career Health snapshot</p>
+              <p className="mt-2 text-sm text-fiscmak-muted">
+                Finish your profile and conversation with Coach Mak — scores appear in plain career
+                language, not formulas.
               </p>
             </Card>
-            <Card accent={cvMetrics.iwq != null && cvMetrics.iwq >= 50 ? "amber" : undefined}>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">IWQ</p>
-              <p className="mt-2 text-4xl font-bold">
-                {cvMetrics.iwq ?? "—"}
-              </p>
-              <p className="mt-1 text-xs text-fiscmak-muted">
-                {cvMetrics.interpretation.iwq ?? "Invisible Work Quotient"}
-              </p>
-            </Card>
+          )}
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card>
               <p className="text-xs font-semibold uppercase text-fiscmak-muted">Assessments</p>
               <p className="mt-2 text-3xl font-bold">
@@ -257,11 +274,29 @@ export function DashboardWorkspace() {
                 View insights →
               </Link>
             </Card>
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Onboarding</p>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Profile (5 anchors)</li>
+                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Documents + reconcile</li>
+                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Mak self-assessment</li>
+              </ul>
+            </Card>
+            <Card>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Well-being trend</p>
+              <p className="mt-2 text-sm text-fiscmak-muted">
+                {analytics.career_health?.wellbeing_metrics.find((m) => m.id === "burnout_risk")?.summary ??
+                  "Complete your well-being check with Coach Mak."}
+              </p>
+            </Card>
           </div>
 
           {cvMetrics.available && cvMetrics.domain_scores && (
             <Card>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">CV domain scores</p>
+              <p className="text-xs font-semibold uppercase text-fiscmak-muted">CV evidence (technical)</p>
+              <p className="mt-1 text-xs text-fiscmak-muted">
+                Domain scores from your CV — expand Career Health domains above for plain-language summaries.
+              </p>
               <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {Object.entries(cvMetrics.domain_scores).map(([domain, score]) => (
                   <div key={domain} className="rounded-md border border-fiscmak-border px-3 py-2">
@@ -272,35 +307,14 @@ export function DashboardWorkspace() {
               </div>
               {cvMetrics.invisible_work_signals.length > 0 && (
                 <p className="mt-3 text-sm text-fiscmak-muted">
-                  Invisible work detected: {cvMetrics.invisible_work_signals.join(", ")}
-                </p>
-              )}
-              {cvMetrics.promotion_aligned_pct != null && (
-                <p className="mt-1 text-sm text-fiscmak-muted">
-                  Promotion-aligned activities: {cvMetrics.promotion_aligned_pct}%
+                  Unrecognized work signals: {cvMetrics.invisible_work_signals.join(", ")}
                 </p>
               )}
             </Card>
           )}
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <Card>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Onboarding</p>
-              <ul className="mt-2 space-y-1 text-sm">
-                <li>{analytics.onboarding_progress.tier1_complete ? "✓" : "○"} Profile (5 anchors)</li>
-                <li>{analytics.onboarding_progress.tier2_complete ? "✓" : "○"} Documents + reconcile</li>
-                <li>{analytics.onboarding_progress.tier3_complete ? "✓" : "○"} Mak self-assessment</li>
-              </ul>
-            </Card>
-            <Card>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Burnout trend</p>
-              <p className="mt-2 text-3xl font-bold">
-                {analytics.burnout_trend.current_score ?? "—"}
-              </p>
-              <p className="mt-1 text-xs capitalize text-fiscmak-muted">{analytics.burnout_trend.trend}</p>
-            </Card>
-            <Card>
-              <p className="text-xs font-semibold uppercase text-fiscmak-muted">Job engagement</p>
+          <Card>
+            <p className="text-xs font-semibold uppercase text-fiscmak-muted">Job engagement</p>
               <p className="mt-2 text-sm">
                 Viewed {analytics.job_engagement.jobs_viewed} · Saved {analytics.job_engagement.jobs_saved}
               </p>
@@ -312,8 +326,7 @@ export function DashboardWorkspace() {
               <Link href="/app/jobs" className="mt-2 inline-block text-sm text-fiscmak-green hover:underline">
                 View job matches →
               </Link>
-            </Card>
-          </div>
+          </Card>
 
           {analytics.next_touchpoint && (
             <Card accent="amber">

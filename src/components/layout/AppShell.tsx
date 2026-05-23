@@ -32,7 +32,7 @@ type AppShellContextValue = {
   toggleMak: () => void;
   makInputRef: React.RefObject<HTMLInputElement | null>;
   focusMakInput: () => void;
-  startMakFlow: (intent: MakFlowIntent, navigateTo?: string) => void;
+  startMakFlow: (intent: MakFlowIntent, navigateTo?: string, customGreeting?: string) => void;
   displayName: string | null;
   setDisplayName: (name: string | null) => void;
 };
@@ -98,8 +98,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, []);
 
   const startMakFlow = useCallback(
-    (intent: MakFlowIntent, navigateTo?: string) => {
-      const greeting = MAK_FLOW_GREETINGS[intent];
+    (intent: MakFlowIntent, navigateTo?: string, customGreeting?: string) => {
+      const greeting = customGreeting ?? MAK_FLOW_GREETINGS[intent];
       setPendingFlow({ intent, greeting });
       setFlowNonce((n) => n + 1);
       setMakOpen(true);

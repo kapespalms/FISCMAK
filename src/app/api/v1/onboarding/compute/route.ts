@@ -6,7 +6,7 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
-import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { computeTouchpoint1Dashboard, careerHealthMakSummary, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { deployedInstruments } from "@/lib/v2/onboarding-touchpoint1";
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
@@ -40,9 +40,7 @@ export async function POST() {
     auth.demo,
   );
 
-  const summary = `Touchpoint 1 complete. CDI baseline: ${computed.cdi.score}. ${
-    computed.iwq != null ? `IWQ: ${computed.iwq.toFixed(1)}.` : ""
-  } S-Index estimate: ${computed.s_index}.`;
+  const summary = careerHealthMakSummary(user, cv?.extracted_text);
 
   if (auth.demo) {
     const state = getServerDemo(auth.userId);

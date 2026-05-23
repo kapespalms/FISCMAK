@@ -1,12 +1,11 @@
 import type { AppUser } from "@/lib/v2/types";
-import type { PracticeSetting } from "@/lib/v2/onboarding-options";
 import {
-  computeCdi,
   computeIwq,
   scoreAllInstruments,
   type InstrumentAnswer,
 } from "@/lib/v2/onboarding-instruments";
 import { deployedInstruments, apiEnrichmentPlan } from "@/lib/v2/onboarding-touchpoint1";
+import { buildCareerHealthView, buildCareerHealthIntroForMak } from "@/lib/v2/career-health-view";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 
 export type OnboardingMetadata = {
@@ -16,8 +15,19 @@ export type OnboardingMetadata = {
   instrument_scores?: Record<string, unknown>;
   api_enrichment_plan?: ReturnType<typeof apiEnrichmentPlan>;
   cdi?: { score: number; domains: Record<string, number> };
+  career_health_summary?: string;
   iwq?: number;
   computed_at?: string;
+  pulse_baseline?: { invisible_hours?: number; burnout_screen?: number; captured_at?: string };
+  pulse_history?: Array<{
+    quarter: string;
+    completed_at: string;
+    burnout_screen?: number;
+    invisible_hours?: number;
+    track_energy?: number;
+    summary?: string;
+  }>;
+  last_quarterly_summary?: string;
 };
 
 export function getOnboardingMetadata(user: AppUser): OnboardingMetadata {
@@ -33,34 +43,38 @@ export function computeTouchpoint1Dashboard(user: AppUser, cvText?: string | nul
   const instrumentScores = scoreAllInstruments(instrumentIds, answers);
   const bits = instrumentScores.find((s) => s.instrumentId === "bits");
   const invisible = instrumentScores.find((s) => s.instrumentId === "invisible_work");
-  const pfi = instrumentScores.find((s) => s.instrumentId === "pfi");
+  const invisibleHours =
+    typeof invisible?.raw.weekly_hours === "number" ? invisible.raw.weekly_hours : undefined;
 
   let sIndex = 30;
-  let clinicalProductivity = 50;
   if (cvText) {
-    const cvMetrics = computeCvMetrics(cvText, []);
-    sIndex = cvMetrics.s_index;
-    clinicalProductivity = Math.min(100, cvMetrics.domain_scores.clinical * 10);
+    sIndex = computeCvMetrics(cvText, []).s_index;
   }
 
   const iwq =
     bits && invisible ? computeIwq(bits, invisible) : meta.iwq ?? null;
 
-  const cdi = computeCdi({
-    setting: (user.practice_setting as PracticeSetting | null) ?? null,
-    pfi,
-    bits,
-    sIndex,
-    clinicalProductivity,
-  });
+  const cdiView = buildCareerHealthView({ user, cvMetrics: cvText ? computeCvMetrics(cvText, []) : null });
 
   return {
     instrument_ids: instrumentIds,
     instrument_scores: Object.fromEntries(instrumentScores.map((s) => [s.instrumentId, s])),
-    cdi,
+    cdi: { score: cdiView.career_health_score, domains: Object.fromEntries(cdiView.domains.map((d) => [d.label, d.score])) },
+    career_health_summary: cdiView.career_health_summary,
     iwq,
     s_index: sIndex,
     api_enrichment_plan: apiEnrichmentPlan(user.practice_setting ?? null, user.career_stage),
+    pulse_baseline: invisibleHours
+      ? { invisible_hours: invisibleHours, captured_at: new Date().toISOString() }
+      : undefined,
     computed_at: new Date().toISOString(),
   };
+}
+
+export function careerHealthMakSummary(user: AppUser, cvText?: string | null): string {
+  const view = buildCareerHealthView({
+    user,
+    cvMetrics: cvText ? computeCvMetrics(cvText, []) : null,
+  });
+  return buildCareerHealthIntroForMak(view);
 }
