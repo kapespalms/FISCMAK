@@ -4,7 +4,9 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { PageShell } from "@/components/layout/PageShell";
 import { Upload, CheckCircle2, Circle } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
   ACGME_SPECIALTIES,
   CAREER_LEVELS,
@@ -282,14 +284,25 @@ export function Touchpoint1Onboarding() {
   const estimatedMinutes = instruments.reduce((s, i) => s + i.minutes, 0);
 
   return (
-    <div className="mx-auto max-w-2xl py-8">
-      <div className="mb-6 flex gap-2">
+    <PageShell
+      eyebrow="Setup"
+      title="Get started"
+      subtitle="Complete each step to unlock your dashboard"
+      maxWidth="md"
+      className="py-4"
+    >
+      <div className="mb-6 flex gap-1 overflow-x-auto">
         {STEPS.map((s, i) => (
           <div
             key={s.id}
-            className={`flex flex-1 items-center gap-1 rounded-md px-2 py-1.5 text-xs ${
-              i <= stepIndex ? "bg-fiscmak-green-light font-semibold" : "bg-fiscmak-subtle text-fiscmak-muted"
-            }`}
+            className={cn(
+              "cx-nav-pill flex shrink-0 items-center gap-1.5 text-xs",
+              i === stepIndex
+                ? "cx-nav-pill-active"
+                : i < stepIndex
+                  ? "cx-nav-pill-inactive bg-cx-accent-soft/40"
+                  : "cx-nav-pill-inactive opacity-60",
+            )}
           >
             {i < stepIndex ? <CheckCircle2 size={14} /> : <Circle size={14} />}
             {s.label}
@@ -653,6 +666,6 @@ export function Touchpoint1Onboarding() {
           </p>
         </Card>
       )}
-    </div>
+    </PageShell>
   );
 }

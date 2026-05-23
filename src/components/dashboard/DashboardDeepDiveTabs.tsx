@@ -72,10 +72,8 @@ export function DashboardDeepDiveTabs({ bands, jobEngagement, onDiscuss }: Dashb
             type="button"
             onClick={() => setActive(t.id)}
             className={cn(
-              "rounded-lg px-4 py-2 text-sm font-medium transition-colors",
-              active === t.id
-                ? "bg-cx-primary text-white"
-                : "bg-cx-white text-cx-text-secondary hover:bg-white/80",
+              "cx-nav-pill",
+              active === t.id ? "cx-nav-pill-active" : "cx-nav-pill-inactive",
             )}
           >
             {t.label}

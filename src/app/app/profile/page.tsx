@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
+import { PageShell } from "@/components/layout/PageShell";
 import { CAREER_PHASES } from "@/lib/constants";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import type { Profile } from "@/lib/types/database";
@@ -94,21 +95,23 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold">Profile</h1>
-        <p className="mt-1 text-fiscmak-muted">Onboarding & career context</p>
-      </div>
-
+    <PageShell
+      eyebrow="Account"
+      title="Profile"
+      subtitle="Onboarding and career context"
+      maxWidth="md"
+    >
       {error && (
-        <p className="text-sm text-fiscmak-red">{error}</p>
+        <p className="mb-6 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+          {error}
+        </p>
       )}
 
       <Card>
         {loading ? (
-          <p className="text-fiscmak-muted">Loading profile…</p>
+          <p className="text-cx-body">Loading profile…</p>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid gap-4 sm:grid-cols-2">
               <Input
                 label="First name"
@@ -136,7 +139,7 @@ export default function ProfilePage() {
               }
             />
             <div>
-              <label htmlFor="phase" className="text-sm font-semibold">
+              <label htmlFor="phase" className="text-cx-label">
                 Career phase
               </label>
               <select
@@ -145,7 +148,7 @@ export default function ProfilePage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, career_phase: e.target.value }))
                 }
-                className="mt-2 min-h-11 w-full rounded-md border border-fiscmak-border px-4"
+                className="mt-2 min-h-11 w-full rounded-xl border border-cx-border px-4 text-cx-text"
               >
                 {CAREER_PHASES.map((p) => (
                   <option key={p} value={p}>
@@ -171,7 +174,7 @@ export default function ProfilePage() {
               }
             />
             <div>
-              <label htmlFor="goals" className="text-sm font-semibold">
+              <label htmlFor="goals" className="text-cx-label">
                 Career goals
               </label>
               <textarea
@@ -181,7 +184,7 @@ export default function ProfilePage() {
                   setForm((f) => ({ ...f, goals: e.target.value }))
                 }
                 rows={4}
-                className="mt-2 w-full rounded-md border border-fiscmak-border p-4"
+                className="mt-2 w-full rounded-xl border border-cx-border p-4 text-cx-text"
                 placeholder="What are you working toward?"
               />
             </div>
@@ -189,6 +192,6 @@ export default function ProfilePage() {
           </form>
         )}
       </Card>
-    </div>
+    </PageShell>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 import { cn } from "@/lib/utils";
 
@@ -10,8 +11,8 @@ type Props = {
 };
 
 const severityStyles: Record<EngagementNotification["severity"], string> = {
-  info: "border-fiscmak-border bg-white",
-  attention: "border-fiscmak-amber bg-amber-50",
+  info: "border-cx-border bg-cx-white",
+  attention: "border-cx-attention bg-amber-50",
   urgent: "border-red-300 bg-red-50",
 };
 
@@ -29,16 +30,17 @@ export function DashboardNotificationsBar({ notifications, onAction }: Props) {
           )}
         >
           <div>
-            <p className="font-semibold text-fiscmak-ink">{note.title}</p>
-            <p className="mt-0.5 text-fiscmak-muted">{note.message}</p>
+            <p className="font-semibold text-cx-text">{note.title}</p>
+            <p className="mt-0.5 text-cx-text-secondary">{note.message}</p>
           </div>
           {note.href && (
             <Link
               href={note.href}
-              className="shrink-0 font-medium text-fm-accent hover:underline"
+              className="inline-flex shrink-0 items-center gap-1 font-medium text-cx-text hover:text-cx-primary"
               onClick={() => onAction?.(note)}
             >
-              {note.actionLabel ?? "View"} →
+              {note.actionLabel ?? "View"}
+              <ChevronRight size={16} />
             </Link>
           )}
         </div>

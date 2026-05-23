@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { LatticeCellState } from "@/lib/constants";
 import { cn, energyCellClass } from "@/lib/utils";
 
@@ -53,9 +54,10 @@ export function MiniLattice({ cells }: MiniLatticeProps) {
       </div>
       <Link
         href="/app/objective?tab=lattice"
-        className="mt-2 inline-block text-xs font-medium text-fiscmak-green hover:underline"
+        className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-cx-text hover:text-cx-primary"
       >
-        Full lattice →
+        Full lattice
+        <ChevronRight size={14} />
       </Link>
     </div>
   );

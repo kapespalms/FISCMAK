@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { PageShell } from "@/components/layout/PageShell";
 import { Upload } from "lucide-react";
 import {
   ACCEPTED_CV_ACCEPT,
@@ -76,64 +77,63 @@ export function Tier2Onboarding() {
   }
 
   return (
-    <div className="mx-auto max-w-lg py-8">
+    <PageShell
+      eyebrow="Optional"
+      title="Upload your CV"
+      subtitle="Mak uses your CV to personalize coaching, surface invisible work, and prefill promotion narratives."
+      maxWidth="md"
+      className="py-4"
+    >
       <Card>
-        <p className="text-xs font-semibold uppercase text-fiscmak-muted">
-          Tier 2 · Optional
-        </p>
-        <h1 className="mt-1 text-2xl font-bold">Upload your CV</h1>
-        <p className="mt-2 text-sm text-fiscmak-muted">
-          Mak uses your CV to personalize coaching, surface invisible work, and prefill
-          promotion narratives. You can skip and upload later from Objective.
-        </p>
+        <label
+          htmlFor="tier2-cv-upload"
+          className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-border bg-cx-cream/50 px-6 py-10 transition-colors hover:border-cx-accent hover:bg-cx-accent-soft/30"
+        >
+          <Upload className="text-cx-text" size={28} />
+          <p className="mt-3 font-semibold text-cx-text">Drop or click to upload CV</p>
+          <p className="mt-1 text-sm text-cx-text-secondary">{ACCEPTED_CV_LABEL}</p>
+          <input
+            id="tier2-cv-upload"
+            type="file"
+            accept={ACCEPTED_CV_ACCEPT}
+            className="hidden"
+            onChange={onFileSelect}
+            disabled={processing}
+          />
+        </label>
 
-        <div className="mt-6 space-y-4">
-          <label
-            htmlFor="tier2-cv-upload"
-            className="flex cursor-pointer flex-col items-center rounded-lg border-2 border-dashed border-fiscmak-border bg-fiscmak-subtle px-6 py-10 transition-colors hover:border-fiscmak-green hover:bg-fiscmak-green-light"
-          >
-            <Upload className="text-fiscmak-green" size={28} />
-            <p className="mt-3 font-semibold">Drop or click to upload CV</p>
-            <p className="mt-1 text-sm text-fiscmak-muted">{ACCEPTED_CV_LABEL}</p>
-            <input
-              id="tier2-cv-upload"
-              type="file"
-              accept={ACCEPTED_CV_ACCEPT}
-              className="hidden"
-              onChange={onFileSelect}
-              disabled={processing}
-            />
+        <form onSubmit={onPasteSubmit} className="mt-6 space-y-3">
+          <label htmlFor="tier2-paste" className="text-cx-label">
+            Or paste CV text
           </label>
-
-          <form onSubmit={onPasteSubmit} className="space-y-3">
-            <label htmlFor="tier2-paste" className="text-sm font-semibold">
-              Or paste CV text
-            </label>
-            <textarea
-              id="tier2-paste"
-              value={pasteText}
-              onChange={(e) => setPasteText(e.target.value)}
-              rows={5}
-              placeholder="Paste CV content here…"
-              className="w-full rounded-md border border-fiscmak-border p-4 text-base"
-            />
-            <Button type="submit" disabled={processing || !pasteText.trim()}>
-              Upload pasted text
-            </Button>
-          </form>
-
-          {processing && (
-            <p className="text-center text-sm text-fiscmak-muted">
-              Uploading and syncing to MemPalace…
-            </p>
-          )}
-          {error && <p className="text-sm text-fiscmak-red">{error}</p>}
-
-          <Button variant="secondary" className="w-full" onClick={skip} disabled={processing}>
-            Skip for now
+          <textarea
+            id="tier2-paste"
+            value={pasteText}
+            onChange={(e) => setPasteText(e.target.value)}
+            rows={5}
+            placeholder="Paste CV content here…"
+            className="w-full rounded-xl border border-cx-border p-4 text-base text-cx-text"
+          />
+          <Button type="submit" disabled={processing || !pasteText.trim()}>
+            Upload pasted text
           </Button>
-        </div>
+        </form>
+
+        {processing && (
+          <p className="mt-4 text-center text-sm text-cx-text-secondary">
+            Uploading and syncing to MemPalace…
+          </p>
+        )}
+        {error && (
+          <p className="mt-4 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+            {error}
+          </p>
+        )}
+
+        <Button variant="secondary" className="mt-6 w-full" onClick={skip} disabled={processing}>
+          Skip for now
+        </Button>
       </Card>
-    </div>
+    </PageShell>
   );
 }
