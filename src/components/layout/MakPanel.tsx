@@ -311,25 +311,28 @@ export function MakPanel({
         aria-hidden={!open}
       >
         <div className={cn("flex h-full flex-col", !isMobile && "min-w-[320px]")}>
-          {isMobile && (
-            <div className="flex shrink-0 items-center justify-between border-b border-fiscmak-border px-4 py-3">
-              <div>
-                <p className="text-sm font-semibold text-fiscmak-ink">Coach Mak</p>
-                <p className="text-caption text-fiscmak-muted">{config.mode}</p>
-              </div>
+          <div className="flex shrink-0 items-center justify-between border-b border-cx-border px-4 py-3">
+            <div>
+              <p className="text-sm font-semibold text-cx-text">Coach Mak</p>
+              <p className="flex items-center gap-1.5 text-cx-label text-cx-text-secondary">
+                <span className="inline-block h-2 w-2 rounded-full bg-green-500" aria-hidden />
+                Active · {config.mode}
+              </p>
+            </div>
+            {isMobile && (
               <button
                 type="button"
                 onClick={onClose}
-                className="flex h-9 w-9 items-center justify-center rounded-md border border-fiscmak-border text-fiscmak-muted hover:bg-fiscmak-subtle"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-cx-border text-cx-text-secondary hover:bg-cx-cream"
                 aria-label="Close Coach Mak"
               >
                 <X size={18} />
               </button>
-            </div>
-          )}
+            )}
+          </div>
         <div
           ref={scrollRef}
-          className="flex-1 space-y-3 overflow-y-auto bg-[#fafbfc] p-4 pt-5"
+          className="flex-1 space-y-3 overflow-y-auto bg-cx-white p-4"
         >
         {activeEscalation && <EscalationResourcesPanel escalation={activeEscalation} />}
         {messages.map((msg, i) => (
@@ -338,23 +341,23 @@ export function MakPanel({
             className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
           >
             <div
-              className={`max-w-[90%] whitespace-pre-line rounded-lg px-4 py-3 text-sm leading-relaxed ${
-                msg.role === "user"
-                  ? "bg-fiscmak-green text-white"
-                  : "bg-fiscmak-green-light text-foreground"
-              }`}
+              className={cn(
+                "max-w-[90%] whitespace-pre-line rounded-xl px-4 py-3 text-sm leading-relaxed text-cx-text",
+                msg.role === "user" ? "bg-cx-user-bubble" : "bg-cx-mak-bubble",
+              )}
             >
               {msg.content}
             </div>
           </div>
         ))}
         {loading && (
-          <p className="text-sm text-fiscmak-muted">Mak is thinking…</p>
+          <p className="text-sm text-cx-text-secondary">Mak is thinking…</p>
         )}
         </div>
 
-        <div className="shrink-0 border-t border-fiscmak-border bg-white p-3">
-        <div className="mb-3 flex flex-wrap gap-2">
+        <div className="shrink-0 border-t border-cx-border bg-cx-white p-4">
+        <p className="mb-2 text-cx-label font-medium text-cx-text-secondary">Quick actions</p>
+        <div className="mb-3 space-y-1">
           {(suggestedActions.length > 0 ? suggestedActions : config.quickOptions.map((a) => ({ action: a, url: "" }))).map((item) => {
             const label = typeof item === "string" ? item : item.action;
             const url = typeof item === "string" ? "" : item.url;
@@ -371,10 +374,10 @@ export function MakPanel({
                   router.push(url);
                   return;
                 }
-                void sendMessage(label.replace(/^🗺️\s*/, ""));
+                void sendMessage(label.replace(/^[🎯⚡📋📤🗺️]\s*/, ""));
               }}
               disabled={loading}
-              className="rounded-full border border-fiscmak-border bg-white px-3 py-1 text-xs font-medium text-fiscmak-muted transition-colors hover:border-fiscmak-green hover:bg-fiscmak-green-light hover:text-fiscmak-green-dark disabled:opacity-50"
+              className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-cx-label text-cx-text transition-colors hover:bg-[#F9F7F3] disabled:opacity-50"
             >
               {label}
             </button>
@@ -394,7 +397,7 @@ export function MakPanel({
             }}
             placeholder={config.placeholder}
             disabled={loading || recording}
-            className="min-h-10 flex-1 rounded-md border border-fiscmak-border px-3 text-sm focus:border-fiscmak-green focus:outline-none"
+            className="h-12 min-h-12 flex-1 rounded-xl border border-cx-border px-4 text-sm text-cx-text focus:border-cx-primary focus:outline-none focus:ring-2 focus:ring-cx-primary/30"
             aria-label="Message to Coach Mak"
           />
           <button
@@ -402,9 +405,10 @@ export function MakPanel({
             onClick={handleVoice}
             disabled={loading}
             title={recording ? "Recording…" : "Voice input"}
-            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-white transition-colors ${
-              recording ? "bg-fiscmak-red" : "bg-fiscmak-green hover:bg-fiscmak-green-dark"
-            }`}
+            className={cn(
+              "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-white transition-colors",
+              recording ? "bg-red-500" : "bg-cx-text-secondary hover:bg-cx-text",
+            )}
           >
             <Mic size={18} />
           </button>
@@ -414,7 +418,7 @@ export function MakPanel({
             disabled={loading || recording || !input.trim()}
             title="Send message"
             aria-label="Send message"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#111827] text-white transition-colors hover:bg-[#1f2937] disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cx-primary text-white transition-colors hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ArrowUp size={18} strokeWidth={2.25} />
           </button>

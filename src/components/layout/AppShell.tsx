@@ -179,7 +179,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           onInitialMessageHandled={() => setPendingInitialMessage(null)}
         />
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
-        <main className="min-w-0 flex-1 overflow-auto bg-fiscmak-subtle p-6 md:p-8">
+        <main className="min-w-0 flex-1 overflow-auto bg-cx-white p-6 md:p-8">
           {children}
         </main>
       </div>

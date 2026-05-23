@@ -25,6 +25,18 @@
   --fiscmak-subtle: #f7fafc;
   --fiscmak-surface: #ffffff;
   --fiscmak-ink: #1a365d;
+  /* Crextio dashboard palette */
+  --cx-cream: #f5f3ee;
+  --cx-light-blue: #f0f4ff;
+  --cx-white: #ffffff;
+  --cx-text: #2d2d2d;
+  --cx-text-secondary: #7a7a7a;
+  --cx-primary: #4f46e5;
+  --cx-success: #a3e635;
+  --cx-attention: #f59e0b;
+  --cx-border: #e8e8e8;
+  --cx-mak-bubble: #f5f3ee;
+  --cx-user-bubble: #e8e9f8;
 }
 
 @theme inline {
@@ -48,6 +60,17 @@
   --color-fiscmak-subtle: var(--fiscmak-subtle);
   --color-fiscmak-surface: var(--fiscmak-surface);
   --color-fiscmak-ink: var(--fiscmak-ink);
+  --color-cx-cream: var(--cx-cream);
+  --color-cx-light-blue: var(--cx-light-blue);
+  --color-cx-white: var(--cx-white);
+  --color-cx-text: var(--cx-text);
+  --color-cx-text-secondary: var(--cx-text-secondary);
+  --color-cx-primary: var(--cx-primary);
+  --color-cx-success: var(--cx-success);
+  --color-cx-attention: var(--cx-attention);
+  --color-cx-border: var(--cx-border);
+  --color-cx-mak-bubble: var(--cx-mak-bubble);
+  --color-cx-user-bubble: var(--cx-user-bubble);
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif;
 }
@@ -150,4 +173,77 @@ body {
   .animate-cell-glow {
     animation: none;
   }
+}
+
+/* Crextio dashboard utilities */
+.text-cx-h1 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--cx-text);
+}
+
+.text-cx-h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--cx-text);
+}
+
+.text-cx-h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--cx-text);
+}
+
+.text-cx-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--cx-text-secondary);
+}
+
+.text-cx-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--cx-text-secondary);
+}
+
+.cx-card {
+  background: var(--cx-white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease;
+}
+
+.cx-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cx-progress-track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--cx-border);
+  overflow: hidden;
+}
+
+.cx-progress-fill-primary {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--cx-primary);
+}
+
+.cx-progress-fill-success {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--cx-success);
+}
+
+.cx-progress-fill-attention {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--cx-attention);
 }

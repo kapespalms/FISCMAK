@@ -167,9 +167,10 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   dashboard: {
     greeting: "How can I help today?",
     quickOptions: [
-      "Capture invisible work",
-      "Discuss my energy",
-      "Review my activities",
+      "🎯 Capture invisible work",
+      "⚡ Discuss my energy",
+      "📋 Review my activities",
+      "📤 Upload document",
     ],
     placeholder: "Type or click voice…",
     mode: "Coach",

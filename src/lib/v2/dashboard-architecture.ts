@@ -288,26 +288,26 @@ export function buildContextualQuickActions(input: {
 }): DashboardQuickAction[] {
   if (input.annualRefreshDue) {
     return [
-      { label: "Begin annual refresh", intent: "discuss", href: "/app/subjective" },
+      { label: "Annual refresh", intent: "discuss", href: "/app/subjective" },
       { label: "Review goals", intent: "plan", href: "/app/plan" },
     ];
   }
   if (input.quarterlyPulseDue) {
     return [
-      { label: "Begin quarterly check-in", intent: "discuss", href: "/app/subjective" },
-      { label: "Explore Career Map", intent: "assess", href: "/app/assessment" },
+      { label: "Quarterly check-in", intent: "discuss", href: "/app/subjective" },
+      { label: "Explore map", intent: "assess", href: "/app/assessment" },
     ];
   }
   if (input.cvNeedsUpdate) {
     return [
       { label: "Update CV", intent: "create", href: "/app/output" },
-      { label: "Review Career Data", intent: "review", href: "/app/objective" },
+      { label: "Review data", intent: "review", href: "/app/objective" },
     ];
   }
   if (input.goalMilestoneDue) {
     return [
       { label: "Review goals", intent: "plan", href: "/app/plan" },
-      { label: "Explore Career Map", intent: "assess", href: "/app/assessment" },
+      { label: "Explore map", intent: "assess", href: "/app/assessment" },
     ];
   }
   if (!input.tier2Complete) {
@@ -317,8 +317,8 @@ export function buildContextualQuickActions(input: {
     ];
   }
   return [
-    { label: "Explore Career Map", intent: "assess", href: "/app/assessment" },
-    { label: "Generate document", intent: "create", href: "/app/output" },
+    { label: "Explore map", intent: "assess", href: "/app/assessment" },
+    { label: "Generate doc", intent: "create", href: "/app/output" },
   ];
 }
 

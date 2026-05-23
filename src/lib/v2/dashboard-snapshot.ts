@@ -81,14 +81,14 @@ const SOAP_HREFS: Record<SoapBandId, string> = {
 
 function fulfillmentLine(health: CareerHealthView | null): string {
   const fulfillment = health?.wellbeing_metrics.find((m) => m.id === "professional_fulfillment" || m.id === "fulfillment");
-  if (!fulfillment) return "Professional Fulfillment: Complete Career Perspective check-in";
-  return `Professional Fulfillment: ${fulfillment.summary}`;
+  if (!fulfillment) return "Fulfillment: Pending";
+  return `Fulfillment: ${fulfillment.summary}`;
 }
 
 function strainLine(health: CareerHealthView | null): string {
   const strain = health?.wellbeing_metrics.find((m) => m.id === "burnout_risk" || m.id === "work_related_strain");
-  if (!strain) return "Work-Related Strain: Pending quarterly assessment";
-  return `Work-Related Strain: ${strain.summary}`;
+  if (!strain) return "Strain: Baseline needed";
+  return `Strain: ${strain.summary}`;
 }
 
 function metricFromWellbeing(
@@ -218,21 +218,21 @@ export function buildSoapDashboardBands(input: {
       : null;
 
   const careerDirectionText = aspiration || careerObjective
-    ? `${careerTrack ?? "Track pending"} → ${careerObjective ?? aspiration} (3-year objective)`
-    : `${careerTrack ?? "Set with Coach Mak"}`;
+    ? `${careerTrack ?? "Track pending"} → (${careerObjective ?? aspiration}, 3yr)`
+    : `${careerTrack ?? "Set with Mak"}`;
 
   const fulfillmentMetric = metricFromWellbeing(
     health,
     "professional_fulfillment",
-    "Professional Fulfillment",
-    "Complete quarterly pulse",
+    "Fulfillment",
+    "Pending",
     history.fulfillment,
   );
   const strainMetric = metricFromWellbeing(
     health,
     "burnout_risk",
-    "Work-Related Strain",
-    "Pending quarterly assessment",
+    "Strain",
+    "Baseline needed",
     history.strain,
     burnoutTrend,
     true,
@@ -252,11 +252,11 @@ export function buildSoapDashboardBands(input: {
   };
   const alignmentMetric: DashboardBandMetric = {
     id: "career_alignment",
-    label: "Career Alignment",
+    label: "Alignment",
     summary:
       alignmentPct != null
-        ? `${alignmentPct}% toward stated objective`
-        : "Pending Career Profile",
+        ? `${alignmentPct}% toward objective`
+        : "Pending",
     percent: alignmentPct ?? 0,
     status: alignmentPct != null ? scoreToMetricStatus(alignmentPct) : "stable",
     trend: sparklineTrend(history.alignment.length >= 2 ? history.alignment : alignmentPct != null ? [alignmentPct] : []),
@@ -264,7 +264,7 @@ export function buildSoapDashboardBands(input: {
   };
   const directionMetric: DashboardBandMetric = {
     id: "career_direction",
-    label: "Career Direction",
+    label: "Direction",
     summary: careerDirectionText,
     percent: alignmentPct ?? 50,
     status: "stable",
@@ -274,7 +274,7 @@ export function buildSoapDashboardBands(input: {
   const metricMap: Record<string, DashboardBandMetric> = {
     career_direction: directionMetric,
     professional_fulfillment: fulfillmentMetric,
-    work_related_strain: { ...strainMetric, id: "work_related_strain", label: "Work-Related Strain" },
+    work_related_strain: { ...strainMetric, id: "work_related_strain", label: "Strain" },
     task_alignment: taskMetric,
     career_alignment: alignmentMetric,
   };
@@ -291,13 +291,13 @@ export function buildSoapDashboardBands(input: {
     background: SOAP_COLORS.subjective,
     flowIntent: "discuss",
     lines: [
-      `Career Direction: ${careerDirectionText}`,
+      `Direction: ${careerDirectionText}`,
       fulfillmentLine(health),
       strainLine(health),
       `Task Alignment: ${taskMetric.summary}`,
       alignmentPct != null
-        ? `Career Alignment: ${alignmentPct}% toward stated objective`
-        : "Career Alignment: Pending Career Profile",
+        ? `Alignment: ${alignmentPct}%`
+        : "Alignment: Pending",
     ],
     careerDirection: careerDirectionText,
     metrics: orderedSubjectiveMetrics,
