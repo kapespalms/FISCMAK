@@ -1,6 +1,6 @@
 import type { QuestionDef } from "@/lib/v2/types";
 
-/** Subset of 60-Q bank — one touchpoint at a time in MVP pivot */
+/** Full 60-Q bank across 7 touchpoints */
 export const QUESTION_BANK: QuestionDef[] = [
   // TP1 — INTRO (8)
   { q_id: "Q1.1", touchpoint_number: 1, question_category: "INTRO", question: "What's your current academic rank?", question_type: "choice", options: ["Student", "Resident", "Fellow", "Assistant Professor", "Associate Professor", "Full Professor"] },
@@ -18,6 +18,12 @@ export const QUESTION_BANK: QuestionDef[] = [
   { q_id: "Q2.4", touchpoint_number: 2, question_category: "INVENTORY", question: "Describe your clinical role and scope.", question_type: "text" },
   { q_id: "Q2.5", touchpoint_number: 2, question_category: "INVENTORY", question: "What institutional committees are you on?", question_type: "text" },
   { q_id: "Q2.6", touchpoint_number: 2, question_category: "INVENTORY", question: "What non-billable work consumes significant time?", question_type: "text" },
+  { q_id: "Q2.7", touchpoint_number: 2, question_category: "INVENTORY", question: "Any teaching awards or formal recognition for education?", question_type: "text" },
+  { q_id: "Q2.8", touchpoint_number: 2, question_category: "INVENTORY", question: "Have you developed curriculum innovations or new teaching tools?", question_type: "text" },
+  { q_id: "Q2.9", touchpoint_number: 2, question_category: "INVENTORY", question: "How many first-author publications do you have?", question_type: "text" },
+  { q_id: "Q2.10", touchpoint_number: 2, question_category: "INVENTORY", question: "Any quality improvement or patient safety innovations you led?", question_type: "text" },
+  { q_id: "Q2.11", touchpoint_number: 2, question_category: "INVENTORY", question: "Any regional or national society leadership roles?", question_type: "text" },
+  { q_id: "Q2.12", touchpoint_number: 2, question_category: "INVENTORY", question: "Board certification status and maintenance of certification?", question_type: "text" },
   // TP3 — BURNOUT (8)
   { q_id: "Q3.1", touchpoint_number: 3, question_category: "BURNOUT", question: "I feel emotionally exhausted from my work (1-5)", question_type: "likert" },
   { q_id: "Q3.2", touchpoint_number: 3, question_category: "BURNOUT", question: "I feel cynical about my work (1-5)", question_type: "likert" },
@@ -34,6 +40,8 @@ export const QUESTION_BANK: QuestionDef[] = [
   { q_id: "Q4.4", touchpoint_number: 4, question_category: "VALUES", question: "What's the biggest obstacle to your career goals?", question_type: "text" },
   { q_id: "Q4.5", touchpoint_number: 4, question_category: "VALUES", question: "Rate confidence explaining why you're ready for promotion (1-5)", question_type: "likert" },
   { q_id: "Q4.6", touchpoint_number: 4, question_category: "VALUES", question: "Ideal career trajectory?", question_type: "choice", options: ["Climb institution", "Move externally", "Pivot specialty", "Balance roles", "Other"] },
+  { q_id: "Q4.7", touchpoint_number: 4, question_category: "VALUES", question: "Who advocates for your advancement within your institution?", question_type: "text" },
+  { q_id: "Q4.8", touchpoint_number: 4, question_category: "VALUES", question: "What story do you want promotion reviewers to remember about you?", question_type: "text" },
   // TP5 — GAPS (8)
   { q_id: "Q5.1", touchpoint_number: 5, question_category: "GAPS", question: "Teaching/Educational leadership performance (1-5)", question_type: "likert" },
   { q_id: "Q5.2", touchpoint_number: 5, question_category: "GAPS", question: "Research/Scholarship productivity (1-5)", question_type: "likert" },
@@ -50,6 +58,8 @@ export const QUESTION_BANK: QuestionDef[] = [
   { q_id: "Q6.4", touchpoint_number: 6, question_category: "MARKET", question: "How valued is your profile in the current market?", question_type: "choice", options: ["Low", "Moderate", "High", "Not sure"] },
   { q_id: "Q6.5", touchpoint_number: 6, question_category: "MARKET", question: "Explore opportunities at other institutions?", question_type: "choice", options: ["Yes", "No", "Maybe"] },
   { q_id: "Q6.6", touchpoint_number: 6, question_category: "MARKET", question: "Preferred geographic region?", question_type: "text" },
+  { q_id: "Q6.7", touchpoint_number: 6, question_category: "MARKET", question: "What compensation or benefits matter most in your next role?", question_type: "text" },
+  { q_id: "Q6.8", touchpoint_number: 6, question_category: "MARKET", question: "Would you consider locum tenens, contract, or hybrid remote roles?", question_type: "choice", options: ["Yes", "No", "Maybe"] },
   // TP7 — ACCOUNTABILITY (8)
   { q_id: "Q7.1", touchpoint_number: 7, question_category: "ACCOUNTABILITY", question: "Target promotion timeline?", question_type: "choice", options: ["Within 1 year", "1-2 years", "2-3 years", "3+ years", "Not seeking promotion"] },
   { q_id: "Q7.2", touchpoint_number: 7, question_category: "ACCOUNTABILITY", question: "ONE thing you'll do this month toward your goal?", question_type: "text" },

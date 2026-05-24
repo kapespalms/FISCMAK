@@ -3,6 +3,13 @@ import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { apiEnrichmentPlan } from "@/lib/v2/onboarding-touchpoint1";
 import type { ReconciliationItem } from "@/lib/v2/onboarding-touchpoint1";
 
+export type VaultPublicationExtract = {
+  doi?: string;
+  pmid?: string;
+  title: string;
+  citation_count?: number;
+};
+
 export type EnrichmentSnapshot = {
   run_id: string;
   completed_at: string;
@@ -25,6 +32,11 @@ export type EnrichmentSnapshot = {
   orcid_works_count?: number | null;
   cms_open_payments_signals?: number;
   cms_medicare_signals?: number;
+  /** Structured extracts for Career Data vault dual-write */
+  vault_extracts?: {
+    publications: VaultPublicationExtract[];
+    grant_ids: string[];
+  };
 };
 
 export type EnrichmentRunLog = {
@@ -324,6 +336,7 @@ export async function runApiEnrichment(input: {
 
   let citationsTotal: number | null = null;
   const openAlexTitles: string[] = [];
+  const vaultPublications: VaultPublicationExtract[] = [];
   let npiVerified: boolean | undefined;
   let npiName: string | undefined;
   let orcidWorks: number | null = null;
@@ -336,8 +349,19 @@ export async function runApiEnrichment(input: {
       const work = await fetchOpenAlexDoi(doi);
       if (work?.cited_by_count != null) citeSum += work.cited_by_count;
       if (work?.title) openAlexTitles.push(work.title);
+      vaultPublications.push({
+        doi,
+        title: work?.title ?? `Publication (${doi})`,
+        citation_count: work?.cited_by_count,
+      });
     }
     citationsTotal = citeSum > 0 ? citeSum : null;
+  }
+
+  for (const pmid of pmids.slice(0, 10)) {
+    if (!vaultPublications.some((p) => p.pmid === pmid)) {
+      vaultPublications.push({ pmid, title: `PubMed ${pmid}` });
+    }
   }
 
   if (plan.pubmed_icite && pmids.length > 0) {
@@ -420,6 +444,10 @@ export async function runApiEnrichment(input: {
     orcid_works_count: orcidWorks,
     cms_open_payments_signals: cms.openPayments,
     cms_medicare_signals: cms.medicare,
+    vault_extracts: {
+      publications: vaultPublications,
+      grant_ids: grantIds,
+    },
   };
 
   return snapshot;

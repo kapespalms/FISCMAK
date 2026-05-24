@@ -341,6 +341,51 @@ export function MakPanel({
     }
   }
 
+  async function transcribeWithWhisper(blob: Blob): Promise<string | null> {
+    try {
+      const form = new FormData();
+      form.append("audio", blob, "capture.webm");
+      const res = await fetch("/api/v1/voice/transcribe", { method: "POST", body: form });
+      if (!res.ok) return null;
+      const data = (await res.json()) as { text?: string };
+      return data.text?.trim() || null;
+    } catch {
+      return null;
+    }
+  }
+
+  async function recordWithWhisper(): Promise<string | null> {
+    if (!navigator.mediaDevices?.getUserMedia) return null;
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      const chunks: BlobPart[] = [];
+
+      return await new Promise((resolve) => {
+        recorder.ondataavailable = (e) => {
+          if (e.data.size > 0) chunks.push(e.data);
+        };
+        recorder.onstop = async () => {
+          stream.getTracks().forEach((t) => t.stop());
+          const blob = new Blob(chunks, { type: recorder.mimeType || "audio/webm" });
+          resolve(await transcribeWithWhisper(blob));
+        };
+        recorder.onerror = () => {
+          stream.getTracks().forEach((t) => t.stop());
+          resolve(null);
+        };
+        setRecording(true);
+        recorder.start();
+        setTimeout(() => {
+          if (recorder.state === "recording") recorder.stop();
+          setRecording(false);
+        }, 5000);
+      });
+    } catch {
+      return null;
+    }
+  }
+
   function handleVoice() {
     type SpeechCtor = new () => {
       lang: string;
@@ -358,25 +403,33 @@ export function MakPanel({
 
     const SpeechRecognition = win.SpeechRecognition || win.webkitSpeechRecognition;
 
-    if (!SpeechRecognition) {
-      void sendMessage("I'd like to share how I'm feeling today.");
-      return;
-    }
+    void (async () => {
+      const whisperText = await recordWithWhisper();
+      if (whisperText) {
+        void sendMessage(whisperText);
+        return;
+      }
 
-    const recognition = new SpeechRecognition();
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-    setRecording(true);
+      if (!SpeechRecognition) {
+        void sendMessage("I'd like to share how I'm feeling today.");
+        return;
+      }
 
-    recognition.onresult = (event) => {
-      const transcript = event.results[0]?.[0]?.transcript ?? "";
-      setRecording(false);
-      if (transcript) void sendMessage(transcript);
-    };
+      const recognition = new SpeechRecognition();
+      recognition.lang = "en-US";
+      recognition.interimResults = false;
+      setRecording(true);
 
-    recognition.onerror = () => setRecording(false);
-    recognition.onend = () => setRecording(false);
-    recognition.start();
+      recognition.onresult = (event) => {
+        const transcript = event.results[0]?.[0]?.transcript ?? "";
+        setRecording(false);
+        if (transcript) void sendMessage(transcript);
+      };
+
+      recognition.onerror = () => setRecording(false);
+      recognition.onend = () => setRecording(false);
+      recognition.start();
+    })();
   }
 
   function applySectionQuickAction(action: SectionQuickAction) {

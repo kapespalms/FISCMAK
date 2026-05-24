@@ -9,6 +9,10 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
+import {
+  forwardToMemPalaceService,
+  isMemPalaceExternalConfigured,
+} from "@/lib/v2/mempalace-external";
 
 export async function POST(request: Request) {
   const auth = await requireApiUser();
@@ -78,5 +82,25 @@ export async function POST(request: Request) {
       .update({ metadata: extractCvMetadata(cv.extracted_text, assessments) })
       .eq("document_id", cv.document_id);
   }
-  return jsonOk({ mempalace_id: exportId, synced_at: now, message: "Coaching data synced to MemPalace" });
+
+  let external_sync: { forwarded: boolean; external_id?: string; error?: string } | null =
+    null;
+  if (isMemPalaceExternalConfigured()) {
+    external_sync = await forwardToMemPalaceService({
+      export_id: exportId,
+      user_id: auth.userId,
+      coaching_summary: summary,
+      key_facts,
+      preferences: body.preferences ?? {},
+      career_evolution: body.career_evolution ?? {},
+      synced_at: now,
+    });
+  }
+
+  return jsonOk({
+    mempalace_id: exportId,
+    synced_at: now,
+    message: "Coaching data synced to MemPalace",
+    external_sync,
+  });
 }
