@@ -62,7 +62,7 @@ interface OntologyMapping {
 }
 
 interface ClassificationResult {
-  entry_id?: string;
+  id?: string;
   detected_signals: DetectedSignal[];
   primary_activity?: OntologyMapping;
   related_activities?: OntologyMapping[];
@@ -424,7 +424,7 @@ export class FISCMAKClassifier {
     const text = context._raw_text || "";
     const textLower = text.toLowerCase();
 
-    const levelIndicators = {
+    const levelIndicators: Record<number, string[]> = {
       5: [
         "created system",
         "built",
@@ -710,6 +710,11 @@ export class FISCMAKClassifier {
     };
   }
 
+  private joinOne<T>(value: T | T[] | null | undefined): T | undefined {
+    if (value == null) return undefined;
+    return Array.isArray(value) ? value[0] : value;
+  }
+
   /**
    * Load signal indicators from Supabase (with caching)
    */
@@ -746,7 +751,13 @@ export class FISCMAKClassifier {
 
     this.signalIndicators.clear();
     for (const indicator of data || []) {
-      const cat = indicator.signal_categories;
+      const cat = this.joinOne(
+        indicator.signal_categories as
+          | { category_id: string; category_key: string }
+          | { category_id: string; category_key: string }[]
+          | null,
+      );
+      if (!cat) continue;
       const enriched = {
         ...indicator,
         category_id: cat.category_id,
@@ -811,26 +822,33 @@ export class FISCMAKClassifier {
     this.activityMappings.clear();
     for (const mapping of mappings || []) {
       const key = `${mapping.activity_id}-${mapping.track_id}`;
+      const activity = this.joinOne(mapping.ontology_invisible_work_activities);
+      const subcompetency = this.joinOne(mapping.ontology_subcompetencies);
+      const track = this.joinOne(mapping.ontology_career_tracks);
       this.activityMappings.set(key, {
         activity_id: mapping.activity_id,
-        activity_key: mapping.ontology_invisible_work_activities?.activity_key,
-        activity_name: mapping.ontology_invisible_work_activities?.activity_name,
-        subcompetencies: [
-          {
-            id: mapping.ontology_subcompetencies?.subcompetency_id,
-            key: mapping.ontology_subcompetencies?.subcompetency_key,
-            name: mapping.ontology_subcompetencies?.name,
-          },
-        ],
-        career_tracks: [
-          {
-            id: mapping.ontology_career_tracks?.track_id,
-            key: mapping.ontology_career_tracks?.track_key,
-            name: mapping.ontology_career_tracks?.name,
-          },
-        ],
+        activity_key: activity?.activity_key,
+        activity_name: activity?.activity_name,
+        subcompetencies: subcompetency
+          ? [
+              {
+                id: subcompetency.subcompetency_id,
+                key: subcompetency.subcompetency_key,
+                name: subcompetency.name,
+              },
+            ]
+          : [],
+        career_tracks: track
+          ? [
+              {
+                id: track.track_id,
+                key: track.track_key,
+                name: track.name,
+              },
+            ]
+          : [],
         confidence: mapping.confidence_default,
-        related_activities: [], // Would be populated from signal mappings
+        related_activities: [],
       });
     }
 
@@ -885,69 +903,3 @@ export class FISCMAKClassifier {
     return 1 - distance / maxLength;
   }
 }
-
-// ============================================================================
-// EDGE FUNCTION WRAPPER (for use as Supabase Edge Function)
-// ============================================================================
-
-/**
- * Deploy as: supabase functions deploy classify-activity
- * Call from client: supabase.functions.invoke('classify-activity', { body: {...} })
- */
-
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-serve(async (req) => {
-  if (req.method !== "POST") {
-    return new Response("Method not allowed", { status: 405 });
-  }
-
-  try {
-    const { userId, rawText, userSpecialty, userRole } = await req.json();
-
-    // Create Supabase client with service role key
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL") || "",
-      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || ""
-    );
-
-    const classifier = new FISCMAKClassifier(supabase);
-    const result = await classifier.classifyActivity({
-      userId,
-      rawText,
-      userSpecialty,
-      userRole,
-    });
-
-    // Store the activity entry
-    if (result.activity_entry) {
-      const { data: stored, error: storeError } = await supabase
-        .from("activity_entries")
-        .insert([result.activity_entry])
-        .select("entry_id");
-
-      if (storeError) {
-        console.error("Error storing activity:", storeError);
-        return new Response(
-          JSON.stringify({ error: "Failed to store activity" }),
-          { status: 500 }
-        );
-      }
-
-      result.entry_id = stored[0]?.entry_id;
-    }
-
-    return new Response(JSON.stringify(result), {
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    console.error("Classification error:", error);
-    return new Response(
-      JSON.stringify({ error: "Classification failed" }),
-      { status: 500 }
-    );
-  }
-});
-
-export { FISCMAKClassifier };
