@@ -72,6 +72,7 @@ Satellite: `/app/jobs` → `/app/plan?tab=jobs` (linked from Strategy, not top n
 | Tab | Route | Owns |
 |-----|-------|------|
 | Goals | `/app/plan` or `?tab=goals` | Development / Maintenance / Sustainability goals (CRUD), milestones, quarterly/annual goal reviews |
+| Pathways | `/app/plan?tab=pathways` | Specialty career tracks, market demand, salary ranges |
 | Jobs | `/app/plan?tab=jobs` | Position match feed, saved roles, Mak commentary on fit |
 
 **Owns:** goal CRUD, milestone tracking, job match exploration (within Strategy zone).

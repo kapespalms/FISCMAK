@@ -191,13 +191,28 @@ export const JOBS_MAK = {
   overview: makDiscuss(
     "plan",
     "Help me interpret my job matches and which roles fit my career strategy.",
-    { navigateTo: "/app/jobs" },
+    { navigateTo: "/app/plan?tab=jobs" },
   ),
   role: (title: string, institution: string, matchScore: number) =>
     makDiscuss(
       "plan",
       `Discuss this role with me: ${title} at ${institution} (${matchScore}% match). Is it a good fit?`,
-      { navigateTo: "/app/jobs" },
+      { navigateTo: "/app/plan?tab=jobs" },
+    ),
+} as const;
+
+/** Pathways — specialty career tracks */
+export const PATHWAYS_MAK = {
+  overview: makDiscuss(
+    "plan",
+    "Help me compare career pathways for my specialty and choose a direction that fits my goals.",
+    { navigateTo: "/app/plan?tab=pathways" },
+  ),
+  pathway: (pathwayType: string, description: string) =>
+    makDiscuss(
+      "plan",
+      `Discuss the ${pathwayType} pathway with me: ${description || "How does this track fit my career strategy?"}`,
+      { navigateTo: "/app/plan?tab=pathways" },
     ),
 } as const;
 

@@ -351,7 +351,7 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
       {!embedded && !loading && sortedGoals.length > 0 && (
         <p className="mt-8 text-center text-sm text-cx-forest-dark/70">
           <Link
-            href="/app/plan?tab=jobs"
+            href="/app/plan?tab=pathways"
             className="inline-flex items-center gap-1 font-medium text-cx-forest-dark hover:underline"
           >
             Pathways & position search
