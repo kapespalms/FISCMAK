@@ -361,5 +361,5 @@ export function buildDashboardSecondaryAlerts(
   if (dueNow?.kind === "annual") skip.add("annual_refresh");
   if (dueNow?.kind === "quarterly") skip.add("quarterly_pulse");
 
-  return notifications.filter((n) => !skip.has(n.id)).slice(0, 3);
+  return (notifications ?? []).filter((n) => !skip.has(n.id)).slice(0, 3);
 }

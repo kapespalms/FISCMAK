@@ -37,5 +37,7 @@ export async function GET() {
     job_engagement: dashboard.job_engagement,
     next_touchpoint: dashboard.next_touchpoint,
     cv_metrics: dashboard.cv_metrics,
+    engagement_notifications: dashboard.engagement_notifications,
+    career_vault: dashboard.career_vault,
   });
 }
