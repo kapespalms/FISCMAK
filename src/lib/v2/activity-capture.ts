@@ -3,6 +3,8 @@ import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { classifyActivityFallback } from "@/lib/classify";
 import { addServerDemoActivity } from "@/lib/v2/demo-store";
 import { FISCMAKClassifier } from "@/lib/v2/FISCMAKClassifier";
+import { FreeClassifier } from "@/lib/v2/free-classifier";
+import { hasActiveSubscription } from "@/lib/v2/stripe-config";
 import type { ActivityEntry, ClassificationResult } from "@/lib/types/database";
 
 const SKIP_CAPTURE_MESSAGES = new Set([
@@ -119,6 +121,37 @@ async function classifyActivityText(
   return classifyActivityFallback(text);
 }
 
+async function captureWithFreeClassifier(params: {
+  userId: string;
+  text: string;
+  specialty?: string | null;
+  careerPhase?: string | null;
+  energyValence?: string | null;
+  inputSource?: string;
+}): Promise<ActivityEntry | null> {
+  const supabase = await createClient();
+  const classifier = new FreeClassifier();
+  const result = await classifier.classifyActivity({
+    userId: params.userId,
+    rawText: params.text.trim(),
+    userSpecialty: params.specialty ?? undefined,
+    userRole: params.careerPhase ?? undefined,
+  });
+
+  const row = {
+    ...result.activity_entry,
+    input_source: params.inputSource ?? "mak_capture",
+    entry_energy: params.energyValence ?? null,
+  };
+
+  const { data, error } = await supabase.from("activity_entries").insert(row).select().single();
+  if (error) {
+    console.error("Free classifier insert failed:", error);
+    return null;
+  }
+  return activityEntryFromRow(data as Record<string, unknown>, params.userId);
+}
+
 async function captureWithOntologyClassifier(params: {
   userId: string;
   text: string;
@@ -172,11 +205,18 @@ export async function captureActivityFromMak(params: {
   inputSource?: string;
 }): Promise<ActivityEntry> {
   if (!params.demo && isSupabaseConfigured()) {
+    const supabase = await createClient();
+    const isPremium = await hasActiveSubscription(supabase, params.userId);
     try {
-      const classified = await captureWithOntologyClassifier(params);
-      if (classified) return classified;
+      if (isPremium) {
+        const classified = await captureWithOntologyClassifier(params);
+        if (classified) return classified;
+      } else {
+        const classified = await captureWithFreeClassifier(params);
+        if (classified) return classified;
+      }
     } catch (e) {
-      console.error("FISCMAK classifier capture failed, falling back:", e);
+      console.error("Classifier capture failed, falling back:", e);
     }
   }
 

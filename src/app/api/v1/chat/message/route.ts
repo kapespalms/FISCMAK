@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { fetchAssessments, fetchDocuments, fetchLatestMemPalace } from "@/lib/v2/db";
 import {
@@ -61,10 +62,13 @@ import {
   resolveChatState,
   careerAlignmentFromHealth,
 } from "@/lib/mak-chatbot-states";
+import { shouldCaptureActivityMessage } from "@/lib/v2/activity-capture";
 import {
-  captureActivityFromMak,
-  shouldCaptureActivityMessage,
-} from "@/lib/v2/activity-capture";
+  classifyChatMessage,
+  persistClassificationActivity,
+  type ChatClassification,
+} from "@/lib/v2/classify-chat-message";
+import { hasActiveSubscription, isStripeConfigured } from "@/lib/v2/stripe-config";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { AppSection } from "@/lib/mak-sections";
 
@@ -317,6 +321,13 @@ export async function POST(request: Request) {
 
   const flowIntent = (context?.flow_intent as string | undefined) ?? null;
   let activityCaptured: ActivityEntry | null = null;
+  let chatClassification: ChatClassification | null = null;
+
+  const supabaseClient =
+    !auth.demo && isSupabaseConfigured() ? await createClient() : null;
+  const isPremium = supabaseClient
+    ? await hasActiveSubscription(supabaseClient, auth.userId)
+    : false;
 
   if (
     user?.tier3_complete &&
@@ -325,15 +336,36 @@ export async function POST(request: Request) {
     shouldCaptureActivityMessage(message, flowIntent)
   ) {
     try {
-      activityCaptured = await captureActivityFromMak({
-        userId: auth.userId,
-        demo: auth.demo,
-        text: message,
-        specialty: user.specialty,
-        careerPhase: user.career_stage,
-      });
+      if (supabaseClient) {
+        chatClassification = await classifyChatMessage(supabaseClient, isPremium, {
+          userId: auth.userId,
+          rawText: message,
+          userSpecialty: user.specialty,
+          userRole: user.career_stage,
+        });
+        await persistClassificationActivity(
+          supabaseClient,
+          chatClassification.activity_entry,
+        );
+        activityCaptured = {
+          id: crypto.randomUUID(),
+          user_id: auth.userId,
+          created_at: new Date().toISOString(),
+          activity_date: new Date().toISOString().slice(0, 10),
+          raw_text: message.trim(),
+          input_source: "mak_capture",
+          energy_valence: null,
+          primary_domain: chatClassification.activity_key ?? null,
+          primary_track: chatClassification.detected_signals[0] ?? null,
+          primary_domain_confidence: 0.7,
+          primary_track_confidence: 0.7,
+          scope: null,
+          evidence_strength: null,
+          confidence_score: 0.7,
+        };
+      }
     } catch (e) {
-      console.error("Mak activity capture failed:", e);
+      console.error("Mak activity classification failed:", e);
     }
   }
 
@@ -393,6 +425,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
   let response: string;
   let suggested_actions: { action: string; url: string }[] = [];
+  let upgrade_prompt: string | null = null;
 
   if (message === "__welcome__" && user) {
     const welcomeMeta = getOnboardingMetadata(user);
@@ -423,8 +456,25 @@ export async function POST(request: Request) {
   } else if (goalSettingTurn) {
     response = goalSettingTurn.response;
     suggested_actions = goalSettingTurn.suggested_actions;
-  } else if (!apiKey) {
-    response = demoMakReply(message, chatSection);
+  } else if (!apiKey || !isPremium) {
+    if (chatClassification?.mak_response) {
+      response = chatClassification.mak_response;
+    } else if (message && message !== "__welcome__" && flowIntent === "capture" && supabaseClient) {
+      chatClassification = await classifyChatMessage(supabaseClient, isPremium, {
+        userId: auth.userId,
+        rawText: message,
+        userSpecialty: user?.specialty,
+        userRole: user?.career_stage,
+      });
+      await persistClassificationActivity(supabaseClient, chatClassification.activity_entry);
+      response = chatClassification.mak_response;
+    } else {
+      response = demoMakReply(message, chatSection);
+    }
+    if (!isPremium && isStripeConfigured()) {
+      upgrade_prompt = "Upgrade to Premium for AI-powered coaching with Mak ($9/month).";
+      suggested_actions = [{ action: "Upgrade to Premium", url: "/app/settings" }];
+    }
     if (escalation) {
       response = escalation.pauseChatbot
         ? escalation.message
@@ -599,7 +649,7 @@ export async function POST(request: Request) {
     if (userMsg) state.chatMessages.push(userMsg);
     state.chatMessages.push(assistantMsg);
   } else {
-    const supabase = await createClient();
+    const supabase = supabaseClient ?? (await createClient());
     const rows = userMsg ? [userMsg, assistantMsg] : [assistantMsg];
     await supabase.from("chat_messages").insert(rows);
   }
@@ -641,5 +691,14 @@ export async function POST(request: Request) {
         goalSettingTurn?.meta.stored_goals?.length,
     ),
     goals: goalSettingTurn?.goals ?? null,
+    tier: isPremium ? "premium" : "free",
+    upgrade_prompt,
+    analysis: chatClassification
+      ? {
+          detected_signals: chatClassification.detected_signals,
+          activity_type: chatClassification.activity_key,
+          development_level: chatClassification.development_level,
+        }
+      : null,
   });
 }

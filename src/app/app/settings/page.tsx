@@ -3,6 +3,7 @@
 import { Shield } from "lucide-react";
 import { CardSection } from "@/components/ui/CardSection";
 import { PageShell } from "@/components/layout/PageShell";
+import { PremiumUpgradePanel } from "@/components/settings/PremiumUpgradePanel";
 import { SETTINGS_MAK } from "@/lib/card-mak-prompts";
 
 export default function SettingsPage() {
@@ -13,6 +14,7 @@ export default function SettingsPage() {
       subtitle="Privacy and preferences"
       maxWidth="md"
     >
+      <PremiumUpgradePanel />
       <CardSection
         eyebrow="Privacy"
         title="Institution data sharing"

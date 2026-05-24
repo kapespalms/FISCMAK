@@ -75,6 +75,7 @@ const VERIFY_TABLES = [
   "ontology_sources",
   "signal_categories",
   "job_sources",
+  "user_subscriptions",
 ];
 
 async function main() {
@@ -92,6 +93,7 @@ async function main() {
   const hasSignals = await tableExists(client, "signal_categories");
   const hasExtendedActivities = await columnExists(client, "activity_entries", "detected_signals");
   const hasJobSources = await tableExists(client, "job_sources");
+  const hasSubscriptions = await tableExists(client, "user_subscriptions");
 
   console.log("\nCurrent state:");
   console.log(`  app_users: ${hasAppUsers ? "yes" : "no"}`);
@@ -101,6 +103,7 @@ async function main() {
   console.log(`  signal_categories: ${hasSignals ? "yes" : "no"}`);
   console.log(`  activity_entries (7-layer): ${hasExtendedActivities ? "yes" : "no"}`);
   console.log(`  job_sources: ${hasJobSources ? "yes" : "no"}`);
+  console.log(`  user_subscriptions: ${hasSubscriptions ? "yes" : "no"}`);
 
   const steps = [];
 
@@ -171,6 +174,15 @@ async function main() {
     });
   } else {
     console.log("\n→ Career fit engine — skipped (job_sources exists)");
+  }
+
+  if (!hasSubscriptions) {
+    steps.push({
+      file: "docs/migrations/20260524_user_subscriptions.sql",
+      label: "User subscriptions (Stripe premium billing)",
+    });
+  } else {
+    console.log("\n→ User subscriptions — skipped (table exists)");
   }
 
   let failures = 0;
