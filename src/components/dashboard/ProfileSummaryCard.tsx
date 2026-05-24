@@ -38,7 +38,7 @@ function SummaryMiniCard({
   subtext?: string;
 }) {
   return (
-    <div className="rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-2.5">
+    <div className="cx-dashboard-subpanel rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-2.5">
       <div className="flex items-start gap-2">
         <div
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-cx-forest-dark/10 text-cx-forest-dark"
@@ -98,7 +98,7 @@ export function ProfileSummaryCard({
   const status = byId.status;
 
   return (
-    <div className={cn("rounded-xl bg-white p-3 shadow-sm", className)}>
+    <div className={cn("cx-dashboard-panel rounded-xl bg-white p-3 shadow-sm", className)}>
       <div className="flex items-start gap-2.5">
         <div
           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark/10 text-cx-forest-dark"

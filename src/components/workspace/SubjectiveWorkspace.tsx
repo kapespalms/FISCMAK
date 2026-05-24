@@ -7,13 +7,12 @@ import { CardSection } from "@/components/ui/CardSection";
 import { MetricRow } from "@/components/ui/MetricRow";
 import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
+import { useAnalytics } from "@/components/layout/AnalyticsProvider";
 import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import { dominantInvisibleWorkByLevel } from "@/lib/v2/invisible-work-taxonomy";
-import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { PracticeSetting, CareerStage } from "@/lib/v2/onboarding-options";
 import { buildCareerDirectionAnnualGreeting, careerAlignmentFromHealth } from "@/lib/mak-chatbot-states";
-import type { AnalyticsDashboard } from "@/lib/v2/types";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
 import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
@@ -29,43 +28,38 @@ type ProfileMeta = {
 
 export function SubjectiveWorkspace() {
   const { startMakFlow, displayName } = useAppShell();
-  const [health, setHealth] = useState<CareerHealthView | null>(null);
-  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
+  const { analytics, loading: analyticsLoading } = useAnalytics();
   const [profile, setProfile] = useState<ProfileMeta>({});
-  const [loading, setLoading] = useState(true);
+  const [profileLoading, setProfileLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
+  const loadProfile = useCallback(async () => {
     try {
-      const [analyticsRes, profileRes] = await Promise.all([
-        fetch("/api/v1/analytics/dashboard"),
-        fetch("/api/v1/onboarding/touchpoint1"),
-      ]);
-      const analyticsData = await analyticsRes.json();
+      const profileRes = await fetch("/api/v1/onboarding/touchpoint1");
       const profileData = await profileRes.json();
-      setHealth(analyticsData.career_health ?? null);
-      setAnalytics(analyticsData as AnalyticsDashboard);
       setProfile(profileData.profile ?? {});
       setLastUpdate(profileData.profile?.updated_at ?? null);
     } catch {
-      setHealth(null);
-      setAnalytics(null);
+      setProfile({});
     } finally {
-      setLoading(false);
+      setProfileLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    void load();
-    const onUpdate = () => void load();
+    void loadProfile();
+    const onUpdate = () => void loadProfile();
     window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
     return () => window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
-  }, [load]);
+  }, [loadProfile]);
 
   function handleTouchpointComplete() {
-    void load();
+    void loadProfile();
     window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
   }
+
+  const health = analytics?.career_health ?? null;
+  const loading = analyticsLoading || profileLoading;
 
   function beginAnnualMak() {
     const name = displayName ?? "there";

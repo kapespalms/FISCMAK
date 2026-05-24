@@ -38,7 +38,7 @@ export function MiniLattice({
   return (
     <div
       className={cn(
-        "rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-2.5",
+        "cx-dashboard-subpanel rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-2.5",
         className,
       )}
     >

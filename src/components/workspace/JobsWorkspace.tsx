@@ -12,7 +12,11 @@ import { cn } from "@/lib/utils";
 
 type Tab = "matches" | "saved";
 
-export function JobsWorkspace() {
+type JobsWorkspaceProps = {
+  embedded?: boolean;
+};
+
+export function JobsWorkspace({ embedded = false }: JobsWorkspaceProps) {
   const [tab, setTab] = useState<Tab>("matches");
   const [jobs, setJobs] = useState<Job[]>([]);
   const [savedJobs, setSavedJobs] = useState<Job[]>([]);
@@ -83,16 +87,13 @@ export function JobsWorkspace() {
 
   const list = tab === "matches" ? jobs : savedJobs;
 
-  return (
-    <PageShell
-      eyebrow="Position search"
-      title="Job matches"
-      subtitle={commentary || undefined}
-      maxWidth="lg"
-    >
-      <Link href="/app/plan" className="mb-6 inline-block text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark">
-        Back to strategy
-      </Link>
+  const body = (
+    <>
+      {!embedded && (
+        <Link href="/app/plan" className="mb-6 inline-block text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark">
+          Back to strategy
+        </Link>
+      )}
 
       <div className="mb-6 flex gap-2">
         {(["matches", "saved"] as Tab[]).map((t) => (
@@ -137,6 +138,19 @@ export function JobsWorkspace() {
           {list.map(renderJob)}
         </div>
       )}
+    </>
+  );
+
+  if (embedded) return body;
+
+  return (
+    <PageShell
+      eyebrow="Position search"
+      title="Job matches"
+      subtitle={commentary || undefined}
+      maxWidth="lg"
+    >
+      {body}
     </PageShell>
   );
 }

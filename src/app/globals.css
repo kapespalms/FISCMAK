@@ -645,8 +645,41 @@ body {
   color: color-mix(in srgb, #ffffff 38%, transparent);
 }
 
-.dark .cx-main-shell [class*="bg-cx-forest-dark"] {
+.dark .cx-main-shell [class*="bg-cx-forest-dark"]:not(.cx-dashboard-hero):not(.cx-health-gauge) {
   background-color: color-mix(in srgb, #ffffff 5%, #1c2822);
+}
+
+.dark .cx-dashboard-hero {
+  background-color: var(--cx-forest-dark) !important;
+}
+
+.dark .cx-dashboard-hero .cx-dashboard-panel {
+  background-color: #1c2822;
+  border: 1px solid color-mix(in srgb, #ffffff 12%, transparent);
+  box-shadow: none;
+}
+
+.dark .cx-dashboard-hero .cx-dashboard-subpanel {
+  background-color: color-mix(in srgb, #ffffff 6%, #243b31);
+  border-color: color-mix(in srgb, #ffffff 10%, transparent);
+}
+
+.dark .cx-dashboard-hero .text-cx-forest-dark {
+  color: #e2ece6;
+}
+
+.dark .cx-dashboard-hero .cx-dashboard-panel a,
+.dark .cx-dashboard-hero .cx-dashboard-subpanel a {
+  color: color-mix(in srgb, #ffffff 70%, transparent);
+}
+
+.dark .cx-dashboard-hero .cx-dashboard-panel a:hover,
+.dark .cx-dashboard-hero .cx-dashboard-subpanel a:hover {
+  color: #ffffff;
+}
+
+.dark .cx-health-gauge {
+  background-color: color-mix(in srgb, #000000 25%, var(--cx-forest-dark)) !important;
 }
 
 .dark .cx-surface-elevated {

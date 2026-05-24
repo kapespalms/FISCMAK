@@ -74,7 +74,7 @@ function CircularTickGauge({
     <button
       type="button"
       onClick={onDiscuss}
-      className="group flex w-full flex-col items-center rounded-xl bg-cx-forest-dark px-3 py-4 text-left transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5FD65F]"
+      className="group flex w-full flex-col items-center rounded-xl cx-health-gauge bg-cx-forest-dark px-3 py-4 text-left transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5FD65F]"
       aria-label={
         hasScore
           ? `Health score ${value} out of 100. Discuss with Mak.`

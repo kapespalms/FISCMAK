@@ -15,7 +15,7 @@ Each page answers **one primary question**. Edit data in one place; other pages 
 | Account | `/app/profile`, `/app/settings` | Who am I in the system? |
 | Onboarding | `/app/onboarding` | First-time setup only |
 
-Satellite: `/app/jobs` (linked from Strategy, not top nav).
+Satellite: `/app/jobs` → `/app/plan?tab=jobs` (linked from Strategy, not top nav).
 
 ---
 
@@ -67,9 +67,18 @@ Satellite: `/app/jobs` (linked from Strategy, not top nav).
 
 ## Strategy (`/app/plan`)
 
-**Owns:** Development / Maintenance / Sustainability goals (CRUD), milestones, quarterly/annual goal reviews.
+**Sub-tabs (mutually exclusive):**
+
+| Tab | Route | Owns |
+|-----|-------|------|
+| Goals | `/app/plan` or `?tab=goals` | Development / Maintenance / Sustainability goals (CRUD), milestones, quarterly/annual goal reviews |
+| Jobs | `/app/plan?tab=jobs` | Position match feed, saved roles, Mak commentary on fit |
+
+**Owns:** goal CRUD, milestone tracking, job match exploration (within Strategy zone).
 
 **Never:** dashboard summaries with edit affordances, document generation.
+
+**Legacy:** `/app/jobs` redirects to `/app/plan?tab=jobs`.
 
 ---
 

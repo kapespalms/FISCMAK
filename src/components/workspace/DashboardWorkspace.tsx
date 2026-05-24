@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { DashboardWelcome } from "@/components/dashboard/DashboardWelcome";
 import { useAppShell } from "@/components/layout/AppShell";
-import type { AnalyticsDashboard } from "@/lib/v2/types";
+import { useAnalytics } from "@/components/layout/AnalyticsProvider";
 import { buildSoapDashboardBands } from "@/lib/v2/dashboard-snapshot";
 import { buildDashboardHeader } from "@/lib/v2/dashboard-architecture";
 import { loadSubjectiveCheckIn } from "@/lib/subjective-storage";
@@ -22,7 +22,6 @@ import {
 import { buildCareerDirectionAnnualGreeting } from "@/lib/mak-chatbot-states";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
-import { fetchDashboardWithTouchpoints } from "@/lib/v2/touchpoint-fetch";
 import {
   buildActiveTouchpointView,
   buildDashboardDueNow,
@@ -60,30 +59,20 @@ function DashboardSkeleton() {
 
 export function DashboardWorkspace() {
   const { startMakFlow, openMak, displayName } = useAppShell();
+  const { analytics, loading, error: touchpointError } = useAnalytics();
   const router = useRouter();
   const searchParams = useSearchParams();
   const welcome = searchParams.get("welcome") === "1";
-  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
-  const [loading, setLoading] = useState(true);
   const [goals, setGoals] = useState<CareerGoal[]>([]);
   const [profile, setProfile] = useState<ProfileState | null>(null);
   const [onboardingPhase, setOnboardingPhase] = useState<"reveal" | "goals" | null>(null);
   const [proposedGoals, setProposedGoals] = useState<ProposedGoal[]>([]);
-  const [touchpointError, setTouchpointError] = useState<string | null>(null);
-
-  const load = useCallback(async () => {
-    const result = await fetchDashboardWithTouchpoints();
-    setAnalytics(result.analytics);
-    setTouchpointError(result.error);
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    void load();
-  }, [load]);
 
   useEffect(() => {
     void fetchGoals().then(setGoals);
+    const onGoalsUpdated = () => void fetchGoals().then(setGoals);
+    window.addEventListener("fiscmak:goals-updated", onGoalsUpdated);
+    return () => window.removeEventListener("fiscmak:goals-updated", onGoalsUpdated);
   }, []);
 
   useEffect(() => {
@@ -118,16 +107,6 @@ export function DashboardWorkspace() {
         if (welcome) startMakFlow("onboarding");
       });
   }, [welcome, startMakFlow]);
-
-  useEffect(() => {
-    const onRefresh = () => void load();
-    window.addEventListener("fiscmak:touchpoint-complete", onRefresh);
-    window.addEventListener("fiscmak:activity-logged", onRefresh);
-    return () => {
-      window.removeEventListener("fiscmak:touchpoint-complete", onRefresh);
-      window.removeEventListener("fiscmak:activity-logged", onRefresh);
-    };
-  }, [load]);
 
   useEffect(() => {
     if (loading || onboardingPhase || !profile?.tier3_complete) return;

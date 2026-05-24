@@ -44,7 +44,7 @@ export function DashboardWelcome({
   const salutation = timeOfDayGreeting();
 
   return (
-    <header className="rounded-2xl bg-cx-forest-dark p-5 shadow-sm md:p-6">
+    <header className="cx-dashboard-hero rounded-2xl bg-cx-forest-dark p-5 shadow-sm md:p-6">
       <h1 className="text-[28px] font-bold leading-snug text-[#5FD65F] md:text-[32px]">
         {salutation}, {displayName}.
       </h1>

@@ -20,14 +20,17 @@ import { careerGoalsToStructuredGoals } from "@/lib/v2/goal-framework";
 import { PageShell } from "@/components/layout/PageShell";
 import { CareerStrategyGoalCard } from "@/components/workspace/CareerStrategyGoalCard";
 import { useAppShell } from "@/components/layout/AppShell";
+import { useAnalytics } from "@/components/layout/AnalyticsProvider";
 import { buildAnnualPlanResetGreeting } from "@/lib/mak-chatbot-states";
 import { buildGoalSettingIntro } from "@/lib/v2/goal-setting-mak-flow";
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import {
-  findCurrentMilestoneIndex,
   type MilestoneStatus,
 } from "@/lib/v2/goal-milestone-actions";
-import type { AnalyticsDashboard } from "@/lib/v2/types";
+
+type GoalsWorkspaceProps = {
+  embedded?: boolean;
+};
 
 const FRAMEWORK_ORDER: GoalFrameworkType[] = [
   "development",
@@ -50,8 +53,9 @@ function currentQuarterLabel(): string {
   return `Q${Math.floor(now.getMonth() / 3) + 1} ${now.getFullYear()}`;
 }
 
-export function GoalsWorkspace() {
+export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
   const { startMakFlow } = useAppShell();
+  const { analytics } = useAnalytics();
   const formRef = useRef<HTMLDivElement>(null);
   const [goals, setGoals] = useState<CareerGoal[]>([]);
   const [loading, setLoading] = useState(true);
@@ -59,7 +63,6 @@ export function GoalsWorkspace() {
   const [form, setForm] = useState<GoalFormData>(emptyGoalForm());
   const [error, setError] = useState<string | null>(null);
   const [milestoneUpdating, setMilestoneUpdating] = useState<string | null>(null);
-  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
   const [goalsConfirmed, setGoalsConfirmed] = useState(false);
 
   const loadGoals = useCallback(async () => {
@@ -79,10 +82,6 @@ export function GoalsWorkspace() {
 
   useEffect(() => {
     void loadGoals();
-    fetch("/api/v1/analytics/dashboard")
-      .then((r) => r.json())
-      .then((data) => setAnalytics(data as AnalyticsDashboard))
-      .catch(() => undefined);
 
     const refresh = () => void loadGoals();
     window.addEventListener("fiscmak:goals-updated", refresh);
@@ -212,18 +211,8 @@ export function GoalsWorkspace() {
     }
   }
 
-  return (
-    <PageShell
-      eyebrow={SOAP_TAB.plan.nav}
-      title={SOAP_TAB.plan.title}
-      subtitle={SOAP_TAB.plan.description}
-      maxWidth="md"
-      action={
-        !goalsConfirmed ? (
-          <Button onClick={startGoalSettingWithMak}>Set up with Mak</Button>
-        ) : undefined
-      }
-    >
+  const body = (
+    <>
       {error && (
         <p className="cx-alert-banner mb-6 px-4 py-3 text-sm">
           {error}
@@ -359,10 +348,10 @@ export function GoalsWorkspace() {
         })}
       </div>
 
-      {!loading && sortedGoals.length > 0 && (
+      {!embedded && !loading && sortedGoals.length > 0 && (
         <p className="mt-8 text-center text-sm text-cx-forest-dark/70">
           <Link
-            href="/app/jobs"
+            href="/app/plan?tab=jobs"
             className="inline-flex items-center gap-1 font-medium text-cx-forest-dark hover:underline"
           >
             Pathways & position search
@@ -370,6 +359,24 @@ export function GoalsWorkspace() {
           </Link>
         </p>
       )}
+    </>
+  );
+
+  if (embedded) return body;
+
+  return (
+    <PageShell
+      eyebrow={SOAP_TAB.plan.nav}
+      title={SOAP_TAB.plan.title}
+      subtitle={SOAP_TAB.plan.description}
+      maxWidth="md"
+      action={
+        !goalsConfirmed ? (
+          <Button onClick={startGoalSettingWithMak}>Set up with Mak</Button>
+        ) : undefined
+      }
+    >
+      {body}
     </PageShell>
   );
 }

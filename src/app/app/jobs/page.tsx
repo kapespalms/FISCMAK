@@ -1,5 +1,5 @@
-import { JobsWorkspace } from "@/components/workspace/JobsWorkspace";
+import { redirect } from "next/navigation";
 
 export default function JobsPage() {
-  return <JobsWorkspace />;
+  redirect("/app/plan?tab=jobs");
 }

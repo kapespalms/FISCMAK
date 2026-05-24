@@ -24,6 +24,7 @@ import { useIsMobile } from "@/lib/use-media-query";
 import { IconSidebar } from "@/components/layout/IconSidebar";
 import { TopNavBar } from "@/components/layout/TopNavBar";
 import { MakPanel } from "@/components/layout/MakPanel";
+import { AnalyticsProvider } from "@/components/layout/AnalyticsProvider";
 import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
 
 export type MakFlowTouchpoint = "annual" | "quarterly";
@@ -193,9 +194,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
         <div className="cx-main-shell flex min-w-0 flex-1 flex-col">
           <TopNavBar />
-          <main className="min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
-            {children}
-          </main>
+          <AnalyticsProvider>
+            <main className="min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
+              {children}
+            </main>
+          </AnalyticsProvider>
         </div>
       </div>
     </AppShellContext.Provider>

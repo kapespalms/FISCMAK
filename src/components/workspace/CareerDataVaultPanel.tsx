@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Database, Fingerprint, GraduationCap } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { CardSection } from "@/components/ui/CardSection";
-import type { AnalyticsDashboard } from "@/lib/v2/types";
+import { useAnalytics } from "@/components/layout/AnalyticsProvider";
 import { resolveAcademicProfile, isAcademicContext } from "@/lib/v2/academic-profiles";
 import type { PracticeSetting, CareerStage, AcademicRank } from "@/lib/v2/onboarding-options";
 import { OBJECTIVE_MAK, makDiscuss } from "@/lib/card-mak-prompts";
@@ -17,33 +17,32 @@ type ProfileMeta = {
 };
 
 export function CareerDataVaultPanel() {
-  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
+  const { analytics, loading: analyticsLoading } = useAnalytics();
   const [profile, setProfile] = useState<ProfileMeta>({});
-  const [loading, setLoading] = useState(true);
+  const [profileLoading, setProfileLoading] = useState(true);
 
-  const load = useCallback(async () => {
+  const loadProfile = useCallback(async () => {
     try {
-      const [analyticsRes, profileRes] = await Promise.all([
-        fetch("/api/v1/analytics/dashboard"),
-        fetch("/api/v1/onboarding/touchpoint1"),
-      ]);
-      setAnalytics(await analyticsRes.json());
-      setProfile(await profileRes.json());
+      const profileRes = await fetch("/api/v1/onboarding/touchpoint1");
+      const profileData = await profileRes.json();
+      setProfile(profileData.profile ?? {});
     } finally {
-      setLoading(false);
+      setProfileLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    void load();
-    const onUpdate = () => void load();
+    void loadProfile();
+    const onUpdate = () => void loadProfile();
     window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
     window.addEventListener("fiscmak:activity-logged", onUpdate);
     return () => {
       window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
       window.removeEventListener("fiscmak:activity-logged", onUpdate);
     };
-  }, [load]);
+  }, [loadProfile]);
+
+  const loading = analyticsLoading || profileLoading;
 
   if (loading) {
     return <p className="text-sm text-cx-forest-dark/70">Loading Career Data vault…</p>;

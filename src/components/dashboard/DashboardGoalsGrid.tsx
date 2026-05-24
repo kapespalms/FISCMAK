@@ -125,7 +125,7 @@ export function DashboardGoalsGrid({
 
   if (inline) {
     return (
-      <div className="rounded-xl bg-white p-3 shadow-sm">
+      <div className="cx-dashboard-panel rounded-xl bg-white p-3 shadow-sm">
         <div className="flex items-center justify-between gap-2">
           <h3 className="text-sm font-bold text-cx-forest-dark">Goals</h3>
           <Link
