@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export function OnboardingGuard({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [ready, setReady] = useState(false);
 
@@ -13,17 +12,38 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
       setReady(true);
       return;
     }
+
+    let cancelled = false;
+
     fetch("/api/v1/users/me")
-      .then((r) => r.json())
-      .then((u) => {
-        if (!u.tier1_complete) {
-          router.replace("/app/onboarding");
+      .then(async (response) => {
+        if (!response.ok) {
+          if (response.status === 401) {
+            window.location.assign("/login");
+            return null;
+          }
+          throw new Error("Could not load profile");
+        }
+        return response.json();
+      })
+      .then((user) => {
+        if (cancelled || !user) return;
+
+        if (!user.tier1_complete) {
+          window.location.assign("/app/onboarding");
           return;
         }
+
         setReady(true);
       })
-      .catch(() => setReady(true));
-  }, [router, pathname]);
+      .catch(() => {
+        if (!cancelled) setReady(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [pathname]);
 
   if (!ready) {
     return (
@@ -32,5 +52,6 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
       </div>
     );
   }
+
   return <>{children}</>;
 }

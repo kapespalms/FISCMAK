@@ -8,10 +8,12 @@ import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
+import { AppleSignInButton } from "@/components/auth/AppleSignInButton";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -26,8 +28,14 @@ export default function SignupPage() {
       return;
     }
 
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      setLoading(false);
+      return;
+    }
+
     const supabase = createClient();
-    const { error: authError } = await supabase.auth.signUp({ email, password });
+    const { data, error: authError } = await supabase.auth.signUp({ email, password });
 
     if (authError) {
       setError(authError.message);
@@ -35,13 +43,20 @@ export default function SignupPage() {
       return;
     }
 
-    router.push("/app/onboarding");
-    router.refresh();
+    if (data.session) {
+      window.location.assign("/app/onboarding");
+      return;
+    }
+
+    setError(
+      "Account created — check your email to confirm, then sign in. Or disable email confirmation in Supabase Auth settings for local dev.",
+    );
+    setLoading(false);
   }
 
   return (
-    <div className="cx-page-gradient flex min-h-full items-center justify-center p-6">
-      <Card className="w-full max-w-md">
+    <div className="cx-page-gradient-green flex min-h-full items-center justify-center p-6">
+      <Card glass className="w-full max-w-md">
         <h1 className="text-page-title">Get started</h1>
         <p className="mt-2 text-sm text-cx-forest-dark/70">
           Already have an account?{" "}
@@ -50,15 +65,6 @@ export default function SignupPage() {
           </Link>
         </p>
         <form onSubmit={handleSignup} className="mt-6 space-y-4">
-          <GoogleSignInButton next="/app/onboarding" label="Sign up with Google" />
-          <div className="relative py-1">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-cx-forest-dark/15" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-cx-white px-2 text-cx-forest-dark/60">or</span>
-            </div>
-          </div>
           <Input
             label="Email"
             id="email"
@@ -76,14 +82,33 @@ export default function SignupPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Input
+            label="Confirm password"
+            id="confirmPassword"
+            type="password"
+            required
+            minLength={8}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
           {error && (
             <p className="cx-alert-banner px-4 py-3 text-sm">
               {error}
             </p>
           )}
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button type="submit" className="w-full text-[#5FD65F]" disabled={loading}>
             {loading ? "Creating account…" : "Create account"}
           </Button>
+          <div className="relative py-1">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t border-cx-forest-dark/15" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-white/70 px-2 text-cx-forest-dark/60 backdrop-blur-sm">or</span>
+            </div>
+          </div>
+          <AppleSignInButton next="/app/onboarding" label="Sign up with Apple" />
+          <GoogleSignInButton next="/app/onboarding" label="Sign up with Google" />
         </form>
       </Card>
     </div>

@@ -293,6 +293,28 @@ body {
   background: linear-gradient(135deg, var(--cx-gradient-from) 0%, var(--cx-gradient-to) 50%, var(--cx-gradient-from) 100%);
 }
 
+/* Auth / marketing — soft forest green wash */
+.cx-page-gradient-green {
+  background: linear-gradient(
+    135deg,
+    #f4fbf4 0%,
+    #f7fcf7 35%,
+    #eef8ee 65%,
+    #f4fbf4 100%
+  );
+}
+
+.cx-glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 4px 8px rgba(36, 59, 49, 0.06),
+    0 12px 28px rgba(36, 59, 49, 0.1),
+    0 24px 48px rgba(36, 59, 49, 0.08);
+}
+
 .cx-section-surface {
   background: #ffffff;
   border: 1px solid color-mix(in srgb, var(--cx-forest-dark) 10%, transparent);

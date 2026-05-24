@@ -288,8 +288,12 @@ export function DashboardWorkspace() {
       )}
 
       <div className="mx-auto max-w-[1200px]">
-        {loading || !analytics || !headerModel ? (
+        {loading ? (
           <DashboardSkeleton />
+        ) : !analytics || !headerModel ? (
+          <div className="cx-alert-banner px-4 py-3 text-sm">
+            {touchpointError ?? "Could not load dashboard. Refresh the page or finish onboarding first."}
+          </div>
         ) : (
           <>
             {touchpointError && (

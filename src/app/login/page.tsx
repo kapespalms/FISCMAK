@@ -34,29 +34,30 @@ export default function LoginPage() {
     }
 
     const supabase = createClient();
-    const { error: authError } = await supabase.auth.signInWithPassword({
+    const { data, error: authError } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
     if (authError) {
-      setError(authError.message);
+      const msg =
+        authError.message.includes("Email not confirmed")
+          ? "Check your email to confirm your account, then try again."
+          : authError.message;
+      setError(msg);
       setLoading(false);
       return;
     }
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    if (user) await ensureAppUser(supabase, user);
+    if (data.user) await ensureAppUser(supabase, data.user);
 
-    router.push("/app");
-    router.refresh();
+    // Hard navigation so session cookies are loaded before AuthGuard runs
+    window.location.assign("/app");
   }
 
   return (
-    <div className="cx-page-gradient flex min-h-full items-center justify-center p-6">
-      <Card className="w-full max-w-md">
+    <div className="cx-page-gradient-green flex min-h-full items-center justify-center p-6">
+      <Card glass className="w-full max-w-md">
         <h1 className="text-page-title">Sign in</h1>
         <p className="mt-2 text-sm text-cx-forest-dark/70">
           {!isSupabaseConfigured() && (
@@ -75,7 +76,7 @@ export default function LoginPage() {
               <span className="w-full border-t border-cx-forest-dark/15" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-cx-white px-2 text-cx-forest-dark/60">or</span>
+              <span className="bg-white/70 px-2 text-cx-forest-dark/60 backdrop-blur-sm">or</span>
             </div>
           </div>
           <Input
