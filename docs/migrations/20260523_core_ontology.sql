@@ -50,16 +50,16 @@ create index if not exists idx_specialties_key on ontology_specialties(specialty
 
 -- Seed specialties (start with core ones, can expand)
 insert into ontology_specialties (specialty_key, name, acgme_review_committee, aliases, active) values
-  ('psych', 'Psychiatry', 'Psychiatry', '{"Psychiatry", "Psych", "Psychiatric Medicine"}', true),
-  ('im', 'Internal Medicine', 'Internal Medicine', '{"Internal Medicine", "Medicine", "IM"}', true),
-  ('em', 'Emergency Medicine', 'Emergency Medicine', '{"Emergency Medicine", "EM", "Emergency"}', true),
-  ('surgery', 'General Surgery', 'Surgery', '{"General Surgery", "Surgery", "Gen Surg"}', true),
-  ('peds', 'Pediatrics', 'Pediatrics', '{"Pediatrics", "Peds", "Child Medicine"}', true),
-  ('fm', 'Family Medicine', 'Family Medicine', '{"Family Medicine", "FM", "Family Practice"}', true),
-  ('ob', 'Obstetrics and Gynecology', 'Obstetrics and Gynecology', '{"Obstetrics and Gynecology", "OB/GYN", "OBGYN"}', true),
-  ('neuro', 'Neurology', 'Neurology', '{"Neurology", "Neuro"}', true),
-  ('pathology', 'Pathology', 'Pathology', '{"Pathology", "Anatomic Pathology", "Clinical Pathology"}', true),
-  ('radiology', 'Radiology', 'Radiology', '{"Radiology", "Diagnostic Radiology"}', true)
+  ('psych', 'Psychiatry', 'Psychiatry', '{"Psychiatry", "Psych", "Psychiatric Medicine"}'::text[], true),
+  ('im', 'Internal Medicine', 'Internal Medicine', '{"Internal Medicine", "Medicine", "IM"}'::text[], true),
+  ('em', 'Emergency Medicine', 'Emergency Medicine', '{"Emergency Medicine", "EM", "Emergency"}'::text[], true),
+  ('surgery', 'General Surgery', 'Surgery', '{"General Surgery", "Surgery", "Gen Surg"}'::text[], true),
+  ('peds', 'Pediatrics', 'Pediatrics', '{"Pediatrics", "Peds", "Child Medicine"}'::text[], true),
+  ('fm', 'Family Medicine', 'Family Medicine', '{"Family Medicine", "FM", "Family Practice"}'::text[], true),
+  ('ob', 'Obstetrics and Gynecology', 'Obstetrics and Gynecology', '{"Obstetrics and Gynecology", "OB/GYN", "OBGYN"}'::text[], true),
+  ('neuro', 'Neurology', 'Neurology', '{"Neurology", "Neuro"}'::text[], true),
+  ('pathology', 'Pathology', 'Pathology', '{"Pathology", "Anatomic Pathology", "Clinical Pathology"}'::text[], true),
+  ('radiology', 'Radiology', 'Radiology', '{"Radiology", "Diagnostic Radiology"}'::text[], true)
 on conflict (specialty_key) do nothing;
 
 -- ============================================================================
@@ -86,17 +86,17 @@ create index if not exists idx_subspecialties_key on ontology_subspecialties(sub
 
 -- Seed psychiatry fellowships
 insert into ontology_subspecialties (subspecialty_key, specialty_id, name, acgme_accredited, residency_dependency_status, aliases, active)
-select 'psych_child_adolescent', specialty_id, 'Child and Adolescent Psychiatry', true, 'Yes, Always', '{"CAP", "Child Psych"}', true from ontology_specialties where specialty_key = 'psych'
+select 'psych_child_adolescent', specialty_id, 'Child and Adolescent Psychiatry', true, 'Yes, Always', '{"CAP", "Child Psych"}'::text[], true from ontology_specialties where specialty_key = 'psych'
 union all
-select 'psych_forensic', specialty_id, 'Forensic Psychiatry', true, 'Yes, With Exceptions', '{"Forensic Psych"}', true from ontology_specialties where specialty_key = 'psych'
+select 'psych_forensic', specialty_id, 'Forensic Psychiatry', true, 'Yes, With Exceptions', '{"Forensic Psych"}'::text[], true from ontology_specialties where specialty_key = 'psych'
 union all
-select 'psych_geriatric', specialty_id, 'Geriatric Psychiatry', true, 'Yes, With Exceptions', '{"Geriatric Psych"}', true from ontology_specialties where specialty_key = 'psych'
+select 'psych_geriatric', specialty_id, 'Geriatric Psychiatry', true, 'Yes, With Exceptions', '{"Geriatric Psych"}'::text[], true from ontology_specialties where specialty_key = 'psych'
 union all
-select 'psych_addiction', specialty_id, 'Addiction Psychiatry', true, 'Yes, With Exceptions', '{"Addiction Psych"}', true from ontology_specialties where specialty_key = 'psych'
+select 'psych_addiction', specialty_id, 'Addiction Psychiatry', true, 'Yes, With Exceptions', '{"Addiction Psych"}'::text[], true from ontology_specialties where specialty_key = 'psych'
 union all
-select 'psych_cl', specialty_id, 'Consultation-Liaison Psychiatry', true, 'Yes, With Exceptions', '{"CL Psych", "Psychosomatic Medicine"}', true from ontology_specialties where specialty_key = 'psych'
+select 'psych_cl', specialty_id, 'Consultation-Liaison Psychiatry', true, 'Yes, With Exceptions', '{"CL Psych", "Psychosomatic Medicine"}'::text[], true from ontology_specialties where specialty_key = 'psych'
 union all
-select 'psych_sleep', specialty_id, 'Sleep Medicine', true, 'No', '{"Sleep"}', true from ontology_specialties where specialty_key = 'psych'
+select 'psych_sleep', specialty_id, 'Sleep Medicine', true, 'No', '{"Sleep"}'::text[], true from ontology_specialties where specialty_key = 'psych'
 on conflict (subspecialty_key) do nothing;
 
 -- ============================================================================
@@ -237,7 +237,7 @@ create index if not exists idx_subcompetencies_key on ontology_subcompetencies(s
 
 -- Seed subcompetencies from Clinician Educator Milestones
 insert into ontology_subcompetencies (subcompetency_key, domain_id, name, description, source_id, acgme_milestone_reference, active)
-select 'reflective_practice', domain_id, 'Reflective Practice and Commitment to Personal Growth', 'Engages in ongoing self-reflection regarding personal strengths, limitations, and practice patterns', source_id, 'Clinician Educator Milestones - Universal Pillars 1', true from ontology_competency_domains where domain_key = 'mentorship' limit 1
+select 'reflective_practice', (select domain_id from ontology_competency_domains where domain_key = 'mentorship'), 'Reflective Practice and Commitment to Personal Growth', 'Engages in ongoing self-reflection regarding personal strengths, limitations, and practice patterns', (select source_id from ontology_sources where source_name = 'Clinician Educator Milestones'), 'Clinician Educator Milestones - Universal Pillars 1', true
 union all
 select 'personal_wellbeing', (select domain_id from ontology_competency_domains where domain_key = 'wellbeing'), 'Personal Well-Being', 'Demonstrates personal strategies for well-being and self-care', (select source_id from ontology_sources where source_name = 'Clinician Educator Milestones'), 'Clinician Educator Milestones - Universal Pillars 2', true
 union all
@@ -399,33 +399,33 @@ create index if not exists idx_activities_category on ontology_invisible_work_ac
 
 -- Seed initial invisible work activities
 insert into ontology_invisible_work_activities (activity_key, activity_name, category_id, plain_language_description, context_examples, default_scope, default_evidence_type, is_proprietary, active)
-select 'gave_feedback', 'Gave feedback', category_id, 'Provided reinforcing or corrective feedback to a learner or colleague to improve performance', '{"During rounds", "In supervision", "After presentation", "In one-on-one meeting"}', 'local', 'narrative', true, true from ontology_activity_categories where category_key = 'feedback'
+select 'gave_feedback', 'Gave feedback', category_id, 'Provided reinforcing or corrective feedback to a learner or colleague to improve performance', '{"During rounds", "In supervision", "After presentation", "In one-on-one meeting"}'::text[], 'local', 'narrative', true, true from ontology_activity_categories where category_key = 'feedback'
 union all
-select 'mentored_trainee', 'Mentored trainee', (select category_id from ontology_activity_categories where category_key = 'mentorship'), 'Helped a learner or junior colleague think through career, performance, identity, or next steps', '{"Career planning conversation", "Professional development", "Identity formation", "Navigating challenges"}', 'local', 'narrative', true, true
+select 'mentored_trainee', 'Mentored trainee', (select category_id from ontology_activity_categories where category_key = 'mentorship'), 'Helped a learner or junior colleague think through career, performance, identity, or next steps', '{"Career planning conversation", "Professional development", "Identity formation", "Navigating challenges"}'::text[], 'local', 'narrative', true, true
 union all
-select 'supported_distressed_learner', 'Supported distressed learner/colleague', (select category_id from ontology_activity_categories where category_key = 'wellbeing'), 'Recognized distress, burnout, or overwhelm in a colleague and responded supportively', '{"Checked in after difficult case", "Helped process emotions", "Connected to resources", "Offered perspective"}', 'local', 'narrative', true, true
+select 'supported_distressed_learner', 'Supported distressed learner/colleague', (select category_id from ontology_activity_categories where category_key = 'wellbeing'), 'Recognized distress, burnout, or overwhelm in a colleague and responded supportively', '{"Checked in after difficult case", "Helped process emotions", "Connected to resources", "Offered perspective"}'::text[], 'local', 'narrative', true, true
 union all
-select 'created_curriculum', 'Created curriculum or educational resource', (select category_id from ontology_activity_categories where category_key = 'curriculum'), 'Made an educational handout, guide, lecture, checklist, or teaching tool', '{"Created teaching script", "Built lecture slides", "Made checklist", "Designed module"}', 'team', 'artifact', true, true
+select 'created_curriculum', 'Created curriculum or educational resource', (select category_id from ontology_activity_categories where category_key = 'curriculum'), 'Made an educational handout, guide, lecture, checklist, or teaching tool', '{"Created teaching script", "Built lecture slides", "Made checklist", "Designed module"}'::text[], 'team', 'artifact', true, true
 union all
-select 'led_meeting', 'Led meeting or workgroup', (select category_id from ontology_activity_categories where category_key = 'leadership'), 'Organized people around a decision, project, or improvement; facilitated discussion', '{"Faculty meeting", "QI workgroup", "Committee meeting", "Team huddle"}', 'team', 'narrative', true, true
+select 'led_meeting', 'Led meeting or workgroup', (select category_id from ontology_activity_categories where category_key = 'leadership'), 'Organized people around a decision, project, or improvement; facilitated discussion', '{"Faculty meeting", "QI workgroup", "Committee meeting", "Team huddle"}'::text[], 'team', 'narrative', true, true
 union all
-select 'improved_workflow', 'Improved workflow or process', (select category_id from ontology_activity_categories where category_key = 'systems_improvement'), 'Identified a broken process and changed or improved it', '{"Streamlined handoff", "Reduced bottleneck", "Changed documentation flow", "Improved scheduling"}', 'team', 'narrative', true, true
+select 'improved_workflow', 'Improved workflow or process', (select category_id from ontology_activity_categories where category_key = 'systems_improvement'), 'Identified a broken process and changed or improved it', '{"Streamlined handoff", "Reduced bottleneck", "Changed documentation flow", "Improved scheduling"}'::text[], 'team', 'narrative', true, true
 union all
-select 'coordinated_complex_care', 'Coordinated complex care or services', (select category_id from ontology_activity_categories where category_key = 'coordination'), 'Aligned multiple people, services, or stakeholders around patient or program needs', '{"Family meeting coordination", "Interdepartmental alignment", "Care team alignment", "Service coordination"}', 'team', 'narrative', true, true
+select 'coordinated_complex_care', 'Coordinated complex care or services', (select category_id from ontology_activity_categories where category_key = 'coordination'), 'Aligned multiple people, services, or stakeholders around patient or program needs', '{"Family meeting coordination", "Interdepartmental alignment", "Care team alignment", "Service coordination"}'::text[], 'team', 'narrative', true, true
 union all
-select 'gave_informal_teaching', 'Gave informal teaching', (select category_id from ontology_activity_categories where category_key = 'teaching'), 'Taught a clinical concept during rounds, supervision, or patient care', '{"Clinical teaching", "Bedside teaching", "Case-based teaching", "Opportunistic teaching"}', 'local', 'narrative', true, true
+select 'gave_informal_teaching', 'Gave informal teaching', (select category_id from ontology_activity_categories where category_key = 'teaching'), 'Taught a clinical concept during rounds, supervision, or patient care', '{"Clinical teaching", "Bedside teaching", "Case-based teaching", "Opportunistic teaching"}'::text[], 'local', 'narrative', true, true
 union all
-select 'recognized_burnout', 'Recognized and supported burnout', (select category_id from ontology_activity_categories where category_key = 'wellbeing'), 'Noticed a colleague or learner struggling with burnout and took supportive action', '{"Offered resources", "Checked in", "Listened without judgment", "Advocated for support"}', 'local', 'narrative', true, true
+select 'recognized_burnout', 'Recognized and supported burnout', (select category_id from ontology_activity_categories where category_key = 'wellbeing'), 'Noticed a colleague or learner struggling with burnout and took supportive action', '{"Offered resources", "Checked in", "Listened without judgment", "Advocated for support"}'::text[], 'local', 'narrative', true, true
 union all
-select 'presented_scholarship', 'Presented scholarship or QI work', (select category_id from ontology_activity_categories where category_key = 'scholarship'), 'Shared academic, educational, or quality improvement work through poster, talk, or abstract', '{"Conference presentation", "Poster presentation", "Local teaching", "Journal publication"}', 'program', 'artifact', true, true
+select 'presented_scholarship', 'Presented scholarship or QI work', (select category_id from ontology_activity_categories where category_key = 'scholarship'), 'Shared academic, educational, or quality improvement work through poster, talk, or abstract', '{"Conference presentation", "Poster presentation", "Local teaching", "Journal publication"}'::text[], 'program', 'artifact', true, true
 union all
-select 'received_feedback', 'Received and acted on feedback', (select category_id from ontology_activity_categories where category_key = 'feedback'), 'Used feedback from others to change behavior or improve performance', '{"Incorporated supervisor feedback", "Changed approach based on input", "Reflected and grew", "Acknowledged and corrected"}', 'local', 'narrative', true, true
+select 'received_feedback', 'Received and acted on feedback', (select category_id from ontology_activity_categories where category_key = 'feedback'), 'Used feedback from others to change behavior or improve performance', '{"Incorporated supervisor feedback", "Changed approach based on input", "Reflected and grew", "Acknowledged and corrected"}'::text[], 'local', 'narrative', true, true
 union all
-select 'handled_conflict', 'Managed difficult conversation or conflict', (select category_id from ontology_activity_categories where category_key = 'leadership'), 'Addressed interpersonal or workflow conflict; helped resolve tension between people or teams', '{"Mediated disagreement", "Addressed conduct issue", "Resolved team tension", "Gave difficult feedback"}', 'team', 'narrative', true, true
+select 'handled_conflict', 'Managed difficult conversation or conflict', (select category_id from ontology_activity_categories where category_key = 'leadership'), 'Addressed interpersonal or workflow conflict; helped resolve tension between people or teams', '{"Mediated disagreement", "Addressed conduct issue", "Resolved team tension", "Gave difficult feedback"}'::text[], 'team', 'narrative', true, true
 union all
-select 'built_tool', 'Built tool, dashboard, or structured data system', (select category_id from ontology_activity_categories where category_key = 'informatics'), 'Created a dashboard, spreadsheet, or data system to track or improve something', '{"Built evaluation tracker", "Created dashboard", "Structured data collection", "Automated reporting"}', 'team', 'artifact', true, true
+select 'built_tool', 'Built tool, dashboard, or structured data system', (select category_id from ontology_activity_categories where category_key = 'informatics'), 'Created a dashboard, spreadsheet, or data system to track or improve something', '{"Built evaluation tracker", "Created dashboard", "Structured data collection", "Automated reporting"}'::text[], 'team', 'artifact', true, true
 union all
-select 'advocated_for_change', 'Advocated for learner, patient, or system change', (select category_id from ontology_activity_categories where category_key = 'advocacy'), 'Spoke up to address unfairness, bias, or barriers; advocated for change', '{"Addressed bias", "Advocated for resource", "Pushed back on policy", "Spoke up for learner"}', 'program', 'narrative', true, true
+select 'advocated_for_change', 'Advocated for learner, patient, or system change', (select category_id from ontology_activity_categories where category_key = 'advocacy'), 'Spoke up to address unfairness, bias, or barriers; advocated for change', '{"Addressed bias", "Advocated for resource", "Pushed back on policy", "Spoke up for learner"}'::text[], 'program', 'narrative', true, true
 on conflict (activity_key) do nothing;
 
 -- ============================================================================
@@ -443,14 +443,14 @@ create table if not exists ontology_activity_mappings (
   weight numeric(3,2) default 1.0, -- relative strength of this mapping
   active boolean default true,
   created_at timestamp with time zone default now(),
-  updated_at timestamp with time zone default now()
+  updated_at timestamp with time zone default now(),
+  unique (activity_id, subcompetency_id, track_id)
 );
 
 comment on table ontology_activity_mappings is 'Translation engine: maps activity → subcompetency → track → level with confidence scores';
 create index if not exists idx_mappings_activity on ontology_activity_mappings(activity_id);
 create index if not exists idx_mappings_subcompetency on ontology_activity_mappings(subcompetency_id);
 create index if not exists idx_mappings_track on ontology_activity_mappings(track_id);
-create unique index if not exists idx_mappings_unique on ontology_activity_mappings(activity_id, subcompetency_id, track_id) where active = true;
 
 -- Seed mappings: each activity connects to multiple competencies/tracks
 -- Example: "mentored trainee" → learner_prof_dev + clinician_educator @ level 3
@@ -532,7 +532,8 @@ create table if not exists ontology_output_templates (
   confidence_default numeric(3,2) default 0.75,
   active boolean default true,
   created_at timestamp with time zone default now(),
-  updated_at timestamp with time zone default now()
+  updated_at timestamp with time zone default now(),
+  unique (activity_id, output_type)
 );
 
 comment on table ontology_output_templates is 'Templates that translate activities into CV, promotion, and annual review language';
@@ -588,7 +589,7 @@ select
   'cv_bullet',
   'Disseminated scholarly work through {format}: {title}, presented at {venue} to advance {field} knowledge.',
   0.82, true
-on conflict do nothing;
+on conflict (activity_id, output_type) do nothing;
 
 -- ============================================================================
 -- RLS POLICIES

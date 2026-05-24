@@ -22,6 +22,17 @@ async function tableExists(client, name) {
   return Boolean(rows[0]?.ok);
 }
 
+async function columnExists(client, table, column) {
+  const { rows } = await client.query(
+    `SELECT EXISTS (
+      SELECT 1 FROM information_schema.columns
+      WHERE table_schema = 'public' AND table_name = $1 AND column_name = $2
+    ) AS ok`,
+    [table, column],
+  );
+  return Boolean(rows[0]?.ok);
+}
+
 async function runSqlFile(client, relativePath, label) {
   const fullPath = path.join(root, relativePath);
   if (!fs.existsSync(fullPath)) {
@@ -61,6 +72,9 @@ const VERIFY_TABLES = [
   "physicians",
   "api_enrichment_runs",
   "reconciliation_items",
+  "ontology_sources",
+  "signal_categories",
+  "job_sources",
 ];
 
 async function main() {
@@ -74,11 +88,19 @@ async function main() {
   const hasAppUsers = await tableExists(client, "app_users");
   const hasPhysicians = await tableExists(client, "physicians");
   const hasActivities = await tableExists(client, "activity_entries");
+  const hasOntology = await tableExists(client, "ontology_sources");
+  const hasSignals = await tableExists(client, "signal_categories");
+  const hasExtendedActivities = await columnExists(client, "activity_entries", "detected_signals");
+  const hasJobSources = await tableExists(client, "job_sources");
 
   console.log("\nCurrent state:");
   console.log(`  app_users: ${hasAppUsers ? "yes" : "no"}`);
   console.log(`  physicians (career data): ${hasPhysicians ? "yes" : "no"}`);
   console.log(`  activity_entries: ${hasActivities ? "yes" : "no"}`);
+  console.log(`  ontology_sources: ${hasOntology ? "yes" : "no"}`);
+  console.log(`  signal_categories: ${hasSignals ? "yes" : "no"}`);
+  console.log(`  activity_entries (7-layer): ${hasExtendedActivities ? "yes" : "no"}`);
+  console.log(`  job_sources: ${hasJobSources ? "yes" : "no"}`);
 
   const steps = [];
 
@@ -114,8 +136,49 @@ async function main() {
     console.log("\n→ Career Data schema — skipped (physicians exists)");
   }
 
+  if (!hasOntology) {
+    steps.push({
+      file: "docs/migrations/20260523_core_ontology.sql",
+      label: "Core ontology (specialties, competencies, career tracks)",
+    });
+  } else {
+    console.log("\n→ Core ontology — skipped (ontology_sources exists)");
+  }
+
+  if (!hasSignals) {
+    steps.push({
+      file: "docs/migrations/20260523_signal_detection.sql",
+      label: "Signal detection (categories, indicators, routing)",
+    });
+  } else {
+    console.log("\n→ Signal detection — skipped (signal_categories exists)");
+  }
+
+  if (!hasExtendedActivities) {
+    steps.push({
+      file: "docs/migrations/20260523_activity_entries_extended.sql",
+      label: "Activity entries 7-layer extension (signals + ontology mapping)",
+      requiresTable: "activity_entries",
+    });
+  } else {
+    console.log("\n→ Activity entries extension — skipped (detected_signals exists)");
+  }
+
+  if (!hasJobSources) {
+    steps.push({
+      file: "docs/migrations/20260523_career_fit_engine.sql",
+      label: "Career fit engine (job sources, preferences, matches)",
+    });
+  } else {
+    console.log("\n→ Career fit engine — skipped (job_sources exists)");
+  }
+
   let failures = 0;
   for (const step of steps) {
+    if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {
+      console.log(`\n→ ${step.label} — skipped (${step.requiresTable} not ready)`);
+      continue;
+    }
     const result = await runSqlFile(client, step.file, step.label);
     if (!result.ok && !result.skipped) failures += 1;
   }

@@ -104,12 +104,12 @@ select
   'mentorship_coaching_conversation',
   'Coaching junior on career/identity',
   'keyword',
-  '{mentored, mentoring, coached, coaching, career conversation, career planning, next steps, trajectory}',
+  '{mentored, mentoring, coached, coaching, career conversation, career planning, next steps, trajectory}'::text[],
   'User is guiding someone through career thinking, identity formation, or professional development',
   0.85,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{mentored_trainee, learner_prof_dev}',
-  '{mentorship, learner_prof_dev, identity}',
+  '{mentored_trainee, learner_prof_dev}'::text[],
+  '{mentorship, learner_prof_dev, identity}'::text[],
   'Was this a one-time conversation or part of an ongoing mentoring relationship?',
   true
 union all
@@ -118,26 +118,26 @@ select
   'mentorship_helping_junior',
   'Helping junior navigate a challenge',
   'keyword',
-  '{helped junior, supported junior, guided trainee, junior colleague, helping resident, helping fellow}',
+  '{helped junior, supported junior, guided trainee, junior colleague, helping resident, helping fellow}'::text[],
   'User is providing support and guidance to a less experienced colleague',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{mentored_trainee, supported_distressed_learner}',
-  '{mentorship, learner_prof_dev}',
+  '{mentored_trainee, supported_distressed_learner}'::text[],
+  '{mentorship, learner_prof_dev}'::text[],
   'What specifically did you help them understand or navigate?',
   true
 union all
 select 
   (select category_id from signal_categories where category_key = 'mentorship'),
   'mentorship_sponsoring',
-  'Advocating for someone\'s advancement',
+  'Advocating for someone''s advancement',
   'keyword',
-  '{sponsored, advocating for, put their name forward, recommended for, championed, supported their application}',
-  'User is actively supporting someone\'s career advancement or opportunity',
+  '{sponsored, advocating for, put their name forward, recommended for, championed, supported their application}'::text[],
+  'User is actively supporting someone''s career advancement or opportunity',
   0.82,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{mentored_trainee, advocated_for_change}',
-  '{mentorship, advocacy, leadership}',
+  '{mentored_trainee, advocated_for_change}'::text[],
+  '{mentorship, advocacy, leadership}'::text[],
   'What made you want to advocate for this person?',
   true
 union all
@@ -146,12 +146,12 @@ select
   'mentorship_professional_development',
   'Supporting professional identity formation',
   'phrase',
-  '{professional identity, who they want to be, finding their voice, defining themselves, becoming a clinician educator, becoming a leader, role identity}',
+  '{professional identity, who they want to be, finding their voice, defining themselves, becoming a clinician educator, becoming a leader, role identity}'::text[],
   'User is helping someone develop or clarify professional identity',
   0.78,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{mentored_trainee, learner_prof_dev}',
-  '{mentorship, identity, leadership}',
+  '{mentored_trainee, learner_prof_dev}'::text[],
+  '{mentorship, identity, leadership}'::text[],
   'How is their professional identity formation going?',
   true
 on conflict (indicator_key) do nothing;
@@ -169,12 +169,12 @@ select
   'leadership_leading_meeting',
   'Led meeting or workgroup',
   'keyword',
-  '{led meeting, ran meeting, facilitated meeting, led workgroup, led team, chaired, ran session, hosted discussion}',
+  '{led meeting, ran meeting, facilitated meeting, led workgroup, led team, chaired, ran session, hosted discussion}'::text[],
   'User organized and directed a meeting or group discussion',
   0.88,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{led_meeting}',
-  '{leadership_skills, program_eval}',
+  '{led_meeting}'::text[],
+  '{leadership_skills, program_eval}'::text[],
   'What was the outcome or decision from that meeting?',
   true
 union all
@@ -183,12 +183,12 @@ select
   'leadership_managing_conflict',
   'Addressed interpersonal or team conflict',
   'keyword',
-  '{conflict, difficult conversation, addressed tension, mediated, resolved disagreement, helped them work it out, tension between}',
+  '{conflict, difficult conversation, addressed tension, mediated, resolved disagreement, helped them work it out, tension between}'::text[],
   'User navigated interpersonal conflict or helped others resolve it',
   0.82,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{handled_conflict}',
-  '{leadership_skills, ics}',
+  '{handled_conflict}'::text[],
+  '{leadership_skills, ics}'::text[],
   'How did you approach the conflict? What did you learn?',
   true
 union all
@@ -197,12 +197,12 @@ select
   'leadership_influencing_decision',
   'Influenced an important decision',
   'keyword',
-  '{influenced, swayed, persuaded, pushed for, advocated for decision, made the case for, convinced leadership, decision was made}',
+  '{influenced, swayed, persuaded, pushed for, advocated for decision, made the case for, convinced leadership, decision was made}'::text[],
   'User shaped a significant decision or outcome through influence',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{led_meeting}',
-  '{leadership_skills, sbp}',
+  '{led_meeting}'::text[],
+  '{leadership_skills, sbp}'::text[],
   'What was the decision and how did your influence matter?',
   true
 union all
@@ -211,13 +211,13 @@ select
   'leadership_managing_team',
   'Managing or overseeing a team',
   'keyword',
-  '{managing team, supervise, oversee, directing people, team lead, program manager, department chair, director of}',
+  '{managing team, supervise, oversee, directing people, team lead, program manager, department chair, director of}'::text[],
   'User is in a formal or informal leadership role managing others',
   0.85,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{led_meeting}',
-  '{leadership_skills, admin_skills}',
-  'What\'s the size of your team and what\'s been most challenging?',
+  '{led_meeting}'::text[],
+  '{leadership_skills, admin_skills}'::text[],
+  'What''s the size of your team and what''s been most challenging?',
   true
 on conflict (indicator_key) do nothing;
 
@@ -234,12 +234,12 @@ select
   'systems_identified_inefficiency',
   'Identified a broken process',
   'keyword',
-  '{inefficient, broken, bottleneck, waste, unnecessary step, takes too long, frustration with process, problem with workflow}',
+  '{inefficient, broken, bottleneck, waste, unnecessary step, takes too long, frustration with process, problem with workflow}'::text[],
   'User recognized a process or system inefficiency',
   0.78,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{improved_workflow}',
-  '{sbp, program_eval}',
+  '{improved_workflow}'::text[],
+  '{sbp, program_eval}'::text[],
   'Did you propose a fix or change? What would improve it?',
   true
 union all
@@ -248,12 +248,12 @@ select
   'systems_proposed_change',
   'Proposed or implemented a process change',
   'keyword',
-  '{proposed, changed, implemented, improved, streamlined, reduced, eliminated, fixed, restructured, automated}',
+  '{proposed, changed, implemented, improved, streamlined, reduced, eliminated, fixed, restructured, automated}'::text[],
   'User suggested or enacted a process improvement',
   0.85,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{improved_workflow, coordinated_complex_care}',
-  '{sbp, program_eval, leadership_skills}',
+  '{improved_workflow, coordinated_complex_care}'::text[],
+  '{sbp, program_eval, leadership_skills}'::text[],
   'What was the impact of that change? How did people respond?',
   true
 union all
@@ -262,12 +262,12 @@ select
   'systems_connecting_pieces',
   'Aligning or coordinating across silos',
   'keyword',
-  '{aligned, coordinated, brought together, connected, cross-departmental, interdepartmental, bridging, liaison, communication between}',
+  '{aligned, coordinated, brought together, connected, cross-departmental, interdepartmental, bridging, liaison, communication between}'::text[],
   'User worked to connect or integrate separate parts of a system',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{coordinated_complex_care, led_meeting}',
-  '{sbp, ics, leadership_skills}',
+  '{coordinated_complex_care, led_meeting}'::text[],
+  '{sbp, ics, leadership_skills}'::text[],
   'What barriers did you have to overcome to coordinate that?',
   true
 union all
@@ -276,12 +276,12 @@ select
   'systems_reducing_friction',
   'Reduced handoff friction or communication gaps',
   'keyword',
-  '{handoff, handoff improved, communication gap, better coordination, smoother process, reduced errors, fewer miscommunications}',
+  '{handoff, handoff improved, communication gap, better coordination, smoother process, reduced errors, fewer miscommunications}'::text[],
   'User improved transitions or communication between steps in a process',
   0.76,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{improved_workflow, coordinated_complex_care}',
-  '{sbp, ics}',
+  '{improved_workflow, coordinated_complex_care}'::text[],
+  '{sbp, ics}'::text[],
   'How did the handoff improvement happen? What made it work?',
   true
 on conflict (indicator_key) do nothing;
@@ -299,12 +299,12 @@ select
   'advocacy_speaking_up',
   'Spoke up about an unfair or wrong situation',
   'keyword',
-  '{spoke up, spoke out, said something, pushed back, raised concern, didn''t stay quiet, called out, addressed}',
+  '{spoke up, spoke out, said something, pushed back, raised concern, didn''t stay quiet, called out, addressed}'::text[],
   'User took a stand or voiced a concern about something wrong',
   0.82,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{advocated_for_change}',
-  '{advocacy, prof}',
+  '{advocated_for_change}'::text[],
+  '{advocacy, prof}'::text[],
   'What made you feel like you had to speak up?',
   true
 union all
@@ -313,12 +313,12 @@ select
   'advocacy_addressing_bias',
   'Addressed bias, inequity, or discrimination',
   'keyword',
-  '{bias, discrimination, inequity, unfair, stereotyping, spoke against bias, diversity, inclusion, addressed bias}',
+  '{bias, discrimination, inequity, unfair, stereotyping, spoke against bias, diversity, inclusion, addressed bias}'::text[],
   'User actively worked against bias or unfair treatment',
   0.85,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{advocated_for_change}',
-  '{advocacy, prof, ics}',
+  '{advocated_for_change}'::text[],
+  '{advocacy, prof, ics}'::text[],
   'What was the situation and what did you do?',
   true
 union all
@@ -327,12 +327,12 @@ select
   'advocacy_fighting_for_resources',
   'Advocated for resources, support, or policy change',
   'keyword',
-  '{fought for, advocated for, asked for, requested, proposed policy change, asked administration, needed more, needed support}',
+  '{fought for, advocated for, asked for, requested, proposed policy change, asked administration, needed more, needed support}'::text[],
   'User pushed for institutional resources or changes in support of people or mission',
   0.78,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{advocated_for_change, led_meeting}',
-  '{advocacy, sbp, leadership_skills}',
+  '{advocated_for_change, led_meeting}'::text[],
+  '{advocacy, sbp, leadership_skills}'::text[],
   'What did you ask for and did you get it?',
   true
 union all
@@ -341,12 +341,12 @@ select
   'advocacy_protecting_someone',
   'Advocated for or protected a person',
   'keyword',
-  '{stood up for, protected, defended, advocated for them, their corner, fought for them, had their back, protected from}',
+  '{stood up for, protected, defended, advocated for them, their corner, fought for them, had their back, protected from}'::text[],
   'User actively advocated for or protected an individual',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{advocated_for_change}',
-  '{advocacy, mentorship, prof}',
+  '{advocated_for_change}'::text[],
+  '{advocacy, mentorship, prof}'::text[],
   'What were the stakes? Why was it important to advocate for them?',
   true
 on conflict (indicator_key) do nothing;
@@ -364,12 +364,12 @@ select
   'emotional_labor_supporting_distress',
   'Supported colleague through distress or struggle',
   'keyword',
-  '{struggling, distressed, overwhelmed, having a hard time, difficult time, took time to listen, sat with, held space}',
+  '{struggling, distressed, overwhelmed, having a hard time, difficult time, took time to listen, sat with, held space}'::text[],
   'User provided emotional support to someone in distress',
   0.85,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{supported_distressed_learner, recognized_burnout}',
-  '{learner_colleague_wellbeing, ics}',
+  '{supported_distressed_learner, recognized_burnout}'::text[],
+  '{learner_colleague_wellbeing, ics}'::text[],
   'What did supporting them look like? How are they doing now?',
   true
 union all
@@ -378,12 +378,12 @@ select
   'emotional_labor_recognizing_burnout',
   'Recognized burnout or well-being concern in self or others',
   'keyword',
-  '{burnout, burned out, exhausted, not themselves, struggling with balance, work-life, tired, stressed, overwhelmed, unsustainable}',
+  '{burnout, burned out, exhausted, not themselves, struggling with balance, work-life, tired, stressed, overwhelmed, unsustainable}'::text[],
   'User recognized signs of burnout or well-being crisis',
   0.82,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{recognized_burnout}',
-  '{learner_colleague_wellbeing, personal_wellbeing, wellbeing}',
+  '{recognized_burnout}'::text[],
+  '{learner_colleague_wellbeing, personal_wellbeing, wellbeing}'::text[],
   'What made you notice the burnout? What helped or could help?',
   true
 union all
@@ -392,12 +392,12 @@ select
   'emotional_labor_processing_emotion',
   'Helped someone process difficult emotions or experience',
   'keyword',
-  '{helped them process, talked through, worked through emotion, grieving, anger, guilt, fear, talked about how they felt}',
+  '{helped them process, talked through, worked through emotion, grieving, anger, guilt, fear, talked about how they felt}'::text[],
   'User provided space and support for emotional processing',
   0.78,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{supported_distressed_learner}',
-  '{learner_colleague_wellbeing, ics}',
+  '{supported_distressed_learner}'::text[],
+  '{learner_colleague_wellbeing, ics}'::text[],
   'What was the emotion or experience they were processing?',
   true
 union all
@@ -406,12 +406,12 @@ select
   'emotional_labor_connecting_resources',
   'Connected someone to support or resources',
   'keyword',
-  '{referred to, connected to, resources, counseling, EAP, therapy, support group, chaplain, mentor, crisis line}',
+  '{referred to, connected to, resources, counseling, EAP, therapy, support group, chaplain, mentor, crisis line}'::text[],
   'User helped someone access formal or informal support',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{recognized_burnout, supported_distressed_learner}',
-  '{learner_colleague_wellbeing, sbp}',
+  '{recognized_burnout, supported_distressed_learner}'::text[],
+  '{learner_colleague_wellbeing, sbp}'::text[],
   'Were they able to access the resource? Did it help?',
   true
 union all
@@ -420,12 +420,12 @@ select
   'emotional_labor_boundary_holding',
   'Maintained professional boundaries while supporting',
   'keyword',
-  '{boundaries, appropriate distance, professional relationship, knew when to refer, didn''t become a therapist, recognized limits}',
+  '{boundaries, appropriate distance, professional relationship, knew when to refer, didn''t become a therapist, recognized limits}'::text[],
   'User showed awareness of appropriate boundaries in support',
   0.72,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{supported_distressed_learner}',
-  '{prof, learner_colleague_wellbeing}',
+  '{supported_distressed_learner}'::text[],
+  '{prof, learner_colleague_wellbeing}'::text[],
   'How do you navigate the balance between support and boundaries?',
   true
 on conflict (indicator_key) do nothing;
@@ -443,12 +443,12 @@ select
   'teaching_informal_teaching',
   'Taught during rounds, supervision, or clinical care',
   'keyword',
-  '{taught, teaching, rounds, bedside teaching, supervision, clinical teaching, explained, demonstrated}',
+  '{taught, teaching, rounds, bedside teaching, supervision, clinical teaching, explained, demonstrated}'::text[],
   'User engaged in opportunistic clinical teaching',
   0.83,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{gave_informal_teaching}',
-  '{teaching_learning, pc}',
+  '{gave_informal_teaching}'::text[],
+  '{teaching_learning, pc}'::text[],
   'What clinical topic did you teach? How did the learner respond?',
   true
 union all
@@ -457,12 +457,12 @@ select
   'teaching_creating_resource',
   'Created curriculum, slides, handout, or teaching tool',
   'keyword',
-  '{created slides, made handout, wrote guide, built curriculum, designed module, lecture, video, teaching tool, checklist}',
+  '{created slides, made handout, wrote guide, built curriculum, designed module, lecture, video, teaching tool, checklist}'::text[],
   'User developed educational content or materials',
   0.88,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{created_curriculum, created_resource}',
-  '{curriculum, teaching_learning}',
+  '{created_curriculum, created_resource}'::text[],
+  '{curriculum, teaching_learning}'::text[],
   'Who used this resource and was it effective?',
   true
 union all
@@ -471,12 +471,12 @@ select
   'teaching_facilitating_learning',
   'Facilitated a learning discussion or case conference',
   'keyword',
-  '{facilitated, led discussion, case conference, journal club, M&M, seminar, learning activity, discussion session}',
+  '{facilitated, led discussion, case conference, journal club, M&M, seminar, learning activity, discussion session}'::text[],
   'User designed and led a structured learning experience',
   0.84,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{led_meeting, gave_informal_teaching}',
-  '{teaching_learning, learning_environment}',
+  '{led_meeting, gave_informal_teaching}'::text[],
+  '{teaching_learning, learning_environment}'::text[],
   'How did learners engage with that learning activity?',
   true
 on conflict (indicator_key) do nothing;
@@ -494,12 +494,12 @@ select
   'feedback_giving_feedback',
   'Gave formative or corrective feedback',
   'keyword',
-  '{gave feedback, provided feedback, told them, corrected, reinforced strength, constructive feedback, formative feedback}',
+  '{gave feedback, provided feedback, told them, corrected, reinforced strength, constructive feedback, formative feedback}'::text[],
   'User delivered performance or learning feedback',
   0.87,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{gave_feedback}',
-  '{feedback, teaching_learning}',
+  '{gave_feedback}'::text[],
+  '{feedback, teaching_learning}'::text[],
   'How did they receive the feedback? Did they change?',
   true
 union all
@@ -508,12 +508,12 @@ select
   'feedback_receiving_feedback',
   'Received and acted on feedback',
   'keyword',
-  '{got feedback, was told, learned that, changed because of feedback, took that feedback seriously, incorporated, adjusted}',
+  '{got feedback, was told, learned that, changed because of feedback, took that feedback seriously, incorporated, adjusted}'::text[],
   'User demonstrated openness to and integration of feedback',
   0.82,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{received_feedback}',
-  '{reflective_practice, feedback}',
+  '{received_feedback}'::text[],
+  '{reflective_practice, feedback}'::text[],
   'What feedback did you get and how did it change your practice?',
   true
 union all
@@ -522,12 +522,12 @@ select
   'feedback_reflection',
   'Reflected on experience or practice',
   'keyword',
-  '{reflected, learned from, realized, thinking back, hindsight, what I''d do differently, could have done better}',
+  '{reflected, learned from, realized, thinking back, hindsight, what I''d do differently, could have done better}'::text[],
   'User engaged in reflective practice or learning from experience',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{received_feedback}',
-  '{reflective_practice}',
+  '{received_feedback}'::text[],
+  '{reflective_practice}'::text[],
   'What was the biggest lesson from that reflection?',
   true
 on conflict (indicator_key) do nothing;
@@ -545,12 +545,12 @@ select
   'scholarship_presenting',
   'Presented work at conference or forum',
   'keyword',
-  '{presented, poster, talk, conference, presented at, abstract, grand rounds, seminar presentation, scholarly presentation}',
+  '{presented, poster, talk, conference, presented at, abstract, grand rounds, seminar presentation, scholarly presentation}'::text[],
   'User disseminated work through presentation',
   0.88,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{presented_scholarship}',
-  '{med_ed_scholarship, scholarship}',
+  '{presented_scholarship}'::text[],
+  '{med_ed_scholarship, scholarship}'::text[],
   'What was the response? What next for this work?',
   true
 union all
@@ -559,12 +559,12 @@ select
   'scholarship_published',
   'Published or submitted for publication',
   'keyword',
-  '{published, journal, paper, manuscript, submitted, accepted, in press, wrote article}',
+  '{published, journal, paper, manuscript, submitted, accepted, in press, wrote article}'::text[],
   'User published or is publishing scholarly work',
   0.90,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{presented_scholarship}',
-  '{med_ed_scholarship, scholarship}',
+  '{presented_scholarship}'::text[],
+  '{med_ed_scholarship, scholarship}'::text[],
   'What is the paper/publication about? What''s the impact?',
   true
 union all
@@ -573,12 +573,12 @@ select
   'scholarship_research_project',
   'Conducted or leading research or QI project',
   'keyword',
-  '{research, QI project, quality improvement, IRB, data collection, literature review, project, grant, funded}',
+  '{research, QI project, quality improvement, IRB, data collection, literature review, project, grant, funded}'::text[],
   'User is engaged in research or systematic improvement work',
   0.85,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{presented_scholarship}',
-  '{med_ed_scholarship, scholarship, pbli}',
+  '{presented_scholarship}'::text[],
+  '{med_ed_scholarship, scholarship, pbli}'::text[],
   'What''s the research question or improvement goal?',
   true
 on conflict (indicator_key) do nothing;
@@ -596,12 +596,12 @@ select
   'innovation_building_tool',
   'Built dashboard, spreadsheet, or data system',
   'keyword',
-  '{built dashboard, created spreadsheet, automated, database, tool, system, data tracker, software, app, built system}',
+  '{built dashboard, created spreadsheet, automated, database, tool, system, data tracker, software, app, built system}'::text[],
   'User created technology or data infrastructure',
   0.86,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{built_tool}',
-  '{innovation, sbp, admin_skills}',
+  '{built_tool}'::text[],
+  '{innovation, sbp, admin_skills}'::text[],
   'What problem did that tool solve? Who uses it?',
   true
 union all
@@ -610,12 +610,12 @@ select
   'innovation_improving_technology',
   'Improved EHR workflow or clinical informatics',
   'keyword',
-  '{EHR, electronic health record, workflow improved, informatics, structured data, alert, documentation, template}',
+  '{EHR, electronic health record, workflow improved, informatics, structured data, alert, documentation, template}'::text[],
   'User worked with technology to improve clinical or administrative work',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'FISCMAK Signal Research'),
-  '{built_tool, improved_workflow}',
-  '{innovation, sbp}',
+  '{built_tool, improved_workflow}'::text[],
+  '{innovation, sbp}'::text[],
   'How did EHR improvement help? What''s the impact?',
   true
 on conflict (indicator_key) do nothing;
@@ -633,12 +633,12 @@ select
   'wellbeing_energy_decline',
   'Expressing declining energy or motivation',
   'keyword',
-  '{tired, exhausted, not sure why I''m doing this, losing passion, energy down, not excited, dragging, burnt out}',
+  '{tired, exhausted, not sure why I''m doing this, losing passion, energy down, not excited, dragging, burnt out}'::text[],
   'User is expressing signs of energy depletion or burnout',
   0.76,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{recognized_burnout}',
-  '{personal_wellbeing, wellbeing}',
+  '{recognized_burnout}'::text[],
+  '{personal_wellbeing, wellbeing}'::text[],
   'What''s been draining your energy most lately?',
   true
 union all
@@ -647,12 +647,12 @@ select
   'wellbeing_finding_meaning',
   'Finding meaning, fulfillment, or purpose in work',
   'keyword',
-  '{fulfilling, meaningful work, purpose, makes sense, why I do this, energizes me, excited about, gives me energy}',
+  '{fulfilling, meaningful work, purpose, makes sense, why I do this, energizes me, excited about, gives me energy}'::text[],
   'User is experiencing meaning or satisfaction in their work',
   0.82,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{mentored_trainee, gave_informal_teaching}',
-  '{identity, personal_wellbeing}',
+  '{mentored_trainee, gave_informal_teaching}'::text[],
+  '{identity, personal_wellbeing}'::text[],
   'What aspect of your work feels most meaningful right now?',
   true
 union all
@@ -661,12 +661,12 @@ select
   'wellbeing_seeking_balance',
   'Struggling with work-life balance or boundaries',
   'keyword',
-  '{balance, boundaries, work-life, too much, can''t keep up, weekends, time off, need a break, not sustainable}',
+  '{balance, boundaries, work-life, too much, can''t keep up, weekends, time off, need a break, not sustainable}'::text[],
   'User is aware of work-life balance challenges',
   0.80,
   (select source_id from signal_detection_sources where source_name = 'Well-Being Literature'),
-  '{recognized_burnout}',
-  '{personal_wellbeing, wellbeing}',
+  '{recognized_burnout}'::text[],
+  '{personal_wellbeing, wellbeing}'::text[],
   'What would help you achieve better balance?',
   true
 on conflict (indicator_key) do nothing;
@@ -684,12 +684,12 @@ select
   'role_clarity_exploring_identity',
   'Exploring professional identity or role transition',
   'keyword',
-  '{who am I, who do I want to be, becoming, identity, transitioning to, shift towards, less clinician more, wondering if}',
+  '{who am I, who do I want to be, becoming, identity, transitioning to, shift towards, less clinician more, wondering if}'::text[],
   'User is actively exploring or transitioning professional identity',
   0.75,
   (select source_id from signal_detection_sources where source_name = 'Career Development Theory'),
-  '{mentored_trainee}',
-  '{identity, learner_prof_dev}',
+  '{mentored_trainee}'::text[],
+  '{identity, learner_prof_dev}'::text[],
   'Tell me more about the professional identity you''re developing or exploring.',
   true
 union all
@@ -698,12 +698,12 @@ select
   'role_clarity_unclear_career_path',
   'Uncertainty about career direction or next steps',
   'keyword',
-  '{not sure, unclear, torn between, what comes next, next steps, direction, what''s next, unsure of path, confused about}',
+  '{not sure, unclear, torn between, what comes next, next steps, direction, what''s next, unsure of path, confused about}'::text[],
   'User is uncertain about career trajectory or options',
   0.72,
   (select source_id from signal_detection_sources where source_name = 'Career Development Theory'),
-  '{}',
-  '{identity}',
+  '{}'::text[],
+  '{identity}'::text[],
   'What are the options you''re considering?',
   true
 on conflict (indicator_key) do nothing;
@@ -721,12 +721,12 @@ select
   'skill_gap_teaching_administration',
   'Lacking confidence or development in teaching/admin',
   'keyword',
-  '{don''t know how to teach, never been trained in, no background in, not an educator, teaching isn''t my strength, admin skills}',
+  '{don''t know how to teach, never been trained in, no background in, not an educator, teaching isn''t my strength, admin skills}'::text[],
   'User identifies a gap in teaching or administration skills',
   0.70,
   (select source_id from signal_detection_sources where source_name = 'Clinician Educator Milestones'),
-  '{}',
-  '{teaching, admin}',
+  '{}'::text[],
+  '{teaching, admin}'::text[],
   'What aspect of teaching or administration would you most like to develop?',
   true
 union all
@@ -735,12 +735,12 @@ select
   'skill_gap_research_scholarship',
   'Lacking confidence or development in research/scholarship',
   'keyword',
-  '{not a researcher, never done research, don''t know how to publish, scared of research, no scholarly output, not academic}',
+  '{not a researcher, never done research, don''t know how to publish, scared of research, no scholarly output, not academic}'::text[],
   'User identifies a gap in research or scholarship skills',
   0.68,
   (select source_id from signal_detection_sources where source_name = 'Career Development Theory'),
-  '{}',
-  '{scholarship, med_ed_scholarship}',
+  '{}'::text[],
+  '{scholarship, med_ed_scholarship}'::text[],
   'What would scholarly work or research look like for you?',
   true
 on conflict (indicator_key) do nothing;
@@ -760,62 +760,53 @@ create table if not exists signal_conversational_routes (
   confidence_adjustment numeric(3,2) default 0.0, -- adjust signal confidence based on context
   active boolean default true,
   created_at timestamp with time zone default now(),
-  updated_at timestamp with time zone default now()
+  updated_at timestamp with time zone default now(),
+  unique (indicator_id, route_name)
 );
-
-comment on table signal_conversational_routes is 'Conversational follow-ups when signals are detected';
 create index if not exists idx_routes_indicator on signal_conversational_routes(indicator_id);
 
 -- Example routes
 insert into signal_conversational_routes (indicator_id, route_name, route_type, route_template, conditional_logic, active)
 select 
-  indicator_id,
+  (select indicator_id from signal_indicators where indicator_key = 'mentorship_coaching_conversation'),
   'Mentorship followup',
   'followup_question',
   'That mentoring work is meaningful. Was this a one-time conversation or part of a longer relationship you''re building with them?',
   null,
   true
-from signal_indicators where indicator_key = 'mentorship_coaching_conversation' limit 1
 union all
 select 
-  indicator_id,
+  (select indicator_id from signal_indicators where indicator_key = 'leadership_leading_meeting'),
   'Leadership impact check',
   'followup_question',
   'Leading that took vision and presence. What was the outcome? Did the group move forward?',
   null,
   true
-from signal_indicators where indicator_key = 'leadership_leading_meeting' limit 1
 union all
 select 
-  indicator_id,
+  (select indicator_id from signal_indicators where indicator_key = 'systems_proposed_change'),
   'Systems thinking deepening',
   'reflection_prompt',
   'You identified something broken and fixed it—that''s systems thinking in action. Do you see yourself in a systems-leader role?',
   null,
   true
-from signal_indicators where indicator_key = 'systems_proposed_change' limit 1
 union all
 select 
-  indicator_id,
+  (select indicator_id from signal_indicators where indicator_key = 'advocacy_speaking_up'),
   'Advocacy affirmation',
   'validation',
   'Speaking up for what''s right takes courage. I want to honor that you did.',
   null,
   true
-from signal_indicators where indicator_key = 'advocacy_speaking_up' limit 1
 union all
 select 
-  indicator_id,
+  (select indicator_id from signal_indicators where indicator_key = 'emotional_labor_supporting_distress'),
   'Emotional labor recognition',
   'validation',
   'Holding space for someone in distress is real work and it matters. How are *you* doing with this?',
   null,
   true
-from signal_indicators where indicator_key = 'emotional_labor_supporting_distress' limit 1
-on conflict do nothing;
-
--- ============================================================================
--- TABLE 5: signal_user_context
+on conflict (indicator_id, route_name) do nothing;
 -- ============================================================================
 -- Stores detected signals and context from user interactions for pattern recognition
 

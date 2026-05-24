@@ -5,6 +5,7 @@ import pg from "pg";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
+const POOLER_PREFIXES = ["aws-1", "aws-0"];
 const POOLER_REGIONS = [
   "us-east-1",
   "us-east-2",
@@ -77,12 +78,14 @@ export function buildConnectionCandidates() {
     passwordFromUrl(process.env.DIRECT_URL ?? "") ??
     passwordFromUrl(process.env.DATABASE_URL ?? "");
 
-  if (ref && password) {
-    for (const region of POOLER_REGIONS) {
-      add(
-        `postgresql://postgres.${ref}:${encodeURIComponent(password)}@aws-0-${region}.pooler.supabase.com:5432/postgres`,
-        `session pooler (${region})`,
-      );
+  if (ref && password && !/^\[?YOUR-PASSWORD\]?$/i.test(password)) {
+    for (const prefix of POOLER_PREFIXES) {
+      for (const region of POOLER_REGIONS) {
+        add(
+          `postgresql://postgres.${ref}:${encodeURIComponent(password)}@${prefix}-${region}.pooler.supabase.com:5432/postgres`,
+          `session pooler (${prefix}-${region})`,
+        );
+      }
     }
     add(
       `postgresql://postgres.${ref}:${encodeURIComponent(password)}@aws-0-${POOLER_REGIONS[0]}.pooler.supabase.com:6543/postgres`,
@@ -125,8 +128,25 @@ export async function connectPostgres({ verbose = true } = {}) {
     }
   }
 
+  const ipv4Hint =
+    lastError instanceof Error &&
+    (/ENOTFOUND.*db\./i.test(lastError.message) ||
+      /Tenant or user not found/i.test(lastError.message))
+      ? [
+          "",
+          "IPv4 network detected — direct host db.[ref].supabase.co often does not resolve.",
+          "In Supabase Dashboard → Connect, open the **Session pooler** tab (port 5432),",
+          "copy that URI into .env.local as SESSION_POOLER_URL, then re-run npm run db:migrate.",
+          "Do not use the direct connection string on IPv4-only networks.",
+        ].join("\n")
+      : "";
+
   throw lastError instanceof Error
-    ? lastError
+    ? new Error(
+        lastError.message +
+          (ipv4Hint ||
+            "\nSet SESSION_POOLER_URL from Supabase Dashboard → Connect → Session mode."),
+      )
     : new Error(
         "Could not connect. Set SESSION_POOLER_URL from Supabase Dashboard → Connect → Session mode.",
       );

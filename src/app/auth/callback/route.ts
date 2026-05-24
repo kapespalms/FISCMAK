@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ensureAppUser } from "@/lib/v2/ensure-app-user";
 import { NextResponse } from "next/server";
 
@@ -7,11 +8,7 @@ export async function GET(request: Request) {
   const code = searchParams.get("code");
   const next = searchParams.get("next") ?? "/app";
 
-  if (
-    !code ||
-    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  ) {
+  if (!code || !isSupabaseConfigured()) {
     return NextResponse.redirect(`${origin}/login`);
   }
 

@@ -32,94 +32,64 @@ insert into job_sources (source_name, source_type, is_active) values
 on conflict (source_name) do nothing;
 
 -- ============================================================================
--- TABLE 2: jobs
+-- TABLE 2: jobs (extends existing V2 jobs table)
 -- ============================================================================
 -- Normalized job postings in FISCMAK schema
 
-create table if not exists jobs (
-  job_id uuid primary key default gen_random_uuid(),
-  
-  -- Basic job info
-  source_id uuid not null references job_sources(source_id),
-  source_job_id text not null, -- employer's job ID
-  title text not null,
-  employer text not null,
-  employer_type text, -- 'hospital', 'private_practice', 'academia', 'corporate', 'telehealth', 'government'
-  
-  -- Location & setting
-  location_city text,
-  location_state text,
-  location_country text default 'USA',
-  location_region text, -- 'Northeast', 'Midwest', 'South', 'West'
-  remote_type text, 'on-site', -- 'on-site', 'hybrid', 'remote'
-  
-  -- Medical specialty alignment
-  specialty_id uuid references ontology_specialties(specialty_id),
-  specialty_key text, -- denormalized: 'psych', 'im', etc.
-  subspecialty_id uuid references ontology_subspecialties(subspecialty_id),
-  subspecialty_key text, -- denormalized: 'psych_cl', etc.
-  
-  -- Role profile
-  role_level text, -- 'resident', 'fellow', 'early_career', 'established', 'senior', 'leadership'
-  setting text, -- 'inpatient', 'outpatient', 'mixed', 'telehealth', 'admin', 'research'
-  clinical_percent integer, -- 0-100: what % is patient care
-  teaching_percent integer, -- 0-100
-  research_percent integer, -- 0-100
-  leadership_percent integer, -- 0-100
-  admin_percent integer, -- 0-100
-  
-  -- Work conditions
-  call_burden text, -- 'none', 'light', 'moderate', 'heavy', 'variable'
-  call_frequency text, -- 'none', 'monthly', 'weekly', 'continuous'
-  inpatient_days_month integer, -- if applicable
-  outpatient_hours_week integer, -- if applicable
-  
-  -- Compensation & benefits
-  salary_min integer,
-  salary_max integer,
-  salary_currency text default 'USD',
-  signing_bonus integer,
-  relocation_package boolean default false,
-  benefits_notes text, -- health, retirement, CME, etc.
-  
-  -- Career context
-  visa_sponsorship_available boolean default false,
-  visa_types_supported text[], -- H1B, EB3, etc.
-  tail_coverage_provided boolean,
-  protected_time_admin boolean,
-  protected_time_research boolean,
-  protected_time_teaching boolean,
-  
-  -- Job requirements & culture
-  required_board_certification text[], -- board names
-  required_licenses text[], -- state licenses
-  preferred_credentials text[],
-  culture_notes text,
-  team_size integer,
-  
-  -- Opportunity indicators
-  leadership_track boolean, -- leadership growth potential
-  research_track boolean, -- research support / track
-  teaching_track boolean, -- teaching/education track
-  academic_affiliation boolean, -- academic med center
-  
-  -- Job description & raw data
-  raw_description text,
-  key_responsibilities text[],
-  requirements_raw text,
-  
-  -- Source tracking
-  source_url text,
-  posted_date date,
-  deadline_apply date,
-  last_seen date,
-  expires_at timestamp with time zone,
-  
-  -- Metadata
-  created_at timestamp with time zone default now(),
-  updated_at timestamp with time zone default now(),
-  is_active boolean default true
-);
+alter table jobs add column if not exists source_id uuid references job_sources(source_id);
+alter table jobs add column if not exists source_job_id text;
+alter table jobs add column if not exists employer text;
+alter table jobs add column if not exists employer_type text;
+alter table jobs add column if not exists location_city text;
+alter table jobs add column if not exists location_state text;
+alter table jobs add column if not exists location_country text default 'USA';
+alter table jobs add column if not exists location_region text;
+alter table jobs add column if not exists remote_type text default 'on-site';
+alter table jobs add column if not exists specialty_id uuid references ontology_specialties(specialty_id);
+alter table jobs add column if not exists specialty_key text;
+alter table jobs add column if not exists subspecialty_id uuid references ontology_subspecialties(subspecialty_id);
+alter table jobs add column if not exists subspecialty_key text;
+alter table jobs add column if not exists role_level text;
+alter table jobs add column if not exists setting text;
+alter table jobs add column if not exists clinical_percent integer;
+alter table jobs add column if not exists teaching_percent integer;
+alter table jobs add column if not exists research_percent integer;
+alter table jobs add column if not exists leadership_percent integer;
+alter table jobs add column if not exists admin_percent integer;
+alter table jobs add column if not exists call_burden text;
+alter table jobs add column if not exists call_frequency text;
+alter table jobs add column if not exists inpatient_days_month integer;
+alter table jobs add column if not exists outpatient_hours_week integer;
+alter table jobs add column if not exists salary_min integer;
+alter table jobs add column if not exists salary_max integer;
+alter table jobs add column if not exists salary_currency text default 'USD';
+alter table jobs add column if not exists signing_bonus integer;
+alter table jobs add column if not exists relocation_package boolean default false;
+alter table jobs add column if not exists benefits_notes text;
+alter table jobs add column if not exists visa_sponsorship_available boolean default false;
+alter table jobs add column if not exists visa_types_supported text[];
+alter table jobs add column if not exists tail_coverage_provided boolean;
+alter table jobs add column if not exists protected_time_admin boolean;
+alter table jobs add column if not exists protected_time_research boolean;
+alter table jobs add column if not exists protected_time_teaching boolean;
+alter table jobs add column if not exists required_board_certification text[];
+alter table jobs add column if not exists required_licenses text[];
+alter table jobs add column if not exists preferred_credentials text[];
+alter table jobs add column if not exists culture_notes text;
+alter table jobs add column if not exists team_size integer;
+alter table jobs add column if not exists leadership_track boolean;
+alter table jobs add column if not exists research_track boolean;
+alter table jobs add column if not exists teaching_track boolean;
+alter table jobs add column if not exists academic_affiliation boolean;
+alter table jobs add column if not exists raw_description text;
+alter table jobs add column if not exists key_responsibilities text[];
+alter table jobs add column if not exists requirements_raw text;
+alter table jobs add column if not exists source_url text;
+alter table jobs add column if not exists deadline_apply date;
+alter table jobs add column if not exists last_seen date;
+alter table jobs add column if not exists expires_at timestamp with time zone;
+alter table jobs add column if not exists updated_at timestamp with time zone default now();
+alter table jobs add column if not exists is_active boolean default true;
 
 comment on table jobs is 'Normalized job postings in FISCMAK career-fit schema';
 

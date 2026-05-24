@@ -385,6 +385,20 @@ CREATE TABLE IF NOT EXISTS professional_identity (
 CREATE INDEX IF NOT EXISTS idx_professional_identity_physician
   ON professional_identity(physician_id, assessment_date DESC);
 
+-- V1 schema used user_id on career_aspirations; career vault uses physician_id
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_schema = 'public' AND table_name = 'career_aspirations' AND column_name = 'user_id'
+  ) AND NOT EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_schema = 'public' AND table_name = 'career_aspirations' AND column_name = 'physician_id'
+  ) THEN
+    ALTER TABLE career_aspirations RENAME TO legacy_user_career_aspirations;
+  END IF;
+END $$;
+
 CREATE TABLE IF NOT EXISTS career_aspirations (
   asp_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   physician_id UUID NOT NULL REFERENCES physicians(physician_id) ON DELETE CASCADE,
