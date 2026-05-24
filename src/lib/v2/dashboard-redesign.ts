@@ -155,6 +155,23 @@ export function buildHealthStatusRow(header: DashboardHeaderModel): ProfileRow {
   };
 }
 
+/** Recognition gap from IWQ — spec dashboard quick-stat. */
+export function buildRecognitionGapRow(analytics: AnalyticsDashboard): ProfileRow | null {
+  const iwq = analytics.cv_metrics?.iwq;
+  if (iwq == null) return null;
+
+  let status: ProfileRow["status"] = "strong";
+  if (iwq >= 70) status = "needs_attention";
+  else if (iwq >= 50) status = "developing";
+
+  return {
+    id: "recognition_gap",
+    label: "Recognition gap",
+    value: iwq >= 50 ? `${iwq}% unrecognized` : "Low",
+    status,
+  };
+}
+
 export function buildActiveTouchpointView(analytics: AnalyticsDashboard): {
   active: ActiveTouchpointView | null;
   upcoming: ActiveTouchpointView | null;

@@ -1,6 +1,16 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
+import {
+  buildTouchpointCadenceNotifications,
+  type TouchpointCadenceContext,
+} from "@/lib/v2/touchpoint-cadence";
+
+export type EngagementContext = TouchpointCadenceContext & {
+  /** Invisible Work Quotient — higher = more unrecognized work on CV */
+  iwq?: number | null;
+  activityCount?: number;
+};
 
 export type EngagementNotification = {
   id: string;
@@ -13,10 +23,49 @@ export type EngagementNotification = {
 
 export function buildEngagementNotifications(
   meta: OnboardingMetadata,
+  context?: EngagementContext,
 ): EngagementNotification[] {
   const notes: EngagementNotification[] = [];
   const pulse = quarterlyPulseStatus(meta);
   const annual = annualRefreshStatus(meta);
+
+  if (context?.tier3Complete && context.userCreatedAt) {
+    notes.push(
+      ...buildTouchpointCadenceNotifications({
+        userCreatedAt: context.userCreatedAt,
+        completedTouchpoints: context.completedTouchpoints,
+        tier3Complete: context.tier3Complete,
+      }),
+    );
+  }
+
+  const iwq = context?.iwq ?? meta.iwq ?? null;
+  if (iwq != null && iwq >= 50) {
+    notes.push({
+      id: "recognition_gap",
+      severity: iwq >= 70 ? "urgent" : "attention",
+      title: "Recognition gap detected",
+      message: `${iwq}% of your invisible work may not be visible on your CV. Capture activities or generate outputs to close the gap.`,
+      href: "/app/objective?tab=activities",
+      actionLabel: "View activities",
+    });
+  }
+
+  if (
+    context?.tier3Complete &&
+    (context.activityCount ?? 0) === 0 &&
+    meta.computed_at
+  ) {
+    notes.push({
+      id: "capture_first_activity",
+      severity: "info",
+      title: "Start capturing invisible work",
+      message:
+        "Tell Mak about teaching, mentoring, or coordination you did this week — it builds your promotion narrative.",
+      href: "/app/dashboard",
+      actionLabel: "Capture with Mak",
+    });
+  }
 
   if (annual.due) {
     notes.push({

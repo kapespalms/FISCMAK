@@ -94,6 +94,7 @@ async function main() {
   const hasExtendedActivities = await columnExists(client, "activity_entries", "detected_signals");
   const hasJobSources = await tableExists(client, "job_sources");
   const hasSubscriptions = await tableExists(client, "user_subscriptions");
+  const hasSpecialtyHierarchy = await columnExists(client, "app_users", "base_specialty");
 
   console.log("\nCurrent state:");
   console.log(`  app_users: ${hasAppUsers ? "yes" : "no"}`);
@@ -104,6 +105,7 @@ async function main() {
   console.log(`  activity_entries (7-layer): ${hasExtendedActivities ? "yes" : "no"}`);
   console.log(`  job_sources: ${hasJobSources ? "yes" : "no"}`);
   console.log(`  user_subscriptions: ${hasSubscriptions ? "yes" : "no"}`);
+  console.log(`  app_users.base_specialty: ${hasSpecialtyHierarchy ? "yes" : "no"}`);
 
   const steps = [];
 
@@ -185,6 +187,16 @@ async function main() {
     console.log("\n→ User subscriptions — skipped (table exists)");
   }
 
+  if (!hasSpecialtyHierarchy) {
+    steps.push({
+      file: "docs/migrations/20260523_specialty_hierarchy.sql",
+      label: "Specialty hierarchy columns on app_users",
+      requiresTable: "app_users",
+    });
+  } else {
+    console.log("\n→ Specialty hierarchy — skipped (base_specialty exists)");
+  }
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {
@@ -210,6 +222,19 @@ async function main() {
   for (const t of VERIFY_TABLES) {
     const ok = await tableExists(client, t);
     console.log(`  ${ok ? "✓" : "✗"} ${t}`);
+  }
+
+  if (await tableExists(client, "signal_indicators")) {
+    const { rows } = await client.query(
+      "SELECT COUNT(*)::int AS n FROM signal_indicators WHERE active = true",
+    );
+    console.log(`  ✓ signal_indicators (active): ${rows[0]?.n ?? 0}`);
+  }
+  if (await tableExists(client, "ontology_invisible_work_activities")) {
+    const { rows } = await client.query(
+      "SELECT COUNT(*)::int AS n FROM ontology_invisible_work_activities WHERE active = true",
+    );
+    console.log(`  ✓ ontology_invisible_work_activities (active): ${rows[0]?.n ?? 0}`);
   }
 
   await client.end();
