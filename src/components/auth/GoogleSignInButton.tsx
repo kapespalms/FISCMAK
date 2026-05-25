@@ -7,6 +7,7 @@ import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 type GoogleSignInButtonProps = {
   next?: string;
   label?: string;
+  variant?: "default" | "marketing";
 };
 
 function GoogleIcon() {
@@ -35,6 +36,7 @@ function GoogleIcon() {
 export function GoogleSignInButton({
   next = "/app",
   label = "Continue with Google",
+  variant = "default",
 }: GoogleSignInButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -69,19 +71,38 @@ export function GoogleSignInButton({
 
   if (!isSupabaseConfigured()) return null;
 
+  const marketingButtonClass =
+    "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#0f1410] px-6 py-3 font-futura-bold text-sm text-white transition hover:border-marketing-accent hover:text-marketing-accent disabled:opacity-50";
+
   return (
     <div className="space-y-2">
-      <Button
-        type="button"
-        variant="secondary"
-        className="w-full gap-2"
-        disabled={loading}
-        onClick={() => void handleGoogleSignIn()}
-      >
-        <GoogleIcon />
-        {loading ? "Redirecting…" : label}
-      </Button>
-      {error && <p className="text-sm text-cx-attention">{error}</p>}
+      {variant === "marketing" ? (
+        <button
+          type="button"
+          className={marketingButtonClass}
+          disabled={loading}
+          onClick={() => void handleGoogleSignIn()}
+        >
+          <GoogleIcon />
+          {loading ? "Redirecting…" : label}
+        </button>
+      ) : (
+        <Button
+          type="button"
+          variant="secondary"
+          className="w-full gap-2"
+          disabled={loading}
+          onClick={() => void handleGoogleSignIn()}
+        >
+          <GoogleIcon />
+          {loading ? "Redirecting…" : label}
+        </Button>
+      )}
+      {error && (
+        <p className={variant === "marketing" ? "text-sm text-[#f5d4c4]" : "text-sm text-cx-attention"}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

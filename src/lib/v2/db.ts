@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { findCvDocument } from "@/lib/v2/onboarding-document-types";
 import { fetchJobEngagementFromDb } from "@/lib/v2/career-data-repo";
 import type {
   AnalyticsDashboard,
@@ -202,7 +203,7 @@ export async function buildAnalyticsDashboard(
 
   const documents = await fetchDocuments(user.user_id, demo);
   const activities = await fetchActivities(user.user_id, demo);
-  const cv = documents.find((d) => d.document_type === "CV" && d.extracted_text);
+  const cv = findCvDocument(documents);
   const cvMetrics = cv?.extracted_text
     ? computeCvMetrics(cv.extracted_text, assessments)
     : null;

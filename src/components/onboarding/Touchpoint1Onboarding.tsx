@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageShell } from "@/components/layout/PageShell";
-import { Upload, CheckCircle2, Circle } from "lucide-react";
+import { CheckCircle2, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   CAREER_LEVELS,
@@ -24,23 +24,15 @@ import {
   migrateLegacySpecialty,
 } from "@/lib/v2/specialty-hierarchy";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
-import {
-  ACCEPTED_CV_ACCEPT,
-  ACCEPTED_CV_LABEL,
-  isAcceptedCvFileName,
-} from "@/lib/v2/document-upload";
-
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
+import { OnboardingDocumentsStep } from "@/components/onboarding/OnboardingDocumentsStep";
+import { ReconciliationItemCard } from "@/components/onboarding/ReconciliationItemCard";
+import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
+import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import { useAppShell } from "@/components/layout/AppShell";
 import { buildReconcileGreeting } from "@/lib/v2/reconcile-mak-helpers";
 
 type OnboardingStep = "welcome" | "profile" | "documents" | "reconcile" | "instruments";
-
-type DocSpec = {
-  type: string;
-  label: string;
-  requirement: "required" | "optional" | "skip";
-};
 
 type InstrumentSpec = {
   id: string;
@@ -118,11 +110,10 @@ export function Touchpoint1Onboarding() {
   }
 
   // Plan data
-  const [docSpecs, setDocSpecs] = useState<DocSpec[]>([]);
   const [instruments, setInstruments] = useState<InstrumentSpec[]>([]);
-  const [uploadedTypes, setUploadedTypes] = useState<Set<string>>(new Set());
   const [reconcileItems, setReconcileItems] = useState<ReconcileItem[]>([]);
-  const [pasteText, setPasteText] = useState("");
+  const [savedNpi, setSavedNpi] = useState("");
+  const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
 
   const resolveStep = useCallback(
     (u: {
@@ -162,29 +153,34 @@ export function Touchpoint1Onboarding() {
         if (data.profile?.practice_setting) setPracticeSetting(data.profile.practice_setting);
         if (data.profile?.academic_rank) setAcademicRank(data.profile.academic_rank);
         if (data.profile?.primary_career_track) setCareerTrack(data.profile.primary_career_track);
-        if (data.documents) setDocSpecs(data.documents);
         if (data.instruments) setInstruments(data.instruments);
         resolveStep(data);
       })
       .catch(() => {});
+  }, [resolveStep]);
 
-    fetch("/api/v1/documents")
+  function refreshReconciliation() {
+    fetch("/api/v1/onboarding/reconciliation")
       .then((r) => r.json())
       .then((d) => {
-        const types = new Set<string>(
-          (d.documents ?? []).map((doc: { document_type: string }) => doc.document_type),
-        );
-        setUploadedTypes(types);
+        setReconcileItems(d.items ?? []);
+        if (typeof d.npi === "string") setSavedNpi(d.npi);
+        setNpiStatus({
+          npi: d.npi ?? null,
+          npi_verified: Boolean(d.npi_verified),
+          deferred: Boolean(d.npi_verification_deferred),
+          provider_name: d.provider_name ?? null,
+          credential: d.credential ?? null,
+          organization: d.organization ?? null,
+          registry_url: d.npi ? `https://npiregistry.cms.hhs.gov/provider-view/${d.npi}` : null,
+        });
       })
       .catch(() => {});
-  }, [resolveStep]);
+  }
 
   useEffect(() => {
     if (step === "reconcile") {
-      fetch("/api/v1/onboarding/reconciliation")
-        .then((r) => r.json())
-        .then((d) => setReconcileItems(d.items ?? []))
-        .catch(() => {});
+      refreshReconciliation();
     }
   }, [step]);
 
@@ -224,48 +220,6 @@ export function Touchpoint1Onboarding() {
     router.replace("/app/onboarding?step=documents");
   }
 
-  async function uploadDocument(file: File, documentType: string) {
-    setLoading(true);
-    setError("");
-    try {
-      const form = new FormData();
-      form.append("file", file);
-      form.append("document_type", documentType);
-      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message ?? "Upload failed");
-      setUploadedTypes((prev) => new Set([...prev, documentType]));
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Upload failed");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function onCvFile(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    if (!isAcceptedCvFileName(file.name)) {
-      setError(`Upload ${ACCEPTED_CV_LABEL}, or paste text below.`);
-      return;
-    }
-    await uploadDocument(file, "CV");
-    e.target.value = "";
-  }
-
-  async function onPasteCv(e: React.FormEvent) {
-    e.preventDefault();
-    if (!pasteText.trim()) return;
-    const blob = new Blob([pasteText.trim()], { type: "text/plain" });
-    await uploadDocument(new File([blob], "pasted-cv.txt", { type: "text/plain" }), "CV");
-  }
-
-  function canProceedFromDocuments(): boolean {
-    const required = docSpecs.filter((d) => d.requirement === "required");
-    if (required.length === 0) return true;
-    return required.every((d) => uploadedTypes.has(d.type === "CV" ? "CV" : d.type));
-  }
-
   function goToReconcile() {
     setStep("reconcile");
     router.replace("/app/onboarding?step=reconcile");
@@ -295,10 +249,26 @@ export function Touchpoint1Onboarding() {
     router.replace("/app/onboarding?step=instruments");
   }
 
+  function canContinueReconcile(): boolean {
+    return reconcileItems.every((item) => {
+      if (item.status !== "pending") return true;
+      return false;
+    });
+  }
+
+  function handleNpiSkipped() {
+    refreshReconciliation();
+  }
+
   function toggleReconcile(id: string, status: "confirmed" | "rejected") {
     setReconcileItems((items) =>
       items.map((i) => (i.id === id ? { ...i, status } : i)),
     );
+  }
+
+  function handleNpiVerified(id: string, status: "confirmed" | "rejected") {
+    toggleReconcile(id, status);
+    refreshReconciliation();
   }
 
   async function startMakConversation() {
@@ -506,141 +476,24 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "documents" && (
-        <Card>
-          <p className="text-cx-label uppercase">
-            Touchpoint 1 · Step 2 · ~5 minutes
-          </p>
-          <h1 className="mt-1 text-page-title">Upload your documents</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Requirements vary by career level and setting. AI parsing and API enrichment run
-            automatically after upload.
-          </p>
-
-          <ul className="mt-4 space-y-2">
-            {docSpecs.map((d) => (
-              <li
-                key={d.type}
-                className="flex items-center justify-between rounded-md border border-cx-forest-dark/15 px-3 py-2 text-sm"
-              >
-                <span>
-                  {d.label}{" "}
-                  <span
-                    className={
-                      d.requirement === "required"
-                        ? "text-cx-attention"
-                        : "text-cx-forest-dark/70"
-                    }
-                  >
-                    ({d.requirement})
-                  </span>
-                </span>
-                {uploadedTypes.has(d.type === "CV" ? "CV" : d.type) ? (
-                  <CheckCircle2 size={16} className="text-cx-success" />
-                ) : (
-                  <Circle size={16} className="text-cx-forest-dark/70" />
-                )}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-6 space-y-4">
-            <label
-              htmlFor="tp1-cv-upload"
-              className="flex cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] px-6 py-8 transition-colors hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/5"
-            >
-              <Upload className="text-cx-forest-dark" size={24} />
-              <p className="mt-2 font-semibold">Upload CV / Resume</p>
-              <p className="text-sm text-cx-forest-dark/80">{ACCEPTED_CV_LABEL}</p>
-              <input
-                id="tp1-cv-upload"
-                type="file"
-                accept={ACCEPTED_CV_ACCEPT}
-                className="hidden"
-                onChange={onCvFile}
-                disabled={loading}
-              />
-            </label>
-
-            <form onSubmit={onPasteCv} className="space-y-2">
-              <label htmlFor="tp1-paste" className="text-sm font-semibold">
-                Or paste CV text
-              </label>
-              <textarea
-                id="tp1-paste"
-                value={pasteText}
-                onChange={(e) => setPasteText(e.target.value)}
-                rows={4}
-                className="w-full rounded-md border border-cx-forest-dark/15 p-3 text-sm"
-                placeholder="Paste CV content…"
-              />
-              <Button type="submit" variant="secondary" disabled={loading || !pasteText.trim()}>
-                Upload pasted text
-              </Button>
-            </form>
-          </div>
-
-          <div className="mt-6 flex gap-3">
-            <Button
-              className="flex-1"
-              onClick={goToReconcile}
-              disabled={loading || !canProceedFromDocuments()}
-            >
-              Continue to reconciliation
-            </Button>
-            {docSpecs.some((d) => d.requirement === "optional") && canProceedFromDocuments() && (
-              <Button variant="secondary" className="flex-1" onClick={goToReconcile} disabled={loading}>
-                Skip optional docs
-              </Button>
-            )}
-          </div>
-          {error && (
-            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
-              {error}
-            </p>
-          )}
-        </Card>
+        <OnboardingDocumentsStep onContinue={goToReconcile} continueDisabled={loading} />
       )}
 
       {step === "reconcile" && (
         <Card>
-          <p className="text-cx-label uppercase">
-            Touchpoint 1 · Step 3 · ~2–3 minutes
-          </p>
-          <h1 className="mt-1 text-page-title">Confirm discovered items</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Review API-discovered items not explicitly on your CV. Confirm or reject each match.
-          </p>
-
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            {reconcileItems.length} items to review — estimated 2 minutes. Swipe through each card.
-          </p>
+          <h1 className="text-page-title">Confirm discovered items</h1>
 
           <ul className="mt-6 space-y-4">
             {reconcileItems.map((item) => (
-              <li
+              <ReconciliationItemCard
                 key={item.id}
-                className="rounded-xl border border-cx-forest-dark/15 bg-white p-5 shadow-sm"
-              >
-                <p className="text-cx-label uppercase">{item.source}</p>
-                <p className="mt-2 text-cx-h3">{item.label}</p>
-                <p className="mt-2 text-sm text-cx-forest-dark/80">{item.detail}</p>
-                <div className="mt-4 flex gap-3">
-                  <Button
-                    variant={item.status === "confirmed" ? "primary" : "secondary"}
-                    className="min-h-[44px] flex-1"
-                    onClick={() => toggleReconcile(item.id, "confirmed")}
-                  >
-                    Mine
-                  </Button>
-                  <Button
-                    variant={item.status === "rejected" ? "primary" : "secondary"}
-                    className="min-h-[44px] flex-1"
-                    onClick={() => toggleReconcile(item.id, "rejected")}
-                  >
-                    Not mine
-                  </Button>
-                </div>
-              </li>
+                item={item}
+                initialNpi={savedNpi}
+                npiStatus={isNpiReconcileItem(item) ? npiStatus : null}
+                onToggle={toggleReconcile}
+                onNpiVerified={handleNpiVerified}
+                onNpiSkipped={handleNpiSkipped}
+              />
             ))}
           </ul>
 
@@ -657,7 +510,12 @@ export function Touchpoint1Onboarding() {
             >
               Review with Mak
             </Button>
-            <Button className="flex-1" variant="secondary" onClick={submitReconciliation} disabled={loading}>
+            <Button
+              className="flex-1"
+              variant="secondary"
+              onClick={submitReconciliation}
+              disabled={loading || !canContinueReconcile()}
+            >
               {loading ? "Saving…" : "Continue to self-assessment"}
             </Button>
           </div>

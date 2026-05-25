@@ -1,11 +1,8 @@
 import { MarketingFontShell } from "@/components/marketing/MarketingFontShell";
 import { MarketingHeader } from "@/components/marketing/MarketingHeader";
-import { MarketingHeroSection } from "@/components/marketing/MarketingHeroSection";
-import { FiscmakNameSection } from "@/components/marketing/FiscmakNameSection";
-import { HowItWorksSection } from "@/components/marketing/HowItWorksSection";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 
-export function MarketingHomePage() {
+export function MarketingPageShell({ children }: { children: React.ReactNode }) {
   return (
     <MarketingFontShell className="min-h-full">
       <a
@@ -14,16 +11,10 @@ export function MarketingHomePage() {
       >
         Skip to content
       </a>
-
-      <div className="relative bg-black">
-        <MarketingHeader overlay />
-        <main id="main-content">
-          <MarketingHeroSection />
-        </main>
-      </div>
-
-      <FiscmakNameSection />
-      <HowItWorksSection />
+      <MarketingHeader />
+      <main id="main-content" className="bg-black">
+        {children}
+      </main>
       <MarketingFooter />
     </MarketingFontShell>
   );

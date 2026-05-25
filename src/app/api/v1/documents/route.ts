@@ -1,11 +1,17 @@
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { fetchDocuments, extractCvMetadata } from "@/lib/v2/db";
-import { isErrorResponse, jsonOk, requireApiUser, getAppUser, upsertAppUser } from "@/lib/v2/api-helpers";
+import { isErrorResponse, jsonError, jsonOk, requireApiUser, getAppUser, upsertAppUser } from "@/lib/v2/api-helpers";
 import {
   DocumentExtractError,
   extractDocumentText,
 } from "@/lib/v2/document-upload";
+import {
+  documentFileNameFromRecord,
+  documentLabelFromRecord,
+  documentSubtypeFromRecord,
+  resolveOnboardingDocumentUpload,
+} from "@/lib/v2/onboarding-document-types";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import {
   mergeEnrichmentIntoMetadata,
@@ -21,9 +27,14 @@ export async function GET() {
     documents: documents.map((d) => ({
       document_id: d.document_id,
       document_type: d.document_type,
+      file_name: documentFileNameFromRecord(d),
       file_url: d.file_url,
       uploaded_at: d.uploaded_at,
       extraction_status: d.extraction_status,
+      document_subtype: documentSubtypeFromRecord(d),
+      document_label: documentLabelFromRecord(d),
+      extracted_text_preview: d.extracted_text?.slice(0, 400) ?? "",
+      metadata: d.metadata ?? {},
     })),
     total: documents.length,
   });
@@ -35,9 +46,36 @@ export async function POST(request: Request) {
   const { userId, email, demo } = auth;
   const form = await request.formData();
   const file = form.get("file") as File | null;
-  const document_type = (form.get("document_type") as string) || "CV";
+  const requestedType = (form.get("document_type") as string) || "CV";
+  const documentSubtype = (form.get("document_subtype") as string) || requestedType;
+  const documentLabel = (form.get("document_label") as string) || "";
+  const customLabel = (form.get("custom_label") as string) || documentLabel;
+
   if (!file) {
-    return jsonOk({ error: "validation_error", message: "File required" }, 400);
+    return jsonError("validation_error", "File required", 400);
+  }
+
+  let document_type = requestedType;
+  let document_subtype = documentSubtype;
+  let resolvedLabel = documentLabel;
+
+  try {
+    const resolved = resolveOnboardingDocumentUpload(documentSubtype, customLabel);
+    document_type = resolved.document_type;
+    document_subtype = resolved.document_subtype;
+    resolvedLabel = resolved.document_label;
+  } catch (e) {
+    if (documentSubtype === "CV" || requestedType === "CV") {
+      document_type = "CV";
+      document_subtype = "CV";
+      resolvedLabel = "CV / Resume";
+    } else {
+      return jsonError(
+        "validation_error",
+        e instanceof Error ? e.message : "Invalid document type",
+        400,
+      );
+    }
   }
   let text: string;
   let sourceFormat: string;
@@ -50,14 +88,12 @@ export async function POST(request: Request) {
     wordCount = extracted.wordCount;
   } catch (e) {
     if (e instanceof DocumentExtractError) {
-      return jsonOk({ error: e.code, message: e.message }, 400);
+      return jsonError("extraction_error", e.message, 400, { code: e.code });
     }
     console.error("Document extraction failed:", e);
-    return jsonOk(
-      {
-        error: "extraction_failed",
-        message: "Could not read this file. Try .txt, .md, .pdf, or .docx.",
-      },
+    return jsonError(
+      "extraction_failed",
+      "Could not read this file. Try .txt, .md, .pdf, or .docx.",
       400,
     );
   }
@@ -69,6 +105,8 @@ export async function POST(request: Request) {
     file_name: file.name,
     source_format: sourceFormat,
     word_count: wordCount,
+    document_subtype,
+    document_label: resolvedLabel,
   } as Record<string, unknown>;
 
   async function runEnrichmentAfterUpload() {
@@ -116,22 +154,27 @@ export async function POST(request: Request) {
       extraction_status: "completed",
       uploaded_at: now,
     });
-    state.user.cv_uploaded = true;
-    const enrichment = await runEnrichmentAfterUpload();
+    if (document_type === "CV") {
+      state.user.cv_uploaded = true;
+      void runEnrichmentAfterUpload();
+    }
     return jsonOk({
       document_id: docId,
       document_type,
+      document_subtype,
+      document_label: resolvedLabel,
       extracted_text_preview: text.slice(0, 200),
       extraction_status: "completed",
       uploaded_at: now,
-      enrichment: enrichment
-        ? { run_id: enrichment.run_id, status: enrichment.status, sources: enrichment.sources }
-        : null,
-      cv_metrics: {
-        s_index: metadata.s_index as number,
-        iwq: metadata.iwq as number,
-        promotion_aligned_pct: metadata.promotion_aligned_pct as number,
-      },
+      enrichment_pending: document_type === "CV",
+      cv_metrics:
+        document_type === "CV"
+          ? {
+              s_index: metadata.s_index as number,
+              iwq: metadata.iwq as number,
+              promotion_aligned_pct: metadata.promotion_aligned_pct as number,
+            }
+          : null,
     }, 201);
   }
 
@@ -149,27 +192,29 @@ export async function POST(request: Request) {
     })
     .select("*")
     .single();
-  if (error) return jsonOk({ error: "server_error", message: error.message }, 500);
-  await supabase
-    .from("app_users")
-    .update({ cv_uploaded: true })
-    .eq("user_id", userId);
+  if (error) return jsonError("server_error", error.message, 500);
 
-  const enrichment = document_type === "CV" ? await runEnrichmentAfterUpload() : null;
+  if (document_type === "CV") {
+    await supabase.from("app_users").update({ cv_uploaded: true }).eq("user_id", userId);
+    void runEnrichmentAfterUpload();
+  }
 
   return jsonOk({
     document_id: data.document_id,
     document_type: data.document_type,
+    document_subtype,
+    document_label: resolvedLabel,
     extracted_text_preview: text.slice(0, 200),
     extraction_status: "completed",
     uploaded_at: data.uploaded_at,
-    enrichment: enrichment
-      ? { run_id: enrichment.run_id, status: enrichment.status, sources: enrichment.sources }
-      : null,
-    cv_metrics: {
-      s_index: metadata.s_index as number,
-      iwq: metadata.iwq as number,
-      promotion_aligned_pct: metadata.promotion_aligned_pct as number,
-    },
+    enrichment_pending: document_type === "CV",
+    cv_metrics:
+      document_type === "CV"
+        ? {
+            s_index: metadata.s_index as number,
+            iwq: metadata.iwq as number,
+            promotion_aligned_pct: metadata.promotion_aligned_pct as number,
+          }
+        : null,
   }, 201);
 }

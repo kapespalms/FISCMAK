@@ -19,6 +19,7 @@ export type OnboardingMetadata = {
   enrichment_snapshot?: EnrichmentSnapshot;
   previous_enrichment_snapshot?: EnrichmentSnapshot;
   enrichment_runs?: EnrichmentRunLog[];
+  npi_verification_deferred?: boolean;
   cdi?: { score: number; domains: Record<string, number> };
   career_health_summary?: string;
   iwq?: number;

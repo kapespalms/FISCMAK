@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Camera, User } from "lucide-react";
+import { Camera, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { CardSection } from "@/components/ui/CardSection";
 import { PageShell } from "@/components/layout/PageShell";
+import { NpiRegistryPanel, type NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import { UserAvatar } from "@/components/profile/UserAvatar";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { PROFILE_MAK } from "@/lib/card-mak-prompts";
@@ -45,6 +46,9 @@ export default function ProfilePage() {
   const [subspecialtyQuery, setSubspecialtyQuery] = useState("");
   const [subspecialtyListOpen, setSubspecialtyListOpen] = useState(false);
   const [trainingComplete, setTrainingComplete] = useState(false);
+
+  const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
+  const [npiLoading, setNpiLoading] = useState(true);
 
   const [form, setForm] = useState({
     first_name: "",
@@ -142,6 +146,14 @@ export default function ProfilePage() {
     }
 
     void load();
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/v1/npi")
+      .then((r) => r.json())
+      .then((data: NpiRegistryStatus) => setNpiStatus(data))
+      .catch(() => setNpiStatus(null))
+      .finally(() => setNpiLoading(false));
   }, []);
 
   function pickBase(value: string) {
@@ -374,6 +386,28 @@ export default function ProfilePage() {
             </div>
             <Button type="submit">{saved ? "Saved" : "Save profile"}</Button>
           </form>
+        )}
+      </CardSection>
+
+      <CardSection
+        eyebrow="Verification"
+        title="NPI registry lookup"
+        description={
+          npiStatus?.npi_verified
+            ? "Your NPI is verified against the CMS NPPES registry."
+            : "Add your NPI to verify your provider record against the CMS NPPES registry."
+        }
+        icon={Search}
+      >
+        {npiLoading ? (
+          <p className="text-sm text-cx-forest-dark/70">Loading NPI status…</p>
+        ) : (
+          <NpiRegistryPanel
+            status={npiStatus}
+            initialNpi={npiStatus?.npi ?? ""}
+            reloadAfterAction
+            onVerified={(next) => setNpiStatus(next)}
+          />
         )}
       </CardSection>
     </PageShell>

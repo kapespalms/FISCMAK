@@ -2,6 +2,7 @@ import type { AppUser } from "@/lib/v2/types";
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { apiEnrichmentPlan } from "@/lib/v2/onboarding-touchpoint1";
 import type { ReconciliationItem } from "@/lib/v2/onboarding-touchpoint1";
+import { isValidNpiFormat, verifyNpiWithRegistry } from "@/lib/v2/npi-registry";
 
 export type VaultPublicationExtract = {
   doi?: string;
@@ -28,6 +29,9 @@ export type EnrichmentSnapshot = {
   reconciliation_items: ReconciliationItem[];
   npi?: string | null;
   npi_verified?: boolean;
+  npi_provider_name?: string;
+  npi_credential?: string;
+  npi_organization?: string;
   orcid?: string | null;
   orcid_works_count?: number | null;
   cms_open_payments_signals?: number;
@@ -120,29 +124,6 @@ async function fetchPubMedCitedCount(pmids: string[]): Promise<number | null> {
     };
     const keys = Object.keys(data.result ?? {}).filter((k) => k !== "uids");
     return keys.length;
-  } catch {
-    return null;
-  }
-}
-
-async function fetchNppesProvider(npi: string): Promise<{ verified: boolean; name?: string } | null> {
-  try {
-    const res = await fetch(
-      `https://npiregistry.cms.hhs.gov/api/?version=2.1&number=${npi}`,
-      { signal: AbortSignal.timeout(8000) },
-    );
-    if (!res.ok) return null;
-    const data = (await res.json()) as {
-      result_count?: number;
-      results?: Array<{ basic?: { first_name?: string; last_name?: string } }>;
-    };
-    if (!data.result_count || !data.results?.length) return { verified: false };
-    const basic = data.results[0]?.basic;
-    const name =
-      basic?.first_name && basic?.last_name
-        ? `${basic.first_name} ${basic.last_name}`
-        : undefined;
-    return { verified: true, name };
   } catch {
     return null;
   }
@@ -288,7 +269,7 @@ function buildReconciliationFromEnrichment(input: {
       id: "enrichment-npi",
       source: "NPPES",
       label: "NPI registry lookup",
-      detail: "Add NPI to CV or profile to enable registry verification.",
+      detail: "Add NPI to profile to enable registry verification.",
       status: "pending",
     });
   }
@@ -381,10 +362,10 @@ export async function runApiEnrichment(input: {
 
   if (plan.nppes && npi) {
     sources.push("nppes");
-    const nppes = await fetchNppesProvider(npi);
+    const nppes = isValidNpiFormat(npi) ? await verifyNpiWithRegistry(npi) : null;
     if (nppes) {
       npiVerified = nppes.verified;
-      npiName = nppes.name;
+      npiName = nppes.providerName;
     }
   } else if (plan.nppes) {
     sources.push("nppes");
