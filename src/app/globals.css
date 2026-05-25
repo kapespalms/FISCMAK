@@ -130,6 +130,7 @@
   --color-cx-tab-rail: var(--cx-tab-rail);
   --color-marketing-accent: #a9ff5c;
   --color-marketing-cream: #f1fbe7;
+  --color-marketing-gold: #d4c574;
   --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif;
 }
@@ -321,6 +322,7 @@ body {
 .marketing-page {
   --marketing-accent: #a9ff5c;
   --marketing-cream: #f1fbe7;
+  --marketing-gold: #d4c574;
   background-color: #000;
   color: var(--marketing-cream);
   font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
@@ -351,6 +353,10 @@ body {
 
 .border-marketing-accent {
   border-color: var(--marketing-accent);
+}
+
+.text-marketing-gold {
+  color: var(--marketing-gold);
 }
 
 .cx-section-surface {

@@ -1,25 +1,39 @@
 import Link from "next/link";
-import { MarketingFontShell } from "@/components/marketing/MarketingFontShell";
+
+export function FiscmakNameIntro() {
+  return (
+    <section id="our-narrative" className="px-6 py-16 md:px-10 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="font-futura-bold text-5xl text-white md:text-7xl lg:text-8xl">
+          <span className="text-white">FISC</span>
+          <span className="text-marketing-accent">MAK</span>
+        </h2>
+
+        <p className="font-futura-bold mt-6 text-xl md:text-2xl">
+          <span className="text-marketing-accent">PRONOUNCED: </span>
+          <span className="text-marketing-accent">[ </span>
+          <span className="text-white">FIZ-MAK</span>
+          <span className="text-marketing-accent"> ]</span>
+        </p>
+
+        <p className="font-futura-condensed mt-5 max-w-3xl text-base text-white md:text-lg">
+          By the standard rules of grammar, you should pronounce the C in FISC.
+        </p>
+        <p className="font-futura-bold mt-2 text-base text-marketing-accent md:text-lg">
+          We don&apos;t follow the rules here.
+        </p>
+      </div>
+    </section>
+  );
+}
 
 export function FiscmakNameSection() {
   return (
-    <MarketingFontShell>
-      <section id="our-narrative" className="px-5 py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="mb-16">
-            <h2 className="font-futura-bold text-5xl text-white">FISCMAK</h2>
-            <p className="font-futura-bold mt-4 text-2xl text-marketing-accent">
-              Pronounced: [FIZ-MAK]
-            </p>
-            <p className="mt-3 text-lg text-gray-400">
-              By the standard rules of grammar, you should pronounce the C in FISC.
-              <span className="font-futura-bold text-marketing-accent">
-                {" "}
-                We don&apos;t follow the rules here.
-              </span>
-            </p>
-          </div>
+    <>
+      <FiscmakNameIntro />
 
+      <section className="px-6 pb-20 md:px-10">
+        <div className="mx-auto max-w-6xl">
           <div className="mb-20 grid grid-cols-1 gap-8 md:grid-cols-3">
             <div className="border-marketing-accent border-l-4 pl-6">
               <h3 className="font-futura-bold text-3xl text-white">
@@ -107,6 +121,6 @@ export function FiscmakNameSection() {
           </div>
         </div>
       </section>
-    </MarketingFontShell>
+    </>
   );
 }
