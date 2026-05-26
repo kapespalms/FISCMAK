@@ -62,7 +62,7 @@ export async function fetchDocuments(userId: string, demo: boolean): Promise<Doc
   return (data ?? []) as DocumentRecord[];
 }
 
-export async function fetchActivities(userId: string, demo: boolean): Promise<ActivityEntry[]> {
+export async function fetchActivities(userId: string, demo: boolean, limit = 50): Promise<ActivityEntry[]> {
   if (demo) return getServerDemo(userId).activities;
   if (!isSupabaseConfigured()) return getServerDemo(userId).activities;
   const supabase = await createClient();
@@ -71,7 +71,7 @@ export async function fetchActivities(userId: string, demo: boolean): Promise<Ac
     .select("*")
     .eq("user_id", userId)
     .order("activity_date", { ascending: false })
-    .limit(50);
+    .limit(limit);
   return (data as ActivityEntry[]) ?? DEMO_ACTIVITIES;
 }
 

@@ -28,6 +28,11 @@ import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onb
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 import { buildProgramMakContext } from "@/lib/v2/programs/registry";
 import { buildTraineeProgramBackgroundForMak, resolveTraineeBackgroundPurpose } from "@/lib/v2/programs/rotation-orientation";
+import {
+  buildUserOutputTemplateMakContext,
+  resolveOutputTemplateType,
+  resolveUserOutputTemplate,
+} from "@/lib/v2/output-user-templates";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
 import {
@@ -1302,10 +1307,24 @@ export async function POST(request: Request) {
           })
         : "";
 
+    const outputTemplateType = resolveOutputTemplateType(
+      typeof context?.output_template_type === "string"
+        ? context.output_template_type
+        : null,
+    );
+    const userOutputTemplate = outputTemplateType
+      ? resolveUserOutputTemplate(activeMeta, outputTemplateType, docs)
+      : null;
+    const userOutputTemplateContext =
+      userOutputTemplate && outputTemplateType
+        ? buildUserOutputTemplateMakContext(userOutputTemplate, outputTemplateType)
+        : "";
+
     const contextBlock = [
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
       programMakContext,
       traineeProgramBackground,
+      userOutputTemplateContext,
       activeMeta.rotation_debrief_session
         ? buildRotationDebriefMakSystemContext(activeMeta, user?.career_stage)
         : "",

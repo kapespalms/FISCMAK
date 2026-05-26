@@ -217,8 +217,8 @@ export function sectionSystemPrompt(
         : "Gate entry: review Development, Maintenance, and Sustainability goals with milestone progress. Support goal modification (objective, milestones, scope) and replacement with SMART restructuring.",
     output:
       pack === "trainee"
-        ? "Document generation for trainees: CV, personal statement, letter-writer packet, fellowship narrative. Use captured rotation debriefs and narrative anchor."
-        : "Gate entry: document library and generation flows — CV update, cover letter, personal statement, advancement readiness report, career brief, workload summary.",
+        ? "Document generation for trainees: CV, personal statement, letter-writer packet, fellowship narrative. Use captured rotation debriefs and narrative anchor. If the physician uploaded their own template for this document type, co-author into their structure — do not replace it."
+        : "Gate entry: document library and generation flows — CV update, cover letter, personal statement, advancement readiness report, career brief, workload summary. If a user-uploaded template is present, draft collaboratively into their format.",
   };
 
   const byState: Partial<Record<MakChatState, string>> = {

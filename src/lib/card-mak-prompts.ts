@@ -13,6 +13,8 @@ export type MakDiscussConfig = {
   autoMessage?: string;
   /** Open Mak and send message without resetting to a flow greeting. */
   messageOnly?: boolean;
+  /** Output Studio document type — loads user-uploaded template for Mak */
+  outputTemplateType?: string;
 };
 
 export function makDiscuss(
@@ -250,11 +252,19 @@ export const OUTPUT_MAK = {
     "Help me navigate the identity side of my career transition — what I'm carrying forward and what I'm moving toward.",
     { navigateTo: "/app/subjective", autoMessage: "__identity_navigation__" },
   ),
-  template: (name: string) =>
+  template: (name: string, templateType?: string) =>
     makDiscuss(
       "create",
       `Help me draft or update my ${name}. What should we focus on first?`,
-      { navigateTo: "/app/output" },
+      { navigateTo: "/app/output", outputTemplateType: templateType },
+    ),
+  user_template: (templateType: string, name: string, hasSeed: boolean) =>
+    makDiscuss(
+      "create",
+      hasSeed
+        ? `I'm seeding my ${name} from an existing document. Help me fill it section by section using my Career Data — keep my headings and structure.`
+        : `Help me draft my ${name}. I can pick a document from Career Data or upload a template — what do you recommend?`,
+      { navigateTo: "/app/output", outputTemplateType: templateType },
     ),
   evidence: makDiscuss(
     "create",

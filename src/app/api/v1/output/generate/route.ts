@@ -77,6 +77,7 @@ export async function POST(request: Request) {
     cvText: cv?.extracted_text,
     cvEvidence: cvMetrics?.evidence ?? null,
     readiness: readiness ?? null,
+    documents: docs,
   });
 
   const prefill = buildOutputPrefill(ctx);
@@ -121,6 +122,12 @@ export async function POST(request: Request) {
     content,
     source,
     templateType,
+    user_template: ctx.userOutputTemplate
+      ? {
+          file_name: ctx.userOutputTemplate.file_name,
+          word_count: ctx.userOutputTemplate.word_count,
+        }
+      : null,
     enrichment_delta: ctx.enrichmentDelta,
     vault_summary: vault.summary,
     pending_review: vault.pending_review,

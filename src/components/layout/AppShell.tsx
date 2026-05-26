@@ -45,6 +45,7 @@ type AppShellContextValue = {
     goalFlow?: "set" | "modify",
     goalModifyId?: string,
     autoMessage?: string,
+    outputTemplateType?: string,
   ) => void;
   openMakWithMessage: (message?: string, navigateTo?: string) => void;
   displayName: string | null;
@@ -77,6 +78,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     touchpoint?: MakFlowTouchpoint;
     goalFlow?: "set" | "modify";
     goalModifyId?: string;
+    outputTemplateType?: string;
   } | null>(null);
 
   useEffect(() => {
@@ -126,9 +128,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       goalFlow?: "set" | "modify",
       goalModifyId?: string,
       autoMessage?: string,
+      outputTemplateType?: string,
     ) => {
       const greeting = customGreeting ?? MAK_FLOW_GREETINGS[intent];
-      setPendingFlow({ intent, greeting, touchpoint, goalFlow, goalModifyId });
+      setPendingFlow({
+        intent,
+        greeting,
+        touchpoint,
+        goalFlow,
+        goalModifyId,
+        outputTemplateType,
+      });
       setFlowNonce((n) => n + 1);
       if (autoMessage?.trim()) setPendingInitialMessage(autoMessage.trim());
       setMakOpen(true);

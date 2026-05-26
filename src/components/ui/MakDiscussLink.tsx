@@ -31,6 +31,7 @@ export function MakDiscussLink({
       mak.goalFlow,
       mak.goalModifyId,
       mak.autoMessage,
+      mak.outputTemplateType,
     );
   }
 

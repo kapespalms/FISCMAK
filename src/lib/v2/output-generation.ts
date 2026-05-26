@@ -49,8 +49,12 @@ import {
   type IndustryDocumentType,
   type IndustrySectorId,
 } from "@/lib/v2/industry-career-templates";
+import {
+  buildUserOutputTemplateGenerationInstructions,
+  resolveUserOutputTemplate,
+} from "@/lib/v2/output-user-templates";
 import type { CvEvidence } from "@/lib/v2/cv-metrics";
-import type { AppUser } from "@/lib/v2/types";
+import type { AppUser, DocumentRecord } from "@/lib/v2/types";
 
 export type OutputGenerationContext = {
   templateType: string;
@@ -74,6 +78,8 @@ export type OutputGenerationContext = {
   lastQuarterlySummary: string | null;
   /** Mak system prompt only — never surface in UI prefill */
   makTraineeBackground?: string;
+  /** User-uploaded template for this document type — Mak-only in generation */
+  userOutputTemplate?: import("@/lib/v2/output-user-templates").UserOutputTemplate | null;
   industrySectorId?: IndustrySectorId;
   industryStageId?: ReturnType<typeof normalizeIndustryCareerStage>;
   readiness?: {
@@ -114,9 +120,20 @@ export async function buildOutputGenerationContext(input: {
   cvText?: string | null;
   cvEvidence?: CvEvidence | null;
   readiness?: OutputGenerationContext["readiness"];
+  documents?: DocumentRecord[];
 }): Promise<OutputGenerationContext> {
-  const { user, meta, templateType, vault, goals, health, cvText, cvEvidence, readiness } =
-    input;
+  const {
+    user,
+    meta,
+    templateType,
+    vault,
+    goals,
+    health,
+    cvText,
+    cvEvidence,
+    readiness,
+    documents = [],
+  } = input;
 
   const delta = enrichmentDeltaSummary(
     meta.enrichment_snapshot,
@@ -138,6 +155,8 @@ export async function buildOutputGenerationContext(input: {
           purpose: "output_studio",
         })
       : undefined;
+
+  const userOutputTemplate = resolveUserOutputTemplate(meta, templateType, documents);
 
   const profileParts = [
     user.specialty,
@@ -167,6 +186,7 @@ export async function buildOutputGenerationContext(input: {
     invisibleWorkHours: meta.pulse_history?.[0]?.invisible_hours ?? null,
     lastQuarterlySummary: meta.last_quarterly_summary ?? null,
     makTraineeBackground,
+    userOutputTemplate,
     industrySectorId: mapPivotPathToIndustry(meta.career_pivot_context?.target_path),
     industryStageId: normalizeIndustryCareerStage(user.career_stage),
     readiness: readiness ?? null,
@@ -650,6 +670,9 @@ function buildCareerSnapshotPrefill(ctx: OutputGenerationContext): string {
 
 export function buildOutputGenerationPrompt(ctx: OutputGenerationContext): string {
   const prefill = buildOutputPrefill(ctx);
+  const userTemplateBlock = ctx.userOutputTemplate
+    ? `\n\n${buildUserOutputTemplateGenerationInstructions(ctx.userOutputTemplate, ctx.templateType)}\n`
+    : "";
   return `Generate a professional ${ctx.templateType.replace(/_/g, " ")} for an academic physician.
 
 Profile: ${ctx.profileLine}
@@ -662,8 +685,8 @@ Development gaps: ${ctx.developmentGaps.join("; ") || "none identified"}
 Active goals:
 ${goalLines(ctx.goals)}
 
-${ctx.makTraineeBackground ? `${ctx.makTraineeBackground}\n\n` : ""}Use ONLY evidence from the Career Data vault and context above. Do not invent publications or grants.
-Expand this draft into polished prose appropriate for academic medicine:
+${ctx.makTraineeBackground ? `${ctx.makTraineeBackground}\n\n` : ""}${userTemplateBlock}Use ONLY evidence from the Career Data vault and context above. Do not invent publications or grants.
+${ctx.userOutputTemplate ? "Populate the user's uploaded template structure — preserve their headings and section order." : "Expand this draft into polished prose appropriate for academic medicine:"}
 
 ${prefill}`;
 }

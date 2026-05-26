@@ -72,6 +72,7 @@ export function DocumentsView() {
       });
       await loadDocuments();
       setPasteText("");
+      window.dispatchEvent(new CustomEvent("fiscmak:document-uploaded"));
     } catch (e) {
       setError(e instanceof Error ? e.message : "Upload failed");
     } finally {

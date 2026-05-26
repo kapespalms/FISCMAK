@@ -33,6 +33,10 @@ import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { CoachMakMark } from "@/components/brand/CoachMakMark";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
+import {
+  isKnownOutputTemplateType,
+  OUTPUT_TEMPLATE_TYPE_SESSION_KEY,
+} from "@/lib/v2/output-user-templates";
 
 type MakPanelProps = {
   open: boolean;
@@ -42,6 +46,7 @@ type MakPanelProps = {
     touchpoint?: import("@/components/layout/AppShell").MakFlowTouchpoint;
     goalFlow?: "set" | "modify";
     goalModifyId?: string;
+    outputTemplateType?: string;
   } | null;
   flowNonce: number;
   onFlowHandled: () => void;
@@ -51,6 +56,18 @@ type MakPanelProps = {
   initialMessage?: string | null;
   onInitialMessageHandled?: () => void;
 };
+
+function resolveOutputTemplateTypeForChat(
+  section: AppSection,
+  explicit?: string | null,
+): string | undefined {
+  if (explicit && isKnownOutputTemplateType(explicit)) return explicit;
+  if (section === "output" && typeof window !== "undefined") {
+    const stored = sessionStorage.getItem(OUTPUT_TEMPLATE_TYPE_SESSION_KEY);
+    if (stored && isKnownOutputTemplateType(stored)) return stored;
+  }
+  return undefined;
+}
 
 function formatMessageTime(iso?: string): string {
   const d = iso ? new Date(iso) : new Date();
@@ -104,6 +121,9 @@ export function MakPanel({
   const [goalFlowActive, setGoalFlowActive] = useState<"set" | "modify" | null>(null);
   const [goalModifyId, setGoalModifyId] = useState<string | null>(null);
   const [goalsConfirmed, setGoalsConfirmed] = useState(false);
+  const [activeOutputTemplateType, setActiveOutputTemplateType] = useState<
+    string | undefined
+  >();
   const [expanded, setExpanded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
@@ -205,6 +225,7 @@ export function MakPanel({
     if (apiGreetingFlows.includes(pendingFlow.greeting)) {
       setLoading(true);
       setActiveFlowIntent(pendingFlow.intent);
+      setActiveOutputTemplateType(pendingFlow.outputTemplateType);
       fetch("/api/v1/chat/message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -215,6 +236,7 @@ export function MakPanel({
             onboarding: pendingFlow.greeting === "__welcome__",
             touchpoint_number: 1,
             flow_intent: pendingFlow.intent,
+            output_template_type: pendingFlow.outputTemplateType,
           },
         }),
       })
@@ -237,6 +259,7 @@ export function MakPanel({
     setMessages(next);
     setTouchpointMode(pendingFlow.touchpoint ?? null);
     setActiveFlowIntent(pendingFlow.intent);
+    setActiveOutputTemplateType(pendingFlow.outputTemplateType);
     setGoalFlowActive(pendingFlow.goalFlow ?? null);
     setGoalModifyId(pendingFlow.goalModifyId ?? null);
     if (section === "plan" && pendingFlow.goalFlow === "set") {
@@ -302,6 +325,10 @@ export function MakPanel({
             goal_setting: goalFlowActive != null,
             goal_flow: goalFlowActive ?? undefined,
             goal_modify_id: goalModifyId ?? undefined,
+            output_template_type: resolveOutputTemplateTypeForChat(
+              section,
+              activeOutputTemplateType,
+            ),
           },
         }),
       });

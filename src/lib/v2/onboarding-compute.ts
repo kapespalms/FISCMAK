@@ -175,6 +175,8 @@ export type OnboardingMetadata = {
       }
     >
   >;
+  /** User-uploaded Output Studio templates keyed by OUTPUT_TEMPLATES id */
+  output_user_templates?: import("@/lib/v2/output-user-templates").UserOutputTemplatesMap;
   /** Server-only Mak coaching bands — never expose s_index to users */
   _internal_coaching?: {
     service_footprint_band: "minimal" | "moderate" | "strong";

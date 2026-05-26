@@ -32,6 +32,8 @@ import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSection
 import { useAppShell } from "@/components/layout/AppShell";
 import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
 import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
+import { OutputUserTemplatePanel } from "@/components/workspace/OutputUserTemplatePanel";
+import { OUTPUT_TEMPLATE_TYPE_SESSION_KEY } from "@/lib/v2/output-user-templates";
 import { Database, FileText, TrendingUp } from "lucide-react";
 
 type ReadinessProfile = {
@@ -89,6 +91,9 @@ export function OutputStudioWorkspace() {
   }, [loadEvidence]);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem(OUTPUT_TEMPLATE_TYPE_SESSION_KEY, selected);
+    }
     setVersions(loadVersions(selected));
     fetch("/api/v1/promotion/readiness")
       .then((r) => r.json())
@@ -281,7 +286,7 @@ export function OutputStudioWorkspace() {
           eyebrow="Templates"
           title="FISCMAK library"
           icon={FileText}
-          mak={OUTPUT_MAK.template(template.name)}
+          mak={OUTPUT_MAK.template(template.name, selected)}
         />
         {OUTPUT_TEMPLATES.map((t) => (
           <button
@@ -351,6 +356,7 @@ export function OutputStudioWorkspace() {
             }
           />
         )}
+        <OutputUserTemplatePanel templateType={selected} templateName={template.name} />
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
@@ -371,7 +377,7 @@ export function OutputStudioWorkspace() {
                         : `Target ~${template.words} words`}
             </p>
             <MakDiscussLink
-              mak={OUTPUT_MAK.template(template.name)}
+              mak={OUTPUT_MAK.template(template.name, selected)}
               className="mt-2 text-cx-forest-dark hover:text-cx-forest-dark/80"
             />
           </div>
