@@ -198,6 +198,9 @@ export function MakPanel({
       "__career_pivot_onboarding__",
       "__pivot_quarterly__",
       "__identity_navigation__",
+      "__board_awareness__",
+      "__board_building__",
+      "__grow_exploration__",
     ];
     if (apiGreetingFlows.includes(pendingFlow.greeting)) {
       setLoading(true);
@@ -662,7 +665,12 @@ export function MakPanel({
           ref={scrollRef}
           className="cx-mak-panel-chat flex-1 space-y-4 overflow-y-auto px-4 py-4"
         >
-        {activeEscalation && <EscalationResourcesPanel escalation={activeEscalation} />}
+        {activeEscalation && (
+          <EscalationResourcesPanel
+            escalation={activeEscalation}
+            preferOhio={activeEscalation.preferOhioResources}
+          />
+        )}
         {messages.map((msg, i) => {
           const showAvatar =
             msg.role === "assistant" && messages[i - 1]?.role !== "assistant";

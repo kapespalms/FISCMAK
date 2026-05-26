@@ -2,7 +2,9 @@ import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import {
   assembleFullNarrative,
-  PROMOTION_NARRATIVE_SECTIONS,
+  getSectionsForTrack,
+  normalizePromotionTrack,
+  type PromotionTrackId,
 } from "@/lib/v2/promotion-narrative-sections";
 import {
   getAppUser,
@@ -15,14 +17,16 @@ import type { NarrativeProgress, PromotionDossier } from "@/lib/v2/types";
 function sectionsForDossier(
   dossierId: string,
   rows: NarrativeProgress[],
+  trackId: PromotionTrackId,
 ) {
-  return PROMOTION_NARRATIVE_SECTIONS.map((def) => {
+  return getSectionsForTrack(trackId).map((def) => {
     const row = rows.find((r) => r.dossier_id === dossierId && r.section === def.id);
     return {
       section: def.id,
       title: def.title,
       subtitle: def.subtitle,
       target_words: def.targetWords,
+      emphasis: def.emphasis ?? null,
       content: row?.content ?? null,
       completion_percentage: row?.completion_percentage ?? 0,
       last_edited: row?.last_edited ?? null,
@@ -60,15 +64,17 @@ export async function GET() {
       };
       state.dossiers.push(dossier);
     }
-    const sections = sectionsForDossier(dossier.dossier_id, state.narrativeProgress);
+    const trackId = normalizePromotionTrack(dossier.target_track);
+    const sections = sectionsForDossier(dossier.dossier_id, state.narrativeProgress, trackId);
     const overall = Math.round(
       sections.reduce((sum, s) => sum + s.completion_percentage, 0) / sections.length,
     );
     return jsonOk({
       dossier,
+      track_id: trackId,
       sections,
       overall_completion: overall,
-      full_draft_preview: assembleFullNarrative(sections),
+      full_draft_preview: assembleFullNarrative(sections, trackId),
       user: {
         specialty: user?.specialty,
         career_stage: user?.career_stage,
@@ -106,9 +112,11 @@ export async function GET() {
     .select("*")
     .eq("dossier_id", dossier.dossier_id);
 
+  const trackId = normalizePromotionTrack(dossier.target_track);
   const sections = sectionsForDossier(
     dossier.dossier_id,
     (progress ?? []) as NarrativeProgress[],
+    trackId,
   );
   const overall = Math.round(
     sections.reduce((sum, s) => sum + s.completion_percentage, 0) / sections.length,
@@ -116,9 +124,10 @@ export async function GET() {
 
   return jsonOk({
     dossier,
+    track_id: trackId,
     sections,
     overall_completion: overall,
-    full_draft_preview: assembleFullNarrative(sections),
+    full_draft_preview: assembleFullNarrative(sections, trackId),
     user: {
       specialty: user?.specialty,
       career_stage: user?.career_stage,

@@ -17,6 +17,7 @@ import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
 import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
 import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
+import { WellnessResourcesSection } from "@/components/layout/WellnessResourcesSection";
 import { SUBJECTIVE_MAK } from "@/lib/card-mak-prompts";
 
 type ProfileMeta = {
@@ -30,6 +31,7 @@ export function SubjectiveWorkspace() {
   const { startMakFlow, displayName } = useAppShell();
   const { analytics, loading: analyticsLoading } = useAnalytics();
   const [profile, setProfile] = useState<ProfileMeta>({});
+  const [programSlug, setProgramSlug] = useState<string | null>(null);
   const [profileLoading, setProfileLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<string | null>(null);
 
@@ -38,6 +40,7 @@ export function SubjectiveWorkspace() {
       const profileRes = await fetch("/api/v1/onboarding/touchpoint1");
       const profileData = await profileRes.json();
       setProfile(profileData.profile ?? {});
+      setProgramSlug(profileData.onboarding?.program_slug ?? null);
       setLastUpdate(profileData.profile?.updated_at ?? null);
     } catch {
       setProfile({});
@@ -223,6 +226,8 @@ export function SubjectiveWorkspace() {
           </Link>
         }
       />
+
+      <WellnessResourcesSection preferOhio={programSlug === "uh-psych-cmc"} />
     </PageShell>
   );
 }

@@ -1,0 +1,56 @@
+{
+  "rotation_code": "va_ct6",
+  "service_name": "Inpatient Adult Psychiatry (VA CT6)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Inpatient Adult Psychiatry (VA)",
+    "last_updated": "2023-12-22",
+    "curriculum_seed": "uh_curriculum_inpatient_psychiatry.json"
+  },
+  "prior_to_rotation": [
+    "Review the VA CT6 Rotation Handbook",
+    "Ensure CPRS access (PIV card required)",
+    "Review email from Decey Cabarle for first-day logistics and VA laptop",
+    "Review CT6 resources: discharge checklist, encounter guide, C-SSRS/CSRE"
+  ],
+  "overview": "Inpatient adult psychiatry at Wade Park VA (Cares Tower 6) — acute psychiatric illnesses with VA-specific workflows, teams, and documentation in CPRS.",
+  "location": [
+    "Wade Park VA — Inpatient Psychiatric Unit (Cares Tower 6), 10701 East Blvd., Cleveland",
+    "Parking: free in visitor or employee lots"
+  ],
+  "personnel": [
+    "Attendings: Drs. Dixon, Carlisle, and coverage attendings",
+    "Each team includes PA/NP for medical care and a social worker"
+  ],
+  "schedule": [
+    "Monday–Friday, 8:00 AM – 4:30/5:00 PM",
+    "One weekend day per week — arranged among residents at block start",
+    "Rounds at 8:00 AM; one resident stays until 5:00 PM for Bridge Shift sign-out",
+    "Psychiatry Didactics Wednesdays; Grand Rounds Fridays at VA when time allows"
+  ],
+  "logistics": [
+    "Not a resident-driven service — patients admitted on team rounds",
+    "Chart review on arrival; no pre-rounding required",
+    "VA laptop stays on VA property"
+  ],
+  "resources": [
+    "VA CT6 Rotation Handbook",
+    "CT6 Discharge Checklist (Pharmacy), Encounter Guide, Labs Cheat Sheet",
+    "C-SSRS and CSRE suicide risk tools",
+    "CT6 Journal Club and Clinical Case Conference"
+  ],
+  "debrief_prompts": [
+    "One VA-specific workflow or resource that changed how you managed a patient",
+    "Suicide risk assessment — C-SSRS/CSRE in practice",
+    "Weekend coverage experience vs. weekday team structure",
+    "Discharge planning with VA community resources"
+  ],
+  "capture_tags": [
+    "CPRS documentation",
+    "suicide risk assessment",
+    "VA systems",
+    "discharge planning",
+    "team rounds",
+    "weekend coverage"
+  ]
+}

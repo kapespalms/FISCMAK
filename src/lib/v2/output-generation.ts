@@ -4,8 +4,53 @@ import { resolveAcademicProfile, isAcademicContext } from "@/lib/v2/academic-pro
 import type { CareerVaultModel } from "@/lib/v2/career-vault";
 import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
-import type { AppUser } from "@/lib/v2/types";
+import {
+  buildCareerNarrativeMakContext,
+  buildSectionPrompts,
+  defaultApplicationForStage,
+  inferCareerNarrativeStageFromLevel,
+  normalizeCareerNarrativeTrack,
+  resolveSectionsForContext,
+} from "@/lib/v2/career-narrative-templates";
+import {
+  buildCoverLetterMakContext,
+  getSectionsForCoverLetterStage,
+} from "@/lib/v2/cover-letter-templates";
+import {
+  buildCoverLetterContextualGuidance,
+  inferPositionTypeFromSetting,
+  inferSpecialtyCategory,
+  normalizeInstitutionalSetting,
+  normalizePositionType,
+} from "@/lib/v2/cover-letter-guide";
+import {
+  buildDocumentMakContext,
+  getSectionsForDocument,
+  normalizeCoreDocumentId,
+} from "@/lib/v2/academic-core-document-templates";
+import {
+  buildTraineeProgramBackgroundForMak,
+} from "@/lib/v2/programs/rotation-orientation";
+import { getProgramById, getProgramBySlug } from "@/lib/v2/programs/registry";
+import {
+  buildPromotionTrackMakContext,
+  getSectionsForTrack,
+  normalizePromotionTrack,
+} from "@/lib/v2/promotion-narrative-sections";
+import {
+  buildIndustryCareerMakContext,
+  getSectionsForIndustryDocument,
+  INDUSTRY_COVER_LETTER_TIPS,
+  INDUSTRY_RECRUITING_SECTORS,
+  INDUSTRY_STAGE_POSITIONING,
+  INDUSTRY_TRANSITION_TIPS,
+  mapPivotPathToIndustry,
+  normalizeIndustryCareerStage,
+  type IndustryDocumentType,
+  type IndustrySectorId,
+} from "@/lib/v2/industry-career-templates";
 import type { CvEvidence } from "@/lib/v2/cv-metrics";
+import type { AppUser } from "@/lib/v2/types";
 
 export type OutputGenerationContext = {
   templateType: string;
@@ -27,6 +72,10 @@ export type OutputGenerationContext = {
   cvEvidence: CvEvidence | null;
   invisibleWorkHours: number | null;
   lastQuarterlySummary: string | null;
+  /** Mak system prompt only — never surface in UI prefill */
+  makTraineeBackground?: string;
+  industrySectorId?: IndustrySectorId;
+  industryStageId?: ReturnType<typeof normalizeIndustryCareerStage>;
   readiness?: {
     target_rank: string;
     target_track: string;
@@ -77,6 +126,19 @@ export async function buildOutputGenerationContext(input: {
   const weakDomains =
     health?.domains.slice().sort((a, b) => a.score - b.score).slice(0, 2) ?? [];
 
+  const program =
+    getProgramById(meta.program_id) ?? getProgramBySlug(meta.program_slug) ?? null;
+  const makTraineeBackground =
+    meta.onboarding_path === "institutional" && program
+      ? buildTraineeProgramBackgroundForMak({
+          program,
+          currentRotation: user.current_rotation,
+          pgyLevel: user.pgy_level,
+          traineeInitials: meta.trainee_initials,
+          purpose: "output_studio",
+        })
+      : undefined;
+
   const profileParts = [
     user.specialty,
     user.practice_setting === "Academic" ? "Academic Medicine" : user.practice_setting,
@@ -104,6 +166,9 @@ export async function buildOutputGenerationContext(input: {
     cvEvidence: cvEvidence ?? null,
     invisibleWorkHours: meta.pulse_history?.[0]?.invisible_hours ?? null,
     lastQuarterlySummary: meta.last_quarterly_summary ?? null,
+    makTraineeBackground,
+    industrySectorId: mapPivotPathToIndustry(meta.career_pivot_context?.target_path),
+    industryStageId: normalizeIndustryCareerStage(user.career_stage),
     readiness: readiness ?? null,
   };
 }
@@ -143,6 +208,9 @@ export function buildOutputPrefill(ctx: OutputGenerationContext): string {
       return buildAnnualReviewPrefill(ctx);
     case "promotion_narrative":
       return buildPromotionPrefill(ctx);
+    case "career_narrative":
+    case "personal_statement":
+      return buildCareerNarrativePrefill(ctx);
     case "teaching_statement":
       return buildTeachingStatementPrefill(ctx);
     case "leadership_summary":
@@ -151,12 +219,20 @@ export function buildOutputPrefill(ctx: OutputGenerationContext): string {
       return buildBioPrefill(ctx);
     case "cover_letter":
       return buildCoverLetterPrefill(ctx);
+    case "industry_resume":
+      return buildIndustryDocumentPrefill(ctx, "industry_resume");
+    case "industry_cover_letter":
+      return buildIndustryDocumentPrefill(ctx, "industry_cover_letter");
     case "invisible_work_summary":
       return buildInvisibleWorkPrefill(ctx);
     case "career_snapshot":
       return buildCareerSnapshotPrefill(ctx);
     case "biosketch":
       return buildBiosketchPrefill(ctx);
+    case "institutional_cv":
+      return buildInstitutionalCvPrefill(ctx);
+    case "teaching_portfolio":
+      return buildTeachingPortfolioPrefill(ctx);
     default:
       return buildCareerSnapshotPrefill(ctx);
   }
@@ -194,24 +270,73 @@ function buildCvPrefill(ctx: OutputGenerationContext, docLabel: string): string 
 }
 
 function buildBiosketchPrefill(ctx: OutputGenerationContext): string {
+  const docId = normalizeCoreDocumentId("biosketch");
+  const sections = getSectionsForDocument(docId);
   const pubs = ctx.vault?.sections.find((s) => s.id === "publications")?.count ?? 0;
   const grants = ctx.vault?.sections.find((s) => s.id === "grants")?.count ?? 0;
   return [
     "NIH Biosketch Draft",
+    buildDocumentMakContext(docId),
     "",
     `Name: ${ctx.name}`,
     `Position: ${ctx.rank ?? "Faculty"} · ${ctx.specialty}`,
-    `Career objective: ${ctx.careerObjective}`,
     "",
-    "Personal Statement",
-    `Physician-scientist/educator in ${ctx.specialty} with ${pubs} verified publications and ${grants} active grant records in Career Data vault.`,
-    ctx.enrichmentDelta ? `Recent progress: ${ctx.enrichmentDelta}.` : "",
+    "Career Data vault",
+    vaultSection(ctx),
+    ctx.enrichmentDelta ? `Recent progress: ${ctx.enrichmentDelta}` : "",
+    `Verified: ${pubs} publications, ${grants} grant records`,
     "",
-    "Contributions to Science",
-    "[Mak will help draft 4 contributions from vault publications and grants.]",
+    ...sections.map(
+      (s, i) =>
+        `Section ${i + 1}: ${s.title}\n${s.prompts.slice(0, 2).map((p) => `- ${p}`).join("\n")}\n[Draft with Mak — use SciENcv for official submission]`,
+    ),
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function buildInstitutionalCvPrefill(ctx: OutputGenerationContext): string {
+  const docId = normalizeCoreDocumentId("institutional_cv");
+  const sections = getSectionsForDocument(docId);
+  return [
+    "Institutional CV Draft",
+    buildDocumentMakContext(docId),
     "",
-    "Active Goals",
-    goalLines(ctx.goals),
+    `${ctx.name} · ${ctx.profileLine}`,
+    "",
+    "Career Data vault",
+    vaultSection(ctx),
+    ctx.enrichmentDelta ? `Recent: ${ctx.enrichmentDelta}` : "",
+    ctx.cvExcerpt ? `\nCV excerpt:\n${ctx.cvExcerpt.slice(0, 800)}` : "",
+    "",
+    ...sections.map(
+      (s, i) => `Section ${i + 1}: ${s.title}\n[Draft with Mak — check Office of Faculty Affairs format]`,
+    ),
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function buildTeachingPortfolioPrefill(ctx: OutputGenerationContext): string {
+  const docId = normalizeCoreDocumentId("teaching_portfolio");
+  const sections = getSectionsForDocument(docId);
+  const courses = ctx.vault?.sections.find((s) => s.id === "teaching")?.count ?? 0;
+  return [
+    "Teaching Portfolio Draft",
+    buildDocumentMakContext(docId),
+    "",
+    `${ctx.name} · ${ctx.profileLine}`,
+    "",
+    `Verified teaching roles: ${courses} in Career Data vault`,
+    ctx.cvEvidence
+      ? `CV signals: ${ctx.cvEvidence.teaching_signals} teaching mentions, ${ctx.cvEvidence.mentoring_mentions} mentoring references`
+      : "",
+    vaultSection(ctx),
+    "",
+    ...sections.map((s, i) => {
+      const prompts = s.prompts.slice(0, 2).map((p) => `- ${p}`).join("\n");
+      return `Part ${i + 1}: ${s.title}\n${prompts}\n[Draft with Mak]`;
+    }),
   ]
     .filter(Boolean)
     .join("\n");
@@ -244,23 +369,45 @@ function buildAnnualReviewPrefill(ctx: OutputGenerationContext): string {
 
 function buildPromotionPrefill(ctx: OutputGenerationContext): string {
   const r = ctx.readiness;
+  const trackId = normalizePromotionTrack(r?.target_track);
+  const trackSections = getSectionsForTrack(trackId);
+  const vaultLine = vaultSection(ctx);
+  const enrichment = ctx.enrichmentDelta ? `Recent additions: ${ctx.enrichmentDelta}` : "";
+
   if (!r) {
-    return buildCvPrefill(ctx, "Promotion Dossier Narrative");
+    return [
+      "Promotion Narrative Draft",
+      buildPromotionTrackMakContext(trackId),
+      "",
+      vaultLine,
+      enrichment,
+      "",
+      ...trackSections.map(
+        (s, i) =>
+          `Section ${i + 1}: ${s.title}${s.emphasis === "primary" ? " (primary)" : ""}\n[Draft with Mak — ${s.subtitle}]`,
+      ),
+    ]
+      .filter(Boolean)
+      .join("\n");
   }
+
   const strengths = r.strengths.map((s) => `- ${s.domain} (${s.score}%): ${s.note}`).join("\n");
   const gaps = r.gaps
     .map((g) => `- ${g.domain} (${g.score}%): ${g.note}. ${g.suggestion}`)
     .join("\n");
+
   return [
     "Promotion Narrative Draft",
+    "",
+    buildPromotionTrackMakContext(trackId),
     "",
     `Target: ${r.target_rank} (${r.target_track})`,
     `Timeline: ${r.promotion_timeline}`,
     `Overall readiness: ${r.overall_readiness}%`,
     "",
     "Career Data vault",
-    vaultSection(ctx),
-    ctx.enrichmentDelta ? `Recent additions: ${ctx.enrichmentDelta}` : "",
+    vaultLine,
+    enrichment,
     "",
     "Strengths",
     strengths,
@@ -268,24 +415,50 @@ function buildPromotionPrefill(ctx: OutputGenerationContext): string {
     "Gaps to address",
     gaps,
     "",
-    "Section 1: Clinical Excellence",
-    "[Draft with Mak]",
+    ...trackSections.map(
+      (s, i) =>
+        `Section ${i + 1}: ${s.title}${s.emphasis === "primary" ? " (primary domain)" : ""}\n${s.prompts.slice(0, 2).map((p) => `- ${p}`).join("\n")}\n[Draft with Mak]`,
+    ),
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function buildCareerNarrativePrefill(ctx: OutputGenerationContext): string {
+  const stageId = inferCareerNarrativeStageFromLevel(ctx.level);
+  const trackId = normalizeCareerNarrativeTrack(ctx.track);
+  const applicationId = defaultApplicationForStage(stageId);
+  const sections = resolveSectionsForContext({ stageId, applicationId });
+
+  return [
+    "Career Narrative Draft",
     "",
-    "Section 2: Teaching & Mentorship",
-    `[Teaching portfolio: ${ctx.vault?.sections.find((s) => s.id === "teaching")?.count ?? 0} courses]`,
+    buildCareerNarrativeMakContext({
+      stageId,
+      trackId,
+      applicationId,
+      specialty: ctx.specialty,
+    }),
     "",
-    "Section 3: Scholarship & Research",
-    `[Publications: ${ctx.vault?.sections.find((s) => s.id === "publications")?.count ?? 0}; Grants: ${ctx.vault?.sections.find((s) => s.id === "grants")?.count ?? 0}]`,
+    ctx.profileLine,
+    ctx.careerObjective ? `Career objective: ${ctx.careerObjective}` : "",
     "",
-    "Section 4: Service & Leadership",
-    `[Committees: ${ctx.vault?.sections.find((s) => s.id === "committees")?.count ?? 0}]`,
+    vaultSection(ctx),
+    ctx.enrichmentDelta ? `Recent captures: ${ctx.enrichmentDelta}` : "",
     "",
-    "Section 5: Career Vision",
-    ctx.careerObjective,
-    "",
-    "Section 6: Summary",
-    "[Draft with Mak]",
-  ].join("\n");
+    ...sections.map((s, i) => {
+      const prompts = buildSectionPrompts({
+        sectionId: s.id,
+        stageId,
+        trackId,
+        applicationId,
+        specialty: ctx.specialty,
+      });
+      return `Section ${i + 1}: ${s.title}\n${prompts.slice(0, 3).map((p) => `- ${p}`).join("\n")}\n[Draft with Mak]`;
+    }),
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 function buildTeachingStatementPrefill(ctx: OutputGenerationContext): string {
@@ -340,21 +513,97 @@ function buildBioPrefill(ctx: OutputGenerationContext): string {
 }
 
 function buildCoverLetterPrefill(ctx: OutputGenerationContext): string {
+  const stageId = inferCareerNarrativeStageFromLevel(ctx.level);
+  const sections = getSectionsForCoverLetterStage(stageId);
+  const positionType = normalizePositionType(inferPositionTypeFromSetting(ctx.setting));
+  const institutionalSetting = normalizeInstitutionalSetting(null);
+  const specialtyCategory = inferSpecialtyCategory(ctx.specialty);
+  const guide = buildCoverLetterContextualGuidance({
+    stageId,
+    positionType,
+    institutionalSetting,
+    specialtyCategory,
+  });
   return [
-    `[Date]`,
+    "Physician CV Cover Letter Draft",
+    buildCoverLetterMakContext({
+      stageId,
+      specialty: ctx.specialty,
+      positionType,
+      institutionalSetting,
+      specialtyCategory,
+    }),
     "",
-    "Dear Search Committee,",
+    `${ctx.name} · ${ctx.profileLine}`,
+    `Position type: ${positionType.replace(/_/g, " ")}`,
+    `Narrative arc: ${guide.narrativeArc}`,
+    ctx.careerObjective ? `Career objective: ${ctx.careerObjective}` : "",
     "",
-    `I am writing to express interest in an academic ${ctx.specialty} position aligned with my ${ctx.track ?? "clinical"} track and goal: ${ctx.careerObjective}.`,
-    "",
-    "Career Data highlights",
+    "Career Data vault",
     vaultSection(ctx),
-    ctx.enrichmentDelta ? `Recent accomplishments: ${ctx.enrichmentDelta}.` : "",
+    ctx.enrichmentDelta ? `Recent: ${ctx.enrichmentDelta}` : "",
     "",
-    goalLines(ctx.goals),
+    "Position-specific guidance:",
+    ...guide.position.slice(0, 3).map((p) => `- ${p}`),
     "",
-    "Sincerely,",
-    ctx.name,
+    ...sections.map(
+      (s, i) =>
+        `Section ${i + 1}: ${s.title}\n${s.prompts.slice(0, 2).map((p) => `- ${p}`).join("\n")}\n[Draft with Mak — one page total]`,
+    ),
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+function buildIndustryDocumentPrefill(
+  ctx: OutputGenerationContext,
+  documentType: IndustryDocumentType,
+): string {
+  const stageId =
+    ctx.industryStageId ?? normalizeIndustryCareerStage(inferCareerNarrativeStageFromLevel(ctx.level));
+  const sectorId = ctx.industrySectorId ?? "ai_health_tech";
+  const sector = INDUSTRY_RECRUITING_SECTORS.find((s) => s.id === sectorId)!;
+  const stage = INDUSTRY_STAGE_POSITIONING[stageId];
+  const sections = getSectionsForIndustryDocument(documentType, sectorId);
+  const docLabel =
+    documentType === "industry_resume" ? "Physician Industry Resume Draft" : "Physician Industry Cover Letter Draft";
+
+  return [
+    docLabel,
+    buildIndustryCareerMakContext({
+      documentType,
+      sectorId,
+      stageId,
+      specialty: ctx.specialty,
+    }),
+    "",
+    `${ctx.name} · ${ctx.profileLine}`,
+    `Target sector: ${sector.label}`,
+    `Career stage: ${stage?.label ?? stageId}`,
+    ctx.careerObjective ? `Career objective: ${ctx.careerObjective}` : "",
+    "",
+    "Transition tips:",
+    ...INDUSTRY_TRANSITION_TIPS.slice(0, 3).map((t) => `- ${t}`),
+    "",
+    ...(documentType === "industry_cover_letter"
+      ? [
+          "Sector cover letter tips:",
+          ...(INDUSTRY_COVER_LETTER_TIPS[sectorId]?.slice(0, 2).map((t) => `- ${t}`) ?? []),
+          "",
+        ]
+      : [
+          "Stage resume tips:",
+          ...(stage?.resumeTips.slice(0, 2).map((t) => `- ${t}`) ?? []),
+          "",
+        ]),
+    "Career Data vault",
+    vaultSection(ctx),
+    ctx.enrichmentDelta ? `Recent: ${ctx.enrichmentDelta}` : "",
+    "",
+    ...sections.map(
+      (s, i) =>
+        `Section ${i + 1}: ${s.title}\n${s.prompts.slice(0, 2).map((p) => `- ${p}`).join("\n")}\n[Draft with Mak — ${documentType === "industry_resume" ? "1–2 pages total" : "one page total"}]`,
+    ),
   ]
     .filter(Boolean)
     .join("\n");
@@ -413,7 +662,7 @@ Development gaps: ${ctx.developmentGaps.join("; ") || "none identified"}
 Active goals:
 ${goalLines(ctx.goals)}
 
-Use ONLY evidence from the Career Data vault and context above. Do not invent publications or grants.
+${ctx.makTraineeBackground ? `${ctx.makTraineeBackground}\n\n` : ""}Use ONLY evidence from the Career Data vault and context above. Do not invent publications or grants.
 Expand this draft into polished prose appropriate for academic medicine:
 
 ${prefill}`;

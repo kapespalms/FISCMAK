@@ -108,8 +108,11 @@ export function buildRotationDebriefMakSystemContext(
     rotationName: session.rotation_name,
     anchor: meta.narrative_anchor,
   });
-  return `Rotation debrief — layer "${session.layer}", question ${session.layer_question_index + 1}/${QUESTIONS_PER_LAYER}.
-${prompt}`;
+
+  return [
+    `Rotation debrief — layer "${session.layer}", question ${session.layer_question_index + 1}/${QUESTIONS_PER_LAYER}.`,
+    prompt,
+  ].join("\n\n");
 }
 
 export function buildNarrativeAnchorMakSystemContext(

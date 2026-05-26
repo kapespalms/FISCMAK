@@ -23,6 +23,11 @@ import {
   type DocumentVersion,
 } from "@/lib/studio-versions";
 import { PromotionNarrativeWizard } from "@/components/workspace/PromotionNarrativeWizard";
+import { CareerNarrativeWizard } from "@/components/workspace/CareerNarrativeWizard";
+import { AcademicCoreDocumentWizard } from "@/components/workspace/AcademicCoreDocumentWizard";
+import { CoverLetterWizard } from "@/components/workspace/CoverLetterWizard";
+import { IndustryCareerWizard } from "@/components/workspace/IndustryCareerWizard";
+import { normalizeCoreDocumentId } from "@/lib/v2/academic-core-document-templates";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import { useAppShell } from "@/components/layout/AppShell";
 import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
@@ -215,6 +220,15 @@ export function OutputStudioWorkspace() {
 
   const overLimit = wordCount > template.words * 1.1;
   const isPromotionWizard = selected === "promotion_narrative";
+  const isCareerNarrativeWizard =
+    selected === "career_narrative" || selected === "personal_statement";
+  const isCoreDocumentWizard =
+    selected === "biosketch" ||
+    selected === "institutional_cv" ||
+    selected === "teaching_portfolio";
+  const isCoverLetterWizard = selected === "cover_letter";
+  const isIndustryCareerWizard =
+    selected === "industry_resume" || selected === "industry_cover_letter";
 
   return (
     <PageShell
@@ -292,7 +306,23 @@ export function OutputStudioWorkspace() {
               <button
                 key={t.template_id}
                 type="button"
-                onClick={() => setSelected(t.type === "promotion_narrative" ? "promotion_narrative" : t.type)}
+                onClick={() =>
+                  setSelected(
+                    t.type === "promotion_narrative"
+                      ? "promotion_narrative"
+                      : t.type === "career_narrative"
+                        ? "career_narrative"
+                        : t.type === "personal_statement"
+                          ? "personal_statement"
+                          : t.type === "biosketch"
+                            ? "biosketch"
+                            : t.type === "institutional_cv"
+                              ? "institutional_cv"
+                              : t.type === "teaching_portfolio"
+                                ? "teaching_portfolio"
+                                : t.type,
+                  )
+                }
                 title={t.description}
                 className="w-full rounded-lg px-3 py-2 text-left text-sm text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
               >
@@ -329,8 +359,16 @@ export function OutputStudioWorkspace() {
             <h2 className="text-xl font-semibold text-cx-forest-dark">{template.name}</h2>
             <p className="text-sm text-cx-forest-dark/70">
               {isPromotionWizard
-                ? "Six-section wizard — Master Document template"
-                : `Target ~${template.words} words`}
+                ? "Track-specific promotion wizard — section by section"
+                : isCareerNarrativeWizard
+                  ? "Stage × track × application wizard — living career narrative"
+                  : isCoreDocumentWizard
+                    ? "Section-by-section drafting — NIH Biosketch, Institutional CV, or Teaching Portfolio"
+                    : isCoverLetterWizard
+                      ? "Stage × position × specialty × setting — comprehensive cover letter guide"
+                      : isIndustryCareerWizard
+                        ? "Industry transition — resume or cover letter by sector and career stage"
+                        : `Target ~${template.words} words`}
             </p>
             <MakDiscussLink
               mak={OUTPUT_MAK.template(template.name)}
@@ -338,7 +376,7 @@ export function OutputStudioWorkspace() {
             />
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            {!isPromotionWizard && (
+            {!isPromotionWizard && !isCareerNarrativeWizard && !isCoreDocumentWizard && !isCoverLetterWizard && !isIndustryCareerWizard && (
               <>
                 <Button onClick={generate} disabled={generating}>
                   {generating ? "Generating…" : "Generate"}
@@ -363,12 +401,49 @@ export function OutputStudioWorkspace() {
           </div>
         </div>
 
-        {isPromotionWizard ? (
+        {isCareerNarrativeWizard ? (
+          <CareerNarrativeWizard
+            defaultApplicationId={
+              selected === "personal_statement" ? "training_personal_statement" : undefined
+            }
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full narrative copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isPromotionWizard ? (
           <PromotionNarrativeWizard
             readiness={readiness}
             onFullDraft={(text) => {
               void navigator.clipboard.writeText(text);
               setExportMsg("Full narrative copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isCoreDocumentWizard ? (
+          <AcademicCoreDocumentWizard
+            documentId={normalizeCoreDocumentId(selected)}
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full draft copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isCoverLetterWizard ? (
+          <CoverLetterWizard
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full cover letter copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isIndustryCareerWizard ? (
+          <IndustryCareerWizard
+            documentType={selected}
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Industry document copied to clipboard");
               setTimeout(() => setExportMsg(""), 2500);
             }}
           />
@@ -399,7 +474,7 @@ export function OutputStudioWorkspace() {
         </Card>
         )}
 
-        {!isPromotionWizard && (
+        {!isPromotionWizard && !isCareerNarrativeWizard && !isCoreDocumentWizard && !isCoverLetterWizard && !isIndustryCareerWizard && (
       <EvidenceDrawer
         evidence={evidence}
         onInsertChip={(item) =>

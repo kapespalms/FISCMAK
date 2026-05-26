@@ -7,6 +7,11 @@ import { GOAL_FRAMEWORK_LABELS, type GoalFrameworkType } from "@/lib/v2/soap-tab
 import type { StructuredGoal } from "@/lib/v2/goal-framework";
 import type { CareerGoal } from "@/lib/goals";
 import {
+  buildAnatomyDisplay,
+  GOAL_ARCHETYPE_DEFINITIONS,
+  resolveGoalArchetype,
+} from "@/lib/v2/goal-archetype-templates";
+import {
   findCurrentMilestoneIndex,
   type MilestoneStatus,
 } from "@/lib/v2/goal-milestone-actions";
@@ -44,9 +49,17 @@ export function CareerStrategyGoalCard({
   onMilestoneStatus,
 }: CareerStrategyGoalCardProps) {
   const [milestonesOpen, setMilestonesOpen] = useState(false);
+  const [anatomyOpen, setAnatomyOpen] = useState(false);
   const type = frameworkType(goal);
   const label = type ? GOAL_FRAMEWORK_LABELS[type].label : "Goal";
   const progress = structured?.progress ?? 0;
+  const archetype =
+    goal.goal_archetype ??
+    structured?.goalArchetype ??
+    (type ? resolveGoalArchetype({ frameworkType: type }) : undefined);
+  const anatomy = goal.goal_anatomy ?? structured?.anatomy;
+  const archetypeDef = archetype ? GOAL_ARCHETYPE_DEFINITIONS[archetype] : null;
+  const anatomyLines = archetype ? buildAnatomyDisplay(archetype, anatomy) : [];
   const milestoneIndex = findCurrentMilestoneIndex(goal);
   const currentMilestone =
     structured?.milestones.find((m) => m.status === "in_progress") ??
@@ -88,6 +101,44 @@ export function CareerStrategyGoalCard({
           style={{ width: `${Math.max(progress, 4)}%` }}
         />
       </div>
+
+      {archetypeDef && (
+        <div className="mt-4">
+          <button
+            type="button"
+            onClick={() => setAnatomyOpen((o) => !o)}
+            className="flex items-center gap-1 text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          >
+            <ChevronDown
+              size={14}
+              className={cn("transition-transform", anatomyOpen && "rotate-180")}
+            />
+            {archetypeDef.label} structure
+            {anatomyLines.length ? ` (${anatomyLines.length} fields)` : ""}
+          </button>
+          {anatomyOpen && (
+            <dl className="mt-2 space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-3 text-sm">
+              {anatomyLines.length ? (
+                anatomyLines.map((line) => {
+                  const match = /^\*\*(.+?):\*\* (.+)$/.exec(line);
+                  if (!match) return null;
+                  return (
+                    <div key={match[1]}>
+                      <dt className="text-xs font-medium text-cx-forest-dark/60">{match[1]}</dt>
+                      <dd className="mt-0.5 text-cx-forest-dark">{match[2]}</dd>
+                    </div>
+                  );
+                })
+              ) : (
+                <p className="text-cx-forest-dark/70">
+                  {archetypeDef.pattern}. Refine with Mak to fill in current state, target, timeline,
+                  and the internal obstacle that usually derails this pattern.
+                </p>
+              )}
+            </dl>
+          )}
+        </div>
+      )}
 
       {currentMilestone && (
         <div className="mt-4 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-3">

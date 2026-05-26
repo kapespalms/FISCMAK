@@ -1,0 +1,55 @@
+{
+  "rotation_code": "mpu_cl",
+  "service_name": "Med-Psych Unit (MPU)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Med-Psych Unit (MPU)",
+    "last_updated": "2024-07-03",
+    "drive_files": [
+      {
+        "label": "CL/MPU Rotation Syllabus",
+        "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit"
+      }
+    ],
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review the CL/MPU Rotation Syllabus"
+  ],
+  "overview": "Care for adult patients admitted for medical concerns with comorbid psychiatric illness on the dedicated med-psych unit at UH Lakeside.",
+  "location": [
+    "UH CMC — Lakeside, 4th floor",
+    "Parking: UH-CMC garages"
+  ],
+  "personnel": [
+    "Attending: Dr. Shah",
+    "Fellows: Dr. Harki Kaur, Dr. Vincent Fryer",
+    "Pharmacist: Dr. Jenna Stearns"
+  ],
+  "schedule": [
+    "Monday–Friday, 8:00 AM – 4:30 PM",
+    "May leave earlier for Bridge Shift; no weekends",
+    "Psychiatry Didactics Wednesdays; Grand Rounds Fridays as schedule allows"
+  ],
+  "logistics": [
+    "Arrive: review overnight events and new consult/ED notes",
+    "Pre-round before 11:30 AM interdisciplinary team (IDT) meeting",
+    "IDT with Dr. Shah at 11:30 — flag med changes and psychiatric observations",
+    "Afternoon: new MPU consults; dedicated teaching some days",
+    "Use CL note templates with MPU-specific notations"
+  ],
+  "debrief_prompts": [
+    "How did you balance medical stabilization with psychiatric management on MPU?",
+    "One IDT moment where your psychiatric observation changed the medical plan",
+    "Documentation workflow — CL template adaptations for MPU",
+    "What consults were appropriate for MPU admission vs. standard CL?"
+  ],
+  "capture_tags": [
+    "med-psych interface",
+    "IDT",
+    "consult note",
+    "medication management",
+    "primary team coordination",
+    "MPU admission criteria"
+  ]
+}

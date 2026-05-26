@@ -96,7 +96,7 @@ export function formatMakInternalCoachingContext(
   if (!signals.available && hints.length === 0) return "";
 
   const lines = [
-    "CONFIDENTIAL COACHING INPUT (never name S-Index, IWQ, or internal scores to the physician; use only to ask better questions):",
+    "CONFIDENTIAL COACHING INPUT (never name internal metric labels or scores to the physician; use only to ask better questions):",
     `Escalation level: ${escalationLevel}/4 (1=ambient awareness, 4=wellness-integrated coaching).`,
     `Service footprint band: ${signals.service_footprint_band}.`,
     `Workload vs recognition gap: ${signals.workload_recognition_gap}.`,

@@ -1,0 +1,2895 @@
+{
+  "exported_at": "2026-05-25T01:59:45.911Z",
+  "source": "supabase",
+  "tables": {
+    "ontology_sources": [
+      {
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "source_name": "ACGME",
+        "source_type": "ACGME",
+        "url": "https://www.acgme.org",
+        "citation_note": "Accreditation Council for Graduate Medical Education",
+        "version": "2024",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "source_name": "Clinician Educator Milestones",
+        "source_type": "ACGME",
+        "url": "https://www.acgme.org/globalassets/pfassets/programresources/clinicianeducator.pdf",
+        "citation_note": "ACGME Clinician-Educator Track Milestones",
+        "version": "2024",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "source_id": "dda0e3a6-35f8-4b92-9b71-33cfb944c284",
+        "source_name": "FISCMAK Proprietary",
+        "source_type": "FISCMAK Proprietary",
+        "url": null,
+        "citation_note": "Invisible work activities and mappings developed for FISCMAK",
+        "version": "1.0",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_specialties": [
+      {
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "specialty_key": "psych",
+        "name": "Psychiatry",
+        "acgme_review_committee": "Psychiatry",
+        "aliases": [
+          "Psychiatry",
+          "Psych",
+          "Psychiatric Medicine"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "42fb3840-fc0b-4c4c-8862-e2a51b17ca4d",
+        "specialty_key": "im",
+        "name": "Internal Medicine",
+        "acgme_review_committee": "Internal Medicine",
+        "aliases": [
+          "Internal Medicine",
+          "Medicine",
+          "IM"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "ae5c1196-a9b2-493d-ac5a-62b7299cf5fd",
+        "specialty_key": "em",
+        "name": "Emergency Medicine",
+        "acgme_review_committee": "Emergency Medicine",
+        "aliases": [
+          "Emergency Medicine",
+          "EM",
+          "Emergency"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "642af759-8436-413e-add3-8f67608c1b31",
+        "specialty_key": "surgery",
+        "name": "General Surgery",
+        "acgme_review_committee": "Surgery",
+        "aliases": [
+          "General Surgery",
+          "Surgery",
+          "Gen Surg"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "21ed9b33-470a-4231-adaa-3e369ea41cbf",
+        "specialty_key": "peds",
+        "name": "Pediatrics",
+        "acgme_review_committee": "Pediatrics",
+        "aliases": [
+          "Pediatrics",
+          "Peds",
+          "Child Medicine"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "0841b083-ecd1-417b-afd5-bc4355e91b97",
+        "specialty_key": "fm",
+        "name": "Family Medicine",
+        "acgme_review_committee": "Family Medicine",
+        "aliases": [
+          "Family Medicine",
+          "FM",
+          "Family Practice"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "9cd7ff9b-3425-4195-bd82-0b55ddd5d5d3",
+        "specialty_key": "ob",
+        "name": "Obstetrics and Gynecology",
+        "acgme_review_committee": "Obstetrics and Gynecology",
+        "aliases": [
+          "Obstetrics and Gynecology",
+          "OB/GYN",
+          "OBGYN"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "7f4e00e3-5738-4dd6-bb44-519b25921521",
+        "specialty_key": "neuro",
+        "name": "Neurology",
+        "acgme_review_committee": "Neurology",
+        "aliases": [
+          "Neurology",
+          "Neuro"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "017c9750-fa8a-4c59-b927-3c581cbf5884",
+        "specialty_key": "pathology",
+        "name": "Pathology",
+        "acgme_review_committee": "Pathology",
+        "aliases": [
+          "Pathology",
+          "Anatomic Pathology",
+          "Clinical Pathology"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "specialty_id": "a09eeedc-bb88-4b61-a5a6-2388e079dc42",
+        "specialty_key": "radiology",
+        "name": "Radiology",
+        "acgme_review_committee": "Radiology",
+        "aliases": [
+          "Radiology",
+          "Diagnostic Radiology"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_subspecialties": [
+      {
+        "subspecialty_id": "38eb2a00-2f82-4fb8-ad41-7c07eac15c0f",
+        "subspecialty_key": "psych_child_adolescent",
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "name": "Child and Adolescent Psychiatry",
+        "acgme_accredited": true,
+        "residency_dependency_status": "Yes, Always",
+        "aliases": [
+          "CAP",
+          "Child Psych"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subspecialty_id": "6ca0fcf2-a257-4e86-b826-7b7519c5fcc5",
+        "subspecialty_key": "psych_forensic",
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "name": "Forensic Psychiatry",
+        "acgme_accredited": true,
+        "residency_dependency_status": "Yes, With Exceptions",
+        "aliases": [
+          "Forensic Psych"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subspecialty_id": "65d57a71-bd47-4857-9a70-f1fd339cde20",
+        "subspecialty_key": "psych_geriatric",
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "name": "Geriatric Psychiatry",
+        "acgme_accredited": true,
+        "residency_dependency_status": "Yes, With Exceptions",
+        "aliases": [
+          "Geriatric Psych"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subspecialty_id": "b3556533-8f2e-41e5-9a6f-84f8c34cc223",
+        "subspecialty_key": "psych_addiction",
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "name": "Addiction Psychiatry",
+        "acgme_accredited": true,
+        "residency_dependency_status": "Yes, With Exceptions",
+        "aliases": [
+          "Addiction Psych"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subspecialty_id": "012c288c-af4f-4e2d-9261-a43f238e4a18",
+        "subspecialty_key": "psych_cl",
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "name": "Consultation-Liaison Psychiatry",
+        "acgme_accredited": true,
+        "residency_dependency_status": "Yes, With Exceptions",
+        "aliases": [
+          "CL Psych",
+          "Psychosomatic Medicine"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subspecialty_id": "5d9bbe04-2a0a-4b32-9075-c15c4666f006",
+        "subspecialty_key": "psych_sleep",
+        "specialty_id": "8a6e6622-20e7-4e1f-826d-c2e524ceefb0",
+        "name": "Sleep Medicine",
+        "acgme_accredited": true,
+        "residency_dependency_status": "No",
+        "aliases": [
+          "Sleep"
+        ],
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_competency_domains": [
+      {
+        "domain_id": "67230ba3-7ecf-4fd3-be8f-c21c50a66f6c",
+        "domain_key": "pc",
+        "name": "Patient Care",
+        "framework": "ACGME",
+        "description": "Ability to provide patient care that is compassionate, appropriate, and effective for the treatment of health problems and the promotion of health.",
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "e08d096c-adeb-475a-9565-520a47261099",
+        "domain_key": "mk",
+        "name": "Medical Knowledge",
+        "framework": "ACGME",
+        "description": "Demonstration of knowledge of established and evolving biomedical, clinical, and cognate sciences and the application of this knowledge to patient care.",
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "6c5b9509-9f3b-4ddb-b496-502187a73b1e",
+        "domain_key": "pbli",
+        "name": "Practice-Based Learning and Improvement",
+        "framework": "ACGME",
+        "description": "Ability to investigate and evaluate their patient care practices, appraise and assimilate scientific evidence, and improve their patient care practices.",
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "dd96f6b5-bc84-4726-a82d-6763f4274890",
+        "domain_key": "ics",
+        "name": "Interpersonal and Communication Skills",
+        "framework": "ACGME",
+        "description": "Ability to demonstrate interpersonal and communication skills that result in effective information exchange and collaboration.",
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "3d571ff7-0769-4245-9ab2-23fe021f2bcb",
+        "domain_key": "prof",
+        "name": "Professionalism",
+        "framework": "ACGME",
+        "description": "Demonstration of a commitment to carrying out professional responsibilities and an adherence to ethical principles.",
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "458f0a58-be37-4e18-95c1-88a385062211",
+        "domain_key": "sbp",
+        "name": "Systems-Based Practice",
+        "framework": "ACGME",
+        "description": "Ability to work effectively in various health care settings and to manage system resources to provide care that is safe, timely, efficient, effective, and equitable.",
+        "source_id": "c7cbac56-4073-433d-bbc2-47b706785cbb",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "domain_key": "teaching",
+        "name": "Teaching and Facilitation",
+        "framework": "FISCMAK",
+        "description": "Ability to teach, facilitate learning, and assess learners",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "4677ddd1-a7cc-4f09-82d4-e62986de5f4a",
+        "domain_key": "mentorship",
+        "name": "Mentorship and Sponsorship",
+        "framework": "FISCMAK",
+        "description": "Ability to mentor, coach, and sponsor learners and colleagues through career development",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "f0993ef6-4faa-42e8-bca8-7c5fde79986f",
+        "domain_key": "leadership",
+        "name": "Leadership",
+        "framework": "FISCMAK",
+        "description": "Ability to lead, influence, and manage teams and initiatives",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "36a519a2-c06d-4619-a086-793825143b17",
+        "domain_key": "admin",
+        "name": "Administration",
+        "framework": "FISCMAK",
+        "description": "Ability to manage administrative responsibilities and programs",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "6b86945d-cceb-4b39-8903-ac2820d9a949",
+        "domain_key": "wellbeing",
+        "name": "Well-Being",
+        "framework": "FISCMAK",
+        "description": "Commitment to personal well-being and support of others's well-being",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "4a2ab4c3-b425-4a07-b047-c3737e7c98f2",
+        "domain_key": "scholarship",
+        "name": "Scholarship and Dissemination",
+        "framework": "FISCMAK",
+        "description": "Ability to conduct, evaluate, and disseminate scholarship",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "bd0da5a7-b397-41fd-b4d2-10c54940eab8",
+        "domain_key": "innovation",
+        "name": "Innovation and Informatics",
+        "framework": "FISCMAK",
+        "description": "Ability to innovate and use technology to improve care and education",
+        "source_id": "dda0e3a6-35f8-4b92-9b71-33cfb944c284",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "c9dc8b4b-67d8-45cf-aaea-a4e7ff475137",
+        "domain_key": "advocacy",
+        "name": "Advocacy",
+        "framework": "FISCMAK",
+        "description": "Ability to advocate for learners, patients, and systems",
+        "source_id": "dda0e3a6-35f8-4b92-9b71-33cfb944c284",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "domain_id": "e6f9c56b-f7c3-46f2-973e-ee5b0de0d7e2",
+        "domain_key": "identity",
+        "name": "Professional Identity Formation",
+        "framework": "FISCMAK",
+        "description": "Ability to support development of professional identity in self and others",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_subcompetencies": [
+      {
+        "subcompetency_id": "b87ed489-66f0-4e3f-bdd2-cb2f1e947e87",
+        "subcompetency_key": "reflective_practice",
+        "domain_id": "4677ddd1-a7cc-4f09-82d4-e62986de5f4a",
+        "name": "Reflective Practice and Commitment to Personal Growth",
+        "description": "Engages in ongoing self-reflection regarding personal strengths, limitations, and practice patterns",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Universal Pillars 1",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "a7f91313-b885-42fd-88a4-ceef258a4380",
+        "subcompetency_key": "personal_wellbeing",
+        "domain_id": "6b86945d-cceb-4b39-8903-ac2820d9a949",
+        "name": "Personal Well-Being",
+        "description": "Demonstrates personal strategies for well-being and self-care",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Universal Pillars 2",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "9a6b5f5e-eb05-4721-b3f1-a9131a39cf1d",
+        "subcompetency_key": "bias_assumptions",
+        "domain_id": "3d571ff7-0769-4245-9ab2-23fe021f2bcb",
+        "name": "Recognition and Mitigation of Personal Perspectives and Assumptions",
+        "description": "Identifies and addresses personal biases and their impact on patients, learners, and colleagues",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Universal Pillars 3",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "be3aedcb-516f-4774-b18f-5a16fcfb7a5b",
+        "subcompetency_key": "professional_responsibility",
+        "domain_id": "3d571ff7-0769-4245-9ab2-23fe021f2bcb",
+        "name": "Commitment to Professional Responsibilities",
+        "description": "Fulfills professional obligations and maintains accountability",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Universal Pillars 4",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "5b5477dd-d778-40f6-9a24-97acc3ccb7dc",
+        "subcompetency_key": "teaching_learning",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Teaching and Facilitating Learning",
+        "description": "Facilitates learning through skilled instruction and creation of supportive learning environments",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 1",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "6bb6f3a1-4bc5-471a-a492-6a4dfb7d2b76",
+        "subcompetency_key": "learning_environment_prof",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Professionalism in the Learning Environment",
+        "description": "Establishes a professional, ethical, and inclusive learning environment",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 2",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "a2dd89ef-86b2-4d26-b18f-13390ad3b317",
+        "subcompetency_key": "learner_assessment",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Learner Assessment",
+        "description": "Selects and uses assessment methods appropriate for educational context and learner needs",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 3",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "6d775494-8a2e-4f0d-b3f8-7856e3492daf",
+        "subcompetency_key": "feedback",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Feedback",
+        "description": "Fosters conversations that motivate learners to incorporate feedback and improve performance",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 4",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "b2bdbf8d-4e7a-4b8f-98ad-822ce6131a1f",
+        "subcompetency_key": "remediation",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Performance Improvement and Remediation",
+        "description": "Identifies struggling learners and supports their improvement through tailored interventions",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 5",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "d6caedfd-cf83-4ecc-a2e9-6c7755fd5779",
+        "subcompetency_key": "program_eval",
+        "domain_id": "f0993ef6-4faa-42e8-bca8-7c5fde79986f",
+        "name": "Programmatic Evaluation",
+        "description": "Participates in evaluation of educational programs and learner outcomes",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 6",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "fcf4f7dd-f005-43e9-b24b-dee65160cafe",
+        "subcompetency_key": "learner_prof_dev",
+        "domain_id": "4677ddd1-a7cc-4f09-82d4-e62986de5f4a",
+        "name": "Learner Professional Development",
+        "description": "Supports learners in professional identity formation and career development",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 7",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "079e73f8-aa3e-444e-bf30-0b0cca03620e",
+        "subcompetency_key": "science_learning",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Science of Learning",
+        "description": "Incorporates best practices from learning sciences into teaching",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 8",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "dd92a1c2-1638-4710-b1db-48c163edec82",
+        "subcompetency_key": "med_ed_scholarship",
+        "domain_id": "4a2ab4c3-b425-4a07-b047-c3737e7c98f2",
+        "name": "Medical Education Scholarship",
+        "description": "Conducts and disseminates medical education scholarship",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 9",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "e87cfa08-e842-449e-a4d1-4de5ff365a8c",
+        "subcompetency_key": "learning_environment",
+        "domain_id": "f0993ef6-4faa-42e8-bca8-7c5fde79986f",
+        "name": "Learning Environment",
+        "description": "Fosters a learning environment that supports educational mission and learner development",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 10",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "fdf5db60-be1c-4387-a369-c6667b22f57a",
+        "subcompetency_key": "curriculum",
+        "domain_id": "4bf01d5d-75b8-4bb0-b653-f2bc1402882a",
+        "name": "Curriculum Design and Adaptation",
+        "description": "Designs and adapts curriculum to meet learner and program needs",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Educational Theory and Practice 11",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "d3fdf343-01d5-451d-8781-0162a22003ed",
+        "subcompetency_key": "learner_colleague_wellbeing",
+        "domain_id": "6b86945d-cceb-4b39-8903-ac2820d9a949",
+        "name": "Well-Being of Learners and Colleagues",
+        "description": "Promotes well-being and resilience in learners and colleagues",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Well-Being 1",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "2f0446ef-4736-49fd-bdfe-e3d1567f1700",
+        "subcompetency_key": "admin_skills",
+        "domain_id": "36a519a2-c06d-4619-a086-793825143b17",
+        "name": "Administration Skills",
+        "description": "Manages administrative and operational responsibilities effectively",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Administration 1",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "be6ce617-9c0f-4c07-8d30-cf50ffba4168",
+        "subcompetency_key": "leadership_skills",
+        "domain_id": "f0993ef6-4faa-42e8-bca8-7c5fde79986f",
+        "name": "Leadership Skills",
+        "description": "Demonstrates effective leadership and influence",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Administration 2",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "d32060d2-57f0-4e2d-9665-a7259c2db4da",
+        "subcompetency_key": "change_management",
+        "domain_id": "f0993ef6-4faa-42e8-bca8-7c5fde79986f",
+        "name": "Change Management",
+        "description": "Leads and manages organizational change effectively",
+        "source_id": "c6b77637-8cc5-4030-be9c-fe4928b2ea5d",
+        "acgme_milestone_reference": "Clinician Educator Milestones - Administration 3",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_development_levels": [
+      {
+        "level_id": "843274db-fb31-406e-b16d-76fb640fa612",
+        "level_key": "level_1",
+        "numeric_value": 1,
+        "name": "Recognizes",
+        "description": "Can identify, name, or describe the competency or skill",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "level_id": "0d31f8d6-de8f-4787-b05f-6d4f6496d42c",
+        "level_key": "level_2",
+        "numeric_value": 2,
+        "name": "Participates",
+        "description": "Helps with or applies under guidance; developing independence",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "level_key": "level_3",
+        "numeric_value": 3,
+        "name": "Performs",
+        "description": "Independently applies skill in routine contexts",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "level_id": "d771fb4f-d6b9-4159-bdce-44ced4858bd9",
+        "level_key": "level_4",
+        "numeric_value": 4,
+        "name": "Leads",
+        "description": "Leads others; adapts across complex contexts",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "level_id": "12c03317-7fdb-42f1-8f18-9256d536f450",
+        "level_key": "level_5",
+        "numeric_value": 5,
+        "name": "Builds Systems",
+        "description": "Creates systems, teaches others, disseminates, changes practice",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_career_tracks": [
+      {
+        "track_id": "5c54b752-53e4-4075-952e-f4eef5823eb6",
+        "track_key": "clinician",
+        "name": "Clinician",
+        "description": "Clinical practice and direct patient care",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "561fbc1a-1321-45cd-8f80-5f9db57f2662",
+        "track_key": "clinician_educator",
+        "name": "Clinician Educator",
+        "description": "Teaching, mentoring, and learner development",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "03feddd7-e40b-427f-82d0-77f257f3e132",
+        "track_key": "researcher",
+        "name": "Researcher / Scholar",
+        "description": "Research, scholarship, and dissemination",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "04d55e5a-645d-4346-b01e-553b453c04e4",
+        "track_key": "program_leader",
+        "name": "Program Leader",
+        "description": "Program direction and educational leadership",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "1fdc5af7-17c3-49fd-b225-f83ab5d9268e",
+        "track_key": "systems_leader",
+        "name": "Systems Leader",
+        "description": "System-level change and improvement",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "6e8ca64f-7f40-4e5f-af96-f7142f61c7a4",
+        "track_key": "administrator",
+        "name": "Administrator",
+        "description": "Administrative and operational leadership",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "45af14bc-53e5-41fb-b268-7097c3af302e",
+        "track_key": "innovator",
+        "name": "Innovator / Informaticist",
+        "description": "Innovation, technology, and informatics",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "df4ea9b0-6508-49b1-af26-1ab4f0d40569",
+        "track_key": "advocate",
+        "name": "Advocate",
+        "description": "Advocacy, social responsibility, and equity",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "c0fa823a-d48a-4493-a3cf-468ff9af39d5",
+        "track_key": "wellness_champion",
+        "name": "Wellness Champion",
+        "description": "Well-being, resilience, and burnout prevention",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "a4b8e8da-a083-4eb4-bb43-b70e18b1f803",
+        "track_key": "consultant",
+        "name": "Consultant",
+        "description": "Consulting and expertise sharing",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "83e81ebd-5954-43db-8854-dbf7c7c76400",
+        "track_key": "executive",
+        "name": "Executive Leader",
+        "description": "Executive and organizational leadership",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_activity_categories": [
+      {
+        "category_id": "bf6ea37e-aeff-4e12-a452-5cc96c53e2ce",
+        "category_key": "teaching",
+        "name": "Teaching",
+        "description": "Formal and informal teaching activities",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "a6097899-df29-4eee-ac75-f0a6677e46d0",
+        "category_key": "mentorship",
+        "name": "Mentorship",
+        "description": "Mentoring, coaching, and sponsorship activities",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "4b9f0746-5cb4-414b-8654-bed1520618e8",
+        "category_key": "feedback",
+        "name": "Feedback",
+        "description": "Giving and receiving feedback",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "91dae1d1-dc6d-4d9d-ba2e-cd58f0c3ed6f",
+        "category_key": "remediation",
+        "name": "Remediation",
+        "description": "Supporting struggling learners and performance improvement",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "6f636a57-35c7-41c8-95a7-48fec068ebaf",
+        "category_key": "leadership",
+        "name": "Leadership",
+        "description": "Leading meetings, teams, and initiatives",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "f064f155-2c66-4479-b2d2-e684dd75e49a",
+        "category_key": "admin",
+        "name": "Administration",
+        "description": "Administrative and operational work",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "2ce4bcc7-b2d3-4b44-91ad-9182217f4747",
+        "category_key": "systems_improvement",
+        "name": "Systems Improvement",
+        "description": "Identifying and implementing workflow/process improvements",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "9eff58a8-e9df-4a65-8e45-ab91707d4e9d",
+        "category_key": "advocacy",
+        "name": "Advocacy",
+        "description": "Speaking up and advocating for change",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "dc1b328d-e7bb-4974-a437-2062087249ca",
+        "category_key": "wellbeing",
+        "name": "Well-Being",
+        "description": "Recognizing and supporting well-being in self and others",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "9d07b974-33c5-4a4b-bcba-c5c9e775cb94",
+        "category_key": "scholarship",
+        "name": "Scholarship",
+        "description": "Research, presentation, and dissemination activities",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "b28fa730-d83e-4ad0-ab0e-65b147f26005",
+        "category_key": "curriculum",
+        "name": "Curriculum",
+        "description": "Creating educational content and curriculum design",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "90bf8ec8-11b9-4c4d-94f1-9a3e2ba222b1",
+        "category_key": "informatics",
+        "name": "Informatics",
+        "description": "Technology, tools, and data management",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "978e4405-1ff1-4c67-9a95-04a368ceea76",
+        "category_key": "identity",
+        "name": "Professional Identity",
+        "description": "Supporting professional identity formation and career planning",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "category_id": "9022c853-45f9-4000-b8e8-67a869a93069",
+        "category_key": "coordination",
+        "name": "Invisible Coordination",
+        "description": "Behind-the-scenes alignment and coordination work",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_invisible_work_activities": [
+      {
+        "activity_id": "ed880ac7-b827-45e2-aadd-a675206b3172",
+        "activity_key": "gave_feedback",
+        "activity_name": "Gave feedback",
+        "category_id": "4b9f0746-5cb4-414b-8654-bed1520618e8",
+        "plain_language_description": "Provided reinforcing or corrective feedback to a learner or colleague to improve performance",
+        "context_examples": [
+          "During rounds",
+          "In supervision",
+          "After presentation",
+          "In one-on-one meeting"
+        ],
+        "default_scope": "local",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "8b5e0dac-c1a3-4d1d-be9a-83d60a26f6df",
+        "activity_key": "mentored_trainee",
+        "activity_name": "Mentored trainee",
+        "category_id": "a6097899-df29-4eee-ac75-f0a6677e46d0",
+        "plain_language_description": "Helped a learner or junior colleague think through career, performance, identity, or next steps",
+        "context_examples": [
+          "Career planning conversation",
+          "Professional development",
+          "Identity formation",
+          "Navigating challenges"
+        ],
+        "default_scope": "local",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "fca274e3-f8af-4a1e-aaae-4210515a3d77",
+        "activity_key": "supported_distressed_learner",
+        "activity_name": "Supported distressed learner/colleague",
+        "category_id": "dc1b328d-e7bb-4974-a437-2062087249ca",
+        "plain_language_description": "Recognized distress, burnout, or overwhelm in a colleague and responded supportively",
+        "context_examples": [
+          "Checked in after difficult case",
+          "Helped process emotions",
+          "Connected to resources",
+          "Offered perspective"
+        ],
+        "default_scope": "local",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "6b6ef33a-812d-4890-ac41-6e461e6775cf",
+        "activity_key": "created_curriculum",
+        "activity_name": "Created curriculum or educational resource",
+        "category_id": "b28fa730-d83e-4ad0-ab0e-65b147f26005",
+        "plain_language_description": "Made an educational handout, guide, lecture, checklist, or teaching tool",
+        "context_examples": [
+          "Created teaching script",
+          "Built lecture slides",
+          "Made checklist",
+          "Designed module"
+        ],
+        "default_scope": "team",
+        "default_evidence_type": "artifact",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "e9f21cbd-ccf3-4b45-8c7c-c67222380f3c",
+        "activity_key": "led_meeting",
+        "activity_name": "Led meeting or workgroup",
+        "category_id": "6f636a57-35c7-41c8-95a7-48fec068ebaf",
+        "plain_language_description": "Organized people around a decision, project, or improvement; facilitated discussion",
+        "context_examples": [
+          "Faculty meeting",
+          "QI workgroup",
+          "Committee meeting",
+          "Team huddle"
+        ],
+        "default_scope": "team",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "9883b5b3-5c5a-4860-8801-d66aab0fd4e8",
+        "activity_key": "improved_workflow",
+        "activity_name": "Improved workflow or process",
+        "category_id": "2ce4bcc7-b2d3-4b44-91ad-9182217f4747",
+        "plain_language_description": "Identified a broken process and changed or improved it",
+        "context_examples": [
+          "Streamlined handoff",
+          "Reduced bottleneck",
+          "Changed documentation flow",
+          "Improved scheduling"
+        ],
+        "default_scope": "team",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "1781665b-3182-445c-bf12-69c436a7febc",
+        "activity_key": "coordinated_complex_care",
+        "activity_name": "Coordinated complex care or services",
+        "category_id": "9022c853-45f9-4000-b8e8-67a869a93069",
+        "plain_language_description": "Aligned multiple people, services, or stakeholders around patient or program needs",
+        "context_examples": [
+          "Family meeting coordination",
+          "Interdepartmental alignment",
+          "Care team alignment",
+          "Service coordination"
+        ],
+        "default_scope": "team",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "c8ba1dc2-6425-4ed7-b726-b5f6673ebd4f",
+        "activity_key": "gave_informal_teaching",
+        "activity_name": "Gave informal teaching",
+        "category_id": "bf6ea37e-aeff-4e12-a452-5cc96c53e2ce",
+        "plain_language_description": "Taught a clinical concept during rounds, supervision, or patient care",
+        "context_examples": [
+          "Clinical teaching",
+          "Bedside teaching",
+          "Case-based teaching",
+          "Opportunistic teaching"
+        ],
+        "default_scope": "local",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "4e5a3a5c-fd50-45f8-b0e5-165d04479161",
+        "activity_key": "recognized_burnout",
+        "activity_name": "Recognized and supported burnout",
+        "category_id": "dc1b328d-e7bb-4974-a437-2062087249ca",
+        "plain_language_description": "Noticed a colleague or learner struggling with burnout and took supportive action",
+        "context_examples": [
+          "Offered resources",
+          "Checked in",
+          "Listened without judgment",
+          "Advocated for support"
+        ],
+        "default_scope": "local",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "578bed44-cadf-49f0-946d-ce21362334fa",
+        "activity_key": "presented_scholarship",
+        "activity_name": "Presented scholarship or QI work",
+        "category_id": "9d07b974-33c5-4a4b-bcba-c5c9e775cb94",
+        "plain_language_description": "Shared academic, educational, or quality improvement work through poster, talk, or abstract",
+        "context_examples": [
+          "Conference presentation",
+          "Poster presentation",
+          "Local teaching",
+          "Journal publication"
+        ],
+        "default_scope": "program",
+        "default_evidence_type": "artifact",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "d790d58f-ccdc-4ea2-bc0e-3c6bac2712d0",
+        "activity_key": "received_feedback",
+        "activity_name": "Received and acted on feedback",
+        "category_id": "4b9f0746-5cb4-414b-8654-bed1520618e8",
+        "plain_language_description": "Used feedback from others to change behavior or improve performance",
+        "context_examples": [
+          "Incorporated supervisor feedback",
+          "Changed approach based on input",
+          "Reflected and grew",
+          "Acknowledged and corrected"
+        ],
+        "default_scope": "local",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "a6bd1e22-bed9-4918-a903-a5667cd12802",
+        "activity_key": "handled_conflict",
+        "activity_name": "Managed difficult conversation or conflict",
+        "category_id": "6f636a57-35c7-41c8-95a7-48fec068ebaf",
+        "plain_language_description": "Addressed interpersonal or workflow conflict; helped resolve tension between people or teams",
+        "context_examples": [
+          "Mediated disagreement",
+          "Addressed conduct issue",
+          "Resolved team tension",
+          "Gave difficult feedback"
+        ],
+        "default_scope": "team",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "0a4c1eba-0511-4bc9-96b0-3797e2a5cdba",
+        "activity_key": "built_tool",
+        "activity_name": "Built tool, dashboard, or structured data system",
+        "category_id": "90bf8ec8-11b9-4c4d-94f1-9a3e2ba222b1",
+        "plain_language_description": "Created a dashboard, spreadsheet, or data system to track or improve something",
+        "context_examples": [
+          "Built evaluation tracker",
+          "Created dashboard",
+          "Structured data collection",
+          "Automated reporting"
+        ],
+        "default_scope": "team",
+        "default_evidence_type": "artifact",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "activity_id": "5d491b72-6adc-4f23-85ae-6c3c9e7e4423",
+        "activity_key": "advocated_for_change",
+        "activity_name": "Advocated for learner, patient, or system change",
+        "category_id": "9eff58a8-e9df-4a65-8e45-ab91707d4e9d",
+        "plain_language_description": "Spoke up to address unfairness, bias, or barriers; advocated for change",
+        "context_examples": [
+          "Addressed bias",
+          "Advocated for resource",
+          "Pushed back on policy",
+          "Spoke up for learner"
+        ],
+        "default_scope": "program",
+        "default_evidence_type": "narrative",
+        "is_proprietary": true,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_activity_mappings": [
+      {
+        "mapping_id": "0c456d20-50ce-4096-8a04-4f888eb36347",
+        "activity_id": "8b5e0dac-c1a3-4d1d-be9a-83d60a26f6df",
+        "subcompetency_id": "fcf4f7dd-f005-43e9-b24b-dee65160cafe",
+        "track_id": "561fbc1a-1321-45cd-8f80-5f9db57f2662",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.95,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "84932176-3939-4809-94f3-c7be761fe06e",
+        "activity_id": "ed880ac7-b827-45e2-aadd-a675206b3172",
+        "subcompetency_id": "6d775494-8a2e-4f0d-b3f8-7856e3492daf",
+        "track_id": "561fbc1a-1321-45cd-8f80-5f9db57f2662",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.92,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "a240b421-5c44-4c40-b4f7-b595f4fd2cf5",
+        "activity_id": "fca274e3-f8af-4a1e-aaae-4210515a3d77",
+        "subcompetency_id": "d3fdf343-01d5-451d-8781-0162a22003ed",
+        "track_id": "04d55e5a-645d-4346-b01e-553b453c04e4",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.88,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "5b403128-daa7-49d1-b83b-3ba219b715a8",
+        "activity_id": "9883b5b3-5c5a-4860-8801-d66aab0fd4e8",
+        "subcompetency_id": "d6caedfd-cf83-4ecc-a2e9-6c7755fd5779",
+        "track_id": "1fdc5af7-17c3-49fd-b225-f83ab5d9268e",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.8,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "68b45d5b-fea9-4d63-99e9-09d1a5bc8f07",
+        "activity_id": "6b6ef33a-812d-4890-ac41-6e461e6775cf",
+        "subcompetency_id": "fdf5db60-be1c-4387-a369-c6667b22f57a",
+        "track_id": "561fbc1a-1321-45cd-8f80-5f9db57f2662",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.9,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "9a6f84d5-5097-4156-afa9-f2c8c1e1e673",
+        "activity_id": "e9f21cbd-ccf3-4b45-8c7c-c67222380f3c",
+        "subcompetency_id": "be6ce617-9c0f-4c07-8d30-cf50ffba4168",
+        "track_id": "04d55e5a-645d-4346-b01e-553b453c04e4",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.85,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "e7d45ade-1400-4855-9ad5-27a9b04a555e",
+        "activity_id": "578bed44-cadf-49f0-946d-ce21362334fa",
+        "subcompetency_id": "dd92a1c2-1638-4710-b1db-48c163edec82",
+        "track_id": "03feddd7-e40b-427f-82d0-77f257f3e132",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.88,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "6dc78a31-52e3-44b6-997f-a41a1efc5fd1",
+        "activity_id": "a6bd1e22-bed9-4918-a903-a5667cd12802",
+        "subcompetency_id": "be6ce617-9c0f-4c07-8d30-cf50ffba4168",
+        "track_id": "04d55e5a-645d-4346-b01e-553b453c04e4",
+        "default_level_id": "0d31f8d6-de8f-4787-b05f-6d4f6496d42c",
+        "confidence_default": 0.82,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "mapping_id": "c333585b-bb99-4c8b-9e8c-7704fd24c7b1",
+        "activity_id": "0a4c1eba-0511-4bc9-96b0-3797e2a5cdba",
+        "subcompetency_id": "2f0446ef-4736-49fd-bdfe-e3d1567f1700",
+        "track_id": "45af14bc-53e5-41fb-b268-7097c3af302e",
+        "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
+        "confidence_default": 0.85,
+        "weight": 1,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "ontology_output_templates": [
+      {
+        "template_id": "fa769eb9-0a5c-4f55-a511-988436719f5b",
+        "activity_id": "8b5e0dac-c1a3-4d1d-be9a-83d60a26f6df",
+        "output_type": "cv_bullet",
+        "template_text": "Mentored trainees in career development, professional identity formation, and clinical growth through individualized coaching and longitudinal support.",
+        "confidence_default": 0.85,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "0f601918-c025-4136-be73-5ac53d02c603",
+        "activity_id": "8b5e0dac-c1a3-4d1d-be9a-83d60a26f6df",
+        "output_type": "annual_review",
+        "template_text": "Demonstrated commitment to learner development and professional identity formation through longitudinal mentoring and personalized guidance.",
+        "confidence_default": 0.82,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "877e7e66-0ec0-479f-a86b-c067fe6992b1",
+        "activity_id": "ed880ac7-b827-45e2-aadd-a675206b3172",
+        "output_type": "cv_bullet",
+        "template_text": "Provided effective formative and summative feedback to learners to support ongoing professional development and performance improvement.",
+        "confidence_default": 0.88,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "99d5a54f-418d-410a-9d46-702cd44be9e2",
+        "activity_id": "6b6ef33a-812d-4890-ac41-6e461e6775cf",
+        "output_type": "cv_bullet",
+        "template_text": "Designed and implemented educational resources and curriculum materials to support learner development and clinical education.",
+        "confidence_default": 0.86,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "9f1c0d90-f791-4f05-9ea2-93278f8314de",
+        "activity_id": "6b6ef33a-812d-4890-ac41-6e461e6775cf",
+        "output_type": "teaching_portfolio",
+        "template_text": "Curriculum development: Created {artifact_type} to teach {topic}, reaching {audience_size} learners and receiving positive feedback on {metric}.",
+        "confidence_default": 0.8,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "4535de49-e1f1-4664-8223-94fa916860b4",
+        "activity_id": "9883b5b3-5c5a-4860-8801-d66aab0fd4e8",
+        "output_type": "annual_review",
+        "template_text": "Identified process improvement opportunities and led implementation of changes that enhanced efficiency, safety, or educational value.",
+        "confidence_default": 0.8,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "a9a75669-4020-4aa3-9357-11a12c5efc09",
+        "activity_id": "e9f21cbd-ccf3-4b45-8c7c-c67222380f3c",
+        "output_type": "cv_bullet",
+        "template_text": "Led workgroups, committees, and meetings to advance educational initiatives, quality improvement, and program development.",
+        "confidence_default": 0.83,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "template_id": "92232f6d-9394-4f35-a428-26e22ddb19da",
+        "activity_id": "578bed44-cadf-49f0-946d-ce21362334fa",
+        "output_type": "cv_bullet",
+        "template_text": "Disseminated scholarly work through {format}: {title}, presented at {venue} to advance {field} knowledge.",
+        "confidence_default": 0.82,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.528889+00:00",
+        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      }
+    ],
+    "signal_detection_sources": [
+      {
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "source_name": "FISCMAK Signal Research",
+        "source_type": "FISCMAK Proprietary",
+        "description": "Signals derived from physician narrative analysis and coaching experience",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "source_name": "Clinician Educator Milestones",
+        "source_type": "Clinician Educator Milestones",
+        "description": "Signals extracted from CE milestone descriptors and behaviors",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "source_name": "Well-Being Literature",
+        "source_type": "Burnout Research",
+        "description": "Signals from well-being, burnout, and resilience research",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "source_id": "6f5873a1-0abd-43c0-9895-12cd9d6f5b13",
+        "source_name": "Career Development Theory",
+        "source_type": "Career Development",
+        "description": "Signals from career trajectory and identity formation theory",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      }
+    ],
+    "signal_categories": [
+      {
+        "category_id": "d7286637-5917-4d0f-9a9e-d76680af0adf",
+        "category_key": "mentorship",
+        "name": "Mentorship & Sponsorship",
+        "description": "Patterns of coaching, guiding, and sponsoring others",
+        "order_priority": 10,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "49c05153-c5c3-4474-9ccb-4fc10c45b8bc",
+        "category_key": "leadership",
+        "name": "Leadership & Influence",
+        "description": "Patterns of leading teams, making decisions, influencing outcomes",
+        "order_priority": 20,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "313020dd-821a-4a08-bbb9-62552f07d57f",
+        "category_key": "systems_thinking",
+        "name": "Systems Thinking & Improvement",
+        "description": "Patterns of identifying problems, proposing changes, improving processes",
+        "order_priority": 30,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "79a81fcf-e8de-4ea5-8652-a032669eca53",
+        "category_key": "advocacy",
+        "name": "Advocacy & Speaking Up",
+        "description": "Patterns of advocating for people, resources, or change",
+        "order_priority": 40,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "10cc7fd4-70b6-4696-b9b9-25f704aac901",
+        "category_key": "emotional_labor",
+        "name": "Emotional Labor & Support",
+        "description": "Patterns of emotional work, supporting others, holding space for struggle",
+        "order_priority": 50,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "eeb81513-6645-4ef9-8998-97cd8f03f38b",
+        "category_key": "teaching",
+        "name": "Teaching & Facilitation",
+        "description": "Patterns of formal and informal teaching, learning design",
+        "order_priority": 60,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "878cdc03-cd1b-4f6e-ba43-97a6b55cb96e",
+        "category_key": "feedback",
+        "name": "Feedback & Reflection",
+        "description": "Patterns of giving/receiving feedback, reflecting on experience",
+        "order_priority": 70,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "530b8956-ff5e-4145-a2cc-83742d2f69d2",
+        "category_key": "scholarship",
+        "name": "Scholarship & Dissemination",
+        "description": "Patterns of research, presenting, publishing, creating knowledge",
+        "order_priority": 80,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "548736c7-354a-4050-b862-f8d9787483d1",
+        "category_key": "innovation",
+        "name": "Innovation & Technology",
+        "description": "Patterns of building tools, improving workflows with technology",
+        "order_priority": 90,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "c13506ef-d7bb-4f51-9cef-5944ef5d1ca3",
+        "category_key": "wellbeing",
+        "name": "Well-Being Awareness",
+        "description": "Patterns indicating burnout, resilience, or well-being attention",
+        "order_priority": 100,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "49768e43-754b-4e24-a2d5-35f21e1c6bba",
+        "category_key": "role_clarity",
+        "name": "Role & Identity Clarity",
+        "description": "Patterns indicating clarity or confusion about professional role/identity",
+        "order_priority": 110,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "category_id": "1b22bd0c-af1a-4436-884a-ec2062c02332",
+        "category_key": "skill_domain_gap",
+        "name": "Skill Domain Gap",
+        "description": "Patterns indicating skill gaps or development needs",
+        "order_priority": 120,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      }
+    ],
+    "signal_indicators": [
+      {
+        "indicator_id": "c13f79f8-a5e7-4236-82bf-3d088d2c23d2",
+        "category_id": "d7286637-5917-4d0f-9a9e-d76680af0adf",
+        "indicator_key": "mentorship_coaching_conversation",
+        "indicator_name": "Coaching junior on career/identity",
+        "indicator_type": "keyword",
+        "keywords": [
+          "mentored",
+          "mentoring",
+          "coached",
+          "coaching",
+          "career conversation",
+          "career planning",
+          "next steps",
+          "trajectory"
+        ],
+        "regex_pattern": null,
+        "description": "User is guiding someone through career thinking, identity formation, or professional development",
+        "confidence_default": 0.85,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "mentored_trainee",
+          "learner_prof_dev"
+        ],
+        "related_competencies": [
+          "mentorship",
+          "learner_prof_dev",
+          "identity"
+        ],
+        "followup_question": "Was this a one-time conversation or part of an ongoing mentoring relationship?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "28d43f0f-a3d0-4aee-a970-a51ad93f3a4d",
+        "category_id": "d7286637-5917-4d0f-9a9e-d76680af0adf",
+        "indicator_key": "mentorship_helping_junior",
+        "indicator_name": "Helping junior navigate a challenge",
+        "indicator_type": "keyword",
+        "keywords": [
+          "helped junior",
+          "supported junior",
+          "guided trainee",
+          "junior colleague",
+          "helping resident",
+          "helping fellow"
+        ],
+        "regex_pattern": null,
+        "description": "User is providing support and guidance to a less experienced colleague",
+        "confidence_default": 0.8,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "mentored_trainee",
+          "supported_distressed_learner"
+        ],
+        "related_competencies": [
+          "mentorship",
+          "learner_prof_dev"
+        ],
+        "followup_question": "What specifically did you help them understand or navigate?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "1e205ee7-aa8a-4b11-9414-267a1f9bbdeb",
+        "category_id": "d7286637-5917-4d0f-9a9e-d76680af0adf",
+        "indicator_key": "mentorship_sponsoring",
+        "indicator_name": "Advocating for someone's advancement",
+        "indicator_type": "keyword",
+        "keywords": [
+          "sponsored",
+          "advocating for",
+          "put their name forward",
+          "recommended for",
+          "championed",
+          "supported their application"
+        ],
+        "regex_pattern": null,
+        "description": "User is actively supporting someone's career advancement or opportunity",
+        "confidence_default": 0.82,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "mentored_trainee",
+          "advocated_for_change"
+        ],
+        "related_competencies": [
+          "mentorship",
+          "advocacy",
+          "leadership"
+        ],
+        "followup_question": "What made you want to advocate for this person?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "feda742a-2bc7-4d36-98e3-5836a66761e9",
+        "category_id": "d7286637-5917-4d0f-9a9e-d76680af0adf",
+        "indicator_key": "mentorship_professional_development",
+        "indicator_name": "Supporting professional identity formation",
+        "indicator_type": "phrase",
+        "keywords": [
+          "professional identity",
+          "who they want to be",
+          "finding their voice",
+          "defining themselves",
+          "becoming a clinician educator",
+          "becoming a leader",
+          "role identity"
+        ],
+        "regex_pattern": null,
+        "description": "User is helping someone develop or clarify professional identity",
+        "confidence_default": 0.78,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "mentored_trainee",
+          "learner_prof_dev"
+        ],
+        "related_competencies": [
+          "mentorship",
+          "identity",
+          "leadership"
+        ],
+        "followup_question": "How is their professional identity formation going?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "f6e1d1d1-1d81-4ee6-a80c-be39629e452a",
+        "category_id": "49c05153-c5c3-4474-9ccb-4fc10c45b8bc",
+        "indicator_key": "leadership_leading_meeting",
+        "indicator_name": "Led meeting or workgroup",
+        "indicator_type": "keyword",
+        "keywords": [
+          "led meeting",
+          "ran meeting",
+          "facilitated meeting",
+          "led workgroup",
+          "led team",
+          "chaired",
+          "ran session",
+          "hosted discussion"
+        ],
+        "regex_pattern": null,
+        "description": "User organized and directed a meeting or group discussion",
+        "confidence_default": 0.88,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "led_meeting"
+        ],
+        "related_competencies": [
+          "leadership_skills",
+          "program_eval"
+        ],
+        "followup_question": "What was the outcome or decision from that meeting?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "7b745467-58c5-45d9-830f-deaf4bb0c0e3",
+        "category_id": "49c05153-c5c3-4474-9ccb-4fc10c45b8bc",
+        "indicator_key": "leadership_managing_conflict",
+        "indicator_name": "Addressed interpersonal or team conflict",
+        "indicator_type": "keyword",
+        "keywords": [
+          "conflict",
+          "difficult conversation",
+          "addressed tension",
+          "mediated",
+          "resolved disagreement",
+          "helped them work it out",
+          "tension between"
+        ],
+        "regex_pattern": null,
+        "description": "User navigated interpersonal conflict or helped others resolve it",
+        "confidence_default": 0.82,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "handled_conflict"
+        ],
+        "related_competencies": [
+          "leadership_skills",
+          "ics"
+        ],
+        "followup_question": "How did you approach the conflict? What did you learn?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "1d6e1614-b166-4571-90aa-fcfcaabe17a5",
+        "category_id": "49c05153-c5c3-4474-9ccb-4fc10c45b8bc",
+        "indicator_key": "leadership_influencing_decision",
+        "indicator_name": "Influenced an important decision",
+        "indicator_type": "keyword",
+        "keywords": [
+          "influenced",
+          "swayed",
+          "persuaded",
+          "pushed for",
+          "advocated for decision",
+          "made the case for",
+          "convinced leadership",
+          "decision was made"
+        ],
+        "regex_pattern": null,
+        "description": "User shaped a significant decision or outcome through influence",
+        "confidence_default": 0.8,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "led_meeting"
+        ],
+        "related_competencies": [
+          "leadership_skills",
+          "sbp"
+        ],
+        "followup_question": "What was the decision and how did your influence matter?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "07339284-fef0-4cb8-b005-6fcd36cd1007",
+        "category_id": "49c05153-c5c3-4474-9ccb-4fc10c45b8bc",
+        "indicator_key": "leadership_managing_team",
+        "indicator_name": "Managing or overseeing a team",
+        "indicator_type": "keyword",
+        "keywords": [
+          "managing team",
+          "supervise",
+          "oversee",
+          "directing people",
+          "team lead",
+          "program manager",
+          "department chair",
+          "director of"
+        ],
+        "regex_pattern": null,
+        "description": "User is in a formal or informal leadership role managing others",
+        "confidence_default": 0.85,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "led_meeting"
+        ],
+        "related_competencies": [
+          "leadership_skills",
+          "admin_skills"
+        ],
+        "followup_question": "What's the size of your team and what's been most challenging?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "b55e6628-2a26-4a6e-a177-7d6e5a27440c",
+        "category_id": "313020dd-821a-4a08-bbb9-62552f07d57f",
+        "indicator_key": "systems_identified_inefficiency",
+        "indicator_name": "Identified a broken process",
+        "indicator_type": "keyword",
+        "keywords": [
+          "inefficient",
+          "broken",
+          "bottleneck",
+          "waste",
+          "unnecessary step",
+          "takes too long",
+          "frustration with process",
+          "problem with workflow"
+        ],
+        "regex_pattern": null,
+        "description": "User recognized a process or system inefficiency",
+        "confidence_default": 0.78,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "improved_workflow"
+        ],
+        "related_competencies": [
+          "sbp",
+          "program_eval"
+        ],
+        "followup_question": "Did you propose a fix or change? What would improve it?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "07c61e50-a2b0-4627-b2ac-d1d948268063",
+        "category_id": "313020dd-821a-4a08-bbb9-62552f07d57f",
+        "indicator_key": "systems_proposed_change",
+        "indicator_name": "Proposed or implemented a process change",
+        "indicator_type": "keyword",
+        "keywords": [
+          "proposed",
+          "changed",
+          "implemented",
+          "improved",
+          "streamlined",
+          "reduced",
+          "eliminated",
+          "fixed",
+          "restructured",
+          "automated"
+        ],
+        "regex_pattern": null,
+        "description": "User suggested or enacted a process improvement",
+        "confidence_default": 0.85,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "improved_workflow",
+          "coordinated_complex_care"
+        ],
+        "related_competencies": [
+          "sbp",
+          "program_eval",
+          "leadership_skills"
+        ],
+        "followup_question": "What was the impact of that change? How did people respond?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "2b0ec0ad-5099-401c-a449-0903b773fa63",
+        "category_id": "313020dd-821a-4a08-bbb9-62552f07d57f",
+        "indicator_key": "systems_connecting_pieces",
+        "indicator_name": "Aligning or coordinating across silos",
+        "indicator_type": "keyword",
+        "keywords": [
+          "aligned",
+          "coordinated",
+          "brought together",
+          "connected",
+          "cross-departmental",
+          "interdepartmental",
+          "bridging",
+          "liaison",
+          "communication between"
+        ],
+        "regex_pattern": null,
+        "description": "User worked to connect or integrate separate parts of a system",
+        "confidence_default": 0.8,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "coordinated_complex_care",
+          "led_meeting"
+        ],
+        "related_competencies": [
+          "sbp",
+          "ics",
+          "leadership_skills"
+        ],
+        "followup_question": "What barriers did you have to overcome to coordinate that?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "1de769db-fa77-414d-8a40-302ac2657fe7",
+        "category_id": "313020dd-821a-4a08-bbb9-62552f07d57f",
+        "indicator_key": "systems_reducing_friction",
+        "indicator_name": "Reduced handoff friction or communication gaps",
+        "indicator_type": "keyword",
+        "keywords": [
+          "handoff",
+          "handoff improved",
+          "communication gap",
+          "better coordination",
+          "smoother process",
+          "reduced errors",
+          "fewer miscommunications"
+        ],
+        "regex_pattern": null,
+        "description": "User improved transitions or communication between steps in a process",
+        "confidence_default": 0.76,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "improved_workflow",
+          "coordinated_complex_care"
+        ],
+        "related_competencies": [
+          "sbp",
+          "ics"
+        ],
+        "followup_question": "How did the handoff improvement happen? What made it work?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "c0ddc2b1-3a7c-4beb-9f6c-8eddb3c39ec4",
+        "category_id": "79a81fcf-e8de-4ea5-8652-a032669eca53",
+        "indicator_key": "advocacy_speaking_up",
+        "indicator_name": "Spoke up about an unfair or wrong situation",
+        "indicator_type": "keyword",
+        "keywords": [
+          "spoke up",
+          "spoke out",
+          "said something",
+          "pushed back",
+          "raised concern",
+          "didn't stay quiet",
+          "called out",
+          "addressed"
+        ],
+        "regex_pattern": null,
+        "description": "User took a stand or voiced a concern about something wrong",
+        "confidence_default": 0.82,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "advocated_for_change"
+        ],
+        "related_competencies": [
+          "advocacy",
+          "prof"
+        ],
+        "followup_question": "What made you feel like you had to speak up?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "0e2a3db3-0812-4bf5-951b-0bb18113f5b8",
+        "category_id": "79a81fcf-e8de-4ea5-8652-a032669eca53",
+        "indicator_key": "advocacy_addressing_bias",
+        "indicator_name": "Addressed bias, inequity, or discrimination",
+        "indicator_type": "keyword",
+        "keywords": [
+          "bias",
+          "discrimination",
+          "inequity",
+          "unfair",
+          "stereotyping",
+          "spoke against bias",
+          "diversity",
+          "inclusion",
+          "addressed bias"
+        ],
+        "regex_pattern": null,
+        "description": "User actively worked against bias or unfair treatment",
+        "confidence_default": 0.85,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "advocated_for_change"
+        ],
+        "related_competencies": [
+          "advocacy",
+          "prof",
+          "ics"
+        ],
+        "followup_question": "What was the situation and what did you do?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "22382fb1-1c0a-4f87-894b-231fe5027f6b",
+        "category_id": "79a81fcf-e8de-4ea5-8652-a032669eca53",
+        "indicator_key": "advocacy_fighting_for_resources",
+        "indicator_name": "Advocated for resources, support, or policy change",
+        "indicator_type": "keyword",
+        "keywords": [
+          "fought for",
+          "advocated for",
+          "asked for",
+          "requested",
+          "proposed policy change",
+          "asked administration",
+          "needed more",
+          "needed support"
+        ],
+        "regex_pattern": null,
+        "description": "User pushed for institutional resources or changes in support of people or mission",
+        "confidence_default": 0.78,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "advocated_for_change",
+          "led_meeting"
+        ],
+        "related_competencies": [
+          "advocacy",
+          "sbp",
+          "leadership_skills"
+        ],
+        "followup_question": "What did you ask for and did you get it?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "7c133e86-d94e-4e17-9882-6dc03b329c3b",
+        "category_id": "79a81fcf-e8de-4ea5-8652-a032669eca53",
+        "indicator_key": "advocacy_protecting_someone",
+        "indicator_name": "Advocated for or protected a person",
+        "indicator_type": "keyword",
+        "keywords": [
+          "stood up for",
+          "protected",
+          "defended",
+          "advocated for them",
+          "their corner",
+          "fought for them",
+          "had their back",
+          "protected from"
+        ],
+        "regex_pattern": null,
+        "description": "User actively advocated for or protected an individual",
+        "confidence_default": 0.8,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "advocated_for_change"
+        ],
+        "related_competencies": [
+          "advocacy",
+          "mentorship",
+          "prof"
+        ],
+        "followup_question": "What were the stakes? Why was it important to advocate for them?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "7947649e-9538-4d8b-b1ba-b23a6a843fea",
+        "category_id": "10cc7fd4-70b6-4696-b9b9-25f704aac901",
+        "indicator_key": "emotional_labor_supporting_distress",
+        "indicator_name": "Supported colleague through distress or struggle",
+        "indicator_type": "keyword",
+        "keywords": [
+          "struggling",
+          "distressed",
+          "overwhelmed",
+          "having a hard time",
+          "difficult time",
+          "took time to listen",
+          "sat with",
+          "held space"
+        ],
+        "regex_pattern": null,
+        "description": "User provided emotional support to someone in distress",
+        "confidence_default": 0.85,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "supported_distressed_learner",
+          "recognized_burnout"
+        ],
+        "related_competencies": [
+          "learner_colleague_wellbeing",
+          "ics"
+        ],
+        "followup_question": "What did supporting them look like? How are they doing now?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "4f4489ae-fe18-4745-b5c8-46e1ff3ebc37",
+        "category_id": "10cc7fd4-70b6-4696-b9b9-25f704aac901",
+        "indicator_key": "emotional_labor_recognizing_burnout",
+        "indicator_name": "Recognized burnout or well-being concern in self or others",
+        "indicator_type": "keyword",
+        "keywords": [
+          "burnout",
+          "burned out",
+          "exhausted",
+          "not themselves",
+          "struggling with balance",
+          "work-life",
+          "tired",
+          "stressed",
+          "overwhelmed",
+          "unsustainable"
+        ],
+        "regex_pattern": null,
+        "description": "User recognized signs of burnout or well-being crisis",
+        "confidence_default": 0.82,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "recognized_burnout"
+        ],
+        "related_competencies": [
+          "learner_colleague_wellbeing",
+          "personal_wellbeing",
+          "wellbeing"
+        ],
+        "followup_question": "What made you notice the burnout? What helped or could help?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "5233fe37-a03d-4c72-82e3-70267a769036",
+        "category_id": "10cc7fd4-70b6-4696-b9b9-25f704aac901",
+        "indicator_key": "emotional_labor_processing_emotion",
+        "indicator_name": "Helped someone process difficult emotions or experience",
+        "indicator_type": "keyword",
+        "keywords": [
+          "helped them process",
+          "talked through",
+          "worked through emotion",
+          "grieving",
+          "anger",
+          "guilt",
+          "fear",
+          "talked about how they felt"
+        ],
+        "regex_pattern": null,
+        "description": "User provided space and support for emotional processing",
+        "confidence_default": 0.78,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "supported_distressed_learner"
+        ],
+        "related_competencies": [
+          "learner_colleague_wellbeing",
+          "ics"
+        ],
+        "followup_question": "What was the emotion or experience they were processing?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "94a81bb7-b03f-4c4a-8b24-e2504c9efc5d",
+        "category_id": "10cc7fd4-70b6-4696-b9b9-25f704aac901",
+        "indicator_key": "emotional_labor_connecting_resources",
+        "indicator_name": "Connected someone to support or resources",
+        "indicator_type": "keyword",
+        "keywords": [
+          "referred to",
+          "connected to",
+          "resources",
+          "counseling",
+          "EAP",
+          "therapy",
+          "support group",
+          "chaplain",
+          "mentor",
+          "crisis line"
+        ],
+        "regex_pattern": null,
+        "description": "User helped someone access formal or informal support",
+        "confidence_default": 0.8,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "recognized_burnout",
+          "supported_distressed_learner"
+        ],
+        "related_competencies": [
+          "learner_colleague_wellbeing",
+          "sbp"
+        ],
+        "followup_question": "Were they able to access the resource? Did it help?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "f519a9c2-5f08-4ee2-adb3-bcb3a5ee402c",
+        "category_id": "10cc7fd4-70b6-4696-b9b9-25f704aac901",
+        "indicator_key": "emotional_labor_boundary_holding",
+        "indicator_name": "Maintained professional boundaries while supporting",
+        "indicator_type": "keyword",
+        "keywords": [
+          "boundaries",
+          "appropriate distance",
+          "professional relationship",
+          "knew when to refer",
+          "didn't become a therapist",
+          "recognized limits"
+        ],
+        "regex_pattern": null,
+        "description": "User showed awareness of appropriate boundaries in support",
+        "confidence_default": 0.72,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "supported_distressed_learner"
+        ],
+        "related_competencies": [
+          "prof",
+          "learner_colleague_wellbeing"
+        ],
+        "followup_question": "How do you navigate the balance between support and boundaries?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "4c2e7da0-2ddd-4351-a3b8-596341288ffd",
+        "category_id": "eeb81513-6645-4ef9-8998-97cd8f03f38b",
+        "indicator_key": "teaching_informal_teaching",
+        "indicator_name": "Taught during rounds, supervision, or clinical care",
+        "indicator_type": "keyword",
+        "keywords": [
+          "taught",
+          "teaching",
+          "rounds",
+          "bedside teaching",
+          "supervision",
+          "clinical teaching",
+          "explained",
+          "demonstrated"
+        ],
+        "regex_pattern": null,
+        "description": "User engaged in opportunistic clinical teaching",
+        "confidence_default": 0.83,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "gave_informal_teaching"
+        ],
+        "related_competencies": [
+          "teaching_learning",
+          "pc"
+        ],
+        "followup_question": "What clinical topic did you teach? How did the learner respond?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "7aee9efb-c13b-40f2-8ab0-54b963b79ac5",
+        "category_id": "eeb81513-6645-4ef9-8998-97cd8f03f38b",
+        "indicator_key": "teaching_creating_resource",
+        "indicator_name": "Created curriculum, slides, handout, or teaching tool",
+        "indicator_type": "keyword",
+        "keywords": [
+          "created slides",
+          "made handout",
+          "wrote guide",
+          "built curriculum",
+          "designed module",
+          "lecture",
+          "video",
+          "teaching tool",
+          "checklist"
+        ],
+        "regex_pattern": null,
+        "description": "User developed educational content or materials",
+        "confidence_default": 0.88,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "created_curriculum",
+          "created_resource"
+        ],
+        "related_competencies": [
+          "curriculum",
+          "teaching_learning"
+        ],
+        "followup_question": "Who used this resource and was it effective?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "01166d23-0dfb-4c28-b089-585401770651",
+        "category_id": "eeb81513-6645-4ef9-8998-97cd8f03f38b",
+        "indicator_key": "teaching_facilitating_learning",
+        "indicator_name": "Facilitated a learning discussion or case conference",
+        "indicator_type": "keyword",
+        "keywords": [
+          "facilitated",
+          "led discussion",
+          "case conference",
+          "journal club",
+          "M&M",
+          "seminar",
+          "learning activity",
+          "discussion session"
+        ],
+        "regex_pattern": null,
+        "description": "User designed and led a structured learning experience",
+        "confidence_default": 0.84,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "led_meeting",
+          "gave_informal_teaching"
+        ],
+        "related_competencies": [
+          "teaching_learning",
+          "learning_environment"
+        ],
+        "followup_question": "How did learners engage with that learning activity?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "5b4120ed-713f-4923-8a9a-24c1ccbae56b",
+        "category_id": "878cdc03-cd1b-4f6e-ba43-97a6b55cb96e",
+        "indicator_key": "feedback_giving_feedback",
+        "indicator_name": "Gave formative or corrective feedback",
+        "indicator_type": "keyword",
+        "keywords": [
+          "gave feedback",
+          "provided feedback",
+          "told them",
+          "corrected",
+          "reinforced strength",
+          "constructive feedback",
+          "formative feedback"
+        ],
+        "regex_pattern": null,
+        "description": "User delivered performance or learning feedback",
+        "confidence_default": 0.87,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "gave_feedback"
+        ],
+        "related_competencies": [
+          "feedback",
+          "teaching_learning"
+        ],
+        "followup_question": "How did they receive the feedback? Did they change?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "90e9d929-a19e-41f4-86c5-361949d385f7",
+        "category_id": "878cdc03-cd1b-4f6e-ba43-97a6b55cb96e",
+        "indicator_key": "feedback_receiving_feedback",
+        "indicator_name": "Received and acted on feedback",
+        "indicator_type": "keyword",
+        "keywords": [
+          "got feedback",
+          "was told",
+          "learned that",
+          "changed because of feedback",
+          "took that feedback seriously",
+          "incorporated",
+          "adjusted"
+        ],
+        "regex_pattern": null,
+        "description": "User demonstrated openness to and integration of feedback",
+        "confidence_default": 0.82,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "received_feedback"
+        ],
+        "related_competencies": [
+          "reflective_practice",
+          "feedback"
+        ],
+        "followup_question": "What feedback did you get and how did it change your practice?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "f85dc214-c2c6-4ff6-b34f-4d85e0e3b182",
+        "category_id": "878cdc03-cd1b-4f6e-ba43-97a6b55cb96e",
+        "indicator_key": "feedback_reflection",
+        "indicator_name": "Reflected on experience or practice",
+        "indicator_type": "keyword",
+        "keywords": [
+          "reflected",
+          "learned from",
+          "realized",
+          "thinking back",
+          "hindsight",
+          "what I'd do differently",
+          "could have done better"
+        ],
+        "regex_pattern": null,
+        "description": "User engaged in reflective practice or learning from experience",
+        "confidence_default": 0.8,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "received_feedback"
+        ],
+        "related_competencies": [
+          "reflective_practice"
+        ],
+        "followup_question": "What was the biggest lesson from that reflection?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "27431912-b0a4-402c-87e8-81a0bf641e3d",
+        "category_id": "530b8956-ff5e-4145-a2cc-83742d2f69d2",
+        "indicator_key": "scholarship_presenting",
+        "indicator_name": "Presented work at conference or forum",
+        "indicator_type": "keyword",
+        "keywords": [
+          "presented",
+          "poster",
+          "talk",
+          "conference",
+          "presented at",
+          "abstract",
+          "grand rounds",
+          "seminar presentation",
+          "scholarly presentation"
+        ],
+        "regex_pattern": null,
+        "description": "User disseminated work through presentation",
+        "confidence_default": 0.88,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "presented_scholarship"
+        ],
+        "related_competencies": [
+          "med_ed_scholarship",
+          "scholarship"
+        ],
+        "followup_question": "What was the response? What next for this work?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "78e0a06d-9b6c-45ff-9be5-35e29a04be39",
+        "category_id": "530b8956-ff5e-4145-a2cc-83742d2f69d2",
+        "indicator_key": "scholarship_published",
+        "indicator_name": "Published or submitted for publication",
+        "indicator_type": "keyword",
+        "keywords": [
+          "published",
+          "journal",
+          "paper",
+          "manuscript",
+          "submitted",
+          "accepted",
+          "in press",
+          "wrote article"
+        ],
+        "regex_pattern": null,
+        "description": "User published or is publishing scholarly work",
+        "confidence_default": 0.9,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "presented_scholarship"
+        ],
+        "related_competencies": [
+          "med_ed_scholarship",
+          "scholarship"
+        ],
+        "followup_question": "What is the paper/publication about? What's the impact?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "bad73a71-0e0d-4ebb-a855-d898690a4a60",
+        "category_id": "530b8956-ff5e-4145-a2cc-83742d2f69d2",
+        "indicator_key": "scholarship_research_project",
+        "indicator_name": "Conducted or leading research or QI project",
+        "indicator_type": "keyword",
+        "keywords": [
+          "research",
+          "QI project",
+          "quality improvement",
+          "IRB",
+          "data collection",
+          "literature review",
+          "project",
+          "grant",
+          "funded"
+        ],
+        "regex_pattern": null,
+        "description": "User is engaged in research or systematic improvement work",
+        "confidence_default": 0.85,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [
+          "presented_scholarship"
+        ],
+        "related_competencies": [
+          "med_ed_scholarship",
+          "scholarship",
+          "pbli"
+        ],
+        "followup_question": "What's the research question or improvement goal?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "652dd2ad-4184-4706-9f3a-4105908b0e54",
+        "category_id": "548736c7-354a-4050-b862-f8d9787483d1",
+        "indicator_key": "innovation_building_tool",
+        "indicator_name": "Built dashboard, spreadsheet, or data system",
+        "indicator_type": "keyword",
+        "keywords": [
+          "built dashboard",
+          "created spreadsheet",
+          "automated",
+          "database",
+          "tool",
+          "system",
+          "data tracker",
+          "software",
+          "app",
+          "built system"
+        ],
+        "regex_pattern": null,
+        "description": "User created technology or data infrastructure",
+        "confidence_default": 0.86,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "built_tool"
+        ],
+        "related_competencies": [
+          "innovation",
+          "sbp",
+          "admin_skills"
+        ],
+        "followup_question": "What problem did that tool solve? Who uses it?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "14c29407-df27-4195-b4e3-29c37bd48192",
+        "category_id": "548736c7-354a-4050-b862-f8d9787483d1",
+        "indicator_key": "innovation_improving_technology",
+        "indicator_name": "Improved EHR workflow or clinical informatics",
+        "indicator_type": "keyword",
+        "keywords": [
+          "EHR",
+          "electronic health record",
+          "workflow improved",
+          "informatics",
+          "structured data",
+          "alert",
+          "documentation",
+          "template"
+        ],
+        "regex_pattern": null,
+        "description": "User worked with technology to improve clinical or administrative work",
+        "confidence_default": 0.8,
+        "source_id": "d5538104-5b25-4470-955a-0b1e2c6f5c9d",
+        "related_activities": [
+          "built_tool",
+          "improved_workflow"
+        ],
+        "related_competencies": [
+          "innovation",
+          "sbp"
+        ],
+        "followup_question": "How did EHR improvement help? What's the impact?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "bb88eef0-5f3b-46a6-b76e-694d1da893a6",
+        "category_id": "c13506ef-d7bb-4f51-9cef-5944ef5d1ca3",
+        "indicator_key": "wellbeing_energy_decline",
+        "indicator_name": "Expressing declining energy or motivation",
+        "indicator_type": "keyword",
+        "keywords": [
+          "tired",
+          "exhausted",
+          "not sure why I'm doing this",
+          "losing passion",
+          "energy down",
+          "not excited",
+          "dragging",
+          "burnt out"
+        ],
+        "regex_pattern": null,
+        "description": "User is expressing signs of energy depletion or burnout",
+        "confidence_default": 0.76,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "recognized_burnout"
+        ],
+        "related_competencies": [
+          "personal_wellbeing",
+          "wellbeing"
+        ],
+        "followup_question": "What's been draining your energy most lately?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "bb7a8eb7-ba0f-4b52-9908-c9db8c4fea10",
+        "category_id": "c13506ef-d7bb-4f51-9cef-5944ef5d1ca3",
+        "indicator_key": "wellbeing_finding_meaning",
+        "indicator_name": "Finding meaning, fulfillment, or purpose in work",
+        "indicator_type": "keyword",
+        "keywords": [
+          "fulfilling",
+          "meaningful work",
+          "purpose",
+          "makes sense",
+          "why I do this",
+          "energizes me",
+          "excited about",
+          "gives me energy"
+        ],
+        "regex_pattern": null,
+        "description": "User is experiencing meaning or satisfaction in their work",
+        "confidence_default": 0.82,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "mentored_trainee",
+          "gave_informal_teaching"
+        ],
+        "related_competencies": [
+          "identity",
+          "personal_wellbeing"
+        ],
+        "followup_question": "What aspect of your work feels most meaningful right now?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "96696fc4-9821-4002-8432-30bf41c94b45",
+        "category_id": "c13506ef-d7bb-4f51-9cef-5944ef5d1ca3",
+        "indicator_key": "wellbeing_seeking_balance",
+        "indicator_name": "Struggling with work-life balance or boundaries",
+        "indicator_type": "keyword",
+        "keywords": [
+          "balance",
+          "boundaries",
+          "work-life",
+          "too much",
+          "can't keep up",
+          "weekends",
+          "time off",
+          "need a break",
+          "not sustainable"
+        ],
+        "regex_pattern": null,
+        "description": "User is aware of work-life balance challenges",
+        "confidence_default": 0.8,
+        "source_id": "57b4a8df-5e99-4c0a-9d36-a2a8e28da9f9",
+        "related_activities": [
+          "recognized_burnout"
+        ],
+        "related_competencies": [
+          "personal_wellbeing",
+          "wellbeing"
+        ],
+        "followup_question": "What would help you achieve better balance?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "9ffa0119-4093-48be-9446-1209a012eb1d",
+        "category_id": "49768e43-754b-4e24-a2d5-35f21e1c6bba",
+        "indicator_key": "role_clarity_exploring_identity",
+        "indicator_name": "Exploring professional identity or role transition",
+        "indicator_type": "keyword",
+        "keywords": [
+          "who am I",
+          "who do I want to be",
+          "becoming",
+          "identity",
+          "transitioning to",
+          "shift towards",
+          "less clinician more",
+          "wondering if"
+        ],
+        "regex_pattern": null,
+        "description": "User is actively exploring or transitioning professional identity",
+        "confidence_default": 0.75,
+        "source_id": "6f5873a1-0abd-43c0-9895-12cd9d6f5b13",
+        "related_activities": [
+          "mentored_trainee"
+        ],
+        "related_competencies": [
+          "identity",
+          "learner_prof_dev"
+        ],
+        "followup_question": "Tell me more about the professional identity you're developing or exploring.",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "1c859110-125c-4c0a-bf54-2fdd08c56099",
+        "category_id": "49768e43-754b-4e24-a2d5-35f21e1c6bba",
+        "indicator_key": "role_clarity_unclear_career_path",
+        "indicator_name": "Uncertainty about career direction or next steps",
+        "indicator_type": "keyword",
+        "keywords": [
+          "not sure",
+          "unclear",
+          "torn between",
+          "what comes next",
+          "next steps",
+          "direction",
+          "what's next",
+          "unsure of path",
+          "confused about"
+        ],
+        "regex_pattern": null,
+        "description": "User is uncertain about career trajectory or options",
+        "confidence_default": 0.72,
+        "source_id": "6f5873a1-0abd-43c0-9895-12cd9d6f5b13",
+        "related_activities": [],
+        "related_competencies": [
+          "identity"
+        ],
+        "followup_question": "What are the options you're considering?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "2701e8aa-e935-4551-b97f-68be9dec5afb",
+        "category_id": "1b22bd0c-af1a-4436-884a-ec2062c02332",
+        "indicator_key": "skill_gap_teaching_administration",
+        "indicator_name": "Lacking confidence or development in teaching/admin",
+        "indicator_type": "keyword",
+        "keywords": [
+          "don't know how to teach",
+          "never been trained in",
+          "no background in",
+          "not an educator",
+          "teaching isn't my strength",
+          "admin skills"
+        ],
+        "regex_pattern": null,
+        "description": "User identifies a gap in teaching or administration skills",
+        "confidence_default": 0.7,
+        "source_id": "2f55fc8e-7c18-4bf0-b741-b9101d8cce54",
+        "related_activities": [],
+        "related_competencies": [
+          "teaching",
+          "admin"
+        ],
+        "followup_question": "What aspect of teaching or administration would you most like to develop?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "indicator_id": "c3f547da-68d0-462f-8286-daeb054d23aa",
+        "category_id": "1b22bd0c-af1a-4436-884a-ec2062c02332",
+        "indicator_key": "skill_gap_research_scholarship",
+        "indicator_name": "Lacking confidence or development in research/scholarship",
+        "indicator_type": "keyword",
+        "keywords": [
+          "not a researcher",
+          "never done research",
+          "don't know how to publish",
+          "scared of research",
+          "no scholarly output",
+          "not academic"
+        ],
+        "regex_pattern": null,
+        "description": "User identifies a gap in research or scholarship skills",
+        "confidence_default": 0.68,
+        "source_id": "6f5873a1-0abd-43c0-9895-12cd9d6f5b13",
+        "related_activities": [],
+        "related_competencies": [
+          "scholarship",
+          "med_ed_scholarship"
+        ],
+        "followup_question": "What would scholarly work or research look like for you?",
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      }
+    ],
+    "signal_conversational_routes": [
+      {
+        "route_id": "51b300af-eebc-46bb-b3e5-7374b8812532",
+        "indicator_id": "c13f79f8-a5e7-4236-82bf-3d088d2c23d2",
+        "route_name": "Mentorship followup",
+        "route_type": "followup_question",
+        "route_template": "That mentoring work is meaningful. Was this a one-time conversation or part of a longer relationship you're building with them?",
+        "conditional_logic": null,
+        "confidence_adjustment": 0,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "route_id": "6d66f546-8366-41cc-8ba1-14fd49978e99",
+        "indicator_id": "f6e1d1d1-1d81-4ee6-a80c-be39629e452a",
+        "route_name": "Leadership impact check",
+        "route_type": "followup_question",
+        "route_template": "Leading that took vision and presence. What was the outcome? Did the group move forward?",
+        "conditional_logic": null,
+        "confidence_adjustment": 0,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "route_id": "be0f9eb9-7333-4d85-a703-ed35f2ced0a0",
+        "indicator_id": "07c61e50-a2b0-4627-b2ac-d1d948268063",
+        "route_name": "Systems thinking deepening",
+        "route_type": "reflection_prompt",
+        "route_template": "You identified something broken and fixed it—that's systems thinking in action. Do you see yourself in a systems-leader role?",
+        "conditional_logic": null,
+        "confidence_adjustment": 0,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "route_id": "654f04ca-71a4-4be7-9fdf-eb6223091a2b",
+        "indicator_id": "c0ddc2b1-3a7c-4beb-9f6c-8eddb3c39ec4",
+        "route_name": "Advocacy affirmation",
+        "route_type": "validation",
+        "route_template": "Speaking up for what's right takes courage. I want to honor that you did.",
+        "conditional_logic": null,
+        "confidence_adjustment": 0,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      },
+      {
+        "route_id": "f07b5792-032e-46c2-9933-4ac5cab94cb9",
+        "indicator_id": "7947649e-9538-4d8b-b1ba-b23a6a843fea",
+        "route_name": "Emotional labor recognition",
+        "route_type": "validation",
+        "route_template": "Holding space for someone in distress is real work and it matters. How are *you* doing with this?",
+        "conditional_logic": null,
+        "confidence_adjustment": 0,
+        "active": true,
+        "created_at": "2026-05-24T03:54:33.701332+00:00",
+        "updated_at": "2026-05-24T03:54:33.701332+00:00"
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "rotation_code": "medtox",
+  "service_name": "Medical Toxicology Elective",
+  "category": "off_service",
+  "source": {
+    "website_section": "Medical Toxicology",
+    "source_file": "Toxicology Elective Curriculum",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Confirm elective length (1, 2, 3, or 4 weeks) — expectations scale with duration",
+    "Review Toxicology Bingo Board requirements for your block length"
+  ],
+  "overview": "Medical toxicology elective with daily attending rounds, MAT clinic exposure, weekly conference, bingo-board learning activities, presentations, and ACMT case conference participation.",
+  "schedule": [
+    "Daily: round with attending on new and existing patients",
+    "Tuesday AM: MAT Clinic (8 AM–12 PM)",
+    "Wednesday: toxicology conference (8 AM–1 PM)"
+  ],
+  "logistics": [
+    "1 week: complete 1/3 bingo board, one 10–15 min presentation, one ACMT case conference",
+    "2 weeks: complete 1/3 bingo board, one presentation, one ACMT case conference",
+    "3–4 weeks: complete full bingo board, two 10–15 min presentations (may post on toxicology Instagram for CV), one ACMT case conference, QA project or X waiver training",
+    "Presentations on toxicology topic of trainee choice — can be CV-worthy via program Instagram"
+  ],
+  "resources": [
+    "Toxicology Bingo Board (lectures, reverse lectures, patient encounters)",
+    "ACMT Case Conference"
+  ],
+  "debrief_prompts": [
+    "Toxicology case — presentation, workup, and antidote/management pearl",
+    "MAT clinic half-day — connection to addiction psychiatry training",
+    "Bingo board activity — lecture or reverse lecture that stuck",
+    "Presentation topic — what you'd add to your CV or scholarship narrative"
+  ],
+  "capture_tags": [
+    "medical toxicology",
+    "MAT",
+    "addiction psychiatry",
+    "scholarship",
+    "case presentation",
+    "quality improvement"
+  ]
+}

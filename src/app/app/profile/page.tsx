@@ -22,6 +22,10 @@ import {
   defaultTrainingComplete,
   migrateLegacySpecialty,
 } from "@/lib/v2/specialty-hierarchy";
+import { BoardOfDirectorsPanel } from "@/components/profile/BoardOfDirectorsPanel";
+import { CareerPortfolioPanel } from "@/components/profile/CareerPortfolioPanel";
+import { AcademicDossierPanel } from "@/components/profile/AcademicDossierPanel";
+import type { BoardProfileView } from "@/lib/v2/career-board-models";
 import type { AppUser } from "@/lib/v2/types";
 
 function splitName(full: string | null | undefined): { first: string; last: string } {
@@ -49,6 +53,8 @@ export default function ProfilePage() {
 
   const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
   const [npiLoading, setNpiLoading] = useState(true);
+  const [board, setBoard] = useState<BoardProfileView | null>(null);
+  const [boardLoading, setBoardLoading] = useState(true);
 
   const [form, setForm] = useState({
     first_name: "",
@@ -146,6 +152,14 @@ export default function ProfilePage() {
     }
 
     void load();
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/v1/career-board")
+      .then((r) => r.json())
+      .then((data: { board?: BoardProfileView | null }) => setBoard(data.board ?? null))
+      .catch(() => setBoard(null))
+      .finally(() => setBoardLoading(false));
   }, []);
 
   useEffect(() => {
@@ -388,6 +402,12 @@ export default function ProfilePage() {
           </form>
         )}
       </CardSection>
+
+      <BoardOfDirectorsPanel board={board} loading={boardLoading} />
+
+      <CareerPortfolioPanel />
+
+      <AcademicDossierPanel />
 
       <CardSection
         eyebrow="Verification"

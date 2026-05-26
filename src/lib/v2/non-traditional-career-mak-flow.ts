@@ -1,11 +1,16 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import {
-  CAREER_PIVOT_STEPS,
+  CAREER_DIRECTION_STEPS,
   IDENTITY_NAVIGATION_PROMPTS,
   PIVOT_QUARTERLY_BY_PATH,
   buildCareerPivotIntro,
+  buildCareerPivotProfileHints,
   buildClinicalToTargetTranslationPrompt,
+  buildThesisDraftSentence,
+  proposePathwaysFromThesis,
+  NON_TRADITIONAL_PATH_LABELS,
   type CareerPivotContext,
+  type CareerThesis,
   type NonTraditionalTargetPath,
   type PivotTranslationEntry,
 } from "@/lib/v2/non-traditional-career-models";
@@ -14,6 +19,7 @@ export type CareerPivotSession = {
   step_index: number;
   started_at: string;
   partial?: Partial<CareerPivotContext>;
+  thesis_partial?: Partial<CareerThesis>;
 };
 
 export type PivotQuarterlySession = {
@@ -49,6 +55,7 @@ export function initCareerPivotSession(meta: OnboardingMetadata): OnboardingMeta
       step_index: 0,
       started_at: new Date().toISOString(),
       partial: meta.career_pivot_context ?? {},
+      thesis_partial: meta.career_thesis ?? {},
     },
   };
 }
@@ -115,14 +122,64 @@ export function clearCareerTranslationSession(meta: OnboardingMetadata): Onboard
 
 function parseTargetPath(text: string): NonTraditionalTargetPath | undefined {
   const lower = text.toLowerCase();
-  if (/industry|pharma|medical affairs|biotech/.test(lower)) return "industry_pharma";
-  if (/policy|government|public health|regulatory/.test(lower)) return "policy_government";
-  if (/media|communication|writing|journalism|podcast/.test(lower)) return "media_communication";
-  if (/startup|entrepreneur|health tech|founder/.test(lower)) return "entrepreneurship_healthtech";
-  if (/consult/.test(lower)) return "consulting";
-  if (/hybrid|part.time|part time|both/.test(lower)) return "hybrid";
-  if (/explor|decid|unsure|consider/.test(lower)) return "exploring";
+  if (/industry|pharma|medical affairs|biotech|msl|clinical development/.test(lower)) {
+    return "industry_pharma";
+  }
+  if (/policy|government|public health|regulatory|fda|cms/.test(lower)) return "policy_government";
+  if (/media|communication|writing|journalism|podcast|author/.test(lower)) {
+    return "media_communication";
+  }
+  if (/startup|entrepreneur|health tech|founder|digital health/.test(lower)) {
+    return "entrepreneurship_healthtech";
+  }
+  if (/consult|operations|strategy|advisory/.test(lower)) return "consulting";
+  if (/hybrid|part.time|part time|both|split|keep clinical/.test(lower)) return "hybrid";
+  if (/explor|decid|unsure|consider|still|open|not sure/.test(lower)) return "exploring";
   return undefined;
+}
+
+function parsePathwayChoice(
+  text: string,
+  proposed: NonTraditionalTargetPath[],
+): NonTraditionalTargetPath {
+  const lower = text.toLowerCase();
+  const digitMatch = lower.match(/^(\d)/);
+  if (digitMatch) {
+    const idx = Number(digitMatch[1]) - 1;
+    if (proposed[idx]) return proposed[idx];
+  }
+  const parsed = parseTargetPath(text);
+  if (parsed) return parsed;
+  for (const path of proposed) {
+    if (lower.includes(NON_TRADITIONAL_PATH_LABELS[path].toLowerCase().slice(0, 12))) {
+      return path;
+    }
+  }
+  return proposed[0] ?? "exploring";
+}
+
+function finalizeCareerThesis(
+  thesisPartial: Partial<CareerThesis>,
+  sentence: string,
+  proposedPaths: NonTraditionalTargetPath[],
+): CareerThesis {
+  const now = new Date().toISOString();
+  return {
+    ...thesisPartial,
+    sentence: sentence.trim(),
+    confidence: "confirmed",
+    sources: [...(thesisPartial.sources ?? []), "conversation"],
+    proposed_paths: proposedPaths,
+    updated_at: now,
+    confirmed_at: now,
+  };
+}
+
+function stepInput(session: CareerPivotSession) {
+  return {
+    thesis: session.thesis_partial ?? {},
+    context: session.partial ?? {},
+  };
 }
 
 export function processCareerPivotTurn(input: {
@@ -131,51 +188,81 @@ export function processCareerPivotTurn(input: {
 }): CareerPivotFlowTurnResult {
   const session = input.meta.career_pivot_session;
   if (!session) {
+    const hints = buildCareerPivotProfileHints(input.meta);
     return {
       meta: input.meta,
-      response: buildCareerPivotIntro(),
+      response: buildCareerPivotIntro(hints),
       suggested_actions: [],
       complete: false,
     };
   }
 
-  const step = CAREER_PIVOT_STEPS[session.step_index];
+  const step = CAREER_DIRECTION_STEPS[session.step_index];
   if (!step) {
     return {
       meta: clearCareerPivotSession(input.meta),
-      response: "Pivot context complete.",
+      response: "Career direction session complete.",
       suggested_actions: [],
       complete: true,
     };
   }
 
-  let value: string | boolean = input.message.trim();
-  if (step.field === "hybrid_model") {
-    value = /yes|hybrid|part|both|split|1-|2 day|keep clinical/i.test(input.message);
-  } else if (step.field === "target_path") {
-    const parsed = parseTargetPath(input.message);
-    value = parsed ?? input.message.trim();
+  const trimmed = input.message.trim();
+  let thesisPartial = { ...(session.thesis_partial ?? {}) };
+  let contextPartial = { ...(session.partial ?? {}) };
+
+  if (step.kind === "thesis" && step.field) {
+    thesisPartial = {
+      ...thesisPartial,
+      [step.field]: trimmed,
+      sources: [...(thesisPartial.sources ?? []), "conversation"],
+    };
+  } else if (step.kind === "thesis_confirm") {
+    const sentence = trimmed || buildThesisDraftSentence(thesisPartial);
+    const proposed = proposePathwaysFromThesis({ ...thesisPartial, sentence });
+    thesisPartial = finalizeCareerThesis(thesisPartial, sentence, proposed);
+  } else if (step.kind === "pathways") {
+    const proposed =
+      thesisPartial.proposed_paths ?? proposePathwaysFromThesis(thesisPartial);
+    const chosen = parsePathwayChoice(trimmed, proposed);
+    contextPartial = {
+      ...contextPartial,
+      target_path: chosen,
+      certainty: /explor|unsure|decid|not sure/i.test(trimmed) ? "exploring" : "selected",
+    };
+  } else if (step.kind === "context" && step.field) {
+    if (step.field === "hybrid_model") {
+      contextPartial = {
+        ...contextPartial,
+        hybrid_model: /yes|hybrid|part|both|split|1-|2 day|keep clinical/i.test(trimmed),
+        clinical_footprint:
+          /yes|hybrid|part|both|split|1-|2 day|keep clinical/i.test(trimmed)
+            ? trimmed
+            : contextPartial.clinical_footprint,
+      };
+    } else {
+      contextPartial = { ...contextPartial, [step.field]: trimmed };
+    }
   }
 
-  const partial = {
-    ...(session.partial ?? {}),
-    [step.field]: value,
-  } as Partial<CareerPivotContext>;
-
   const nextIdx = session.step_index + 1;
-  const nextStep = CAREER_PIVOT_STEPS[nextIdx];
+  const nextStep = CAREER_DIRECTION_STEPS[nextIdx];
 
   if (!nextStep) {
+    const thesis = thesisPartial as CareerThesis;
     const context: CareerPivotContext = {
-      ...partial,
+      ...contextPartial,
+      intentional_framing: thesis.sentence ?? contextPartial.intentional_framing,
       captured_at: new Date().toISOString(),
     } as CareerPivotContext;
     const cleared = clearCareerPivotSession(input.meta);
     return {
-      meta: { ...cleared, career_pivot_context: context },
-      response: `Pivot context saved. I'll translate your clinical work for outsider audiences and generate resume, cover letter, or portfolio formats — not a 20-page CV.
+      meta: { ...cleared, career_thesis: thesis, career_pivot_context: context },
+      response: `Career direction saved${thesis.sentence ? ` — *"${thesis.sentence}"*` : ""}.
 
-Ready to translate a specific experience, or start path-specific quarterly mining?`,
+I'll translate your clinical work for outsider audiences and help with resume, cover letter, or portfolio formats — not a 20-page CV.
+
+Ready to translate a specific experience, or start path-specific quarterly capture?`,
       suggested_actions: [
         { action: "Translate an experience", url: "/app/objective?tab=activities" },
         { action: "Build pivot narrative", url: "/app/output" },
@@ -184,12 +271,26 @@ Ready to translate a specific experience, or start path-specific quarterly minin
     };
   }
 
+  const nextInput = { thesis: thesisPartial, context: contextPartial };
+  let response = nextStep.prompt(nextInput);
+  if (step.kind === "thesis_confirm") {
+    response = `Got it — I'll use that as your career direction.\n\n${response}`;
+  } else if (step.kind !== "pathways") {
+    response = `Got it.\n\n${response}`;
+  }
+
   return {
     meta: {
       ...input.meta,
-      career_pivot_session: { ...session, step_index: nextIdx, partial },
+      career_pivot_session: {
+        ...session,
+        step_index: nextIdx,
+        partial: contextPartial,
+        thesis_partial: thesisPartial,
+      },
+      ...(thesisPartial.confidence === "confirmed" ? { career_thesis: thesisPartial as CareerThesis } : {}),
     },
-    response: `Got it.\n\n${nextStep.prompt(partial)}`,
+    response,
     suggested_actions: [],
     complete: false,
   };
@@ -203,6 +304,7 @@ export function processPivotQuarterlyTurn(input: {
   const path =
     session?.path ??
     input.meta.career_pivot_context?.target_path ??
+    input.meta.career_thesis?.proposed_paths?.[0] ??
     "exploring";
 
   if (!session) {
@@ -332,7 +434,10 @@ export function processCareerTranslationTurn(input: {
     };
   }
 
-  const path = input.meta.career_pivot_context?.target_path ?? "industry_pharma";
+  const path =
+    input.meta.career_pivot_context?.target_path ??
+    input.meta.career_thesis?.proposed_paths?.[0] ??
+    "industry_pharma";
   const entry: PivotTranslationEntry = {
     id: crypto.randomUUID(),
     clinical_experience: session.clinical_experience,
@@ -344,7 +449,7 @@ export function processCareerTranslationTurn(input: {
   const cleared = clearCareerTranslationSession(input.meta);
   return {
     meta: { ...cleared, pivot_translations: [...(input.meta.pivot_translations ?? []), entry] },
-    response: `Translation saved for ${path}. I'll use this when generating your resume or pivot letter.`,
+    response: `Translation saved. I'll use this when generating your resume or pivot letter.`,
     suggested_actions: [
       { action: "Translate another experience", url: "/app/objective?tab=activities" },
       { action: "Build pivot narrative", url: "/app/output" },
@@ -356,15 +461,20 @@ export function processCareerTranslationTurn(input: {
 export function buildCareerTranslationFollowUp(clinicalExperience: string, path: NonTraditionalTargetPath): string {
   return `${buildClinicalToTargetTranslationPrompt(clinicalExperience, path)}
 
-In your own words: how would you describe the impact of "${clinicalExperience}" to someone outside medicine? Include numbers only if you can verify them.`;
+In your own words: how would you describe the impact of "${clinicalExperience}" to someone outside medicine? Use STAR framing — situation, action with scope/scale, result. Include numbers only if you can verify them.`;
 }
 
 export function buildCareerPivotMakSystemContext(meta: OnboardingMetadata): string {
   const session = meta.career_pivot_session;
   if (!session) return "";
-  const step = CAREER_PIVOT_STEPS[session.step_index];
+  const step = CAREER_DIRECTION_STEPS[session.step_index];
   if (!step) return "";
-  return `Career pivot onboarding — step ${session.step_index + 1}/${CAREER_PIVOT_STEPS.length}. Ask: ${step.prompt(session.partial ?? {})}`;
+  const input = stepInput(session);
+  return `Career direction onboarding — step ${session.step_index + 1}/${CAREER_DIRECTION_STEPS.length}.
+Thesis-first: build and confirm a one-sentence career direction before suggesting paths.
+Use solution-focused questions (what they want to move toward). Never ask what is wrong with medicine or why they want to leave.
+Never say GROW, Venn, thesis framework, or study names.
+Current prompt: ${step.prompt(input)}`;
 }
 
 export function buildPivotQuarterlyMakSystemContext(meta: OnboardingMetadata): string {

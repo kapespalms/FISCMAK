@@ -177,6 +177,9 @@ export type MakFlowIntent =
   | "pivot_narrative"
   | "career_translation"
   | "identity_navigation"
+  | "board_awareness"
+  | "board_building"
+  | "grow_exploration"
   | (typeof FIVE_OPTIONS)[number]["id"];
 
 export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
@@ -226,7 +229,7 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   plan: {
     greeting:
       "This section tracks your Strategy — Development, Maintenance, and Sustainability goals with quarterly milestones.",
-    quickOptions: ["Set up with Mak", "Edit in template"],
+    quickOptions: ["Set up with Mak", "Explore career direction", "Map my Career Board", "Edit in template"],
     placeholder: "Talk through your career strategy…",
     mode: "Strategist",
   },
@@ -270,6 +273,9 @@ export const MAK_FLOW_GREETINGS: Record<MakFlowIntent, string> = {
   career_translation:
     "Let's translate a clinical experience into outsider language for your resume or portfolio.",
   identity_navigation: "__identity_navigation__",
+  board_awareness: "__board_awareness__",
+  board_building: "__board_building__",
+  grow_exploration: "__grow_exploration__",
   discuss: SOAP_TAB.subjective.chatEntry,
   review: SOAP_TAB.objective.chatEntry,
   assess: SOAP_TAB.assessment.chatEntry,

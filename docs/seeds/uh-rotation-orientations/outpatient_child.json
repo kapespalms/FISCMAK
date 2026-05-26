@@ -1,0 +1,54 @@
+{
+  "rotation_code": "outpatient_child",
+  "service_name": "Child Outpatient Psychiatry Clinic",
+  "category": "longitudinal",
+  "source": {
+    "website_section": "Outpatient Child Psychiatry Clinics",
+    "source_file": "Child Outpatient Clinic Guidelines",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Know clinic address, phone, and front desk contacts",
+    "Confirm supervision schedule with assigned attending for your clinic day",
+    "Set up Zoom workflow for virtual appointments before clinic starts"
+  ],
+  "overview": "Longitudinal child outpatient psychiatry at W.O. Walker Building — mix of in-person and virtual visits with direct attending supervision toward end of each appointment.",
+  "location": [
+    "W.O. Walker Building, Suite 1155A, 10524 Euclid Avenue, Cleveland OH 44106",
+    "Phone: 216-844-3881 · Fax: 216-844-5883"
+  ],
+  "personnel": [
+    "Supervision: Dr. Makino (Tuesday AM), Dr. Imfeld (Tuesday PM), Dr. Neil Bruce (Wednesday PM), Dr. Matthew Newton (Friday PM)",
+    "Front desk: Chauncey Love, Quiasia Fields, Lester Whittsette, Keisha Hughes; contact Fran Geraci for scheduling issues"
+  ],
+  "schedule": [
+    "Morning clinics: 8–11 AM patients, 11 AM–12 PM supervision (Dr. Makino Tuesday)",
+    "Afternoon clinics: 1–4 PM patients, 4–5 PM supervision (Dr. Imfeld Tuesday, Dr. Neil Bruce Wednesday, Dr. Matthew Newton Friday)",
+    "Contact front desk and Fran Geraci ASAP if late or sick"
+  ],
+  "logistics": [
+    "Zoom: trainees send links before clinic; no-show if patient not on within 15 min — document attempts, inform front desk",
+    "Direct supervision with attending toward end of each appointment",
+    "Refills through next appointment; controlled substances (stimulants) require separate scripts with DNFB date",
+    "Task lists: check minimum 3×/week (beginning, middle, end of week)",
+    "Vacation: arrange resident/fellow coverage, inform office staff, set out-of-office message for patients",
+    "Notes within 24–48 hours; same-day for high-risk patients (recent CAPU discharge, high suicide risk)",
+    "Document risk/benefit for interventions; brief risk assessment (static/dynamic risk and protective factors) each visit",
+    "Assigned readings completed by all; one person leads discussion"
+  ],
+  "debrief_prompts": [
+    "Pediatric formulation — developmental lens on a case from this week",
+    "Virtual vs. in-person visit — what changed in your assessment or alliance?",
+    "Risk documentation — static vs. dynamic factors on a high-risk patient",
+    "Supervision moment — feedback that shifted your plan or documentation"
+  ],
+  "capture_tags": [
+    "child psychiatry",
+    "outpatient psychiatry",
+    "risk assessment",
+    "telepsychiatry",
+    "family meeting",
+    "medication management",
+    "developmental formulation"
+  ]
+}

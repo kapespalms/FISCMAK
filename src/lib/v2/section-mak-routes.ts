@@ -108,7 +108,7 @@ export function resolveSectionQuickAction(
       return {
         intent: "career_pivot_onboarding",
         href: "/app/subjective",
-        message: "Help me map my non-traditional career pivot — where I'm moving and why.",
+        message: "Help me clarify my career direction — what energizes me, my strengths, and paths that fit.",
       };
     }
     if (n.includes("identity") || n.includes("leaving medicine")) {
@@ -157,6 +157,49 @@ export function resolveSectionQuickAction(
     }
   }
 
+  if (section === "plan") {
+    if (n.includes("explore") && (n.includes("direction") || n.includes("career"))) {
+      return {
+        intent: "grow_exploration",
+        href: "/app/plan",
+        message:
+          "Help me explore career direction before I commit — what good looks like and the smallest step to test.",
+      };
+    }
+    if (
+      n.includes("board") ||
+      (n.includes("map") && (n.includes("mentor") || n.includes("sponsor")))
+    ) {
+      return {
+        intent: "board_awareness",
+        href: "/app/plan",
+        message: "Help me map my Career Board — mentor, sponsor, coach, and connector.",
+      };
+    }
+    if (n.includes("connect") && (n.includes("dr") || n.includes("reach out") || n.includes("cold"))) {
+      return {
+        intent: "board_building",
+        href: "/app/plan",
+        message: "Help me connect with someone for a Board role — including cold outreach if needed.",
+      };
+    }
+    if (n.includes("sponsor") || n.includes("mentor") || n.includes("connector")) {
+      return {
+        intent: "board_building",
+        href: "/app/plan",
+        message: "Help me build a missing Board role — mentor, sponsor, coach, or connector.",
+      };
+    }
+    if (n.includes("goal") && (n.includes("set") || n.includes("setup"))) {
+      return {
+        intent: "plan",
+        href: "/app/plan",
+        message: "Walk me through setting up my Development, Maintenance, and Sustainability goals.",
+        goalFlow: "set",
+      };
+    }
+  }
+
   if (section === "assessment") {
     if (n.includes("health score")) {
       return {
@@ -194,8 +237,31 @@ export function resolveSectionQuickAction(
     if (n.includes("cv") && !n.includes("cover")) {
       return { intent: "create", href, message: "Help me update my CV in Output Studio." };
     }
+    if (n.includes("teaching portfolio")) {
+      return {
+        intent: "create",
+        href,
+        message:
+          "Help me build my teaching portfolio — philosophy, responsibilities, evaluations, and educational scholarship.",
+      };
+    }
+    if (n.includes("institutional cv") || (n.includes("academic cv") && !n.includes("update"))) {
+      return {
+        intent: "create",
+        href,
+        message: "Help me draft or update my institutional academic CV section by section.",
+      };
+    }
     if (n.includes("biosketch") || n.includes("nih")) {
       return { intent: "create", href, message: "Help me draft or update my NIH Biosketch." };
+    }
+    if (n.includes("career narrative") && !n.includes("promotion")) {
+      return {
+        intent: "personal_statement_arc",
+        href,
+        message:
+          "Help me build my career narrative — stage-appropriate opening, body, and vision with track-specific emphasis.",
+      };
     }
     if (n.includes("promotion narrative") || n.includes("promotion dossier")) {
       return {
@@ -220,23 +286,39 @@ export function resolveSectionQuickAction(
           "Help me sharpen my fellowship narrative — subspecialty niche, scholarly thread, and defining moments.",
       };
     }
-    if (n.includes("industry resume") || (n.includes("resume") && !n.includes("cover"))) {
+    if (n.includes("industry resume") || (n.includes("industry") && n.includes("resume"))) {
+      return {
+        intent: "pivot_narrative",
+        href,
+        message:
+          "Help me build a 1–2 page industry resume from my clinical experience — translated, not academic CV.",
+      };
+    }
+    if (
+      n.includes("industry cover") ||
+      (n.includes("pivot") && (n.includes("cover") || n.includes("letter") || n.includes("narrative")))
+    ) {
+      return {
+        intent: "pivot_narrative",
+        href,
+        message:
+          "Help me build my industry pivot cover letter — hook, clinical-to-industry bridge, value proposition, and close.",
+      };
+    }
+    if (n.includes("resume") && !n.includes("cover")) {
       return {
         intent: "create",
         href,
         message: "Help me build a 1–2 page industry resume from my clinical experience — translated, not academic CV.",
       };
     }
-    if (n.includes("pivot") && (n.includes("cover") || n.includes("letter") || n.includes("narrative"))) {
+    if (n.includes("cover letter") && !n.includes("pivot") && !n.includes("industry")) {
       return {
-        intent: "pivot_narrative",
+        intent: "create",
         href,
         message:
-          "Help me build my pivot cover letter — bridge, credential, translation, catalyst, and vision.",
+          "Help me draft my physician CV cover letter — stage-appropriate opening, body paragraphs, and closing tailored to the position.",
       };
-    }
-    if (n.includes("cover letter")) {
-      return { intent: "create", href, message: "Help me generate a cover letter." };
     }
     if (n.includes("advancement") || n.includes("report")) {
       return {

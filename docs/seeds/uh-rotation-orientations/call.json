@@ -1,0 +1,44 @@
+{
+  "rotation_code": "call",
+  "service_name": "Call (PGY1 Psych ED / PGY2 VA)",
+  "category": "operational",
+  "source": {
+    "website_section": "Call",
+    "last_updated": "2023-11-22",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review PGY1 Call Manual in detail",
+    "Review VA Call Manual in detail",
+    "Review Call Learning Model summary (comfort / proximal development / danger zones)"
+  ],
+  "overview": "PGY-1: Emergency Psychiatry / Answering Service at UH. PGY-2: Wade Park VA call including night float and Bridge Shift.",
+  "personnel": [
+    "PGY-1 backup: PGY-3 residents and on-call attendings",
+    "PGY-2: Dr. Jhee (Chief), Psych ED attendings, CL attendings, VARC attendings"
+  ],
+  "schedule": [
+    "PGY-1: 2-week shifts + weekends — M-F 5 PM–8 AM; weekends/holidays 8 AM–8 AM; no post-call days; attend Didactics",
+    "PGY-2 night float: 2–3 two-week blocks, 8 PM–8 AM Sun–Sat; Bridge Shift 5–8 PM M-F",
+    "PGY-2: no Didactics or Grand Rounds during night float",
+    "Schedule via QGenda — tutorial and call switch rules on resident site"
+  ],
+  "logistics": [
+    "Review backup call responsibilities document",
+    "Review call switch rules and VA Buddy Call checklist"
+  ],
+  "debrief_prompts": [
+    "Highest-acuity call — what happened and who helped?",
+    "Backup system — when did you escalate and was it the right call?",
+    "Sleep/workload boundary — comfort zone vs. proximal development vs. danger zone",
+    "One consult or admission you'd handle differently next time"
+  ],
+  "capture_tags": [
+    "after-hours coverage",
+    "psychiatric emergency",
+    "VA call",
+    "backup escalation",
+    "risk assessment",
+    "sign-out"
+  ]
+}

@@ -27,6 +27,7 @@ import {
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 import { buildProgramMakContext } from "@/lib/v2/programs/registry";
+import { buildTraineeProgramBackgroundForMak, resolveTraineeBackgroundPurpose } from "@/lib/v2/programs/rotation-orientation";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
 import {
@@ -48,7 +49,11 @@ import { processAnnualMakTurn, processQuarterlyMakTurn } from "@/lib/v2/touchpoi
 import type { TouchpointSubmitResult } from "@/lib/v2/touchpoint-submit";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
-import { buildMakInternalCoachingBundle } from "@/lib/v2/mak-coaching-engine";
+import {
+  auditContextBlockForMetricLeakage,
+  buildMakPhysicianMentorDadBundle,
+  buildPhysicianMentorDadCoachingContextBlock,
+} from "@/lib/v2/mak-coaching-engine";
 import {
   buildOnboardingSuggestedActions,
   buildWelcomeGreeting,
@@ -65,6 +70,7 @@ import {
   resolveChatState,
   careerAlignmentFromHealth,
 } from "@/lib/mak-chatbot-states";
+import { logEscalationEngagementSignal } from "@/lib/v2/escalation-protocols";
 import { shouldCaptureActivityMessage } from "@/lib/v2/activity-capture";
 import {
   classifyChatMessage,
@@ -76,6 +82,7 @@ import type { ActivityEntry } from "@/lib/types/database";
 import type { AppSection, MakFlowIntent } from "@/lib/mak-sections";
 import {
   buildConversationModelContext,
+  buildMakPhysicianMentorDadSystemPrompt,
   buildMakSystemPrompt,
   buildNarrativeAnchorIntro,
   buildStageAwareCapturePrompt,
@@ -87,6 +94,7 @@ import {
 } from "@/lib/v2/mak-conversation-models";
 import {
   buildRotationDebriefIntro,
+  buildRotationDebriefMakSystemContext,
   initNarrativeAnchorSession,
   initRotationDebriefSession,
   processNarrativeAnchorTurn,
@@ -116,7 +124,26 @@ import {
   processIdentityNavigationTurn,
   processPivotQuarterlyTurn,
 } from "@/lib/v2/non-traditional-career-mak-flow";
-import { buildCareerPivotIntro } from "@/lib/v2/non-traditional-career-models";
+import {
+  buildCareerPivotIntro,
+  buildCareerPivotProfileHints,
+  hasConfirmedCareerThesis,
+} from "@/lib/v2/non-traditional-career-models";
+import {
+  buildBoardAwarenessMakSystemContext,
+  buildBoardBuildingMakSystemContext,
+  initBoardAwarenessSession,
+  initBoardBuildingSession,
+  processBoardAwarenessTurn,
+  processBoardBuildingTurn,
+} from "@/lib/v2/career-board-mak-flow";
+import { buildBoardAwarenessIntro } from "@/lib/v2/career-board-models";
+import {
+  buildGrowExplorationMakSystemContext,
+  initGrowExplorationSession,
+  processGrowExplorationTurn,
+} from "@/lib/v2/grow-exploration-mak-flow";
+import { buildGrowExplorationIntro } from "@/lib/v2/career-coaching-frameworks";
 
 const API_GREETING_TOKENS = new Set([
   "__welcome__",
@@ -129,6 +156,9 @@ const API_GREETING_TOKENS = new Set([
   "__career_pivot_onboarding__",
   "__pivot_quarterly__",
   "__identity_navigation__",
+  "__board_awareness__",
+  "__board_building__",
+  "__grow_exploration__",
 ]);
 
 type HistoryTurn = { role: "user" | "assistant"; content: string };
@@ -609,6 +639,133 @@ export async function POST(request: Request) {
     );
   } else if (
     user &&
+    flowIntent === "board_awareness" &&
+    !activeMeta.board_awareness_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initBoardAwarenessSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+    const turn = processBoardAwarenessTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "board_awareness" &&
+    activeMeta.board_awareness_session
+  ) {
+    const turn = processBoardAwarenessTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    flowIntent === "board_building" &&
+    !activeMeta.board_building_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initBoardBuildingSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+    const turn = processBoardBuildingTurn({
+      message,
+      meta: activeMeta,
+      institution: user.institution,
+      specialty: user.specialty,
+    });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "board_building" &&
+    activeMeta.board_building_session
+  ) {
+    const turn = processBoardBuildingTurn({
+      message,
+      meta: activeMeta,
+      institution: user.institution,
+      specialty: user.specialty,
+    });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    flowIntent === "grow_exploration" &&
+    !activeMeta.grow_exploration_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initGrowExplorationSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+    const turn = processGrowExplorationTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "grow_exploration" &&
+    activeMeta.grow_exploration_session
+  ) {
+    const turn = processGrowExplorationTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
     message &&
     !API_GREETING_TOKENS.has(message) &&
     flowIntent === "career_translation" &&
@@ -649,7 +806,11 @@ export async function POST(request: Request) {
   let goalSettingTurn: GoalSettingTurnResult | null = null;
 
   if (user && message && message !== "__welcome__" && goalSettingActive) {
-    goalSettingTurn = processGoalSettingTurn({ message, meta: activeMeta });
+    goalSettingTurn = processGoalSettingTurn({
+      message,
+      meta: activeMeta,
+      careerStage: user.career_stage,
+    });
     activeMeta = goalSettingTurn.meta;
     await upsertAppUser(
       auth.userId,
@@ -775,6 +936,36 @@ export async function POST(request: Request) {
 
   const escalation =
     message && message !== "__welcome__" ? detectEscalation(escalationInput) : null;
+
+  const metricSnapshots =
+    careerHealth?.career_health_score != null
+      ? [{ timestamp: new Date(), percentile: careerHealth.career_health_score }]
+      : [];
+
+  const recentRotationChange = Boolean(
+    activeMeta.rotation_debrief_session?.rotation_name &&
+      activeMeta.rotation_debrief_session.layer === "facts",
+  );
+
+  const coachingBundle = buildMakPhysicianMentorDadBundle({
+    cvText: cvDoc?.extracted_text,
+    assessments: refreshedAssessments,
+    meta: activeMeta,
+    metricSnapshots,
+    recentRotationChange,
+    burnoutElevated:
+      escalationInput.burnoutScore != null && escalationInput.burnoutScore >= 3.325,
+    lastUserMessage: message,
+  });
+
+  if (escalation && message && message !== "__welcome__") {
+    logEscalationEngagementSignal({
+      userId: auth.userId,
+      currentEscalationLevel: coachingBundle.escalation_level,
+      userMessage: message,
+      meceClassification: coachingBundle.mece_suggestion,
+    });
+  }
 
   const escalationGlobalState = escalation
     ? mapEscalationToGlobalState(escalation.trigger)
@@ -902,7 +1093,7 @@ export async function POST(request: Request) {
         auth.demo,
       );
     }
-    response = buildCareerPivotIntro();
+    response = buildCareerPivotIntro(buildCareerPivotProfileHints(activeMeta));
     suggested_actions = [{ action: "Identity navigation", url: "/app/subjective" }];
   } else if (message === "__pivot_quarterly__" && user) {
     if (!activeMeta.pivot_quarterly_session) {
@@ -933,6 +1124,48 @@ export async function POST(request: Request) {
     const turn = processIdentityNavigationTurn({ message: "", meta: activeMeta });
     response = turn.response;
     suggested_actions = turn.suggested_actions;
+  } else if (message === "__board_awareness__" && user) {
+    if (!activeMeta.board_awareness_session) {
+      activeMeta = initBoardAwarenessSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildBoardAwarenessIntro();
+    suggested_actions = [{ action: "Build a Board role", url: "/app/plan" }];
+  } else if (message === "__board_building__" && user) {
+    if (!activeMeta.board_building_session) {
+      activeMeta = initBoardBuildingSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    const turn = processBoardBuildingTurn({
+      message: "",
+      meta: activeMeta,
+      institution: user.institution,
+      specialty: user.specialty,
+    });
+    response = turn.response;
+    suggested_actions = turn.suggested_actions;
+  } else if (message === "__grow_exploration__" && user) {
+    if (!activeMeta.grow_exploration_session) {
+      activeMeta = initGrowExplorationSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildGrowExplorationIntro();
+    suggested_actions = [{ action: "Set goals with Mak", url: "/app/plan" }];
   } else if (message === "__welcome__" && user) {
     const welcomeMeta = getOnboardingMetadata(user);
     if (
@@ -1036,7 +1269,8 @@ export async function POST(request: Request) {
         : "";
 
     const pivotActive = Boolean(
-      activeMeta.career_pivot_context?.target_path ||
+      hasConfirmedCareerThesis(activeMeta.career_thesis) ||
+        activeMeta.career_pivot_context?.target_path ||
         flowIntent?.startsWith("career_") ||
         flowIntent?.startsWith("pivot_") ||
         flowIntent === "identity_navigation",
@@ -1051,8 +1285,30 @@ export async function POST(request: Request) {
         })
       : "";
 
+    const traineeBackgroundPurpose = resolveTraineeBackgroundPurpose({
+      flowIntent,
+      section: chatSection,
+      hasRotationDebriefSession: Boolean(activeMeta.rotation_debrief_session),
+    });
+
+    const traineeProgramBackground =
+      pathCtx?.program && activeMeta.onboarding_path === "institutional"
+        ? buildTraineeProgramBackgroundForMak({
+            program: pathCtx.program,
+            currentRotation: user?.current_rotation,
+            pgyLevel: user?.pgy_level,
+            traineeInitials: activeMeta.trainee_initials,
+            purpose: traineeBackgroundPurpose,
+          })
+        : "";
+
     const contextBlock = [
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
+      programMakContext,
+      traineeProgramBackground,
+      activeMeta.rotation_debrief_session
+        ? buildRotationDebriefMakSystemContext(activeMeta, user?.career_stage)
+        : "",
       buildConversationModelContext({
         careerStage: user?.career_stage,
         specialty: user?.specialty,
@@ -1066,6 +1322,10 @@ export async function POST(request: Request) {
         narrativeAnchor: activeMeta.narrative_anchor,
         promotionContext: activeMeta.promotion_context,
         careerPivotContext: activeMeta.career_pivot_context,
+        careerThesis: activeMeta.career_thesis,
+        careerBoard: activeMeta.career_board,
+        growExploration: activeMeta.grow_exploration_context,
+        goalWoopRecords: activeMeta.goal_woop_records,
         rotationName: activeMeta.rotation_debrief_session?.rotation_name ?? rotationName,
         debriefLayer: activeMeta.rotation_debrief_session?.layer,
       }),
@@ -1078,6 +1338,15 @@ export async function POST(request: Request) {
         : "",
       activeMeta.pivot_quarterly_session
         ? buildPivotQuarterlyMakSystemContext(activeMeta)
+        : "",
+      activeMeta.board_awareness_session
+        ? buildBoardAwarenessMakSystemContext(activeMeta)
+        : "",
+      activeMeta.board_building_session
+        ? buildBoardBuildingMakSystemContext(activeMeta)
+        : "",
+      activeMeta.grow_exploration_session
+        ? buildGrowExplorationMakSystemContext(activeMeta)
         : "",
       activeMeta.attending_quarterly_session
         ? buildAttendingQuarterlyMakSystemContext(activeMeta)
@@ -1109,12 +1378,11 @@ export async function POST(request: Request) {
         : "",
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",
       coachingBrief ? recommendationsContextForMak(coachingBrief) : "",
-      buildMakInternalCoachingBundle(cvDoc?.extracted_text, refreshedAssessments, activeMeta)
-        .context_block,
+      buildPhysicianMentorDadCoachingContextBlock(coachingBundle),
       annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
       quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
       getGoalSettingSession(activeMeta)
-        ? buildGoalSettingMakSystemContext(activeMeta)
+        ? buildGoalSettingMakSystemContext(activeMeta, user?.career_stage)
         : "",
       globalState === "ONBOARDRECONCILE" ? buildReconcileMakSystemContext(activeMeta) : "",
       flowIntent === "capture"
@@ -1125,11 +1393,22 @@ export async function POST(request: Request) {
       .filter(Boolean)
       .join("\n");
 
-    const makSystem = buildMakSystemPrompt(
-      user?.career_stage,
-      user?.practice_setting,
-      pivotActive,
-    );
+    if (process.env.NODE_ENV === "development") {
+      const audit = auditContextBlockForMetricLeakage(contextBlock);
+      if (!audit.safe) {
+        console.warn(`[MAK] Metric leakage in context: ${audit.detectedLeakages.join(", ")}`);
+      }
+    }
+
+    const makSystem =
+      buildMakPhysicianMentorDadSystemPrompt({
+        careerStage: user?.career_stage,
+        practiceSetting: user?.practice_setting,
+        pivotActive,
+        trajectoryState: coachingBundle.trajectory_state,
+        escalationLevel: coachingBundle.escalation_level,
+      }) ||
+      buildMakSystemPrompt(user?.career_stage, user?.practice_setting, pivotActive);
 
     const prior: HistoryTurn[] = Array.isArray(history) ? history.slice(-8) : [];
     const messages = [
@@ -1236,6 +1515,27 @@ export async function POST(request: Request) {
     const supabase = supabaseClient ?? (await createClient());
     const rows = userMsg ? [userMsg, assistantMsg] : [assistantMsg];
     await supabase.from("chat_messages").insert(rows);
+
+    if (
+      coachingBundle.safe_export &&
+      isMemPalaceExternalConfigured() &&
+      user
+    ) {
+      try {
+        await forwardToMemPalaceService({
+          export_id: `mak-${messageId}`,
+          user_id: auth.userId,
+          coaching_summary: `${user.specialty ?? "medicine"} | ${coachingBundle.trajectory_state ?? "active coaching"}`,
+          key_facts: {
+            focus_area: coachingBundle.safe_export.recommendedFocus,
+            invisible_work_theme: coachingBundle.safe_export.invisibleWorkTheme,
+          },
+          synced_at: new Date().toISOString(),
+        });
+      } catch (e) {
+        console.warn("[MemPalace] Safe coaching export failed", e);
+      }
+    }
   }
 
   return jsonOk({
@@ -1284,5 +1584,15 @@ export async function POST(request: Request) {
           development_level: chatClassification.development_level,
         }
       : null,
+    ...(process.env.NODE_ENV === "development"
+      ? {
+          coaching_context: {
+            trajectory_state: coachingBundle.trajectory_state,
+            mece_suggestion: coachingBundle.mece_suggestion,
+            escalation_level: coachingBundle.escalation_level,
+            monthly_checkin_due: coachingBundle.monthly_checkin_due,
+          },
+        }
+      : {}),
   });
 }

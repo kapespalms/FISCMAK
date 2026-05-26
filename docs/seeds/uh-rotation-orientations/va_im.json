@@ -1,0 +1,62 @@
+{
+  "rotation_code": "va_im",
+  "service_name": "VA Internal Medicine — General Medicine Wards (VAMC)",
+  "category": "off_service",
+  "source": {
+    "website_section": "Internal Medicine (UH / VA)",
+    "source_file": "CWRU IM Residency — VAMC General Medicine Wards Learning Objectives",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review VAMC general medicine wards learning objectives (intern level applies to psychiatry off-service rotators)",
+    "Confirm call schedule with team — interns on 4-day rotating call (long-medium-short-happy)",
+    "Review procedure credentialing requirements on IM procedure website if expecting procedures"
+  ],
+  "overview": "Psychiatry PGY off-service rotation on VAMC general medicine wards (CWRU IM program service). Case-based teaching with bedside attending rounds; two residents + one attending per team. Psychiatry rotators typically carry intern-level primary responsibility: admissions H&P overnight, daily exams, progress notes, discharge summaries, and day-to-day management under senior resident and attending supervision.",
+  "location": [
+    "Wade Park VA — general medical inpatient wards",
+    "Patients from VAMC ED, transfers from surgical/neurology floors, direct admissions, ICU/other hospital referrals"
+  ],
+  "personnel": [
+    "Ward team: two IM residents + one teaching attending",
+    "Intern (or psych rotator in intern role): primary responsibility for assigned patients",
+    "Senior resident: supervises two interns, co-admissions, daily rounds on all service patients",
+    "Attending: ultimate responsibility; staffs new admissions within 24h; cosigns notes"
+  ],
+  "schedule": [
+    "Regularly scheduled attending rounds — majority bedside teaching",
+    "Chief Rounds, M&M Conference, morning report augment attending teaching",
+    "Intern call: 4-day rotating schedule (long-medium-short-happy)"
+  ],
+  "logistics": [
+    "Intern objectives: acute H&P, collateral, labs/imaging interpretation, differential, targeted exams tracking pathophysiology, emergent stabilization, therapeutic planning, resource utilization, psychosocial/contextual factors, humanistic care, care coordination and safe transitions (ambulatory, SNF, rehab, subacute)",
+    "Resident objectives: advanced evaluation, prioritized differentials, teach juniors physical exam, manage emergencies and guide juniors, resource utilization, interdisciplinary communication, transitions of care",
+    "Admission H&P on chart night of admission; attending staffs following morning",
+    "Daily progress notes; examine every assigned patient every day; discharge summaries on all patients",
+    "Procedures (when credentialed/supervised): thoracentesis, arthrocentesis, LP, NG tube, IV, phlebotomy, ABG, paracentesis — resident must supervise if credentialed; attending supervises key portion unless urgent",
+    "Mid-rotation feedback strongly encouraged; end-of-rotation written eval; anonymous resident→attending eval",
+    "Teaching method: case-based discussions + recent literature applied to service cases"
+  ],
+  "resources": [
+    "Recent medical literature applied to cases on service",
+    "IM procedure credentialing website (supervised procedure counts)"
+  ],
+  "debrief_prompts": [
+    "Admission you owned overnight — differential, workup, and what changed after attending staffed",
+    "Procedure or bedside exam finding that clarified pathophysiology",
+    "Discharge planning — handoff to ambulatory, SNF, rehab, or subacute; what systems barriers appeared?",
+    "Resource utilization or psychosocial factor that shaped the plan",
+    "Teaching moment — when a senior or attending pushed your clinical reasoning"
+  ],
+  "capture_tags": [
+    "internal medicine wards",
+    "admission H&P",
+    "differential diagnosis",
+    "bedside teaching",
+    "discharge planning",
+    "care coordination",
+    "procedure",
+    "resource utilization",
+    "interdisciplinary team"
+  ]
+}

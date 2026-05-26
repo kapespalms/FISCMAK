@@ -11,6 +11,7 @@ import type {
   PromotionDossier,
 } from "@/lib/v2/types";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { demoCareerBoardSnapshot } from "@/lib/v2/career-board-models";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 
 const KEY = "fiscmak_v2_demo";
@@ -219,6 +220,7 @@ function dashboardReadyDemoUser(userId: string): AppUser {
         orcid: "0000-0002-1825-0097",
         orcid_works_count: 38,
       },
+      career_board: demoCareerBoardSnapshot(),
     },
     preferred_location: null,
     salary_min: null,

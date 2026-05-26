@@ -1,0 +1,294 @@
+{
+  "program_slug": "uh-psych-cmc",
+  "source_site": "UH-CMC Psychiatry Resident Website (Google Sites)",
+  "drive_folder": "https://drive.google.com/drive/u/0/folders/1hpjktsa94DusKYYWs8e0eVtMoBMrfvlG",
+  "drive_files_pending_identification": [
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1ugI-d7zIXnWH5jnMKptDyC_CYo64C2HJ/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1bSe1jR0qEDFNwHiBCdob4j46KaiATNf6/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1_rQtVZpXbKKh2IyQs8jDxO2ci4ja3Cnv/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1tTuFQ22NjDKnyQwUnMHjKgB0hcwN0gxe/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1mpf6cvzvX7SSYgYxgg_2vA0YO5Bftdfd/view"
+    },
+    {
+      "label": "CL/MPU Rotation Syllabus (Google Doc — export to repo when ready)",
+      "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit"
+    }
+  ],
+  "rotations": [
+    {
+      "rotation_code": "va_ct6",
+      "service_name": "Inpatient Adult Psychiatry (VA CT6)",
+      "category": "psychiatry_core",
+      "orientation_seed": "va_ct6.json",
+      "curriculum_seed": "uh_curriculum_inpatient_psychiatry.json",
+      "website_section": "Inpatient Adult Psychiatry (VA)",
+      "last_updated": "2023-12-22",
+      "status": "seeded"
+    },
+    {
+      "rotation_code": "uh_concord",
+      "service_name": "Inpatient Adult Psychiatry (UH Concord)",
+      "category": "psychiatry_core",
+      "orientation_seed": "uh_concord.json",
+      "curriculum_seed": null,
+      "website_section": "Inpatient Adult Psychiatry (UH Concord)",
+      "last_updated": "2023-03-16",
+      "status": "seeded"
+    },
+    {
+      "rotation_code": "swg",
+      "service_name": "Inpatient Adult Psychiatry (UH Southwest General)",
+      "category": "psychiatry_core",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Inpatient Adult Psychiatry (UH-Southwest General)",
+      "last_updated": "2023-11-24",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "northcoast",
+      "service_name": "Inpatient Adult Psychiatry (Northcoast)",
+      "category": "psychiatry_core",
+      "orientation_seed": "northcoast.json",
+      "curriculum_seed": null,
+      "website_section": "Inpatient Adult Psychiatry (Northcoast)",
+      "last_updated": "2024-06-24",
+      "status": "seeded"
+    },
+    {
+      "rotation_code": "capu",
+      "service_name": "Inpatient Child & Adolescent Psychiatry (CAPU)",
+      "category": "psychiatry_core",
+      "orientation_seed": "capu.json",
+      "curriculum_seed": null,
+      "website_section": "Inpatient Child & Adolescent Psychiatry (CAPU)",
+      "last_updated": "2025-01-03",
+      "status": "seeded"
+    },
+    {
+      "rotation_code": "cl",
+      "service_name": "Consult-Liaison Psychiatry",
+      "category": "psychiatry_core",
+      "orientation_seed": "cl.json",
+      "curriculum_seed": null,
+      "website_section": "Consult-Liaison Psychiatry",
+      "last_updated": "2024-03-30",
+      "status": "seeded",
+      "drive_files": [
+        {
+          "label": "CL/MPU Rotation Syllabus",
+          "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit"
+        }
+      ]
+    },
+    {
+      "rotation_code": "mpu_cl",
+      "service_name": "Med-Psych Unit (MPU)",
+      "category": "psychiatry_core",
+      "orientation_seed": "mpu_cl.json",
+      "curriculum_seed": null,
+      "website_section": "Med-Psych Unit (MPU)",
+      "last_updated": "2024-07-03",
+      "status": "seeded",
+      "drive_files": [
+        {
+          "label": "CL/MPU Rotation Syllabus",
+          "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit"
+        }
+      ]
+    },
+    {
+      "rotation_code": "psych_ed_uh_va",
+      "service_name": "Emergency Psychiatry (VA — PGY1)",
+      "category": "psychiatry_core",
+      "orientation_seed": "psych_ed_va.json",
+      "curriculum_seed": null,
+      "website_section": "Emergency Psychiatry (UH/VA)",
+      "status": "seeded",
+      "aliases": ["va emergency psychiatry", "va psych ed", "psych_ed_va"]
+    },
+    {
+      "rotation_code": "outpatient_addiction",
+      "service_name": "Addiction Psychiatry",
+      "category": "psychiatry_core",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Addiction",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "geriatric_psychiatry",
+      "service_name": "Geriatric Psychiatry (Southwest General)",
+      "category": "psychiatry_core",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Geriatric Psychiatry (Southwest General)",
+      "last_updated": "2024-01-12",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "uh_interventional",
+      "service_name": "Interventional Psychiatry (UH)",
+      "category": "psychiatry_core",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Interventional Psychiatry (UH)",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "access_clinic",
+      "service_name": "Access Clinic",
+      "category": "longitudinal",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Access Clinic",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "psychotherapy_clinic",
+      "service_name": "Resident Psychotherapy Clinic",
+      "category": "longitudinal",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Resident Psychotherapy Clinic",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "outpatient_adult",
+      "service_name": "Outpatient Adult Psychiatry Clinics",
+      "category": "longitudinal",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Outpatient Adult Psychiatry Clinics",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "outpatient_child",
+      "service_name": "Outpatient Child Psychiatry Clinics",
+      "category": "longitudinal",
+      "orientation_seed": "outpatient_child.json",
+      "curriculum_seed": null,
+      "website_section": "Outpatient Child Psychiatry Clinics",
+      "status": "seeded",
+      "aliases": ["child outpatient clinic", "walker child outpatient"]
+    },
+    {
+      "rotation_code": "call",
+      "service_name": "Call (PGY1 Psych ED / PGY2 VA)",
+      "category": "operational",
+      "orientation_seed": "call.json",
+      "curriculum_seed": null,
+      "website_section": "Call",
+      "last_updated": "2023-11-22",
+      "status": "seeded"
+    },
+    {
+      "rotation_code": "extra_duty",
+      "service_name": "Extra Duty",
+      "category": "operational",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Extra Duty",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "neurology",
+      "service_name": "Neurology",
+      "category": "off_service",
+      "orientation_seed": "neurology.json",
+      "curriculum_seed": null,
+      "website_section": "Neurology",
+      "last_updated": "2025-06-28",
+      "status": "seeded"
+    },
+    {
+      "rotation_code": "uh_im",
+      "service_name": "Internal Medicine (UH)",
+      "category": "off_service",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Internal Medicine (UH / VA)",
+      "status": "pending",
+      "aliases": ["uh internal medicine", "internal medicine uh"]
+    },
+    {
+      "rotation_code": "va_im",
+      "service_name": "Internal Medicine (VA — General Medicine Wards)",
+      "category": "off_service",
+      "orientation_seed": "va_im.json",
+      "curriculum_seed": null,
+      "website_section": "Internal Medicine (UH / VA)",
+      "status": "seeded",
+      "aliases": [
+        "va internal medicine",
+        "vamc general medicine wards",
+        "general medicine wards",
+        "va im wards"
+      ]
+    },
+    {
+      "rotation_code": "uh_ed",
+      "service_name": "Emergency Medicine (UH)",
+      "category": "off_service",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Emergency Medicine (UH)",
+      "last_updated": "2024-06-10",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "va_ed_im",
+      "service_name": "Emergency Medicine (VA UCC)",
+      "category": "off_service",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Emergency Medicine (VA - UCC)",
+      "last_updated": "2023-12-01",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "peds_ed",
+      "service_name": "Emergency Medicine (UH Rainbow)",
+      "category": "off_service",
+      "orientation_seed": null,
+      "curriculum_seed": null,
+      "website_section": "Emergency Medicine (UH Rainbow)",
+      "last_updated": "2023-04-27",
+      "status": "pending"
+    },
+    {
+      "rotation_code": "medtox",
+      "service_name": "Medical Toxicology",
+      "category": "off_service",
+      "orientation_seed": "medtox.json",
+      "curriculum_seed": null,
+      "website_section": "Medical Toxicology",
+      "status": "seeded",
+      "aliases": ["toxicology elective", "medical toxicology elective"]
+    },
+    {
+      "rotation_code": "elective",
+      "service_name": "Electives (Master Catalog)",
+      "category": "elective",
+      "orientation_seed": "elective.json",
+      "curriculum_seed": "elective_catalog.json",
+      "website_section": "Electives",
+      "last_updated": "2023-12-07",
+      "status": "seeded"
+    },
+  ]
+}

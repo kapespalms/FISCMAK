@@ -1,10 +1,29 @@
-import type { CareerPivotContext } from "@/lib/v2/non-traditional-career-models";
+import type { GrowExplorationContext, GoalWoopRecords } from "@/lib/v2/career-coaching-frameworks";
+import {
+  buildGrowExplorationSystemContext,
+  buildIbarraStageCoachingBlock,
+  buildWoopSystemContext,
+} from "@/lib/v2/career-coaching-frameworks";
+import {
+  buildCareerBoardSystemContext,
+  buildMakInterimBoardContext,
+} from "@/lib/v2/career-board-models";
+import type { CareerBoardSnapshot } from "@/lib/v2/career-board-models";
 import {
   buildCareerPivotSystemContext,
   buildIndustryResumeGuidance,
   buildPivotNarrativeArcPrompt,
+  hasConfirmedCareerThesis,
 } from "@/lib/v2/non-traditional-career-models";
 import { buildTraineeOriginMakContext } from "@/lib/v2/trainee-origin";
+import {
+  buildPersonalStatementMakContext,
+  getPersonalStatementSections,
+  resolveSpecialtyGuide,
+} from "@/lib/v2/personal-statement-templates";
+import {
+  normalizeCareerNarrativeStage,
+} from "@/lib/v2/career-narrative-templates";
 
 export type MakContentPack = "trainee" | "early_attending" | "non_traditional" | "default";
 
@@ -128,6 +147,8 @@ export function buildMakSystemPrompt(
 
   const base = `You are Coach Mak, an empathetic physician career coach. Use MemPalace context and assessment data. No medical advice. One question at a time. Keep replies under 120 words unless summarizing.
 
+One coach, many hats: you are a single continuous AI coach across dashboard, perspective check-ins, career data, goals, rotation debriefs, and document studio. Each screen gives you a different lens (debrief facilitator, goal coach, document drafter, lattice guide) — but you are always the same Coach Mak who knows this physician's trajectory. Never introduce yourself as a different bot or reset their story unless they explicitly start a new flow.
+
 Design principles:
 - Low friction, high frequency: prefer short-answer prompts over essays.
 - Progressive elaboration: capture the fact first, then circle back for details.
@@ -157,6 +178,65 @@ Invisible metrics policy (critical):
   };
 
   return [base, language, stageFocus[stage]].join("\n\n");
+}
+
+const ENVIRONMENTAL_LENS: Record<string, string> = {
+  Academic:
+    "Academic lens: institutional influence, teaching legacy, committee work vs. clinical goals. Hidden tension: committee work may derail clinical purpose.",
+  Community:
+    "Community lens: workflow mastery, clinical autonomy, RVU/productivity vs. peace of mind. Hidden tension: relentless pace vs. meaning in patient care.",
+  Hybrid:
+    "Hybrid lens: dual identities, time fragmentation, code-switching. Hidden tension: academic and clinical pulls in opposite directions.",
+  Industry:
+    "Industry lens: translate clinical leadership to business value; intentional pivot framing.",
+};
+
+const MECE_COACHING_LAYER = `MECE diagnosis (sort friction into ONE bucket when clarifying):
+1. Internal Energy — exhaustion, lost meaning, burnout ("I'm exhausted", "I've lost my passion")
+2. Institutional Friction — broken systems, invisible work, workflow drains ("charting", "prior auth", "no one sees my work")
+3. Relational Capital — isolation, missing mentor/sponsor/connector ("I need an advocate", "I'm alone")
+
+Conversational rhythm: (1) Validate & normalize → (2) Deepen insight → (3) Co-create one micro-step.
+Keep replies to 2–4 short sentences plus one question. Professional colleague tone — never casual, never "dad" language, never surveillance.
+
+Career Board — four distinct roles (explain only when relevant):
+- Mentor: helps think through direction and career identity — not the same as sponsor
+- Sponsor: advocates in rooms you're not in — must have institutional power; seek explicitly
+- Coach: teaches a specific skill for a defined gap — match coach to competency
+- Connector: opens doors, often through weak ties and peripheral contacts
+Mak interim role ONLY while Board is built — coach conversations, narrative, sourcing help. Mak cannot sponsor or replace real advocates.`;
+
+export function buildMakPhysicianMentorDadSystemPrompt(input: {
+  careerStage?: string | null;
+  practiceSetting?: string | null;
+  pivotActive?: boolean;
+  trajectoryState?: string | null;
+  escalationLevel?: number | null;
+}): string {
+  const base = buildMakSystemPrompt(
+    input.careerStage,
+    input.practiceSetting,
+    input.pivotActive,
+  );
+
+  const setting = input.practiceSetting ?? "Academic";
+  const envLens =
+    ENVIRONMENTAL_LENS[setting] ??
+    ENVIRONMENTAL_LENS.Industry ??
+    ENVIRONMENTAL_LENS.Academic;
+
+  const trajectoryNote = input.trajectoryState
+    ? `Trajectory state: ${input.trajectoryState.replace(/_/g, " ")} — adapt tone accordingly.`
+    : "";
+
+  const escalationNote =
+    input.escalationLevel != null && input.escalationLevel >= 3
+      ? "Escalation level elevated — prioritize wellness tone and one manageable step."
+      : "";
+
+  return [base, MECE_COACHING_LAYER, envLens, trajectoryNote, escalationNote]
+    .filter(Boolean)
+    .join("\n\n");
 }
 
 export function buildPromotionContextIntro(): string {
@@ -456,25 +536,22 @@ Ask ONE of these:
 - If you wrote one sentence about this for a personal statement, what would it say?`;
 }
 
-export function buildPersonalStatementArcPrompt(careerStage?: string | null): string {
-  const stage = normalizeCareerStage(careerStage);
-  if (stage === "fellow") {
-    return `Personal statement arc (fellowship):
-1. Defining moment — specific clinical/scholarly moment that crystallized subspecialty focus
-2. Evolution — how residency sharpened interest from broad to specific
-3. Scholarly thread — coherent line of inquiry, not a scattered list
-4. Vision — credible 5–10 year contribution
-5. Program fit — mentors, environment, patient population (when program-specific)
+export function buildPersonalStatementArcPrompt(
+  careerStage?: string | null,
+  specialty?: string | null,
+): string {
+  const stageId = normalizeCareerNarrativeStage(careerStage);
+  const sections = getPersonalStatementSections(stageId);
+  const guide = resolveSpecialtyGuide(specialty);
 
-Surface the strongest themes from captured reflections. Propose a narrative arc using the trainee's own words. One section at a time.`;
-  }
-  return `Personal statement arc (residency/application):
-1. Hook — vivid moment or question
-2. Origin — what drew them to medicine and this specialty
-3. Journey — 2–3 experiences showing growth (not repetition)
-4. Vision — where they're headed and why this program fits
+  return `${buildPersonalStatementMakContext({ stageId, specialty, sectionTitle: undefined })}
 
-When synthesizing, identify origin story links across entries. Tag themes (e.g., health equity, med-psych interface, advocacy).`;
+Section arc (${sections.length} parts):
+${sections.map((s, i) => `${i + 1}. ${s.title}`).join("\n")}
+
+${guide ? `Specialty emphasis (${guide.label}): ${guide.emphasize.join(", ")}. Avoid: ${(guide.avoid ?? []).join("; ") || "specialty clichés"}.` : "Ask about target specialty if not known — tailor tone to specialty culture."}
+
+Surface strongest themes from captured reflections. One section at a time. Hook with a specific moment, not a cliché.`;
 }
 
 export function buildStageAwareCapturePrompt(
@@ -503,6 +580,10 @@ export function buildConversationModelContext(input: {
   narrativeAnchor?: NarrativeAnchor | null;
   promotionContext?: PromotionContext | null;
   careerPivotContext?: CareerPivotContext | null;
+  careerThesis?: CareerThesis | null;
+  careerBoard?: CareerBoardSnapshot | null;
+  growExploration?: GrowExplorationContext | null;
+  goalWoopRecords?: GoalWoopRecords | null;
   rotationName?: string | null;
   debriefLayer?: DebriefLayer | null;
   baseSpecialty?: string | null;
@@ -512,7 +593,8 @@ export function buildConversationModelContext(input: {
   currentRotation?: string | null;
 }): string {
   const pivotActive = Boolean(
-    input.careerPivotContext?.target_path ||
+    hasConfirmedCareerThesis(input.careerThesis) ||
+      input.careerPivotContext?.target_path ||
       input.flowIntent?.startsWith("career_") ||
       input.flowIntent?.startsWith("pivot_") ||
       input.flowIntent === "identity_navigation",
@@ -537,8 +619,24 @@ export function buildConversationModelContext(input: {
   const promoCtx = buildPromotionContextSystemContext(input.promotionContext);
   if (promoCtx) parts.push(promoCtx);
 
-  if (input.careerPivotContext) {
-    parts.push(buildCareerPivotSystemContext(input.careerPivotContext));
+  if (input.careerPivotContext || input.careerThesis) {
+    parts.push(buildCareerPivotSystemContext(input.careerPivotContext, input.careerThesis));
+  }
+
+  if (input.careerBoard) {
+    parts.push(buildCareerBoardSystemContext(input.careerBoard));
+  }
+
+  parts.push(buildMakInterimBoardContext());
+
+  parts.push(buildIbarraStageCoachingBlock(input.careerStage));
+
+  if (input.growExploration) {
+    parts.push(buildGrowExplorationSystemContext(input.growExploration));
+  }
+
+  if (input.goalWoopRecords && Object.keys(input.goalWoopRecords).length) {
+    parts.push(buildWoopSystemContext(input.goalWoopRecords));
   }
 
   if (input.flowIntent === "rotation_debrief") {
@@ -578,7 +676,7 @@ export function buildConversationModelContext(input: {
   }
 
   if (input.flowIntent === "personal_statement_arc") {
-    parts.push(buildPersonalStatementArcPrompt(input.careerStage));
+    parts.push(buildPersonalStatementArcPrompt(input.careerStage, input.specialty));
   }
 
   if (input.flowIntent === "fellowship_mining") {
@@ -587,8 +685,28 @@ export function buildConversationModelContext(input: {
     );
   }
 
+  if (input.flowIntent === "grow_exploration") {
+    parts.push(
+      "Career exploration (GROW internal): Goal → Reality → Options → Way forward. Solution-focused only. Physician articulates options before any pathway suggestions. Smallest testable step — not permanent commitment. Never say GROW or cite studies.",
+    );
+  }
+
+  if (input.flowIntent === "board_awareness") {
+    parts.push(
+      "Board awareness: educate on mentor vs sponsor vs coach vs connector. Self-assess who fills each role or gap. Never cite studies. Emphasize sponsor gap if present.",
+    );
+  }
+
+  if (input.flowIntent === "board_building") {
+    parts.push(
+      "Board building: if physician names someone unknown, ask relationship status then offer sourcing (cold outreach draft, warm intro, society, institutional program, conference). Distinguish roles clearly.",
+    );
+  }
+
   if (input.flowIntent === "career_pivot_onboarding") {
-    parts.push("Career pivot onboarding: destination mapping, intentional framing, hybrid model. One question at a time.");
+    parts.push(
+      "Career direction onboarding (thesis-first): Use solution-focused questions about what they want to move toward — not what they are running from. Build and confirm a one-sentence career direction before suggesting any paths. One question at a time. Never say GROW, Venn, framework names, or cite studies.",
+    );
   }
 
   if (input.flowIntent === "pivot_quarterly") {

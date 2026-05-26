@@ -151,6 +151,11 @@ export const ASSESSMENT_MAK = {
     "assess",
     "Help me close the gaps between what we've discussed and what's on my CV.",
   ),
+  growExploration: makDiscuss(
+    "grow_exploration",
+    "Help me explore career direction before I commit — what's possible and the smallest step to test.",
+    { navigateTo: "/app/subjective", autoMessage: "__grow_exploration__" },
+  ),
 } as const;
 
 /** Plan — Career Strategy */
@@ -170,6 +175,21 @@ export const PLAN_MAK = {
     "plan",
     "Walk me through setting up my Development, Maintenance, and Sustainability goals.",
     { goalFlow: "set", autoMessage: "Begin Development Goal" },
+  ),
+  boardAwareness: makDiscuss(
+    "board_awareness",
+    "Help me map my Career Board — mentor, sponsor, coach, and connector — and find gaps.",
+    { navigateTo: "/app/plan", autoMessage: "__board_awareness__" },
+  ),
+  boardBuilding: makDiscuss(
+    "board_building",
+    "Help me find or connect with someone for a specific Board role — mentor, sponsor, coach, or connector.",
+    { navigateTo: "/app/plan", autoMessage: "__board_building__" },
+  ),
+  growExploration: makDiscuss(
+    "grow_exploration",
+    "Help me explore career direction before I commit — what good looks like and the smallest step to test.",
+    { navigateTo: "/app/plan", autoMessage: "__grow_exploration__" },
   ),
   editGoal: makDiscuss(
     "plan",
@@ -207,7 +227,7 @@ export const OUTPUT_MAK = {
   ),
   career_pivot_onboarding: makDiscuss(
     "career_pivot_onboarding",
-    "Help me map my non-traditional career pivot — destination, intentional framing, and hybrid model.",
+    "Help me clarify my career direction — what energizes me, my strengths, and paths that fit before I pick a role.",
     { navigateTo: "/app/subjective", autoMessage: "__career_pivot_onboarding__" },
   ),
   pivot_quarterly: makDiscuss(
@@ -246,10 +266,37 @@ export const OUTPUT_MAK = {
     "Help me compare document versions and decide what to keep.",
     { navigateTo: "/app/output" },
   ),
-  promotion_section: (section: string) =>
+  promotion_section: (section: string, trackLabel?: string) =>
     makDiscuss(
       "create",
-      `Help me draft the ${section} section of my promotion narrative.`,
+      trackLabel
+        ? `Help me draft the "${section}" section of my ${trackLabel} promotion narrative. Focus on impact and metrics, not activity lists. Mirror institutional promotion criteria.`
+        : `Help me draft the ${section} section of my promotion narrative.`,
+      { navigateTo: "/app/output" },
+    ),
+
+  career_narrative_section: (section: string, stageLabel: string, trackLabel: string) =>
+    makDiscuss(
+      "personal_statement_arc",
+      `Help me draft the "${section}" section of my career narrative as a ${stageLabel} on the ${trackLabel} track. Show impact with specific examples and metrics. Maintain a coherent throughline — not a CV rehash.`,
+      { navigateTo: "/app/output" },
+    ),
+  academic_document_section: (documentLabel: string, sectionTitle: string) =>
+    makDiscuss(
+      "create",
+      `Help me draft the "${sectionTitle}" section of my ${documentLabel}. Use Career Data vault evidence — metrics and outcomes, not activity lists. Match the official format requirements.`,
+      { navigateTo: "/app/output" },
+    ),
+  cover_letter_section: (stageLabel: string, sectionTitle: string) =>
+    makDiscuss(
+      "create",
+      `Help me draft the "${sectionTitle}" section of my ${stageLabel} physician cover letter. One page total — quantify accomplishments and tailor to the specific institution and position.`,
+      { navigateTo: "/app/output" },
+    ),
+  industry_career_section: (documentLabel: string, sectorLabel: string, sectionTitle: string) =>
+    makDiscuss(
+      "pivot_narrative",
+      `Help me draft the "${sectionTitle}" section of my ${documentLabel} for ${sectorLabel}. Translate clinical experience into outsider language — quantified impact, not academic CV language.`,
       { navigateTo: "/app/output" },
     ),
 } as const;
@@ -341,9 +388,43 @@ export const PROFILE_MAK = {
   ),
   careerPivotOnboarding: makDiscuss(
     "career_pivot_onboarding",
-    "Help me map my non-traditional career pivot — where I'm moving and why.",
+    "Help me clarify my career direction — what energizes me, my strengths, and paths that fit.",
     { navigateTo: "/app/profile", autoMessage: "__career_pivot_onboarding__" },
   ),
+  board: makDiscuss(
+    "board_awareness",
+    "Help me map my Career Board — mentor, sponsor, coach, and connector — and find gaps.",
+    { navigateTo: "/app/profile", autoMessage: "__board_awareness__" },
+  ),
+  boardBuilding: makDiscuss(
+    "board_building",
+    "Help me find or connect with someone for a Board role — including cold outreach if needed.",
+    { navigateTo: "/app/profile", autoMessage: "__board_building__" },
+  ),
+  career_portfolio: (stageLabel: string) =>
+    makDiscuss(
+      "discuss",
+      `Help me build my career portfolio as a ${stageLabel}. Stages are cumulative — help me capture evidence, metrics, and notes for each domain, not just check boxes.`,
+      { navigateTo: "/app/profile" },
+    ),
+  career_portfolio_domain: (domainTitle: string, stageLabel: string) =>
+    makDiscuss(
+      "discuss",
+      `Help me document evidence for "${domainTitle}" in my ${stageLabel} career portfolio — specific metrics, outcomes, and narrative notes I can reuse for promotion or applications.`,
+      { navigateTo: "/app/profile" },
+    ),
+  academic_dossier: (stageLabel: string) =>
+    makDiscuss(
+      "discuss",
+      `Help me build my academic medicine dossier as a ${stageLabel}. Align with promotion criteria across clinical, research, education, and service — capture metrics and evidence, not activity lists.`,
+      { navigateTo: "/app/profile" },
+    ),
+  academic_dossier_section: (sectionTitle: string, stageLabel: string) =>
+    makDiscuss(
+      "discuss",
+      `Help me document the "${sectionTitle}" section of my ${stageLabel} academic dossier — specific content, metrics, and formatting appropriate for promotion or credentialing.`,
+      { navigateTo: "/app/profile" },
+    ),
 } as const;
 
 export const SETTINGS_MAK = {

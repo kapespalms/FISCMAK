@@ -1,0 +1,67 @@
+{
+  "rotation_code": "cl",
+  "service_name": "Consult-Liaison Psychiatry",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Consult-Liaison Psychiatry",
+    "last_updated": "2024-03-30",
+    "drive_files": [
+      {
+        "label": "CL/MPU Rotation Syllabus",
+        "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit"
+      }
+    ],
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review the CL introductory document on the resident website",
+    "Review the CL/MPU Rotation Syllabus",
+    "Check the office calendar for daily attending assignment"
+  ],
+  "overview": "24/7 psychiatric consultation for medical, surgical, and obstetric inpatients at UH-CMC. High-volume consult service with transplant, women's mental health, and med-psych overlap.",
+  "location": [
+    "UH CMC — Lakeside, 8th floor, Room 8110",
+    "Parking: UH-CMC garages"
+  ],
+  "personnel": [
+    "Attendings: Dr. Brandstetter, Dr. Shah, Dr. Parrisbalogun, Dr. Wang",
+    "Fellow: Dr. Kyal Lalk",
+    "APRN: Shawna Gudalis",
+    "Psychologist: Dr. Clare Mitchell",
+    "Women's MH: Dr. Hatters-Friedman, Dr. Reed",
+    "Pharmacist: Dr. Lauren Hoffman"
+  ],
+  "schedule": [
+    "Monday–Friday, 8:00 AM – 5:00 PM; no weekends",
+    "Psychiatry Didactics Wednesdays",
+    "Psychiatry Grand Rounds Fridays (watched in CL office)"
+  ],
+  "logistics": [
+    "See introductory document for daily workflow and backup coverage",
+    "Use CL note templates; coordinate with primary teams after recommendations"
+  ],
+  "resources": [
+    "CL Tips & Tricks, CL Note Template, Transplant Evaluation resources",
+    "Local MH and chemical dependency resource sheets",
+    "UH Safety Plan, Carelines & Helplines"
+  ],
+  "recommended_reading": [
+    "UH CL Psychiatry website reading list",
+    "Topics to Know for CL rotation"
+  ],
+  "debrief_prompts": [
+    "Which consult type stretched you most — delirium, capacity, transplant, substance withdrawal, somatic symptom?",
+    "How did you structure the consult note and communicate recommendations to the primary team?",
+    "One moment where collateral or systems navigation changed the plan",
+    "What would you do differently on a similar consult tomorrow?"
+  ],
+  "capture_tags": [
+    "consult note",
+    "capacity evaluation",
+    "delirium",
+    "transplant psychiatry",
+    "team communication",
+    "collateral history",
+    "safety planning"
+  ]
+}

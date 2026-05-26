@@ -62,6 +62,9 @@ export type OnboardingMetadata = {
   annual_refresh_session?: import("@/lib/v2/annual-mak-flow").AnnualRefreshSession;
   quarterly_pulse_session?: import("@/lib/v2/quarterly-mak-flow").QuarterlyPulseSession;
   goal_setting_session?: import("@/lib/v2/goal-setting-mak-flow").GoalSettingSession;
+  goal_woop_records?: import("@/lib/v2/career-coaching-frameworks").GoalWoopRecords;
+  grow_exploration_session?: import("@/lib/v2/grow-exploration-mak-flow").GrowExplorationSession;
+  grow_exploration_context?: import("@/lib/v2/career-coaching-frameworks").GrowExplorationContext;
   goals_confirmed?: boolean;
   goals_confirmed_at?: string;
   touchpoint_session_mode?: "quarterly" | "annual";
@@ -97,6 +100,7 @@ export type OnboardingMetadata = {
   trainee_initials?: string;
   program_membership?: import("@/lib/v2/programs/program-membership").ProgramMembershipRecord;
   career_pivot_context?: import("@/lib/v2/non-traditional-career-models").CareerPivotContext;
+  career_thesis?: import("@/lib/v2/non-traditional-career-models").CareerThesis;
   career_pivot_session?: import("@/lib/v2/non-traditional-career-mak-flow").CareerPivotSession;
   pivot_quarterly_session?: import("@/lib/v2/non-traditional-career-mak-flow").PivotQuarterlySession;
   pivot_quarterly_captures?: Array<{
@@ -108,6 +112,69 @@ export type OnboardingMetadata = {
   identity_navigation_session?: import("@/lib/v2/non-traditional-career-mak-flow").IdentityNavigationSession;
   pivot_translations?: import("@/lib/v2/non-traditional-career-models").PivotTranslationEntry[];
   career_translation_session?: import("@/lib/v2/non-traditional-career-mak-flow").CareerTranslationSession;
+  career_board?: import("@/lib/v2/career-board-models").CareerBoardSnapshot;
+  board_awareness_session?: import("@/lib/v2/career-board-mak-flow").BoardAwarenessSession;
+  board_building_session?: import("@/lib/v2/career-board-mak-flow").BoardBuildingSession;
+  career_narrative?: {
+    stage_id: import("@/lib/v2/career-narrative-templates").CareerNarrativeStageId;
+    track_id: import("@/lib/v2/career-narrative-templates").CareerNarrativeTrackId;
+    application_id: import("@/lib/v2/career-narrative-templates").CareerNarrativeApplicationId;
+    sections: Record<
+      string,
+      { content: string; completion_percentage: number; last_edited: string }
+    >;
+    updated_at: string;
+  };
+  career_portfolio?: {
+    stage_id: import("@/lib/v2/career-portfolio-templates").CareerPortfolioStageId;
+    items: Record<string, import("@/lib/v2/career-portfolio-templates").PortfolioItemState>;
+    cross_cutting: Record<string, import("@/lib/v2/career-portfolio-templates").PortfolioItemState>;
+    updated_at: string;
+  };
+  academic_dossier?: {
+    stage_id: import("@/lib/v2/academic-dossier-templates").AcademicDossierStageId;
+    items: Record<string, import("@/lib/v2/academic-dossier-templates").DossierItemState>;
+    supporting: Record<string, import("@/lib/v2/academic-dossier-templates").DossierItemState>;
+    updated_at: string;
+  };
+  academic_core_documents?: Partial<
+    Record<
+      import("@/lib/v2/academic-core-document-templates").AcademicCoreDocumentId,
+      {
+        sections: Record<
+          string,
+          { content: string; completion_percentage: number; last_edited: string }
+        >;
+        updated_at: string;
+      }
+    >
+  >;
+  cover_letter?: {
+    stage_id: import("@/lib/v2/cover-letter-templates").CoverLetterStageId;
+    position_type?: import("@/lib/v2/cover-letter-guide").CoverLetterPositionTypeId;
+    institutional_setting?: import("@/lib/v2/cover-letter-guide").CoverLetterInstitutionalSettingId;
+    specialty_category?: import("@/lib/v2/cover-letter-guide").CoverLetterSpecialtyCategoryId;
+    sections: Record<
+      string,
+      { content: string; completion_percentage: number; last_edited: string }
+    >;
+    checklist?: Record<string, boolean>;
+    updated_at: string;
+  };
+  industry_career_documents?: Partial<
+    Record<
+      import("@/lib/v2/industry-career-templates").IndustryDocumentType,
+      {
+        stage_id: import("@/lib/v2/industry-career-templates").IndustryCareerStageId;
+        sector_id: import("@/lib/v2/industry-career-templates").IndustrySectorId;
+        sections: Record<
+          string,
+          { content: string; completion_percentage: number; last_edited: string }
+        >;
+        updated_at: string;
+      }
+    >
+  >;
   /** Server-only Mak coaching bands — never expose s_index to users */
   _internal_coaching?: {
     service_footprint_band: "minimal" | "moderate" | "strong";

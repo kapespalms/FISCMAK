@@ -1,0 +1,59 @@
+{
+  "rotation_code": "psych_ed_uh_va",
+  "service_name": "VA Emergency Psychiatry (PGY1)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Emergency Psychiatry (UH/VA)",
+    "source_file": "VA Emergency Psychiatry Rotation Handbook",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review rotation goals and objectives (MedHub curriculum)",
+    "Review graduated levels of responsibility — indirect supervision not before week 6 of residency",
+    "On Day 1, page ED/CL pager 440-562-2194 to connect with psychiatry attending"
+  ],
+  "overview": "PGY1 two-week rotation serving as psychiatric consultant in the VA Emergency Department. Monday–Thursday 1 PM until sign-out to on-call resident. Progression from observing evaluations to observed interviews; may evaluate independently with subsequent in-person supervision when approved (not in first 6 weeks of training).",
+  "location": [
+    "VA Emergency Department — Mental Health Intervention Suite (64100)",
+    "Resident call room workspace: 67020 (business hours; Thursday workspace TBD)",
+    "Belongings in call room during rotation"
+  ],
+  "personnel": [
+    "Attendings: Dr. Neal Goldenberg, Dr. Kuldeep Vaghela",
+    "VA Site Director / ED Section: Dr. Mallika Lavakumar",
+    "Psychiatry Service Chief / CL Section Chief: Dr. Marianne Jhee",
+    "Deputy Section Chief, Education: Dr. Archana Brojmohun",
+    "Admin: Decey Cabarle (copied on leave requests)"
+  ],
+  "schedule": [
+    "Monday–Thursday, 1:00 PM until sign-out to resident on-call",
+    "Time off: email site director Dr. Lavakumar with Decey Cabarle copied; unexpected leave also notify ED attending"
+  ],
+  "logistics": [
+    "Begin observing patient evaluations; graduate to observed interviews",
+    "Independent initial evaluation permitted when complexity/acuity allows — only after indirect supervision approval and not in first 6 weeks",
+    "Subsequent in-person evaluation and supervision by attending required",
+    "Planned vacation, sick, or education leave requires site director approval"
+  ],
+  "resources": [
+    "VA Library Service SharePoint — E-Books",
+    "Glick R. Emergency Psychiatry: Principles and Practice (Wolters Kluwer, 2021)",
+    "Levenson JL. Textbook of Psychosomatic Medicine and Consultation-Liaison Psychiatry, 3rd Ed (APPI, 2019)",
+    "ED/MOD: 64433; CL pager: 440-562-2194"
+  ],
+  "debrief_prompts": [
+    "First ED psych consult as consultant — what was different from inpatient?",
+    "Risk assessment and disposition decision — walk through your reasoning",
+    "Observation vs. independent interview — where are you on the graduated responsibility path?",
+    "Collaboration with ED team and attending supervision — one moment that clarified your role"
+  ],
+  "capture_tags": [
+    "psychiatric emergency",
+    "ED consultation",
+    "risk assessment",
+    "disposition planning",
+    "graduated responsibility",
+    "after-hours coverage",
+    "consult note"
+  ]
+}

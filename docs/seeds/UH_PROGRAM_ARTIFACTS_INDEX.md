@@ -13,6 +13,13 @@
 | `12325_psychiatry_annual_program_eva.docx` | APE Report Sep 2025 | `uh_ape_2025_summary.json` | PD dashboard context, program aims |
 | `12325_faculty_guide_to_medhub_vmay2.docx` | Faculty how-to | `MEDHUB_FACULTY_GUIDE_MAPPING.md` | Eval cadence, privacy, import rules |
 | `curriculum_cmcpsych_inpatient_psych.docx` | Rotation curriculum | `uh_curriculum_inpatient_psychiatry.json` | Rotation debrief prompts |
+| UH-CMC Resident Website (25 rotation pages) | Orientation / logistics | `docs/seeds/uh-rotation-orientations/` | Block-aware Mak context, debrief prompts — see `UH_ROTATION_ORIENTATION_INDEX.md` |
+| `VA Emergency Psychiatry Rotation Handbook` | PGY1 handbook | `psych_ed_va.json` | Mak background — VA ED psych consult rotation |
+| `Child Outpatient Clinic Guidelines` | Longitudinal clinic | `outpatient_child.json` | Mak background — Walker child OP |
+| `Toxicology Elective Curriculum` | Elective | `medtox.json` | Mak background — bingo board, MAT, presentations |
+| `CWRU IM VAMC General Medicine Wards LOs` | Off-service | `va_im.json` | Mak background — intern/resident objectives, procedures, supervision |
+| `Master Elective Spreadsheet` | Elective catalog (62 rows) | `elective_catalog.json` | Mak background — planning, lattice tags, longitudinal vs block; never auto-disclosed |
+| `Suicide & Violence Risk Assessment Guide` (Resnick/UH Didactics) | Clinical didactic | `uh-program-guides/suicide_violence_risk_assessment.json` | Mak background — help identify factors only; **never assign high/moderate/low risk or write that a patient is high risk** |
 | MedHub Curriculum Objectives (screenshot) | Web UI index | This doc § Curriculum | Links rotation → goals docs |
 | [Resident Recognition Google Form](https://docs.google.com/forms/d/e/1FAIpQLSesRCDkfbyOVmCX0taC9Sd8PhSpMhT5PX3CtRfmMoea8_GTJA/viewform) | Culture/wellness | § Recognition below | Optional peer kudos module |
 
