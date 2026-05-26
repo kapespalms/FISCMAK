@@ -18,6 +18,18 @@ import outpatientChild from "../../../../docs/seeds/uh-rotation-orientations/out
 import medtox from "../../../../docs/seeds/uh-rotation-orientations/medtox.json";
 import vaIm from "../../../../docs/seeds/uh-rotation-orientations/va_im.json";
 import elective from "../../../../docs/seeds/uh-rotation-orientations/elective.json";
+import swg from "../../../../docs/seeds/uh-rotation-orientations/swg.json";
+import outpatientAddiction from "../../../../docs/seeds/uh-rotation-orientations/outpatient_addiction.json";
+import geriatricPsychiatry from "../../../../docs/seeds/uh-rotation-orientations/geriatric_psychiatry.json";
+import uhInterventional from "../../../../docs/seeds/uh-rotation-orientations/uh_interventional.json";
+import accessClinic from "../../../../docs/seeds/uh-rotation-orientations/access_clinic.json";
+import psychotherapyClinic from "../../../../docs/seeds/uh-rotation-orientations/psychotherapy_clinic.json";
+import outpatientAdult from "../../../../docs/seeds/uh-rotation-orientations/outpatient_adult.json";
+import extraDuty from "../../../../docs/seeds/uh-rotation-orientations/extra_duty.json";
+import uhIm from "../../../../docs/seeds/uh-rotation-orientations/uh_im.json";
+import uhEd from "../../../../docs/seeds/uh-rotation-orientations/uh_ed.json";
+import vaEdIm from "../../../../docs/seeds/uh-rotation-orientations/va_ed_im.json";
+import pedsEd from "../../../../docs/seeds/uh-rotation-orientations/peds_ed.json";
 import { buildElectiveCatalogMakContext } from "@/lib/v2/programs/elective-catalog";
 import { buildClinicalGuidesMakContext } from "@/lib/v2/programs/program-clinical-guides";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
@@ -79,6 +91,18 @@ const PACKS: Record<string, RotationOrientationPack> = {
   medtox: medtox as RotationOrientationPack,
   va_im: vaIm as RotationOrientationPack,
   elective: elective as RotationOrientationPack,
+  swg: swg as RotationOrientationPack,
+  outpatient_addiction: outpatientAddiction as RotationOrientationPack,
+  geriatric_psychiatry: geriatricPsychiatry as RotationOrientationPack,
+  uh_interventional: uhInterventional as RotationOrientationPack,
+  access_clinic: accessClinic as RotationOrientationPack,
+  psychotherapy_clinic: psychotherapyClinic as RotationOrientationPack,
+  outpatient_adult: outpatientAdult as RotationOrientationPack,
+  extra_duty: extraDuty as RotationOrientationPack,
+  uh_im: uhIm as RotationOrientationPack,
+  uh_ed: uhEd as RotationOrientationPack,
+  va_ed_im: vaEdIm as RotationOrientationPack,
+  peds_ed: pedsEd as RotationOrientationPack,
 };
 
 /** Tag → suggested lattice domain × track (for activity capture & lattice interpretation). */
@@ -153,6 +177,29 @@ const CAPTURE_TAG_LATTICE: Record<string, Array<{ domain: string; track: string 
   "violence assessment": [{ domain: "Clinical Expertise", track: "Clinician" }],
   "suicide prevention": [{ domain: "Professionalism & Ethics", track: "Quality/Safety" }],
   "lethal means counseling": [{ domain: "Clinical Expertise", track: "Clinician" }],
+  "geriatric psychiatry": [
+    { domain: "Clinical Expertise", track: "Clinician" },
+    { domain: "Communication", track: "Clinician" },
+  ],
+  dementia: [{ domain: "Clinical Expertise", track: "Clinician" }],
+  polypharmacy: [{ domain: "Systems Thinking", track: "Quality/Safety" }],
+  ECT: [
+    { domain: "Clinical Expertise", track: "Clinician" },
+    { domain: "Scholarship & Learning", track: "Researcher" },
+  ],
+  neuromodulation: [{ domain: "Clinical Expertise", track: "Clinician" }],
+  "treatment-resistant depression": [{ domain: "Clinical Expertise", track: "Clinician" }],
+  psychotherapy: [
+    { domain: "Communication", track: "Educator" },
+    { domain: "Personal & Professional Development", track: "Clinician" },
+  ],
+  "health equity": [{ domain: "Systems Thinking", track: "Advocate" }],
+  "systems advocacy": [{ domain: "Systems Thinking", track: "Advocate" }],
+  "motivational interviewing": [{ domain: "Communication", track: "Clinician" }],
+  "relapse prevention": [{ domain: "Clinical Expertise", track: "Clinician" }],
+  "harm reduction": [{ domain: "Systems Thinking", track: "Advocate" }],
+  "medical clearance": [{ domain: "Clinical Expertise", track: "Clinician" }],
+  "professional identity": [{ domain: "Personal & Professional Development", track: "Clinician" }],
 };
 
 const CATEGORY_LATTICE_DEFAULTS: Record<

@@ -1,0 +1,36 @@
+{
+  "rotation_code": "extra_duty",
+  "service_name": "Extra Duty",
+  "category": "operational",
+  "source": {
+    "website_section": "Extra Duty",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Confirm extra duty assignment type with chief resident or program coordinator",
+    "Review coverage expectations, handoff rules, and escalation pathways",
+    "Clarify whether duty is clinical, administrative, or educational"
+  ],
+  "overview": "Program-assigned extra duty — may include cross-coverage, administrative support, educational activities, or supplemental clinical shifts. Scope varies; confirm expectations before each assignment.",
+  "schedule": [
+    "Assignment-specific — may overlay base rotation",
+    "Document hours and responsibilities for PD tracking if required"
+  ],
+  "logistics": [
+    "Clarify supervision chain and who to page for clinical questions",
+    "Do not exceed scope of training — escalate when assignment exceeds PGY level",
+    "Capture only work you actually performed for career evidence"
+  ],
+  "debrief_prompts": [
+    "What was the actual scope of this extra duty vs. what you expected?",
+    "Autonomy or escalation moment — when you sought help or led",
+    "Teaching or administrative contribution worth portfolio capture",
+    "Would you volunteer for similar duty again — why or why not?"
+  ],
+  "capture_tags": [
+    "after-hours coverage",
+    "care coordination",
+    "graduated responsibility",
+    "interdisciplinary team"
+  ]
+}

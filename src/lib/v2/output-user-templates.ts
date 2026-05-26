@@ -134,7 +134,7 @@ export function buildUserOutputTemplateMakContext(
       ? "Previously uploaded to Career Data vault"
       : "Uploaded as Output Studio template";
   return `[User seed for ${label} — collaborative drafting]
-${origin}: ${templateSourceLabel(template} (${template.word_count} words)
+${origin}: ${templateSourceLabel(template)} (${template.word_count} words)
 
 Follow the document's structure, section headings, and formatting conventions below.
 Fill placeholders with Career Data vault evidence only — do not invent metrics.

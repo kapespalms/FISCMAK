@@ -19,6 +19,20 @@ import {
 } from "@/lib/v2/api-enrichment";
 import { persistEnrichmentSnapshot } from "@/lib/v2/career-data-repo";
 import { sanitizeDocumentMetadataForUser } from "@/lib/v2/mempalace-key-facts";
+import { invalidateLatticeDocumentCache } from "@/lib/v2/lattice/invalidate-cache";
+
+async function clearLatticeDocumentCache(userId: string, email: string, demo: boolean) {
+  const user = await getAppUser(userId, demo);
+  if (!user) return;
+  const meta = getOnboardingMetadata(user);
+  if (!meta.lattice_document_cache) return;
+  await upsertAppUser(
+    userId,
+    email,
+    { onboarding_metadata: invalidateLatticeDocumentCache(meta) as Record<string, unknown> },
+    demo,
+  );
+}
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -159,6 +173,7 @@ export async function POST(request: Request) {
       state.user.cv_uploaded = true;
       void runEnrichmentAfterUpload();
     }
+    void clearLatticeDocumentCache(userId, email, demo);
     return jsonOk({
       document_id: docId,
       document_type,
@@ -192,6 +207,8 @@ export async function POST(request: Request) {
     await supabase.from("app_users").update({ cv_uploaded: true }).eq("user_id", userId);
     void runEnrichmentAfterUpload();
   }
+
+  void clearLatticeDocumentCache(userId, email, demo);
 
   return jsonOk({
     document_id: data.document_id,

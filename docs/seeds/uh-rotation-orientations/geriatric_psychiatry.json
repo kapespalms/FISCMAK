@@ -1,0 +1,47 @@
+{
+  "rotation_code": "geriatric_psychiatry",
+  "service_name": "Geriatric Psychiatry (Southwest General)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Geriatric Psychiatry (Southwest General)",
+    "last_updated": "2024-01-12",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Confirm inpatient vs. outpatient mix for your block with Dr. Polster's team",
+    "Review geriatric psychiatry reading list and delirium/dementia differentials",
+    "Clarify SWG site logistics and parking before Day 1"
+  ],
+  "overview": "Geriatric psychiatry at Southwest General — late-life mood, psychotic, and cognitive disorders with attention to medical comorbidity, polypharmacy, capacity, and caregiver collateral.",
+  "location": [
+    "UH Southwest General — geriatric psychiatry inpatient and/or outpatient settings"
+  ],
+  "personnel": [
+    "Dr. Daniel Polster — geriatric psychiatry faculty (Southwest General)"
+  ],
+  "schedule": [
+    "Block or longitudinal assignment per schedule — confirm daily start time",
+    "Psychiatry Didactics Wednesdays"
+  ],
+  "logistics": [
+    "Prioritize delirium workup, fall risk, and medical contributors to psychiatric symptoms",
+    "Engage family/caregivers for collateral and disposition planning",
+    "Document capacity assessments when treatment refusal or placement decisions arise"
+  ],
+  "debrief_prompts": [
+    "Delirium vs. dementia vs. primary psychiatric illness — one case that clarified the differential",
+    "Polypharmacy or anticholinergic burden — medication change you recommended",
+    "Caregiver or family meeting — how collateral changed the plan",
+    "Capacity or guardianship question — how you documented reasoning"
+  ],
+  "capture_tags": [
+    "geriatric psychiatry",
+    "delirium",
+    "dementia",
+    "polypharmacy",
+    "capacity evaluation",
+    "family meeting",
+    "collateral history",
+    "care coordination"
+  ]
+}

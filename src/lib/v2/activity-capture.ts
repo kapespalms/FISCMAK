@@ -5,6 +5,7 @@ import { addServerDemoActivity } from "@/lib/v2/demo-store";
 import { FISCMAKClassifier } from "@/lib/v2/FISCMAKClassifier";
 import { FreeClassifier } from "@/lib/v2/free-classifier";
 import { hasActiveSubscription } from "@/lib/v2/stripe-config";
+import { normalizeActivityForLattice } from "@/lib/v2/lattice/activity-normalize";
 import type { ActivityEntry, ClassificationResult } from "@/lib/types/database";
 
 const SKIP_CAPTURE_MESSAGES = new Set([
@@ -54,7 +55,10 @@ function activityEntryFromRow(
   fallback?: Partial<ActivityEntry>,
 ): ActivityEntry {
   const trackKeys = row.inferred_career_track_keys as string[] | undefined;
-  return {
+  const raw: ActivityEntry & {
+    inferred_activity_key?: string | null;
+    inferred_career_track_keys?: string[] | null;
+  } = {
     id: (row.id as string) ?? crypto.randomUUID(),
     user_id: userId,
     created_at: (row.created_at as string) ?? new Date().toISOString(),
@@ -76,7 +80,10 @@ function activityEntryFromRow(
     evidence_strength: fallback?.evidence_strength ?? null,
     confidence_score:
       (row.overall_confidence as number) ?? fallback?.confidence_score ?? null,
+    inferred_activity_key: (row.inferred_activity_key as string) ?? null,
+    inferred_career_track_keys: trackKeys ?? null,
   };
+  return normalizeActivityForLattice(raw);
 }
 
 async function classifyActivityText(
@@ -226,7 +233,7 @@ export async function captureActivityFromMak(params: {
     params.careerPhase,
   );
 
-  const entry: ActivityEntry = {
+  const entry: ActivityEntry = normalizeActivityForLattice({
     id: crypto.randomUUID(),
     user_id: params.userId,
     created_at: new Date().toISOString(),
@@ -241,7 +248,7 @@ export async function captureActivityFromMak(params: {
     scope: classification.scope,
     evidence_strength: classification.evidence_strength,
     confidence_score: classification.confidence_score,
-  };
+  });
 
   if (params.demo || !isSupabaseConfigured()) {
     addServerDemoActivity(params.userId, entry);

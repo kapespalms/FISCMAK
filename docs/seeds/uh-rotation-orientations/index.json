@@ -53,11 +53,12 @@
       "rotation_code": "swg",
       "service_name": "Inpatient Adult Psychiatry (UH Southwest General)",
       "category": "psychiatry_core",
-      "orientation_seed": null,
+      "orientation_seed": "swg.json",
       "curriculum_seed": null,
       "website_section": "Inpatient Adult Psychiatry (UH-Southwest General)",
       "last_updated": "2023-11-24",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["southwest general", "uh swg", "swg inpatient"]
     },
     {
       "rotation_code": "northcoast",
@@ -125,56 +126,61 @@
       "rotation_code": "outpatient_addiction",
       "service_name": "Addiction Psychiatry",
       "category": "psychiatry_core",
-      "orientation_seed": null,
+      "orientation_seed": "outpatient_addiction.json",
       "curriculum_seed": null,
       "website_section": "Addiction",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["addiction psychiatry", "mat addiction", "outpatient addiction"]
     },
     {
       "rotation_code": "geriatric_psychiatry",
       "service_name": "Geriatric Psychiatry (Southwest General)",
       "category": "psychiatry_core",
-      "orientation_seed": null,
+      "orientation_seed": "geriatric_psychiatry.json",
       "curriculum_seed": null,
       "website_section": "Geriatric Psychiatry (Southwest General)",
       "last_updated": "2024-01-12",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["geriatric psychiatry", "geriatric swg"]
     },
     {
       "rotation_code": "uh_interventional",
       "service_name": "Interventional Psychiatry (UH)",
       "category": "psychiatry_core",
-      "orientation_seed": null,
+      "orientation_seed": "uh_interventional.json",
       "curriculum_seed": null,
       "website_section": "Interventional Psychiatry (UH)",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["interventional psychiatry", "ect", "rtms", "ketamine"]
     },
     {
       "rotation_code": "access_clinic",
       "service_name": "Access Clinic",
       "category": "longitudinal",
-      "orientation_seed": null,
+      "orientation_seed": "access_clinic.json",
       "curriculum_seed": null,
       "website_section": "Access Clinic",
-      "status": "pending"
+      "status": "seeded"
     },
     {
       "rotation_code": "psychotherapy_clinic",
       "service_name": "Resident Psychotherapy Clinic",
       "category": "longitudinal",
-      "orientation_seed": null,
+      "orientation_seed": "psychotherapy_clinic.json",
       "curriculum_seed": null,
       "website_section": "Resident Psychotherapy Clinic",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["psychotherapy clinic", "resident psychotherapy"]
     },
     {
       "rotation_code": "outpatient_adult",
       "service_name": "Outpatient Adult Psychiatry Clinics",
       "category": "longitudinal",
-      "orientation_seed": null,
+      "orientation_seed": "outpatient_adult.json",
       "curriculum_seed": null,
       "website_section": "Outpatient Adult Psychiatry Clinics",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["adult outpatient clinic", "outpatient adult"]
     },
     {
       "rotation_code": "outpatient_child",
@@ -200,10 +206,10 @@
       "rotation_code": "extra_duty",
       "service_name": "Extra Duty",
       "category": "operational",
-      "orientation_seed": null,
+      "orientation_seed": "extra_duty.json",
       "curriculum_seed": null,
       "website_section": "Extra Duty",
-      "status": "pending"
+      "status": "seeded"
     },
     {
       "rotation_code": "neurology",
@@ -219,10 +225,10 @@
       "rotation_code": "uh_im",
       "service_name": "Internal Medicine (UH)",
       "category": "off_service",
-      "orientation_seed": null,
+      "orientation_seed": "uh_im.json",
       "curriculum_seed": null,
       "website_section": "Internal Medicine (UH / VA)",
-      "status": "pending",
+      "status": "seeded",
       "aliases": ["uh internal medicine", "internal medicine uh"]
     },
     {
@@ -244,31 +250,34 @@
       "rotation_code": "uh_ed",
       "service_name": "Emergency Medicine (UH)",
       "category": "off_service",
-      "orientation_seed": null,
+      "orientation_seed": "uh_ed.json",
       "curriculum_seed": null,
       "website_section": "Emergency Medicine (UH)",
       "last_updated": "2024-06-10",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["uh emergency medicine", "uh ed"]
     },
     {
       "rotation_code": "va_ed_im",
       "service_name": "Emergency Medicine (VA UCC)",
       "category": "off_service",
-      "orientation_seed": null,
+      "orientation_seed": "va_ed_im.json",
       "curriculum_seed": null,
       "website_section": "Emergency Medicine (VA - UCC)",
       "last_updated": "2023-12-01",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["va ucc", "va urgent care", "va ed for im"]
     },
     {
       "rotation_code": "peds_ed",
       "service_name": "Emergency Medicine (UH Rainbow)",
       "category": "off_service",
-      "orientation_seed": null,
+      "orientation_seed": "peds_ed.json",
       "curriculum_seed": null,
       "website_section": "Emergency Medicine (UH Rainbow)",
       "last_updated": "2023-04-27",
-      "status": "pending"
+      "status": "seeded",
+      "aliases": ["rainbow ed", "peds ed", "pediatric emergency medicine"]
     },
     {
       "rotation_code": "medtox",

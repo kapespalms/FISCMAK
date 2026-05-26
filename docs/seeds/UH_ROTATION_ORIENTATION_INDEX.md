@@ -45,23 +45,22 @@ Residents **do not upload** orientation or curriculum docs during onboarding. Th
 | ✅ | Inpatient CAPU | `capu` | `capu.json` | pending |
 | ✅ | Call | `call` | `call.json` | — |
 | ✅ | Neurology | `neurology` | `neurology.json` | — |
-| ⏳ | Inpatient SWG | `swg` | pending | pending |
+| ✅ | Inpatient SWG | `swg` | `swg.json` | pending |
 | ✅ | Emergency Psychiatry (VA PGY1) | `psych_ed_uh_va` | `psych_ed_va.json` | pending |
 | ✅ | Outpatient Child Clinics | `outpatient_child` | `outpatient_child.json` | pending |
 | ✅ | Medical Toxicology | `medtox` | `medtox.json` | — |
-| ⏳ | Addiction | `outpatient_addiction` | pending | pending |
-| ⏳ | Geriatric (SWG) | `geriatric_psychiatry` | pending | pending |
-| ⏳ | Interventional Psychiatry | `uh_interventional` | pending | pending |
-| ⏳ | Access Clinic | `access_clinic` | pending | pending |
-| ⏳ | Psychotherapy Clinic | `psychotherapy_clinic` | pending | pending |
-| ⏳ | Outpatient Adult Clinics | `outpatient_adult` | pending | pending |
-| ⏳ | Extra Duty | `extra_duty` | pending | — |
+| ✅ | Addiction | `outpatient_addiction` | `outpatient_addiction.json` | pending |
+| ✅ | Geriatric (SWG) | `geriatric_psychiatry` | `geriatric_psychiatry.json` | pending |
+| ✅ | Interventional Psychiatry | `uh_interventional` | `uh_interventional.json` | pending |
+| ✅ | Access Clinic | `access_clinic` | `access_clinic.json` | pending |
+| ✅ | Psychotherapy Clinic | `psychotherapy_clinic` | `psychotherapy_clinic.json` | pending |
+| ✅ | Outpatient Adult Clinics | `outpatient_adult` | `outpatient_adult.json` | pending |
+| ✅ | Extra Duty | `extra_duty` | `extra_duty.json` | — |
 | ✅ | Internal Medicine (VA Wards) | `va_im` | `va_im.json` | CWRU IM learning objectives |
-| ⏳ | Internal Medicine (UH) | `uh_im` | pending | pending |
-| ⏳ | Emergency Medicine (UH) | `uh_ed` | pending | pending |
-| ⏳ | Emergency Medicine (VA UCC) | `va_ed_im` | pending | pending |
-| ⏳ | Emergency Medicine (Rainbow) | `peds_ed` | pending | pending |
-| ⏳ | Medical Toxicology | `medtox` | pending | pending |
+| ✅ | Internal Medicine (UH) | `uh_im` | `uh_im.json` | pending |
+| ✅ | Emergency Medicine (UH) | `uh_ed` | `uh_ed.json` | pending |
+| ✅ | Emergency Medicine (VA UCC) | `va_ed_im` | `va_ed_im.json` | pending |
+| ✅ | Emergency Medicine (Rainbow) | `peds_ed` | `peds_ed.json` | pending |
 | ✅ | Electives (master catalog — 62 options) | `elective` | `elective.json` + `elective_catalog.json` | — |
 
 Machine-readable manifest: `docs/seeds/uh-rotation-orientations/index.json`  

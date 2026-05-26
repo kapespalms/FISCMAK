@@ -1,0 +1,42 @@
+{
+  "rotation_code": "outpatient_addiction",
+  "service_name": "Addiction Psychiatry (Outpatient)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Addiction",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review addiction rotation goals and MAT protocols on the resident website",
+    "Confirm clinic location, schedule, and supervising faculty before block start",
+    "Review DEA/MAT documentation expectations if prescribing buprenorphine or naltrexone"
+  ],
+  "overview": "Outpatient addiction psychiatry block — opioid, alcohol, and polysubstance use disorders with medication-assisted treatment, relapse prevention, harm reduction, and coordination with IOP/partial programs when indicated.",
+  "location": [
+    "UH/VA addiction clinic sites per block assignment — confirm with program coordinator"
+  ],
+  "schedule": [
+    "Typically Monday–Friday outpatient sessions; may include IOP shadowing",
+    "Psychiatry Didactics Wednesdays; block-end debrief encouraged for PGY-2+"
+  ],
+  "logistics": [
+    "Document substance use history, withdrawal risk, and MAT consent clearly",
+    "Coordinate with social work, nursing, and primary care for continuity",
+    "Track PDMP and controlled-substance rules per site"
+  ],
+  "debrief_prompts": [
+    "MAT initiation or continuation — risk/benefit conversation you led",
+    "Relapse or overdose concern — how you adjusted the plan",
+    "Harm reduction or motivational interviewing moment that changed alliance",
+    "Systems navigation — IOP, residential, or primary care handoff"
+  ],
+  "capture_tags": [
+    "addiction psychiatry",
+    "MAT",
+    "motivational interviewing",
+    "relapse prevention",
+    "harm reduction",
+    "collateral history",
+    "care coordination"
+  ]
+}

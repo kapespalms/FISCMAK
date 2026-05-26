@@ -1,0 +1,43 @@
+{
+  "rotation_code": "peds_ed",
+  "service_name": "Emergency Medicine (UH Rainbow)",
+  "category": "off_service",
+  "source": {
+    "website_section": "Emergency Medicine (UH Rainbow)",
+    "last_updated": "2023-04-27",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review Rainbow pediatric ED orientation and psychiatry rotator role",
+    "Confirm shift schedule and pediatric supervision contacts",
+    "Review child abuse reporting, custody, and assent/consent policies"
+  ],
+  "overview": "Pediatric emergency medicine at UH Rainbow — acute pediatric presentations with psychiatry rotators emphasizing developmental assessment, caregiver communication, medical clearance for psychiatric admission, and safety planning for adolescents.",
+  "location": [
+    "UH Rainbow Babies & Children's Hospital — Pediatric Emergency Department"
+  ],
+  "schedule": [
+    "Shift-based pediatric ED schedule — confirm hours with program",
+    "Psychiatry consultation available for behavioral emergencies"
+  ],
+  "logistics": [
+    "Engage caregivers early; document developmental context",
+    "Know pediatric medical clearance criteria before psychiatry transfer",
+    "Mandatory reporting and safety planning protocols for maltreatment or suicidality"
+  ],
+  "debrief_prompts": [
+    "Adolescent behavioral emergency — risk assessment with caregiver collateral",
+    "Medical clearance before psychiatric disposition — workup you prioritized",
+    "Developmental or family systems factor that shaped the plan",
+    "Communication with child psychiatry or social work"
+  ],
+  "capture_tags": [
+    "child psychiatry",
+    "ED consultation",
+    "risk assessment",
+    "family meeting",
+    "medical clearance",
+    "disposition planning",
+    "collateral history"
+  ]
+}

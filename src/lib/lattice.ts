@@ -1,17 +1,11 @@
-import { DOMAINS, TRACKS, type EnergyValue, type LatticeCellState } from "@/lib/constants";
+import {
+  DOMAINS,
+  TRACKS,
+  type EnergyValue,
+  type LatticeCellState,
+} from "@/lib/constants";
 import type { ActivityEntry } from "@/lib/types/database";
-
-function domainIndex(domain: string | null): number {
-  if (!domain) return -1;
-  const i = DOMAINS.indexOf(domain as (typeof DOMAINS)[number]);
-  return i >= 0 ? i : 0;
-}
-
-function trackIndex(track: string | null): number {
-  if (!track) return -1;
-  const i = TRACKS.indexOf(track as (typeof TRACKS)[number]);
-  return i >= 0 ? i : 0;
-}
+import { resolveActivityLatticePlacement } from "@/lib/v2/lattice/activity-normalize";
 
 function dominantEnergy(energies: string[]): EnergyValue | null {
   if (energies.length === 0) return null;
@@ -29,10 +23,8 @@ export function activitiesToLatticeCells(
   const map = new Map<string, { count: number; energies: string[] }>();
 
   for (const a of activities) {
-    const di = domainIndex(a.primary_domain);
-    const ti = trackIndex(a.primary_track);
-    if (di < 0 || ti < 0) continue;
-    const key = `${di}-${ti}`;
+    const { domainIndex, trackIndex } = resolveActivityLatticePlacement(a);
+    const key = `${domainIndex}-${trackIndex}`;
     const cur = map.get(key) ?? { count: 0, energies: [] };
     cur.count += 1;
     if (a.energy_valence) cur.energies.push(a.energy_valence);
@@ -40,8 +32,8 @@ export function activitiesToLatticeCells(
   }
 
   const cells: LatticeCellState[] = [];
-  for (let d = 0; d < 8; d++) {
-    for (let t = 0; t < 8; t++) {
+  for (let d = 0; d < DOMAINS.length; d++) {
+    for (let t = 0; t < TRACKS.length; t++) {
       const key = `${d}-${t}`;
       const data = map.get(key);
       cells.push({
@@ -57,10 +49,14 @@ export function activitiesToLatticeCells(
 
 export function getDashboardStats(activities: ActivityEntry[]) {
   const domains = new Set(
-    activities.map((a) => a.primary_domain).filter(Boolean),
+    activities
+      .map((a) => resolveActivityLatticePlacement(a).domainLabel)
+      .filter(Boolean),
   );
   const tracks = new Set(
-    activities.map((a) => a.primary_track).filter(Boolean),
+    activities
+      .map((a) => resolveActivityLatticePlacement(a).trackLabel)
+      .filter(Boolean),
   );
   const energizing = activities.filter((a) =>
     a.energy_valence?.includes("energiz"),

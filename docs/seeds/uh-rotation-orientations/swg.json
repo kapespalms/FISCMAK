@@ -1,0 +1,45 @@
+{
+  "rotation_code": "swg",
+  "service_name": "Inpatient Adult Psychiatry (UH Southwest General)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Inpatient Adult Psychiatry (UH-Southwest General)",
+    "last_updated": "2023-11-24",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review SWG inpatient orientation materials on the resident website",
+    "Confirm Day 1 start time and badge access with unit leadership",
+    "Review Ohio involuntary commitment criteria (ORC 5122.01, 5122.10, 5122.11)"
+  ],
+  "overview": "Inpatient adult psychiatry at UH Southwest General — community-hospital acute unit with treatment-team workflow, Epic documentation, and emphasis on disposition planning and civil commitment when indicated.",
+  "location": [
+    "UH Southwest General — inpatient behavioral health unit",
+    "On-site parking; confirm entrance and badge process before Day 1"
+  ],
+  "schedule": [
+    "Monday–Friday; arrive for treatment team / pre-rounding per unit convention",
+    "Psychiatry Didactics Wednesdays; Grand Rounds virtual Fridays as allowed",
+    "No weekend rounding unless arranged for continuity"
+  ],
+  "logistics": [
+    "Use system note templates and cosign workflow per attending",
+    "Coordinate discharges and collateral with social work and outpatient follow-up",
+    "Community-hospital pace — prioritize safe disposition and med reconciliation"
+  ],
+  "debrief_prompts": [
+    "Community hospital workflow vs. VA or academic inpatient — what differed?",
+    "Involuntary commitment or safety planning — one case you owned",
+    "Disposition barrier — insurance, housing, or collateral that shaped the plan",
+    "Caseload prioritization when volume spiked"
+  ],
+  "capture_tags": [
+    "involuntary commitment",
+    "community psychiatry",
+    "discharge planning",
+    "treatment team",
+    "caseload management",
+    "risk assessment",
+    "medication management"
+  ]
+}

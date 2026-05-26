@@ -177,6 +177,8 @@ export type OnboardingMetadata = {
   >;
   /** User-uploaded Output Studio templates keyed by OUTPUT_TEMPLATES id */
   output_user_templates?: import("@/lib/v2/output-user-templates").UserOutputTemplatesMap;
+  /** Cached document→lattice evidence (invalidated when vault docs change) */
+  lattice_document_cache?: import("@/lib/v2/lattice/document-cache").LatticeDocumentCache;
   /** Server-only Mak coaching bands — never expose s_index to users */
   _internal_coaching?: {
     service_footprint_band: "minimal" | "moderate" | "strong";

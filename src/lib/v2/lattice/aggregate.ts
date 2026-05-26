@@ -6,12 +6,10 @@ import {
   DOMAINS,
   TRACKS,
   acgmeLevelIndex,
-  inferDevelopmentLevel,
-  keywordPlacement,
-  normalizeFiscmakDomain,
-  normalizeFiscmakTrack,
 } from "@/lib/v2/lattice/ontology-bridge";
-import { parseDocumentsToLatticeEvidence } from "@/lib/v2/lattice/document-parser";
+import { resolveActivityLatticePlacement } from "@/lib/v2/lattice/activity-normalize";
+import { resolveCachedDocumentEvidence } from "@/lib/v2/lattice/document-cache";
+import type { LatticeDocumentCache } from "@/lib/v2/lattice/document-cache";
 import type {
   LatticeCellMetrics,
   LatticeDashboardResponse,
@@ -46,36 +44,20 @@ function energyBucket(energy: string | null): "energizing" | "draining" | "neutr
 
 function activitiesToEvidence(activities: ActivityEntry[]): LatticeEvidence[] {
   return activities.map((a) => {
-    let domainIndex = normalizeFiscmakDomain(a.primary_domain);
-    let trackIndex = normalizeFiscmakTrack(a.primary_track);
-    let acgmeKey = "pc";
-    let developmentLevel = 2;
-
-    const text = a.raw_text ?? "";
-    const keyword = keywordPlacement(text);
-    if (domainIndex < 0 && keyword) {
-      domainIndex = keyword.domainIndex;
-      trackIndex = keyword.trackIndex;
-      acgmeKey = keyword.acgmeKey;
-      developmentLevel = keyword.developmentLevel;
-    } else if (keyword) {
-      acgmeKey = keyword.acgmeKey;
-      developmentLevel = inferDevelopmentLevel(text, keyword.developmentLevel);
-    }
-
-    if (domainIndex < 0) domainIndex = 0;
-    if (trackIndex < 0) trackIndex = 0;
-
+    const resolved = resolveActivityLatticePlacement(a);
     return {
       id: a.id,
       source: "activity" as const,
       sourceLabel: a.input_source === "chat" ? "Mak capture" : "Activity log",
-      rawText: text,
+      rawText: a.raw_text ?? "",
       date: a.activity_date ?? a.created_at?.slice(0, 10) ?? null,
       energy: a.energy_valence,
-      developmentLevel,
-      fiscmak: { domainIndex, trackIndex },
-      acgme: { competencyKey: acgmeKey, levelIndex: acgmeLevelIndex(developmentLevel) },
+      developmentLevel: resolved.developmentLevel,
+      fiscmak: { domainIndex: resolved.domainIndex, trackIndex: resolved.trackIndex },
+      acgme: {
+        competencyKey: resolved.acgmeKey,
+        levelIndex: acgmeLevelIndex(resolved.developmentLevel),
+      },
     };
   });
 }
@@ -156,21 +138,33 @@ export function buildLatticeDashboard(input: {
   documents: DocumentRecord[];
   timeframe: LatticeTimeframe;
   isTrainee: boolean;
-}): LatticeDashboardResponse {
-  const docEvidence = parseDocumentsToLatticeEvidence(input.documents);
+  documentCache?: LatticeDocumentCache;
+}): {
+  dashboard: LatticeDashboardResponse;
+  documentCache: LatticeDocumentCache;
+  documentCacheHit: boolean;
+} {
+  const { evidence: docEvidence, cache, fromCache } = resolveCachedDocumentEvidence(
+    input.documents,
+    input.documentCache,
+  );
   const activityEvidence = activitiesToEvidence(input.activities);
   const all = [...activityEvidence, ...docEvidence].filter((e) =>
     inTimeframe(e.date, input.timeframe),
   );
 
   return {
-    timeframe: input.timeframe,
-    is_trainee: input.isTrainee,
-    fiscmak: aggregateFiscmak(all),
-    acgme: input.isTrainee ? aggregateAcgme(all) : null,
-    evidence_total: all.length,
-    document_evidence_count: all.filter((e) => e.source === "document").length,
-    activity_evidence_count: all.filter((e) => e.source === "activity").length,
-    parsed_at: new Date().toISOString(),
+    dashboard: {
+      timeframe: input.timeframe,
+      is_trainee: input.isTrainee,
+      fiscmak: aggregateFiscmak(all),
+      acgme: input.isTrainee ? aggregateAcgme(all) : null,
+      evidence_total: all.length,
+      document_evidence_count: all.filter((e) => e.source === "document").length,
+      activity_evidence_count: all.filter((e) => e.source === "activity").length,
+      parsed_at: new Date().toISOString(),
+    },
+    documentCache: cache,
+    documentCacheHit: fromCache,
   };
 }

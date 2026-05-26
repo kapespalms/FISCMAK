@@ -1,0 +1,42 @@
+{
+  "rotation_code": "va_ed_im",
+  "service_name": "Emergency Medicine (VA UCC)",
+  "category": "off_service",
+  "source": {
+    "website_section": "Emergency Medicine (VA - UCC)",
+    "last_updated": "2023-12-01",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review VA Urgent Care Center (UCC) orientation for IM/psychiatry rotators",
+    "Confirm shift times and preceptor assignment",
+    "Review VA formulary and referral pathways for common presentations"
+  ],
+  "overview": "VA Urgent Care Center rotation for psychiatry PGY off-service — evaluation and management of acute ambulatory complaints with focus on veteran-specific medical and psychiatric comorbidity, triage, and appropriate escalation to ED or specialty care.",
+  "location": [
+    "Wade Park VA — Urgent Care Center"
+  ],
+  "schedule": [
+    "UCC shift schedule — typically weekday ambulatory urgent sessions",
+    "Coordinate with IM program for evaluation expectations"
+  ],
+  "logistics": [
+    "Document veteran-specific context — PTSD, TBI, substance use, homelessness when relevant",
+    "Know escalation criteria to VA ED or inpatient services",
+    "Coordinate with primary care and mental health intake for follow-up"
+  ],
+  "debrief_prompts": [
+    "Veteran with psychiatric and medical overlap — how triage changed",
+    "UCC vs. full ED — scope limit you navigated",
+    "Referral or escalation you initiated — outcome",
+    "Communication with VA primary care or mental health clinic"
+  ],
+  "capture_tags": [
+    "ED consultation",
+    "care coordination",
+    "disposition planning",
+    "risk assessment",
+    "collateral history",
+    "systems advocacy"
+  ]
+}

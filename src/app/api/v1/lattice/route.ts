@@ -11,6 +11,7 @@ import {
 } from "@/lib/v2/api-helpers";
 import { buildLatticeDashboard } from "@/lib/v2/lattice/aggregate";
 import type { LatticeTimeframe } from "@/lib/v2/lattice/types";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { isTraineeCareerLevel } from "@/lib/v2/onboarding-options";
 
 const TIMEFRAMES: LatticeTimeframe[] = ["30d", "90d", "1y", "all"];
@@ -39,12 +40,23 @@ export async function GET(request: Request) {
     fetchDocuments(auth.userId, auth.demo),
   ]);
 
-  const dashboard = buildLatticeDashboard({
+  const meta = getOnboardingMetadata(user);
+  const { dashboard, documentCache, documentCacheHit } = buildLatticeDashboard({
     activities,
     documents,
     timeframe,
     isTrainee: isTraineeCareerLevel(user.career_stage),
+    documentCache: meta.lattice_document_cache,
   });
+
+  if (!documentCacheHit) {
+    await upsertAppUser(auth.userId, auth.email, {
+      onboarding_metadata: {
+        ...meta,
+        lattice_document_cache: documentCache,
+      },
+    }, auth.demo);
+  }
 
   return jsonOk(dashboard);
 }

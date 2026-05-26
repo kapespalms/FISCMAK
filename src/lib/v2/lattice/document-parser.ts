@@ -1,7 +1,3 @@
-import {
-  documentFileNameFromRecord,
-  documentLabelFromRecord,
-} from "@/lib/v2/onboarding-document-types";
 import type { DocumentRecord } from "@/lib/v2/types";
 import type { LatticeEvidence } from "@/lib/v2/lattice/types";
 import {
@@ -9,6 +5,11 @@ import {
   inferDevelopmentLevel,
   keywordPlacement,
 } from "@/lib/v2/lattice/ontology-bridge";
+import {
+  documentFileNameFromRecord,
+  documentLabelFromRecord,
+} from "@/lib/v2/onboarding-document-types";
+import { matchTextToActivityPlacement } from "@/lib/v2/lattice/ontology-registry";
 
 const SNIPPET_MIN = 40;
 const SNIPPET_MAX = 480;
@@ -39,7 +40,24 @@ function snippetToEvidence(
   doc: DocumentRecord,
   index: number,
 ): LatticeEvidence | null {
-  const placement = keywordPlacement(snippet);
+  const ontology = matchTextToActivityPlacement(snippet);
+  const placement = ontology
+    ? {
+        domainIndex: ontology.domainIndex,
+        trackIndex: ontology.trackIndex,
+        acgmeKey: ontology.acgmeKey,
+        developmentLevel: ontology.defaultDevelopmentLevel,
+      }
+    : (() => {
+        const keyword = keywordPlacement(snippet);
+        if (!keyword) return null;
+        return {
+          domainIndex: keyword.domainIndex,
+          trackIndex: keyword.trackIndex,
+          acgmeKey: keyword.acgmeKey,
+          developmentLevel: keyword.developmentLevel,
+        };
+      })();
   if (!placement) return null;
 
   const level = inferDevelopmentLevel(snippet, placement.developmentLevel);
