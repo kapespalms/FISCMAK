@@ -54,7 +54,7 @@ export function InstitutionalPartnersSection() {
 
         <div className="text-center">
           <Link
-            href="/app/onboarding"
+            href="/join/uh-psychiatry"
             className="font-futura-bold inline-block rounded bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
           >
             Explore Partnerships →

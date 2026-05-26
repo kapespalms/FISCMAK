@@ -39,6 +39,32 @@ export function resolveSectionQuickAction(
         message: "I want to upload a document to my career vault.",
       };
     }
+    if (n.includes("debrief") || n.includes("rotation")) {
+      return {
+        intent: "rotation_debrief",
+        href: "/app/objective?tab=activities",
+        message: "I'd like to debrief a rotation I just finished while it's still fresh.",
+        focusInput: true,
+      };
+    }
+    if (n.includes("narrative anchor") || n.includes("anchor")) {
+      return {
+        intent: "narrative_anchor",
+        href: "/app/subjective",
+        message:
+          "Help me set my narrative anchor — specialty direction, origin story, and what I want to contribute.",
+        focusInput: true,
+      };
+    }
+    if (n.includes("translate") && (n.includes("pivot") || n.includes("career"))) {
+      return {
+        intent: "career_translation",
+        href: "/app/objective?tab=activities",
+        message:
+          "Help me translate a clinical experience into outsider language for my career pivot.",
+        focusInput: true,
+      };
+    }
     if (n.includes("capture") || n.includes("activity") || n.includes("invisible")) {
       return {
         intent: "capture",
@@ -71,6 +97,34 @@ export function resolveSectionQuickAction(
   }
 
   if (section === "subjective") {
+    if (n.includes("pivot") && (n.includes("quarterly") || n.includes("capture"))) {
+      return {
+        intent: "pivot_quarterly",
+        href: "/app/subjective",
+        message: "Begin path-specific quarterly capture for my career pivot.",
+      };
+    }
+    if (n.includes("career pivot") || n.includes("non-traditional") || n.includes("destination")) {
+      return {
+        intent: "career_pivot_onboarding",
+        href: "/app/subjective",
+        message: "Help me map my non-traditional career pivot — where I'm moving and why.",
+      };
+    }
+    if (n.includes("identity") || n.includes("leaving medicine")) {
+      return {
+        intent: "identity_navigation",
+        href: "/app/subjective",
+        message: "Help me navigate the identity side of my career transition.",
+      };
+    }
+    if (n.includes("quarterly") && (n.includes("accomplish") || n.includes("promotion"))) {
+      return {
+        intent: "attending_quarterly",
+        href: "/app/subjective",
+        message: "Begin my quarterly accomplishment capture for promotion documentation.",
+      };
+    }
     if (n.includes("quarterly")) {
       return {
         intent: "discuss",
@@ -108,7 +162,7 @@ export function resolveSectionQuickAction(
       return {
         intent: "assess",
         href: "/app/assessment",
-        message: "Explain my Career Health Score and what would improve it.",
+        message: "Summarize my career pattern and what I should capture next.",
       };
     }
     if (n.includes("growth") || n.includes("opportunit")) {
@@ -118,18 +172,19 @@ export function resolveSectionQuickAction(
         message: "Show me growth opportunities from my career profile.",
       };
     }
+    if (n.includes("advancement") || n.includes("readiness") || n.includes("promotion audit")) {
+      return {
+        intent: "promotion_readiness",
+        href: "/app/assessment",
+        message:
+          "Run my promotion readiness audit — strengths, gaps, and timeline across all five domains.",
+      };
+    }
     if (n.includes("alignment")) {
       return {
         intent: "assess",
         href: "/app/assessment",
         message: "Walk me through my career alignment and coherence.",
-      };
-    }
-    if (n.includes("advancement") || n.includes("readiness")) {
-      return {
-        intent: "assess",
-        href: "/app/assessment",
-        message: "Discuss my advancement readiness and what's missing.",
       };
     }
   }
@@ -142,11 +197,46 @@ export function resolveSectionQuickAction(
     if (n.includes("biosketch") || n.includes("nih")) {
       return { intent: "create", href, message: "Help me draft or update my NIH Biosketch." };
     }
-    if (n.includes("cover letter")) {
-      return { intent: "create", href, message: "Help me generate a cover letter." };
+    if (n.includes("promotion narrative") || n.includes("promotion dossier")) {
+      return {
+        intent: "promotion_dossier",
+        href,
+        message: "Help me build my promotion career narrative section by section.",
+      };
     }
     if (n.includes("personal statement")) {
-      return { intent: "create", href, message: "Help me draft a personal statement." };
+      return {
+        intent: "personal_statement_arc",
+        href,
+        message:
+          "Help me build my personal statement from captured experiences — hook, origin, journey, and vision.",
+      };
+    }
+    if (n.includes("fellowship") && n.includes("narrative")) {
+      return {
+        intent: "fellowship_mining",
+        href: "/app/subjective",
+        message:
+          "Help me sharpen my fellowship narrative — subspecialty niche, scholarly thread, and defining moments.",
+      };
+    }
+    if (n.includes("industry resume") || (n.includes("resume") && !n.includes("cover"))) {
+      return {
+        intent: "create",
+        href,
+        message: "Help me build a 1–2 page industry resume from my clinical experience — translated, not academic CV.",
+      };
+    }
+    if (n.includes("pivot") && (n.includes("cover") || n.includes("letter") || n.includes("narrative"))) {
+      return {
+        intent: "pivot_narrative",
+        href,
+        message:
+          "Help me build my pivot cover letter — bridge, credential, translation, catalyst, and vision.",
+      };
+    }
+    if (n.includes("cover letter")) {
+      return { intent: "create", href, message: "Help me generate a cover letter." };
     }
     if (n.includes("advancement") || n.includes("report")) {
       return {

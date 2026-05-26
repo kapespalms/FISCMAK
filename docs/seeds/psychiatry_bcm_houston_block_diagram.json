@@ -1,0 +1,305 @@
+{
+  "program": {
+    "institution": "Baylor College of Medicine",
+    "department": "Menninger Department of Psychiatry and Behavioral Sciences",
+    "name": "General Psychiatry Residency",
+    "schedule_source": "https://www.bcm.edu/sites/default/files/general-psychiatry-block-diagram-2022.pdf",
+    "schedule_version_year": 2022,
+    "location": "Houston, Texas Medical Center",
+    "block_unit": "1_month",
+    "blocks_per_pgy_year": 13,
+    "academic_year_note": "13 four-week blocks per PGY-1 and PGY-2; PGY-3 and PGY-4 use continuous/month-range models (see pgy_models)",
+    "vacation_policy": "3 weeks per academic year, resident preference with attending approval",
+    "psychotherapy_continuity": {
+      "starts_pgy": 2,
+      "minimum_long_term_patients": 2,
+      "hours_per_week": "2-4 (PGY-2); increases PGY-3/4 per psychotherapy curriculum"
+    },
+    "pgy1_summary_official": "4 months primary care, 2 months neurology, 6 months psychiatry (BCM curriculum page)",
+    "fiscmak_program_code": "bcm_psych_houston"
+  },
+  "training_sites": [
+    {
+      "site_id": 1,
+      "code": "site_1_va",
+      "name": "Michael E. DeBakey VA Medical Center",
+      "short_name": "VA"
+    },
+    {
+      "site_id": 2,
+      "code": "site_2_harris",
+      "name": "Harris Health System — Ben Taub Hospital and Community Clinics",
+      "short_name": "Ben Taub / Harris Health"
+    },
+    {
+      "site_id": 3,
+      "code": "site_3_tch",
+      "name": "Texas Children's Hospital",
+      "short_name": "Texas Children's"
+    },
+    {
+      "site_id": 4,
+      "code": "site_4_menninger",
+      "name": "The Menninger Clinic",
+      "short_name": "Menninger"
+    },
+    {
+      "site_id": 5,
+      "code": "site_5_bcm_clinic",
+      "name": "Baylor Psychiatry Clinic",
+      "short_name": "BCM Clinic"
+    },
+    {
+      "site_id": 6,
+      "code": "site_6_methodist",
+      "name": "Houston Methodist Hospital",
+      "short_name": "Methodist"
+    },
+    {
+      "site_id": 7,
+      "code": "site_7_jail",
+      "name": "Harris County Jail",
+      "short_name": "Harris County Jail"
+    },
+    {
+      "site_id": 8,
+      "code": "site_8_legacy",
+      "name": "Legacy Clinic",
+      "short_name": "Legacy"
+    },
+    {
+      "site_id": 9,
+      "code": "site_9_womens_home",
+      "name": "Women's Home",
+      "short_name": "Women's Home"
+    }
+  ],
+  "pgy_models": {
+    "PGY-1": {
+      "scheduling_type": "block_sequence",
+      "blocks": 13,
+      "template_rotation_sequence": [
+        { "block": 1, "rotation_code": "cl", "sites": [1], "notes": "Consult Liaison" },
+        { "block": 2, "rotation_code": "addiction", "sites": [1] },
+        { "block": 3, "rotation_code": "geriatric", "sites": [1] },
+        { "block": 4, "rotation_code": "neurology_outpatient", "sites": [1], "outpatient_pct": 100 },
+        { "block": 5, "rotation_code": "neurology_outpatient", "sites": [1], "outpatient_pct": 100 },
+        { "block": 6, "rotation_code": "psych_emergency", "sites": [1] },
+        { "block": 7, "rotation_code": "inpatient_psych", "sites": [1, 2] },
+        { "block": 8, "rotation_code": "inpatient_psych", "sites": [1, 2] },
+        { "block": 9, "rotation_code": "inpatient_psych", "sites": [2] },
+        { "block": 10, "rotation_code": "primary_care_elective_1", "sites": [1, 4] },
+        { "block": 11, "rotation_code": "primary_care_elective_1", "sites": [1, 4] },
+        { "block": 12, "rotation_code": "medicine_wards", "sites": [1, 2] },
+        { "block": 13, "rotation_code": "urgent_care_ed", "sites": [1, 2] }
+      ]
+    },
+    "PGY-2": {
+      "scheduling_type": "block_sequence",
+      "blocks": 13,
+      "parallel_track": "psychotherapy_continuity",
+      "template_rotation_sequence": [
+        { "block": 1, "rotation_code": "psych_emergency", "sites": [1] },
+        { "block": 2, "rotation_code": "psych_emergency", "sites": [1] },
+        { "block": 3, "rotation_code": "cl", "sites": [2] },
+        { "block": 4, "rotation_code": "cl", "sites": [2] },
+        { "block": 5, "rotation_code": "cl", "sites": [2] },
+        { "block": 6, "rotation_code": "inpatient_psych", "sites": [2] },
+        { "block": 7, "rotation_code": "psych_emergency", "sites": [2] },
+        { "block": 8, "rotation_code": "elective_2", "sites": "varies" },
+        { "block": 9, "rotation_code": "cl", "sites": [1, 2] },
+        { "block": 10, "rotation_code": "inpatient_psych", "sites": [6] },
+        { "block": 11, "rotation_code": "forensic", "sites": [1, 7] },
+        { "block": 12, "rotation_code": "cap", "sites": [3] },
+        { "block": 13, "rotation_code": "inpatient_psych", "sites": [4] }
+      ]
+    },
+    "PGY-3": {
+      "scheduling_type": "continuous_year",
+      "duration_months": 12,
+      "rotation_code": "outpatient_psychiatry",
+      "sites": [1, 2, 3, 5, 8, 9],
+      "outpatient_pct": "75-100",
+      "research_pct": "0-25 (up to 50 research track)",
+      "description": "Psychotherapy & medication management — community clinics, specialty outpatient (CAP, geriatric, addiction), private practice settings",
+      "fiscmak_capture": "weekly_psychotherapy_and_clinic_moments_not_block_debrief"
+    },
+    "PGY-4": {
+      "scheduling_type": "split_year",
+      "segments": [
+        {
+          "months": "2-6",
+          "rotation_code": "admin_selective_elective_2",
+          "sites": [1, 2, 3, 4, 5],
+          "outpatient_pct": "10-100",
+          "research_pct": "0-25",
+          "description": "Administrative psychiatry selective — inpatient, outpatient, or ER with admin/QI/teaching component"
+        },
+        {
+          "months": "6-10",
+          "rotation_code": "admin_selective_elective_2",
+          "sites": [1, 2, 3, 4, 5],
+          "outpatient_pct": "10-100",
+          "research_pct": "0-50"
+        }
+      ],
+      "continuity_clinic_pct_fte": 10,
+      "continuity_note": "Typically continuation of PGY-3 clinic (psychotherapy, hospital-based, community, or private)"
+    }
+  },
+  "primary_care_elective_1_options": [
+    { "name": "Geriatric medicine", "site": 1 },
+    { "name": "Women's primary care", "site": 1 },
+    { "name": "Endocrinology or IM consult-liaison", "site": 1 },
+    { "name": "Pediatrics inpatient or outpatient", "site": 4 }
+  ],
+  "elective_2_catalog": [
+    { "code": "forensic", "name": "Forensic Psychiatry", "sites": [1, 7] },
+    { "code": "research", "name": "Research", "sites": [1, 2] },
+    { "code": "act", "name": "Assertive Community Treatment", "sites": [1] },
+    { "code": "cap", "name": "Child and Adolescent Psychiatry", "sites": [3] },
+    { "code": "reproductive_mental_health", "name": "Reproductive mental health", "sites": [2, 3] },
+    { "code": "ect", "name": "ECT", "sites": [1, 2, 4] },
+    { "code": "neuropsychiatry", "name": "Neuropsychiatry", "sites": [1] },
+    { "code": "addiction", "name": "Addiction Psychiatry", "sites": [1, 2] },
+    { "code": "geriatric", "name": "Geriatric Psychiatry", "sites": [1, 2] },
+    { "code": "pain", "name": "Pain Management", "sites": [1] },
+    { "code": "sleep", "name": "Sleep Medicine", "sites": [1] }
+  ],
+  "rotation_catalog": [
+    {
+      "code": "cl",
+      "display_name": "Consultation-Liaison Psychiatry",
+      "category": "consultation_liaison",
+      "career_domains": ["clinical_craft", "relational_leadership", "systems_impact", "knowledge_base"],
+      "career_signals": ["CL psychiatry", "capacity", "delirium", "medical complexity", "Ben Taub / VA interface"],
+      "capture_prompts": {
+        "end_block": "CL month debrief: capacity story, medicine team communication, disposition."
+      }
+    },
+    {
+      "code": "addiction",
+      "display_name": "Addiction Psychiatry",
+      "category": "addiction",
+      "career_domains": ["clinical_craft", "trust_identity", "systems_impact"],
+      "career_signals": ["VA comprehensive addiction services", "dual diagnosis", "MAT"]
+    },
+    {
+      "code": "geriatric",
+      "display_name": "Geriatric Psychiatry",
+      "category": "geriatric",
+      "career_domains": ["clinical_craft", "knowledge_base", "systems_impact"],
+      "career_signals": ["geriatric psychiatry", "VA geriatric inpatient"]
+    },
+    {
+      "code": "neurology_outpatient",
+      "display_name": "Neurology Outpatient",
+      "category": "off_service",
+      "required": true,
+      "career_domains": ["knowledge_base", "clinical_craft"],
+      "career_signals": ["neuropsychiatric interface", "brain-behavior"]
+    },
+    {
+      "code": "psych_emergency",
+      "display_name": "Emergency Psychiatry",
+      "category": "emergency",
+      "career_domains": ["clinical_craft", "relational_leadership", "systems_impact"],
+      "career_signals": ["Ben Taub psych ER", "crisis", "risk assessment", "anti-trafficking/LGBTQ+ VA programs exposure"]
+    },
+    {
+      "code": "inpatient_psych",
+      "display_name": "Inpatient Psychiatry",
+      "category": "inpatient",
+      "career_domains": ["clinical_craft", "relational_leadership"],
+      "career_signals": ["Ben Taub inpatient unit", "VA inpatient", "Menninger biopsychosocial"]
+    },
+    {
+      "code": "primary_care_elective_1",
+      "display_name": "Primary Care Elective 1",
+      "category": "off_service",
+      "career_domains": ["knowledge_base", "growth_engine"],
+      "career_signals": ["primary care foundation", "med-psych interface"]
+    },
+    {
+      "code": "medicine_wards",
+      "display_name": "General Medicine Wards",
+      "category": "off_service",
+      "required": true,
+      "career_domains": ["knowledge_base", "clinical_craft"]
+    },
+    {
+      "code": "urgent_care_ed",
+      "display_name": "Urgent Care / Emergency Department",
+      "category": "off_service",
+      "required": true,
+      "career_domains": ["clinical_craft", "systems_impact"]
+    },
+    {
+      "code": "forensic",
+      "display_name": "Forensic Psychiatry",
+      "category": "forensic",
+      "sites": [1, 7],
+      "career_domains": ["clinical_craft", "trust_identity", "systems_impact"],
+      "career_signals": ["forensic psych", "jail psychiatry", "legal interface"]
+    },
+    {
+      "code": "cap",
+      "display_name": "Child and Adolescent Psychiatry",
+      "category": "child_adolescent",
+      "sites": [3],
+      "career_domains": ["clinical_craft", "relational_leadership", "trust_identity"],
+      "career_signals": ["CAP fellowship signal", "Texas Children's", "developmental formulation"]
+    },
+    {
+      "code": "elective_2",
+      "display_name": "Elective 2",
+      "category": "elective",
+      "career_domains": ["growth_engine"],
+      "career_signals": ["career exploration — see elective_2_catalog"]
+    },
+    {
+      "code": "outpatient_psychiatry",
+      "display_name": "Outpatient Psychiatry (PGY-3 year)",
+      "category": "outpatient_longitudinal",
+      "career_domains": ["clinical_craft", "relational_leadership", "trust_identity", "knowledge_base"],
+      "career_signals": ["psychotherapy identity", "med management", "community psychiatry", "private practice exposure"],
+      "capture_prompts": {
+        "weekly": "What happened in psychotherapy or clinic that shows your developing clinical identity?",
+        "semiannual": "How has your outpatient year shaped your career direction?"
+      }
+    },
+    {
+      "code": "admin_selective_elective_2",
+      "display_name": "Selective — Administrative Psychiatry",
+      "category": "admin_qi",
+      "career_domains": ["systems_impact", "relational_leadership", "growth_engine"],
+      "career_signals": ["QI/patient safety", "teaching", "administrative psychiatry", "leadership portfolio"],
+      "capture_prompts": {
+        "monthly": "What QI, teaching, or operational leadership evidence did you generate?"
+      }
+    },
+    {
+      "code": "psychotherapy_continuity",
+      "display_name": "Long-term Psychotherapy Continuity (parallel PGY-2+)",
+      "category": "psychotherapy_parallel",
+      "career_domains": ["clinical_craft", "trust_identity", "growth_engine"],
+      "career_signals": ["psychotherapy craft", "therapeutic alliance", "professional identity"],
+      "fiscmak_note": "Not a block — parallel 2-4 hr/wk; capture via supervision-to-story prompts"
+    }
+  ],
+  "semiannual_ccc_alignment": {
+    "blocks_per_year": 13,
+    "h1_review_after_block": 6,
+    "h2_review_after_block": 13,
+    "note": "Approximate — confirm with BCM academic calendar; PGY-3/4 use continuous reporting periods"
+  },
+  "fiscmak_multi_program_differences": {
+    "vs_uh_cleveland": {
+      "block_unit": "BCM = 1 month × 13 blocks; UH = 2 weeks × 26 blocks",
+      "pgy3_model": "BCM = continuous outpatient year; UH = block-based (PPP-1 track)",
+      "pgy4_model": "BCM = admin selective + continuity clinic; UH = not in pilot schedule",
+      "psychotherapy": "BCM = explicit parallel track PGY-2+; UH = embed in outpatient blocks",
+      "sites": "BCM = 9 named TMC sites; UH = VA/UH/SWG/Northcoast/Portals"
+    }
+  }
+}

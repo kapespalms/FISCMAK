@@ -7,6 +7,10 @@ import {
 import { deployedInstruments, apiEnrichmentPlan } from "@/lib/v2/onboarding-touchpoint1";
 import { buildCareerHealthView, buildCareerHealthIntroForMak } from "@/lib/v2/career-health-view";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
+import {
+  computeInternalCoachingSignals,
+  internalCoachingMetadataPatch,
+} from "@/lib/v2/internal-coaching-signals";
 
 import type { EnrichmentRunLog, EnrichmentSnapshot } from "@/lib/v2/api-enrichment";
 
@@ -75,6 +79,45 @@ export type OnboardingMetadata = {
   invisible_work_hours_by_category?: Partial<
     Record<import("@/lib/v2/invisible-work-taxonomy").InvisibleWorkCategory, number>
   >;
+  narrative_anchor?: import("@/lib/v2/mak-conversation-models").NarrativeAnchor;
+  narrative_anchor_session?: import("@/lib/v2/rotation-debrief-mak-flow").NarrativeAnchorSession;
+  rotation_debrief_session?: import("@/lib/v2/rotation-debrief-mak-flow").RotationDebriefSession;
+  rotation_debrief_entries?: import("@/lib/v2/rotation-debrief-mak-flow").RotationDebriefEntry[];
+  promotion_context?: import("@/lib/v2/mak-conversation-models").PromotionContext;
+  promotion_context_session?: import("@/lib/v2/early-attending-mak-flow").PromotionContextSession;
+  attending_quarterly_session?: import("@/lib/v2/early-attending-mak-flow").AttendingQuarterlySession;
+  attending_quarterly_captures?: import("@/lib/v2/mak-conversation-models").AttendingQuarterlyCapture[];
+  impact_translation_session?: import("@/lib/v2/early-attending-mak-flow").ImpactTranslationSession;
+  impact_translations?: import("@/lib/v2/mak-conversation-models").ImpactTranslationEntry[];
+  promotion_readiness_snapshots?: import("@/lib/v2/mak-conversation-models").PromotionReadinessSnapshot[];
+  /** Public vs institutional onboarding */
+  onboarding_path?: "public" | "institutional";
+  program_id?: string;
+  program_slug?: string;
+  trainee_initials?: string;
+  program_membership?: import("@/lib/v2/programs/program-membership").ProgramMembershipRecord;
+  career_pivot_context?: import("@/lib/v2/non-traditional-career-models").CareerPivotContext;
+  career_pivot_session?: import("@/lib/v2/non-traditional-career-mak-flow").CareerPivotSession;
+  pivot_quarterly_session?: import("@/lib/v2/non-traditional-career-mak-flow").PivotQuarterlySession;
+  pivot_quarterly_captures?: Array<{
+    id: string;
+    path: import("@/lib/v2/non-traditional-career-models").NonTraditionalTargetPath;
+    completed_at: string;
+    modules: Record<string, string>;
+  }>;
+  identity_navigation_session?: import("@/lib/v2/non-traditional-career-mak-flow").IdentityNavigationSession;
+  pivot_translations?: import("@/lib/v2/non-traditional-career-models").PivotTranslationEntry[];
+  career_translation_session?: import("@/lib/v2/non-traditional-career-mak-flow").CareerTranslationSession;
+  /** Server-only Mak coaching bands — never expose s_index to users */
+  _internal_coaching?: {
+    service_footprint_band: "minimal" | "moderate" | "strong";
+    workload_recognition_gap: "low" | "moderate" | "elevated";
+    portfolio_documentation_gap: boolean;
+    invisible_work_signals: string[];
+    updated_at: string;
+    s_index?: number;
+    iwq?: number;
+  };
 };
 
 export function getOnboardingMetadata(user: AppUser): OnboardingMetadata {
@@ -93,15 +136,16 @@ export function computeTouchpoint1Dashboard(user: AppUser, cvText?: string | nul
   const invisibleHours =
     typeof invisible?.raw.weekly_hours === "number" ? invisible.raw.weekly_hours : undefined;
 
-  let sIndex = 30;
-  if (cvText) {
-    sIndex = computeCvMetrics(cvText, []).s_index;
-  }
+  const cvMetrics = cvText ? computeCvMetrics(cvText, []) : null;
 
   const iwq =
     bits && invisible ? computeIwq(bits, invisible) : meta.iwq ?? null;
 
-  const cdiView = buildCareerHealthView({ user, cvMetrics: cvText ? computeCvMetrics(cvText, []) : null });
+  const cdiView = buildCareerHealthView({ user, cvMetrics });
+
+  const internalSignals = cvText
+    ? computeInternalCoachingSignals(cvText, [])
+    : null;
 
   return {
     instrument_ids: instrumentIds,
@@ -109,12 +153,12 @@ export function computeTouchpoint1Dashboard(user: AppUser, cvText?: string | nul
     cdi: { score: cdiView.career_health_score, domains: Object.fromEntries(cdiView.domains.map((d) => [d.label, d.score])) },
     career_health_summary: cdiView.career_health_summary,
     iwq,
-    s_index: sIndex,
     api_enrichment_plan: apiEnrichmentPlan(user.practice_setting ?? null, user.career_stage),
     pulse_baseline: invisibleHours
       ? { invisible_hours: invisibleHours, captured_at: new Date().toISOString() }
       : undefined,
     computed_at: new Date().toISOString(),
+    ...(internalSignals ? internalCoachingMetadataPatch(internalSignals) : {}),
   };
 }
 

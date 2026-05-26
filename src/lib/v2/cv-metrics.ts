@@ -158,16 +158,76 @@ export function analyzeCvEvidence(text: string): CvEvidence {
 
 /** S-Index: invisible service currency documented on the CV (0–100). */
 export function computeSIndex(evidence: CvEvidence): number {
-  const raw =
-    evidence.mentoring_mentions * 8 +
-    evidence.committee_roles * 7 +
-    evidence.leadership_roles * 9 +
-    evidence.service_mentions * 3 +
-    evidence.qi_signals * 6 +
-    evidence.dei_advocacy_signals * 5 +
-    evidence.invisible_work_signals.length * 4;
+  return explainSIndex(evidence).capped;
+}
 
-  return Math.min(100, Math.round(raw));
+export type SIndexBreakdown = {
+  raw: number;
+  capped: number;
+  components: Array<{
+    key: string;
+    label: string;
+    count: number;
+    weight: number;
+    points: number;
+  }>;
+};
+
+/** KP Admin — transparent formula breakdown for internal tracking only. */
+export function explainSIndex(evidence: CvEvidence): SIndexBreakdown {
+  const components: SIndexBreakdown["components"] = [
+    {
+      key: "mentoring_mentions",
+      label: "Mentoring mentions",
+      count: evidence.mentoring_mentions,
+      weight: 8,
+      points: evidence.mentoring_mentions * 8,
+    },
+    {
+      key: "committee_roles",
+      label: "Committee roles",
+      count: evidence.committee_roles,
+      weight: 7,
+      points: evidence.committee_roles * 7,
+    },
+    {
+      key: "leadership_roles",
+      label: "Leadership roles",
+      count: evidence.leadership_roles,
+      weight: 9,
+      points: evidence.leadership_roles * 9,
+    },
+    {
+      key: "service_mentions",
+      label: "Service mentions",
+      count: evidence.service_mentions,
+      weight: 3,
+      points: evidence.service_mentions * 3,
+    },
+    {
+      key: "qi_signals",
+      label: "QI signals",
+      count: evidence.qi_signals,
+      weight: 6,
+      points: evidence.qi_signals * 6,
+    },
+    {
+      key: "dei_advocacy_signals",
+      label: "DEI / advocacy signals",
+      count: evidence.dei_advocacy_signals,
+      weight: 5,
+      points: evidence.dei_advocacy_signals * 5,
+    },
+    {
+      key: "invisible_work_signals",
+      label: "Invisible work signal lines",
+      count: evidence.invisible_work_signals.length,
+      weight: 4,
+      points: evidence.invisible_work_signals.length * 4,
+    },
+  ];
+  const raw = components.reduce((sum, c) => sum + c.points, 0);
+  return { raw, capped: Math.min(100, Math.round(raw)), components };
 }
 
 export function computePromotionAlignedPct(evidence: CvEvidence): number {

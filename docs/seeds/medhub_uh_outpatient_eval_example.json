@@ -1,0 +1,214 @@
+{
+  "form_metadata": {
+    "form_name": "Outpatient Psychiatry Evaluation - ALL PURPOSE",
+    "form_version": "v101521",
+    "form_type": "outpatient_all_purpose",
+    "institution": "University Hospitals",
+    "program": "Psychiatry Residency",
+    "source_system": "MedHub",
+    "milestone_scale": {
+      "min": 0.5,
+      "max": 5.0,
+      "step": 0.5,
+      "level_3_target": "PGY-3 / Portal 2 by end of academic year",
+      "level_4_target": "PGY-4 / Portal 3 graduation target",
+      "level_5": "Aspirational"
+    },
+    "subcompetencies_in_form": 14,
+    "note": "Outpatient all-purpose form covers 14 milestones, not full 22. Inpatient/CL forms differ."
+  },
+  "evaluation_record": {
+    "evaluatee": {
+      "display_name_redacted": "Dr. Palmer, K.",
+      "fiscmak_user_mapping": "program_roster_only"
+    },
+    "evaluator": {
+      "display_name": "Dr. Musso, Margaret",
+      "role": "attending_supervisor"
+    },
+    "service": "Walker Med Clinic - Residency Clinic",
+    "rotation_label": "Outpatient Psychiatry",
+    "rotation_dates": {
+      "start": "2025-12-15",
+      "end": "2026-03-08"
+    },
+    "issue_date": "2026-04-03",
+    "completed_date": "2026-04-13",
+    "narrative": {
+      "strengths": [
+        "Develops good rapport with patients",
+        "Generally appropriate treatment plans",
+        "Pays attention to non-pharmacologic opportunities for intervention"
+      ],
+      "areas_for_improvement": [
+        "Work on being more concise/less redundant in notes",
+        "Continue to work on diagnostic accuracy/precision"
+      ],
+      "additional_comments": null
+    },
+    "milestone_ratings": [
+      {
+        "subcompetency_id": "psych_milestone_01",
+        "number": 1,
+        "name": "Patient- and Family-Centered Communication",
+        "rating": 4.0,
+        "acgme_competency": "Interpersonal & Communication Skills",
+        "fiscmak_career_domain": "relational_leadership"
+      },
+      {
+        "subcompetency_id": "psych_milestone_02",
+        "number": 2,
+        "name": "Interprofessional and Team Communication",
+        "rating": 4.0,
+        "acgme_competency": "Interpersonal & Communication Skills",
+        "fiscmak_career_domain": "relational_leadership"
+      },
+      {
+        "subcompetency_id": "psych_milestone_03",
+        "number": 3,
+        "name": "Communication within Health Care Systems",
+        "rating": 4.0,
+        "acgme_competency": "Interpersonal & Communication Skills",
+        "fiscmak_career_domain": "systems_impact"
+      },
+      {
+        "subcompetency_id": "psych_milestone_04",
+        "number": 4,
+        "name": "Professional Behavior and Ethical Principles",
+        "rating": 4.0,
+        "acgme_competency": "Professionalism",
+        "fiscmak_career_domain": "trust_identity"
+      },
+      {
+        "subcompetency_id": "psych_milestone_05",
+        "number": 5,
+        "name": "Accountability/Conscientiousness",
+        "rating": 4.0,
+        "acgme_competency": "Professionalism",
+        "fiscmak_career_domain": "trust_identity"
+      },
+      {
+        "subcompetency_id": "psych_milestone_06",
+        "number": 6,
+        "name": "Psychiatric Evaluation",
+        "subparts": ["A: Gathers and organizes findings", "B: Collateral sources", "C: Risk assessment"],
+        "rating": 4.0,
+        "acgme_competency": "Patient Care",
+        "fiscmak_career_domain": "clinical_craft"
+      },
+      {
+        "subcompetency_id": "psych_milestone_07",
+        "number": 7,
+        "name": "Psychiatric Formulation and Differential Diagnosis",
+        "subparts": ["A: Differential diagnosis", "B: Formulation", "C: Emotional responses as diagnostic information"],
+        "rating": 3.5,
+        "acgme_competency": "Patient Care",
+        "fiscmak_career_domain": "clinical_craft",
+        "growth_flag": true
+      },
+      {
+        "subcompetency_id": "psych_milestone_08",
+        "number": 8,
+        "name": "Treatment Planning and Management",
+        "subparts": ["A: Creates treatment plan", "B: Monitors/revises", "C: Community resources"],
+        "rating": 3.5,
+        "acgme_competency": "Patient Care",
+        "fiscmak_career_domain": "clinical_craft",
+        "growth_flag": true
+      },
+      {
+        "subcompetency_id": "psych_milestone_09",
+        "number": 9,
+        "name": "Somatic Therapies (Psychopharmacology and Neurostimulation)",
+        "subparts": ["A: Mechanisms/indications/evidence", "B: Patient education", "C: Monitor response"],
+        "rating": 4.0,
+        "acgme_competency": "Patient Care",
+        "fiscmak_career_domain": "clinical_craft"
+      },
+      {
+        "subcompetency_id": "psych_milestone_10",
+        "number": 10,
+        "name": "Psychopathology",
+        "subparts": ["A: Psychiatric conditions", "B: Interface with medicine"],
+        "rating": 4.0,
+        "acgme_competency": "Medical Knowledge",
+        "fiscmak_career_domain": "knowledge_base"
+      },
+      {
+        "subcompetency_id": "psych_milestone_11",
+        "number": 11,
+        "name": "Evidence-Based and Informed Practice",
+        "rating": 3.5,
+        "acgme_competency": "Practice-Based Learning & Improvement",
+        "fiscmak_career_domain": "growth_engine",
+        "growth_flag": true
+      },
+      {
+        "subcompetency_id": "psych_milestone_12",
+        "number": 12,
+        "name": "Reflective Practice and Commitment to Personal Growth",
+        "rating": 4.0,
+        "acgme_competency": "Practice-Based Learning & Improvement",
+        "fiscmak_career_domain": "growth_engine"
+      },
+      {
+        "subcompetency_id": "psych_milestone_13",
+        "number": 13,
+        "name": "System Navigation for Patient-Centered Care",
+        "subparts": ["A: Coordinates care", "B: Transitions of care", "C: Population/community health"],
+        "rating": 4.0,
+        "acgme_competency": "Systems-Based Practice",
+        "fiscmak_career_domain": "systems_impact"
+      },
+      {
+        "subcompetency_id": "psych_milestone_14",
+        "number": 14,
+        "name": "Physician Role in Health Care Systems",
+        "subparts": ["A: Working within system", "B: Financing/advocacy", "C: Transition to practice"],
+        "rating": 4.0,
+        "acgme_competency": "Systems-Based Practice",
+        "fiscmak_career_domain": "systems_impact"
+      }
+    ],
+    "computed_summary": {
+      "mean_rating": 3.89,
+      "ratings_at_or_above_4": 11,
+      "ratings_below_4": 3,
+      "lowest_rated": [
+        { "name": "Psychiatric Formulation and Differential Diagnosis", "rating": 3.5 },
+        { "name": "Treatment Planning and Management", "rating": 3.5 },
+        { "name": "Evidence-Based and Informed Practice", "rating": 3.5 }
+      ],
+      "pgy_context_note": "Form targets PGY-3 at Level 3; PGY-4 at Level 4. Ratings of 4.0 on outpatient rotation suggest strong performance if trainee is PGY-3+."
+    }
+  },
+  "fiscmak_rail_assignment": {
+    "rail_a_program_formal": {
+      "tables": ["rotation_evaluations", "milestone_external_ratings"],
+      "evidence_tier": 1,
+      "pd_pre_ccc_use": true,
+      "ccc_auto_assign": false
+    },
+    "rail_b_resident_career": {
+      "derived_artifacts": [
+        {
+          "type": "achievement_vault_entry",
+          "source": "narrative_strengths",
+          "shareable_default": true,
+          "career_output_potential": ["cv_bullet", "letter_writer_note", "interview_story"]
+        },
+        {
+          "type": "growth_engine_goal",
+          "source": "narrative_improvement + milestone_07_08_11",
+          "shareable_default": false,
+          "ilp_suggestion": "Documentation concision; diagnostic precision; EBM application"
+        },
+        {
+          "type": "milestone_to_career_translation",
+          "example": "Level 4 on Patient-Family Communication → Relational Leadership evidence: therapeutic alliance in outpatient continuity"
+        }
+      ],
+      "evidence_tier_narrative_self": 3
+    }
+  }
+}

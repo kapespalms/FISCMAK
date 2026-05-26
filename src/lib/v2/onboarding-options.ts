@@ -1,107 +1,10 @@
-/** ABMS/AOA specialties + subspecialties (alphabetical). */
-export const ACGME_SPECIALTIES = [
-  "Addiction Psychiatry",
-  "Adolescent Medicine",
-  "Allergy and Immunology",
-  "Anatomic and Clinical Pathology",
-  "Anesthesiology",
-  "Blood Banking/Transfusion Medicine",
-  "Cardiovascular Disease",
-  "Child and Adolescent Psychiatry",
-  "Child Neurology",
-  "Clinical Biochemical Genetics",
-  "Clinical Cardiac Electrophysiology",
-  "Clinical Genetics and Genomics",
-  "Clinical Informatics",
-  "Clinical Neurophysiology",
-  "Colon and Rectal Surgery",
-  "Critical Care Medicine",
-  "Cytopathology",
-  "Dermatology",
-  "Dermatopathology",
-  "Developmental-Behavioral Pediatrics",
-  "Emergency Medical Services",
-  "Emergency Medicine",
-  "Endocrinology, Diabetes and Metabolism",
-  "Epilepsy",
-  "Family Medicine",
-  "Female Pelvic Medicine and Reconstructive Surgery",
-  "Forensic Pathology",
-  "Forensic Psychiatry",
-  "Gastroenterology",
-  "Geriatric Medicine",
-  "Geriatric Psychiatry",
-  "Gynecologic Oncology",
-  "Hand Surgery",
-  "Hematology",
-  "Hematology and Oncology",
-  "Hospice and Palliative Medicine",
-  "Infectious Disease",
-  "Internal Medicine",
-  "Internal Medicine-Pediatrics",
-  "Interventional Cardiology",
-  "Interventional Radiology",
-  "Maternal-Fetal Medicine",
-  "Medical Genetics and Genomics",
-  "Medical Microbiology",
-  "Medical Toxicology",
-  "Molecular Genetic Pathology",
-  "Neonatal-Perinatal Medicine",
-  "Nephrology",
-  "Neurocritical Care",
-  "Neurological Surgery",
-  "Neurology",
-  "Neuropathology",
-  "Neuroradiology",
-  "Neurotology",
-  "Nuclear Medicine",
-  "Nuclear Radiology",
-  "Obstetrics and Gynecology",
-  "Occupational and Environmental Medicine",
-  "Ophthalmology",
-  "Orthopaedic Sports Medicine",
-  "Orthopaedic Surgery",
-  "Otolaryngology - Head and Neck Surgery",
-  "Pain Medicine",
-  "Pediatric Anesthesiology",
-  "Pediatric Cardiology",
-  "Pediatric Critical Care Medicine",
-  "Pediatric Emergency Medicine",
-  "Pediatric Endocrinology",
-  "Pediatric Gastroenterology",
-  "Pediatric Hematology-Oncology",
-  "Pediatric Hospital Medicine",
-  "Pediatric Infectious Diseases",
-  "Pediatric Nephrology",
-  "Pediatric Pulmonology",
-  "Pediatric Radiology",
-  "Pediatric Rehabilitation Medicine",
-  "Pediatric Surgery",
-  "Pediatric Urology",
-  "Physical Medicine and Rehabilitation",
-  "Plastic Surgery",
-  "Plastic Surgery-Integrated",
-  "Preventive Medicine",
-  "Psychiatry",
-  "Pulmonary Disease",
-  "Radiation Oncology",
-  "Radiology - Diagnostic",
-  "Rheumatology",
-  "Sleep Medicine",
-  "Spinal Cord Injury Medicine",
-  "Sports Medicine",
-  "Surgery",
-  "Surgical Critical Care",
-  "Thoracic Surgery",
-  "Transplant Hepatology",
-  "Undersea and Hyperbaric Medicine",
-  "Urology",
-  "Vascular Neurology",
-  "Vascular Surgery",
-  "Other",
-] as const;
+/** @deprecated Prefer ACGME primary list from specialty-hierarchy / gme registry. */
+import { listAllAcgmeProgramNames } from "@/lib/v2/gme/acgme-specialty-registry";
 
-export type AcgmeSpecialty = (typeof ACGME_SPECIALTIES)[number];
+/** Legacy flat list — primary + subspecialty program names + Other (attending search). */
+export const ACGME_SPECIALTIES: readonly string[] = [...listAllAcgmeProgramNames(), "Other"];
+
+export type AcgmeSpecialty = string;
 
 /** Touchpoint 1 career levels (ADDIE onboarding spec). */
 export const CAREER_LEVELS = [
@@ -119,6 +22,30 @@ export type CareerLevel = (typeof CAREER_LEVELS)[number];
 /** @deprecated Use CAREER_LEVELS — alias for backward compatibility */
 export const CAREER_STAGES = CAREER_LEVELS;
 export type CareerStage = CareerLevel;
+
+/** PGY labels for resident/fellow onboarding (GME). */
+export const PGY_LEVELS = [
+  "PGY-1",
+  "PGY-2",
+  "PGY-3",
+  "PGY-4",
+  "PGY-5+",
+] as const;
+
+export type PgyLevel = (typeof PGY_LEVELS)[number];
+
+export function isTraineeCareerLevel(level: string | null | undefined): level is CareerLevel {
+  return level === "Medical Student" || level === "Resident" || level === "Fellow";
+}
+
+/** Resident/fellow onboarding collects PGY and current rotation. */
+export function requiresGmePlacementFields(level: string | null | undefined): boolean {
+  return level === "Resident" || level === "Fellow";
+}
+
+export function isValidPgyLevel(value: string): value is PgyLevel {
+  return (PGY_LEVELS as readonly string[]).includes(value);
+}
 
 export const PRACTICE_SETTINGS = [
   "Academic",
@@ -165,14 +92,14 @@ export function normalizeCareerLevel(value: string | null | undefined): CareerLe
   return LEGACY_CAREER_MAP[value] ?? null;
 }
 
-export function filterSpecialties(query: string): AcgmeSpecialty[] {
+export function filterSpecialties(query: string): string[] {
   const q = query.trim().toLowerCase();
   if (!q) return [...ACGME_SPECIALTIES];
   return ACGME_SPECIALTIES.filter((s) => s.toLowerCase().includes(q));
 }
 
 export function isValidSpecialty(value: string): value is AcgmeSpecialty {
-  return (ACGME_SPECIALTIES as readonly string[]).includes(value);
+  return ACGME_SPECIALTIES.includes(value);
 }
 
 export function isValidCareerLevel(value: string): value is CareerLevel {

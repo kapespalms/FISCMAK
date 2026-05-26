@@ -25,6 +25,8 @@ import {
   processReconcileTurn,
 } from "@/lib/v2/reconcile-mak-flow";
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
+import { buildProgramMakContext } from "@/lib/v2/programs/registry";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
 import {
@@ -46,6 +48,7 @@ import { processAnnualMakTurn, processQuarterlyMakTurn } from "@/lib/v2/touchpoi
 import type { TouchpointSubmitResult } from "@/lib/v2/touchpoint-submit";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
+import { buildMakInternalCoachingBundle } from "@/lib/v2/mak-coaching-engine";
 import {
   buildOnboardingSuggestedActions,
   buildWelcomeGreeting,
@@ -70,13 +73,63 @@ import {
 } from "@/lib/v2/classify-chat-message";
 import { hasActiveSubscription, isStripeConfigured } from "@/lib/v2/stripe-config";
 import type { ActivityEntry } from "@/lib/types/database";
-import type { AppSection } from "@/lib/mak-sections";
+import type { AppSection, MakFlowIntent } from "@/lib/mak-sections";
+import {
+  buildConversationModelContext,
+  buildMakSystemPrompt,
+  buildNarrativeAnchorIntro,
+  buildStageAwareCapturePrompt,
+} from "@/lib/v2/mak-conversation-models";
+import {
+  buildAttendingQuarterlyIntro,
+  buildPromotionContextIntro,
+  buildPromotionReadinessIntro,
+} from "@/lib/v2/mak-conversation-models";
+import {
+  buildRotationDebriefIntro,
+  initNarrativeAnchorSession,
+  initRotationDebriefSession,
+  processNarrativeAnchorTurn,
+  processRotationDebriefTurn,
+} from "@/lib/v2/rotation-debrief-mak-flow";
+import {
+  buildAttendingQuarterlyMakSystemContext,
+  buildPromotionContextMakSystemContext,
+  buildPromotionReadinessMakSystemContext,
+  initAttendingQuarterlySession,
+  initImpactTranslationSession,
+  initPromotionContextSession,
+  processAttendingQuarterlyTurn,
+  processImpactTranslationTurn,
+  processPromotionContextTurn,
+} from "@/lib/v2/early-attending-mak-flow";
+import {
+  buildCareerPivotMakSystemContext,
+  buildCareerTranslationFollowUp,
+  buildPivotQuarterlyMakSystemContext,
+  initCareerPivotSession,
+  initCareerTranslationSession,
+  initIdentityNavigationSession,
+  initPivotQuarterlySession,
+  processCareerPivotTurn,
+  processCareerTranslationTurn,
+  processIdentityNavigationTurn,
+  processPivotQuarterlyTurn,
+} from "@/lib/v2/non-traditional-career-mak-flow";
+import { buildCareerPivotIntro } from "@/lib/v2/non-traditional-career-models";
 
-const MAK_SYSTEM = `You are Coach Mak, an empathetic physician career coach. Use MemPalace context and assessment data. No medical advice. One question at a time. Surface invisible work and promotion narrative when relevant. Keep replies under 120 words unless summarizing.
-
-CRITICAL: Speak in career outcomes, not formulas. Never say h-index, RCR, BITS, IWQ, or CDI unless the physician asks for technical detail. Use: Career Health Score, Research Influence, Burnout Risk, Unrecognized Work, Service Citizenship, Advancement Readiness.
-
-When coaching recommendations are provided, prioritize the urgent/high items first. Use plain language and actionable next steps.`;
+const API_GREETING_TOKENS = new Set([
+  "__welcome__",
+  "__rotation_debrief__",
+  "__narrative_anchor__",
+  "__promotion_context__",
+  "__attending_quarterly__",
+  "__attending_deep_reflection__",
+  "__promotion_readiness__",
+  "__career_pivot_onboarding__",
+  "__pivot_quarterly__",
+  "__identity_navigation__",
+]);
 
 type HistoryTurn = { role: "user" | "assistant"; content: string };
 
@@ -254,6 +307,345 @@ export async function POST(request: Request) {
     );
   }
 
+  const flowIntent = (context?.flow_intent as MakFlowIntent | undefined) ?? null;
+  const rotationName =
+    typeof context?.rotation_name === "string" ? context.rotation_name : undefined;
+
+  if (
+    user &&
+    flowIntent === "rotation_debrief" &&
+    !activeMeta.rotation_debrief_session &&
+    message !== "__welcome__" &&
+    message !== "__rotation_debrief__"
+  ) {
+    activeMeta = initRotationDebriefSession(activeMeta, rotationName);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (
+    user &&
+    flowIntent === "narrative_anchor" &&
+    !activeMeta.narrative_anchor_session &&
+    message !== "__welcome__" &&
+    message !== "__narrative_anchor__"
+  ) {
+    activeMeta = initNarrativeAnchorSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  let debriefTurn: { response: string; suggested_actions: { action: string; url: string }[]; meta: typeof activeMeta; complete: boolean } | null = null;
+
+  if (
+    user &&
+    message &&
+    message !== "__welcome__" &&
+    message !== "__rotation_debrief__" &&
+    message !== "__narrative_anchor__" &&
+    flowIntent === "rotation_debrief" &&
+    activeMeta.rotation_debrief_session
+  ) {
+    const turn = processRotationDebriefTurn({
+      message,
+      meta: activeMeta,
+      careerStage: user.career_stage,
+    });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    message !== "__welcome__" &&
+    message !== "__narrative_anchor__" &&
+    flowIntent === "narrative_anchor" &&
+    activeMeta.narrative_anchor_session
+  ) {
+    const turn = processNarrativeAnchorTurn({
+      message,
+      meta: activeMeta,
+      careerStage: user.career_stage,
+    });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (
+    user &&
+    flowIntent === "promotion_context" &&
+    !activeMeta.promotion_context_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initPromotionContextSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (
+    user &&
+    (flowIntent === "attending_quarterly" || flowIntent === "attending_deep_reflection") &&
+    !activeMeta.attending_quarterly_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initAttendingQuarterlySession(
+      activeMeta,
+      flowIntent === "attending_deep_reflection",
+    );
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
+  if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "promotion_context" &&
+    activeMeta.promotion_context_session
+  ) {
+    const turn = processPromotionContextTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    (flowIntent === "attending_quarterly" || flowIntent === "attending_deep_reflection") &&
+    activeMeta.attending_quarterly_session
+  ) {
+    const turn = processAttendingQuarterlyTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "impact_translation" &&
+    activeMeta.impact_translation_session
+  ) {
+    const turn = processImpactTranslationTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "impact_translation" &&
+    !activeMeta.impact_translation_session
+  ) {
+    activeMeta = initImpactTranslationSession(activeMeta, message);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    flowIntent === "career_pivot_onboarding" &&
+    !activeMeta.career_pivot_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initCareerPivotSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+    const turn = processCareerPivotTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "career_pivot_onboarding" &&
+    activeMeta.career_pivot_session
+  ) {
+    const turn = processCareerPivotTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    flowIntent === "pivot_quarterly" &&
+    !activeMeta.pivot_quarterly_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initPivotQuarterlySession(
+      activeMeta,
+      activeMeta.career_pivot_context?.target_path ?? "exploring",
+    );
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+    const turn = processPivotQuarterlyTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "pivot_quarterly" &&
+    activeMeta.pivot_quarterly_session
+  ) {
+    const turn = processPivotQuarterlyTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    flowIntent === "identity_navigation" &&
+    !activeMeta.identity_navigation_session &&
+    message &&
+    !API_GREETING_TOKENS.has(message)
+  ) {
+    activeMeta = initIdentityNavigationSession(activeMeta);
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+    const turn = processIdentityNavigationTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "identity_navigation" &&
+    activeMeta.identity_navigation_session
+  ) {
+    const turn = processIdentityNavigationTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "career_translation" &&
+    activeMeta.career_translation_session
+  ) {
+    const turn = processCareerTranslationTurn({ message, meta: activeMeta });
+    debriefTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    flowIntent === "career_translation" &&
+    !activeMeta.career_translation_session
+  ) {
+    activeMeta = initCareerTranslationSession(activeMeta, message);
+    const path = activeMeta.career_pivot_context?.target_path ?? "industry_pharma";
+    debriefTurn = {
+      meta: activeMeta,
+      response: buildCareerTranslationFollowUp(message, path),
+      suggested_actions: [],
+      complete: false,
+    };
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
   let goalSettingTurn: GoalSettingTurnResult | null = null;
 
   if (user && message && message !== "__welcome__" && goalSettingActive) {
@@ -319,7 +711,6 @@ export async function POST(request: Request) {
     }
   }
 
-  const flowIntent = (context?.flow_intent as string | undefined) ?? null;
   let activityCaptured: ActivityEntry | null = null;
   let chatClassification: ChatClassification | null = null;
 
@@ -420,6 +811,14 @@ export async function POST(request: Request) {
     annualRefreshDue,
     goalSettingMode: Boolean(getGoalSettingSession(activeMeta)),
     goalModify: context?.goal_flow === "modify",
+    flowIntent,
+    careerStage: user?.career_stage,
+    outputFlow:
+      flowIntent === "personal_statement_arc" || flowIntent === "promotion_dossier"
+        ? "personal_statement"
+        : flowIntent === "pivot_narrative"
+          ? "cover_letter"
+          : undefined,
   });
 
   const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
@@ -427,7 +826,114 @@ export async function POST(request: Request) {
   let suggested_actions: { action: string; url: string }[] = [];
   let upgrade_prompt: string | null = null;
 
-  if (message === "__welcome__" && user) {
+  if (message === "__rotation_debrief__" && user) {
+    if (!activeMeta.rotation_debrief_session) {
+      activeMeta = initRotationDebriefSession(activeMeta, rotationName);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildRotationDebriefIntro(rotationName ?? activeMeta.rotation_debrief_session?.rotation_name);
+    suggested_actions = [{ action: "Set narrative anchor first", url: "/app/subjective" }];
+  } else if (message === "__narrative_anchor__" && user) {
+    if (!activeMeta.narrative_anchor_session) {
+      activeMeta = initNarrativeAnchorSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildNarrativeAnchorIntro(user.career_stage);
+    suggested_actions = [];
+  } else if (message === "__promotion_context__" && user) {
+    if (!activeMeta.promotion_context_session) {
+      activeMeta = initPromotionContextSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildPromotionContextIntro();
+    suggested_actions = [];
+  } else if (message === "__attending_quarterly__" && user) {
+    if (!activeMeta.attending_quarterly_session) {
+      activeMeta = initAttendingQuarterlySession(activeMeta, false);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildAttendingQuarterlyIntro(false);
+    suggested_actions = [{ action: "Deep year-end reflection", url: "/app/subjective" }];
+  } else if (message === "__attending_deep_reflection__" && user) {
+    if (!activeMeta.attending_quarterly_session) {
+      activeMeta = initAttendingQuarterlySession(activeMeta, true);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildAttendingQuarterlyIntro(true);
+    suggested_actions = [];
+  } else if (message === "__promotion_readiness__" && user) {
+    response = buildPromotionReadinessIntro();
+    suggested_actions = [
+      { action: "Set promotion context", url: "/app/profile" },
+      { action: "Open promotion narrative", url: "/app/output" },
+    ];
+  } else if (message === "__career_pivot_onboarding__" && user) {
+    if (!activeMeta.career_pivot_session) {
+      activeMeta = initCareerPivotSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    response = buildCareerPivotIntro();
+    suggested_actions = [{ action: "Identity navigation", url: "/app/subjective" }];
+  } else if (message === "__pivot_quarterly__" && user) {
+    if (!activeMeta.pivot_quarterly_session) {
+      activeMeta = initPivotQuarterlySession(
+        activeMeta,
+        activeMeta.career_pivot_context?.target_path ?? "exploring",
+      );
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    const turn = processPivotQuarterlyTurn({ message: "", meta: activeMeta });
+    response = turn.response;
+    suggested_actions = turn.suggested_actions;
+  } else if (message === "__identity_navigation__" && user) {
+    if (!activeMeta.identity_navigation_session) {
+      activeMeta = initIdentityNavigationSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    const turn = processIdentityNavigationTurn({ message: "", meta: activeMeta });
+    response = turn.response;
+    suggested_actions = turn.suggested_actions;
+  } else if (message === "__welcome__" && user) {
     const welcomeMeta = getOnboardingMetadata(user);
     if (
       user.cv_uploaded &&
@@ -453,6 +959,9 @@ export async function POST(request: Request) {
       { action: "Continue assessment", url: "/app/onboarding?step=instruments" },
       { action: "Use form instead", url: "/app/onboarding?step=reconcile" },
     ];
+  } else if (debriefTurn) {
+    response = debriefTurn.response;
+    suggested_actions = debriefTurn.suggested_actions;
   } else if (goalSettingTurn) {
     response = goalSettingTurn.response;
     suggested_actions = goalSettingTurn.suggested_actions;
@@ -503,7 +1012,7 @@ export async function POST(request: Request) {
       } else if (pendingCount > 0) {
         response += `\n\nTell me about your promotion track or biggest career goal over the next few years.`;
       } else if (touchpointComplete) {
-        response += `\n\nYour Career Health snapshot is ready — open the dashboard to see your score in plain language.`;
+        response += `\n\nYour dashboard is ready — open Perspective and Insights to continue with Coach Mak.`;
       }
       suggested_actions = buildOnboardingSuggestedActions();
     } else {
@@ -518,8 +1027,76 @@ export async function POST(request: Request) {
             : [{ action: "Begin quarterly check-in", url: "/app/dashboard" }];
     }
   } else {
+    const debriefSummary =
+      activeMeta.rotation_debrief_entries?.length
+        ? `Rotation debriefs on file: ${activeMeta.rotation_debrief_entries
+            .slice(-3)
+            .map((e) => `${e.rotation_name}${e.theme_tags?.length ? ` (${e.theme_tags.join(", ")})` : ""}`)
+            .join("; ")}`
+        : "";
+
+    const pivotActive = Boolean(
+      activeMeta.career_pivot_context?.target_path ||
+        flowIntent?.startsWith("career_") ||
+        flowIntent?.startsWith("pivot_") ||
+        flowIntent === "identity_navigation",
+    );
+    const pathCtx = onboardingPathFromMetadata(activeMeta);
+    const programMakContext = pathCtx?.program
+      ? buildProgramMakContext({
+          program: pathCtx.program,
+          trainee_initials: activeMeta.trainee_initials ?? null,
+          current_rotation: user?.current_rotation,
+          pgy_level: user?.pgy_level,
+        })
+      : "";
+
     const contextBlock = [
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
+      buildConversationModelContext({
+        careerStage: user?.career_stage,
+        specialty: user?.specialty,
+        baseSpecialty: user?.base_specialty,
+        subspecialty: user?.subspecialty,
+        specialtyOrigin: user?.specialty_origin,
+        pgyLevel: user?.pgy_level,
+        currentRotation: user?.current_rotation,
+        practiceSetting: user?.practice_setting,
+        flowIntent,
+        narrativeAnchor: activeMeta.narrative_anchor,
+        promotionContext: activeMeta.promotion_context,
+        careerPivotContext: activeMeta.career_pivot_context,
+        rotationName: activeMeta.rotation_debrief_session?.rotation_name ?? rotationName,
+        debriefLayer: activeMeta.rotation_debrief_session?.layer,
+      }),
+      debriefSummary,
+      activeMeta.promotion_context_session
+        ? buildPromotionContextMakSystemContext(activeMeta)
+        : "",
+      activeMeta.career_pivot_session
+        ? buildCareerPivotMakSystemContext(activeMeta)
+        : "",
+      activeMeta.pivot_quarterly_session
+        ? buildPivotQuarterlyMakSystemContext(activeMeta)
+        : "",
+      activeMeta.attending_quarterly_session
+        ? buildAttendingQuarterlyMakSystemContext(activeMeta)
+        : "",
+      flowIntent === "promotion_readiness"
+        ? buildPromotionReadinessMakSystemContext(activeMeta)
+        : "",
+      activeMeta.impact_translations?.length
+        ? `Impact translations: ${activeMeta.impact_translations
+            .slice(-3)
+            .map((e) => e.impact_narrative)
+            .join(" | ")}`
+        : "",
+      activeMeta.pivot_translations?.length
+        ? `Pivot translations: ${activeMeta.pivot_translations
+            .slice(-3)
+            .map((e) => `${e.clinical_experience} → ${e.translated_framing}`)
+            .join(" | ")}`
+        : "",
       mp?.coaching_summary ? `Memory: ${mp.coaching_summary}` : "",
       assessments.length
         ? `Completed touchpoints: ${assessments.filter((a) => a.completed_at).length}`
@@ -532,7 +1109,8 @@ export async function POST(request: Request) {
         : "",
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",
       coachingBrief ? recommendationsContextForMak(coachingBrief) : "",
-      careerHealth ? `Career Health Score: ${careerHealth.career_health_score}/100` : "",
+      buildMakInternalCoachingBundle(cvDoc?.extracted_text, refreshedAssessments, activeMeta)
+        .context_block,
       annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
       quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
       getGoalSettingSession(activeMeta)
@@ -540,12 +1118,18 @@ export async function POST(request: Request) {
         : "",
       globalState === "ONBOARDRECONCILE" ? buildReconcileMakSystemContext(activeMeta) : "",
       flowIntent === "capture"
-        ? "Activity capture mode: the physician is logging invisible work. Acknowledge what they shared, reflect why it matters for promotion/advancement, confirm domain and track in plain language, and ask one follow-up (energy level or another recent invisible task). Do not repeat raw classification jargon."
+        ? buildStageAwareCapturePrompt(user?.career_stage, user?.practice_setting, pivotActive)
         : "",
       user ? buildConversationalPrompt(user, pendingTp1, onboarding) : "",
     ]
       .filter(Boolean)
       .join("\n");
+
+    const makSystem = buildMakSystemPrompt(
+      user?.career_stage,
+      user?.practice_setting,
+      pivotActive,
+    );
 
     const prior: HistoryTurn[] = Array.isArray(history) ? history.slice(-8) : [];
     const messages = [
@@ -564,7 +1148,7 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           model: "claude-3-5-haiku-20241022",
           max_tokens: 512,
-          system: `${MAK_SYSTEM}\n\n${sectionSystemPrompt(chatSection, chatState, globalState)}\n\nContext:\n${contextBlock}`,
+          system: `${makSystem}\n\n${sectionSystemPrompt(chatSection, chatState, globalState, user?.career_stage)}\n\nContext:\n${contextBlock}`,
           messages,
         }),
       });

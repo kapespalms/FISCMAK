@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card } from "@/components/ui/Card";
@@ -17,6 +17,8 @@ export default function SignupPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const nextPath = searchParams.get("next") ?? "/app/onboarding";
 
   async function handleSignup(e: React.FormEvent) {
     e.preventDefault();
@@ -24,7 +26,7 @@ export default function SignupPage() {
     setError("");
 
     if (!isSupabaseConfigured()) {
-      router.push("/app/onboarding");
+      router.push(nextPath);
       return;
     }
 
@@ -44,7 +46,7 @@ export default function SignupPage() {
     }
 
     if (data.session) {
-      window.location.assign("/app/onboarding");
+      window.location.assign(nextPath);
       return;
     }
 
@@ -107,8 +109,8 @@ export default function SignupPage() {
               <span className="bg-white/70 px-2 text-cx-forest-dark/60 backdrop-blur-sm">or</span>
             </div>
           </div>
-          <AppleSignInButton next="/app/onboarding" label="Sign up with Apple" />
-          <GoogleSignInButton next="/app/onboarding" label="Sign up with Google" />
+          <AppleSignInButton next={nextPath} label="Sign up with Apple" />
+          <GoogleSignInButton next={nextPath} label="Sign up with Google" />
         </form>
       </Card>
     </div>

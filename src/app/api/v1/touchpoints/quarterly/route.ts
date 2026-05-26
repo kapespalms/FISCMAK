@@ -45,7 +45,6 @@ export async function POST(request: Request) {
   return jsonOk({
     quarter: result.quarter,
     summary: result.summary,
-    career_health_score: result.career_health_score,
     triggers: result.triggers,
     completed_at: result.completed_at,
     enrichment: result.meta.enrichment_snapshot

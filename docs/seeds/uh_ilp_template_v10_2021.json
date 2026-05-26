@@ -1,0 +1,99 @@
+{
+  "template": {
+    "institution": "Case Western Reserve University / University Hospitals Cleveland",
+    "program": "General Psychiatry",
+    "document_title": "Individualized Learning Plan",
+    "version": "v10/2021",
+    "source_file": "12325_resident_individualized_learn.doc",
+    "pages": 6,
+    "milestone_reference": "https://www.acgme.org/globalassets/PDFs/Milestones/PsychiatryMilestones2.0.pdf",
+    "pgy_guidance": {
+      "pgy1_portal1_target": "Level 1-2 for most competencies by end of year",
+      "psychotherapy_clinic_starts": "PGY-2/3",
+      "class_iq_project": "PGY-3",
+      "graduation_target": "Level 4 (not required in all competencies)",
+      "level_5": "Aspirational"
+    }
+  },
+  "sections": [
+    {
+      "section_id": "header",
+      "fields": ["resident_name", "date_finalized", "next_review_date"]
+    },
+    {
+      "section_id": "career_planning",
+      "fields": [
+        "career_goal_1",
+        "career_goal_2",
+        "career_goal_3",
+        "electives_for_goals",
+        "scholarly_work_for_goals",
+        "other_help_for_goals",
+        "obstacles_challenges",
+        "steps_next_4_6_months",
+        "program_contacts_who_can_help"
+      ]
+    },
+    {
+      "section_id": "milestone_self_assessment",
+      "scale": { "min": 0.5, "max": 5.0, "step": 0.5 },
+      "subcompetency_count": 21,
+      "domains": {
+        "patient_care": ["PC1 Psychiatric Evaluation", "PC2 Psychiatric Formulation and Differential Diagnosis", "PC3 Treatment Planning and Management", "PC4 Psychotherapy", "PC5 Somatic Therapies", "PC6 Clinical Consultation"],
+        "medical_knowledge": ["MK1 Development Through the Lifecycle", "MK2 Psychopathology", "MK3 Clinical Neuroscience", "MK4 Psychotherapy"],
+        "systems_based_practice": ["SBP1 Patient Safety and Quality Improvement", "SBP2 System Navigation for Patient-Centered Care", "SBP3 Physician Role in Health Care Systems"],
+        "practice_based_learning": ["PBLI1 Evidence-Based and Informed Practice", "PBLI2 Reflective Practice and Commitment to Personal Growth"],
+        "professionalism": ["PROF1 Professional Behavior and Ethical Principles", "PROF2 Accountability/Conscientiousness", "PROF3 Well-Being"],
+        "interpersonal_communication": ["ICS1 Patient and Family-Centered Communication", "ICS2 Interprofessional and Team Communication", "ICS3 Communication within Health Care Systems"]
+      }
+    },
+    {
+      "section_id": "personal_attributes",
+      "instruction": "Choose 3 attributes to work on",
+      "attribute_options": [
+        "Response to feedback",
+        "Scholarship",
+        "Setting Priorities, Time Management and Organization",
+        "Perseverance",
+        "Attention to Detail",
+        "Confidence",
+        "Communication Skills",
+        "Collaboration and Teamwork",
+        "Ability to Recognize Limitations",
+        "Wellness, Resilience and Balance",
+        "Medical Knowledge",
+        "Other"
+      ],
+      "fields": ["attribute_1", "attribute_2", "attribute_3", "why_these_areas", "other_attribute_text"]
+    },
+    {
+      "section_id": "smart_goals",
+      "instruction": "Create 2 SMART goals for next evaluation meeting",
+      "goals": [
+        {
+          "goal_number": 1,
+          "fields": ["goal_text", "type_long_or_short_term", "projected_completion_date", "strategies", "competencies_aligned", "personal_attributes_aligned"]
+        },
+        {
+          "goal_number": 2,
+          "fields": ["goal_text", "type_long_or_short_term", "projected_completion_date", "strategies", "competencies_aligned", "personal_attributes_aligned"]
+        }
+      ],
+      "note": "Word template labels second block 'Goal 1' again — treat as Goal 2 in FISCMAK"
+    },
+    {
+      "section_id": "closing",
+      "fields": ["resident_other_comments", "pd_apd_comments_suggestions"]
+    }
+  ],
+  "medhub_mapping": {
+    "medhub_goals_form_fields": ["goal_objective", "methods_strategies", "timeframe", "outcome_results", "mentor_notes"],
+    "relationship": "MedHub Goals = lightweight entry; Word ILP = full semiannual document. One SMART goal in ILP can export to MedHub Goals row (e.g. PocketTalker QI)."
+  },
+  "fiscmak_evidence_tier": {
+    "milestone_self_assessment": 3,
+    "career_goals_and_smart_goals": 3,
+    "pd_apd_comments": 1,
+    "discrepancy_use": "Compare self-assessment to MedHub eval milestone ratings and CCC external ratings — do not auto-fill promotion claims"
+  }
+}

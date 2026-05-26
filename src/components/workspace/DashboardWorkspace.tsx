@@ -27,10 +27,8 @@ import {
   buildDashboardDueNow,
   buildDashboardSecondaryAlerts,
   buildGoalCards,
-  buildHealthStatusRow,
   buildProfileRows,
   buildProgressStatus,
-  buildRecognitionGapRow,
   touchpointBarStates,
   type ActiveTouchpointView,
 } from "@/lib/v2/dashboard-redesign";
@@ -190,13 +188,7 @@ export function DashboardWorkspace() {
 
   const profileRows = useMemo(() => {
     if (!analytics || !headerModel) return [];
-    const gapRow = buildRecognitionGapRow(analytics);
-    return [
-      ...buildProfileRows(subjectiveMetrics),
-      ...(gapRow ? [gapRow] : []),
-      buildProgressStatus(analytics),
-      buildHealthStatusRow(headerModel),
-    ];
+    return [...buildProfileRows(subjectiveMetrics), buildProgressStatus(analytics)];
   }, [analytics, headerModel, subjectiveMetrics]);
 
   const goalCards = useMemo(

@@ -25,6 +25,7 @@ import {
   extractEscalationInputFromMetadata,
   ESCALATION_PROTOCOLS,
 } from "@/lib/v2/escalation-protocols";
+import { resolveContentPack, normalizeCareerStage } from "@/lib/v2/mak-conversation-models";
 import {
   type GlobalMakState,
   globalStateSystemPrompt,
@@ -72,7 +73,15 @@ export type MakChatState =
   | "O-Generate"
   | "O-CvUpdate"
   | "O-CoverLetter"
-  | "O-PersonalStatement";
+  | "O-PersonalStatement"
+  | "O-RotationDebrief"
+  | "O-NarrativeAnchor"
+  | "O-PromotionContext"
+  | "O-CareerPivot"
+  | "O-CareerTranslation"
+  | "O-PivotQuarterly"
+  | "S-IdentityNavigation"
+  | "A-PromotionReadiness";
 
 export const DEFAULT_CHAT_STATE: Record<AppSection, MakChatState> = {
   dashboard: "S-Welcome",
@@ -95,6 +104,8 @@ export function resolveChatState(input: {
   goalModify?: boolean;
   outputFlow?: "cv" | "cover_letter" | "personal_statement";
   globalState?: GlobalMakState | null;
+  flowIntent?: string | null;
+  careerStage?: string | null;
 }): MakChatState {
   const {
     section,
@@ -108,6 +119,8 @@ export function resolveChatState(input: {
     goalModify,
     outputFlow,
     globalState,
+    flowIntent,
+    careerStage,
   } = input;
 
   if (globalState === "ESCALATE_WELLNESS" || globalState === "ESCALATE_CRISIS") {
@@ -121,19 +134,37 @@ export function resolveChatState(input: {
   if (section === "plan" && annualRefreshDue) return "P-AnnualReset";
 
   if (section === "subjective" || section === "dashboard") {
+    if (section === "subjective" && flowIntent === "identity_navigation") {
+      return "S-IdentityNavigation";
+    }
     if (burnoutScore != null && burnoutScore >= PFI_BURNOUT_THRESHOLD) return "S-Burnout";
     if (energyLevel != null && energyLevel <= 3) return "S-Burnout";
     if (annualRefreshDue) return "S-Aspiration";
     if (quarterlyPulseDue) return "S-Welcome";
     return section === "subjective" ? "S-Aspiration" : "S-Welcome";
   }
-  if (section === "objective") return "O-Review";
-  if (section === "assessment") return "A-Synthesis";
+  if (section === "objective") {
+    if (flowIntent === "rotation_debrief") return "O-RotationDebrief";
+    if (flowIntent === "narrative_anchor") return "O-NarrativeAnchor";
+    if (flowIntent === "promotion_context") return "O-PromotionContext";
+    if (flowIntent === "career_pivot_onboarding") return "O-CareerPivot";
+    if (flowIntent === "career_translation") return "O-CareerTranslation";
+    if (flowIntent === "pivot_quarterly") return "O-PivotQuarterly";
+    return "O-Review";
+  }
+  if (section === "assessment") {
+    if (flowIntent === "promotion_readiness") return "A-PromotionReadiness";
+    return "A-Synthesis";
+  }
   if (section === "plan") return "P-GoalTrack";
   if (section === "output") {
     if (outputFlow === "cv") return "O-CvUpdate";
     if (outputFlow === "cover_letter") return "O-CoverLetter";
-    if (outputFlow === "personal_statement") return "O-PersonalStatement";
+    if (outputFlow === "personal_statement" || flowIntent === "personal_statement_arc") {
+      return "O-PersonalStatement";
+    }
+    if (flowIntent === "promotion_dossier") return "O-PersonalStatement";
+    if (flowIntent === "pivot_narrative") return "O-CoverLetter";
     return "O-Generate";
   }
   return "O-Generate";
@@ -143,24 +174,48 @@ export function sectionSystemPrompt(
   section: AppSection,
   state: MakChatState,
   globalState?: GlobalMakState | null,
+  careerStage?: string | null,
 ): string {
   const base = `You are Coach Mak — the primary interface, not a sidebar feature. Professional, strengths-first, data-informed tone. No emojis. No exclamation marks in status labels. Never provide therapy or diagnoses.`;
+
+  const pack = resolveContentPack(careerStage);
+  const stage = normalizeCareerStage(careerStage);
+  const stageNote =
+    pack === "trainee"
+      ? "Trainee mode: prioritize narrative evidence, rotation meaning, application/ILP readiness over promotion metrics."
+      : pack === "early_attending"
+        ? "Early attending mode: emphasize impact evidence, promotion criteria, and dossier readiness."
+        : pack === "non_traditional"
+          ? "Non-traditional pivot mode: translate clinical experience into outsider language; intentional transition framing; resume/portfolio outputs not academic CV."
+          : "";
 
   const safety = `Escalation protocols (9 triggers): (1) PFI burnout ≥ threshold → wellness resources; (2) mMBI ≥ 'A few times a week' → wellness; (3) crisis language → 988 + Physician Support Line, pause all coaching; (4) career alignment <40% for 2Q → mentor; (5) goal stalled 2Q → restructure/replace/coach; (6) desire to leave medicine → structured exploration, never dissuade, wellness first if PFI elevated; (7) invisible work >20 hrs/week → workload summary + urgent Sustainability Goal; (8) minority tax (DEI >4 hrs + URiM + unreasonable >3.5) → DEI portfolio + mentor; (9) rapid metric decline >15 percentile points → follow-up + goal adjustment.`;
 
   const bySection: Record<AppSection, string> = {
     dashboard:
-      "You are at the career snapshot hub. Summarize SOAPO bands briefly and guide the physician to the right tab.",
+      pack === "trainee"
+        ? "Career snapshot hub for a trainee. Guide toward rotation debriefs, narrative anchor, portfolio capture, and application documents."
+        : "You are at the career snapshot hub. Summarize SOAPO bands briefly and guide the physician to the right tab.",
     subjective:
-      "Gate entry: professional career perspective check-in. Ask about professional trajectory, task alignment, career direction. Use validated instruments conversationally (PFI, BITS, Career Aspirations, UWES-9).",
+      pack === "trainee"
+        ? "Professional perspective check-in for a trainee. Ask about career direction, specialty fit, and training trajectory — not promotion readiness."
+        : "Gate entry: professional career perspective check-in. Ask about professional trajectory, task alignment, career direction. Use validated instruments conversationally (PFI, BITS, Career Aspirations, UWES-9).",
     objective:
-      "Gate entry: present Career Data vault changes since last quarter. Flag new items and items needing confirmation.",
+      pack === "trainee"
+        ? "Career Data vault for a trainee. Flag portfolio evidence, rotation debriefs, clinical skills evaluations, and items for ILP or applications."
+        : "Gate entry: present Career Data vault changes since last quarter. Flag new items and items needing confirmation.",
     assessment:
-      "Gate entry: synthesize Career Health Score and Career Map in plain language. Highlight improvements, areas needing attention, and career alignment.",
+      pack === "trainee"
+        ? "Synthesize training progress, career themes from debriefs, and competency growth — avoid advancement-readiness framing unless fellow."
+        : "Gate entry: synthesize Career Health Score and Career Map in plain language. Highlight improvements, areas needing attention, and career alignment.",
     plan:
-      "Gate entry: review Development, Maintenance, and Sustainability goals with milestone progress. Support goal modification (objective, milestones, scope) and replacement with SMART restructuring.",
+      pack === "trainee"
+        ? "Career strategy for training: SMART goals aligned with ILP, scholarly plans, and application timelines."
+        : "Gate entry: review Development, Maintenance, and Sustainability goals with milestone progress. Support goal modification (objective, milestones, scope) and replacement with SMART restructuring.",
     output:
-      "Gate entry: document library and generation flows — CV update, cover letter, personal statement, advancement readiness report, career brief, workload summary.",
+      pack === "trainee"
+        ? "Document generation for trainees: CV, personal statement, letter-writer packet, fellowship narrative. Use captured rotation debriefs and narrative anchor."
+        : "Gate entry: document library and generation flows — CV update, cover letter, personal statement, advancement readiness report, career brief, workload summary.",
   };
 
   const byState: Partial<Record<MakChatState, string>> = {
@@ -187,12 +242,32 @@ export function sectionSystemPrompt(
     "O-CoverLetter":
       "Cover letter (O-3): position, institution, emphasis, tone, length. Generate draft from Career Profile.",
     "O-PersonalStatement":
-      "Personal statement (O-4): purpose, audience, themes, length, include Career Data examples option.",
+      stage === "fellow"
+        ? "Fellowship personal statement (O-4): defining moment, evolution, scholarly thread, vision, program fit. Use rotation debrief entries and narrative anchor. One section at a time."
+        : stage === "resident" || stage === "med_student"
+          ? "Personal statement (O-4): hook, origin, journey (2–3 growth experiences), vision. Mine meaning not just facts. Use the trainee's own captured language from debriefs."
+          : "Personal statement (O-4): purpose, audience, themes, length, include Career Data examples option.",
+    "O-RotationDebrief":
+      "Rotation debrief: 3-layer story mining — facts, reflection, connection to specialty path. One question at a time. Preserve trainee phrasing. End with a one-sentence personal statement line.",
+    "O-NarrativeAnchor":
+      "Narrative anchor setup: establish specialty direction, origin story, field gap, and differentiators before mining experiences.",
+    "O-PromotionContext":
+      "Promotion context onboarding: title, institution type, track, target rank/timeline, mentor readiness notes, professional mission.",
+    "O-CareerPivot":
+      "Career pivot onboarding: destination mapping, attraction, hybrid model, network, 5-year vision, catalyst, intentional framing. Frame toward not away.",
+    "O-CareerTranslation":
+      "Clinical-to-outsider translation: reframe experience in industry/policy/media/startup language. Offer quantified resume bullets. No unexplained medical jargon.",
+    "O-PivotQuarterly":
+      "Path-specific quarterly mining — trials, policy engagement, media, startup workflow problems. Surface transferable skills.",
+    "S-IdentityNavigation":
+      "Identity navigation for career transition: leaving vs expansion, what to carry forward, mentor reactions. Sensitive — no therapy.",
+    "A-PromotionReadiness":
+      "Promotion readiness audit: evaluate scholarship, teaching, clinical, service, national reputation vs stated track. Flag gaps with actionable recommendations — never fabricate metrics.",
   };
 
   const global = globalState ? globalStateSystemPrompt(globalState) : "";
 
-  return [base, bySection[section], byState[state], global, safety].filter(Boolean).join("\n\n");
+  return [base, stageNote, bySection[section], byState[state], global, safety].filter(Boolean).join("\n\n");
 }
 
 export function buildSectionGateGreeting(input: {
@@ -234,26 +309,19 @@ How would you characterize your current professional trajectory? Has anything ch
   }
 
   if (input.section === "objective") {
-    const pubs = health?.domains.find((d) => d.key === "research_influence")?.score;
     return `This section displays verified career data from your uploaded documents and public databases.
 
-${pubs != null ? `Research influence is tracking at ${pubs}/100 based on available evidence.` : "Upload or reconcile your CV to populate Career Data metrics."}
+Upload or reconcile your CV to populate Career Data metrics.
 
 Since your last update, the platform may have detected new publications, grants, or roles requiring review. Anything missing from your Career Data that we should add?`;
   }
 
   if (input.section === "assessment") {
-    const score = health?.career_health_score;
-    const top = health?.domains.slice().sort((a, b) => b.score - a.score).slice(0, 2);
-    const weak = health?.domains.slice().sort((a, b) => a.score - b.score).slice(0, 2);
-    return `This section synthesizes your Career Perspective and Career Data into a comprehensive Career Profile.
+    return `This section synthesizes your Career Perspective and Career Data into reflection themes from Coach Mak conversations.
 
-${score != null ? `Career Health Score: ${score}/100 — ${health?.career_health_summary ?? ""}` : "Complete onboarding to generate your Career Profile."}
+Review career patterns, touchpoint coverage, and strengths surfaced in dialogue — not composite scores.
 
-${top?.length ? `Strongest areas: ${top.map((d) => `${d.label} (${d.score})`).join(", ")}.` : ""}
-${weak?.length ? `Growth opportunities: ${weak.map((d) => `${d.label} (${d.score})`).join(", ")}.` : ""}
-
-Key changes since last quarter are highlighted in your dashboard. Would you like to review any domain in detail?`;
+Key themes from recent conversations are highlighted in your dashboard. Would you like to explore any area in more detail?`;
   }
 
   if (input.section === "plan") {

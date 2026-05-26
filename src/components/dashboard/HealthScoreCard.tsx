@@ -1,5 +1,11 @@
 "use client";
 
+/**
+ * @retired 2026-05-21 — Career Health Score gauge removed from user dashboard.
+ * Composite CDI/CRI lacks validated evidence; internal metrics only.
+ * Preserved for KP Admin Dashboard preview only.
+ */
+
 import { useId } from "react";
 import { ArrowDown, ArrowRight, ArrowUp } from "lucide-react";
 import { useAppShell } from "@/components/layout/AppShell";

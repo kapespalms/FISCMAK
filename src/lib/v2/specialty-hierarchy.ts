@@ -1,127 +1,23 @@
 import type { AppUser, Job } from "@/lib/v2/types";
 import type { CareerStage } from "@/lib/v2/onboarding-options";
-import { ACGME_SPECIALTIES } from "@/lib/v2/onboarding-options";
+import { isTraineeCareerLevel } from "@/lib/v2/onboarding-options";
+import {
+  getPrimaryForSubspecialty,
+  getSubsByPrimaryRecord,
+  isAcgmePrimarySpecialty,
+  isAcgmeSubspecialtyForPrimary,
+  listAcgmePrimarySpecialtyNames,
+  listAllAcgmeProgramNames,
+  normalizeToAcgmePrimaryName,
+  normalizeToAcgmeSubspecialtyName,
+} from "@/lib/v2/gme/acgme-specialty-registry";
+export const SUBSPECIALTIES_BY_BASE: Record<string, readonly string[]> = getSubsByPrimaryRecord();
 
-/** Board-certifiable base specialties that commonly have fellowship pathways. */
-export const SUBSPECIALTIES_BY_BASE: Record<string, readonly string[]> = {
-  "Internal Medicine": [
-    "Adolescent Medicine",
-    "Cardiovascular Disease",
-    "Clinical Cardiac Electrophysiology",
-    "Critical Care Medicine",
-    "Endocrinology, Diabetes and Metabolism",
-    "Gastroenterology",
-    "Geriatric Medicine",
-    "Hematology",
-    "Hematology and Oncology",
-    "Infectious Disease",
-    "Interventional Cardiology",
-    "Nephrology",
-    "Pulmonary Disease",
-    "Rheumatology",
-    "Sleep Medicine",
-    "Hospice and Palliative Medicine",
-  ],
-  Pediatrics: [
-    "Adolescent Medicine",
-    "Child Neurology",
-    "Developmental-Behavioral Pediatrics",
-    "Neonatal-Perinatal Medicine",
-    "Pediatric Cardiology",
-    "Pediatric Critical Care Medicine",
-    "Pediatric Emergency Medicine",
-    "Pediatric Endocrinology",
-    "Pediatric Gastroenterology",
-    "Pediatric Hematology-Oncology",
-    "Pediatric Hospital Medicine",
-    "Pediatric Infectious Diseases",
-    "Pediatric Nephrology",
-    "Pediatric Pulmonology",
-    "Pediatric Rheumatology",
-  ],
-  Surgery: [
-    "Colon and Rectal Surgery",
-    "Hand Surgery",
-    "Orthopaedic Sports Medicine",
-    "Pediatric Surgery",
-    "Surgical Critical Care",
-    "Thoracic Surgery",
-    "Vascular Surgery",
-  ],
-  "Obstetrics and Gynecology": [
-    "Female Pelvic Medicine and Reconstructive Surgery",
-    "Gynecologic Oncology",
-    "Maternal-Fetal Medicine",
-  ],
-  Psychiatry: [
-    "Addiction Psychiatry",
-    "Child and Adolescent Psychiatry",
-    "Forensic Psychiatry",
-    "Geriatric Psychiatry",
-  ],
-  Neurology: [
-    "Clinical Neurophysiology",
-    "Epilepsy",
-    "Neurocritical Care",
-    "Vascular Neurology",
-  ],
-  "Physical Medicine and Rehabilitation": [
-    "Neurotology",
-    "Pediatric Rehabilitation Medicine",
-    "Spinal Cord Injury Medicine",
-  ],
-  Radiology: [
-    "Interventional Radiology",
-    "Neuroradiology",
-    "Nuclear Radiology",
-    "Pediatric Radiology",
-  ],
-  "Radiology - Diagnostic": [
-    "Interventional Radiology",
-    "Neuroradiology",
-    "Nuclear Radiology",
-    "Pediatric Radiology",
-  ],
-  Anesthesiology: ["Critical Care Medicine", "Pain Medicine"],
-  "Emergency Medicine": [
-    "Emergency Medical Services",
-    "Medical Toxicology",
-    "Pediatric Emergency Medicine",
-  ],
-  "Family Medicine": [
-    "Geriatric Medicine",
-    "Hospice and Palliative Medicine",
-    "Sleep Medicine",
-    "Sports Medicine",
-  ],
-  Dermatology: ["Dermatopathology"],
-  Pathology: [
-    "Anatomic and Clinical Pathology",
-    "Blood Banking/Transfusion Medicine",
-    "Cytopathology",
-    "Forensic Pathology",
-    "Neuropathology",
-  ],
-};
+/** ACGME-accredited primary (core) residency specialties — Appendix B 2024-2025. */
+export const BASE_SPECIALTIES: readonly string[] = listAcgmePrimarySpecialtyNames();
 
-const ALL_SUBSPECIALTIES = new Set(
-  Object.values(SUBSPECIALTIES_BY_BASE).flatMap((list) => list),
-);
-
-const SUBSPECIALTY_TO_BASE = new Map<string, string>();
-for (const [base, subs] of Object.entries(SUBSPECIALTIES_BY_BASE)) {
-  for (const sub of subs) {
-    if (!SUBSPECIALTY_TO_BASE.has(sub)) SUBSPECIALTY_TO_BASE.set(sub, base);
-  }
-}
-
-/** Primary specialties for intake (base training programs). */
-export const BASE_SPECIALTIES: readonly string[] = [
-  ...new Set([
-    ...Object.keys(SUBSPECIALTIES_BY_BASE),
-    ...ACGME_SPECIALTIES.filter((s) => !ALL_SUBSPECIALTIES.has(s)),
-  ]),
-].sort((a, b) => a.localeCompare(b));
+/** All ACGME primary + subspecialty program names for attending search / legacy lists. */
+export const ACGME_PROGRAM_NAMES: readonly string[] = [...listAllAcgmeProgramNames(), "Other"];
 
 export type SpecialtyProfile = {
   base_specialty: string | null;
@@ -132,7 +28,8 @@ export type SpecialtyProfile = {
 };
 
 export function subspecialtiesForBase(base: string): string[] {
-  return [...(SUBSPECIALTIES_BY_BASE[base] ?? [])].sort((a, b) => a.localeCompare(b));
+  const normalized = normalizeToAcgmePrimaryName(base) ?? base;
+  return [...(SUBSPECIALTIES_BY_BASE[normalized] ?? [])].sort((a, b) => a.localeCompare(b));
 }
 
 export function hasSubspecialtyOptions(base: string): boolean {
@@ -140,15 +37,16 @@ export function hasSubspecialtyOptions(base: string): boolean {
 }
 
 export function isValidBaseSpecialty(value: string): boolean {
-  return BASE_SPECIALTIES.includes(value);
+  return isAcgmePrimarySpecialty(value);
 }
 
 export function isValidSubspecialtyForBase(base: string, subspecialty: string): boolean {
-  return subspecialtiesForBase(base).includes(subspecialty);
+  return isAcgmeSubspecialtyForPrimary(base, subspecialty);
 }
 
 export function findBaseForSubspecialty(subspecialty: string): string | null {
-  return SUBSPECIALTY_TO_BASE.get(subspecialty) ?? null;
+  const primary = getPrimaryForSubspecialty(subspecialty);
+  return primary?.name ?? null;
 }
 
 export function migrateLegacySpecialty(specialty: string | null): SpecialtyProfile {
@@ -160,20 +58,24 @@ export function migrateLegacySpecialty(specialty: string | null): SpecialtyProfi
       specialty: null,
     };
   }
-  const parent = findBaseForSubspecialty(specialty);
-  if (parent) {
-    return {
-      base_specialty: parent,
-      subspecialty: specialty,
-      subspecialty_training_complete: true,
-      specialty,
-    };
+  const normalizedSub = normalizeToAcgmeSubspecialtyName(specialty);
+  if (normalizedSub) {
+    const parent = findBaseForSubspecialty(normalizedSub);
+    if (parent) {
+      return {
+        base_specialty: parent,
+        subspecialty: normalizedSub,
+        subspecialty_training_complete: true,
+        specialty: normalizedSub,
+      };
+    }
   }
+  const normalizedBase = normalizeToAcgmePrimaryName(specialty);
   return {
-    base_specialty: specialty,
+    base_specialty: normalizedBase ?? specialty,
     subspecialty: null,
     subspecialty_training_complete: false,
-    specialty,
+    specialty: normalizedBase ?? specialty,
   };
 }
 
@@ -188,13 +90,15 @@ export function normalizeSpecialtyProfile(
   >,
 ): SpecialtyProfile {
   if (user.base_specialty) {
+    const base = normalizeToAcgmePrimaryName(user.base_specialty) ?? user.base_specialty;
+    const sub = user.subspecialty
+      ? normalizeToAcgmeSubspecialtyName(user.subspecialty, base) ?? user.subspecialty
+      : null;
     const specialty =
-      user.subspecialty && user.subspecialty_training_complete
-        ? user.subspecialty
-        : user.base_specialty;
+      sub && user.subspecialty_training_complete ? sub : base;
     return {
-      base_specialty: user.base_specialty,
-      subspecialty: user.subspecialty,
+      base_specialty: base,
+      subspecialty: sub,
       subspecialty_training_complete: Boolean(user.subspecialty_training_complete),
       specialty,
     };
@@ -219,7 +123,11 @@ export function buildSpecialtyStorage(input: {
   subspecialty_training_complete?: boolean;
   career_stage?: CareerStage | null;
 }): SpecialtyProfile {
-  const subspecialty = input.subspecialty?.trim() || null;
+  const base = normalizeToAcgmePrimaryName(input.base_specialty) ?? input.base_specialty;
+  const subspecialtyRaw = input.subspecialty?.trim() || null;
+  const subspecialty = subspecialtyRaw
+    ? normalizeToAcgmeSubspecialtyName(subspecialtyRaw, base) ?? subspecialtyRaw
+    : null;
   let subspecialty_training_complete =
     input.subspecialty_training_complete ??
     defaultTrainingComplete(input.career_stage, subspecialty);
@@ -229,10 +137,10 @@ export function buildSpecialtyStorage(input: {
   }
 
   const specialty =
-    subspecialty && subspecialty_training_complete ? subspecialty : input.base_specialty;
+    subspecialty && subspecialty_training_complete ? subspecialty : base;
 
   return {
-    base_specialty: input.base_specialty,
+    base_specialty: base,
     subspecialty,
     subspecialty_training_complete,
     specialty,
@@ -253,24 +161,26 @@ export type JobSpecialtyRequirement = {
 };
 
 const CARDIOLOGY_SUBSPECIALTIES = new Set([
-  "Cardiovascular Disease",
-  "Interventional Cardiology",
-  "Clinical Cardiac Electrophysiology",
-  "Pediatric Cardiology",
+  "Cardiovascular disease",
+  "Interventional cardiology",
+  "Clinical cardiac electrophysiology",
+  "Pediatric cardiology",
 ]);
 
 export function inferJobSpecialtyRequirement(
   job: Pick<Job, "title" | "specialties" | "required_subspecialty" | "required_base_specialty">,
 ): JobSpecialtyRequirement {
   if (job.required_subspecialty) {
+    const normalizedSub =
+      normalizeToAcgmeSubspecialtyName(job.required_subspecialty) ?? job.required_subspecialty;
     const base =
       job.required_base_specialty ??
-      findBaseForSubspecialty(job.required_subspecialty) ??
+      findBaseForSubspecialty(normalizedSub) ??
       job.specialties[0] ??
       null;
     return {
       baseSpecialty: base,
-      requiredSubspecialty: job.required_subspecialty,
+      requiredSubspecialty: normalizedSub,
       acceptsBaseOnly: false,
     };
   }
@@ -280,15 +190,15 @@ export function inferJobSpecialtyRequirement(
 
   if (/interventional cardiolog/.test(title)) {
     return {
-      baseSpecialty: "Internal Medicine",
-      requiredSubspecialty: "Interventional Cardiology",
+      baseSpecialty: "Internal medicine",
+      requiredSubspecialty: "Interventional cardiology",
       acceptsBaseOnly: false,
     };
   }
   if (/cardiolog|electrophysiolog/.test(title) || tags.includes("cardiology")) {
     return {
-      baseSpecialty: "Internal Medicine",
-      requiredSubspecialty: "Cardiovascular Disease",
+      baseSpecialty: "Internal medicine",
+      requiredSubspecialty: "Cardiovascular disease",
       acceptsBaseOnly: false,
     };
   }
@@ -297,13 +207,16 @@ export function inferJobSpecialtyRequirement(
     (tags.includes("internal medicine") && !tags.includes("cardiology"))
   ) {
     return {
-      baseSpecialty: "Internal Medicine",
+      baseSpecialty: "Internal medicine",
       requiredSubspecialty: null,
       acceptsBaseOnly: true,
     };
   }
 
-  const baseFromTags = job.specialties.find((s) => isValidBaseSpecialty(s)) ?? job.specialties[0] ?? null;
+  const baseFromTags =
+    job.specialties.map((s) => normalizeToAcgmePrimaryName(s)).find(Boolean) ??
+    job.specialties[0] ??
+    null;
   return {
     baseSpecialty: baseFromTags,
     requiredSubspecialty: null,
@@ -311,10 +224,6 @@ export function inferJobSpecialtyRequirement(
   };
 }
 
-/**
- * 0–1 specialty alignment for job matching.
- * Subspecialty-required roles score low for base-only physicians.
- */
 export function computeSpecialtyMatchScore(
   job: Pick<Job, "title" | "specialties" | "required_subspecialty" | "required_base_specialty">,
   user: Pick<
@@ -382,15 +291,32 @@ export function computeSpecialtyMatchScore(
   return 0.6;
 }
 
-export function filterBaseSpecialties(query: string): string[] {
+export function filterBaseSpecialties(query: string, careerStage?: CareerStage | null): string[] {
   const q = query.trim().toLowerCase();
-  if (!q) return [...BASE_SPECIALTIES];
-  return BASE_SPECIALTIES.filter((s) => s.toLowerCase().includes(q));
+  const list = BASE_SPECIALTIES;
+  if (!q) return [...list];
+  return list.filter((s) => s.toLowerCase().includes(q));
 }
 
-export function filterSubspecialties(base: string, query: string): string[] {
+export function filterSubspecialties(base: string, query: string, careerStage?: CareerStage | null): string[] {
   const q = query.trim().toLowerCase();
-  const list = subspecialtiesForBase(base);
+  const list =
+    careerStage === "Fellow"
+      ? [...listAllAcgmeProgramNames()].filter((name) => {
+          const parent = getPrimaryForSubspecialty(name);
+          return parent != null;
+        })
+      : subspecialtiesForBase(base);
   if (!q) return list;
   return list.filter((s) => s.toLowerCase().includes(q));
 }
+
+/** Trainees must pick from ACGME registry; attendings may use broader program list. */
+export function isTraineeSpecialtySelection(value: string, careerStage?: CareerStage | null): boolean {
+  if (isTraineeCareerLevel(careerStage)) {
+    return isAcgmePrimarySpecialty(value);
+  }
+  return ACGME_PROGRAM_NAMES.includes(value);
+}
+
+export { isTraineeCareerLevel };

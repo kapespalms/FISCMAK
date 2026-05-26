@@ -18,6 +18,7 @@ import {
   runApiEnrichment,
 } from "@/lib/v2/api-enrichment";
 import { persistEnrichmentSnapshot } from "@/lib/v2/career-data-repo";
+import { sanitizeDocumentMetadataForUser } from "@/lib/v2/mempalace-key-facts";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -34,7 +35,7 @@ export async function GET() {
       document_subtype: documentSubtypeFromRecord(d),
       document_label: documentLabelFromRecord(d),
       extracted_text_preview: d.extracted_text?.slice(0, 400) ?? "",
-      metadata: d.metadata ?? {},
+      metadata: sanitizeDocumentMetadataForUser(d.metadata ?? {}),
     })),
     total: documents.length,
   });
@@ -167,14 +168,7 @@ export async function POST(request: Request) {
       extraction_status: "completed",
       uploaded_at: now,
       enrichment_pending: document_type === "CV",
-      cv_metrics:
-        document_type === "CV"
-          ? {
-              s_index: metadata.s_index as number,
-              iwq: metadata.iwq as number,
-              promotion_aligned_pct: metadata.promotion_aligned_pct as number,
-            }
-          : null,
+      cv_metrics: null,
     }, 201);
   }
 
@@ -208,13 +202,6 @@ export async function POST(request: Request) {
     extraction_status: "completed",
     uploaded_at: data.uploaded_at,
     enrichment_pending: document_type === "CV",
-    cv_metrics:
-      document_type === "CV"
-        ? {
-            s_index: metadata.s_index as number,
-            iwq: metadata.iwq as number,
-            promotion_aligned_pct: metadata.promotion_aligned_pct as number,
-          }
-        : null,
+    cv_metrics: null,
   }, 201);
 }

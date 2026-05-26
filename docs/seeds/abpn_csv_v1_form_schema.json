@@ -1,0 +1,249 @@
+{
+  "form": {
+    "name": "Psychiatry Clinical Skills Evaluation Form",
+    "abbreviation": "CSV",
+    "version": "v.1",
+    "issuer": "American Board of Psychiatry and Neurology (ABPN)",
+    "pages": 2,
+    "purpose": "Clinical Skills Verification — observed interview and case presentation",
+    "note": "CSV = Clinical Skills Verification on paper; not a comma-separated values file. MedHub stores scans in Portfolio; FISCMAK normalizes ratings to CSV on import.",
+    "rating_scale": {
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "bands": [
+        { "range": [1, 2], "label": "very_unacceptable", "display": "Very unacceptable" },
+        { "range": [3, 4], "label": "unacceptable", "display": "Unacceptable" },
+        { "range": [5, 6], "label": "acceptable", "display": "Acceptable" },
+        { "range": [7, 8], "label": "very_acceptable", "display": "Very acceptable" }
+      ],
+      "anchor_low": "Unacceptable pole (left side of each item)",
+      "anchor_high": "Acceptable pole (right side of each item)"
+    }
+  },
+  "header_fields": [
+    { "key": "resident_name", "label": "Resident Name", "required": true },
+    { "key": "resident_signature", "label": "Resident Signature", "required": false },
+    { "key": "pgy_level", "label": "Level of Training", "required": true },
+    { "key": "pg_date", "label": "PG Date", "required": true, "type": "date" },
+    { "key": "examiner_name", "label": "Examiner Name", "required": true },
+    { "key": "examiner_signature", "label": "Examiner Signature", "required": false },
+    { "key": "patient_type", "label": "Patient Type", "required": false, "examples": ["inpatient", "outpatient", "consult", "emergency"] }
+  ],
+  "sections": [
+    {
+      "section_id": "physician_patient_relationship",
+      "section_number": 1,
+      "label": "PHYSICIAN-PATIENT RELATIONSHIP (overall)",
+      "items": [
+        {
+          "item_number": 1,
+          "item_key": "opening_closing",
+          "label": "Opening and closing",
+          "unacceptable_anchor": "Awkward strategies",
+          "acceptable_anchor": "Appropriate strategies"
+        },
+        {
+          "item_number": 2,
+          "item_key": "informational_cues",
+          "label": "Informational cues",
+          "unacceptable_anchor": "Ignored leads",
+          "acceptable_anchor": "Followed leads"
+        },
+        {
+          "item_number": 3,
+          "item_key": "affective_cues",
+          "label": "Affective cues",
+          "unacceptable_anchor": "Ignored; insensitivity interfered with data collection",
+          "acceptable_anchor": "Explored appropriately"
+        },
+        {
+          "item_number": 4,
+          "item_key": "communication_style_rapport",
+          "label": "Communication style and rapport",
+          "unacceptable_anchor": "Abrupt and forced choice questions",
+          "acceptable_anchor": "Adequate language sensitivity"
+        },
+        {
+          "item_number": 5,
+          "item_key": "questioning_techniques",
+          "label": "Questioning techniques",
+          "unacceptable_anchor": "Scattered and fragmented questions",
+          "acceptable_anchor": "Open-ended but appropriately structured"
+        },
+        {
+          "item_number": 6,
+          "item_key": "control_direction_interview",
+          "label": "Control and direction of interview",
+          "unacceptable_anchor": "Scattered and fragmented questions",
+          "acceptable_anchor": "Developed cohesive interview"
+        }
+      ]
+    },
+    {
+      "section_id": "psychiatric_interview",
+      "section_number": 2,
+      "label": "PSYCHIATRIC INTERVIEW (overall)",
+      "metadata_fields": [
+        { "key": "interview_duration", "label": "Length of interview", "type": "text_or_minutes" }
+      ],
+      "items": [
+        {
+          "item_number": 7,
+          "item_key": "hpi",
+          "label": "Presenting problems and history of present illness",
+          "unacceptable_anchor": "Inadequately obtained or too vague; ignored major issues",
+          "acceptable_anchor": "Obtained adequate data"
+        },
+        {
+          "item_number": 8,
+          "item_key": "past_history_psychiatric",
+          "label": "Past history: Psychiatric",
+          "parent_item": 8,
+          "unacceptable_anchor": "Ignored major issues",
+          "acceptable_anchor": "Gathered relevant data in at least brief form"
+        },
+        {
+          "item_number": 8,
+          "item_key": "past_history_family",
+          "label": "Past history: Family",
+          "parent_item": 8,
+          "unacceptable_anchor": "Ignored major issues",
+          "acceptable_anchor": "Gathered relevant data in at least brief form"
+        },
+        {
+          "item_number": 8,
+          "item_key": "past_history_medical",
+          "label": "Past history: Medical",
+          "parent_item": 8,
+          "unacceptable_anchor": "Ignored major issues",
+          "acceptable_anchor": "Gathered relevant data in at least brief form"
+        },
+        {
+          "item_number": 8,
+          "item_key": "past_history_social_educational_occupational",
+          "label": "Past history: Social / educational / occupational",
+          "parent_item": 8,
+          "unacceptable_anchor": "Ignored major issues",
+          "acceptable_anchor": "Gathered relevant data in at least brief form"
+        },
+        {
+          "item_number": 9,
+          "item_key": "past_history_developmental",
+          "label": "Past history (continued): Developmental",
+          "unacceptable_anchor": "Ignored or too limited",
+          "acceptable_anchor": "Gathered relevant data in at least brief form"
+        },
+        {
+          "item_number": 10,
+          "item_key": "substance_history",
+          "label": "History of drug and alcohol abuse",
+          "unacceptable_anchor": "Ignored or too limited",
+          "acceptable_anchor": "Sensitively gathered"
+        },
+        {
+          "item_number": 11,
+          "item_key": "suicidal_risk",
+          "label": "Assessment of suicidal risk",
+          "unacceptable_anchor": "Ignored or too limited",
+          "acceptable_anchor": "Sensitively explored"
+        },
+        {
+          "item_number": 12,
+          "item_key": "homicidal_risk",
+          "label": "Assessment of homicidal risk",
+          "unacceptable_anchor": "Omitted or too limited",
+          "acceptable_anchor": "Sensitively explored"
+        },
+        {
+          "item_number": 13,
+          "item_key": "mental_status_exam_interview",
+          "label": "Mental status examination",
+          "unacceptable_anchor": "Omitted or too limited",
+          "acceptable_anchor": "Organized approach and performed appropriately"
+        }
+      ]
+    },
+    {
+      "section_id": "case_presentation",
+      "section_number": 3,
+      "label": "CASE PRESENTATION (overall)",
+      "items": [
+        {
+          "item_number": 14,
+          "item_key": "summary_important_data",
+          "label": "Summary of important data",
+          "unacceptable_anchor": "Disorganized",
+          "acceptable_anchor": "Presented cohesively and coherently"
+        },
+        {
+          "item_number": 15,
+          "item_key": "mse_presentation",
+          "label": "Mental status examination (presentation)",
+          "unacceptable_anchor": "Incomplete",
+          "acceptable_anchor": "Accurately summarized"
+        },
+        {
+          "item_number": 16,
+          "item_key": "emergency_suicide",
+          "label": "Emergency issues: Suicide",
+          "parent_item": 16,
+          "unacceptable_anchor": "Ignored",
+          "acceptable_anchor": "Considered"
+        },
+        {
+          "item_number": 16,
+          "item_key": "emergency_violence_abuse",
+          "label": "Emergency issues: Violence / abuse",
+          "parent_item": 16,
+          "unacceptable_anchor": "Ignored",
+          "acceptable_anchor": "Considered"
+        },
+        {
+          "item_number": 16,
+          "item_key": "emergency_substances",
+          "label": "Emergency issues: Drugs / alcohol",
+          "parent_item": 16,
+          "unacceptable_anchor": "Ignored",
+          "acceptable_anchor": "Considered"
+        },
+        {
+          "item_number": 17,
+          "item_key": "collateral_additional_history",
+          "label": "Recognition of need for additional history and collateral information",
+          "unacceptable_anchor": "Absent or no rationale",
+          "acceptable_anchor": "Appropriate"
+        }
+      ]
+    }
+  ],
+  "footer_fields": [
+    { "key": "examiner_comments", "label": "Comments", "type": "narrative" }
+  ],
+  "scoring_summary": {
+    "numbered_items_on_form": 16,
+    "scorable_rating_fields": 22,
+    "breakdown": {
+      "physician_patient_relationship": 6,
+      "psychiatric_interview": 10,
+      "case_presentation": 6
+    }
+  },
+  "fiscmak_mapping": {
+    "evidence_tier": 1,
+    "medhub_storage": "Portfolio General Entry + JPG/PDF scans; optional MedHub on-the-fly eval",
+    "acgme_subcompetencies": {
+      "PC1": ["hpi", "past_history_psychiatric", "mental_status_exam_interview", "mse_presentation"],
+      "PC2": ["hpi", "summary_important_data"],
+      "ICS1": ["opening_closing", "affective_cues", "communication_style_rapport", "questioning_techniques"],
+      "ICS2": ["control_direction_interview", "summary_important_data"],
+      "PROF1": ["suicidal_risk", "homicidal_risk", "emergency_suicide", "emergency_violence_abuse"]
+    },
+    "career_domains": {
+      "Relational Leadership": ["opening_closing", "affective_cues", "communication_style_rapport", "questioning_techniques", "control_direction_interview"],
+      "Clinical Craft": ["hpi", "past_history_*", "substance_history", "suicidal_risk", "homicidal_risk", "mental_status_exam_*"],
+      "Trust & Identity": ["past_history_social_educational_occupational", "past_history_developmental"],
+      "Systems Impact": ["collateral_additional_history", "emergency_*"]
+    }
+  }
+}

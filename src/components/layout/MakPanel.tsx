@@ -187,14 +187,32 @@ export function MakPanel({
 
   useEffect(() => {
     if (!pendingFlow) return;
-    if (pendingFlow.greeting === "__welcome__") {
+    const apiGreetingFlows = [
+      "__welcome__",
+      "__rotation_debrief__",
+      "__narrative_anchor__",
+      "__promotion_context__",
+      "__attending_quarterly__",
+      "__attending_deep_reflection__",
+      "__promotion_readiness__",
+      "__career_pivot_onboarding__",
+      "__pivot_quarterly__",
+      "__identity_navigation__",
+    ];
+    if (apiGreetingFlows.includes(pendingFlow.greeting)) {
       setLoading(true);
+      setActiveFlowIntent(pendingFlow.intent);
       fetch("/api/v1/chat/message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: "__welcome__",
-          context: { section, onboarding: true, touchpoint_number: 1 },
+          message: pendingFlow.greeting,
+          context: {
+            section,
+            onboarding: pendingFlow.greeting === "__welcome__",
+            touchpoint_number: 1,
+            flow_intent: pendingFlow.intent,
+          },
         }),
       })
         .then((r) => r.json())

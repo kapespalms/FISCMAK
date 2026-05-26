@@ -21,6 +21,13 @@ export type AppUser = {
   academic_rank: AcademicRank | null;
   primary_career_track: PrimaryCareerTrack | null;
   institution: string | null;
+  /** GME — resident/fellow onboarding */
+  pgy_level: string | null;
+  current_rotation: string | null;
+  /** Onboarding origin: why this specialty/subspecialty (one sentence) */
+  specialty_origin: string | null;
+  content_pack: string | null;
+  primary_program_id: string | null;
   cv_uploaded: boolean;
   mempalace_id: string | null;
   tier1_complete: boolean;

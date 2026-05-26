@@ -15,6 +15,7 @@ import {
   buildReconciliationCandidates,
 } from "@/lib/v2/onboarding-touchpoint1";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -28,6 +29,8 @@ export async function GET() {
   const instruments = deployedInstruments(level, setting);
   const enrichment = apiEnrichmentPlan(setting, level);
   const meta = getOnboardingMetadata(user);
+  const pathCtx = onboardingPathFromMetadata(meta);
+  const program = pathCtx?.program ?? null;
 
   return jsonOk({
     profile: {
@@ -40,6 +43,32 @@ export async function GET() {
       practice_setting: user.practice_setting,
       academic_rank: user.academic_rank,
       primary_career_track: user.primary_career_track,
+      pgy_level: user.pgy_level,
+      current_rotation: user.current_rotation,
+      specialty_origin: user.specialty_origin,
+      institution: user.institution,
+    },
+    onboarding: {
+      path: pathCtx?.path ?? null,
+      path_chosen: Boolean(meta.onboarding_path),
+      program_id: meta.program_id ?? null,
+      program_slug: meta.program_slug ?? null,
+      trainee_initials: meta.trainee_initials ?? null,
+      program: program
+        ? {
+            slug: program.slug,
+            display_title: program.display_title,
+            institution_name: program.institution_name,
+            program_name: program.program_name,
+            base_specialty: program.base_specialty,
+            specialty_locked: program.specialty_locked,
+            default_career_stage: program.default_career_stage,
+            default_practice_setting: program.default_practice_setting,
+            career_stages_allowed: program.career_stages_allowed,
+            academic_year: program.academic_year,
+            rotations: program.rotations,
+          }
+        : null,
     },
     documents: docs,
     instruments,

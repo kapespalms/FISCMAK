@@ -9,15 +9,24 @@ import { CheckCircle2, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   CAREER_LEVELS,
+  PGY_LEVELS,
   PRACTICE_SETTINGS,
   ACADEMIC_RANKS,
   PRIMARY_CAREER_TRACKS,
   requiresAcademicRank,
+  isTraineeCareerLevel,
+  requiresGmePlacementFields,
   type AcademicRank,
   type CareerLevel,
+  type PgyLevel,
   type PracticeSetting,
   type PrimaryCareerTrack,
 } from "@/lib/v2/onboarding-options";
+import { buildSpecialtyOriginQuestion } from "@/lib/v2/trainee-origin";
+import type { OnboardingPath } from "@/lib/v2/onboarding-path";
+import type { ProgramRotation } from "@/lib/v2/programs/registry";
+import { getProgramBySlug } from "@/lib/v2/programs/registry";
+import { OnboardingPathSelect } from "@/components/onboarding/OnboardingPathSelect";
 import {
   defaultTrainingComplete,
   isValidBaseSpecialty,
@@ -32,7 +41,42 @@ import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import { useAppShell } from "@/components/layout/AppShell";
 import { buildReconcileGreeting } from "@/lib/v2/reconcile-mak-helpers";
 
-type OnboardingStep = "welcome" | "profile" | "documents" | "reconcile" | "instruments";
+type OnboardingStep = "path" | "welcome" | "profile" | "documents" | "reconcile" | "instruments";
+
+type OnboardingProgramConfig = {
+  slug: string;
+  display_title: string;
+  institution_name: string;
+  program_name: string;
+  base_specialty: string;
+  specialty_locked: boolean;
+  default_career_stage: CareerLevel;
+  default_practice_setting: PracticeSetting;
+  career_stages_allowed: CareerLevel[];
+  academic_year: string;
+  rotations: ProgramRotation[];
+};
+
+const STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[] = [
+  { id: "welcome", label: "Welcome" },
+  { id: "profile", label: "Profile" },
+  { id: "documents", label: "Documents" },
+  { id: "reconcile", label: "Reconcile" },
+  { id: "instruments", label: "Coach Mak" },
+];
+
+const STEPS: { id: OnboardingStep; label: string }[] = [
+  { id: "path", label: "Path" },
+  ...STEPS_AFTER_PATH,
+];
+
+type BlockLookupHint = {
+  matched: boolean;
+  block_id?: string;
+  rotation_label?: string;
+  days_remaining?: number;
+  message?: string;
+};
 
 type InstrumentSpec = {
   id: string;
@@ -50,21 +94,22 @@ type ReconcileItem = {
   status: "pending" | "confirmed" | "rejected";
 };
 
-const STEPS: { id: OnboardingStep; label: string }[] = [
-  { id: "welcome", label: "Welcome" },
-  { id: "profile", label: "Profile" },
-  { id: "documents", label: "Documents" },
-  { id: "reconcile", label: "Reconcile" },
-  { id: "instruments", label: "Coach Mak" },
-];
-
 export function Touchpoint1Onboarding() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { startMakFlow } = useAppShell();
-  const [step, setStep] = useState<OnboardingStep>("welcome");
+  const [step, setStep] = useState<OnboardingStep>("path");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [onboardingPath, setOnboardingPath] = useState<OnboardingPath | null>(null);
+  const [pathChosen, setPathChosen] = useState(false);
+  const [programConfig, setProgramConfig] = useState<OnboardingProgramConfig | null>(null);
+  const [traineeInitials, setTraineeInitials] = useState("");
+  const [blockHint, setBlockHint] = useState<BlockLookupHint | null>(null);
+  const [blockLookupLoading, setBlockLookupLoading] = useState(false);
+
+  const isInstitutional = onboardingPath === "institutional" && Boolean(programConfig);
+  const visibleSteps = pathChosen ? STEPS_AFTER_PATH : STEPS;
 
   // Profile fields
   const [name, setName] = useState("");
@@ -79,6 +124,95 @@ export function Touchpoint1Onboarding() {
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
   const [academicRank, setAcademicRank] = useState<AcademicRank>("Assistant Professor");
   const [careerTrack, setCareerTrack] = useState<PrimaryCareerTrack>("Clinician");
+  const [pgyLevel, setPgyLevel] = useState<PgyLevel | "">("");
+  const [currentRotation, setCurrentRotation] = useState("");
+  const [specialtyOrigin, setSpecialtyOrigin] = useState("");
+
+  const showGmeFields = requiresGmePlacementFields(careerLevel);
+  const showOriginField = isTraineeCareerLevel(careerLevel);
+  const careerLevelOptions = isInstitutional
+    ? (programConfig?.career_stages_allowed ?? (["Resident", "Fellow"] as CareerLevel[]))
+    : CAREER_LEVELS;
+  const originPrompt =
+    baseSpecialty && showOriginField
+      ? buildSpecialtyOriginQuestion(baseSpecialty, subspecialty || null)
+      : "What drew you to your specialty? Even one sentence.";
+
+  function applyInstitutionalDefaults(program: OnboardingProgramConfig) {
+    setBaseSpecialty(program.base_specialty);
+    setBaseQuery(program.base_specialty);
+    setCareerLevel(program.default_career_stage);
+    setPracticeSetting(program.default_practice_setting);
+  }
+
+  async function lookupBlockSchedule(initials: string, programSlug?: string) {
+    const trimmed = initials.trim().toUpperCase();
+    const slug = programSlug ?? programConfig?.slug;
+    if (!trimmed || !slug) {
+      setBlockHint(null);
+      return;
+    }
+
+    setBlockLookupLoading(true);
+    setError("");
+    try {
+      const res = await fetch(
+        `/api/v1/onboarding/block-lookup?initials=${encodeURIComponent(trimmed)}&program=${encodeURIComponent(slug)}`,
+      );
+      const data = await res.json();
+      if (!res.ok) {
+        setBlockHint({ matched: false, message: data.message ?? "Could not look up block schedule." });
+        return;
+      }
+      if (data.matched) {
+        if (data.suggested_pgy) setPgyLevel(data.suggested_pgy as PgyLevel);
+        if (data.rotation_label) setCurrentRotation(data.rotation_label);
+        setBlockHint({
+          matched: true,
+          block_id: data.block_id,
+          rotation_label: data.rotation_label,
+          days_remaining: data.days_remaining,
+        });
+      } else {
+        if (data.suggested_pgy) setPgyLevel(data.suggested_pgy as PgyLevel);
+        setBlockHint({
+          matched: false,
+          message: data.roster_pgy_level
+            ? `On roster as ${data.roster_pgy_level} — no active block today. Confirm PGY and rotation below.`
+            : "Initials not on the block schedule. Enter PGY and rotation manually.",
+        });
+      }
+    } catch {
+      setBlockHint({ matched: false, message: "Block lookup unavailable — enter PGY and rotation manually." });
+    } finally {
+      setBlockLookupLoading(false);
+    }
+  }
+
+  async function saveOnboardingPath(input: {
+    onboarding_path: OnboardingPath;
+    program_slug?: string;
+    trainee_initials?: string;
+  }) {
+    setLoading(true);
+    setError("");
+    const res = await fetch("/api/v1/onboarding/path", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      setError(data.message ?? "Could not save onboarding path");
+      setLoading(false);
+      return false;
+    }
+    setOnboardingPath(data.onboarding_path);
+    setPathChosen(true);
+    if (data.trainee_initials) setTraineeInitials(data.trainee_initials);
+    setLoading(false);
+    return true;
+  }
 
   function applyProfileSpecialty(profile: {
     base_specialty?: string | null;
@@ -122,6 +256,7 @@ export function Touchpoint1Onboarding() {
       tier3_complete?: boolean;
       cv_uploaded?: boolean;
       pending_reconcile_count?: number;
+      path_chosen?: boolean;
     }) => {
       if (u.tier3_complete) {
         router.replace("/app/dashboard");
@@ -132,8 +267,15 @@ export function Touchpoint1Onboarding() {
         setStep(param);
         return;
       }
-      if (!u.tier1_complete) setStep("welcome");
-      else if (u.cv_uploaded && (u.pending_reconcile_count ?? 0) > 0 && !u.tier2_complete) {
+      if (!u.tier1_complete) {
+        if (!u.path_chosen) {
+          setStep("path");
+          return;
+        }
+        setStep("welcome");
+        return;
+      }
+      if (u.cv_uploaded && (u.pending_reconcile_count ?? 0) > 0 && !u.tier2_complete) {
         setStep("reconcile");
       } else if (!u.tier2_complete) setStep("documents");
       else setStep("instruments");
@@ -141,23 +283,64 @@ export function Touchpoint1Onboarding() {
     [router, searchParams],
   );
 
+  async function bootstrapOnboardingFromUrl() {
+    const programParam = searchParams.get("program");
+    const pathParam = searchParams.get("path");
+    if (programParam) {
+      return saveOnboardingPath({
+        onboarding_path: "institutional",
+        program_slug: programParam,
+      });
+    }
+    if (pathParam === "public") {
+      return saveOnboardingPath({ onboarding_path: "public" });
+    }
+    return true;
+  }
+
   useEffect(() => {
-    fetch("/api/v1/onboarding/touchpoint1")
-      .then((r) => r.json())
-      .then((data) => {
-        if (data.profile?.name) setName(data.profile.name);
-        if (data.profile) {
-          applyProfileSpecialty(data.profile);
+    void (async () => {
+      const urlProgram = searchParams.get("program");
+      const urlPath = searchParams.get("path");
+      if (urlProgram || urlPath === "public") {
+        await bootstrapOnboardingFromUrl();
+      }
+
+      const res = await fetch("/api/v1/onboarding/touchpoint1");
+      const data = await res.json();
+      if (data.profile?.name) setName(data.profile.name);
+      if (data.profile) {
+        applyProfileSpecialty(data.profile);
+      }
+      if (data.profile?.career_stage) setCareerLevel(data.profile.career_stage);
+      if (data.profile?.practice_setting) setPracticeSetting(data.profile.practice_setting);
+      if (data.profile?.academic_rank) setAcademicRank(data.profile.academic_rank);
+      if (data.profile?.primary_career_track) setCareerTrack(data.profile.primary_career_track);
+      if (data.profile?.pgy_level) setPgyLevel(data.profile.pgy_level as PgyLevel);
+      if (data.profile?.current_rotation) setCurrentRotation(data.profile.current_rotation);
+      if (data.profile?.specialty_origin) setSpecialtyOrigin(data.profile.specialty_origin);
+      if (data.onboarding?.path) setOnboardingPath(data.onboarding.path);
+      if (data.onboarding?.path_chosen) setPathChosen(true);
+      if (data.onboarding?.trainee_initials) {
+        setTraineeInitials(data.onboarding.trainee_initials);
+      }
+      if (data.onboarding?.program) {
+        const program = data.onboarding.program as OnboardingProgramConfig;
+        setProgramConfig(program);
+        if (!data.profile?.base_specialty) {
+          applyInstitutionalDefaults(program);
         }
-        if (data.profile?.career_stage) setCareerLevel(data.profile.career_stage);
-        if (data.profile?.practice_setting) setPracticeSetting(data.profile.practice_setting);
-        if (data.profile?.academic_rank) setAcademicRank(data.profile.academic_rank);
-        if (data.profile?.primary_career_track) setCareerTrack(data.profile.primary_career_track);
-        if (data.instruments) setInstruments(data.instruments);
-        resolveStep(data);
-      })
-      .catch(() => {});
-  }, [resolveStep]);
+        if (data.onboarding.trainee_initials && data.onboarding.path === "institutional") {
+          void lookupBlockSchedule(data.onboarding.trainee_initials, program.slug);
+        }
+      }
+      if (data.instruments) setInstruments(data.instruments);
+      resolveStep({
+        ...data,
+        path_chosen: Boolean(data.onboarding?.path_chosen),
+      });
+    })().catch(() => {});
+  }, [resolveStep, searchParams]);
 
   function refreshReconciliation() {
     fetch("/api/v1/onboarding/reconciliation")
@@ -193,6 +376,20 @@ export function Touchpoint1Onboarding() {
       setError("Select a base specialty from the list.");
       return;
     }
+    if (requiresGmePlacementFields(careerLevel)) {
+      if (!pgyLevel) {
+        setError("Select your PGY level.");
+        return;
+      }
+      if (!currentRotation.trim()) {
+        setError("Enter your current rotation.");
+        return;
+      }
+    }
+    if (isTraineeCareerLevel(careerLevel) && !specialtyOrigin.trim()) {
+      setError("Share what drew you to your specialty — even one sentence.");
+      return;
+    }
     setLoading(true);
     setError("");
     const res = await fetch("/api/v1/onboarding/profile", {
@@ -207,6 +404,10 @@ export function Touchpoint1Onboarding() {
         practice_setting: practiceSetting,
         academic_rank: requiresAcademicRank(practiceSetting) ? academicRank : null,
         primary_career_track: careerTrack,
+        pgy_level: showGmeFields ? pgyLevel : null,
+        current_rotation: showGmeFields ? currentRotation.trim() : null,
+        specialty_origin: showOriginField ? specialtyOrigin.trim() : null,
+        trainee_initials: isInstitutional ? traineeInitials.trim() || null : null,
       }),
     });
     const data = await res.json();
@@ -294,8 +495,37 @@ export function Touchpoint1Onboarding() {
     setError("");
   }
 
-  const stepIndex = STEPS.findIndex((s) => s.id === step);
+  const stepIndex = visibleSteps.findIndex((s) => s.id === step);
   const estimatedMinutes = instruments.reduce((s, i) => s + i.minutes, 0);
+
+  async function handleSelectPublicPath() {
+    const ok = await saveOnboardingPath({ onboarding_path: "public" });
+    if (ok) {
+      setStep("welcome");
+      router.replace("/app/onboarding?step=welcome");
+    }
+  }
+
+  async function handleSelectInstitutionalPath(programSlug: string, initials: string) {
+    const ok = await saveOnboardingPath({
+      onboarding_path: "institutional",
+      program_slug: programSlug,
+      trainee_initials: initials || undefined,
+    });
+    if (!ok) return;
+    const res = await fetch("/api/v1/onboarding/touchpoint1");
+    const data = await res.json();
+    if (data.onboarding?.program) {
+      const program = data.onboarding.program as OnboardingProgramConfig;
+      setProgramConfig(program);
+      applyInstitutionalDefaults(program);
+    }
+    if (initials.trim()) {
+      await lookupBlockSchedule(initials, programSlug);
+    }
+    setStep("welcome");
+    router.replace("/app/onboarding?step=welcome");
+  }
 
   return (
     <PageShell
@@ -306,7 +536,7 @@ export function Touchpoint1Onboarding() {
       className="py-4"
     >
       <div className="mb-6 flex gap-1 overflow-x-auto">
-        {STEPS.map((s, i) => (
+        {visibleSteps.map((s, i) => (
           <div
             key={s.id}
             className={cn(
@@ -324,22 +554,54 @@ export function Touchpoint1Onboarding() {
         ))}
       </div>
 
+      {step === "path" && (
+        <>
+          <OnboardingPathSelect
+            loading={loading}
+            blockLookupLoading={blockLookupLoading}
+            onSelectPublic={handleSelectPublicPath}
+            onSelectInstitutional={handleSelectInstitutionalPath}
+            onInitialsBlur={(initials, programSlug) => void lookupBlockSchedule(initials, programSlug)}
+          />
+          {error && (
+            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">{error}</p>
+          )}
+        </>
+      )}
+
       {step === "welcome" && (
-        <OnboardingWelcome onBegin={() => {
-          setStep("profile");
-          router.replace("/app/onboarding?step=profile");
-        }} />
+        <OnboardingWelcome
+          variant={
+            isInstitutional
+              ? "institutional"
+              : onboardingPath === "public"
+                ? "public"
+                : "default"
+          }
+          program={
+            isInstitutional && programConfig
+              ? getProgramBySlug(programConfig.slug) ?? undefined
+              : undefined
+          }
+          onBegin={() => {
+            setStep("profile");
+            router.replace("/app/onboarding?step=profile");
+          }}
+        />
       )}
 
       {step === "profile" && (
         <Card>
           <p className="text-cx-label uppercase">
-            Step 2 of 7 · Profile configuration · ~3 minutes
+            {isInstitutional ? "Program profile" : "Step 2 of 7 · Profile configuration"} · ~3 minutes
           </p>
-          <h1 className="mt-1 text-page-title">Profile configuration</h1>
+          <h1 className="mt-1 text-page-title">
+            {isInstitutional ? "Resident profile" : "Profile configuration"}
+          </h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
-            These fields determine benchmarks, document requirements, questionnaire modules, and
-            Career Map positioning.
+            {isInstitutional
+              ? `${programConfig?.display_title} — ${programConfig?.institution_name}.`
+              : "These fields determine benchmarks, document requirements, questionnaire modules, and Career Map positioning."}
           </p>
 
           <div className="mt-6 space-y-5">
@@ -358,28 +620,58 @@ export function Touchpoint1Onboarding() {
               />
             </div>
 
-            <SpecialtyIntakeFields
-              baseSpecialty={baseSpecialty}
-              baseQuery={baseQuery}
-              onBaseQueryChange={setBaseQuery}
-              onPickBase={pickBaseSpecialty}
-              baseListOpen={baseListOpen}
-              onBaseListOpenChange={setBaseListOpen}
-              subspecialty={subspecialty}
-              subspecialtyQuery={subspecialtyQuery}
-              onSubspecialtyQueryChange={setSubspecialtyQuery}
-              onPickSubspecialty={pickSubspecialty}
-              subspecialtyListOpen={subspecialtyListOpen}
-              onSubspecialtyListOpenChange={setSubspecialtyListOpen}
-              trainingComplete={trainingComplete}
-              onTrainingCompleteChange={setTrainingComplete}
-              careerStage={careerLevel}
-            />
+            {isInstitutional && programConfig?.specialty_locked ? (
+              <div className="cx-surface-elevated rounded-2xl px-4 py-3">
+                <p className="text-sm font-semibold">Specialty</p>
+                <p className="mt-1 text-sm text-cx-forest-dark/80">{programConfig.base_specialty}</p>
+                <p className="mt-1 text-xs text-cx-forest-dark/60">
+                  Locked to your residency program. Add a fellowship subspecialty below if applicable.
+                </p>
+                <div className="mt-4">
+                  <SpecialtyIntakeFields
+                    baseSpecialty={baseSpecialty}
+                    baseQuery={baseQuery}
+                    onBaseQueryChange={setBaseQuery}
+                    onPickBase={pickBaseSpecialty}
+                    baseListOpen={baseListOpen}
+                    onBaseListOpenChange={setBaseListOpen}
+                    subspecialty={subspecialty}
+                    subspecialtyQuery={subspecialtyQuery}
+                    onSubspecialtyQueryChange={setSubspecialtyQuery}
+                    onPickSubspecialty={pickSubspecialty}
+                    subspecialtyListOpen={subspecialtyListOpen}
+                    onSubspecialtyListOpenChange={setSubspecialtyListOpen}
+                    trainingComplete={trainingComplete}
+                    onTrainingCompleteChange={setTrainingComplete}
+                    careerStage={careerLevel}
+                    hideBaseSpecialtyPicker
+                  />
+                </div>
+              </div>
+            ) : (
+              <SpecialtyIntakeFields
+                baseSpecialty={baseSpecialty}
+                baseQuery={baseQuery}
+                onBaseQueryChange={setBaseQuery}
+                onPickBase={pickBaseSpecialty}
+                baseListOpen={baseListOpen}
+                onBaseListOpenChange={setBaseListOpen}
+                subspecialty={subspecialty}
+                subspecialtyQuery={subspecialtyQuery}
+                onSubspecialtyQueryChange={setSubspecialtyQuery}
+                onPickSubspecialty={pickSubspecialty}
+                subspecialtyListOpen={subspecialtyListOpen}
+                onSubspecialtyListOpenChange={setSubspecialtyListOpen}
+                trainingComplete={trainingComplete}
+                onTrainingCompleteChange={setTrainingComplete}
+                careerStage={careerLevel}
+              />
+            )}
 
             <div>
               <p className="text-sm font-semibold">Career level</p>
               <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                {CAREER_LEVELS.map((s) => (
+                {careerLevelOptions.map((s) => (
                   <button
                     key={s}
                     type="button"
@@ -401,6 +693,116 @@ export function Touchpoint1Onboarding() {
               </div>
             </div>
 
+            {showGmeFields && (
+              <>
+                <div>
+                  <p className="text-sm font-semibold">PGY level</p>
+                  <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-5">
+                    {PGY_LEVELS.map((level) => (
+                      <button
+                        key={level}
+                        type="button"
+                        onClick={() => setPgyLevel(level)}
+                        className={`rounded-lg border px-3 py-2.5 text-center text-sm ${
+                          pgyLevel === level
+                            ? "border-cx-forest-dark bg-cx-forest-dark/10 font-semibold"
+                            : "border-cx-forest-dark/20 hover:bg-cx-forest-dark/5"
+                        }`}
+                      >
+                        {level}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="current-rotation" className="cx-field-label">
+                    Current rotation
+                  </label>
+                  {isInstitutional && programConfig?.rotations?.length ? (
+                    <select
+                      id="current-rotation"
+                      value={currentRotation}
+                      onChange={(e) => setCurrentRotation(e.target.value)}
+                      className="cx-field mt-2 w-full"
+                    >
+                      <option value="">Select your current rotation…</option>
+                      {programConfig.rotations.map((r) => (
+                        <option key={r.code} value={r.label}>
+                          {r.label}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      id="current-rotation"
+                      type="text"
+                      value={currentRotation}
+                      onChange={(e) => setCurrentRotation(e.target.value)}
+                      placeholder="e.g., Inpatient Psychiatry, VA CT6, Consult-Liaison"
+                      className="cx-field mt-2"
+                      autoComplete="off"
+                    />
+                  )}
+                </div>
+              </>
+            )}
+
+            {isInstitutional && (
+              <div>
+                <label htmlFor="trainee-initials-profile" className="cx-field-label">
+                  Block schedule initials{" "}
+                  <span className="font-normal text-cx-forest-dark/60">(optional)</span>
+                </label>
+                <input
+                  id="trainee-initials-profile"
+                  type="text"
+                  maxLength={8}
+                  value={traineeInitials}
+                  onChange={(e) => {
+                    setTraineeInitials(e.target.value.toUpperCase());
+                    setBlockHint(null);
+                  }}
+                  onBlur={() => void lookupBlockSchedule(traineeInitials)}
+                  placeholder="e.g., KP"
+                  className="cx-field mt-2 w-32 uppercase"
+                  autoComplete="off"
+                />
+                {blockLookupLoading && (
+                  <p className="mt-2 text-xs text-cx-forest-dark/60">Looking up block schedule…</p>
+                )}
+                {blockHint?.matched && blockHint.rotation_label && (
+                  <p className="mt-2 text-xs text-cx-forest-dark/80">
+                    {blockHint.block_id ? `${blockHint.block_id} · ` : ""}
+                    {blockHint.rotation_label}
+                    {typeof blockHint.days_remaining === "number"
+                      ? ` · ${blockHint.days_remaining} day${blockHint.days_remaining === 1 ? "" : "s"} left in block`
+                      : ""}
+                  </p>
+                )}
+                {blockHint && !blockHint.matched && blockHint.message && (
+                  <p className="mt-2 text-xs text-cx-forest-dark/60">{blockHint.message}</p>
+                )}
+              </div>
+            )}
+
+            {showOriginField && baseSpecialty && (
+              <div>
+                <label htmlFor="specialty-origin" className="cx-field-label">
+                  {originPrompt}
+                </label>
+                <textarea
+                  id="specialty-origin"
+                  value={specialtyOrigin}
+                  onChange={(e) => setSpecialtyOrigin(e.target.value)}
+                  placeholder="Even one sentence is enough — this becomes part of your training narrative."
+                  className="cx-field mt-2 min-h-[88px] resize-y"
+                  rows={3}
+                />
+              </div>
+            )}
+
+            {!isInstitutional ? (
             <div>
               <p className="text-sm font-semibold">Practice setting</p>
               <div className="mt-2 grid grid-cols-2 gap-2">
@@ -420,8 +822,16 @@ export function Touchpoint1Onboarding() {
                 ))}
               </div>
             </div>
+            ) : (
+              <div className="cx-surface-elevated rounded-2xl px-4 py-3 text-sm text-cx-forest-dark/80">
+                <span className="font-semibold text-cx-forest-dark">Practice setting:</span> Academic
+                <span className="mt-1 block text-xs text-cx-forest-dark/60">
+                  Set by your program affiliation.
+                </span>
+              </div>
+            )}
 
-            {requiresAcademicRank(practiceSetting) && (
+            {!isInstitutional && requiresAcademicRank(practiceSetting) && (
               <div>
                 <p className="text-sm font-semibold">Academic rank</p>
                 <div className="mt-2 grid gap-2 sm:grid-cols-2">

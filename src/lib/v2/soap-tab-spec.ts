@@ -21,9 +21,9 @@ export const SOAP_TAB = {
     nav: "Insights",
     title: "Insights",
     description:
-      "Synthesized Career Health Score, Career Map, and benchmarked standing.",
+      "Synthesized career patterns from Perspective and Objective — conversation coverage and reflection themes.",
     chatEntry:
-      "This section synthesizes your Perspective and Objective data into actionable insights.",
+      "This section synthesizes your Perspective and Objective data into reflection themes and conversation coverage.",
   },
   plan: {
     nav: "Strategy",

@@ -162,6 +162,21 @@ export type MakFlowIntent =
   | "capture"
   | "upload"
   | "onboarding"
+  | "rotation_debrief"
+  | "narrative_anchor"
+  | "personal_statement_arc"
+  | "fellowship_mining"
+  | "promotion_context"
+  | "attending_quarterly"
+  | "attending_deep_reflection"
+  | "promotion_readiness"
+  | "promotion_dossier"
+  | "impact_translation"
+  | "career_pivot_onboarding"
+  | "pivot_quarterly"
+  | "pivot_narrative"
+  | "career_translation"
+  | "identity_navigation"
   | (typeof FIVE_OPTIONS)[number]["id"];
 
 export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
@@ -186,6 +201,9 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
       "Here's what's in your Objective data. I'll flag new items and anything needing your confirmation.",
     quickOptions: [
       "Capture activity",
+      "Debrief a rotation",
+      "Set narrative anchor",
+      "Translate for career pivot",
       "Upload a document",
       "Review career vault",
       "Open career lattice",
@@ -195,11 +213,11 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
   },
   assessment: {
     greeting:
-      "Here's your Insights view — Career Map, health score, and what needs attention.",
+      "Here's your Insights view — career patterns, touchpoint coverage, and themes from conversation.",
     quickOptions: [
-      "Explain my Career Health Score",
+      "Summarize my career pattern",
       "Show growth opportunities",
-      "Career alignment check",
+      "What should I capture next?",
       "Advancement readiness",
     ],
     placeholder: "Reflect on your career map with Coach Mak…",
@@ -217,8 +235,8 @@ export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
       "Which document would you like to work on in Output Studio? CV, biosketch, cover letter, personal statement, or career brief.",
     quickOptions: [
       "Update my CV",
-      "NIH Biosketch",
-      "Generate cover letter",
+      "Industry resume",
+      "Pivot cover letter",
       "Draft personal statement",
       "Advancement readiness report",
     ],
@@ -231,6 +249,27 @@ export const MAK_FLOW_GREETINGS: Record<MakFlowIntent, string> = {
   capture: "Let's make your work visible. What did you accomplish that might not be on your CV?",
   upload: "I'll read this and update your Career Data. One moment…",
   onboarding: "__welcome__",
+  rotation_debrief: "__rotation_debrief__",
+  narrative_anchor: "__narrative_anchor__",
+  personal_statement_arc:
+    "Let's build your personal statement from experiences you've captured — hook, origin, journey, vision. One section at a time.",
+  fellowship_mining:
+    "Fellowship narrative mining — we'll sharpen your subspecialty niche, scholarly thread, and defining moments.",
+  promotion_context: "__promotion_context__",
+  attending_quarterly: "__attending_quarterly__",
+  attending_deep_reflection: "__attending_deep_reflection__",
+  promotion_readiness: "__promotion_readiness__",
+  promotion_dossier:
+    "Let's build your promotion career narrative — identity, scholarship arc, teaching, clinical impact, service, and future direction.",
+  impact_translation:
+    "Let's translate something you did into promotion-ready impact language — outcomes, not just activities.",
+  career_pivot_onboarding: "__career_pivot_onboarding__",
+  pivot_quarterly: "__pivot_quarterly__",
+  pivot_narrative:
+    "Let's build your pivot narrative — bridge, credential, translation, catalyst, and vision for an outsider audience.",
+  career_translation:
+    "Let's translate a clinical experience into outsider language for your resume or portfolio.",
+  identity_navigation: "__identity_navigation__",
   discuss: SOAP_TAB.subjective.chatEntry,
   review: SOAP_TAB.objective.chatEntry,
   assess: SOAP_TAB.assessment.chatEntry,

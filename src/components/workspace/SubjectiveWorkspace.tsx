@@ -12,7 +12,7 @@ import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import { dominantInvisibleWorkByLevel } from "@/lib/v2/invisible-work-taxonomy";
 import type { PracticeSetting, CareerStage } from "@/lib/v2/onboarding-options";
-import { buildCareerDirectionAnnualGreeting, careerAlignmentFromHealth } from "@/lib/mak-chatbot-states";
+import { buildCareerDirectionAnnualGreeting } from "@/lib/mak-chatbot-states";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
 import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
@@ -90,7 +90,6 @@ export function SubjectiveWorkspace() {
   const strain = health?.wellbeing_metrics.find((m) => m.id === "burnout_risk");
   const taskBurden = health?.wellbeing_metrics.find((m) => m.id === "task_burden");
   const unrecognized = health?.wellbeing_metrics.find((m) => m.id === "unrecognized_work");
-  const alignment = health ? careerAlignmentFromHealth(health) : null;
 
   if (loading) {
     return <p className="text-sm text-cx-forest-dark/70">Loading career perspective…</p>;
@@ -205,17 +204,6 @@ export function SubjectiveWorkspace() {
           mak={SUBJECTIVE_MAK.unrecognized_work}
         />
 
-        <MetricRow
-          label="Career alignment"
-          summary={
-            alignment != null
-              ? `Career Alignment: ${alignment}% — Current professional activities are ${alignment >= 70 ? "well" : alignment >= 50 ? "moderately" : "partially"} aligned with stated career objectives`
-              : "Career alignment is computed from aspirations versus your Career Map — complete Insights to populate."
-          }
-          status={alignment != null ? (alignment >= 70 ? "strong" : alignment >= 50 ? "developing" : "needs_attention") : undefined}
-          percentile={alignment}
-          mak={SUBJECTIVE_MAK.career_alignment}
-        />
       </div>
 
       <CardSection

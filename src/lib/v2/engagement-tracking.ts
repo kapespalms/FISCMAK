@@ -40,14 +40,18 @@ export function buildEngagementNotifications(
   }
 
   const iwq = context?.iwq ?? meta.iwq ?? null;
-  if (iwq != null && iwq >= 50) {
+  const internalGap =
+    meta._internal_coaching?.workload_recognition_gap === "elevated" ||
+    meta._internal_coaching?.portfolio_documentation_gap === true;
+  if (iwq != null && iwq >= 50 && internalGap) {
     notes.push({
-      id: "recognition_gap",
-      severity: iwq >= 70 ? "urgent" : "attention",
-      title: "Recognition gap detected",
-      message: `${iwq}% of your invisible work may not be visible on your CV. Capture activities or generate outputs to close the gap.`,
+      id: "portfolio_completeness",
+      severity: iwq >= 70 ? "attention" : "info",
+      title: "Portfolio completeness",
+      message:
+        "Some professional contributions may not yet be reflected in your portfolio. Mak can help you explore what to capture — on your terms.",
       href: "/app/objective?tab=activities",
-      actionLabel: "View activities",
+      actionLabel: "Talk with Mak",
     });
   }
 

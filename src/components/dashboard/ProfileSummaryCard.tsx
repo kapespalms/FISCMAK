@@ -5,7 +5,6 @@ import {
   Route,
   UserCircle,
 } from "lucide-react";
-import { HealthScoreCard } from "@/components/dashboard/HealthScoreCard";
 import { MiniLattice } from "@/components/dashboard/MiniLattice";
 import type { DashboardHeaderModel } from "@/lib/v2/dashboard-architecture";
 import type { ProfileRow } from "@/lib/v2/dashboard-redesign";
@@ -127,8 +126,7 @@ export function ProfileSummaryCard({
         </dl>
       )}
 
-      <div className="mt-3 grid items-start gap-3 sm:grid-cols-2">
-        <HealthScoreCard header={header} />
+      <div className="mt-3">
         <MiniLattice cells={latticeCells} compact showHeader />
       </div>
 

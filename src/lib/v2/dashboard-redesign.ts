@@ -139,6 +139,7 @@ export function buildProgressStatus(analytics: AnalyticsDashboard): ProfileRow {
   };
 }
 
+/** @retired 2026-05-21 — CDI-derived status row; see KP Admin `health_score_card` preview. */
 export function buildHealthStatusRow(header: DashboardHeaderModel): ProfileRow {
   const score = header.careerHealthScore;
   let value = "Pending";
@@ -155,7 +156,7 @@ export function buildHealthStatusRow(header: DashboardHeaderModel): ProfileRow {
   };
 }
 
-/** Recognition gap from IWQ — spec dashboard quick-stat. */
+/** @retired 2026-05-21 — IWQ-derived recognition gap; see KP Admin composite metrics preview. */
 export function buildRecognitionGapRow(analytics: AnalyticsDashboard): ProfileRow | null {
   const iwq = analytics.cv_metrics?.iwq;
   if (iwq == null) return null;

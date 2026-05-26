@@ -35,7 +35,6 @@ export async function GET() {
     touchpoint_1_complete: tp1Complete,
     instrument_pending: instProgress.total - instProgress.answered,
     instrument_total: instProgress.total,
-    cdi: meta.cdi ?? null,
     name: user?.name ?? null,
     specialty: user?.specialty ?? null,
     career_stage: user?.career_stage ?? null,

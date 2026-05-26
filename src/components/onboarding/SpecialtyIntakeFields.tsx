@@ -5,6 +5,7 @@ import {
   filterBaseSpecialties,
   filterSubspecialties,
   hasSubspecialtyOptions,
+  isTraineeCareerLevel,
 } from "@/lib/v2/specialty-hierarchy";
 import type { CareerStage } from "@/lib/v2/onboarding-options";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,8 @@ type SpecialtyIntakeFieldsProps = {
   trainingComplete: boolean;
   onTrainingCompleteChange: (value: boolean) => void;
   careerStage: CareerStage;
+  /** Institutional program onboarding — base specialty is pre-set */
+  hideBaseSpecialtyPicker?: boolean;
 };
 
 export function SpecialtyIntakeFields({
@@ -43,22 +46,34 @@ export function SpecialtyIntakeFields({
   trainingComplete,
   onTrainingCompleteChange,
   careerStage,
+  hideBaseSpecialtyPicker = false,
 }: SpecialtyIntakeFieldsProps) {
-  const filteredBases = useMemo(() => filterBaseSpecialties(baseQuery), [baseQuery]);
-  const showSubspecialty = baseSpecialty && hasSubspecialtyOptions(baseSpecialty);
+  const filteredBases = useMemo(
+    () => filterBaseSpecialties(baseQuery, careerStage),
+    [baseQuery, careerStage],
+  );
+  const isTrainee = isTraineeCareerLevel(careerStage);
+  const isFellow = careerStage === "Fellow";
+  const showSubspecialty =
+    baseSpecialty &&
+    (isFellow || hasSubspecialtyOptions(baseSpecialty)) &&
+    (!isTrainee || isFellow);
   const filteredSubs = useMemo(
-    () => (baseSpecialty ? filterSubspecialties(baseSpecialty, subspecialtyQuery) : []),
-    [baseSpecialty, subspecialtyQuery],
+    () => (baseSpecialty ? filterSubspecialties(baseSpecialty, subspecialtyQuery, careerStage) : []),
+    [baseSpecialty, subspecialtyQuery, careerStage],
   );
 
   return (
     <div className="space-y-5">
+      {!hideBaseSpecialtyPicker && (
       <div className="relative">
         <label htmlFor="base-specialty-search" className="text-sm font-semibold">
           Base specialty
         </label>
         <p className="mt-0.5 text-xs text-cx-forest-dark/70">
-          Residency training program (e.g. Internal Medicine, Pediatrics).
+          {isTrainee
+            ? "ACGME-accredited residency program (Appendix B primary specialty)."
+            : "Residency training program (e.g. Internal Medicine, Pediatrics)."}
         </p>
         <input
           id="base-specialty-search"
@@ -96,15 +111,23 @@ export function SpecialtyIntakeFields({
           </ul>
         )}
       </div>
+      )}
 
       {showSubspecialty && (
         <>
           <div className="relative">
             <label htmlFor="subspecialty-search" className="text-sm font-semibold">
-              Fellowship / subspecialty <span className="font-normal text-cx-forest-dark/70">(optional)</span>
+              Fellowship / subspecialty{" "}
+              {isFellow ? (
+                <span className="font-normal text-cx-forest-dark/70">(required)</span>
+              ) : (
+                <span className="font-normal text-cx-forest-dark/70">(optional)</span>
+              )}
             </label>
             <p className="mt-0.5 text-xs text-cx-forest-dark/70">
-              e.g. Interventional Cardiology after Internal Medicine residency.
+              {isFellow
+                ? "Select your ACGME-accredited fellowship program — evaluation mapping uses this subspecialty."
+                : "e.g. Interventional Cardiology after Internal Medicine residency."}
             </p>
             <input
               id="subspecialty-search"
@@ -121,15 +144,17 @@ export function SpecialtyIntakeFields({
             />
             {subspecialtyListOpen && (
               <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md">
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => onPickSubspecialty("")}
-                    className="w-full px-4 py-2.5 text-left text-sm text-cx-forest-dark/70 hover:bg-cx-forest-dark/5"
-                  >
-                    None — practicing in base specialty only
-                  </button>
-                </li>
+                {!isFellow && (
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => onPickSubspecialty("")}
+                      className="w-full px-4 py-2.5 text-left text-sm text-cx-forest-dark/70 hover:bg-cx-forest-dark/5"
+                    >
+                      None — practicing in base specialty only
+                    </button>
+                  </li>
+                )}
                 {filteredSubs.map((s) => (
                   <li key={s}>
                     <button

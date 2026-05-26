@@ -80,6 +80,34 @@ export const OBJECTIVE_MAK = {
     "Help me capture career evidence that might not appear on my CV.",
     { navigateTo: "/app/objective?tab=activities" },
   ),
+  rotationDebrief: (rotationName?: string) =>
+    makDiscuss(
+      "rotation_debrief",
+      rotationName
+        ? `I'd like to debrief my ${rotationName} rotation while it's fresh.`
+        : "I'd like to debrief a rotation I just finished.",
+      { navigateTo: "/app/objective?tab=activities" },
+    ),
+  narrativeAnchor: makDiscuss(
+    "narrative_anchor",
+    "Help me set my narrative anchor — specialty direction, origin story, and what I want to contribute.",
+    { navigateTo: "/app/subjective" },
+  ),
+  personalStatementArc: makDiscuss(
+    "personal_statement_arc",
+    "Help me build my personal statement from experiences I've captured — hook, origin, journey, and vision.",
+    { navigateTo: "/app/output" },
+  ),
+  fellowshipMining: makDiscuss(
+    "fellowship_mining",
+    "Help me sharpen my fellowship narrative — subspecialty niche, scholarly thread, and defining moments.",
+    { navigateTo: "/app/subjective" },
+  ),
+  careerTranslation: makDiscuss(
+    "career_translation",
+    "Help me translate a clinical experience into outsider language for my career pivot.",
+    { navigateTo: "/app/objective?tab=activities" },
+  ),
   documents: makDiscuss(
     "upload",
     "Help me understand which documents to upload and how they feed my Career Data.",
@@ -158,9 +186,49 @@ export const OUTPUT_MAK = {
     { navigateTo: "/app/output" },
   ),
   promotion_readiness: makDiscuss(
-    "create",
-    "Discuss my promotion readiness — strengths, gaps, and timeline.",
+    "promotion_readiness",
+    "Run my promotion readiness audit — strengths, gaps, and timeline across all five domains.",
+    { navigateTo: "/app/assessment" },
+  ),
+  promotion_context: makDiscuss(
+    "promotion_context",
+    "Help me set up my promotion context — institution, track, timeline, and mentor feedback.",
+    { navigateTo: "/app/profile" },
+  ),
+  promotion_dossier: makDiscuss(
+    "promotion_dossier",
+    "Help me build my promotion career narrative section by section.",
     { navigateTo: "/app/output" },
+  ),
+  impact_translation: makDiscuss(
+    "impact_translation",
+    "Help me translate a recent activity into promotion-ready impact language.",
+    { navigateTo: "/app/objective?tab=activities" },
+  ),
+  career_pivot_onboarding: makDiscuss(
+    "career_pivot_onboarding",
+    "Help me map my non-traditional career pivot — destination, intentional framing, and hybrid model.",
+    { navigateTo: "/app/subjective", autoMessage: "__career_pivot_onboarding__" },
+  ),
+  pivot_quarterly: makDiscuss(
+    "pivot_quarterly",
+    "Begin path-specific quarterly capture for my career pivot.",
+    { navigateTo: "/app/subjective", autoMessage: "__pivot_quarterly__" },
+  ),
+  pivot_narrative: makDiscuss(
+    "pivot_narrative",
+    "Help me build my pivot cover letter — bridge, credential, translation, catalyst, and vision.",
+    { navigateTo: "/app/output" },
+  ),
+  career_translation: makDiscuss(
+    "career_translation",
+    "Translate a clinical experience into outsider language for my resume or portfolio.",
+    { navigateTo: "/app/objective?tab=activities" },
+  ),
+  identity_navigation: makDiscuss(
+    "identity_navigation",
+    "Help me navigate the identity side of my career transition — what I'm carrying forward and what I'm moving toward.",
+    { navigateTo: "/app/subjective", autoMessage: "__identity_navigation__" },
   ),
   template: (name: string) =>
     makDiscuss(
@@ -228,6 +296,26 @@ export const TOUCHPOINT_MAK = {
     "I'm ready for my quarterly pulse check-in with Coach Mak.",
     { touchpoint: "quarterly", autoMessage: "Begin quarterly check-in." },
   ),
+  attendingQuarterly: makDiscuss(
+    "attending_quarterly",
+    "Begin my quarterly accomplishment capture for promotion documentation.",
+    { navigateTo: "/app/subjective", autoMessage: "__attending_quarterly__" },
+  ),
+  attendingDeepReflection: makDiscuss(
+    "attending_deep_reflection",
+    "Begin my deep promotion reflection for the past year.",
+    { navigateTo: "/app/subjective", autoMessage: "__attending_deep_reflection__" },
+  ),
+  pivotQuarterly: makDiscuss(
+    "pivot_quarterly",
+    "Begin path-specific quarterly capture for my career pivot.",
+    { navigateTo: "/app/subjective", autoMessage: "__pivot_quarterly__" },
+  ),
+  identityNavigation: makDiscuss(
+    "identity_navigation",
+    "Help me navigate the identity side of my career transition.",
+    { navigateTo: "/app/subjective", autoMessage: "__identity_navigation__" },
+  ),
 } as const;
 
 /** Career Map lattice */
@@ -245,6 +333,16 @@ export const PROFILE_MAK = {
     "discuss",
     "Help me review and update my career profile context — specialty, phase, and goals.",
     { navigateTo: "/app/profile" },
+  ),
+  promotionContext: makDiscuss(
+    "promotion_context",
+    "Help me set up my promotion context — institution, track, timeline, and mentor feedback.",
+    { navigateTo: "/app/profile" },
+  ),
+  careerPivotOnboarding: makDiscuss(
+    "career_pivot_onboarding",
+    "Help me map my non-traditional career pivot — where I'm moving and why.",
+    { navigateTo: "/app/profile", autoMessage: "__career_pivot_onboarding__" },
   ),
 } as const;
 
