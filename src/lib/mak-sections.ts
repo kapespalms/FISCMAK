@@ -291,6 +291,10 @@ const LEGACY_PATH_MAP: Record<string, AppSection> = {
   "/app/jobs": "plan",
   "/app/studio": "output",
   "/app/mak": "dashboard",
+  "/app/residency": "dashboard",
+  "/app/education": "dashboard",
+  "/app/rotations": "dashboard",
+  "/app/calendar": "dashboard",
 };
 
 export function sectionFromPath(pathname: string): AppSection {

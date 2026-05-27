@@ -1,6 +1,26 @@
 "use client";
 
 import Link from "next/link";
+
+function DashboardProgramLink({
+  href,
+  title,
+  detail,
+}: {
+  href: string;
+  title: string;
+  detail: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="rounded-xl border border-white/15 bg-white/10 px-3 py-2.5 transition hover:border-[#5FD65F]/40 hover:bg-white/15"
+    >
+      <span className="block text-sm font-semibold text-white">{title}</span>
+      <span className="mt-0.5 block text-xs text-white/70">{detail}</span>
+    </Link>
+  );
+}
 import { DashboardDueNow, type DashboardDueItem } from "@/components/dashboard/DashboardDueNow";
 import { CoachingCadencePanel } from "@/components/dashboard/CoachingCadencePanel";
 import { DashboardAlerts } from "@/components/dashboard/DashboardAlerts";
@@ -70,26 +90,11 @@ export function DashboardWelcome({
       )}
 
       {institutionalProgramSlug === "uh-psych-cmc" && (
-        <div className="mt-3">
-          <label htmlFor="dashboard-program-menu" className="sr-only">
-            Program resources
-          </label>
-          <select
-            id="dashboard-program-menu"
-            className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm text-white"
-            defaultValue=""
-            onChange={(e) => {
-              const href = e.target.value;
-              if (href) window.location.href = href;
-              e.target.value = "";
-            }}
-          >
-            <option value="" disabled>
-              Program resources…
-            </option>
-            <option value="/app/rotations">All rotations (Inpatient / Outpatient)</option>
-            <option value="/app/calendar">Full schedule calendar</option>
-          </select>
+        <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+          <DashboardProgramLink href="/app/residency" title="Residency hub" detail="Rotations, call, contacts" />
+          <DashboardProgramLink href="/app/education" title="Education hub" detail="Articles, pharm, handouts" />
+          <DashboardProgramLink href="/app/calendar" title="Block schedule" detail="Full calendar view" />
+          <DashboardProgramLink href="/app/rotations" title="Rotation catalog" detail="All rotation codes" />
         </div>
       )}
 

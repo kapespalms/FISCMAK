@@ -304,6 +304,7 @@ export function MakPanel({
           message: pendingFlow.greeting,
           context: {
             section,
+            pathname,
             onboarding:
               pendingFlow.greeting === "__welcome__" ||
               pendingFlow.greeting === "__self_assessment_intro__",
@@ -390,6 +391,7 @@ export function MakPanel({
           history: history.slice(-8),
           context: {
             section,
+            pathname,
             touchpoint_number: section === "assessment" ? 3 : 1,
             onboarding: onboardingActive,
             annual_refresh: touchpointMode === "annual",

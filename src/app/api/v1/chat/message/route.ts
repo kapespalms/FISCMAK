@@ -28,6 +28,8 @@ import {
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 import { buildProgramMakContext } from "@/lib/v2/programs/registry";
+import { buildUhResidencyMakContext } from "@/lib/v2/uh-residency-mak-context";
+import { getResidencyPage } from "@/lib/v2/programs/uh-residency-content";
 import { buildTraineeProgramBackgroundForMak, resolveTraineeBackgroundPurpose } from "@/lib/v2/programs/rotation-orientation";
 import {
   buildUserOutputTemplateMakContext,
@@ -1572,6 +1574,21 @@ export async function POST(request: Request) {
           })
         : "";
 
+    const chatPathname =
+      typeof context?.pathname === "string" ? context.pathname : null;
+    const residencySlugMatch = chatPathname?.match(/^\/app\/residency\/([^/]+)/);
+    const residencyPage = residencySlugMatch
+      ? getResidencyPage(decodeURIComponent(residencySlugMatch[1]))
+      : null;
+    const uhResidencyMakContext =
+      pathCtx?.program?.slug === "uh-psych-cmc" &&
+      activeMeta.onboarding_path === "institutional"
+        ? buildUhResidencyMakContext({
+            pathname: chatPathname,
+            page: residencyPage,
+          })
+        : "";
+
     const outputTemplateType = resolveOutputTemplateType(
       typeof context?.output_template_type === "string"
         ? context.output_template_type
@@ -1626,6 +1643,7 @@ export async function POST(request: Request) {
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
       buildScheduleMemoryContext(activeMeta),
       programMakContext,
+      uhResidencyMakContext,
       traineeProgramBackground,
       userOutputTemplateContext,
       documentsDraftContext,
