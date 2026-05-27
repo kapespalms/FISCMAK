@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import type { CohortDashboard } from "@/lib/v2/gme/cohort-dashboard";
 import { HEATMAP_CELL_STYLES } from "@/lib/v2/gme/pgy-milestone-benchmarks";
+import { listReportingPeriods } from "@/lib/v2/gme/reporting-periods";
 
 type CohortHeatmapPanelProps = {
   programSlug: string;
@@ -14,15 +15,11 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
   const [dashboard, setDashboard] = useState<CohortDashboard | null>(null);
   const [loading, setLoading] = useState(false);
   const [medhubOnly, setMedhubOnly] = useState(true);
+  const [period, setPeriod] = useState("current");
   const [error, setError] = useState<string | null>(null);
+  const reportingPeriods = useMemo(() => listReportingPeriods(), []);
 
-  const subs = useMemo(
-    () =>
-      (dashboard?.subcompetencies ?? []).filter(
-        (s) => !medhubOnly || s.medhub_outpatient_form,
-      ),
-    [dashboard, medhubOnly],
-  );
+  const subs = dashboard?.subcompetencies ?? [];
 
   const cellMap = useMemo(() => {
     const map = new Map<string, CohortDashboard["milestone_heatmap"][number]>();
@@ -36,8 +33,12 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
     setLoading(true);
     setError(null);
     try {
+      const params = new URLSearchParams({
+        period,
+        medhub_only: medhubOnly ? "true" : "false",
+      });
       const res = await fetch(
-        `/api/v1/programs/${encodeURIComponent(programSlug)}/cohort-heatmap?period=current`,
+        `/api/v1/programs/${encodeURIComponent(programSlug)}/cohort-heatmap?${params}`,
       );
       const data = await res.json();
       if (!res.ok) throw new Error(data.message ?? "Could not load cohort heatmap.");
@@ -61,7 +62,7 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
     } finally {
       setLoading(false);
     }
-  }, [programSlug]);
+  }, [programSlug, period, medhubOnly]);
 
   useEffect(() => {
     void load();
@@ -77,6 +78,18 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
+        {reportingPeriods.map((p) => (
+          <Button
+            key={p.id}
+            variant={period === p.id ? "primary" : "secondary"}
+            onClick={() => setPeriod(p.id)}
+          >
+            {p.label}
+          </Button>
+        ))}
+      </div>
+
+      <div className="mt-2 flex flex-wrap gap-2">
         <Button variant="secondary" onClick={() => void load()} disabled={loading}>
           {loading ? "Loading…" : "Refresh heatmap"}
         </Button>

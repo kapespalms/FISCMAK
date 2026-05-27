@@ -27,6 +27,7 @@ const migrations = [
   "docs/migrations/20260531_gme_milestone_ilp.sql",
   "docs/migrations/20260532_gme_staff_ilp_survey.sql",
   "docs/migrations/20260533_gme_exams_medhub_sync.sql",
+  "docs/migrations/20260533_reconciliation_confidence.sql",
 ];
 
 for (const m of migrations) {
@@ -36,8 +37,15 @@ for (const m of migrations) {
 const routes = [
   "src/app/api/v1/programs/[programId]/imports/csv/route.ts",
   "src/app/api/v1/programs/[programId]/cohort/dashboard/route.ts",
+  "src/app/api/v1/programs/[programId]/cohort-heatmap/route.ts",
+  "src/app/api/v1/programs/[programId]/pre-ccc-cohort/route.ts",
   "src/app/api/v1/trainee/milestones/self-ratings/route.ts",
   "src/app/api/v1/trainee/milestones/longitudinal/route.ts",
+  "src/app/api/v1/self/pre-ccc-summary/route.ts",
+  "src/app/api/v1/ilp-goals/route.ts",
+  "src/app/api/v1/rotation-entries/route.ts",
+  "src/lib/v2/reconcile-auto-confirm.ts",
+  "src/components/gme/RotationLogPanel.tsx",
 ];
 
 for (const r of routes) {

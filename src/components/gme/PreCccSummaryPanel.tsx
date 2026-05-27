@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import type { PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
 import { exportPreCccPdf } from "@/lib/v2/gme/pre-ccc-export";
+import { listReportingPeriods } from "@/lib/v2/gme/reporting-periods";
 import { downloadBlob } from "@/lib/studio-export";
 
 type PreCccSummaryPanelProps = {
@@ -27,15 +28,18 @@ export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
   const [loading, setLoading] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [period, setPeriod] = useState("current");
+  const reportingPeriods = listReportingPeriods();
 
   const load = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
+      const params = new URLSearchParams({ period });
       const res = await fetch(
         self
-          ? "/api/v1/self/pre-ccc-summary?period=current"
-          : `/api/v1/programs/${encodeURIComponent(programSlug!)}/residents/${encodeURIComponent(userId!)}/pre-ccc?period=current`,
+          ? `/api/v1/self/pre-ccc-summary?${params}`
+          : `/api/v1/programs/${encodeURIComponent(programSlug!)}/residents/${encodeURIComponent(userId!)}/pre-ccc?${params}`,
       );
       const data = await res.json();
       if (!res.ok) throw new Error(data.message ?? "Could not load pre-CCC summary.");
@@ -46,7 +50,7 @@ export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
     } finally {
       setLoading(false);
     }
-  }, [self, programSlug, userId]);
+  }, [self, programSlug, userId, period]);
 
   useEffect(() => {
     if (self) void load();
@@ -69,6 +73,18 @@ export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
       <p className="text-cx-label uppercase">GME · CCC prep</p>
       <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">{title}</h3>
       <p className="mt-2 text-sm text-cx-forest-dark/75">{description}</p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {reportingPeriods.map((p) => (
+          <Button
+            key={p.id}
+            variant={period === p.id ? "primary" : "secondary"}
+            onClick={() => setPeriod(p.id)}
+          >
+            {p.label}
+          </Button>
+        ))}
+      </div>
 
       <Button className="mt-4" variant="secondary" onClick={() => void load()} disabled={loading}>
         {loading ? "Loading…" : summary ? "Refresh summary" : "Load summary"}
@@ -100,7 +116,18 @@ export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
 
           {summary.narrative_synthesis.strengths.length > 0 && (
             <div>
-              <p className="font-semibold text-cx-forest-dark">Narrative synthesis · strengths</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="font-semibold text-cx-forest-dark">Narrative synthesis · strengths</p>
+                <span
+                  className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
+                    summary.narrative_synthesis.ai_generated
+                      ? "bg-cx-forest-dark/10 text-cx-forest-dark"
+                      : "bg-amber-100 text-amber-900"
+                  }`}
+                >
+                  {summary.narrative_synthesis.ai_generated ? "AI-enhanced" : "Rule-based"}
+                </span>
+              </div>
               <ul className="mt-2 list-disc space-y-1 pl-5">
                 {summary.narrative_synthesis.strengths.map((item) => (
                   <li key={item}>{item}</li>

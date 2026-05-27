@@ -31,6 +31,7 @@ export async function GET(
 
   const { searchParams } = new URL(request.url);
   const period = searchParams.get("period") ?? "current";
+  const medhubOnly = searchParams.get("medhub_only") !== "false";
 
   try {
     const dashboard = await buildProgramCohortDashboard({
@@ -39,11 +40,19 @@ export async function GET(
       demo: auth.demo,
     });
 
+    const subcompetencies = medhubOnly
+      ? dashboard.subcompetencies.filter((s) => s.medhub_outpatient_form)
+      : dashboard.subcompetencies;
+    const subIds = new Set(subcompetencies.map((s) => s.id));
+    const heatmap = medhubOnly
+      ? dashboard.milestone_heatmap.filter((cell) => subIds.has(cell.subcompetency_id))
+      : dashboard.milestone_heatmap;
+
     return jsonOk({
       period: dashboard.period,
-      subcompetencies: dashboard.subcompetencies,
+      subcompetencies,
       trainees: dashboard.trainees,
-      heatmap: dashboard.milestone_heatmap,
+      heatmap,
       summary: dashboard.summary,
       narrative_quality_pct: dashboard.narrative_quality_pct,
       equity_alerts: dashboard.equity_alerts,
