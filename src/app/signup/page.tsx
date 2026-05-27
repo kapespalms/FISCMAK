@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
@@ -16,7 +16,7 @@ import {
   sanitizeNextPath,
 } from "@/lib/auth/oauth";
 
-export default function SignupPage() {
+function SignupPageContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -171,5 +171,23 @@ export default function SignupPage() {
         </MarketingAuthCard>
       </MarketingAuthPanel>
     </MarketingAuthShell>
+  );
+}
+
+export default function SignupPage() {
+  return (
+    <Suspense
+      fallback={
+        <MarketingAuthShell>
+          <MarketingAuthPanel>
+            <MarketingAuthCard>
+              <p className="font-futura-medium text-sm text-gray-400">Loading…</p>
+            </MarketingAuthCard>
+          </MarketingAuthPanel>
+        </MarketingAuthShell>
+      }
+    >
+      <SignupPageContent />
+    </Suspense>
   );
 }
