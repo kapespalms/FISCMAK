@@ -90,6 +90,26 @@ export function partitionDocuments(docs: DocumentRecord[]) {
   return { sources, drafts, generated };
 }
 
+export type DocumentBucketCounts = {
+  sources: number;
+  drafts: number;
+  generated: number;
+  templates: number;
+};
+
+export function documentBucketCounts(
+  docs: DocumentRecord[],
+  templateCount: number,
+): DocumentBucketCounts {
+  const { sources, drafts, generated } = partitionDocuments(docs);
+  return {
+    sources: sources.length,
+    drafts: drafts.length,
+    generated: generated.length,
+    templates: templateCount,
+  };
+}
+
 export type TemplateBucketItem = {
   template_type: string;
   label: string;

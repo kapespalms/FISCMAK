@@ -4,6 +4,7 @@ export * from "./ontology-registry";
 export * from "./activity-normalize";
 export * from "./document-parser";
 export * from "./document-cache";
+export * from "./evidence-dedup";
 export * from "./aggregate";
 export * from "./schedule-lattice-evidence";
 export * from "./profile-lattice-evidence";

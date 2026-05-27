@@ -3,6 +3,21 @@ import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { isKpAdminEmail } from "@/lib/v2/kp-admin";
 import { getProgramById, getProgramBySlug } from "@/lib/v2/programs/registry";
 
+/**
+ * INSTITUTION BOUNDARY — program staff tools must stay on the GME data plane.
+ *
+ * Allowed for institution endpoints (via canAccessProgramStaffTools):
+ * - rotation_evaluations, ilp_goals, in_training_exams
+ * - Derived aggregates: cohort heatmaps, pre-CCC summary, narrative synthesis
+ *
+ * Never expose to institution endpoints:
+ * - documents.extracted_text (RLS: auth.uid = user_id only)
+ * - s_index, iwq, _internal_coaching (S_INDEX_TRACKING.institution_facing: false)
+ * - reconciliation_items, api_enrichment_runs, mempalace_exports (user-scoped only)
+ *
+ * If adding career evidence to institution reporting, show reconciled counts only —
+ * not raw CV text or unreconciled API discoveries.
+ */
 const STAFF_ROLES = new Set([
   "program_director",
   "program_coordinator",

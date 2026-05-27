@@ -20,8 +20,9 @@ import {
 import { persistEnrichmentSnapshot } from "@/lib/v2/career-data-repo";
 import { sanitizeDocumentMetadataForUser } from "@/lib/v2/mempalace-key-facts";
 import { invalidateLatticeDocumentCache } from "@/lib/v2/lattice/invalidate-cache";
-import { documentListItem } from "@/lib/v2/documents-workspace";
+import { documentListItem, documentBucketCounts } from "@/lib/v2/documents-workspace";
 import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
+import { getUserOutputTemplates } from "@/lib/v2/output-user-templates";
 
 async function clearLatticeDocumentCache(userId: string, email: string, demo: boolean) {
   const user = await getAppUser(userId, demo);
@@ -40,6 +41,9 @@ export async function GET() {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
   const documents = await fetchDocuments(auth.userId, auth.demo);
+  const user = await getAppUser(auth.userId, auth.demo);
+  const meta = user ? getOnboardingMetadata(user) : null;
+  const templateCount = meta ? Object.keys(getUserOutputTemplates(meta)).length : 0;
   return jsonOk({
     documents: documents.map((d) => {
       const content = resumeContentFromMetadata(d.metadata);
@@ -53,6 +57,7 @@ export async function GET() {
       };
     }),
     total: documents.length,
+    bucket_counts: documentBucketCounts(documents, templateCount),
   });
 }
 
