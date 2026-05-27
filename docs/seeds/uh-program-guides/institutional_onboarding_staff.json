@@ -1,0 +1,114 @@
+{
+  "id": "institutional_onboarding_staff",
+  "title": "Institutional On-Boarding — University Hospitals Department of Psychiatry",
+  "program_slug": "uh-psych-cmc",
+  "institution": "University Hospitals",
+  "department": "Department of Psychiatry",
+  "last_updated": "2026-05-27",
+  "source": "Department onboarding draft — institutional staff directory",
+  "department_leadership": [
+    {
+      "role": "Department Chair",
+      "name": "Dr. Jeanne Lackamp",
+      "email": "jeanne.lackamp@uhhospitals.org",
+      "phone": null
+    },
+    {
+      "role": "Department Staff",
+      "name": "Kate Kilbane",
+      "email": null,
+      "phone": null,
+      "notes": "Role to confirm"
+    }
+  ],
+  "divisions_and_fellowships": [
+    {
+      "division": "General Adult Psychiatry",
+      "contacts": []
+    },
+    {
+      "division": "Child and Adolescent Psychiatry",
+      "contacts": []
+    },
+    {
+      "division": "Geriatric Psychiatry Fellowship",
+      "contacts": []
+    },
+    {
+      "division": "Addiction Psychiatry Fellowship",
+      "contacts": [
+        {
+          "role": "Program Director",
+          "name": "Dr. Cathleen Cerny-Suelzer",
+          "email": "cathleen.cerny@uhhospitals.org",
+          "phone": null
+        },
+        {
+          "role": "Assistant Program Director",
+          "name": "Dr. Andrew Hunt",
+          "email": "andrew.hunt@uhhospitals.org",
+          "phone": null
+        },
+        {
+          "role": "Program Administrator",
+          "name": "Melvyna Williams",
+          "email": "melvyna.williams@uhhospitals.org",
+          "phone": null
+        }
+      ]
+    }
+  ],
+  "general_adult_psychiatry_residency": {
+    "program_name": "General Adult Psychiatry Residency (CMC)",
+    "staff": [
+      {
+        "role": "Program Director",
+        "name": "Dr. Cathleen Cerny-Suelzer",
+        "email": "cathleen.cerny@uhhospitals.org",
+        "phone": null
+      },
+      {
+        "role": "Assistant Program Director",
+        "name": "Dr. Andrew Hunt",
+        "email": "andrew.hunt@uhhospitals.org",
+        "phone": null
+      },
+      {
+        "role": "Program Administrator",
+        "name": "Melvyna Williams",
+        "email": "melvyna.williams@uhhospitals.org",
+        "phone": null
+      },
+      {
+        "role": "Chief Resident",
+        "name": "Daniel Phillip",
+        "email": null,
+        "phone": null
+      },
+      {
+        "role": "Chief Resident",
+        "name": "Eric Reinhart",
+        "email": null,
+        "phone": null
+      },
+      {
+        "role": "Chief Resident",
+        "name": "Jonathan Hardy",
+        "email": null,
+        "phone": null
+      },
+      {
+        "role": "Education Chief",
+        "name": "Andrea Costin",
+        "email": null,
+        "phone": null
+      }
+    ]
+  },
+  "onboarding_notes": [
+    "Residents joining via institutional onboarding should save program leadership contacts before first day.",
+    "For MedHub access, scheduling, and orientation logistics, start with the Program Administrator.",
+    "For clinical workflow, call coverage, and resident questions, contact a Chief Resident.",
+    "Division and fellowship contacts will be expanded as additional staff information is confirmed."
+  ]
+}

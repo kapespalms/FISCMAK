@@ -20,6 +20,7 @@
 | `CWRU IM VAMC General Medicine Wards LOs` | Off-service | `va_im.json` | Mak background — intern/resident objectives, procedures, supervision |
 | `Master Elective Spreadsheet` | Elective catalog (62 rows) | `elective_catalog.json` | Mak background — planning, lattice tags, longitudinal vs block; never auto-disclosed |
 | `Suicide & Violence Risk Assessment Guide` (Resnick/UH Didactics) | Clinical didactic | `uh-program-guides/suicide_violence_risk_assessment.json` | Mak background — help identify factors only; **never assign high/moderate/low risk or write that a patient is high risk** |
+| Institutional On-Boarding staff directory | Department / program contacts | `UH_INSTITUTIONAL_ONBOARDING_STAFF.md`, `uh-program-guides/institutional_onboarding_staff.json` | Institutional onboarding — department chair, residency leadership, chief residents |
 | MedHub Curriculum Objectives (screenshot) | Web UI index | This doc § Curriculum | Links rotation → goals docs |
 | [Resident Recognition Google Form](https://docs.google.com/forms/d/e/1FAIpQLSesRCDkfbyOVmCX0taC9Sd8PhSpMhT5PX3CtRfmMoea8_GTJA/viewform) | Culture/wellness | § Recognition below | Optional peer kudos module |
 
