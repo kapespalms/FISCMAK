@@ -10,7 +10,7 @@
 --     $$SELECT reset_monthly_message_balance();$$
 --   );
 
-DO $$
+DO $do$
 DECLARE
   existing_job_id bigint;
 BEGIN
@@ -31,7 +31,7 @@ BEGIN
   PERFORM cron.schedule(
     'fiscmak-reset-message-balance',
     '5 0 1 * *',
-    $$SELECT reset_monthly_message_balance();$$
+    $cmd$SELECT reset_monthly_message_balance();$cmd$
   );
 END;
-$$;
+$do$;
