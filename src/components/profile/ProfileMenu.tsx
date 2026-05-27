@@ -8,6 +8,7 @@ import { useAppShell } from "@/components/layout/AppShell";
 import { UserAvatar } from "@/components/profile/UserAvatar";
 import {
   AVATAR_CHANGED_EVENT,
+  fetchProfileAvatarUrl,
   getProfileAvatarUrl,
   processAvatarFile,
 } from "@/lib/profile-avatar";
@@ -21,7 +22,7 @@ export function ProfileMenu() {
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    setAvatarUrl(getProfileAvatarUrl());
+    void fetchProfileAvatarUrl().then(setAvatarUrl);
     function onAvatarChange(e: Event) {
       const detail = (e as CustomEvent<string | null>).detail;
       setAvatarUrl(detail ?? getProfileAvatarUrl());

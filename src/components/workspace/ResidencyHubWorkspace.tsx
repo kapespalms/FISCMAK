@@ -57,6 +57,12 @@ export function ResidencyHubWorkspace() {
           description="Full calendar view"
         />
         <QuickLinkCard
+          href="/app/residency/call-schedule"
+          icon={<Phone className="h-5 w-5" />}
+          title="Call schedule"
+          description="CMC coverage grid"
+        />
+        <QuickLinkCard
           href="/app/residency/contacts-calendars"
           icon={<Phone className="h-5 w-5" />}
           title="Contacts & calendars"

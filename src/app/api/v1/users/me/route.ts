@@ -24,6 +24,8 @@ export async function GET() {
     user_id: user.user_id,
     email: user.email,
     name: user.name,
+    profile_photo_url:
+      (user.onboarding_metadata?.profile_photo_url as string | undefined) ?? null,
     specialty: user.specialty,
     base_specialty: user.base_specialty,
     subspecialty: user.subspecialty,

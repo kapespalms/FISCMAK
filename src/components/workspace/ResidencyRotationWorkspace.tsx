@@ -79,7 +79,14 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
               <SectionList items={items} />
               {sectionId === "schedule" && page.slug === "call" && (
                 <p className="mt-3 text-xs text-cx-forest-dark/60">
-                  Call assignments: QGenda · Switch rules on resident drive
+                  <Link
+                    href="/app/residency/call-schedule"
+                    className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+                  >
+                    Open CMC call schedule grid →
+                  </Link>
+                  {" · "}
+                  Live switches in QGenda
                 </p>
               )}
             </CollapsibleSection>

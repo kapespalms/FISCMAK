@@ -91,7 +91,8 @@ export function DashboardWelcome({
 
       {institutionalProgramSlug === "uh-psych-cmc" && (
         <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          <DashboardProgramLink href="/app/residency/contacts-calendars" title="Call & contacts" detail="QGenda + CMC call grid" />
+          <DashboardProgramLink href="/app/residency/call-schedule" title="Call schedule" detail="CMC coverage grid" />
+          <DashboardProgramLink href="/app/residency/contacts-calendars" title="Contacts" detail="MedHub + QGenda" />
           <DashboardProgramLink href="/app/education" title="Education hub" detail="Articles, pharm, handouts" />
           <DashboardProgramLink href="/app/calendar" title="Block schedule" detail="Full calendar view" />
           <DashboardProgramLink href="/app/rotations" title="Rotation catalog" detail="All rotation codes" />
