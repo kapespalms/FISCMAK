@@ -13,9 +13,11 @@ import {
   collectIncompleteFields,
   emptyResumeContent,
   parseResumeContent,
+  resumeContentToPlainText,
   type ResumeContent,
   type ResumeThemeKey,
 } from "@/lib/v2/resume-content";
+import { downloadBlob, exportPdf } from "@/lib/studio-export";
 
 type CvDraftWorkspaceProps = {
   documentId: string;
@@ -47,6 +49,7 @@ export function CvDraftWorkspace({
   const [themeKey, setThemeKey] = useState<ResumeThemeKey>(initialTheme);
   const [highlightBlockId, setHighlightBlockId] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<"saved" | "saving" | "unsaved">("saved");
+  const [exportingPdf, setExportingPdf] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const syncMakContext = useCallback(
@@ -129,6 +132,18 @@ export function CvDraftWorkspace({
     scheduleSave(content, themeKey, title);
   }
 
+  async function handleExportPdf() {
+    setExportingPdf(true);
+    try {
+      const bodyText = resumeContentToPlainText(content);
+      const blob = await exportPdf(title.trim() || "CV Draft", bodyText, []);
+      const safeName = (title.trim() || "cv-draft").replace(/[^\w.-]+/g, "_");
+      downloadBlob(blob, `${safeName}.pdf`);
+    } finally {
+      setExportingPdf(false);
+    }
+  }
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -139,16 +154,26 @@ export function CvDraftWorkspace({
         >
           ← Documents hub
         </button>
-        <span
-          className={cn(
-            "text-xs font-medium",
-            saveStatus === "saved" && "text-cx-forest-dark/50",
-            saveStatus === "saving" && "text-cx-forest-dark/70",
-            saveStatus === "unsaved" && "text-amber-700",
-          )}
-        >
-          {saveStatus === "saved" ? "Saved" : saveStatus === "saving" ? "Saving…" : "Unsaved changes"}
-        </span>
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => void handleExportPdf()}
+            disabled={exportingPdf}
+            className="rounded-lg border border-cx-forest-dark/20 px-3 py-1.5 text-sm font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5 disabled:opacity-60"
+          >
+            {exportingPdf ? "Exporting…" : "Download PDF"}
+          </button>
+          <span
+            className={cn(
+              "text-xs font-medium",
+              saveStatus === "saved" && "text-cx-forest-dark/50",
+              saveStatus === "saving" && "text-cx-forest-dark/70",
+              saveStatus === "unsaved" && "text-amber-700",
+            )}
+          >
+            {saveStatus === "saved" ? "Saved" : saveStatus === "saving" ? "Saving…" : "Unsaved changes"}
+          </span>
+        </div>
       </div>
 
       <div className="flex flex-wrap items-end gap-4">

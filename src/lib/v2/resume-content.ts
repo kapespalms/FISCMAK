@@ -225,6 +225,45 @@ export function collectIncompleteFields(content: ResumeContent): ResumeIncomplet
   });
 }
 
+/** Plain-text serialization for PDF/DOCX export from documents workspace. */
+export function resumeContentToPlainText(content: ResumeContent): string {
+  const lines: string[] = [];
+  for (const block of content.blocks) {
+    if (block.type === "header") {
+      const parts = [block.name, block.credentials, block.specialty].filter(Boolean);
+      if (parts.length) lines.push(parts.join(" · "));
+      const contact = [block.email, block.phone, block.location].filter(Boolean);
+      if (contact.length) lines.push(contact.join(" · "));
+      lines.push("");
+      continue;
+    }
+    if (block.type === "experience") {
+      lines.push(`${block.role} — ${block.organization}`);
+      if (block.location) lines.push(block.location);
+      if (block.dates.display) lines.push(block.dates.display);
+      for (const bullet of block.bullets) {
+        if (bullet.trim()) lines.push(`• ${bullet.trim()}`);
+      }
+      lines.push("");
+      continue;
+    }
+    if (block.type === "education") {
+      lines.push(`${block.degree} — ${block.institution}`);
+      if (block.location) lines.push(block.location);
+      if (block.dates.display) lines.push(block.dates.display);
+      if (block.details?.trim()) lines.push(block.details.trim());
+      lines.push("");
+      continue;
+    }
+    if (block.type === "skills") {
+      lines.push(block.label);
+      if (block.items.length) lines.push(block.items.join(", "));
+      lines.push("");
+    }
+  }
+  return lines.join("\n").trim() || "(empty)";
+}
+
 export function reorderBlocks(blocks: ResumeBlock[], orderedIds: string[]): ResumeBlock[] {
   const map = new Map(blocks.map((b) => [b.id, b]));
   const ordered = orderedIds.map((id) => map.get(id)).filter((b): b is ResumeBlock => !!b);
