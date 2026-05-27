@@ -101,6 +101,19 @@ export function DocumentsView() {
 
   return (
     <div className="space-y-6">
+      <div className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] px-4 py-4">
+        <p className="font-semibold text-cx-forest-dark">CV workspace</p>
+        <p className="mt-1 text-sm text-cx-forest-dark/70">
+          Structured drafts, merge sources, and live preview — open the full Documents hub.
+        </p>
+        <a
+          href="/app/documents"
+          className="mt-3 inline-flex min-h-11 items-center rounded-lg bg-cx-forest-dark px-5 text-sm font-semibold text-white hover:bg-cx-forest-dark/90"
+        >
+          Open Documents workspace
+        </a>
+      </div>
+
       {error && (
         <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
           {error}

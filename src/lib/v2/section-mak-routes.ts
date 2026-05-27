@@ -35,7 +35,7 @@ export function resolveSectionQuickAction(
     if (n.includes("upload")) {
       return {
         intent: "upload",
-        href: "/app/objective?tab=documents&upload=1",
+        href: "/app/documents?upload=1",
         message: "I want to upload a document to my career vault.",
       };
     }

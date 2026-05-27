@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ChevronLeft, Maximize2, Minimize2, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/lib/use-media-query";
@@ -42,6 +42,14 @@ import {
   isKnownOutputTemplateType,
   OUTPUT_TEMPLATE_TYPE_SESSION_KEY,
 } from "@/lib/v2/output-user-templates";
+import {
+  DOCUMENTS_CONTEXT_EVENT,
+  type DocumentsMakContextPayload,
+} from "@/lib/v2/documents-workspace";
+import {
+  DOCUMENTS_MAK_CHIPS,
+  documentsMakIntroSuffix,
+} from "@/lib/v2/documents-mak-context";
 
 type MakPanelProps = {
   open: boolean;
@@ -110,7 +118,9 @@ export function MakPanel({
   onInitialMessageHandled,
 }: MakPanelProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const isMobile = useIsMobile();
+  const documentsWorkspaceActive = pathname.startsWith("/app/documents");
   const { section, makInputRef, displayName, startMakFlow, focusMakInput } = useAppShell();
   const config = MAK_SECTION_CONFIG[section];
   const [messages, setMessages] = useState<MakMessage[]>([]);
@@ -137,6 +147,17 @@ export function MakPanel({
   const [userTier, setUserTier] = useState<"free" | "premium">("free");
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
+  const [documentsMakContext, setDocumentsMakContext] =
+    useState<DocumentsMakContextPayload | null>(null);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<DocumentsMakContextPayload>).detail;
+      setDocumentsMakContext(detail ?? null);
+    };
+    window.addEventListener(DOCUMENTS_CONTEXT_EVENT, handler);
+    return () => window.removeEventListener(DOCUMENTS_CONTEXT_EVENT, handler);
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -197,7 +218,16 @@ export function MakPanel({
   }, [section]);
 
   useEffect(() => {
-    const greeting = greetingForSection(section, displayName);
+    let greeting = greetingForSection(section, displayName);
+    if (documentsWorkspaceActive) {
+      const incomplete = documentsMakContext?.incomplete_fields?.length ?? 0;
+      greeting = `You're in the Documents workspace — sources, structured drafts, and live CV preview.${documentsMakIntroSuffix(incomplete)}`;
+      if (!isClientDemoMode()) {
+        setSuggestedActions(
+          DOCUMENTS_MAK_CHIPS.map((c) => ({ action: c.label, url: "" })),
+        );
+      }
+    }
     if (prevSection.current !== section) {
       prevSection.current = section;
       if (isClientDemoMode()) {
@@ -215,7 +245,9 @@ export function MakPanel({
         );
       }
       setInput("");
-      setSuggestedActions([]);
+      if (!documentsWorkspaceActive) {
+        setSuggestedActions([]);
+      }
     } else if (section === "dashboard" && displayName && isClientDemoMode()) {
       setMessages((current) => {
         if (current.length === 0) {
@@ -229,7 +261,19 @@ export function MakPanel({
         return current;
       });
     }
-  }, [section, displayName]);
+  }, [section, displayName, documentsWorkspaceActive, documentsMakContext]);
+
+  useEffect(() => {
+    if (!documentsWorkspaceActive || isClientDemoMode()) return;
+    const incomplete = documentsMakContext?.incomplete_fields?.length ?? 0;
+    const greeting = `You're in the Documents workspace — sources, structured drafts, and live CV preview.${documentsMakIntroSuffix(incomplete)}`;
+    setMessages((current) =>
+      current.length === 0
+        ? [{ role: "assistant", content: greeting }]
+        : current,
+    );
+    setSuggestedActions(DOCUMENTS_MAK_CHIPS.map((c) => ({ action: c.label, url: "" })));
+  }, [documentsWorkspaceActive, documentsMakContext, pathname]);
 
   useEffect(() => {
     if (!pendingFlow) return;
@@ -358,6 +402,15 @@ export function MakPanel({
               section,
               activeOutputTemplateType,
             ),
+            ...(documentsWorkspaceActive && documentsMakContext
+              ? {
+                  active_document_id: documentsMakContext.active_document_id,
+                  content_json: documentsMakContext.content_json,
+                  incomplete_fields: documentsMakContext.incomplete_fields,
+                  draft_title: documentsMakContext.draft_title,
+                  documents_workspace: true,
+                }
+              : {}),
           },
         }),
       });
@@ -612,6 +665,13 @@ export function MakPanel({
       }
       if (label === "Edit in template") {
         router.push("/app/plan");
+        return;
+      }
+    }
+    if (documentsWorkspaceActive) {
+      const chip = DOCUMENTS_MAK_CHIPS.find((c) => c.label === label);
+      if (chip) {
+        void sendMessage(chip.message);
         return;
       }
     }

@@ -61,6 +61,19 @@ export function TopNavBar() {
               </button>
             );
           })}
+          <button
+            type="button"
+            onClick={() => router.push("/app/documents")}
+            aria-current={pathname.startsWith("/app/documents") ? "page" : undefined}
+            className={cn(
+              "cx-top-nav-tab",
+              pathname.startsWith("/app/documents")
+                ? "cx-top-nav-tab-active"
+                : "cx-top-nav-tab-inactive",
+            )}
+          >
+            Documents
+          </button>
         </nav>
 
         <div className="flex shrink-0 items-center gap-0.5 md:gap-1">

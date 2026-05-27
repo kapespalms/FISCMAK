@@ -20,6 +20,8 @@ import {
 import { persistEnrichmentSnapshot } from "@/lib/v2/career-data-repo";
 import { sanitizeDocumentMetadataForUser } from "@/lib/v2/mempalace-key-facts";
 import { invalidateLatticeDocumentCache } from "@/lib/v2/lattice/invalidate-cache";
+import { documentListItem } from "@/lib/v2/documents-workspace";
+import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
 
 async function clearLatticeDocumentCache(userId: string, email: string, demo: boolean) {
   const user = await getAppUser(userId, demo);
@@ -39,18 +41,17 @@ export async function GET() {
   if (isErrorResponse(auth)) return auth;
   const documents = await fetchDocuments(auth.userId, auth.demo);
   return jsonOk({
-    documents: documents.map((d) => ({
-      document_id: d.document_id,
-      document_type: d.document_type,
-      file_name: documentFileNameFromRecord(d),
-      file_url: d.file_url,
-      uploaded_at: d.uploaded_at,
-      extraction_status: d.extraction_status,
-      document_subtype: documentSubtypeFromRecord(d),
-      document_label: documentLabelFromRecord(d),
-      extracted_text_preview: d.extracted_text?.slice(0, 400) ?? "",
-      metadata: sanitizeDocumentMetadataForUser(d.metadata ?? {}),
-    })),
+    documents: documents.map((d) => {
+      const content = resumeContentFromMetadata(d.metadata);
+      return {
+        ...documentListItem(d),
+        file_url: d.file_url,
+        document_subtype: documentSubtypeFromRecord(d),
+        extracted_text_preview: d.extracted_text?.slice(0, 400) ?? "",
+        content_json: content,
+        metadata: sanitizeDocumentMetadataForUser(d.metadata ?? {}),
+      };
+    }),
     total: documents.length,
   });
 }
@@ -122,6 +123,7 @@ export async function POST(request: Request) {
     word_count: wordCount,
     document_subtype,
     document_label: resolvedLabel,
+    workspace_bucket: "sources",
   } as Record<string, unknown>;
 
   async function runEnrichmentAfterUpload() {

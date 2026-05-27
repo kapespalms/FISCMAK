@@ -34,6 +34,11 @@ import {
   resolveOutputTemplateType,
   resolveUserOutputTemplate,
 } from "@/lib/v2/output-user-templates";
+import {
+  buildDocumentsDraftMakContext,
+  documentsMakIntroSuffix,
+} from "@/lib/v2/documents-mak-context";
+import { collectIncompleteFields, parseResumeContent } from "@/lib/v2/resume-content";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
 import {
@@ -1580,12 +1585,50 @@ export async function POST(request: Request) {
         ? buildUserOutputTemplateMakContext(userOutputTemplate, outputTemplateType)
         : "";
 
+    const activeDocumentId =
+      typeof context?.active_document_id === "string" ? context.active_document_id : null;
+    let documentsDraftContext = "";
+    let documentsIncompleteCount = 0;
+    if (
+      chatSection === "objective" ||
+      chatSection === "output" ||
+      context?.documents_workspace === true
+    ) {
+      const contentFromContext = context?.content_json
+        ? parseResumeContent(context.content_json)
+        : null;
+      if (contentFromContext) {
+        documentsIncompleteCount = collectIncompleteFields(contentFromContext).length;
+        documentsDraftContext = buildDocumentsDraftMakContext({
+          active_document_id: activeDocumentId,
+          content_json: contentFromContext,
+          incomplete_fields: contentFromContext.incomplete_fields,
+          draft_title:
+            typeof context?.draft_title === "string" ? context.draft_title : undefined,
+        });
+      } else if (activeDocumentId) {
+        const activeDoc = docs.find((d) => d.document_id === activeDocumentId);
+        const meta = activeDoc?.metadata ?? {};
+        const parsed = meta.content_json ? parseResumeContent(meta.content_json) : null;
+        if (parsed) {
+          documentsIncompleteCount = collectIncompleteFields(parsed).length;
+          documentsDraftContext = buildDocumentsDraftMakContext({
+            active_document_id: activeDocumentId,
+            content_json: parsed,
+            draft_title:
+              typeof meta.draft_title === "string" ? (meta.draft_title as string) : undefined,
+          });
+        }
+      }
+    }
+
     const contextBlock = [
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
       buildScheduleMemoryContext(activeMeta),
       programMakContext,
       traineeProgramBackground,
       userOutputTemplateContext,
+      documentsDraftContext,
       activeMeta.rotation_debrief_session
         ? buildRotationDebriefMakSystemContext(activeMeta, user?.career_stage)
         : "",

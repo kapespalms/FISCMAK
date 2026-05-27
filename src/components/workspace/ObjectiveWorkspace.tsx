@@ -71,7 +71,16 @@ export function ObjectiveWorkspace() {
         {tab === "vault" && <CareerDataVaultPanel />}
         {tab === "reconcile" && <CareerDataReconcilePanel />}
         {tab === "activities" && <ActivitiesView />}
-        {tab === "documents" && <DocumentsView />}
+        {tab === "documents" && (
+          <>
+            <DocumentsView />
+            <p className="mt-4 text-center text-sm text-cx-forest-dark/65">
+              <a href="/app/documents" className="font-medium underline">
+                Open full Documents workspace →
+              </a>
+            </p>
+          </>
+        )}
       </div>
     </PageShell>
   );
