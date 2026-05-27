@@ -1,44 +1,26 @@
 import { MarketingGlassPanel, MarketingSection } from "@/components/marketing/MarketingGlass";
 
+/** MECE product loop — matches what FISCMAK actually ships today. */
 const STEPS = [
   {
     n: 1,
-    title: "Capture",
-    body: "Log what you actually do — clinical work, teaching, mentorship, invisible hours.",
+    title: "Connect your work",
+    body: "Log activities with Coach Mak. Programs import MedHub evals; trainees add milestone self-ratings and rotation context.",
   },
   {
     n: 2,
-    title: "Understand",
-    body: "Coach Mak reads patterns in energy, fulfillment, and direction — privately.",
+    title: "Coach Mak remembers",
+    body: "One longitudinal coach — debriefs, goals, and wellbeing check-ins. Private signals for you; never surveillance scores on your dashboard.",
   },
   {
     n: 3,
-    title: "Document",
-    body: "Turn lived work into CV lines, promotion language, and review-ready narratives.",
+    title: "Synthesize evidence",
+    body: "Pre-CCC summaries, milestone heatmaps, lattice mapping, and document drafts built from your real work — not invented metrics.",
   },
   {
     n: 4,
-    title: "Move",
-    body: "See what comes next — goals, opportunities, and trajectory over time.",
-  },
-] as const;
-
-const OUTCOMES = [
-  {
-    title: "For physicians",
-    items: [
-      "Career clarity without another survey portal",
-      "Evidence that reflects real work",
-      "Wellbeing signals — never surveillance scores",
-    ],
-  },
-  {
-    title: "For programs",
-    items: [
-      "Pre-CCC prep in minutes, not hours",
-      "Milestone visibility with equity guardrails",
-      "Longitudinal cohort view for CCC conversations",
-    ],
+    title: "Show up prepared",
+    body: "ILP goals from gaps, CCC-ready PDFs for program staff, and quarterly pulse so semiannual reviews take minutes, not hours.",
   },
 ] as const;
 
@@ -52,52 +34,32 @@ export function HowItWorksSection() {
           How <span className="text-marketing-accent">FISCMAK</span> works
         </>
       }
-      description="Four steps. One coach. Your career story — captured, clarified, and ready when it matters."
+      description="Career intelligence for physicians and GME programs — capture, coach, synthesize, and arrive at CCC with evidence already assembled."
     >
-      <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <ol className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {STEPS.map((step) => (
           <MarketingGlassPanel
             key={step.n}
             as="li"
-            className="marketing-glass-hover p-6"
+            accent
+            className="marketing-glass-hover group relative overflow-hidden p-6 md:p-7"
           >
-            <div className="mb-4 flex items-center gap-3">
-              <span className="font-futura-bold flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-marketing-accent text-sm text-black">
-                {step.n}
-              </span>
-              <h3 className="font-futura-bold text-lg text-white">{step.title}</h3>
+            <div
+              className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-marketing-accent/80 via-marketing-accent/40 to-transparent"
+              aria-hidden
+            />
+            <div className="relative pl-3">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="font-futura-bold flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-marketing-accent/90 text-sm text-black shadow-[0_0_20px_rgba(169,255,92,0.35)]">
+                  {step.n}
+                </span>
+                <h3 className="font-futura-bold text-lg leading-tight text-white">{step.title}</h3>
+              </div>
+              <p className="text-sm leading-relaxed text-white/70">{step.body}</p>
             </div>
-            <p className="text-sm leading-relaxed text-white/65">{step.body}</p>
           </MarketingGlassPanel>
         ))}
       </ol>
-
-      <MarketingGlassPanel accent className="mt-8 p-8 md:mt-10 md:p-10">
-        <h3 className="font-futura-bold text-2xl text-white md:text-3xl">Why it matters</h3>
-        <p className="font-futura-medium mt-2 max-w-2xl text-sm text-white/60 md:text-base">
-          Two audiences. One platform. No overlap — built for the people doing the work and the
-          programs responsible for their development.
-        </p>
-
-        <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
-          {OUTCOMES.map((col) => (
-            <div key={col.title}>
-              <p className="font-futura-bold mb-3 text-marketing-accent">{col.title}</p>
-              <ul className="space-y-2.5">
-                {col.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-2.5 text-sm leading-relaxed text-white/75 md:text-base"
-                  >
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-marketing-accent" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </MarketingGlassPanel>
     </MarketingSection>
   );
 }
