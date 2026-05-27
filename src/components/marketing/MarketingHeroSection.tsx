@@ -1,11 +1,5 @@
 import { cn } from "@/lib/utils";
-import {
-  LANDING_HERO_QUEEN_SRC,
-  LANDING_LOGO_CM_SRC,
-  LANDING_PANEL_FISC_SRC,
-  LANDING_PANEL_MAK_SRC,
-  LANDING_PANEL_SILENT_C_SRC,
-} from "@/lib/brand-assets";
+import { LANDING_CHESS_QUEEN_SRC } from "@/lib/brand-assets";
 import {
   MarketingHeroHeadline,
   MarketingHeroHeadlineSpacer,
@@ -94,7 +88,7 @@ export function MarketingHeroSection({
         <div className="flex items-center justify-center lg:items-end lg:justify-end lg:self-stretch">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={LANDING_HERO_QUEEN_SRC}
+            src={LANDING_CHESS_QUEEN_SRC}
             alt=""
             aria-hidden
             className="h-auto w-full max-w-[280px] object-contain object-bottom drop-shadow-[0_24px_80px_rgba(103,225,81,0.18)] sm:max-w-[320px] lg:max-h-[min(58vh,540px)] lg:max-w-none lg:w-auto"

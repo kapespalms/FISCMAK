@@ -11,3 +11,5 @@ export const LANDING_CROWN_AVATAR_SRC = "/marketing/landing/fiscmak-crown-avatar
 export const LANDING_PANEL_FISC_SRC = "/marketing/landing/panel-fisc.png";
 export const LANDING_PANEL_SILENT_C_SRC = "/marketing/landing/panel-silent-c.png";
 export const LANDING_PANEL_MAK_SRC = "/marketing/landing/panel-mak.png";
+export const LANDING_CHESS_QUEEN_SRC = "/marketing/landing/fiscmak-chess-queen.png";
+export const LANDING_NAME_BREAKDOWN_SRC = "/marketing/landing/fiscmak-name-breakdown.png";
