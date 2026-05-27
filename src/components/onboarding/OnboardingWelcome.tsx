@@ -10,7 +10,7 @@ import type { ResidencyProgram } from "@/lib/v2/programs/registry";
 const SETUP_STEPS = [
   { title: "Profile", detail: "Name, training level, and current rotation." },
   { title: "Documents", detail: "Upload your CV and key career files." },
-  { title: "Assessment", detail: "Short self-assessment — finish on your dashboard when ready." },
+  { title: "Self-assessment", detail: "Short check-in — finish on your dashboard when ready." },
 ] as const;
 
 export type OnboardingWelcomeVariant = "default" | "public" | "institutional";
@@ -62,12 +62,6 @@ export function OnboardingWelcome({
         </>
       )}
 
-      <p className="mt-4 text-sm text-cx-forest-dark/80">
-        {isInstitutional
-          ? "Three steps to unlock your dashboard. Coach Mak opens after setup."
-          : "Three steps to unlock your dashboard."}
-      </p>
-
       <ol className="mt-6 space-y-3">
         {SETUP_STEPS.map((step, index) => (
           <li
@@ -86,7 +80,7 @@ export function OnboardingWelcome({
       </ol>
 
       <Button className="mt-6 w-full" onClick={onBegin}>
-        {isInstitutional ? "Start setup" : "Begin setup"}
+        Get started
       </Button>
     </Card>
   );

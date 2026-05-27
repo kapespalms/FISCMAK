@@ -31,6 +31,8 @@ import { resolveSectionQuickAction, type SectionQuickAction } from "@/lib/v2/sec
 import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions } from "@/lib/v2/goal-setting-mak-flow";
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
+import { MakMessageActions } from "@/components/layout/MakMessageActions";
+import { CreditLimitModal } from "@/components/layout/CreditLimitModal";
 import {
   buildDefaultMakMenuItems,
   MakPlusActionMenu,
@@ -129,6 +131,10 @@ export function MakPanel({
   >();
   const [expanded, setExpanded] = useState(false);
   const [actionMenuOpen, setActionMenuOpen] = useState(false);
+  const [creditLimitOpen, setCreditLimitOpen] = useState(false);
+  const [upgradePrompt, setUpgradePrompt] = useState<string | null>(null);
+  const [messageBalance, setMessageBalance] = useState<number | null>(null);
+  const [userTier, setUserTier] = useState<"free" | "premium">("free");
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
 
@@ -143,6 +149,19 @@ export function MakPanel({
     setExpanded(false);
     onClose();
   }
+
+  useEffect(() => {
+    if (!open || isClientDemoMode()) return;
+    fetch("/api/v1/subscription")
+      .then((r) => r.json())
+      .then((d) => {
+        setUserTier(d.tier === "premium" ? "premium" : "free");
+        if (typeof d.message_balance === "number") {
+          setMessageBalance(d.message_balance);
+        }
+      })
+      .catch(() => undefined);
+  }, [open]);
 
   useEffect(() => {
     if (!open || isClientDemoMode()) return;
@@ -340,6 +359,24 @@ export function MakPanel({
         }),
       });
       const data = await res.json();
+
+      if (res.status === 402) {
+        setMessages(history);
+        setUpgradePrompt(
+          typeof data.upgrade_prompt === "string" ? data.upgrade_prompt : null,
+        );
+        setMessageBalance(0);
+        setCreditLimitOpen(true);
+        return;
+      }
+
+      if (data.tier === "premium") {
+        setUserTier("premium");
+      }
+      if (typeof data.message_balance === "number") {
+        setMessageBalance(data.message_balance);
+      }
+
       setSuggestedActions(data.suggested_actions ?? []);
       if (data.touchpoint_submitted) {
         setTouchpointMode(null);
@@ -685,7 +722,14 @@ export function MakPanel({
         <div className={cn("flex h-full flex-col bg-white", expanded && "min-w-0")}>
           <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white">
             <div className="flex h-14 items-center justify-between gap-2 px-3">
-              <p className="truncate text-base font-semibold text-cx-forest-dark">Coach Mak</p>
+              <div className="min-w-0">
+                <p className="truncate text-base font-semibold text-cx-forest-dark">Coach Mak</p>
+                {userTier === "free" && messageBalance != null && (
+                  <p className="truncate text-[11px] text-cx-forest-dark/50">
+                    {messageBalance} free AI {messageBalance === 1 ? "message" : "messages"} left
+                  </p>
+                )}
+              </div>
               <div className="flex shrink-0 items-center gap-1.5">
                 <button
                   type="button"
@@ -729,9 +773,12 @@ export function MakPanel({
                   {msg.content}
                 </div>
                 {showTimestamp && (
-                  <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
-                    {formatMessageTime(msg.at)}
-                  </p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
+                      {formatMessageTime(msg.at)}
+                    </p>
+                    <MakMessageActions content={msg.content} section={section} />
+                  </div>
                 )}
               </div>
             );
@@ -790,6 +837,11 @@ export function MakPanel({
         </div>
         </div>
       </aside>
+      <CreditLimitModal
+        open={creditLimitOpen}
+        onClose={() => setCreditLimitOpen(false)}
+        upgradePrompt={upgradePrompt}
+      />
     </>
   );
 }

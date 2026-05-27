@@ -34,6 +34,8 @@ export type AppUser = {
   tier2_complete: boolean;
   tier3_complete: boolean;
   onboarding_metadata: Record<string, unknown> | null;
+  /** Remaining free AI messages when not on Premium */
+  message_balance?: number | null;
   preferred_location: string | null;
   salary_min: number | null;
   salary_max: number | null;

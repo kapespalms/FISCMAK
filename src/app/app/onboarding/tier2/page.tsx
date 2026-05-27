@@ -1,5 +1,6 @@
-import { Tier2Onboarding } from "@/components/onboarding/Tier2Onboarding";
+import { redirect } from "next/navigation";
 
-export default function Tier2OnboardingPage() {
-  return <Tier2Onboarding />;
+/** Legacy route — documents step lives in unified onboarding. */
+export default function Tier2OnboardingRedirectPage() {
+  redirect("/app/onboarding?step=documents");
 }

@@ -115,6 +115,8 @@ export type OnboardingMetadata = {
   schedule_review_session?: import("@/lib/v2/schedule-review-mak-flow").ScheduleReviewSession;
   schedule_review_history?: import("@/lib/v2/coaching-cadence").ScheduleReviewHistoryEntry[];
   rotation_touchpoint_history?: import("@/lib/v2/coaching-cadence").RotationTouchpointHistoryEntry[];
+  /** Remaining free AI messages (mirrors app_users.message_balance) */
+  message_balance?: number;
   invite_token?: string;
   invite_slot_number?: number;
   program_membership?: import("@/lib/v2/programs/program-membership").ProgramMembershipRecord;

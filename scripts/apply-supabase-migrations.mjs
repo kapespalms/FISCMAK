@@ -207,6 +207,12 @@ async function main() {
     label: "Program invite tokens + blank pathway programs",
   });
 
+  steps.push({
+    file: "docs/migrations/20260527_message_credits_feedback.sql",
+    label: "Free message credits + chat feedback",
+    requiresTable: "app_users",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

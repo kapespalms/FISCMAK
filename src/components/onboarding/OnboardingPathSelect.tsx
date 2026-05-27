@@ -16,7 +16,7 @@ export function OnboardingPathSelect({ loading, onSelectPublic }: OnboardingPath
       <h1 className="text-page-title">How are you joining?</h1>
       <p className="mt-2 text-sm text-cx-forest-dark/80">
         Residency and fellowship residents should use the personal invite link from their program —
-        not this page. That link attaches your roster slot automatically.
+        not this page. That link attaches your program slot automatically.
       </p>
 
       <div className="mt-8 space-y-4">

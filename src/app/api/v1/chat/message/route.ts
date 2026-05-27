@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
@@ -83,6 +84,12 @@ import {
   type ChatClassification,
 } from "@/lib/v2/classify-chat-message";
 import { hasActiveSubscription, isStripeConfigured } from "@/lib/v2/stripe-config";
+import {
+  FREE_MESSAGE_LIMIT,
+  getMessageBalance,
+  nextMessageBalance,
+  shouldChargeAiMessage,
+} from "@/lib/v2/message-credits";
 import {
   forwardToMemPalaceService,
   isMemPalaceExternalConfigured,
@@ -1416,7 +1423,34 @@ export async function POST(request: Request) {
   } else if (goalSettingTurn) {
     response = goalSettingTurn.response;
     suggested_actions = goalSettingTurn.suggested_actions;
-  } else if (!apiKey || !isPremium) {
+  } else {
+    const freeMessageBalance = getMessageBalance(
+      activeMeta as Record<string, unknown>,
+      user?.message_balance,
+    );
+    const chargeableMessage = shouldChargeAiMessage(message ?? "", API_GREETING_TOKENS);
+    const canUsePaidAi =
+      Boolean(apiKey) && (isPremium || (freeMessageBalance > 0 && chargeableMessage));
+
+    if (!canUsePaidAi) {
+      if (
+        apiKey &&
+        !isPremium &&
+        chargeableMessage &&
+        isStripeConfigured() &&
+        freeMessageBalance <= 0
+      ) {
+        return NextResponse.json(
+          {
+            error: "credit_limit",
+            message_balance: 0,
+            upgrade_prompt: "Upgrade to Premium for unlimited AI coaching with Mak ($9/month).",
+            tier: "free",
+          },
+          { status: 402 },
+        );
+      }
+
     if (chatClassification?.mak_response) {
       response = chatClassification.mak_response;
     } else if (message && message !== "__welcome__" && flowIntent === "capture" && supabaseClient) {
@@ -1477,7 +1511,7 @@ export async function POST(request: Request) {
               ]
             : [{ action: "Begin quarterly check-in", url: "/app/dashboard" }];
     }
-  } else {
+    } else {
     const debriefSummary =
       activeMeta.rotation_debrief_entries?.length
         ? `Rotation debriefs on file: ${activeMeta.rotation_debrief_entries
@@ -1669,7 +1703,7 @@ export async function POST(request: Request) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": apiKey,
+          "x-api-key": apiKey!,
           "anthropic-version": "2023-06-01",
         },
         body: JSON.stringify({
@@ -1693,6 +1727,23 @@ export async function POST(request: Request) {
           ? escalation.message
           : `${escalation.message}\n\n${response}`;
       }
+    }
+
+    if (!isPremium && chargeableMessage && user) {
+      const nextBalance = nextMessageBalance(freeMessageBalance);
+      activeMeta = {
+        ...activeMeta,
+        message_balance: nextBalance,
+      };
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        {
+          onboarding_metadata: activeMeta as Record<string, unknown>,
+          message_balance: nextBalance,
+        },
+        auth.demo,
+      );
     }
 
     if (activeMeta.schedule_mak_session && response && !debriefTurn) {
@@ -1733,6 +1784,7 @@ export async function POST(request: Request) {
                   { action: "Review goals", url: "/app/plan" },
                 ]
               : [{ action: "Capture invisible work", url: "/app/dashboard" }];
+    }
     }
   }
 
@@ -1848,6 +1900,11 @@ export async function POST(request: Request) {
     goals: goalSettingTurn?.goals ?? null,
     tier: isPremium ? "premium" : "free",
     upgrade_prompt,
+    message_balance: getMessageBalance(
+      activeMeta as Record<string, unknown>,
+      user?.message_balance,
+    ),
+    free_message_limit: FREE_MESSAGE_LIMIT,
     analysis: chatClassification
       ? {
           detected_signals: chatClassification.detected_signals,

@@ -7,7 +7,8 @@ import {
   hasActiveSubscription,
   isStripeConfigured,
 } from "@/lib/v2/stripe-config";
-import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import { FREE_MESSAGE_LIMIT, getMessageBalance } from "@/lib/v2/message-credits";
+import { getAppUser, isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -18,6 +19,8 @@ export async function GET() {
       tier: "free",
       subscription: null,
       stripe_configured: false,
+      message_balance: FREE_MESSAGE_LIMIT,
+      free_message_limit: FREE_MESSAGE_LIMIT,
       features: {
         free: ["Onboarding", "Keyword coaching", "Activity tracking", "CV templates"],
         premium: ["AI coaching", "Ontology classifier", "Job matching", "Weekly insights"],
@@ -28,11 +31,18 @@ export async function GET() {
   const supabase = await createClient();
   const subscription = await getUserSubscription(supabase, auth.userId);
   const isPremium = await hasActiveSubscription(supabase, auth.userId);
+  const user = await getAppUser(auth.userId, auth.demo);
+  const messageBalance = getMessageBalance(
+    user?.onboarding_metadata ?? undefined,
+    user?.message_balance,
+  );
 
   return jsonOk({
     tier: isPremium ? "premium" : "free",
     subscription,
     stripe_configured: true,
+    message_balance: isPremium ? null : messageBalance,
+    free_message_limit: FREE_MESSAGE_LIMIT,
     features: {
       free: ["Onboarding profile", "Keyword signal detection", "Activity tracking", "CV bullet templates"],
       premium: [

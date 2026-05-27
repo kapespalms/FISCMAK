@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageShell } from "@/components/layout/PageShell";
-import { CheckCircle2, Circle } from "lucide-react";
+import { CheckCircle2, ChevronLeft, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   CAREER_LEVELS,
@@ -76,8 +76,8 @@ const STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[]
   { id: "welcome", label: "Welcome" },
   { id: "profile", label: "Profile" },
   { id: "documents", label: "Documents" },
-  { id: "reconcile", label: "Reconcile" },
-  { id: "instruments", label: "Assessment" },
+  { id: "reconcile", label: "Confirm data" },
+  { id: "instruments", label: "Self-assessment" },
 ];
 
 const STEPS: { id: OnboardingStep; label: string }[] = [
@@ -180,6 +180,8 @@ export function Touchpoint1Onboarding() {
   const careerLevelOptions = isInstitutional
     ? (programConfig?.career_stages_allowed ?? (["Resident", "Fellow"] as CareerLevel[]))
     : CAREER_LEVELS;
+  const institutionalCareerStageLocked =
+    isInstitutional && careerLevelOptions.length === 1;
   const originPrompt =
     baseSpecialty && showOriginField
       ? buildSpecialtyOriginQuestion(baseSpecialty, subspecialty || null, careerLevel)
@@ -195,7 +197,11 @@ export function Touchpoint1Onboarding() {
   function applyInstitutionalDefaults(program: OnboardingProgramConfig) {
     setBaseSpecialty(program.base_specialty);
     setBaseQuery(program.base_specialty);
-    setCareerLevel(program.default_career_stage);
+    const stage =
+      program.career_stages_allowed?.length === 1
+        ? program.career_stages_allowed[0]!
+        : program.default_career_stage;
+    setCareerLevel(stage);
     setPracticeSetting(program.default_practice_setting);
   }
 
@@ -623,8 +629,22 @@ export function Touchpoint1Onboarding() {
   }
 
   async function startMakConversation() {
-    router.replace("/app/dashboard?welcome=1");
-    router.refresh();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/v1/onboarding/compute", { method: "POST" });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.message ?? "Could not finish setup");
+        return;
+      }
+      router.replace(data.redirect ?? "/app/dashboard?welcome=1");
+      router.refresh();
+    } catch {
+      setError("Could not finish setup");
+    } finally {
+      setLoading(false);
+    }
   }
 
   function pickBaseSpecialty(value: string) {
@@ -666,6 +686,19 @@ export function Touchpoint1Onboarding() {
 
   const stepIndex = visibleSteps.findIndex((s) => s.id === step);
 
+  function navigateToStep(target: OnboardingStep) {
+    const targetIdx = visibleSteps.findIndex((s) => s.id === target);
+    if (targetIdx < 0 || targetIdx >= stepIndex) return;
+    setError("");
+    setStep(target);
+    router.replace(`/app/onboarding?step=${target}`);
+  }
+
+  function goBackOneStep() {
+    if (stepIndex <= 0) return;
+    navigateToStep(visibleSteps[stepIndex - 1]!.id);
+  }
+
   async function handleSelectPublicPath() {
     const ok = await saveOnboardingPath({ onboarding_path: "public" });
     if (ok) {
@@ -676,28 +709,44 @@ export function Touchpoint1Onboarding() {
 
   return (
     <PageShell
-      title="Setup"
-      subtitle="Profile · Documents · Assessment"
+      title="Onboarding"
       maxWidth="md"
       className="py-4"
     >
       <div className="mb-6 flex gap-1 overflow-x-auto">
-        {visibleSteps.map((s, i) => (
-          <div
-            key={s.id}
-            className={cn(
-              "cx-nav-pill flex shrink-0 items-center gap-1.5 text-xs",
-              i === stepIndex
-                ? "cx-nav-pill-active"
-                : i < stepIndex
-                  ? "cx-nav-pill-inactive bg-cx-forest-dark/10"
-                  : "cx-nav-pill-inactive opacity-60",
-            )}
-          >
-            {i < stepIndex ? <CheckCircle2 size={14} /> : <Circle size={14} />}
-            {s.label}
-          </div>
-        ))}
+        {visibleSteps.map((s, i) => {
+          const completed = i < stepIndex;
+          const current = i === stepIndex;
+          const pillClass = cn(
+            "cx-nav-pill flex shrink-0 items-center gap-1.5 text-xs",
+            current
+              ? "cx-nav-pill-active"
+              : completed
+                ? "cx-nav-pill-inactive bg-cx-forest-dark/10"
+                : "cx-nav-pill-inactive opacity-60",
+          );
+
+          if (completed) {
+            return (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => navigateToStep(s.id)}
+                className={cn(pillClass, "cursor-pointer hover:opacity-90")}
+              >
+                <CheckCircle2 size={14} />
+                {s.label}
+              </button>
+            );
+          }
+
+          return (
+            <div key={s.id} className={pillClass}>
+              {completed ? <CheckCircle2 size={14} /> : <Circle size={14} />}
+              {s.label}
+            </div>
+          );
+        })}
       </div>
 
       {step === "path" && bootstrappingPath && (
@@ -736,6 +785,17 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "welcome" && (
+        <>
+          {stepIndex > 0 && (
+            <button
+              type="button"
+              onClick={goBackOneStep}
+              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            >
+              <ChevronLeft size={16} />
+              Back
+            </button>
+          )}
         <OnboardingWelcome
           variant={
             isInstitutional
@@ -754,10 +814,21 @@ export function Touchpoint1Onboarding() {
             router.replace("/app/onboarding?step=profile");
           }}
         />
+        </>
       )}
 
       {step === "profile" && (
         <Card className="font-futura-book">
+          {stepIndex > 0 && (
+            <button
+              type="button"
+              onClick={goBackOneStep}
+              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            >
+              <ChevronLeft size={16} />
+              Back
+            </button>
+          )}
           {isInstitutional && programConfig && (
             <ProgramJoinHeadline
               program={programConfig}
@@ -810,7 +881,7 @@ export function Touchpoint1Onboarding() {
               </div>
               <OnboardingProfileHint>
                 {namePrefilled
-                  ? "Pre-filled from your sign-in or program roster. Contact your program admin to change."
+                  ? "Pre-filled from your sign-in or program invite. Contact your program admin to change."
                   : "Enter your name as you would like it displayed."}
               </OnboardingProfileHint>
             </OnboardingProfileSection>
@@ -872,20 +943,30 @@ export function Touchpoint1Onboarding() {
                 />
               )}
 
-              <div>
-                <OnboardingFieldLabel>Career level</OnboardingFieldLabel>
-                <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                  {careerLevelOptions.map((s) => (
-                    <OnboardingChoiceButton
-                      key={s}
-                      active={careerLevel === s}
-                      onClick={() => handleCareerLevelChange(s)}
-                    >
-                      {s}
-                    </OnboardingChoiceButton>
-                  ))}
+              {institutionalCareerStageLocked ? (
+                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
+                  <p className="font-futura-book text-base text-black">
+                    <span className="font-futura-medium text-cx-forest-dark">Career level:</span>{" "}
+                    {careerLevel}
+                  </p>
+                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
                 </div>
-              </div>
+              ) : (
+                <div>
+                  <OnboardingFieldLabel>Career level</OnboardingFieldLabel>
+                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                    {careerLevelOptions.map((s) => (
+                      <OnboardingChoiceButton
+                        key={s}
+                        active={careerLevel === s}
+                        onClick={() => handleCareerLevelChange(s)}
+                      >
+                        {s}
+                      </OnboardingChoiceButton>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {showGmeFields && (
                 <>
@@ -909,6 +990,7 @@ export function Touchpoint1Onboarding() {
                     {isInstitutional && programConfig?.rotations?.length ? (
                       <RotationSelectFields
                         rotations={programConfig.rotations}
+                        pgyLevel={pgyLevel || ""}
                         value={currentRotation}
                         onChange={setCurrentRotation}
                         blockHint={blockHint}
@@ -959,7 +1041,7 @@ export function Touchpoint1Onboarding() {
                 <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
                   <p className="font-futura-book text-base text-black">
                     <span className="font-futura-medium text-cx-forest-dark">Practice setting:</span>{" "}
-                    Academic
+                    {programConfig?.default_practice_setting ?? practiceSetting}
                   </p>
                   <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
                 </div>
@@ -1062,12 +1144,37 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "documents" && (
-        <OnboardingDocumentsStep onContinue={goToReconcile} continueDisabled={loading} />
+        <>
+          {stepIndex > 0 && (
+            <button
+              type="button"
+              onClick={goBackOneStep}
+              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            >
+              <ChevronLeft size={16} />
+              Back
+            </button>
+          )}
+          <OnboardingDocumentsStep onContinue={goToReconcile} continueDisabled={loading} />
+        </>
       )}
 
       {step === "reconcile" && (
         <Card>
-          <h1 className="text-page-title">Confirm discovered items</h1>
+          {stepIndex > 0 && (
+            <button
+              type="button"
+              onClick={goBackOneStep}
+              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            >
+              <ChevronLeft size={16} />
+              Back
+            </button>
+          )}
+          <h1 className="text-page-title">Confirm your career data</h1>
+          <p className="mt-2 text-sm text-cx-forest-dark/80">
+            We found these items in your documents. Confirm what looks right.
+          </p>
 
           <ul className="mt-6 space-y-4">
             {reconcileItems.map((item) => (
@@ -1102,6 +1209,16 @@ export function Touchpoint1Onboarding() {
 
       {step === "instruments" && (
         <Card>
+          {stepIndex > 0 && (
+            <button
+              type="button"
+              onClick={goBackOneStep}
+              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            >
+              <ChevronLeft size={16} />
+              Back
+            </button>
+          )}
           <h1 className="text-page-title">Self-assessment</h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
             Finish setup now. Complete these instruments from Coach Mak on your dashboard when you are
@@ -1123,8 +1240,8 @@ export function Touchpoint1Onboarding() {
             ))}
           </ul>
 
-          <Button className="mt-6 w-full" onClick={startMakConversation}>
-            Finish setup
+          <Button className="mt-6 w-full" onClick={startMakConversation} disabled={loading}>
+            {loading ? "Finishing…" : "Go to dashboard"}
           </Button>
         </Card>
       )}
