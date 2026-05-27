@@ -17,6 +17,7 @@ import {
   type ResumeContent,
   type ResumeThemeKey,
 } from "@/lib/v2/resume-content";
+import { mergeFlagLabel } from "@/lib/v2/merge-flag-labels";
 import { downloadBlob, exportPdf } from "@/lib/studio-export";
 
 type CvDraftWorkspaceProps = {
@@ -204,6 +205,20 @@ export function CvDraftWorkspace({
           ))}
         </div>
       </div>
+
+      {content.merge_flags && content.merge_flags.length > 0 && (
+        <div
+          className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950"
+          role="status"
+        >
+          <p className="font-semibold">Review merged sources</p>
+          <ul className="mt-2 list-inside list-disc space-y-1 text-amber-900/90">
+            {content.merge_flags.map((flag) => (
+              <li key={flag}>{mergeFlagLabel(flag)}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="min-h-[480px] rounded-2xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.02] p-4 lg:p-6">

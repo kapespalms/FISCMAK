@@ -49,6 +49,9 @@ export type LatticeDashboardResponse = {
   fiscmak: LatticeGridModel;
   acgme: LatticeGridModel | null;
   evidence_total: number;
+  /** Pre-dedup count — compare with evidence_total to validate cross-source dedup. */
+  evidence_total_raw: number;
+  evidence_dedup_removed: number;
   document_evidence_count: number;
   activity_evidence_count: number;
   schedule_evidence_count: number;

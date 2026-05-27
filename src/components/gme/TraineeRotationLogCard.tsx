@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PreCccSummaryPanel } from "@/components/gme/PreCccSummaryPanel";
+import { RotationLogPanel } from "@/components/gme/RotationLogPanel";
 import type { UserSurface } from "@/lib/v2/profile-contract";
 
-/** Pre-CCC card — institutional trainees only (persona contract). */
-export function TraineePreCccCard() {
+/** Rotation log — institutional trainees with schedule surface (persona contract). */
+export function TraineeRotationLogCard() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export function TraineePreCccCard() {
       .then((r) => r.json())
       .then((data) => {
         const surfaces = (data.profile_contract?.user_surfaces ?? []) as UserSurface[];
-        if (surfaces.includes("pre_ccc")) setShow(true);
+        if (surfaces.includes("schedule")) setShow(true);
       })
       .catch(() => undefined);
   }, []);
@@ -21,10 +21,9 @@ export function TraineePreCccCard() {
   if (!show) return null;
 
   return (
-    <PreCccSummaryPanel
-      self
-      title="CCC prep snapshot"
-      description="Your imported rotation evaluations — use with MedHub originals before semiannual review."
+    <RotationLogPanel
+      title="Current rotation"
+      description="Log your block rotation — this feeds your training timeline and Coach Mak context for CCC prep."
     />
   );
 }

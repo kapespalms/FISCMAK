@@ -12,6 +12,7 @@ import { resolveCachedDocumentEvidence } from "@/lib/v2/lattice/document-cache";
 import type { LatticeDocumentCache } from "@/lib/v2/lattice/document-cache";
 import { buildScheduleLatticeEvidence } from "@/lib/v2/lattice/schedule-lattice-evidence";
 import { buildProfileLatticeEvidence } from "@/lib/v2/lattice/profile-lattice-evidence";
+import { dedupeLatticeEvidence } from "@/lib/v2/lattice/evidence-dedup";
 import type {
   LatticeCellMetrics,
   LatticeDashboardResponse,
@@ -172,12 +173,14 @@ export function buildLatticeDashboard(input: {
           assessments: input.assessments,
         })
       : [];
-  const all = [
+  const raw = [
     ...activityEvidence,
     ...docEvidence,
     ...scheduleEvidence,
     ...profileEvidence,
   ].filter((e) => inTimeframe(e.date, input.timeframe));
+
+  const { deduped: all, rawCount, dedupedCount } = dedupeLatticeEvidence(raw);
 
   return {
     dashboard: {
@@ -185,7 +188,9 @@ export function buildLatticeDashboard(input: {
       is_trainee: input.isTrainee,
       fiscmak: aggregateFiscmak(all),
       acgme: input.isTrainee ? aggregateAcgme(all) : null,
-      evidence_total: all.length,
+      evidence_total: dedupedCount,
+      evidence_total_raw: rawCount,
+      evidence_dedup_removed: rawCount - dedupedCount,
       document_evidence_count: all.filter((e) => e.source === "document").length,
       activity_evidence_count: all.filter((e) => e.source === "activity").length,
       schedule_evidence_count: all.filter((e) => e.source === "schedule").length,

@@ -2,7 +2,8 @@ import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
 import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 
-/** Wellbeing slices for dashboard and Perspective tab — no composite Career Health Score. */
+/** Wellbeing slices for dashboard and Perspective tab — no composite Career Health Score.
+ *  Internal metrics (CRI, CHS, s-index, IWQ, etc.) align with profile-contract internal_only_metrics. */
 export type UserFacingCareerHealth = Pick<
   CareerHealthView,
   | "wellbeing_metrics"

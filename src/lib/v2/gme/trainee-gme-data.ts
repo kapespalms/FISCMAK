@@ -25,6 +25,17 @@ export type IlpGoalRow = {
   locked_at?: string | null;
 };
 
+export type RotationEntryRow = {
+  entry_id: string;
+  rotation_name: string;
+  pgy_level: string | null;
+  start_date: string | null;
+  end_date: string | null;
+  site: string | null;
+  notes: string | null;
+  created_at: string;
+};
+
 type GmeOnboardingMeta = {
   gme?: {
     milestone_self_ratings?: Record<
@@ -35,6 +46,7 @@ type GmeOnboardingMeta = {
       >
     >;
     ilp_goals?: Record<string, IlpGoalRow[]>;
+    rotation_entries?: RotationEntryRow[];
   };
 };
 
@@ -314,6 +326,142 @@ export async function patchIlpGoal(
 
   if (error) throw new Error(error.message);
   return (data as IlpGoalRow | null) ?? null;
+}
+
+export async function loadRotationEntries(
+  userId: string,
+  demo: boolean,
+): Promise<RotationEntryRow[]> {
+  if (!isSupabaseConfigured() || demo) {
+    const user = await getAppUser(userId, demo);
+    const gme = readGmeMeta(user);
+    return gme?.rotation_entries ?? [];
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("activity_entries")
+    .select("id, created_at, activity_date, raw_text")
+    .eq("user_id", userId)
+    .eq("input_source", "rotation_entry")
+    .order("activity_date", { ascending: false });
+
+  if (error) throw new Error(error.message);
+
+  return (data ?? []).map((row) => {
+    const parsed = parseRotationEntryRawText(row.raw_text ?? "");
+    return {
+      entry_id: row.id as string,
+      rotation_name: parsed.rotation_name,
+      pgy_level: parsed.pgy_level,
+      start_date: parsed.start_date ?? (row.activity_date as string | null),
+      end_date: parsed.end_date,
+      site: parsed.site,
+      notes: parsed.notes,
+      created_at: (row.created_at as string) ?? new Date().toISOString(),
+    };
+  });
+}
+
+function formatRotationEntryRawText(
+  entry: Omit<RotationEntryRow, "entry_id" | "created_at">,
+): string {
+  const parts = [
+    `Rotation: ${entry.rotation_name}`,
+    entry.pgy_level ? `PGY: ${entry.pgy_level}` : null,
+    entry.start_date ? `Start: ${entry.start_date}` : null,
+    entry.end_date ? `End: ${entry.end_date}` : null,
+    entry.site ? `Site: ${entry.site}` : null,
+    entry.notes ? `Notes: ${entry.notes}` : null,
+  ].filter(Boolean);
+  return parts.join(" | ");
+}
+
+function parseRotationEntryRawText(
+  raw: string,
+): Omit<RotationEntryRow, "entry_id" | "created_at"> {
+  const rotationMatch = raw.match(/Rotation:\s*([^|]+)/i);
+  const pgyMatch = raw.match(/PGY:\s*([^|]+)/i);
+  const startMatch = raw.match(/Start:\s*([^|]+)/i);
+  const endMatch = raw.match(/End:\s*([^|]+)/i);
+  const siteMatch = raw.match(/Site:\s*([^|]+)/i);
+  const notesMatch = raw.match(/Notes:\s*(.+)$/i);
+  return {
+    rotation_name: rotationMatch?.[1]?.trim() ?? (raw.slice(0, 120).trim() || "Rotation"),
+    pgy_level: pgyMatch?.[1]?.trim() ?? null,
+    start_date: startMatch?.[1]?.trim() ?? null,
+    end_date: endMatch?.[1]?.trim() ?? null,
+    site: siteMatch?.[1]?.trim() ?? null,
+    notes: notesMatch?.[1]?.trim() ?? null,
+  };
+}
+
+export async function insertRotationEntry(
+  userId: string,
+  email: string,
+  demo: boolean,
+  entry: {
+    rotation_name: string;
+    pgy_level?: string | null;
+    start_date?: string | null;
+    end_date?: string | null;
+    site?: string | null;
+    notes?: string | null;
+  },
+): Promise<RotationEntryRow> {
+  const now = new Date().toISOString();
+  const row: RotationEntryRow = {
+    entry_id: crypto.randomUUID(),
+    rotation_name: entry.rotation_name.trim(),
+    pgy_level: entry.pgy_level?.trim() ?? null,
+    start_date: entry.start_date ?? null,
+    end_date: entry.end_date ?? null,
+    site: entry.site?.trim() ?? null,
+    notes: entry.notes?.trim() ?? null,
+    created_at: now,
+  };
+
+  if (!isSupabaseConfigured() || demo) {
+    const user = await getAppUser(userId, demo);
+    const meta = (user?.onboarding_metadata ?? {}) as GmeOnboardingMeta;
+    const gme = meta.gme ?? {};
+    const entries = [row, ...(gme.rotation_entries ?? [])];
+    await upsertAppUser(
+      userId,
+      email,
+      {
+        onboarding_metadata: {
+          ...meta,
+          gme: { ...gme, rotation_entries: entries },
+        } as Record<string, unknown>,
+      },
+      demo,
+    );
+    return row;
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("activity_entries")
+    .insert({
+      user_id: userId,
+      activity_date: row.start_date ?? now.slice(0, 10),
+      raw_text: formatRotationEntryRawText(row),
+      input_source: "rotation_entry",
+      energy_valence: null,
+      primary_domain: "Clinical",
+      primary_track: "Clinician",
+    })
+    .select("id, created_at")
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  return {
+    ...row,
+    entry_id: data.id as string,
+    created_at: (data.created_at as string) ?? now,
+  };
 }
 
 export async function loadRotationEvaluations(

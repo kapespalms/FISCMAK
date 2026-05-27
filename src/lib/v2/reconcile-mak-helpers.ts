@@ -51,12 +51,25 @@ export function nextPendingItem(meta: OnboardingMetadata): ReconciliationItem | 
 }
 
 export function buildReconcileGreeting(meta: OnboardingMetadata): string {
+  const items = reconciliationItemsDetailed(meta);
+  const autoConfirmed = items.filter(
+    (i) =>
+      i.status === "confirmed" &&
+      (i.confidence === "exact_match" || i.confidence === "verified_registry"),
+  );
   const pending = pendingReconciliationCount(meta);
   const next = nextPendingItem(meta);
   if (pending === 0 || !next) {
+    if (autoConfirmed.length > 0) {
+      return `I auto-confirmed ${autoConfirmed.length} item${autoConfirmed.length > 1 ? "s" : ""} where your CV matched public records exactly (DOI, PMID, or verified NPI). Ready to continue with your self-assessment?`;
+    }
     return "Your Career Data looks reconciled. Ready to continue with your self-assessment?";
   }
-  return `I found ${pending} item${pending > 1 ? "s" : ""} to confirm from your CV and public databases.\n\nFirst up — ${next.label} (${next.source}): ${next.detail}\n\nIs this yours? Reply yes to confirm or no to dismiss.`;
+  const reviewNote =
+    next.confidence === "manual_review"
+      ? "This one needs your review — no exact CV identifier match."
+      : "";
+  return `I found ${pending} item${pending > 1 ? "s" : ""} to confirm from your CV and public databases.\n\nFirst up — ${next.label} (${next.source}): ${next.detail}${reviewNote ? `\n\n${reviewNote}` : ""}\n\nIs this yours? Reply yes to confirm or no to dismiss.`;
 }
 
 export function buildReconcileMakSystemContext(meta: OnboardingMetadata): string {

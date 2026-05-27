@@ -180,6 +180,8 @@ export type ReconciliationItem = {
   label: string;
   detail: string;
   status: "pending" | "confirmed" | "rejected";
+  /** exact_match = CV identifier matched API row; manual_review = user must confirm */
+  confidence?: "exact_match" | "manual_review" | "verified_registry";
 };
 
 export function buildReconciliationCandidates(input: {

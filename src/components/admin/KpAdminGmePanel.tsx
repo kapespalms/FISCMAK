@@ -155,7 +155,7 @@ export function KpAdminGmePanel() {
   async function loadBatchPreCcc() {
     setBatchLoading(true);
     try {
-      const res = await fetch(`/api/v1/programs/${programSlug}/pre-ccc/batch?period=current`);
+      const res = await fetch(`/api/v1/programs/${programSlug}/pre-ccc-cohort?period=current`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.message ?? "Could not load batch summaries.");
       setBatchSummaries(data.summaries ?? []);

@@ -16,7 +16,7 @@ import {
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
 } from "@/lib/v2/document-upload";
-import { themeKeyFromMetadata, type WorkspaceBucket } from "@/lib/v2/documents-workspace";
+import { themeKeyFromMetadata, type WorkspaceBucket, type DocumentBucketCounts } from "@/lib/v2/documents-workspace";
 import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
 import { DOCUMENTS_MAK_CHIPS } from "@/lib/v2/documents-mak-context";
 import { FileText, FolderOpen, Layers, Sparkles, Upload } from "lucide-react";
@@ -50,6 +50,7 @@ export function DocumentsWorkspace() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { openMakWithMessage } = useAppShell();
   const [documents, setDocuments] = useState<DocListItem[]>([]);
+  const [bucketCounts, setBucketCounts] = useState<DocumentBucketCounts | null>(null);
   const [templates, setTemplates] = useState<
     {
       template_type: string;
@@ -75,6 +76,9 @@ export function DocumentsWorkspace() {
       const res = await fetch("/api/v1/documents");
       const data = await res.json();
       setDocuments(data.documents ?? []);
+      if (data.bucket_counts) {
+        setBucketCounts(data.bucket_counts as DocumentBucketCounts);
+      }
     } catch {
       setDocuments([]);
     } finally {
@@ -125,6 +129,11 @@ export function DocumentsWorkspace() {
     (d) => d.workspace_bucket === "drafts" || d.has_content,
   );
   const generated = documents.filter((d) => d.workspace_bucket === "generated");
+
+  const bucketCountFor = (id: WorkspaceBucket): number | null => {
+    if (!bucketCounts) return null;
+    return bucketCounts[id];
+  };
 
   const activeDraft = activeDraftId
     ? documents.find((d) => d.document_id === activeDraftId)
@@ -276,7 +285,9 @@ export function DocumentsWorkspace() {
       </div>
 
       <div className="mb-6 flex flex-wrap gap-2">
-        {BUCKETS.map(({ id, label, icon: Icon }) => (
+        {BUCKETS.map(({ id, label, icon: Icon }) => {
+          const count = bucketCountFor(id);
+          return (
           <button
             key={id}
             type="button"
@@ -289,8 +300,14 @@ export function DocumentsWorkspace() {
           >
             <Icon size={16} />
             {label}
+            {count != null && count > 0 && (
+              <span className="rounded-full bg-cx-forest-dark/10 px-1.5 py-0.5 text-xs font-semibold tabular-nums">
+                {count}
+              </span>
+            )}
           </button>
-        ))}
+          );
+        })}
       </div>
 
       <div className="cx-section-surface">

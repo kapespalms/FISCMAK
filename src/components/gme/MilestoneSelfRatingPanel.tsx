@@ -60,7 +60,7 @@ export function MilestoneSelfRatingPanel() {
         fetch("/api/v1/trainee/milestones/definitions"),
         fetch("/api/v1/trainee/milestones/self-ratings?period=current"),
         fetch("/api/v1/trainee/milestones/discrepancy?period=current"),
-        fetch("/api/v1/trainee/ilp?period=current"),
+        fetch("/api/v1/ilp-goals?period=current"),
       ]);
 
       const [defs, ratingsData, discData, ilpData] = await Promise.all([

@@ -1,5 +1,5 @@
 import type { CareerLevel } from "@/lib/v2/onboarding-options";
-import { isTraineeCareerLevel } from "@/lib/v2/onboarding-options";
+import { contentPackFor } from "@/lib/v2/profile-contract";
 import type { MakContentPack } from "@/lib/v2/mak-conversation-models";
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
@@ -14,13 +14,12 @@ export type ProgramMembershipRecord = {
   created_at: string;
 };
 
+/** @deprecated Prefer contentPackFor / resolveProfileContractFromUser */
 export function deriveContentPack(
   careerStage: CareerLevel | null | undefined,
   institutional: boolean,
 ): MakContentPack {
-  if (institutional || isTraineeCareerLevel(careerStage)) return "trainee";
-  if (careerStage != null && careerStage === "Early Career (0–7 yr)") return "early_attending";
-  return "default";
+  return contentPackFor(careerStage, institutional);
 }
 
 export function buildProgramMembershipPatch(input: {

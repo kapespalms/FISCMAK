@@ -3,6 +3,7 @@ import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { apiEnrichmentPlan } from "@/lib/v2/onboarding-touchpoint1";
 import type { ReconciliationItem } from "@/lib/v2/onboarding-touchpoint1";
 import { isValidNpiFormat, verifyNpiWithRegistry } from "@/lib/v2/npi-registry";
+import { applyAutoConfirmToReconciliationItems } from "@/lib/v2/reconcile-auto-confirm";
 
 export type VaultPublicationExtract = {
   doi?: string;
@@ -300,7 +301,7 @@ function buildReconciliationFromEnrichment(input: {
       status: "pending",
     });
   }
-  return items;
+  return items.map((item) => ({ ...item, confidence: "manual_review" as const }));
 }
 
 export async function runApiEnrichment(input: {
@@ -431,6 +432,11 @@ export async function runApiEnrichment(input: {
     },
   };
 
+  snapshot.reconciliation_items = applyAutoConfirmToReconciliationItems(
+    snapshot.reconciliation_items,
+    snapshot,
+  );
+
   return snapshot;
 }
 
@@ -463,7 +469,12 @@ function mergeReconciliation(
 ): { id: string; status: string }[] {
   const map = new Map(existing.map((r) => [r.id, r.status]));
   for (const item of newItems) {
-    if (!map.has(item.id)) map.set(item.id, item.status);
+    const prev = map.get(item.id);
+    if (!prev) {
+      map.set(item.id, item.status);
+    } else if (item.status === "confirmed" || (item.status === "rejected" && prev === "pending")) {
+      map.set(item.id, item.status);
+    }
   }
   return [...map.entries()].map(([id, status]) => ({ id, status }));
 }

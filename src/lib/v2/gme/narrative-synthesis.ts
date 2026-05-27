@@ -107,7 +107,7 @@ export function synthesizeNarratives(evaluations: ParsedMedhubEvalRow[]): Narrat
     quotes: pickQuotes(evaluations),
     subcompetency_tags: [...tags].slice(0, 8),
     low_quality_eval_ids: lowQuality,
-    ai_generated: true,
+    ai_generated: false,
   };
 }
 

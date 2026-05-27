@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import type { UserSurface } from "@/lib/v2/profile-contract";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 
@@ -103,7 +104,8 @@ export function TraineeMilestoneHeatmapCard() {
     fetch("/api/v1/onboarding/touchpoint1")
       .then((r) => r.json())
       .then((data) => {
-        if (data.onboarding?.onboarding_path === "institutional") {
+        const surfaces = (data.profile_contract?.user_surfaces ?? []) as UserSurface[];
+        if (surfaces.includes("milestone_heatmap")) {
           setShow(true);
           void loadCurrent();
         }

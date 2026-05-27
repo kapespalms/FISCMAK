@@ -2,6 +2,12 @@ import { createClient } from "@/lib/supabase/server";
 import type { EnrichmentSnapshot } from "@/lib/v2/api-enrichment";
 import type { ReconciliationItem } from "@/lib/v2/onboarding-touchpoint1";
 import type { AppUser } from "@/lib/v2/types";
+import {
+  applyAutoConfirmToReconciliationItems,
+  cvIdentifiersFromSnapshot,
+  grantVaultFlags,
+  publicationVaultFlags,
+} from "@/lib/v2/reconcile-auto-confirm";
 
 function mapItemType(item: ReconciliationItem): string {
   const id = item.id.toLowerCase();
@@ -90,6 +96,11 @@ export async function persistEnrichmentSnapshot(
         source_api: item.source,
         external_id: item.id,
         status: item.status,
+        confidence: item.confidence ?? "manual_review",
+        resolved_at:
+          item.status === "confirmed" || item.status === "rejected"
+            ? new Date().toISOString()
+            : null,
       };
 
       if (existing?.item_id) {
@@ -113,10 +124,13 @@ async function persistVaultExtracts(
   const extracts = snapshot.vault_extracts;
   if (!extracts) return;
 
+  const cvIds = cvIdentifiersFromSnapshot(snapshot);
+
   for (const pub of extracts.publications) {
     const title = pub.title?.trim() || "Untitled publication";
     const matchCol = pub.doi ? "doi" : pub.pmid ? "pmid" : null;
     const matchVal = pub.doi ?? pub.pmid ?? null;
+    const flags = publicationVaultFlags(pub, cvIds);
 
     if (matchCol && matchVal) {
       const { data: existing } = await supabase
@@ -132,8 +146,9 @@ async function persistVaultExtracts(
         pmid: pub.pmid ?? null,
         title,
         citation_count: pub.citation_count ?? null,
-        api_discovered: true,
-        reconciled: false,
+        cv_listed: flags.cv_listed,
+        api_discovered: flags.api_discovered,
+        reconciled: flags.reconciled,
         data_source: pub.doi ? "openalex" : "pubmed",
         updated_at: new Date().toISOString(),
       };
@@ -148,6 +163,7 @@ async function persistVaultExtracts(
         physician_id: physicianId,
         title,
         citation_count: pub.citation_count ?? null,
+        cv_listed: true,
         api_discovered: true,
         reconciled: false,
         data_source: "cv_parse",
@@ -157,6 +173,7 @@ async function persistVaultExtracts(
 
   for (const grantId of extracts.grant_ids) {
     const normalized = grantId.replace(/\s+/g, " ").trim();
+    const flags = grantVaultFlags(grantId, cvIds);
     const { data: existing } = await supabase
       .from("grants")
       .select("grant_id")
@@ -169,8 +186,9 @@ async function persistVaultExtracts(
       nih_project_number: normalized,
       funder: "NIH",
       grant_title: `Grant ${normalized}`,
-      api_discovered: true,
-      reconciled: false,
+      cv_listed: flags.cv_listed,
+      api_discovered: flags.api_discovered,
+      reconciled: flags.reconciled,
       data_source: "nih_reporter",
       updated_at: new Date().toISOString(),
     };
