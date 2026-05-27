@@ -224,6 +224,12 @@ async function main() {
     label: "Profile avatar storage bucket",
   });
 
+  steps.push({
+    file: "docs/migrations/20260529_schedule_message_balance_cron.sql",
+    label: "Schedule monthly message balance reset (pg_cron)",
+    requiresTable: "app_users",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {
