@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import type { PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
+import { exportPreCccPdf } from "@/lib/v2/gme/pre-ccc-export";
+import { downloadBlob } from "@/lib/studio-export";
 
 type PreCccSummaryPanelProps = {
   programSlug: string;
@@ -20,6 +22,7 @@ export function PreCccSummaryPanel({
 }: PreCccSummaryPanelProps) {
   const [summary, setSummary] = useState<PreCccSummary | null>(null);
   const [loading, setLoading] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -40,6 +43,18 @@ export function PreCccSummaryPanel({
     }
   }, [programSlug, userId]);
 
+  const exportPdf = useCallback(async () => {
+    if (!summary) return;
+    setExporting(true);
+    try {
+      const blob = await exportPreCccPdf(summary);
+      const initials = summary.trainee_initials ?? "trainee";
+      downloadBlob(blob, `pre-ccc-${initials}-${summary.reporting_period}.pdf`);
+    } finally {
+      setExporting(false);
+    }
+  }, [summary]);
+
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · CCC prep</p>
@@ -49,6 +64,17 @@ export function PreCccSummaryPanel({
       <Button className="mt-4" variant="secondary" onClick={() => void load()} disabled={loading}>
         {loading ? "Loading…" : summary ? "Refresh summary" : "Load summary"}
       </Button>
+
+      {summary && (
+        <Button
+          className="mt-4 ml-2"
+          variant="secondary"
+          onClick={() => void exportPdf()}
+          disabled={exporting}
+        >
+          {exporting ? "Exporting…" : "Export PDF"}
+        </Button>
+      )}
 
       {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
 
@@ -61,6 +87,67 @@ export function PreCccSummaryPanel({
               {summary.evaluations.length} evaluation(s) · milestone avg{" "}
               {summary.milestone_overview.average_across_evals ?? "—"}
             </p>
+          </div>
+
+          {summary.narrative_synthesis.strengths.length > 0 && (
+            <div>
+              <p className="font-semibold text-cx-forest-dark">Narrative synthesis · strengths</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {summary.narrative_synthesis.strengths.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {summary.narrative_synthesis.areas_for_growth.length > 0 && (
+            <div>
+              <p className="font-semibold text-cx-forest-dark">Areas for growth</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {summary.narrative_synthesis.areas_for_growth.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {summary.narrative_synthesis.quotes.length > 0 && (
+            <div>
+              <p className="font-semibold text-cx-forest-dark">Faculty quotes</p>
+              <ul className="mt-2 space-y-2">
+                {summary.narrative_synthesis.quotes.map((quote) => (
+                  <li
+                    key={`${quote.eval_id}-${quote.text.slice(0, 40)}`}
+                    className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-xs italic"
+                  >
+                    &ldquo;{quote.text}&rdquo;
+                    <span className="mt-1 block not-italic text-cx-forest-dark/55">
+                      {quote.supervisor_name ?? "Faculty"}
+                      {quote.rotation_name ? ` · ${quote.rotation_name}` : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
+            <p className="font-semibold text-cx-forest-dark">PRITE / in-training exams</p>
+            <p className="mt-1">{summary.prite_scores.note}</p>
+            {summary.prite_scores.exams.length > 0 && (
+              <ul className="mt-2 space-y-1 text-xs text-cx-forest-dark/70">
+                {summary.prite_scores.exams.map((exam) => (
+                  <li key={`${exam.exam_type}-${exam.exam_year}`}>
+                    {exam.exam_type} {exam.exam_year}: {exam.overall_percentile ?? "—"}th percentile
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
+            <p className="font-semibold text-cx-forest-dark">ILP status</p>
+            <p className="mt-1">{summary.ilp_status.note}</p>
           </div>
 
           {summary.narrative_themes.length > 0 && (

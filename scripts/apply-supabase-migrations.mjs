@@ -236,6 +236,24 @@ async function main() {
     requiresTable: "programs",
   });
 
+  steps.push({
+    file: "docs/migrations/20260531_gme_milestone_ilp.sql",
+    label: "GME milestone self-ratings + ILP goals",
+    requiresTable: "app_users",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260532_gme_staff_ilp_survey.sql",
+    label: "GME staff ILP policies + coordinator survey",
+    requiresTable: "programs",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260533_gme_exams_medhub_sync.sql",
+    label: "PRITE exams + MedHub sync runs",
+    requiresTable: "programs",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

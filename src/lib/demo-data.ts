@@ -1,6 +1,7 @@
 import type { LatticeCellState } from "@/lib/constants";
 
 /** Demo lattice until Supabase + activities are connected */
+/** @deprecated Unused — lattice loads from /api/v1/lattice. Safe to remove. */
 export function getDemoLatticeCells(): LatticeCellState[] {
   const seeds: Omit<LatticeCellState, "domainIndex" | "trackIndex">[] = [
     { activityCount: 12, energy: "energizing" },

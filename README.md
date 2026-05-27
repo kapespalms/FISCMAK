@@ -30,12 +30,30 @@ Open [http://localhost:3000](http://localhost:3000).
 | Feature | Route / API |
 |---------|-------------|
 | Tier 1 onboarding | `/app/onboarding` · `POST /api/v1/onboarding/tier1/*` |
+| Institutional onboarding (UH psych) | `/join/uh-psychiatry` · `/app/residency` |
 | Documents + MemPalace | `/app/objective` · `POST /api/v1/documents` · `/api/v1/mempalace/sync` |
 | 7-touchpoint assessments | `/app/assessment` · `/api/v1/assessments/*` |
 | Coach Mak v2 | Mak panel · `POST /api/v1/chat/message` |
-| Analytics dashboard (CRI) | `/app/dashboard` · `GET /api/v1/analytics/dashboard` |
+| Analytics dashboard | `/app/dashboard` · `GET /api/v1/analytics/dashboard` |
 | Pathways + jobs | `/app/plan` · `/app/jobs` · `/api/v1/pathways` · `/api/v1/jobs/matches` |
 | Promotion toolkit | `/app/output` · `/api/v1/promotion/*` · `/api/v1/templates` |
+| **GME pilot (UH psych)** | `/app/kp-admin` · `/app/output` (trainee CCC) · see below |
+
+### GME pilot (UH Psychiatry)
+
+```bash
+npm run db:migrate
+npm run db:seed-mak-profile -- --email resident@example.com --initials YD
+npm run dev
+```
+
+| Role | Entry |
+|------|-------|
+| PD / coordinator | `/app/kp-admin` — MedHub CSV, PRITE, cohort heatmap, batch pre-CCC PDF |
+| Resident | `/app/output` — pre-CCC, milestone self-rating, ILP draft |
+| Staff directory | `/app/residency/contacts-calendars#staff-directory` |
+
+Docs: `docs/MVP_PILOT_STATUS.md` · `docs/PLATFORM_STATUS.md` · `docs/seeds/PILOT_RESIDENT_SETUP.md`
 
 ## Database setup
 
@@ -77,3 +95,5 @@ Legacy SOAP lattice MVP routes remain for backward compatibility but are not ext
 | `npm run dev` | Development server |
 | `npm run build` | Production build |
 | `npm run start` | Production server |
+| `npm run db:migrate` | Apply Supabase migrations (includes GME tables) |
+| `npm run db:seed-mak-profile` | Seed UH psych pilot resident profile |

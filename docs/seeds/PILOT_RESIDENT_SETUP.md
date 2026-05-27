@@ -9,6 +9,7 @@ Resident creates account at `/signup` or joins via `/join/uh-psychiatry?token=�
 ## 2. Seed profile from roster
 
 ```bash
+npm run db:migrate
 node scripts/seed-mak-profile.mjs --email resident@example.com --initials YD --name "Your Name"
 ```
 
@@ -24,21 +25,40 @@ node scripts/seed-mak-profile.mjs --email resident@example.com --initials YD --n
 - Dashboard loads without onboarding redirect
 - `/app/residency/contacts-calendars#staff-directory` — program contacts
 - `/app/residency/call-schedule` — CMC call grid
+- `/app/output` — pre-CCC, milestone self-rating, ILP draft, trainee heatmap
 
-## 4. MedHub CSV import (PD/coordinator)
+## 4. MedHub + PRITE import (PD/coordinator)
+
+Open `/app/kp-admin` or use API:
+
+**MedHub CSV:**
 
 ```bash
-curl -X POST http://localhost:3000/api/v1/programs/uh-psych-cmc/imports/csv \
-  -H "Cookie: …" \
-  -H "Content-Type: application/json" \
-  -d '{"file_name":"uh_medhub_outpatient_eval_wide.csv","csv_text":"…"}'
+# Example: docs/seeds/examples/uh_medhub_outpatient_eval_wide.csv
+POST /api/v1/programs/uh-psych-cmc/imports/csv
 ```
 
-Example CSV: `docs/seeds/examples/uh_medhub_outpatient_eval_wide.csv`
+**PRITE scores:**
 
-Pre-CCC summary:
+```bash
+# Example: docs/seeds/examples/uh_prite_scores_wide.csv
+POST /api/v1/programs/uh-psych-cmc/exams/import
+```
+
+**Pre-CCC summary:**
 
 `GET /api/v1/programs/uh-psych-cmc/residents/{userId}/pre-ccc?period=current`
+
+**Cohort batch + PDF:** KP Admin → Load cohort summaries → Export cohort PDF
+
+**Cohort heatmap:** KP Admin → Milestone heatmap panel
+
+## 5. Mock CCC flow
+
+1. Resident completes milestone self-ratings → drafts ILP from gaps
+2. PD approves ILP goals in KP Admin
+3. Coordinator submits prep-time survey in KP Admin
+4. Export pre-CCC PDFs for CCC meeting
 
 ## Requirements
 
