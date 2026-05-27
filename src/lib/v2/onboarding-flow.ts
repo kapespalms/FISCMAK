@@ -1,4 +1,4 @@
-import { nextInstrumentPrompt } from "@/lib/v2/instrument-conversation-service";
+import { nextInstrumentPrompt } from "@/lib/v2/instrument-conversation-prompts";
 import type { AppUser } from "@/lib/v2/types";
 import { formatDisplayName } from "@/lib/mak-greeting";
 

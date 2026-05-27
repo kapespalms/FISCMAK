@@ -23,7 +23,9 @@ export function MarketingHomePage() {
       </div>
 
       <FiscmakNameSection />
-      <HowItWorksSection />
+      <div className="bg-black">
+        <HowItWorksSection />
+      </div>
       <MarketingFooter />
     </MarketingFontShell>
   );
