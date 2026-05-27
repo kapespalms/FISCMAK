@@ -178,7 +178,7 @@ import type { CareerVaultModel } from "@/lib/v2/career-vault";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 
 export type AnalyticsDashboard = {
-  career_readiness_index: number;
+  career_readiness_index: number | null;
   career_health: CareerHealthView | null;
   coaching_brief: CareerCoachingBrief | null;
   quarterly_pulse: QuarterlyPulseStatus | null;

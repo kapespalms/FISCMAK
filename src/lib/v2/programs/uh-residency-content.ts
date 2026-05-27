@@ -101,7 +101,7 @@ const ADMIN_PAGES: ResidencyPageContent[] = [
         "Program Administrator: Melvyna Williams (melvyna.williams@uhhospitals.org)",
         "Chief Residents: Daniel Phillip, Eric Reinhart, Jonathan Hardy",
         "Education Chief: Andrea Costin",
-        "Full directory: docs/seeds/UH_INSTITUTIONAL_ONBOARDING_STAFF.md",
+        "Staff directory table — scroll to Institutional on-boarding below",
       ],
       personnel: [
         "Department Chair — Dr. Jeanne Lackamp (jeanne.lackamp@uhhospitals.org)",

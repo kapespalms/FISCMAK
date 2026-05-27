@@ -590,6 +590,13 @@ export function MakPanel({
   }
 
   function applySectionQuickAction(action: SectionQuickAction) {
+    if (action.goalFlow === "set") {
+      startPlanGoalSetup();
+      if (action.href && action.href !== "/app/dashboard") {
+        router.push(action.href);
+      }
+      return;
+    }
     startMakFlow(
       action.intent,
       action.href,

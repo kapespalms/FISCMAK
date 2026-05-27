@@ -19,7 +19,7 @@ export function deriveContentPack(
   institutional: boolean,
 ): MakContentPack {
   if (institutional || isTraineeCareerLevel(careerStage)) return "trainee";
-  if (careerStage === "Early Career (0–7 yr)") return "early_attending";
+  if (careerStage != null && careerStage === "Early Career (0–7 yr)") return "early_attending";
   return "default";
 }
 

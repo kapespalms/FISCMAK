@@ -14,6 +14,8 @@ import {
   buildIndustryResumeGuidance,
   buildPivotNarrativeArcPrompt,
   hasConfirmedCareerThesis,
+  type CareerPivotContext,
+  type CareerThesis,
 } from "@/lib/v2/non-traditional-career-models";
 import { buildTraineeOriginMakContext } from "@/lib/v2/trainee-origin";
 import {

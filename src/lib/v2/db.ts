@@ -23,7 +23,6 @@ import { buildCareerRecommendations } from "@/lib/v2/career-recommendations";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { CareerGoal } from "@/lib/goals";
-import type { ActivityEntry } from "@/lib/types/database";
 import {
   buildDashboardLattice,
   buildDocumentCards,

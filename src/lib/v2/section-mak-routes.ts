@@ -7,6 +7,7 @@ export type SectionQuickAction = {
   href?: string;
   focusInput?: boolean;
   touchpoint?: "annual" | "quarterly";
+  goalFlow?: "set" | "modify";
 };
 
 function norm(label: string): string {

@@ -1,13 +1,19 @@
 import Link from "next/link";
 import { ContactFormPopover } from "@/components/marketing/ContactFormPopover";
 
-const footerLinks = [
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+const footerLinks: FooterLink[] = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Our Narrative", href: "/our-narrative", external: true },
-  { label: "Institutions", href: "/institutions", isLink: true },
-  { label: "FAQ", href: "/faq", isLink: true },
-  { label: "Sign In", href: "/login", isLink: true },
-] as const;
+  { label: "Institutions", href: "/institutions" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Sign In", href: "/login" },
+];
 
 export function MarketingFooter() {
   return (

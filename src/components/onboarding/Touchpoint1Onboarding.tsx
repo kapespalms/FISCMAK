@@ -1073,10 +1073,10 @@ export function Touchpoint1Onboarding() {
                   </OnboardingProfileHint>
                   <div className="mt-2 flex flex-wrap gap-3 text-sm">
                     <Link
-                      href="/app/residency/contacts-calendars#resources"
+                      href="/app/residency/contacts-calendars#staff-directory"
                       className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
                     >
-                      Contacts &amp; calendars
+                      Program contacts
                     </Link>
                     <Link
                       href="/app/calendar"

@@ -142,7 +142,7 @@ export const CRISIS_LANGUAGE_PATTERN =
 export const CAREER_EXIT_PATTERN =
   /leave medicine|quit being a doctor|leave clinical practice|stop practicing medicine|get out of medicine/i;
 
-function crisisResourceActions(preferOhio?: boolean): MakEscalation["suggestedActions"] {
+function crisisResourceActions(preferOhio?: boolean): { action: string; url: string }[] {
   return orderSupportResources({ preferOhio })
     .filter((r) => r.url)
     .slice(0, 6)

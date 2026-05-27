@@ -310,7 +310,8 @@ export function OnboardingDocumentsStep({
   }
 
   const selectedDocument = documents.find(
-    (doc) => !isUploading(doc) && doc.document_id === selectedDocumentId,
+    (doc): doc is SavedDocument =>
+      !isUploading(doc) && doc.document_id === selectedDocumentId,
   );
 
   return (

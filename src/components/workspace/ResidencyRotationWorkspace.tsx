@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { CollapsibleSection } from "@/components/uh-psych/CollapsibleSection";
+import { InstitutionalStaffDirectory } from "@/components/uh-psych/InstitutionalStaffDirectory";
 import { MakHelpChip } from "@/components/uh-psych/MakHelpChip";
 import {
   ROTATION_SECTION_LABELS,
@@ -59,6 +60,8 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
       {page.overviewText && sections.length === 0 && (
         <p className="text-sm leading-relaxed text-cx-forest-dark/80">{page.overviewText}</p>
       )}
+
+      {page.slug === "contacts-calendars" && <InstitutionalStaffDirectory />}
 
       <div className="space-y-3">
         {sections.map((sectionId, index) => {

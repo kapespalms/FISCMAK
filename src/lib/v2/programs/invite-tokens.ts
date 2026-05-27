@@ -89,7 +89,7 @@ function previewFromRecord(
     };
   }
 
-  const program = getProgramById(record.program_id) ?? getProgramBySlug(record.program_slug);
+  const program = getProgramById(record.program_id);
   const used = Boolean(record.used_by);
   const expired = isExpired(record);
 
