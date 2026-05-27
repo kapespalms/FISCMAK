@@ -80,7 +80,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
   return (
     <CardSection
       accent="amber"
-      eyebrow="Touchpoint 2 · Quarterly pulse"
+      eyebrow="Quarterly pulse"
       title={`${status.quarter_label} check-in`}
       description="Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your dashboard and Career Data vault automatically."
       icon={HeartPulse}

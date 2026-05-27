@@ -8,7 +8,7 @@ import { MetricRow } from "@/components/ui/MetricRow";
 import { PageShell } from "@/components/layout/PageShell";
 import { useAppShell } from "@/components/layout/AppShell";
 import { useAnalytics } from "@/components/layout/AnalyticsProvider";
-import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
+import { SOAP_TAB, subjectiveNavLabel, subjectivePageTitle } from "@/lib/v2/soap-tab-spec";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import { dominantInvisibleWorkByLevel } from "@/lib/v2/invisible-work-taxonomy";
 import type { PracticeSetting, CareerStage } from "@/lib/v2/onboarding-options";
@@ -95,7 +95,7 @@ export function SubjectiveWorkspace() {
   const unrecognized = health?.wellbeing_metrics.find((m) => m.id === "unrecognized_work");
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading career perspective…</p>;
+    return <p className="text-sm text-cx-forest-dark/70">Loading…</p>;
   }
 
   const subtitle = [
@@ -109,8 +109,8 @@ export function SubjectiveWorkspace() {
 
   return (
     <PageShell
-      eyebrow={SOAP_TAB.subjective.nav}
-      title={SOAP_TAB.subjective.title}
+      eyebrow={subjectiveNavLabel(displayName)}
+      title={subjectivePageTitle(displayName)}
       subtitle={subtitle}
       maxWidth="lg"
     >

@@ -94,7 +94,7 @@ export function CoachingCadencePanel() {
             <div className="min-w-0">
               <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
                 <RotateCw size={12} aria-hidden />
-                Rotation touchpoint · {data.rotation_touchpoint.phase}
+                Rotation debrief · {data.rotation_touchpoint.phase}
               </p>
               <p className="mt-0.5 text-sm font-semibold text-cx-forest-dark">
                 {data.rotation_touchpoint.title}

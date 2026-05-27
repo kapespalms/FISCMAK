@@ -25,17 +25,17 @@ export function TouchpointProgressStrip({
   const completed = states.filter((s) => s === "done").length;
   const hasActive = states.some((s) => s === "active");
   const destination =
-    href === "/app/subjective" ? "Perspective for check-ins" : "Insights for touchpoint status";
+    href === "/app/subjective" ? "your perspective check-ins" : "coaching check-in status";
 
   return (
     <Link
       href={href}
       className="block rounded-lg transition-opacity hover:opacity-90"
-      aria-label={`7 Touch Points progress — open ${destination}`}
+      aria-label={`Coaching progress — open ${destination}`}
     >
       <div className="flex items-center justify-between gap-2">
         <p className="text-[10px] font-medium uppercase tracking-wide text-white/70">
-          7 Touch Points
+          Coaching progress
         </p>
         <p className="inline-flex items-center gap-0.5 text-[10px] font-medium text-white/60">
           {completed} of 7
@@ -59,7 +59,7 @@ export function TouchpointProgressStrip({
           <div
             key={SEGMENT_LABELS[i]}
             className={cn("h-2 rounded-full transition-colors", segmentClass(state))}
-            title={`Touch point ${SEGMENT_LABELS[i]}`}
+            title={`Check-in ${SEGMENT_LABELS[i]}`}
           />
         ))}
       </div>

@@ -96,7 +96,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
   return (
     <CardSection
       accent="amber"
-      eyebrow="Touchpoint 3 · Annual deep refresh"
+      eyebrow="Annual refresh"
       title={`${status.year} annual career refresh`}
       description="Coach Mak guides seven modules — career direction, engagement, well-being, task burden, unrecognized work, Career Data refresh, and goal reset. Enrichment runs automatically when you finish."
       icon={CalendarClock}

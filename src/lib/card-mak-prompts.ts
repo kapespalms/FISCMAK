@@ -150,10 +150,10 @@ export const ASSESSMENT_MAK = {
   ),
   touchpoints: makDiscuss(
     "assess",
-    "Which touchpoints should we explore next in conversation?",
+    "Which career check-ins should we explore next in conversation?",
   ),
-  touchpoint: (number: number, title: string) =>
-    makDiscuss("assess", `Let's discuss Touchpoint ${number}: ${title}.`),
+  touchpoint: (_number: number, title: string) =>
+    makDiscuss("assess", `Let's discuss ${title}.`),
   strengths: makDiscuss(
     "assess",
     "Walk me through my strengths and opportunities from the career profile.",

@@ -250,7 +250,7 @@ export function OutputStudioWorkspace() {
             startMakFlow(
               "create",
               "/app/output",
-              "Let's update your CV with any new publications, grants, roles, or awards since your last version. I'll merge them with your Objective data vault.",
+              "Let's update your CV with any new publications, grants, roles, or awards since your last version. I'll merge them with your Career Data vault.",
             );
           }}
         >
@@ -274,7 +274,7 @@ export function OutputStudioWorkspace() {
           {(outputContext.career_vault?.pending_review ?? 0) > 0 && (
             <p className="mt-2 text-xs text-cx-forest-dark/70">
               {outputContext.career_vault?.pending_review} item(s) pending review — reconcile in
-              Objective before finalizing documents.
+              Career Data before finalizing documents.
             </p>
           )}
         </CardSection>

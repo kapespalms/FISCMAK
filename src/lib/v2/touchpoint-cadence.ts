@@ -25,7 +25,7 @@ export function buildTouchpointCadenceNotifications(
 
   if (daysUntil > 7) return [];
 
-  const title = `Touchpoint ${nextNum}: ${meta.title}`;
+  const title = meta.title;
 
   if (daysUntil <= 0) {
     const overdue = Math.abs(daysUntil);
@@ -33,7 +33,7 @@ export function buildTouchpointCadenceNotifications(
       {
         id: `touchpoint_${nextNum}_due`,
         severity: overdue >= 7 ? "urgent" : "attention",
-        title: overdue >= 7 ? `${title} overdue` : `${title} is due`,
+        title: overdue >= 7 ? `${title} check-in overdue` : `${title} check-in is due`,
         message:
           overdue >= 7
             ? `This check-in was due ${overdue} days ago. Coach Mak can help you catch up in ~15 minutes.`
@@ -48,10 +48,10 @@ export function buildTouchpointCadenceNotifications(
     {
       id: `touchpoint_${nextNum}_upcoming`,
       severity: "info",
-      title: `${title} in ${daysUntil} day${daysUntil === 1 ? "" : "s"}`,
-      message: `Your ${meta.title.toLowerCase()} touchpoint opens soon. Plan ~15 minutes with Coach Mak.`,
+      title: `${title} check-in in ${daysUntil} day${daysUntil === 1 ? "" : "s"}`,
+      message: `Your ${meta.title.toLowerCase()} check-in opens soon. Plan ~15 minutes with Coach Mak.`,
       href: "/app/assessment",
-      actionLabel: "Preview touchpoint",
+      actionLabel: "Preview check-in",
     },
   ];
 }

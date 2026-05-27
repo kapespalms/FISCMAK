@@ -1,4 +1,8 @@
-import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
+import {
+  SOAP_TAB,
+  subjectiveNavLabel,
+  type SoapSectionKey,
+} from "@/lib/v2/soap-tab-spec";
 import {
   DASHBOARD_MECE_GREETING,
   DASHBOARD_MECE_OPTIONS,
@@ -317,16 +321,25 @@ export function sectionFromPath(pathname: string): AppSection {
   return "dashboard";
 }
 
-const MAK_CONTEXT_LABELS: Record<AppSection, string> = {
+const MAK_CONTEXT_LABELS: Record<Exclude<AppSection, "subjective">, string> = {
   dashboard: "Career conversation",
-  subjective: SOAP_TAB.subjective.nav,
   objective: SOAP_TAB.objective.nav,
   assessment: SOAP_TAB.assessment.nav,
   plan: SOAP_TAB.plan.nav,
   output: SOAP_TAB.output.nav,
 };
 
-export function makContextLabel(section: AppSection): string {
+export function sectionNavShortLabel(
+  section: AppSection,
+  displayName?: string | null,
+): string {
+  if (section === "subjective") return subjectiveNavLabel(displayName);
+  if (section === "dashboard") return "Dashboard";
+  return SOAP_TAB[section as SoapSectionKey].nav;
+}
+
+export function makContextLabel(section: AppSection, displayName?: string | null): string {
+  if (section === "subjective") return subjectiveNavLabel(displayName);
   return MAK_CONTEXT_LABELS[section];
 }
 

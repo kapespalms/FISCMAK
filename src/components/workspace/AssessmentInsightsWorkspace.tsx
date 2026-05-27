@@ -97,7 +97,7 @@ export function AssessmentInsightsWorkspace() {
 
       <CardSection
         className="mb-6"
-        eyebrow="Seven touchpoints"
+        eyebrow="Career check-ins"
         title="Collected in conversation"
         description="Mak weaves these topics into natural dialogue over weeks. Status updates automatically."
         icon={MessageSquare}
@@ -111,9 +111,7 @@ export function AssessmentInsightsWorkspace() {
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <p className="font-semibold text-cx-forest-dark">
-                    TP{tp.number}: {tp.title}
-                  </p>
+                  <p className="font-semibold text-cx-forest-dark">{tp.title}</p>
                   <p className="text-xs text-cx-forest-dark/70">{tp.category}</p>
                 </div>
                 <div className="flex items-center gap-2">

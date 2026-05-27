@@ -1,29 +1,31 @@
-/** SOAP section labels and display copy */
+/** SOAP section labels and display copy (SOAP keys are internal only). */
+
+export const SUBJECTIVE_NAV_FALLBACK = "Perspective";
 
 export const SOAP_TAB = {
   subjective: {
-    nav: "Perspective",
+    nav: SUBJECTIVE_NAV_FALLBACK,
     title: "Perspective",
     description:
-      "Self-reported career direction, professional satisfaction, task alignment, and work engagement.",
+      "Career direction, professional satisfaction, task alignment, and work engagement.",
     chatEntry:
-      "This section captures your perspective — career direction, work engagement, and task alignment.",
+      "This section captures how you're doing — career direction, work engagement, and task alignment.",
   },
   objective: {
-    nav: "Objective",
-    title: "Objective",
+    nav: "Career Data",
+    title: "Career Data",
     description:
-      "Verified career data from uploaded documents and public databases.",
+      "What's on record — from your CV, uploads, enrichment, and what you've shared with Mak.",
     chatEntry:
-      "This section displays verified objective data from your documents and public databases.",
+      "This section holds your career data — documents, verified facts, activities, and your career map.",
   },
   assessment: {
     nav: "Insights",
     title: "Insights",
     description:
-      "Synthesized career patterns from Perspective and Objective — conversation coverage and reflection themes.",
+      "Synthesized career patterns from your perspective and career data — conversation coverage and reflection themes.",
     chatEntry:
-      "This section synthesizes your Perspective and Objective data into reflection themes and conversation coverage.",
+      "This section synthesizes what Mak has learned into reflection themes and coaching coverage.",
   },
   plan: {
     nav: "Strategy",
@@ -36,9 +38,22 @@ export const SOAP_TAB = {
     title: "Output Studio",
     description: "Generated CVs, biosketches, reports, and career briefs.",
     chatEntry:
-      "This section generates and manages your career documents from Objective data.",
+      "This section generates and manages your career documents from your career data.",
   },
 } as const;
+
+/** Top nav: Dr. {Last} when profile name is available. */
+export function subjectiveNavLabel(displayName?: string | null): string {
+  const name = displayName?.trim();
+  return name || SUBJECTIVE_NAV_FALLBACK;
+}
+
+/** Page title on the subjective workspace. */
+export function subjectivePageTitle(displayName?: string | null): string {
+  const name = displayName?.trim();
+  if (name) return `${name}'s perspective`;
+  return SOAP_TAB.subjective.title;
+}
 
 export const SOAP_SECTION_ORDER = [
   "subjective",

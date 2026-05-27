@@ -8,6 +8,7 @@ import {
   SECTION_NAV,
   SECTION_TO_FLOW,
   sectionFromPath,
+  sectionNavShortLabel,
   type AppSection,
 } from "@/lib/mak-sections";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -17,7 +18,7 @@ import { getPreferredTheme, setTheme, type ThemeMode } from "@/lib/theme-prefere
 export function TopNavBar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { startMakFlow } = useAppShell();
+  const { startMakFlow, displayName } = useAppShell();
   const current = sectionFromPath(pathname);
   const [theme, setThemeState] = useState<ThemeMode>("light");
 
@@ -44,20 +45,23 @@ export function TopNavBar() {
     <header className="cx-app-top-bar sticky top-0 z-20 px-4 py-3 md:px-5 md:py-3.5">
       <div className="mx-auto flex max-w-[1400px] items-center gap-2 md:gap-3">
         <nav className="cx-top-nav-strip" aria-label="Main">
-          {SECTION_NAV.map(({ section: navSection, href, shortLabel }) => {
+          {SECTION_NAV.map(({ section: navSection, href }) => {
             const active = current === navSection;
+            const label = sectionNavShortLabel(navSection, displayName);
             return (
               <button
                 key={href}
                 type="button"
                 onClick={() => navigateSection(navSection, href)}
                 aria-current={active ? "page" : undefined}
+                title={navSection === "subjective" && displayName ? label : undefined}
                 className={cn(
                   "cx-top-nav-tab",
                   active ? "cx-top-nav-tab-active" : "cx-top-nav-tab-inactive",
+                  navSection === "subjective" && displayName && "max-w-[7.5rem] truncate",
                 )}
               >
-                {shortLabel}
+                {label}
               </button>
             );
           })}
