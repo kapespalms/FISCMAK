@@ -1,7 +1,7 @@
 # FISCMAK Backend Changes — GME Pivot (All Physicians + Psychiatry First)
 
-**Status:** Planning spec (not implemented)  
-**Branch target:** `cursor/mvp-app-foundation` → GME feature branch  
+**Status:** Implemented (psychiatry pilot on `cursor/mvp-app-foundation`; May 2026)  
+**Branch target:** `main` ← merge from `cursor/mvp-app-foundation`  
 **Companion:** `fiscmak-admin/server.js` (MedHub ingest rail)
 
 ---

@@ -40,6 +40,7 @@ export type CohortDashboard = {
   milestone_heatmap: CohortHeatmapCell[];
   assessment_volume: CohortAssessmentVolume[];
   narrative_quality_pct: number;
+  equity_alerts: CohortEquityAlert[];
   summary: {
     trainee_count: number;
     total_evaluations: number;
@@ -57,6 +58,75 @@ type TraineeCohortInput = {
   }>;
   self_ratings: Array<{ subcompetency_id: string; self_level: number | null }>;
 };
+
+export type CohortEquityAlert = {
+  metric: string;
+  group_delta: number | null;
+  min_cell_suppressed: boolean;
+  note: string;
+};
+
+const EQUITY_MIN_CELL = 5;
+
+function buildEquityAlerts(
+  trainees: TraineeCohortInput[],
+  heatmap: CohortHeatmapCell[],
+): CohortEquityAlert[] {
+  if (trainees.length < EQUITY_MIN_CELL) {
+    return [
+      {
+        metric: "cohort_milestone_avg",
+        group_delta: null,
+        min_cell_suppressed: true,
+        note: `Cohort size (${trainees.length}) below n≥${EQUITY_MIN_CELL} — PGY subgroup comparison suppressed.`,
+      },
+    ];
+  }
+
+  const byPgy = new Map<string, number[]>();
+  for (const trainee of trainees) {
+    const pgy = trainee.pgy_level ?? "unknown";
+    const levels = heatmap
+      .filter((c) => c.trainee_id === trainee.user_id && c.external_level != null)
+      .map((c) => c.external_level as number);
+    if (!levels.length) continue;
+    const avg = levels.reduce((a, b) => a + b, 0) / levels.length;
+    const bucket = byPgy.get(pgy) ?? [];
+    bucket.push(avg);
+    byPgy.set(pgy, bucket);
+  }
+
+  const groupAvgs = [...byPgy.entries()]
+    .filter(([, vals]) => vals.length >= EQUITY_MIN_CELL)
+    .map(([pgy, vals]) => ({
+      pgy,
+      avg: vals.reduce((a, b) => a + b, 0) / vals.length,
+    }));
+
+  if (groupAvgs.length < 2) {
+    return [
+      {
+        metric: "pgy_subgroup_milestone_avg",
+        group_delta: null,
+        min_cell_suppressed: true,
+        note: "Insufficient PGY subgroup size for equity comparison (n≥5 per group required).",
+      },
+    ];
+  }
+
+  const max = groupAvgs.reduce((a, b) => (a.avg > b.avg ? a : b));
+  const min = groupAvgs.reduce((a, b) => (a.avg < b.avg ? a : b));
+  const delta = Math.round((max.avg - min.avg) * 100) / 100;
+
+  return [
+    {
+      metric: "pgy_subgroup_milestone_avg",
+      group_delta: delta,
+      min_cell_suppressed: false,
+      note: `Largest PGY subgroup gap: ${min.pgy} vs ${max.pgy} (Δ ${delta}). Review in CCC context only — not for individual ranking.`,
+    },
+  ];
+}
 
 export function buildCohortDashboard(input: {
   period: string;
@@ -135,6 +205,7 @@ export function buildCohortDashboard(input: {
     assessment_volume,
     narrative_quality_pct:
       narrativeTotal > 0 ? Math.round((narrativesWithText / narrativeTotal) * 100) : 0,
+    equity_alerts: buildEquityAlerts(input.trainees, heatmap),
     summary: {
       trainee_count: input.trainees.length,
       total_evaluations: input.trainees.reduce((n, t) => n + t.evaluations.length, 0),

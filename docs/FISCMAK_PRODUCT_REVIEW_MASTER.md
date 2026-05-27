@@ -27,8 +27,9 @@ This is your **single navigation file** for reviewing the entire product. Full R
 | Onboarding TP1 | **Working** | `Touchpoint1Onboarding.tsx`, `onboarding-compute.ts` | Add PGY, program affiliation |
 | NPI verify | **Working** | `NpiRegistryPanel.tsx`, `npi-registry.ts` | Optional for trainees |
 | Activity capture | **Partial** | `activity-capture.ts`, `MakPanel.tsx` | Core GME feature — prioritize |
-| Lattice view | **Demo fallback** | `LatticeView.tsx`, `lattice.ts` | Remove `getDemoLatticeCells()`; map ACGME |
-| Career Health Score | **Pseudo-science** | `career-health-view.ts`, `HealthScoreCard.tsx` | **Remove from user UI** → internal only |
+| MSF / CCC / ILP | **Built (GME pilot)** | `KpAdminGmePanel`, trainee Output Studio, `/api/v1/trainee/*`, `/api/v1/programs/*` | Extend beyond psychiatry |
+| Lattice view | **Working** | `LatticeView.tsx`, `/api/v1/lattice` | Phase 1 ipsative; ADR-002 intensity backlog |
+| Career Health Score | **Retired from user UI** | `HealthScoreCard.tsx` (KP Admin only) | Done for trainees; attending wellbeing slices only |
 | CRI / CDI / IWQ | **Internal formulas** | `formulas.ts`, `cv-metrics.ts`, `cdi-weights.ts` | Never expose in Mak/docs |
 | CV regex s-index | **Deprecated** | `cv-metrics.ts` | Replace with Mannix & Bell activity s-index |
 | PFI / instruments | **Partial** | `onboarding-instruments.ts`, assessments API | Formal PFI-16 + UWES-9 |
@@ -38,8 +39,8 @@ This is your **single navigation file** for reviewing the entire product. Full R
 | Jobs feed | **Scaffold** | `job-ingestion.ts`, `JobsWorkspace.tsx` | Not GME MVP |
 | Career Data vault | **Schema only** | `career-data-repo.ts`, migrations | Tables exist; vault UI partial |
 | Stripe / Pro tier | **Scaffold** | `stripe-config.ts`, webhook | B2B program license instead |
-| MedHub admin | **New** | `fiscmak-admin/server.js` | CSV import → pre-CCC pipeline |
-| MSF / CCC / ILP | **Not built** | — | Phase 1 GME build |
+| MedHub admin | **Built in-app** | `KpAdminGmePanel`, CSV import routes | Live API pull pending |
+| MSF / CCC / ILP | **Built (GME pilot)** | See GME routes + Output Studio | Psychiatry first |
 
 ---
 
@@ -90,7 +91,7 @@ This is your **single navigation file** for reviewing the entire product. Full R
 | CV s-index (regex) | `src/lib/v2/cv-metrics.ts` | — | Onboarding | **Replace** with activity s-index |
 | IWQ / BITS | `src/lib/v2/cv-metrics.ts` | — | Internal | Internal only |
 | Lattice heat | `src/lib/lattice.ts` | — | Lattice page | Keep; no demo data |
-| Demo lattice | `LatticeView.tsx` | — | When 0 activities | **Remove fallback** |
+| Demo lattice | `demo-data.ts` | — | Unused in app; safe to delete |
 
 ---
 

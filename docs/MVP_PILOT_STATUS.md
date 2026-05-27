@@ -56,7 +56,7 @@ npm run dev
 |------|----------|
 | MedHub live API pull (credentials + fiscmak-admin connector) | H8 |
 | LLM narrative synthesis (replace rule-based v1) | H7 follow-up |
-| Cohort equity alerts with n≥5 guardrail | C4 follow-up |
+| Longitudinal heatmap (semiannual periods) | C4 follow-up |
 
 ---
 

@@ -136,6 +136,18 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
             <span className="rounded px-2 py-0.5 bg-amber-100">Watch</span>
             <span className="rounded px-2 py-0.5 bg-red-100">Gap</span>
           </div>
+
+          {dashboard.equity_alerts.length > 0 && (
+            <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-xs text-cx-forest-dark/75">
+              <p className="font-semibold text-cx-forest-dark">Equity guardrail</p>
+              {dashboard.equity_alerts.map((alert) => (
+                <p key={alert.metric} className="mt-1">
+                  {alert.note}
+                  {alert.group_delta != null ? ` (Δ ${alert.group_delta})` : ""}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </Card>
