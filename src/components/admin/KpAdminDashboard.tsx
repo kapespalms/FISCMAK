@@ -7,6 +7,7 @@ import { AssessmentInsightsCompositePanel } from "@/components/workspace/retired
 import { Card } from "@/components/ui/Card";
 import { UH_PSYCH_CMC_PROGRAM } from "@/lib/v2/programs/registry";
 import { KpAdminProgramInvitesPanel } from "@/components/admin/KpAdminProgramInvitesPanel";
+import { KpAdminFeedbackPanel } from "@/components/admin/KpAdminFeedbackPanel";
 import { RETIRED_METRICS_DEMO } from "@/lib/v2/user-facing-analytics";
 import { RETIRED_SURFACES } from "@/lib/v2/retired-surfaces";
 import type { KpAdminTrackingSnapshot, KpAdminEvaluationSummary } from "@/lib/v2/kp-admin-tracking";
@@ -346,6 +347,8 @@ export function KpAdminDashboard() {
       </Card>
 
       <KpAdminProgramInvitesPanel />
+
+      <KpAdminFeedbackPanel />
 
       <KpAdminEvaluationPanel />
 
