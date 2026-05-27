@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
+import { marketingFontVariables } from "@/lib/fonts/marketing-fonts";
 
 export const metadata: Metadata = {
   title: "FISCMAK — Understand your career",
@@ -21,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`h-full ${marketingFontVariables}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -32,7 +32,7 @@ export async function createCheckoutSession(
     planType === "monthly" ? STRIPE_PRICES.PREMIUM_MONTHLY : STRIPE_PRICES.PREMIUM_ANNUAL;
   if (!priceId) throw new Error("Stripe price ID is not configured");
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.fiscmak.com";
 
   return stripe.checkout.sessions.create({
     payment_method_types: ["card"],
@@ -51,7 +51,7 @@ export async function createCustomerPortalSession(customerId: string) {
   const stripe = getStripe();
   if (!stripe) throw new Error("STRIPE_SECRET_KEY is not configured");
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://www.fiscmak.com";
   return stripe.billingPortal.sessions.create({
     customer: customerId,
     return_url: `${appUrl}/app/settings`,

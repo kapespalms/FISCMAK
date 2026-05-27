@@ -43,7 +43,7 @@ export function MakDiscussLink({
         type="button"
         onClick={handleClick}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-xs font-medium text-cx-forest-dark transition-colors hover:border-cx-forest-dark/35 hover:bg-cx-forest-dark/5",
+          "inline-flex items-center gap-1.5 cx-btn border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-xs font-medium text-cx-forest-dark transition-colors hover:border-cx-forest-dark/35 hover:bg-cx-forest-dark/5",
           className,
         )}
       >

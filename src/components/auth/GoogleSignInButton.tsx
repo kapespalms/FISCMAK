@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { getAuthCallbackUrl } from "@/lib/auth/oauth";
 
 type GoogleSignInButtonProps = {
   next?: string;
@@ -51,7 +52,7 @@ export function GoogleSignInButton({
     setError("");
 
     const supabase = createClient();
-    const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+    const redirectTo = getAuthCallbackUrl(next, window.location.origin);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -64,7 +65,10 @@ export function GoogleSignInButton({
     });
 
     if (authError) {
-      setError(authError.message);
+      const msg = authError.message.includes("provider is not enabled")
+        ? "Google sign-in is not enabled yet. Enable Google under Supabase → Authentication → Providers."
+        : authError.message;
+      setError(msg);
       setLoading(false);
     }
   }
@@ -72,7 +76,7 @@ export function GoogleSignInButton({
   if (!isSupabaseConfigured()) return null;
 
   const marketingButtonClass =
-    "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-white/20 bg-[#0f1410] px-6 py-3 font-futura-bold text-sm text-white transition hover:border-marketing-accent hover:text-marketing-accent disabled:opacity-50";
+    "inline-flex min-h-11 w-full items-center justify-center gap-2 cx-btn border border-white/20 bg-[#0f1410] px-6 py-3 font-futura-bold text-sm text-white transition hover:border-marketing-accent hover:text-marketing-accent disabled:opacity-50";
 
   return (
     <div className="space-y-2">

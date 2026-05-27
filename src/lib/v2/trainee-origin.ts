@@ -13,8 +13,12 @@ export function formatSpecialtyChoiceLabel(
 export function buildSpecialtyOriginQuestion(
   baseSpecialty: string,
   subspecialty?: string | null,
+  careerStage?: string | null,
 ): string {
-  const label = formatSpecialtyChoiceLabel(baseSpecialty, subspecialty);
+  const label =
+    careerStage === "Fellow" && subspecialty?.trim()
+      ? subspecialty.trim()
+      : baseSpecialty.trim();
   return `What drew you to ${label}? Even one sentence.`;
 }
 

@@ -68,10 +68,9 @@ export const futuraPtMedium = localFont({
   display: "swap",
 });
 
-/** Apply on marketing/landing page root: className={marketingFontVariables} */
+/** Apply on site root: className={marketingFontVariables} */
 export const marketingFontVariables = [
   futuraPtBold.variable,
-  futuraCondensedMedium.variable,
   futuraPtBook.variable,
   futuraPtMedium.variable,
 ].join(" ");

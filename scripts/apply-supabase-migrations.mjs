@@ -197,6 +197,16 @@ async function main() {
     console.log("\n→ Specialty hierarchy — skipped (base_specialty exists)");
   }
 
+  steps.push({
+    file: "docs/migrations/20260525_gme_programs.sql",
+    label: "GME programs + memberships (UH pilot)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260526_program_invite_tokens.sql",
+    label: "Program invite tokens + blank pathway programs",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

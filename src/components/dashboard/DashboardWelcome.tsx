@@ -1,11 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import { DashboardDueNow, type DashboardDueItem } from "@/components/dashboard/DashboardDueNow";
 import { DashboardAlerts } from "@/components/dashboard/DashboardAlerts";
 import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
 import { DashboardMakButton } from "@/components/dashboard/DashboardMakButton";
 import { ProfileSummaryCard } from "@/components/dashboard/ProfileSummaryCard";
 import { TouchpointProgressStrip } from "@/components/dashboard/TouchpointProgressStrip";
+import {
+  ResidentScheduleCalendar,
+  type ScheduleBlock,
+} from "@/components/dashboard/ResidentScheduleCalendar";
 import type { DashboardHeaderModel } from "@/lib/v2/dashboard-architecture";
 import type { DashboardLatticeCell } from "@/lib/v2/dashboard-data";
 import type { DashboardDueNowItem, GoalCardModel, ProfileRow, TouchpointBarState } from "@/lib/v2/dashboard-redesign";
@@ -25,6 +30,9 @@ type DashboardWelcomeProps = {
   dueNow?: DashboardDueItem | null;
   secondaryAlerts?: EngagementNotification[];
   onDueNowContinue?: () => void;
+  institutionalProgramSlug?: string | null;
+  scheduleBlocks?: ScheduleBlock[];
+  scheduleProgramLabel?: string | null;
 };
 
 export function DashboardWelcome({
@@ -40,6 +48,9 @@ export function DashboardWelcome({
   dueNow,
   secondaryAlerts = [],
   onDueNowContinue,
+  institutionalProgramSlug,
+  scheduleBlocks = [],
+  scheduleProgramLabel,
 }: DashboardWelcomeProps) {
   const salutation = timeOfDayGreeting();
 
@@ -50,6 +61,38 @@ export function DashboardWelcome({
       </h1>
       {profileLine && (
         <p className="mt-1 text-base font-medium text-white md:text-lg">{profileLine}</p>
+      )}
+
+      {institutionalProgramSlug === "uh-psych-cmc" && (
+        <div className="mt-3">
+          <label htmlFor="dashboard-program-menu" className="sr-only">
+            Program resources
+          </label>
+          <select
+            id="dashboard-program-menu"
+            className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm text-white"
+            defaultValue=""
+            onChange={(e) => {
+              const href = e.target.value;
+              if (href) window.location.href = href;
+              e.target.value = "";
+            }}
+          >
+            <option value="" disabled>
+              Program resources…
+            </option>
+            <option value="/app/rotations">All rotations (Inpatient / Outpatient)</option>
+          </select>
+        </div>
+      )}
+
+      {scheduleBlocks.length > 0 && (
+        <div className="mt-4">
+          <ResidentScheduleCalendar
+            blocks={scheduleBlocks}
+            programLabel={scheduleProgramLabel ?? undefined}
+          />
+        </div>
       )}
 
       <div className="mt-4 grid items-start gap-4 md:grid-cols-2">

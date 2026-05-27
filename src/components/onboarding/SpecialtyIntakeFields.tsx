@@ -7,6 +7,7 @@ import {
   hasSubspecialtyOptions,
   isTraineeCareerLevel,
 } from "@/lib/v2/specialty-hierarchy";
+import { formatSpecialtyDisplayLabel } from "@/lib/v2/specialty-display-label";
 import type { CareerStage } from "@/lib/v2/onboarding-options";
 import { cn } from "@/lib/utils";
 
@@ -64,13 +65,13 @@ export function SpecialtyIntakeFields({
   );
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 font-futura-book">
       {!hideBaseSpecialtyPicker && (
       <div className="relative">
-        <label htmlFor="base-specialty-search" className="text-sm font-semibold">
+        <label htmlFor="base-specialty-search" className="cx-field-label">
           Base specialty
         </label>
-        <p className="mt-0.5 text-xs text-cx-forest-dark/70">
+        <p className="font-futura-book mt-0.5 text-base text-black">
           {isTrainee
             ? "ACGME-accredited residency program (Appendix B primary specialty)."
             : "Residency training program (e.g. Internal Medicine, Pediatrics)."}
@@ -91,7 +92,7 @@ export function SpecialtyIntakeFields({
         {baseListOpen && (
           <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md">
             {filteredBases.length === 0 ? (
-              <li className="px-4 py-3 text-sm text-cx-forest-dark/70">No matches</li>
+              <li className="px-4 py-3 text-base text-black">No matches</li>
             ) : (
               filteredBases.map((s) => (
                 <li key={s}>
@@ -99,11 +100,11 @@ export function SpecialtyIntakeFields({
                     type="button"
                     onClick={() => onPickBase(s)}
                     className={cn(
-                      "w-full px-4 py-2.5 text-left text-sm hover:bg-cx-forest-dark/5",
-                      baseSpecialty === s && "bg-cx-forest-dark/10 font-semibold",
+                      "font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5",
+                      baseSpecialty === s && "bg-cx-forest-dark/10 font-futura-medium",
                     )}
                   >
-                    {s}
+                    {formatSpecialtyDisplayLabel(s)}
                   </button>
                 </li>
               ))
@@ -116,7 +117,7 @@ export function SpecialtyIntakeFields({
       {showSubspecialty && (
         <>
           <div className="relative">
-            <label htmlFor="subspecialty-search" className="text-sm font-semibold">
+            <label htmlFor="subspecialty-search" className="cx-field-label">
               Fellowship / subspecialty{" "}
               {isFellow ? (
                 <span className="font-normal text-cx-forest-dark/70">(required)</span>
@@ -124,7 +125,7 @@ export function SpecialtyIntakeFields({
                 <span className="font-normal text-cx-forest-dark/70">(optional)</span>
               )}
             </label>
-            <p className="mt-0.5 text-xs text-cx-forest-dark/70">
+            <p className="font-futura-book mt-0.5 text-base text-black">
               {isFellow
                 ? "Select your ACGME-accredited fellowship program — evaluation mapping uses this subspecialty."
                 : "e.g. Interventional Cardiology after Internal Medicine residency."}
@@ -149,7 +150,7 @@ export function SpecialtyIntakeFields({
                     <button
                       type="button"
                       onClick={() => onPickSubspecialty("")}
-                      className="w-full px-4 py-2.5 text-left text-sm text-cx-forest-dark/70 hover:bg-cx-forest-dark/5"
+                      className="font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5"
                     >
                       None — practicing in base specialty only
                     </button>
@@ -161,11 +162,11 @@ export function SpecialtyIntakeFields({
                       type="button"
                       onClick={() => onPickSubspecialty(s)}
                       className={cn(
-                        "w-full px-4 py-2.5 text-left text-sm hover:bg-cx-forest-dark/5",
-                        subspecialty === s && "bg-cx-forest-dark/10 font-semibold",
+                        "font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5",
+                        subspecialty === s && "bg-cx-forest-dark/10 font-futura-medium",
                       )}
                     >
-                      {s}
+                      {formatSpecialtyDisplayLabel(s)}
                     </button>
                   </li>
                 ))}
@@ -181,9 +182,9 @@ export function SpecialtyIntakeFields({
                 onChange={(e) => onTrainingCompleteChange(e.target.checked)}
                 className="mt-1"
               />
-              <span className="text-sm text-cx-forest-dark">
-                <span className="font-semibold">Fellowship training complete</span>
-                <span className="mt-0.5 block text-cx-forest-dark/70">
+              <span className="font-futura-book text-base text-black">
+                <span className="font-futura-medium text-cx-forest-dark">Fellowship training complete</span>
+                <span className="mt-0.5 block text-black">
                   {careerStage === "Fellow"
                     ? "Leave unchecked while you are still in fellowship."
                     : "Check when you are board-eligible or certified in this subspecialty."}

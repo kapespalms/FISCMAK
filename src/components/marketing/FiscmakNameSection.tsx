@@ -20,7 +20,7 @@ export function FiscmakNameIntro({ id }: FiscmakNameIntroProps) {
           <span className="text-marketing-accent"> ]</span>
         </p>
 
-        <p className="font-futura-condensed mt-5 max-w-3xl text-base text-white md:text-lg">
+        <p className="font-futura-medium mt-5 max-w-3xl text-base text-white md:text-lg">
           By the standard rules of grammar, you should pronounce the C in FISC.
         </p>
         <p className="font-futura-bold mt-2 text-base text-marketing-accent md:text-lg">
@@ -120,7 +120,7 @@ export function FoundersNarrativeSection() {
         <div className="mt-12 text-center">
           <Link
             href="/app/onboarding"
-            className="font-futura-bold inline-block rounded bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
+            className="font-futura-bold cx-btn inline-block bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
           >
             Start Building
           </Link>

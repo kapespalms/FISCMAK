@@ -3,35 +3,14 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
+import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
+import { isUniversityHospitalsInstitution } from "@/lib/v2/programs/institution-brand";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
 
-const SOAPO_OVERVIEW = [
-  {
-    letter: "S",
-    name: SOAP_TAB.subjective.nav,
-    detail: SOAP_TAB.subjective.description,
-  },
-  {
-    letter: "O",
-    name: SOAP_TAB.objective.nav,
-    detail: SOAP_TAB.objective.description,
-  },
-  {
-    letter: "A",
-    name: SOAP_TAB.assessment.nav,
-    detail: SOAP_TAB.assessment.description,
-  },
-  {
-    letter: "P",
-    name: SOAP_TAB.plan.nav,
-    detail: SOAP_TAB.plan.description,
-  },
-  {
-    letter: "O",
-    name: SOAP_TAB.output.nav,
-    detail: SOAP_TAB.output.description,
-  },
+const SETUP_STEPS = [
+  { title: "Profile", detail: "Name, training level, and current rotation." },
+  { title: "Documents", detail: "Upload your CV and key career files." },
+  { title: "Assessment", detail: "Short self-assessment — finish on your dashboard when ready." },
 ] as const;
 
 export type OnboardingWelcomeVariant = "default" | "public" | "institutional";
@@ -39,10 +18,9 @@ export type OnboardingWelcomeVariant = "default" | "public" | "institutional";
 type OnboardingWelcomeProps = {
   onBegin: () => void;
   variant?: OnboardingWelcomeVariant;
-  /** Required when variant is institutional — drives UH/program banner */
   program?: Pick<
     ResidencyProgram,
-    "display_title" | "institution_name" | "academic_year" | "welcome_blurb"
+    "display_title" | "institution_name" | "program_name" | "academic_year" | "welcome_blurb"
   >;
 };
 
@@ -52,69 +30,63 @@ export function OnboardingWelcome({
   program,
 }: OnboardingWelcomeProps) {
   const isInstitutional = variant === "institutional" && Boolean(program);
+  const isPublic = variant === "public";
+  const isUh = isUniversityHospitalsInstitution(program?.institution_name);
 
   return (
     <Card>
-      <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
-        Step 1 of 7
-      </p>
-      <h1 className="mt-1 text-page-title">Welcome to FISCMAK</h1>
-
-      {variant === "public" && (
-        <p className="mt-2 rounded-lg bg-cx-forest-dark/5 px-3 py-2 text-sm text-cx-forest-dark/80">
-          Individual physician account — not affiliated with a residency program on FISCMAK.
-        </p>
-      )}
-
-      {isInstitutional && program && (
-        <div className="mt-3 rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-3">
-          <div className="flex items-center gap-3">
+      {isInstitutional && program ? (
+        <>
+          <ProgramJoinHeadline program={program} variant="onboarding" />
+          <p className="mt-2 text-sm text-cx-forest-dark/75">
+            Academic year {program.academic_year}
+          </p>
+          {isUh && (
             <Image
               src="/brands/uh-university-hospitals.png"
               alt="University Hospitals"
               width={120}
               height={40}
-              className="h-8 w-auto object-contain"
+              className="mt-4 h-8 w-auto object-contain"
             />
-            <div>
-              <p className="text-sm font-semibold text-cx-forest-dark">{program.display_title}</p>
-              <p className="text-xs text-cx-forest-dark/60">
-                {program.institution_name} · Academic year {program.academic_year}
-              </p>
-            </div>
-          </div>
-          <p className="mt-2 text-sm text-cx-forest-dark/75">{program.welcome_blurb}</p>
-        </div>
+          )}
+        </>
+      ) : (
+        <>
+          <h1 className="text-page-title">Welcome to FISCMAK</h1>
+          {isPublic && (
+            <p className="mt-2 text-sm text-cx-forest-dark/75">
+              Individual physician platform — not tied to a residency program.
+            </p>
+          )}
+        </>
       )}
 
-      <p className="mt-3 text-sm text-cx-forest-dark/80">
-        This platform organizes career development using a framework familiar to every
-        physician: <strong className="text-cx-forest-dark">SOAPO</strong> — Subjective, Objective,
-        Assessment, Plan, Output.
+      <p className="mt-4 text-sm text-cx-forest-dark/80">
+        {isInstitutional
+          ? "Three steps to unlock your dashboard. Coach Mak opens after setup."
+          : "Three steps to unlock your dashboard."}
       </p>
-      <ul className="mt-6 space-y-3">
-        {SOAPO_OVERVIEW.map((item) => (
+
+      <ol className="mt-6 space-y-3">
+        {SETUP_STEPS.map((step, index) => (
           <li
-            key={item.letter + item.name}
+            key={step.title}
             className="cx-surface-elevated flex gap-3 rounded-2xl px-4 py-3"
           >
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark text-sm font-bold text-[#5FD65F]">
-              {item.letter}
+              {index + 1}
             </span>
             <div>
-              <p className="font-semibold text-cx-forest-dark">{item.name}</p>
-              <p className="text-sm text-cx-forest-dark/70">{item.detail}</p>
+              <p className="font-semibold text-cx-forest-dark">{step.title}</p>
+              <p className="text-sm text-cx-forest-dark/70">{step.detail}</p>
             </div>
           </li>
         ))}
-      </ul>
-      <p className="mt-6 text-sm text-cx-forest-dark/80">
-        {isInstitutional
-          ? "Profile setup takes about 10 minutes. Program context enables rotation vocabulary and ILP-ready capture — private reflections stay yours unless you choose to share."
-          : "Getting started takes about 20 minutes."}
-      </p>
+      </ol>
+
       <Button className="mt-6 w-full" onClick={onBegin}>
-        {isInstitutional ? "Begin program setup" : "Begin setup"}
+        {isInstitutional ? "Start setup" : "Begin setup"}
       </Button>
     </Card>
   );

@@ -48,7 +48,7 @@ export function buildClinicalGuidesMakContext(input: {
   program?: ResidencyProgram | null;
   purpose?: "chat" | "lattice" | "output_studio" | "debrief";
 }): string {
-  if (!input.program || input.program.slug !== "uh-psych-cmc") return "";
+  if (!input.program || input.program.content_tier !== "full") return "";
 
   const g = SUICIDE_VIOLENCE_GUIDE;
   const expanded =

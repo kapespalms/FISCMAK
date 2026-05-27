@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Briefcase, Maximize2, Minimize2, Paperclip, PanelRightClose, X } from "lucide-react";
+import { ChevronLeft, Maximize2, Minimize2, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/lib/use-media-query";
 import {
   MAK_SECTION_CONFIG,
   MAK_INPUT_PLACEHOLDER,
-  makContextLabel,
   type AppSection,
   type MakFlowIntent,
 } from "@/lib/mak-sections";
@@ -31,8 +30,12 @@ import {
 import { resolveSectionQuickAction, type SectionQuickAction } from "@/lib/v2/section-mak-routes";
 import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions } from "@/lib/v2/goal-setting-mak-flow";
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
-import { CoachMakMark } from "@/components/brand/CoachMakMark";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
+import {
+  buildDefaultMakMenuItems,
+  MakPlusActionMenu,
+  type MakActionMenuItem,
+} from "@/components/layout/MakPlusActionMenu";
 import {
   isKnownOutputTemplateType,
   OUTPUT_TEMPLATE_TYPE_SESSION_KEY,
@@ -125,11 +128,15 @@ export function MakPanel({
     string | undefined
   >();
   const [expanded, setExpanded] = useState(false);
+  const [actionMenuOpen, setActionMenuOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
 
   useEffect(() => {
-    if (!open) setExpanded(false);
+    if (!open) {
+      setExpanded(false);
+      setActionMenuOpen(false);
+    }
   }, [open]);
 
   function handleClose() {
@@ -604,8 +611,30 @@ export function MakPanel({
               onClick: () => handleQuickOptionClick(label),
             }));
 
-  const makQuickPillClass =
-    "cx-forest-pill disabled:opacity-50";
+  const actionMenuItems = useMemo((): MakActionMenuItem[] => {
+    const base = buildDefaultMakMenuItems({
+      profile: () => handleDashboardMeceOption(DASHBOARD_MECE_OPTIONS[0]!),
+      capture: () => handleDashboardMeceOption(DASHBOARD_MECE_OPTIONS[1]!),
+      upload: () => handleDashboardMeceOption(DASHBOARD_MECE_OPTIONS[2]!),
+      goals: () => handleDashboardMeceOption(DASHBOARD_MECE_OPTIONS[3]!),
+      vault: () => router.push("/app/objective?tab=vault"),
+    });
+
+    const seen = new Set(base.map((item) => item.label.toLowerCase()));
+    const extras = quickActionItems
+      .filter((item) => !seen.has(item.label.toLowerCase()))
+      .map((item) => ({
+        id: item.key,
+        label: item.label,
+        description: "Continue in this conversation",
+        icon: Sparkles,
+        onClick: item.onClick,
+      }));
+
+    return [...base, ...extras].slice(0, 8);
+  }, [quickActionItems, router]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const panelWidthClass = "w-[372px] min-w-[372px]";
 
   return (
     <>
@@ -613,7 +642,7 @@ export function MakPanel({
         <button
           type="button"
           className="fixed inset-y-0 right-0 z-40 bg-black/40 md:hidden"
-          style={{ left: "min(calc(3.5rem + 320px), 100vw)" }}
+          style={{ left: "min(calc(3.5rem + 372px), 100vw)" }}
           aria-label="Close Coach Mak"
           onClick={handleClose}
         />
@@ -628,7 +657,7 @@ export function MakPanel({
       )}
       <aside
         className={cn(
-          "cx-mak-panel flex shrink-0 flex-col overflow-hidden border-r transition-[width,transform] duration-200 ease-in-out",
+          "cx-mak-panel flex shrink-0 flex-col overflow-hidden border-r transition-[width,transform,margin] duration-200 ease-in-out",
           expanded
             ? cn(
                 "fixed inset-0 z-50 w-full border-r-0 shadow-2xl",
@@ -636,61 +665,47 @@ export function MakPanel({
               )
             : isMobile
               ? cn(
-                  "fixed left-14 top-0 z-50 h-full w-[320px] max-w-[calc(100vw-3.5rem)]",
+                  "fixed left-14 top-0 z-50 h-full max-w-[calc(100vw-3.5rem)]",
+                  panelWidthClass,
                   open ? "translate-x-0" : "pointer-events-none -translate-x-full",
                 )
               : cn(
-                  "relative h-full border-l border-white/10",
-                  open ? "w-[320px]" : "pointer-events-none w-0 border-l-0",
+                  "relative z-20 -ml-3 h-full border-l border-cx-forest-dark/10 shadow-[4px_0_24px_rgba(0,0,0,0.08)]",
+                  open ? panelWidthClass : "pointer-events-none w-0 min-w-0 border-l-0",
                 ),
         )}
         aria-hidden={!open}
       >
-        <div className={cn("flex h-full flex-col", !expanded && !isMobile && "min-w-[320px]", expanded && "min-w-0")}>
-          <header className="cx-mak-panel-header shrink-0 border-b border-white/10">
+        <div className={cn("flex h-full flex-col bg-white", expanded && "min-w-0")}>
+          <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white">
             <div className="flex h-14 items-center justify-between gap-2 px-3">
-              <div className="flex min-w-0 items-center gap-2.5">
-                <div className="rounded-xl bg-white/10 p-1 ring-1 ring-white/15">
-                  <CoachMakMark size={28} />
-                </div>
-                <p className="truncate text-base font-semibold text-white">Coach Mak</p>
-              </div>
-              <div className="flex shrink-0 items-center gap-1">
+              <p className="truncate text-base font-semibold text-cx-forest-dark">Coach Mak</p>
+              <div className="flex shrink-0 items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#67E151] text-cx-forest-dark transition-colors hover:bg-[#7aed68]"
+                  aria-label="Collapse Coach Mak"
+                  title="Collapse Coach Mak"
+                >
+                  <ChevronLeft size={18} strokeWidth={2.5} />
+                </button>
                 <button
                   type="button"
                   onClick={() => setExpanded((v) => !v)}
-                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
+                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-lg transition-colors"
                   aria-label={expanded ? "Exit full screen" : "Full screen"}
                   title={expanded ? "Exit full screen" : "Full screen"}
                 >
                   {expanded ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
                 </button>
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
-                  aria-label="Close Coach Mak"
-                >
-                  <X size={18} />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
-                  aria-label="Collapse Coach Mak panel"
-                >
-                  <PanelRightClose size={18} />
-                </button>
               </div>
             </div>
-            <p className="cx-mak-panel-context text-center text-xs">
-              {makContextLabel(section)}
-            </p>
           </header>
 
         <div
           ref={scrollRef}
-          className="cx-mak-panel-chat flex-1 space-y-4 overflow-y-auto px-4 py-4"
+          className="cx-mak-panel-chat flex-1 space-y-3 overflow-y-auto bg-white px-4 py-4"
         >
         {activeEscalation && (
           <EscalationResourcesPanel
@@ -699,27 +714,16 @@ export function MakPanel({
           />
         )}
         {messages.map((msg, i) => {
-          const showAvatar =
-            msg.role === "assistant" && messages[i - 1]?.role !== "assistant";
           const showTimestamp = isLastInAssistantRun(messages, i);
 
           if (msg.role === "assistant") {
             return (
-              <div key={`${i}-${msg.content.slice(0, 12)}`} className="space-y-2">
-                <div className="flex items-start gap-2.5">
-                  {showAvatar ? (
-                    <div className="mt-0.5 shrink-0">
-                      <CoachMakMark size={28} />
-                    </div>
-                  ) : (
-                    <div className="w-7 shrink-0" aria-hidden />
-                  )}
-                  <div className="max-w-[calc(100%-2.25rem)] whitespace-pre-line rounded-2xl border border-white/10 bg-white px-4 py-3 text-sm leading-relaxed text-cx-forest-dark shadow-sm">
-                    {msg.content}
-                  </div>
+              <div key={`${i}-${msg.content.slice(0, 12)}`} className="space-y-1.5">
+                <div className="max-w-[95%] whitespace-pre-line rounded-2xl bg-[#eceef1] px-4 py-3 text-sm leading-relaxed text-cx-forest-dark">
+                  {msg.content}
                 </div>
                 {showTimestamp && (
-                  <p className="ml-9 font-mono text-[11px] tracking-wide text-white/65">
+                  <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
                     {formatMessageTime(msg.at)}
                   </p>
                 )}
@@ -729,55 +733,27 @@ export function MakPanel({
 
           return (
             <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex justify-end">
-              <div className="max-w-[85%] whitespace-pre-line rounded-2xl border border-white/15 bg-white/95 px-4 py-3 text-sm leading-relaxed text-cx-forest-dark">
+              <div className="max-w-[88%] whitespace-pre-line rounded-2xl bg-cx-forest-dark px-4 py-3 text-sm leading-relaxed text-white">
                 {msg.content}
               </div>
             </div>
           );
         })}
         {loading && (
-          <div className="flex items-start gap-2.5">
-            <CoachMakMark size={28} />
-            <p className="rounded-2xl border border-white/10 bg-white px-4 py-3 text-sm text-cx-forest-dark/70 shadow-sm">
-              Mak is thinking…
-            </p>
+          <div className="max-w-[95%] rounded-2xl bg-[#eceef1] px-4 py-3 text-sm text-cx-forest-dark/70">
+            Mak is thinking…
           </div>
         )}
         </div>
 
-        <div className="cx-mak-panel-footer shrink-0 border-t px-3 py-3">
-        {quickActionItems.length > 0 && (
-          <div className="mb-3 flex gap-1.5 overflow-x-auto pb-1">
-            {quickActionItems.slice(0, 6).map((item) => (
-              <button
-                key={item.key}
-                type="button"
-                onClick={item.onClick}
-                disabled={loading}
-                className={makQuickPillClass}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        )}
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => router.push("/app/objective?tab=documents&upload=1")}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/85 transition-colors hover:bg-white/15 hover:text-white"
-            aria-label="Attach document"
-          >
-            <Paperclip size={18} />
-          </button>
-          <button
-            type="button"
-            onClick={() => router.push("/app/objective?tab=vault")}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/85 transition-colors hover:bg-white/15 hover:text-white"
-            aria-label="Career data vault"
-          >
-            <Briefcase size={18} />
-          </button>
+        <div className="cx-mak-panel-footer shrink-0 border-t border-cx-forest-dark/10 bg-white px-3 py-3">
+        <div className="flex items-end gap-2">
+          <MakPlusActionMenu
+            open={actionMenuOpen}
+            onOpenChange={setActionMenuOpen}
+            items={actionMenuItems}
+            disabled={loading}
+          />
           <input
             ref={makInputRef}
             value={input}
@@ -790,7 +766,7 @@ export function MakPanel({
             }}
             placeholder={MAK_INPUT_PLACEHOLDER}
             disabled={loading || recording}
-            className="cx-mak-panel-input h-11 min-h-11 flex-1 border-0 bg-transparent px-1 text-sm focus:outline-none"
+            className="cx-mak-panel-input h-11 min-h-11 flex-1 rounded-xl border border-cx-forest-dark/8 bg-[#eceef1] px-3 text-sm text-cx-forest-dark focus:border-cx-forest-dark/20 focus:outline-none focus:ring-2 focus:ring-cx-forest-dark/10"
             aria-label="Message to Coach Mak"
           />
           <MakHexMicButton

@@ -314,7 +314,7 @@ function cellScoreFromHealth(
   trackIndex: number,
   health: CareerHealthView | null,
 ): number | null {
-  if (!health?.domains.length) return null;
+  if (!health?.domains?.length) return null;
   const mapping = DOMAIN_TRACK_SCORES.find(
     (m) => m.domainIndex === domainIndex && m.trackIndex === trackIndex,
   );
@@ -379,7 +379,7 @@ export function advancementReadinessFromHealth(
   setting: PracticeSetting | null,
 ): { met: number; total: number; label: string } | undefined {
   if (setting !== "Academic" && setting !== "Hybrid") return undefined;
-  if (!health?.domains.length) return undefined;
+  if (!health?.domains?.length) return undefined;
   const met = health.domains.filter((d) => d.score >= 60).length;
   const total = Math.min(6, Math.max(4, health.domains.length));
   return {

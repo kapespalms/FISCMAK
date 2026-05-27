@@ -1,4 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { trustedNameFromOAuthMetadata, splitTrustedName } from "@/lib/auth/trusted-name";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { fetchDocuments } from "@/lib/v2/db";
 import {
@@ -32,9 +34,29 @@ export async function GET() {
   const pathCtx = onboardingPathFromMetadata(meta);
   const program = pathCtx?.program ?? null;
 
+  let trustedName: ReturnType<typeof trustedNameFromOAuthMetadata> = null;
+  if (!auth.demo && isSupabaseConfigured()) {
+    try {
+      const supabase = await createClient();
+      const {
+        data: { user: authUser },
+      } = await supabase.auth.getUser();
+      trustedName = trustedNameFromOAuthMetadata(
+        authUser?.user_metadata as Record<string, unknown> | undefined,
+      );
+    } catch {
+      /* ignore */
+    }
+  }
+  if (!trustedName && user.tier1_complete && user.name?.trim()) {
+    const { first, last } = splitTrustedName(user.name);
+    if (first) trustedName = { first, last, source: "profile" };
+  }
+
   return jsonOk({
     profile: {
       name: user.name,
+      trusted_name: trustedName,
       specialty: user.specialty,
       base_specialty: user.base_specialty,
       subspecialty: user.subspecialty,
@@ -47,6 +69,12 @@ export async function GET() {
       current_rotation: user.current_rotation,
       specialty_origin: user.specialty_origin,
       institution: user.institution,
+    },
+    onboarding_metadata: {
+      career_track_rankings: meta.career_track_rankings ?? null,
+      subspecialty_interests: meta.subspecialty_interests ?? null,
+      uh_psych_enrichment_tracks: meta.uh_psych_enrichment_tracks ?? null,
+      invite_token: meta.invite_token ?? null,
     },
     onboarding: {
       path: pathCtx?.path ?? null,

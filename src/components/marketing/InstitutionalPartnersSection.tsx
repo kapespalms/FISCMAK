@@ -54,8 +54,8 @@ export function InstitutionalPartnersSection() {
 
         <div className="text-center">
           <Link
-            href="/join/uh-psychiatry"
-            className="font-futura-bold inline-block rounded bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
+            href="/join/uh/psychiatry"
+            className="font-futura-bold cx-btn inline-block bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
           >
             Explore Partnerships →
           </Link>

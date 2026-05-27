@@ -43,6 +43,19 @@ export function requiresGmePlacementFields(level: string | null | undefined): bo
   return level === "Resident" || level === "Fellow";
 }
 
+/** Attending-level users report FTE per career track instead of hours/week. */
+export function usesFteForCareerTracks(level: string | null | undefined): boolean {
+  return (
+    level === "Early Career (0–7 yr)" ||
+    level === "Mid-Career (8–20 yr)" ||
+    level === "Late Career (20+ yr)"
+  );
+}
+
+export function allowsSubspecialtyInterests(level: string | null | undefined): boolean {
+  return Boolean(level && level !== "Retired");
+}
+
 export function isValidPgyLevel(value: string): value is PgyLevel {
   return (PGY_LEVELS as readonly string[]).includes(value);
 }

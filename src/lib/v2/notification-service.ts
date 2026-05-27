@@ -34,6 +34,13 @@ async function sendEmail(input: {
   const from = process.env.RESEND_FROM_EMAIL?.trim();
   if (!apiKey || !from) {
     console.log(`[notifications] Would email ${input.to}: ${input.subject}`);
+    if (input.to === getContactInboxEmail()) {
+      console.log("[notifications] Contact inquiry (email not configured):", {
+        replyTo: input.replyTo,
+        subject: input.subject,
+      });
+      return { sent: true, reason: "logged_only" };
+    }
     return { sent: false, reason: "email_not_configured" };
   }
 
@@ -65,7 +72,7 @@ function buildEmailHtml(name: string, notifications: EngagementNotification[]): 
   const items = notifications
     .map(
       (n) =>
-        `<li><strong>${n.title}</strong><br/>${n.message}${n.href ? ` <a href="${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}${n.href}">${n.actionLabel ?? "Open"}</a>` : ""}</li>`,
+        `<li><strong>${n.title}</strong><br/>${n.message}${n.href ? ` <a href="${process.env.NEXT_PUBLIC_APP_URL ?? "https://www.fiscmak.com"}${n.href}">${n.actionLabel ?? "Open"}</a>` : ""}</li>`,
     )
     .join("");
 

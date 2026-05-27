@@ -6,7 +6,7 @@ import { HealthScoreCard } from "@/components/dashboard/HealthScoreCard";
 import { AssessmentInsightsCompositePanel } from "@/components/workspace/retired/AssessmentInsightsCompositePanel";
 import { Card } from "@/components/ui/Card";
 import { UH_PSYCH_CMC_PROGRAM } from "@/lib/v2/programs/registry";
-import { RETIRED_SURFACES } from "@/lib/v2/retired-surfaces";
+import { KpAdminProgramInvitesPanel } from "@/components/admin/KpAdminProgramInvitesPanel";
 import { RETIRED_METRICS_DEMO } from "@/lib/v2/user-facing-analytics";
 import type { KpAdminTrackingSnapshot } from "@/lib/v2/kp-admin-tracking";
 import type { MakCoachingHint } from "@/lib/v2/mak-coaching-prompts";
@@ -73,7 +73,7 @@ function KpAdminInternalCoachingPanel() {
 
       {tracking && (
         <div className="mt-4 space-y-4">
-          <p className="rounded-lg bg-cx-forest-dark/[0.04] px-3 py-2 font-mono text-xs text-cx-forest-dark/80">
+          <p className="rounded-lg bg-cx-forest-dark/[0.04] px-3 py-2 font-futura-book tracking-wide text-xs text-cx-forest-dark/80">
             {tracking.metric.formula_summary}
           </p>
 
@@ -170,6 +170,8 @@ export function KpAdminDashboard() {
           Internal Mak inputs and retired surfaces — not linked in user onboarding or navigation.
         </p>
       </Card>
+
+      <KpAdminProgramInvitesPanel />
 
       <KpAdminInternalCoachingPanel />
 

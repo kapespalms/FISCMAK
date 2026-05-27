@@ -71,6 +71,61 @@ Sign up at http://localhost:3000/signup
 
 ---
 
+## Step 4b — Google sign-in (OAuth)
+
+The app already has **Continue with Google** on `/login` and `/signup`. You must enable the provider in Supabase and Google Cloud.
+
+### A. Google Cloud Console
+
+1. Open [Google Cloud Console → Credentials](https://console.cloud.google.com/apis/credentials)
+2. Create **OAuth client ID** → type **Web application**
+3. **Authorized redirect URIs** — add **only** Supabase (not your Next.js URL):
+
+   ```
+   https://qnskxioqsgnkkuyalqcn.supabase.co/auth/v1/callback
+   ```
+
+4. Copy **Client ID** and **Client secret**
+
+### B. Supabase Dashboard
+
+1. [Authentication → Providers → Google](https://supabase.com/dashboard/project/qnskxioqsgnkkuyalqcn/auth/providers)
+2. Enable Google, paste Client ID + secret, save
+3. [Authentication → URL Configuration](https://supabase.com/dashboard/project/qnskxioqsgnkkuyalqcn/auth/url-configuration)
+4. **Site URL:** `https://www.fiscmak.com`
+5. **Redirect URLs** — add all of these:
+
+   ```
+   https://www.fiscmak.com/auth/callback
+   https://fiscmak.com/auth/callback
+   http://127.0.0.1:3000/auth/callback
+   http://localhost:3000/auth/callback
+   ```
+
+   Use `www.fiscmak.com` as the canonical site URL. Include the apex domain if users can land there without redirect.
+
+### C. Environment variables
+
+**Production** (Vercel / hosting):
+
+```env
+NEXT_PUBLIC_APP_URL=https://www.fiscmak.com
+```
+
+**Local dev** (`.env.local`):
+
+```env
+NEXT_PUBLIC_APP_URL=http://127.0.0.1:3000
+```
+
+Restart the dev server locally, or redeploy after changing production env vars.
+
+Test Google sign-in at [https://www.fiscmak.com/login](https://www.fiscmak.com/login) (production) or [http://127.0.0.1:3000/login](http://127.0.0.1:3000/login) (local).
+
+**Flow:** Google → Supabase → `/auth/callback` → creates `app_users` row → `/app` or onboarding.
+
+---
+
 ## Step 5 — V2 + Career Data migrations (automated)
 
 Add **SESSION_POOLER_URL** (recommended) or **DATABASE_URL** to `.env.local`:

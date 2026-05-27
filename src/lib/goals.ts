@@ -157,14 +157,14 @@ export function saveOnboardingGoalsFromProposal(
 }
 
 export function loadDemoGoals(): CareerGoal[] {
-  if (typeof window === "undefined" || !isClientDemoMode()) return DEMO_GOALS;
+  if (typeof window === "undefined" || !isClientDemoMode()) return [];
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw) as CareerGoal[];
   } catch {
     /* ignore */
   }
-  return DEMO_GOALS;
+  return [];
 }
 
 export function saveDemoGoals(goals: CareerGoal[]) {
@@ -200,13 +200,13 @@ export async function persistGoals(
 }
 
 export async function fetchGoals(): Promise<CareerGoal[]> {
-  if (typeof window === "undefined") return DEMO_GOALS;
+  if (typeof window === "undefined") return [];
 
   try {
     const res = await fetch("/api/v1/goals");
     if (res.ok) {
       const data = (await res.json()) as { goals?: CareerGoal[] };
-      if (data.goals?.length) return data.goals;
+      return data.goals ?? [];
     }
   } catch {
     /* fall through to local demo cache */

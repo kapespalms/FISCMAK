@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 type FormState = "idle" | "success" | "error";
 
-export function ContactFormCard({ className }: { className?: string }) {
+export function ContactFormCard({ className, id }: { className?: string; id?: string }) {
   const [formState, setFormState] = useState<FormState>("idle");
   const [loading, setLoading] = useState(false);
 
@@ -51,6 +51,7 @@ export function ContactFormCard({ className }: { className?: string }) {
 
   return (
     <div
+      id={id}
       className={cn(
         "w-full max-w-[16rem] rounded-2xl bg-[#1a2419] px-4 py-5 sm:max-w-[17.5rem]",
         className,
@@ -58,7 +59,7 @@ export function ContactFormCard({ className }: { className?: string }) {
     >
       <ConnectWithFiscmakHeading size="xs" />
 
-      <p className="font-futura-condensed mt-2 text-[10px] leading-snug text-white/90 sm:text-[11px]">
+      <p className="font-futura-medium mt-2 text-[10px] leading-snug text-white/90 sm:text-[11px]">
         Your inquiries, ideas, and collaboration opportunities are just a click away.
         Let&apos;s start the conversation.
       </p>
@@ -73,7 +74,7 @@ export function ContactFormCard({ className }: { className?: string }) {
       ) : (
         <form onSubmit={handleSubmit} className="mt-4 space-y-2.5">
           <div>
-            <label htmlFor="contact-name" className="font-futura-condensed mb-1 block text-[10px] text-white">
+            <label htmlFor="contact-name" className="font-futura-medium mb-1 block text-[10px] text-white">
               Full Name
             </label>
             <input
@@ -88,7 +89,7 @@ export function ContactFormCard({ className }: { className?: string }) {
           </div>
 
           <div>
-            <label htmlFor="contact-email" className="font-futura-condensed mb-1 block text-[10px] text-white">
+            <label htmlFor="contact-email" className="font-futura-medium mb-1 block text-[10px] text-white">
               Email
             </label>
             <input
@@ -103,7 +104,7 @@ export function ContactFormCard({ className }: { className?: string }) {
           </div>
 
           <div>
-            <label htmlFor="contact-question" className="font-futura-condensed mb-1 block text-[10px] text-white">
+            <label htmlFor="contact-question" className="font-futura-medium mb-1 block text-[10px] text-white">
               Question
             </label>
             <textarea
@@ -119,7 +120,7 @@ export function ContactFormCard({ className }: { className?: string }) {
           <button
             type="submit"
             disabled={loading}
-            className="font-futura-bold rounded-lg bg-marketing-accent px-3 py-2 text-[10px] text-black transition hover:bg-white disabled:opacity-60 sm:text-[11px]"
+            className="font-futura-bold cx-btn bg-marketing-accent px-3 py-2 text-[10px] text-black transition hover:bg-white disabled:opacity-60 sm:text-[11px]"
           >
             {loading ? "Sending…" : "Send a Question"}
           </button>

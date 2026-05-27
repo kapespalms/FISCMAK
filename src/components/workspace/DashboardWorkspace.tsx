@@ -66,6 +66,11 @@ export function DashboardWorkspace() {
   const [profile, setProfile] = useState<ProfileState | null>(null);
   const [onboardingPhase, setOnboardingPhase] = useState<"reveal" | "goals" | null>(null);
   const [proposedGoals, setProposedGoals] = useState<ProposedGoal[]>([]);
+  const [institutionalProgramSlug, setInstitutionalProgramSlug] = useState<string | null>(null);
+  const [scheduleBlocks, setScheduleBlocks] = useState<
+    import("@/components/dashboard/ResidentScheduleCalendar").ScheduleBlock[]
+  >([]);
+  const [scheduleProgramLabel, setScheduleProgramLabel] = useState<string | null>(null);
 
   useEffect(() => {
     void fetchGoals().then(setGoals);
@@ -78,13 +83,20 @@ export function DashboardWorkspace() {
     Promise.all([
       fetch("/api/v1/onboarding/status").then((r) => r.json()),
       fetch("/api/v1/users/me").then((r) => r.json()),
+      fetch("/api/v1/onboarding/touchpoint1").then((r) => r.json()),
+      fetch("/api/v1/onboarding/schedule").then((r) => r.json()),
     ])
-      .then(([status, me]) => {
+      .then(([status, me, touchpoint, schedule]) => {
         setProfile({
           ...status,
           academic_rank: me.academic_rank ?? null,
           name: me.name ?? status.name,
         });
+        setInstitutionalProgramSlug(touchpoint.onboarding?.program_slug ?? null);
+        if (schedule.enabled && schedule.blocks?.length) {
+          setScheduleBlocks(schedule.blocks);
+          setScheduleProgramLabel(schedule.program_label ?? null);
+        }
         if (
           status.tier3_complete &&
           typeof window !== "undefined" &&
@@ -98,14 +110,9 @@ export function DashboardWorkspace() {
           );
           setOnboardingPhase("reveal");
         }
-        if (welcome && status.tier1_complete && !status.tier3_complete) {
-          startMakFlow("onboarding");
-        }
       })
-      .catch(() => {
-        if (welcome) startMakFlow("onboarding");
-      });
-  }, [welcome, startMakFlow]);
+      .catch(() => undefined);
+  }, [welcome]);
 
   useEffect(() => {
     if (loading || onboardingPhase || !profile?.tier3_complete) return;
@@ -296,7 +303,7 @@ export function DashboardWorkspace() {
               tracks={
                 profile?.primary_career_track ? [profile.primary_career_track] : null
               }
-              profileLine={headerModel.profileLine}
+              profileLine={institutionalProgramSlug ? null : headerModel.profileLine}
               profileRows={profileRows}
               header={headerModel}
               nextMilestone={nextMilestone}
@@ -306,6 +313,9 @@ export function DashboardWorkspace() {
               dueNow={dueNow}
               secondaryAlerts={secondaryAlerts}
               onDueNowContinue={handleDueNowContinue}
+              institutionalProgramSlug={institutionalProgramSlug}
+              scheduleBlocks={scheduleBlocks}
+              scheduleProgramLabel={scheduleProgramLabel}
             />
           </>
         )}

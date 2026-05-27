@@ -98,6 +98,17 @@ export type OnboardingMetadata = {
   program_id?: string;
   program_slug?: string;
   trainee_initials?: string;
+  career_track_rankings?: Array<{
+    track: import("@/lib/v2/onboarding-options").PrimaryCareerTrack;
+    rank: number;
+    hours_per_week?: number;
+    fte?: number;
+  }>;
+  subspecialty_interests?: string[];
+  uh_psych_enrichment_tracks?: string[];
+  call_schedule_note?: string | null;
+  invite_token?: string;
+  invite_slot_number?: number;
   program_membership?: import("@/lib/v2/programs/program-membership").ProgramMembershipRecord;
   career_pivot_context?: import("@/lib/v2/non-traditional-career-models").CareerPivotContext;
   career_thesis?: import("@/lib/v2/non-traditional-career-models").CareerThesis;

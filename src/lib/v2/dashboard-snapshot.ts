@@ -80,13 +80,17 @@ const SOAP_HREFS: Record<SoapBandId, string> = {
 };
 
 function fulfillmentLine(health: CareerHealthView | null): string {
-  const fulfillment = health?.wellbeing_metrics.find((m) => m.id === "professional_fulfillment" || m.id === "fulfillment");
+  const fulfillment = health?.wellbeing_metrics?.find(
+    (m) => m.id === "professional_fulfillment" || m.id === "fulfillment",
+  );
   if (!fulfillment) return "Fulfillment: Pending";
   return `Fulfillment: ${fulfillment.summary}`;
 }
 
 function strainLine(health: CareerHealthView | null): string {
-  const strain = health?.wellbeing_metrics.find((m) => m.id === "burnout_risk" || m.id === "work_related_strain");
+  const strain = health?.wellbeing_metrics?.find(
+    (m) => m.id === "burnout_risk" || m.id === "work_related_strain",
+  );
   if (!strain) return "Strain: Baseline needed";
   return `Strain: ${strain.summary}`;
 }
@@ -100,7 +104,7 @@ function metricFromWellbeing(
   burnoutTrend?: AnalyticsDashboard["burnout_trend"]["trend"],
   invertRisk = false,
 ): DashboardBandMetric {
-  const metric = health?.wellbeing_metrics.find((m) => m.id === id);
+  const metric = health?.wellbeing_metrics?.find((m) => m.id === id);
   const tech = metric?.technical ?? {};
   const percentile =
     typeof tech.estimated_percentile === "number"
@@ -108,7 +112,9 @@ function metricFromWellbeing(
       : typeof tech.percentile === "number"
         ? tech.percentile
         : null;
-  const percent = percentile ?? (metric?.status === "strong" ? 72 : metric?.status === "developing" ? 55 : 40);
+  const percent =
+    percentile ??
+    (metric?.status === "strong" ? 72 : metric?.status === "developing" ? 55 : metric ? 40 : 0);
   const status =
     metric?.status ??
     (invertRisk && typeof tech.risk_level === "string"
@@ -210,10 +216,12 @@ export function buildSoapDashboardBands(input: {
   const burnoutTrend = analytics.burnout_trend.trend;
   const goalHistory = analytics.goal_milestone_history ?? [];
 
+  const healthDomains = health?.domains ?? [];
+
   const alignmentPct =
-    health?.domains.length
+    healthDomains.length
       ? Math.round(
-          health.domains.reduce((s, d) => s + d.score, 0) / health.domains.length,
+          healthDomains.reduce((s, d) => s + d.score, 0) / healthDomains.length,
         )
       : null;
 
@@ -238,16 +246,25 @@ export function buildSoapDashboardBands(input: {
     true,
   );
   const taskAlignmentPct =
-    cv.bits_score != null
+    cv?.bits_score != null
       ? Math.round(100 - cv.bits_score * 8)
-      : history.task_alignment.at(-1) ?? 65;
+      : history.task_alignment.at(-1) ?? null;
   const taskMetric: DashboardBandMetric = {
     id: "task_alignment",
     label: "Task Alignment",
-    summary: `${taskAlignmentPct}% of work aligned with core professional role`,
-    percent: taskAlignmentPct,
-    status: scoreToMetricStatus(taskAlignmentPct),
-    trend: sparklineTrend(history.task_alignment.length >= 2 ? history.task_alignment : [taskAlignmentPct]),
+    summary:
+      taskAlignmentPct != null
+        ? `${taskAlignmentPct}% of work aligned with core professional role`
+        : "Pending baseline",
+    percent: taskAlignmentPct ?? 0,
+    status: taskAlignmentPct != null ? scoreToMetricStatus(taskAlignmentPct) : "stable",
+    trend: sparklineTrend(
+      history.task_alignment.length >= 2
+        ? history.task_alignment
+        : taskAlignmentPct != null
+          ? [taskAlignmentPct]
+          : [],
+    ),
     sparkline: history.task_alignment.length >= 2 ? history.task_alignment : undefined,
   };
   const alignmentMetric: DashboardBandMetric = {
@@ -338,8 +355,8 @@ export function buildSoapDashboardBands(input: {
     .filter((c) => c.score != null)
     .sort((a, b) => (a.score ?? 0) - (b.score ?? 0))[0];
 
-  const topDomains = health?.domains.slice().sort((a, b) => b.score - a.score).slice(0, 3) ?? [];
-  const weakDomain = health?.domains.slice().sort((a, b) => a.score - b.score)[0];
+  const topDomains = [...healthDomains].sort((a, b) => b.score - a.score).slice(0, 3);
+  const weakDomain = [...healthDomains].sort((a, b) => a.score - b.score)[0];
   const strengths =
     topLattice.length >= 3
       ? topLattice.map(formatLatticeStrength)

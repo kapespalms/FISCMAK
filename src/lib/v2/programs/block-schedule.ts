@@ -109,3 +109,26 @@ export function normalizePgyForOnboarding(pgy: string | null | undefined): strin
   if (pgy.startsWith("PGY-5") || pgy.startsWith("PPP")) return "PGY-5+";
   return null;
 }
+
+export function toIsoDateFromUs(value: string): string {
+  const [month, day, year] = value.split("/").map(Number);
+  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+export function listBlocksForTrainee(trainee_initials: string) {
+  const upper = trainee_initials.trim().toUpperCase();
+  if (!upper) return [];
+  return assignments
+    .filter((a) => a.trainee_initials.toUpperCase() === upper)
+    .map((block) => {
+      const label = rotationLabel(UH_PSYCH_CMC_PROGRAM, block.rotation_code);
+      return {
+        block_id: block.block_id,
+        rotation_code: block.rotation_code,
+        rotation_label: label,
+        start_date: toIsoDateFromUs(block.start_date),
+        end_date: toIsoDateFromUs(block.end_date),
+        pgy_level: block.pgy_level,
+      };
+    });
+}

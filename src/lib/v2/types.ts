@@ -237,5 +237,5 @@ export type AnalyticsDashboard = {
       s_index: string | null;
       iwq: string | null;
     };
-  };
+  } | null;
 };

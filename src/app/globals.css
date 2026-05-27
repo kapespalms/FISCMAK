@@ -47,6 +47,7 @@
   --cx-forest-dark: #243b31;
   --cx-page-muted: #f4f5f4;
   --cx-tab-rail: #e8ecea;
+  --radius-button: 6px;
 }
 
 .dark {
@@ -131,8 +132,7 @@
   --color-marketing-accent: #a9ff5c;
   --color-marketing-cream: #f1fbe7;
   --color-marketing-gold: #d4c574;
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-futura-pt-book), "Futura PT", sans-serif;
 }
 
 body {
@@ -143,13 +143,21 @@ body {
   line-height: 1.5;
 }
 
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select,
+button {
+  font-family: var(--font-sans);
+}
+
 :focus-visible {
   outline: 2px solid #5fd65f;
   outline-offset: 2px;
 }
 
-/* Typography scale */
+/* Typography scale — Futura PT throughout */
 .text-page-title {
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.25;
@@ -157,6 +165,7 @@ body {
 }
 
 .text-section-header {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.3;
@@ -164,6 +173,7 @@ body {
 }
 
 .text-data-label {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -172,18 +182,21 @@ body {
 }
 
 .text-data-value {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: var(--fm-primary);
 }
 
 .text-caption {
+  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
   font-size: 11px;
   font-weight: 400;
   color: var(--fm-neutral);
 }
 
 .text-score-hero {
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 1;
@@ -237,6 +250,7 @@ body {
 
 /* App shell utilities */
 .text-cx-h1 {
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
@@ -244,6 +258,7 @@ body {
 }
 
 .text-cx-h2 {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.3;
@@ -251,6 +266,7 @@ body {
 }
 
 .text-cx-h3 {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.3;
@@ -258,6 +274,7 @@ body {
 }
 
 .text-cx-body {
+  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
@@ -265,6 +282,7 @@ body {
 }
 
 .text-cx-label {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.6;
@@ -334,8 +352,14 @@ body {
 }
 
 .font-futura-condensed {
-  font-family: var(--font-futura-condensed-medium), "Futura Condensed PT", sans-serif;
+  /* Legacy alias — maps to Futura PT Medium, not Condensed */
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-weight: 500;
+}
+
+.font-futura-book {
+  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
+  font-weight: 400;
 }
 
 .font-futura-medium {
@@ -353,6 +377,23 @@ body {
 
 .border-marketing-accent {
   border-color: var(--marketing-accent);
+}
+
+.text-uh-red {
+  color: #da291c;
+}
+
+/* Shared button corner radius — slightly rounded everywhere */
+.cx-btn,
+.rounded-btn {
+  border-radius: var(--radius-button);
+}
+
+button:not([data-preserve-radius]),
+input[type="button"]:not([data-preserve-radius]),
+input[type="submit"]:not([data-preserve-radius]),
+input[type="reset"]:not([data-preserve-radius]) {
+  border-radius: var(--radius-button) !important;
 }
 
 .text-marketing-gold {
@@ -425,7 +466,7 @@ body {
 
 .cx-app-top-bar-icon-btn {
   color: var(--fm-neutral);
-  border-radius: 12px;
+  border-radius: var(--radius-button);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
@@ -450,7 +491,7 @@ body {
   flex: 1 1 0;
   min-width: 0;
   border: none;
-  border-radius: 9999px;
+  border-radius: var(--radius-button);
   padding: 7px 10px;
   font-size: clamp(11px, 0.9vw, 13px);
   font-weight: 500;
@@ -499,52 +540,44 @@ body {
 }
 
 .cx-mak-panel {
-  background: var(--cx-forest-dark);
-  border-color: color-mix(in srgb, #ffffff 8%, var(--cx-forest-dark));
-  color: #ffffff;
+  background: #ffffff;
+  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
+  color: var(--cx-forest-dark);
   box-shadow: none;
 }
 
 .cx-mak-panel-header {
-  background: var(--cx-forest-dark);
-  color: #ffffff;
-  border-color: color-mix(in srgb, #ffffff 10%, var(--cx-forest-dark));
-}
-
-.cx-mak-panel-context {
-  margin: 0 12px 8px;
-  padding: 6px 12px;
-  border-radius: 9999px;
-  background: color-mix(in srgb, #ffffff 10%, var(--cx-forest-dark));
-  border: 1px solid color-mix(in srgb, #ffffff 8%, transparent);
-  color: color-mix(in srgb, #ffffff 82%, var(--cx-forest-dark));
+  background: #ffffff;
+  color: var(--cx-forest-dark);
+  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
 }
 
 .cx-mak-panel-chat {
-  background: var(--cx-forest-dark);
+  background: #ffffff;
 }
 
 .cx-mak-panel-footer {
-  background: var(--cx-forest-dark);
-  border-color: color-mix(in srgb, #ffffff 10%, var(--cx-forest-dark));
+  background: #ffffff;
+  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
 }
 
 .cx-mak-panel-icon-btn {
-  color: color-mix(in srgb, #ffffff 82%, var(--cx-forest-dark));
-  border-radius: 12px;
+  color: color-mix(in srgb, var(--cx-forest-dark) 70%, #6b7280);
+  border-radius: var(--radius-button);
 }
 
 .cx-mak-panel-icon-btn:hover {
-  background: color-mix(in srgb, #ffffff 12%, transparent);
-  color: #ffffff;
+  background: color-mix(in srgb, var(--cx-forest-dark) 6%, #ffffff);
+  color: var(--cx-forest-dark);
 }
 
 .cx-mak-panel-input {
-  color: #ffffff;
+  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
+  color: var(--cx-forest-dark);
 }
 
 .cx-mak-panel-input::placeholder {
-  color: color-mix(in srgb, #ffffff 50%, var(--cx-forest-dark));
+  color: color-mix(in srgb, var(--cx-forest-dark) 45%, #9ca3af);
 }
 
 .cx-forest-pill {
@@ -593,6 +626,7 @@ body {
 }
 
 .cx-field {
+  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
   min-height: 2.75rem;
   width: 100%;
   border-radius: 0.75rem;
@@ -608,12 +642,14 @@ body {
 }
 
 .cx-field-label {
+  font-family: var(--font-futura-pt-medium), "Futura PT", sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: var(--cx-forest-dark);
 }
 
 .cx-select-tile {
+  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
   border-radius: 0.75rem;
   border: 1px solid color-mix(in srgb, var(--cx-forest-dark) 20%, transparent);
   padding: 0.625rem 0.75rem;

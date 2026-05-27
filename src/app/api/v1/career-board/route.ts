@@ -6,7 +6,6 @@ import {
 } from "@/lib/v2/api-helpers";
 import {
   buildBoardProfileView,
-  demoCareerBoardSnapshot,
   type CareerBoardSnapshot,
 } from "@/lib/v2/career-board-models";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
@@ -21,11 +20,7 @@ export async function GET() {
   }
 
   const meta = getOnboardingMetadata(user);
-  let snapshot = meta.career_board as CareerBoardSnapshot | undefined;
-
-  if (auth.demo && (!snapshot?.members?.length)) {
-    snapshot = demoCareerBoardSnapshot();
-  }
+  const snapshot = meta.career_board as CareerBoardSnapshot | undefined;
 
   const board = buildBoardProfileView(snapshot);
   return jsonOk({ board, snapshot: snapshot ?? null });

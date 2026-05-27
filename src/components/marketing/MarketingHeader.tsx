@@ -28,7 +28,7 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
             <a
               key={item.label}
               href={item.href}
-              className="font-futura-condensed text-base text-white transition hover:text-marketing-accent"
+              className="font-futura-medium text-base text-white transition hover:text-marketing-accent"
             >
               {item.label}
             </a>
@@ -49,13 +49,13 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
         <div className="relative z-10 ml-auto flex shrink-0 items-center justify-end gap-4">
           <Link
             href="/login"
-            className="font-futura-bold hidden rounded border border-marketing-accent px-6 py-2.5 text-sm text-white transition hover:bg-marketing-accent hover:text-black sm:inline-block"
+            className="font-futura-bold cx-btn hidden border border-marketing-accent px-6 py-2.5 text-sm text-white transition hover:bg-marketing-accent hover:text-black sm:inline-block"
           >
             Sign In
           </Link>
           <Link
             href="/app/onboarding"
-            className="font-futura-bold rounded bg-marketing-accent px-6 py-2.5 text-sm text-black transition hover:bg-white"
+            className="font-futura-bold cx-btn bg-marketing-accent px-6 py-2.5 text-sm text-black transition hover:bg-white"
           >
             Start Building
           </Link>

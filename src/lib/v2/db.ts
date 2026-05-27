@@ -21,8 +21,8 @@ import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 import { buildCareerHealthView } from "@/lib/v2/career-health-view";
 import { buildCareerRecommendations } from "@/lib/v2/career-recommendations";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
-import { DEMO_ACTIVITIES } from "@/lib/activities-storage";
-import { DEMO_GOALS, type CareerGoal } from "@/lib/goals";
+import type { ActivityEntry } from "@/lib/types/database";
+import type { CareerGoal } from "@/lib/goals";
 import type { ActivityEntry } from "@/lib/types/database";
 import {
   buildDashboardLattice,
@@ -64,7 +64,7 @@ export async function fetchDocuments(userId: string, demo: boolean): Promise<Doc
 
 export async function fetchActivities(userId: string, demo: boolean, limit = 50): Promise<ActivityEntry[]> {
   if (demo) return getServerDemo(userId).activities;
-  if (!isSupabaseConfigured()) return getServerDemo(userId).activities;
+  if (!isSupabaseConfigured()) return [];
   const supabase = await createClient();
   const { data } = await supabase
     .from("activity_entries")
@@ -72,15 +72,15 @@ export async function fetchActivities(userId: string, demo: boolean, limit = 50)
     .eq("user_id", userId)
     .order("activity_date", { ascending: false })
     .limit(limit);
-  return (data as ActivityEntry[]) ?? DEMO_ACTIVITIES;
+  return (data as ActivityEntry[]) ?? [];
 }
 
 export async function fetchCareerGoals(userId: string, demo: boolean): Promise<CareerGoal[]> {
   if (demo) {
     const stored = getOnboardingMetadata(getServerDemo(userId).user).stored_goals;
-    return stored?.length ? stored : DEMO_GOALS;
+    return stored ?? [];
   }
-  if (!isSupabaseConfigured()) return DEMO_GOALS;
+  if (!isSupabaseConfigured()) return [];
   const supabase = await createClient();
   const { data } = await supabase
     .from("career_goals")
@@ -95,7 +95,7 @@ export async function fetchCareerGoals(userId: string, demo: boolean): Promise<C
     .eq("user_id", userId)
     .maybeSingle();
   const meta = (userRow?.onboarding_metadata ?? {}) as { stored_goals?: CareerGoal[] };
-  return meta.stored_goals?.length ? meta.stored_goals : DEMO_GOALS;
+  return meta.stored_goals ?? [];
 }
 
 export async function fetchLatestMemPalace(
@@ -115,37 +115,7 @@ export async function fetchLatestMemPalace(
 }
 
 export async function fetchJobs(demo: boolean): Promise<Job[]> {
-  if (demo) {
-    return [
-      {
-        job_id: "demo-job-1",
-        source: "MedJobs",
-        title: "Interventional Cardiologist",
-        institution: "Mayo Clinic",
-        location: "Rochester, MN",
-        salary: 350000,
-        specialties: ["Internal Medicine"],
-        required_base_specialty: "Internal Medicine",
-        required_subspecialty: "Interventional Cardiology",
-        description: "Leading interventional cardiology program. Fellowship-trained required.",
-        growth_potential: "HIGH",
-        posted_date: new Date().toISOString().slice(0, 10),
-      },
-      {
-        job_id: "demo-job-2",
-        source: "LinkedIn",
-        title: "Academic Hospitalist",
-        institution: "Johns Hopkins",
-        location: "Baltimore, MD",
-        salary: 280000,
-        specialties: ["Internal Medicine"],
-        required_base_specialty: "Internal Medicine",
-        description: "Academic hospital medicine with teaching. Internal Medicine trained.",
-        growth_potential: "HIGH",
-        posted_date: new Date().toISOString().slice(0, 10),
-      },
-    ];
-  }
+  if (demo) return [];
   const supabase = await createClient();
   const { data } = await supabase.from("jobs").select("*").order("posted_date", { ascending: false });
   return (data ?? []) as Job[];
@@ -239,8 +209,20 @@ export async function buildAnalyticsDashboard(
     cvMetrics?.bits_score != null ? Math.round(100 - cvMetrics.bits_score * 8) : undefined;
 
   const metric_history = buildMetricHistory(onboardingMeta, {
-    fulfillment: fulfillmentMetric?.status === "strong" ? 72 : fulfillmentMetric?.status === "developing" ? 55 : 40,
-    strain: strainMetric?.status === "strong" ? 72 : strainMetric?.status === "developing" ? 55 : 40,
+    fulfillment: fulfillmentMetric
+      ? fulfillmentMetric.status === "strong"
+        ? 72
+        : fulfillmentMetric.status === "developing"
+          ? 55
+          : 40
+      : undefined,
+    strain: strainMetric
+      ? strainMetric.status === "strong"
+        ? 72
+        : strainMetric.status === "developing"
+          ? 55
+          : 40
+      : undefined,
     alignment: alignmentPct,
     taskAlignment: taskAlignmentPct,
   });

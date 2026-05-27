@@ -17,6 +17,7 @@ export function MakHexMicButton({
   return (
     <button
       type="button"
+      data-preserve-radius
       onClick={onClick}
       disabled={disabled}
       title={recording ? "Recording…" : "Voice input"}

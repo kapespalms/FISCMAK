@@ -14,6 +14,7 @@ import {
   isTraineeCareerLevel,
   requiresAcademicRank,
   requiresGmePlacementFields,
+  PRIMARY_CAREER_TRACKS,
   type AcademicRank,
   type CareerLevel,
   type PracticeSetting,
@@ -58,6 +59,9 @@ export async function POST(request: Request) {
     current_rotation,
     specialty_origin,
     trainee_initials,
+    career_track_rankings,
+    subspecialty_interests,
+    uh_psych_enrichment_tracks,
   } = body as {
     name?: string;
     specialty?: string;
@@ -72,6 +76,14 @@ export async function POST(request: Request) {
     current_rotation?: string | null;
     specialty_origin?: string | null;
     trainee_initials?: string | null;
+    career_track_rankings?: Array<{
+      track: PrimaryCareerTrack;
+      rank: number;
+      hours_per_week?: number;
+      fte?: number;
+    }>;
+    subspecialty_interests?: string[];
+    uh_psych_enrichment_tracks?: string[];
   };
 
   const resolvedBase = base_specialty ?? specialty;
@@ -120,8 +132,26 @@ export async function POST(request: Request) {
   if (!resolvedPracticeSetting || !isValidPracticeSetting(resolvedPracticeSetting)) {
     return jsonOk({ error: "validation_error", message: "Select a practice setting." }, 400);
   }
-  if (!primary_career_track || !isValidCareerTrack(primary_career_track)) {
-    return jsonOk({ error: "validation_error", message: "Select a primary career track." }, 400);
+
+  const rankings = career_track_rankings ?? [];
+  const resolvedPrimaryTrack =
+    rankings.length > 0
+      ? [...rankings].sort((a, b) => a.rank - b.rank)[0]?.track
+      : primary_career_track;
+  if (!resolvedPrimaryTrack || !isValidCareerTrack(resolvedPrimaryTrack)) {
+    return jsonOk({ error: "validation_error", message: "Rank your career tracks." }, 400);
+  }
+  if (rankings.length > 0) {
+    const ranks = rankings.map((r) => r.rank);
+    const expected = PRIMARY_CAREER_TRACKS.map((_, i) => i + 1);
+    const validTracks = rankings.every((r) => isValidCareerTrack(r.track));
+    const uniqueRanks = new Set(ranks).size === ranks.length;
+    if (!validTracks || ranks.length !== PRIMARY_CAREER_TRACKS.length || !uniqueRanks) {
+      return jsonOk(
+        { error: "validation_error", message: "Assign a unique rank (1–8) to each career track." },
+        400,
+      );
+    }
   }
   if (requiresAcademicRank(resolvedPracticeSetting) && academic_rank && !isValidAcademicRank(academic_rank)) {
     return jsonOk({ error: "validation_error", message: "Select a valid academic rank." }, 400);
@@ -207,6 +237,11 @@ export async function POST(request: Request) {
     subspecialty_training_complete: specialtyFields.subspecialty_training_complete,
   });
 
+  const resolvedInitials =
+    priorMeta.trainee_initials?.trim().toUpperCase() ??
+    trainee_initials?.trim().toUpperCase() ??
+    null;
+
   const user = await upsertAppUser(
     auth.userId,
     auth.email,
@@ -217,7 +252,7 @@ export async function POST(request: Request) {
       practice_setting: resolvedPracticeSetting,
       institution: resolvedInstitution,
       academic_rank: requiresAcademicRank(resolvedPracticeSetting) ? (academic_rank ?? null) : null,
-      primary_career_track,
+      primary_career_track: resolvedPrimaryTrack,
       pgy_level: requiresGmePlacementFields(career_stage) ? (pgy_level ?? null) : null,
       current_rotation: requiresGmePlacementFields(career_stage) ? trimmedRotation : null,
       specialty_origin: isTraineeCareerLevel(career_stage) ? trimmedOrigin : null,
@@ -229,9 +264,15 @@ export async function POST(request: Request) {
         instrument_ids: instrumentIds,
         api_enrichment_plan: apiEnrichmentPlan(resolvedPracticeSetting, career_stage),
         instrument_answers: priorMeta.instrument_answers ?? [],
-        ...(trainee_initials?.trim()
-          ? { trainee_initials: trainee_initials.trim().toUpperCase() }
+        ...(resolvedInitials ? { trainee_initials: resolvedInitials } : {}),
+        ...(rankings.length ? { career_track_rankings: rankings } : {}),
+        ...(subspecialty_interests?.length
+          ? { subspecialty_interests: subspecialty_interests.filter(Boolean) }
           : {}),
+        ...(uh_psych_enrichment_tracks?.length
+          ? { uh_psych_enrichment_tracks: uh_psych_enrichment_tracks.filter(Boolean) }
+          : {}),
+        ...(institutionalProgram ? { call_schedule_note: "not_configured" } : {}),
         ...(updatedMembership ? { program_membership: updatedMembership } : {}),
         ...(narrativeAnchor ? { narrative_anchor: narrativeAnchor } : {}),
         ...(evaluationFramework

@@ -83,6 +83,10 @@ import {
   type ChatClassification,
 } from "@/lib/v2/classify-chat-message";
 import { hasActiveSubscription, isStripeConfigured } from "@/lib/v2/stripe-config";
+import {
+  forwardToMemPalaceService,
+  isMemPalaceExternalConfigured,
+} from "@/lib/v2/mempalace-external";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { AppSection, MakFlowIntent } from "@/lib/mak-sections";
 import {

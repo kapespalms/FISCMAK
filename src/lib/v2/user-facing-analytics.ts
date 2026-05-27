@@ -2,10 +2,17 @@ import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
 import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 
-/** Wellbeing slice only — Tier 2 instrument summaries for Perspective tab. */
+/** Wellbeing + CDI domain slices for dashboard and Perspective tab. */
 export type UserFacingCareerHealth = Pick<
   CareerHealthView,
-  "wellbeing_metrics" | "dashboard_title" | "aspiration_prompt" | "promotion_label"
+  | "wellbeing_metrics"
+  | "dashboard_title"
+  | "aspiration_prompt"
+  | "promotion_label"
+  | "domains"
+  | "career_health_score"
+  | "career_health_summary"
+  | "intro"
 >;
 
 export type UserFacingAssessmentInsights = Omit<
@@ -28,6 +35,10 @@ export function sanitizeCareerHealthForUser(
     dashboard_title: view.dashboard_title,
     aspiration_prompt: view.aspiration_prompt,
     promotion_label: view.promotion_label,
+    domains: view.domains,
+    career_health_score: view.career_health_score,
+    career_health_summary: view.career_health_summary,
+    intro: view.intro,
   };
 }
 
@@ -54,7 +65,7 @@ export function sanitizeAnalyticsDashboardForUser(
   return {
     ...dashboard,
     career_readiness_index: null,
-    previous_career_health_score: null,
+    previous_career_health_score: dashboard.previous_career_health_score,
     career_health: sanitizeCareerHealthForUser(dashboard.career_health) as AnalyticsDashboard["career_health"],
     cv_metrics: null,
     metric_history: {

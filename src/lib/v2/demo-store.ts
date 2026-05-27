@@ -1,5 +1,4 @@
 import type { ActivityEntry } from "@/lib/types/database";
-import { DEMO_ACTIVITIES } from "@/lib/activities-storage";
 import type {
   AppUser,
   CareerAssessment,
@@ -10,9 +9,6 @@ import type {
   NarrativeProgress,
   PromotionDossier,
 } from "@/lib/v2/types";
-import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
-import { demoCareerBoardSnapshot } from "@/lib/v2/career-board-models";
-import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
 
 const KEY = "fiscmak_v2_demo";
 
@@ -28,12 +24,12 @@ type DemoState = {
   narrativeProgress: NarrativeProgress[];
 };
 
-function defaultUser(): AppUser {
+function freshUser(userId: string, email = ""): AppUser {
   const now = new Date().toISOString();
   return {
-    user_id: "demo-user",
-    email: "demo@fiscmak.app",
-    name: "Demo Physician",
+    user_id: userId,
+    email: email || "demo@fiscmak.app",
+    name: null,
     specialty: null,
     base_specialty: null,
     subspecialty: null,
@@ -62,34 +58,39 @@ function defaultUser(): AppUser {
   };
 }
 
-function load(): DemoState {
-  const empty = (): DemoState => ({
-    user: defaultUser(),
+function emptyState(userId: string, email?: string): DemoState {
+  return {
+    user: freshUser(userId, email),
     assessments: [],
     documents: [],
-    activities: [...DEMO_ACTIVITIES],
+    activities: [],
     chatMessages: [],
     mempalace: null,
     jobMatches: [],
     dossiers: [],
     narrativeProgress: [],
-  });
-  if (typeof window === "undefined") return empty();
+  };
+}
+
+function load(): DemoState {
+  if (typeof window === "undefined") return emptyState("demo-user");
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Partial<DemoState>;
+      const base = emptyState(parsed.user?.user_id ?? "demo-user", parsed.user?.email);
       return {
-        ...empty(),
+        ...base,
         ...parsed,
-        activities: parsed.activities?.length ? parsed.activities : [...DEMO_ACTIVITIES],
+        user: { ...base.user, ...parsed.user },
+        activities: parsed.activities ?? [],
         narrativeProgress: parsed.narrativeProgress ?? [],
       };
     }
   } catch {
     /* ignore */
   }
-  return empty();
+  return emptyState("demo-user");
 }
 
 function save(state: DemoState) {
@@ -167,108 +168,14 @@ export const demoStore = {
   },
 };
 
-/** Server-side in-memory demo for API routes without Supabase */
+/** Server-side in-memory store for local dev without Supabase — starts empty like a new account. */
 const serverDemo = new Map<string, DemoState>();
-
-function dashboardReadyDemoUser(userId: string): AppUser {
-  const now = new Date().toISOString();
-  return {
-    user_id: userId,
-    email: "demo@fiscmak.app",
-    name: "Demo Physician",
-    specialty: "Internal Medicine",
-    base_specialty: "Internal Medicine",
-    subspecialty: null,
-    subspecialty_training_complete: false,
-    career_stage: "Early Career (0–7 yr)",
-    institution: "Demo Academic Medical Center",
-    cv_uploaded: true,
-    mempalace_id: null,
-    tier1_complete: true,
-    tier2_complete: true,
-    tier3_complete: true,
-    practice_setting: "Academic",
-    academic_rank: "Assistant Professor",
-    primary_career_track: "Educator",
-    pgy_level: null,
-    current_rotation: null,
-    specialty_origin: null,
-    content_pack: "early_attending",
-    primary_program_id: null,
-    onboarding_metadata: {
-      computed_at: now,
-      career_objective: "Program Director within 3 years",
-      goals_confirmed: true,
-      goals_confirmed_at: now,
-      enrichment_snapshot: {
-        run_id: "demo-enrichment",
-        completed_at: now,
-        trigger: "onboarding",
-        status: "completed",
-        sources: ["CV parse", "OpenAlex", "NIH RePORTER"],
-        publications_detected: 38,
-        citations_total: 412,
-        grants_detected: 3,
-        peer_reviews_detected: 12,
-        presentations_detected: 24,
-        committees_detected: 6,
-        courses_detected: 12,
-        awards_detected: 5,
-        changes_summary: "+2 publications, +1 grant since last quarter",
-        reconciliation_items: [],
-        npi_verified: true,
-        orcid: "0000-0002-1825-0097",
-        orcid_works_count: 38,
-      },
-      career_board: demoCareerBoardSnapshot(),
-    },
-    preferred_location: null,
-    salary_min: null,
-    salary_max: null,
-    created_at: now,
-    last_active: now,
-  };
-}
-
-function ensureDemoTouchpointReady(state: DemoState): DemoState {
-  const meta = getOnboardingMetadata(state.user);
-  if (touchpointsEligible(state.user, meta)) return state;
-
-  const ready = dashboardReadyDemoUser(state.user.user_id);
-  state.user = {
-    ...ready,
-    ...state.user,
-    tier1_complete: true,
-    tier2_complete: true,
-    tier3_complete: state.user.tier3_complete || true,
-    onboarding_metadata: {
-      ...(ready.onboarding_metadata as Record<string, unknown>),
-      ...((state.user.onboarding_metadata as Record<string, unknown> | null) ?? {}),
-      computed_at:
-        meta.computed_at ??
-        (ready.onboarding_metadata as { computed_at?: string })?.computed_at,
-    },
-  };
-  return state;
-}
 
 export function getServerDemo(userId: string): DemoState {
   if (!serverDemo.has(userId)) {
-    serverDemo.set(userId, {
-      user: dashboardReadyDemoUser(userId),
-      assessments: [],
-      documents: [],
-      activities: [...DEMO_ACTIVITIES],
-      chatMessages: [],
-      mempalace: null,
-      jobMatches: [],
-      dossiers: [],
-      narrativeProgress: [],
-    });
+    serverDemo.set(userId, emptyState(userId));
   }
-  const state = ensureDemoTouchpointReady(serverDemo.get(userId)!);
-  serverDemo.set(userId, state);
-  return state;
+  return serverDemo.get(userId)!;
 }
 
 export function addServerDemoActivity(userId: string, entry: ActivityEntry) {

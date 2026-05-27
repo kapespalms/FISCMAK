@@ -35,7 +35,7 @@ export function TechnicalDetailToggle({
             <dl className="space-y-1 text-xs">
               {entries.map(([key, value]) => (
                 <div key={key} className="flex gap-2">
-                  <dt className="shrink-0 font-mono text-cx-forest-dark/60">{key}:</dt>
+                  <dt className="shrink-0 font-futura-book tracking-wide text-cx-forest-dark/60">{key}:</dt>
                   <dd className="break-all text-cx-forest-dark">
                     {Array.isArray(value) ? value.join(", ") : String(value)}
                   </dd>

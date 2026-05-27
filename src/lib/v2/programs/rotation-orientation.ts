@@ -325,9 +325,10 @@ export function buildTraineeProgramBackgroundForMak(input: {
 }): string {
   if (!input.program) return "";
 
-  const pack = getRotationOrientationPack(input.currentRotation ?? null);
+  const fullContent = input.program.content_tier === "full";
+  const pack = fullContent ? getRotationOrientationPack(input.currentRotation ?? null) : null;
   const electiveContext =
-    input.program.slug === "uh-psych-cmc"
+    fullContent
       ? buildElectiveCatalogMakContext({
           pgyLevel: input.pgyLevel,
           currentRotation: input.currentRotation,
@@ -336,7 +337,7 @@ export function buildTraineeProgramBackgroundForMak(input: {
       : "";
 
   const clinicalGuideContext =
-    input.program.slug === "uh-psych-cmc"
+    fullContent
       ? buildClinicalGuidesMakContext({
           program: input.program,
           purpose: input.purpose,

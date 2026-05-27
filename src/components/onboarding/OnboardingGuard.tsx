@@ -30,7 +30,11 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
         if (cancelled || !user) return;
 
         if (!user.tier1_complete) {
-          window.location.assign("/app/onboarding");
+          const pending =
+            typeof sessionStorage !== "undefined"
+              ? sessionStorage.getItem("fiscmak_onboarding_next")
+              : null;
+          window.location.assign(pending ?? "/app/onboarding");
           return;
         }
 

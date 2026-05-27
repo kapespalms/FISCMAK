@@ -16,6 +16,11 @@ import {
   processAvatarFile,
 } from "@/lib/profile-avatar";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import {
+  combineName,
+  splitTrustedName,
+  trustedNameFromOAuthMetadata,
+} from "@/lib/auth/trusted-name";
 import type { Profile } from "@/lib/types/database";
 import { CAREER_LEVELS, type CareerLevel } from "@/lib/v2/onboarding-options";
 import {
@@ -29,10 +34,7 @@ import type { BoardProfileView } from "@/lib/v2/career-board-models";
 import type { AppUser } from "@/lib/v2/types";
 
 function splitName(full: string | null | undefined): { first: string; last: string } {
-  if (!full?.trim()) return { first: "", last: "" };
-  const parts = full.trim().split(/\s+/);
-  if (parts.length === 1) return { first: parts[0], last: "" };
-  return { first: parts[0], last: parts.slice(1).join(" ") };
+  return splitTrustedName(full);
 }
 
 export default function ProfilePage() {
@@ -64,6 +66,7 @@ export default function ProfilePage() {
     department_name: "",
     goals: "",
   });
+  const [namePrefilled, setNamePrefilled] = useState(false);
 
   function applySpecialtyFromUser(user: Pick<AppUser, "base_specialty" | "subspecialty" | "specialty" | "subspecialty_training_complete" | "career_stage">) {
     const normalized = user.base_specialty
@@ -104,11 +107,8 @@ export default function ProfilePage() {
         const meRes = await fetch("/api/v1/users/me");
         const me = (await meRes.json()) as AppUser & { institution?: string | null };
 
-        const { first, last } = splitName(me.name);
         setForm((f) => ({
           ...f,
-          first_name: first,
-          last_name: last,
           career_stage: (me.career_stage as CareerLevel) ?? f.career_stage,
           institution_name: me.institution ?? f.institution_name,
         }));
@@ -119,6 +119,17 @@ export default function ProfilePage() {
           const {
             data: { user },
           } = await supabase.auth.getUser();
+          const oauthName = trustedNameFromOAuthMetadata(
+            user?.user_metadata as Record<string, unknown> | undefined,
+          );
+          if (oauthName?.first) {
+            setForm((f) => ({
+              ...f,
+              first_name: oauthName.first,
+              last_name: oauthName.last,
+            }));
+            setNamePrefilled(true);
+          }
           if (user) {
             const { data } = await supabase
               .from("profiles")
@@ -127,14 +138,24 @@ export default function ProfilePage() {
               .maybeSingle();
             if (data) {
               const p = data as Profile;
-              setForm((f) => ({
-                ...f,
-                first_name: p.first_name ?? f.first_name,
-                last_name: p.last_name ?? f.last_name,
-                institution_name: p.institution_name ?? f.institution_name,
-                department_name: p.department_name ?? "",
-                goals: p.goals ?? "",
-              }));
+              if (p.first_name?.trim()) {
+                setForm((f) => ({
+                  ...f,
+                  first_name: p.first_name ?? f.first_name,
+                  last_name: p.last_name ?? f.last_name,
+                  institution_name: p.institution_name ?? f.institution_name,
+                  department_name: p.department_name ?? "",
+                  goals: p.goals ?? "",
+                }));
+                setNamePrefilled(true);
+              } else {
+                setForm((f) => ({
+                  ...f,
+                  institution_name: p.institution_name ?? f.institution_name,
+                  department_name: p.department_name ?? "",
+                  goals: p.goals ?? "",
+                }));
+              }
               if (p.photo_url && !getProfileAvatarUrl()) {
                 setAvatarUrl(p.photo_url);
               }
@@ -142,6 +163,12 @@ export default function ProfilePage() {
                 applySpecialtyFromUser({ ...me, specialty: p.specialty });
               }
             }
+          }
+        } else if (me.name?.trim() && me.tier1_complete) {
+          const { first, last } = splitName(me.name);
+          if (first) {
+            setForm((f) => ({ ...f, first_name: first, last_name: last }));
+            setNamePrefilled(true);
           }
         }
       } catch {
@@ -208,7 +235,7 @@ export default function ProfilePage() {
       return;
     }
 
-    const fullName = `${form.first_name} ${form.last_name}`.trim();
+    const fullName = combineName(form.first_name, form.last_name);
     const meRes = await fetch("/api/v1/users/me", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -259,7 +286,6 @@ export default function ProfilePage() {
     <PageShell
       eyebrow="Account"
       title="Profile"
-      subtitle="Onboarding and career context"
       maxWidth="md"
     >
       {error && (
@@ -314,6 +340,7 @@ export default function ProfilePage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, first_name: e.target.value }))
                 }
+                readOnly={namePrefilled}
               />
               <Input
                 label="Last name"
@@ -322,8 +349,14 @@ export default function ProfilePage() {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, last_name: e.target.value }))
                 }
+                readOnly={namePrefilled}
               />
             </div>
+            {namePrefilled && (
+              <p className="text-xs text-cx-forest-dark/60">
+                Pre-filled from your sign-in or program roster.
+              </p>
+            )}
 
             <SpecialtyIntakeFields
               baseSpecialty={baseSpecialty}

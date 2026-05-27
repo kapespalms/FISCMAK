@@ -30,7 +30,7 @@ export function CoachMakMark({ size = 32, className }: CoachMakMarkProps) {
         fill="#ffffff"
         fontSize="13"
         fontWeight="700"
-        fontFamily="ui-sans-serif, system-ui, sans-serif"
+        fontFamily="var(--font-futura-pt-bold), 'Futura PT', sans-serif"
       >
         C
       </text>

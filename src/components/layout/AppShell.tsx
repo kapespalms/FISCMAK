@@ -65,6 +65,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const isMobile = useIsMobile();
   const section = sectionFromPath(pathname);
+  const isOnboardingRoute = pathname.startsWith("/app/onboarding");
   const [makOpen, setMakOpen] = useState(false);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const [onboardingActive, setOnboardingActive] = useState(false);
@@ -82,13 +83,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   } | null>(null);
 
   useEffect(() => {
+    if (isOnboardingRoute) {
+      setMakOpen(false);
+      return;
+    }
     const mobile = window.matchMedia("(max-width: 767px)").matches;
     setMakOpen(mobile ? false : loadMakPanelOpen(true));
-  }, []);
+  }, [isOnboardingRoute]);
 
   useEffect(() => {
+    if (isOnboardingRoute) return;
     saveMakPanelOpen(makOpen);
-  }, [makOpen]);
+  }, [makOpen, isOnboardingRoute]);
 
   useEffect(() => {
     fetch("/api/v1/onboarding/status")
@@ -141,20 +147,24 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       });
       setFlowNonce((n) => n + 1);
       if (autoMessage?.trim()) setPendingInitialMessage(autoMessage.trim());
-      setMakOpen(true);
+      if (!pathname.startsWith("/app/onboarding")) {
+        setMakOpen(true);
+        if (!isMobile) focusMakInput();
+      }
       if (navigateTo) router.push(navigateTo);
-      if (!isMobile) focusMakInput();
     },
-    [router, focusMakInput, isMobile],
+    [router, focusMakInput, isMobile, pathname],
   );
 
   const openMakWithMessage = useCallback(
     (message?: string, navigateTo?: string) => {
       if (message?.trim()) setPendingInitialMessage(message.trim());
-      setMakOpen(true);
+      if (!pathname.startsWith("/app/onboarding")) {
+        setMakOpen(true);
+      }
       if (navigateTo) router.push(navigateTo);
     },
-    [router],
+    [router, pathname],
   );
 
   const value = useMemo(
@@ -187,25 +197,27 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <AppShellContext.Provider value={value}>
       <div className="flex h-screen overflow-hidden bg-cx-forest-dark">
-        <div className="flex h-full shrink-0">
-          <IconSidebar />
-          <MakPanel
-            open={makOpen}
-            pendingFlow={pendingFlow}
-            flowNonce={flowNonce}
-            onFlowHandled={() => setPendingFlow(null)}
-            onClose={closeMak}
-            onboardingActive={onboardingActive}
-            onOpenTour={() => setTourOpen(true)}
-            initialMessage={pendingInitialMessage}
-            onInitialMessageHandled={() => setPendingInitialMessage(null)}
-          />
-        </div>
+        {!isOnboardingRoute && (
+          <div className="flex h-full shrink-0">
+            <IconSidebar />
+            <MakPanel
+              open={makOpen}
+              pendingFlow={pendingFlow}
+              flowNonce={flowNonce}
+              onFlowHandled={() => setPendingFlow(null)}
+              onClose={closeMak}
+              onboardingActive={onboardingActive}
+              onOpenTour={() => setTourOpen(true)}
+              initialMessage={pendingInitialMessage}
+              onInitialMessageHandled={() => setPendingInitialMessage(null)}
+            />
+          </div>
+        )}
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
         <div className="cx-main-shell flex min-w-0 flex-1 flex-col">
           <TopNavBar />
           <AnalyticsProvider>
-            <main className="min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
+            <main className="font-futura-book min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
               {children}
             </main>
           </AnalyticsProvider>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ContactFormCard } from "@/components/marketing/ContactFormCard";
+import { ContactFormPopover } from "@/components/marketing/ContactFormPopover";
 
 const footerLinks = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -11,9 +11,9 @@ const footerLinks = [
 
 export function MarketingFooter() {
   return (
-    <footer id="contact" aria-label="Footer navigation" className="overflow-visible bg-black">
-      <div className="px-6 pb-10 pt-12 sm:pl-[12%] md:px-10 md:pl-[20%] md:pb-12 md:pt-16">
-        <ContactFormCard />
+    <footer id="contact" aria-label="Footer navigation" className="relative overflow-visible bg-black">
+      <div className="relative px-6 pt-10 md:px-10 md:pt-14">
+        <ContactFormPopover className="pb-4" />
       </div>
 
       <div className="border-t border-white/20" aria-hidden />
@@ -46,7 +46,7 @@ export function MarketingFooter() {
             <span className="text-marketing-accent">MAK</span>
           </Link>
 
-          <p className="font-futura-condensed text-sm text-gray-500">
+          <p className="font-futura-medium text-sm text-gray-500">
             © {new Date().getFullYear()} FISCMAK
           </p>
         </div>
