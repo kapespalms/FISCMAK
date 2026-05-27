@@ -1,6 +1,6 @@
 export type LatticeTimeframe = "30d" | "90d" | "1y" | "all";
 
-export type LatticeEvidenceSource = "activity" | "document";
+export type LatticeEvidenceSource = "activity" | "document" | "schedule" | "rotation";
 
 export type LatticeEvidence = {
   id: string;
@@ -44,5 +44,7 @@ export type LatticeDashboardResponse = {
   evidence_total: number;
   document_evidence_count: number;
   activity_evidence_count: number;
+  schedule_evidence_count: number;
+  rotation_evidence_count: number;
   parsed_at: string;
 };

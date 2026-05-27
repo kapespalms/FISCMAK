@@ -70,13 +70,37 @@ export function DashboardWorkspace() {
   const [scheduleBlocks, setScheduleBlocks] = useState<
     import("@/components/dashboard/ResidentScheduleCalendar").ScheduleBlock[]
   >([]);
+  const [scheduleUserEvents, setScheduleUserEvents] = useState<
+    import("@/lib/v2/schedule-calendar/types").UserScheduleEvent[]
+  >([]);
   const [scheduleProgramLabel, setScheduleProgramLabel] = useState<string | null>(null);
+  const [scheduleCalendarEnabled, setScheduleCalendarEnabled] = useState(false);
+
+  function refreshSchedule() {
+    return fetch("/api/v1/onboarding/schedule")
+      .then((r) => r.json())
+      .then((schedule) => {
+        if (schedule.enabled) {
+          setScheduleBlocks(schedule.blocks ?? []);
+          setScheduleUserEvents(schedule.user_events ?? []);
+          setScheduleProgramLabel(schedule.program_label ?? null);
+          setScheduleCalendarEnabled(true);
+        }
+      })
+      .catch(() => undefined);
+  }
 
   useEffect(() => {
     void fetchGoals().then(setGoals);
     const onGoalsUpdated = () => void fetchGoals().then(setGoals);
     window.addEventListener("fiscmak:goals-updated", onGoalsUpdated);
     return () => window.removeEventListener("fiscmak:goals-updated", onGoalsUpdated);
+  }, []);
+
+  useEffect(() => {
+    const onScheduleUpdated = () => void refreshSchedule();
+    window.addEventListener("fiscmak:schedule-updated", onScheduleUpdated);
+    return () => window.removeEventListener("fiscmak:schedule-updated", onScheduleUpdated);
   }, []);
 
   useEffect(() => {
@@ -93,9 +117,11 @@ export function DashboardWorkspace() {
           name: me.name ?? status.name,
         });
         setInstitutionalProgramSlug(touchpoint.onboarding?.program_slug ?? null);
-        if (schedule.enabled && schedule.blocks?.length) {
-          setScheduleBlocks(schedule.blocks);
+        if (schedule.enabled) {
+          setScheduleBlocks(schedule.blocks ?? []);
+          setScheduleUserEvents(schedule.user_events ?? []);
           setScheduleProgramLabel(schedule.program_label ?? null);
+          setScheduleCalendarEnabled(true);
         }
         if (
           status.tier3_complete &&
@@ -315,7 +341,9 @@ export function DashboardWorkspace() {
               onDueNowContinue={handleDueNowContinue}
               institutionalProgramSlug={institutionalProgramSlug}
               scheduleBlocks={scheduleBlocks}
+              scheduleUserEvents={scheduleUserEvents}
               scheduleProgramLabel={scheduleProgramLabel}
+              scheduleCalendarEnabled={scheduleCalendarEnabled}
             />
           </>
         )}

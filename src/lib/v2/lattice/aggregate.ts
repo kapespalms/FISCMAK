@@ -10,6 +10,7 @@ import {
 import { resolveActivityLatticePlacement } from "@/lib/v2/lattice/activity-normalize";
 import { resolveCachedDocumentEvidence } from "@/lib/v2/lattice/document-cache";
 import type { LatticeDocumentCache } from "@/lib/v2/lattice/document-cache";
+import { buildScheduleLatticeEvidence } from "@/lib/v2/lattice/schedule-lattice-evidence";
 import type {
   LatticeCellMetrics,
   LatticeDashboardResponse,
@@ -17,6 +18,7 @@ import type {
   LatticeGridModel,
   LatticeTimeframe,
 } from "@/lib/v2/lattice/types";
+import type { ScheduleBlock, UserScheduleEvent } from "@/lib/v2/schedule-calendar/types";
 
 function timeframeStart(tf: LatticeTimeframe): Date | null {
   if (tf === "all") return null;
@@ -139,6 +141,8 @@ export function buildLatticeDashboard(input: {
   timeframe: LatticeTimeframe;
   isTrainee: boolean;
   documentCache?: LatticeDocumentCache;
+  scheduleEvents?: UserScheduleEvent[];
+  programBlocks?: ScheduleBlock[];
 }): {
   dashboard: LatticeDashboardResponse;
   documentCache: LatticeDocumentCache;
@@ -149,7 +153,12 @@ export function buildLatticeDashboard(input: {
     input.documentCache,
   );
   const activityEvidence = activitiesToEvidence(input.activities);
-  const all = [...activityEvidence, ...docEvidence].filter((e) =>
+  const scheduleEvidence = buildScheduleLatticeEvidence({
+    scheduleEvents: input.scheduleEvents ?? [],
+    programBlocks: input.programBlocks ?? [],
+    timeframe: input.timeframe,
+  });
+  const all = [...activityEvidence, ...docEvidence, ...scheduleEvidence].filter((e) =>
     inTimeframe(e.date, input.timeframe),
   );
 
@@ -162,6 +171,8 @@ export function buildLatticeDashboard(input: {
       evidence_total: all.length,
       document_evidence_count: all.filter((e) => e.source === "document").length,
       activity_evidence_count: all.filter((e) => e.source === "activity").length,
+      schedule_evidence_count: all.filter((e) => e.source === "schedule").length,
+      rotation_evidence_count: all.filter((e) => e.source === "rotation").length,
       parsed_at: new Date().toISOString(),
     },
     documentCache: cache,

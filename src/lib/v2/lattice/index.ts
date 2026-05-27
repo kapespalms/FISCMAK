@@ -5,4 +5,4 @@ export * from "./activity-normalize";
 export * from "./document-parser";
 export * from "./document-cache";
 export * from "./aggregate";
-export * from "./cell-styles";
+export * from "./schedule-lattice-evidence";

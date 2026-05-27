@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { DashboardDueNow, type DashboardDueItem } from "@/components/dashboard/DashboardDueNow";
+import { CoachingCadencePanel } from "@/components/dashboard/CoachingCadencePanel";
 import { DashboardAlerts } from "@/components/dashboard/DashboardAlerts";
 import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
 import { DashboardMakButton } from "@/components/dashboard/DashboardMakButton";
 import { ProfileSummaryCard } from "@/components/dashboard/ProfileSummaryCard";
 import { TouchpointProgressStrip } from "@/components/dashboard/TouchpointProgressStrip";
+import type { UserScheduleEvent } from "@/lib/v2/schedule-calendar/types";
 import {
   ResidentScheduleCalendar,
   type ScheduleBlock,
@@ -32,7 +34,9 @@ type DashboardWelcomeProps = {
   onDueNowContinue?: () => void;
   institutionalProgramSlug?: string | null;
   scheduleBlocks?: ScheduleBlock[];
+  scheduleUserEvents?: UserScheduleEvent[];
   scheduleProgramLabel?: string | null;
+  scheduleCalendarEnabled?: boolean;
 };
 
 export function DashboardWelcome({
@@ -50,7 +54,9 @@ export function DashboardWelcome({
   onDueNowContinue,
   institutionalProgramSlug,
   scheduleBlocks = [],
+  scheduleUserEvents = [],
   scheduleProgramLabel,
+  scheduleCalendarEnabled = false,
 }: DashboardWelcomeProps) {
   const salutation = timeOfDayGreeting();
 
@@ -82,18 +88,22 @@ export function DashboardWelcome({
               Program resources…
             </option>
             <option value="/app/rotations">All rotations (Inpatient / Outpatient)</option>
+            <option value="/app/calendar">Full schedule calendar</option>
           </select>
         </div>
       )}
 
-      {scheduleBlocks.length > 0 && (
+      {scheduleCalendarEnabled && (
         <div className="mt-4">
           <ResidentScheduleCalendar
             blocks={scheduleBlocks}
+            userEvents={scheduleUserEvents}
             programLabel={scheduleProgramLabel ?? undefined}
           />
         </div>
       )}
+
+      <CoachingCadencePanel />
 
       <div className="mt-4 grid items-start gap-4 md:grid-cols-2">
         <ProfileSummaryCard

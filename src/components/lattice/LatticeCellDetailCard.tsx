@@ -15,6 +15,19 @@ function energyLabel(energy: string | null): string {
   return energy.replace(/_/g, " ");
 }
 
+function evidenceSourceLabel(source: LatticeCellMetrics["evidence"][number]["source"]): string {
+  switch (source) {
+    case "document":
+      return "Document";
+    case "schedule":
+      return "Calendar";
+    case "rotation":
+      return "Rotation";
+    default:
+      return "Activity";
+  }
+}
+
 export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
   const title =
     latticeKind === "fiscmak"
@@ -74,8 +87,8 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
           </div>
         ) : (
           <p className="mt-4 text-sm text-cx-forest-dark/75">
-            No evidence mapped here yet. Log activities or upload career documents — Mak will map
-            skills and tasks through the ontology when they match this cell.
+            No evidence mapped here yet. Log activities, add calendar events with Coach Mak, or
+            upload career documents — mapped skills and tasks will appear when they match this cell.
           </p>
         )}
 
@@ -87,7 +100,7 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
                 className="rounded-lg border border-cx-forest-dark/10 bg-cx-cream/40 p-3"
               >
                 <div className="flex flex-wrap items-center gap-2 text-[11px] font-medium uppercase tracking-wide text-cx-forest-dark/50">
-                  <span>{item.source === "document" ? "Document" : "Activity"}</span>
+                  <span>{evidenceSourceLabel(item.source)}</span>
                   {item.date ? <span>{item.date}</span> : null}
                   {item.developmentLevel > 0 ? (
                     <span>Level {item.developmentLevel}</span>

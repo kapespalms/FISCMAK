@@ -107,6 +107,14 @@ export type OnboardingMetadata = {
   subspecialty_interests?: string[];
   uh_psych_enrichment_tracks?: string[];
   call_schedule_note?: string | null;
+  schedule_color_overrides?: Record<string, string>;
+  schedule_dashboard_span?: 1 | 3 | 6 | 9 | 12;
+  schedule_events?: import("@/lib/v2/schedule-calendar/types").UserScheduleEvent[];
+  schedule_mak_session?: import("@/lib/v2/schedule-mak-flow").ScheduleMakSession;
+  schedule_review_cadence?: import("@/lib/v2/coaching-cadence").ScheduleReviewCadence;
+  schedule_review_session?: import("@/lib/v2/schedule-review-mak-flow").ScheduleReviewSession;
+  schedule_review_history?: import("@/lib/v2/coaching-cadence").ScheduleReviewHistoryEntry[];
+  rotation_touchpoint_history?: import("@/lib/v2/coaching-cadence").RotationTouchpointHistoryEntry[];
   invite_token?: string;
   invite_slot_number?: number;
   program_membership?: import("@/lib/v2/programs/program-membership").ProgramMembershipRecord;

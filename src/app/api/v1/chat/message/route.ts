@@ -153,6 +153,26 @@ import {
   processGrowExplorationTurn,
 } from "@/lib/v2/grow-exploration-mak-flow";
 import { buildGrowExplorationIntro } from "@/lib/v2/career-coaching-frameworks";
+import {
+  buildScheduleEventsIntro,
+  buildScheduleMakSystemContext,
+  buildScheduleMemoryContext,
+  buildScheduleEventSavedAck,
+  extractScheduleEventFromAssistantResponse,
+  initScheduleMakSession,
+} from "@/lib/v2/schedule-mak-flow";
+import { listBlocksForTrainee } from "@/lib/v2/programs/block-schedule";
+import { lookupInviteTokenForUser } from "@/lib/v2/programs/invite-tokens";
+import {
+  buildCoachingCadenceView,
+  type ReviewableEvent,
+} from "@/lib/v2/coaching-cadence";
+import {
+  buildScheduleReviewIntro,
+  buildScheduleReviewMakSystemContext,
+  initScheduleReviewSession,
+  processScheduleReviewTurn,
+} from "@/lib/v2/schedule-review-mak-flow";
 
 const API_GREETING_TOKENS = new Set([
   "__welcome__",
@@ -168,9 +188,28 @@ const API_GREETING_TOKENS = new Set([
   "__board_awareness__",
   "__board_building__",
   "__grow_exploration__",
+  "__schedule_events__",
+  "__schedule_review__",
+  "__rotation_touchpoint__",
 ]);
 
 type HistoryTurn = { role: "user" | "assistant"; content: string };
+
+async function resolveProgramBlocksForUser(
+  userId: string,
+  meta: ReturnType<typeof getOnboardingMetadata>,
+) {
+  let initials = meta.trainee_initials?.trim().toUpperCase() ?? "";
+  if (!initials) {
+    const tokenRow = await lookupInviteTokenForUser(userId, meta.invite_token);
+    initials = tokenRow?.trainee_initials?.trim().toUpperCase() ?? "";
+  }
+  return initials ? listBlocksForTrainee(initials) : [];
+}
+
+function isReviewEventToken(message: string): boolean {
+  return /^__review_event:[a-zA-Z0-9_-]+__$/.test(message);
+}
 
 export async function POST(request: Request) {
   const auth = await requireApiUser();
@@ -383,14 +422,58 @@ export async function POST(request: Request) {
   }
 
   let debriefTurn: { response: string; suggested_actions: { action: string; url: string }[]; meta: typeof activeMeta; complete: boolean } | null = null;
+  let scheduleReviewTurn: import("@/lib/v2/schedule-review-mak-flow").ScheduleReviewTurnResult | null = null;
+  let scheduleEventSaved: import("@/lib/v2/schedule-calendar/types").UserScheduleEvent | null = null;
+  let coachingCadenceUpdated = false;
 
   if (
     user &&
     message &&
+    !API_GREETING_TOKENS.has(message) &&
+    !isReviewEventToken(message) &&
+    activeMeta.schedule_review_session
+  ) {
+    const turn = processScheduleReviewTurn({
+      message,
+      meta: activeMeta,
+    });
+    scheduleReviewTurn = turn;
+    activeMeta = turn.meta;
+    coachingCadenceUpdated = turn.complete;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    isReviewEventToken(message) &&
+    activeMeta.schedule_review_session
+  ) {
+    const turn = processScheduleReviewTurn({
+      message,
+      meta: activeMeta,
+    });
+    scheduleReviewTurn = turn;
+    activeMeta = turn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  } else if (
+    user &&
+    message &&
     message !== "__welcome__" &&
     message !== "__rotation_debrief__" &&
-    message !== "__narrative_anchor__" &&
-    flowIntent === "rotation_debrief" &&
+    message !== "__rotation_touchpoint__" &&
+    !isReviewEventToken(message) &&
+    message !== "__schedule_review__" &&
+    (flowIntent === "rotation_debrief" || activeMeta.rotation_debrief_session) &&
     activeMeta.rotation_debrief_session
   ) {
     const turn = processRotationDebriefTurn({
@@ -400,6 +483,7 @@ export async function POST(request: Request) {
     });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -421,6 +505,7 @@ export async function POST(request: Request) {
     });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -474,6 +559,7 @@ export async function POST(request: Request) {
     const turn = processPromotionContextTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -490,6 +576,7 @@ export async function POST(request: Request) {
     const turn = processAttendingQuarterlyTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -506,6 +593,7 @@ export async function POST(request: Request) {
     const turn = processImpactTranslationTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -543,6 +631,7 @@ export async function POST(request: Request) {
     const turn = processCareerPivotTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -559,6 +648,7 @@ export async function POST(request: Request) {
     const turn = processCareerPivotTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -585,6 +675,7 @@ export async function POST(request: Request) {
     const turn = processPivotQuarterlyTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -601,6 +692,7 @@ export async function POST(request: Request) {
     const turn = processPivotQuarterlyTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -624,6 +716,7 @@ export async function POST(request: Request) {
     const turn = processIdentityNavigationTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -640,6 +733,7 @@ export async function POST(request: Request) {
     const turn = processIdentityNavigationTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -663,6 +757,7 @@ export async function POST(request: Request) {
     const turn = processBoardAwarenessTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -679,6 +774,7 @@ export async function POST(request: Request) {
     const turn = processBoardAwarenessTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -707,6 +803,7 @@ export async function POST(request: Request) {
     });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -728,6 +825,7 @@ export async function POST(request: Request) {
     });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -751,6 +849,7 @@ export async function POST(request: Request) {
     const turn = processGrowExplorationTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -767,6 +866,7 @@ export async function POST(request: Request) {
     const turn = processGrowExplorationTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -783,6 +883,7 @@ export async function POST(request: Request) {
     const turn = processCareerTranslationTurn({ message, meta: activeMeta });
     debriefTurn = turn;
     activeMeta = turn.meta;
+    coachingCadenceUpdated = coachingCadenceUpdated || turn.complete;
     await upsertAppUser(
       auth.userId,
       auth.email,
@@ -1036,7 +1137,10 @@ export async function POST(request: Request) {
         auth.demo,
       );
     }
-    response = buildRotationDebriefIntro(rotationName ?? activeMeta.rotation_debrief_session?.rotation_name);
+    response = buildRotationDebriefIntro(
+      rotationName ?? activeMeta.rotation_debrief_session?.rotation_name,
+      activeMeta.rotation_debrief_session?.phase ?? "end",
+    );
     suggested_actions = [{ action: "Set narrative anchor first", url: "/app/subjective" }];
   } else if (message === "__narrative_anchor__" && user) {
     if (!activeMeta.narrative_anchor_session) {
@@ -1175,6 +1279,108 @@ export async function POST(request: Request) {
     }
     response = buildGrowExplorationIntro();
     suggested_actions = [{ action: "Set goals with Mak", url: "/app/plan" }];
+  } else if (message === "__schedule_events__" && user) {
+    if (!activeMeta.schedule_mak_session) {
+      activeMeta = initScheduleMakSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+    const initials = activeMeta.trainee_initials?.trim().toUpperCase() ?? "";
+    const programBlocks = initials ? listBlocksForTrainee(initials) : [];
+    response = buildScheduleEventsIntro(programBlocks.length > 0);
+    suggested_actions = [{ action: "Open calendar", url: "/app/calendar" }];
+  } else if (
+    user &&
+    (message === "__schedule_review__" || isReviewEventToken(message))
+  ) {
+    const programBlocks = await resolveProgramBlocksForUser(auth.userId, activeMeta);
+    const cadenceView = buildCoachingCadenceView({
+      meta: activeMeta,
+      scheduleEvents: activeMeta.schedule_events ?? [],
+      programBlocks,
+    });
+    const review = cadenceView.schedule_review;
+    if (!review) {
+      response =
+        "No grouped events are ready for review yet. Add calendar events with + Events, or check back after your next rotation block.";
+      suggested_actions = [{ action: "Add events", url: "/app/calendar" }];
+    } else {
+      const focusMatch = message.match(/^__review_event:([a-zA-Z0-9_-]+)__$/);
+      const focusId = focusMatch?.[1];
+      activeMeta = initScheduleReviewSession(activeMeta, {
+        cadence: review.cadence,
+        period_start: review.period_start,
+        period_end: review.period_end,
+        events: review.events,
+        focus_event_id: focusId,
+      });
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+      if (focusId) {
+        const turn = processScheduleReviewTurn({
+          message,
+          meta: activeMeta,
+          events: review.events,
+        });
+        scheduleReviewTurn = turn;
+        activeMeta = turn.meta;
+        response = turn.response;
+        suggested_actions = turn.suggested_actions;
+        await upsertAppUser(
+          auth.userId,
+          auth.email,
+          { onboarding_metadata: activeMeta as Record<string, unknown> },
+          auth.demo,
+        );
+      } else {
+        const cadenceLabel =
+          review.cadence === "weekly"
+            ? "Weekly"
+            : review.cadence === "monthly"
+              ? "Monthly"
+              : "Biweekly";
+        response = buildScheduleReviewIntro(
+          review.events,
+          cadenceLabel,
+          review.period_start,
+          review.period_end,
+        );
+        suggested_actions = [{ action: "Open Career Map", url: "/app/objective?tab=lattice" }];
+      }
+    }
+  } else if (message === "__rotation_touchpoint__" && user) {
+    const programBlocks = await resolveProgramBlocksForUser(auth.userId, activeMeta);
+    const touchpoint = buildCoachingCadenceView({
+      meta: activeMeta,
+      scheduleEvents: activeMeta.schedule_events ?? [],
+      programBlocks,
+    }).rotation_touchpoint;
+    if (!touchpoint) {
+      response = "No rotation touchpoint is due on your block schedule right now.";
+      suggested_actions = [{ action: "View calendar", url: "/app/calendar" }];
+    } else {
+      activeMeta = initRotationDebriefSession(activeMeta, touchpoint.rotation_label, {
+        phase: touchpoint.phase,
+        block_id: touchpoint.block_id,
+        rotation_code: touchpoint.rotation_code,
+      });
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+      response = buildRotationDebriefIntro(touchpoint.rotation_label, touchpoint.phase);
+      suggested_actions = [{ action: "Open Career Map", url: "/app/objective?tab=lattice" }];
+    }
   } else if (message === "__welcome__" && user) {
     const welcomeMeta = getOnboardingMetadata(user);
     if (
@@ -1201,6 +1407,9 @@ export async function POST(request: Request) {
       { action: "Continue assessment", url: "/app/onboarding?step=instruments" },
       { action: "Use form instead", url: "/app/onboarding?step=reconcile" },
     ];
+  } else if (scheduleReviewTurn) {
+    response = scheduleReviewTurn.response;
+    suggested_actions = scheduleReviewTurn.suggested_actions;
   } else if (debriefTurn) {
     response = debriefTurn.response;
     suggested_actions = debriefTurn.suggested_actions;
@@ -1326,6 +1535,7 @@ export async function POST(request: Request) {
 
     const contextBlock = [
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
+      buildScheduleMemoryContext(activeMeta),
       programMakContext,
       traineeProgramBackground,
       userOutputTemplateContext,
@@ -1370,6 +1580,21 @@ export async function POST(request: Request) {
         : "",
       activeMeta.grow_exploration_session
         ? buildGrowExplorationMakSystemContext(activeMeta)
+        : "",
+      activeMeta.schedule_mak_session
+        ? buildScheduleMakSystemContext(activeMeta, {
+            blocks:
+              activeMeta.trainee_initials?.trim()
+                ? listBlocksForTrainee(activeMeta.trainee_initials.trim().toUpperCase())
+                : [],
+            careerStage: user?.career_stage ?? undefined,
+          })
+        : "",
+      activeMeta.schedule_review_session
+        ? buildScheduleReviewMakSystemContext(
+            activeMeta,
+            activeMeta.schedule_review_session.events ?? [],
+          )
         : "",
       activeMeta.attending_quarterly_session
         ? buildAttendingQuarterlyMakSystemContext(activeMeta)
@@ -1470,6 +1695,21 @@ export async function POST(request: Request) {
       }
     }
 
+    if (activeMeta.schedule_mak_session && response && !debriefTurn) {
+      const extracted = extractScheduleEventFromAssistantResponse(response, activeMeta);
+      response = extracted.response;
+      if (extracted.saved) {
+        activeMeta = extracted.meta;
+        scheduleEventSaved = extracted.saved;
+        await upsertAppUser(
+          auth.userId,
+          auth.email,
+          { onboarding_metadata: activeMeta as Record<string, unknown> },
+          auth.demo,
+        );
+      }
+    }
+
     if (escalation?.suggestedActions?.length) {
       suggested_actions = escalation.suggestedActions.map((a) => ({
         action: a.action,
@@ -1504,6 +1744,12 @@ export async function POST(request: Request) {
     suggested_actions = [
       { action: "View activities", url: "/app/objective?tab=activities" },
       { action: "Capture another", url: "/app/dashboard" },
+    ];
+  } else if (scheduleEventSaved) {
+    response = `${response}${buildScheduleEventSavedAck(scheduleEventSaved)}`;
+    suggested_actions = [
+      { action: "Open calendar", url: "/app/calendar" },
+      { action: "Add another event", url: "/app/calendar" },
     ];
   } else if (touchpointNextPrompt) {
     response = `${response}\n\n---\n\n${touchpointNextPrompt}`;
@@ -1597,6 +1843,8 @@ export async function POST(request: Request) {
         goalSettingTurn?.goals?.length ||
         goalSettingTurn?.meta.stored_goals?.length,
     ),
+    schedule_updated: Boolean(scheduleEventSaved),
+    coaching_cadence_updated: coachingCadenceUpdated,
     goals: goalSettingTurn?.goals ?? null,
     tier: isPremium ? "premium" : "free",
     upgrade_prompt,

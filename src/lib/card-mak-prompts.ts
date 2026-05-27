@@ -90,6 +90,15 @@ export const OBJECTIVE_MAK = {
         : "I'd like to debrief a rotation I just finished.",
       { navigateTo: "/app/objective?tab=activities" },
     ),
+  rotationTouchpoint: (title: string) =>
+    makDiscuss(
+      "rotation_debrief",
+      title,
+      {
+        navigateTo: "/app/dashboard",
+        autoMessage: "__rotation_touchpoint__",
+      },
+    ),
   narrativeAnchor: makDiscuss(
     "narrative_anchor",
     "Help me set my narrative anchor — specialty direction, origin story, and what I want to contribute.",
@@ -442,5 +451,27 @@ export const SETTINGS_MAK = {
     "discuss",
     "Explain my data privacy options and what my institution can see.",
     { navigateTo: "/app/settings" },
+  ),
+} as const;
+
+/** Dashboard & full calendar — scheduling with Coach Mak */
+export const SCHEDULE_MAK = {
+  addEvent: makDiscuss(
+    "discuss",
+    "Help me add events to my schedule.",
+    {
+      label: "+ Events",
+      navigateTo: "/app/calendar",
+      autoMessage: "__schedule_events__",
+    },
+  ),
+  reviewPeriod: makDiscuss(
+    "discuss",
+    "Let's review my recent schedule events together.",
+    {
+      label: "Review schedule",
+      navigateTo: "/app/dashboard",
+      autoMessage: "__schedule_review__",
+    },
   ),
 } as const;

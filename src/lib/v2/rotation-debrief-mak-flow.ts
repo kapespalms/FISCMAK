@@ -10,6 +10,9 @@ import {
 
 export type RotationDebriefSession = {
   rotation_name?: string;
+  rotation_code?: string;
+  block_id?: string;
+  phase?: "start" | "mid" | "end";
   step_index: number;
   layer: DebriefLayer;
   layer_question_index: number;
@@ -20,6 +23,9 @@ export type RotationDebriefSession = {
 export type RotationDebriefEntry = {
   id: string;
   rotation_name: string;
+  rotation_code?: string;
+  block_id?: string;
+  phase?: "start" | "mid" | "end";
   completed_at: string;
   facts?: string;
   reflection?: string;
@@ -49,13 +55,22 @@ export function getNarrativeAnchor(meta: OnboardingMetadata): NarrativeAnchor | 
 export function initRotationDebriefSession(
   meta: OnboardingMetadata,
   rotationName?: string,
+  options?: {
+    phase?: "start" | "mid" | "end";
+    block_id?: string;
+    rotation_code?: string;
+  },
 ): OnboardingMetadata {
+  const phase = options?.phase ?? "end";
   return {
     ...meta,
     rotation_debrief_session: {
       rotation_name: rotationName,
+      rotation_code: options?.rotation_code,
+      block_id: options?.block_id,
+      phase,
       step_index: rotationName ? 1 : 0,
-      layer: "facts",
+      layer: phase === "end" ? "facts" : "reflection",
       layer_question_index: 0,
       started_at: new Date().toISOString(),
       captured_entries: {},
@@ -84,8 +99,28 @@ export function clearNarrativeAnchorSession(meta: OnboardingMetadata): Onboardin
   return rest;
 }
 
-export function buildRotationDebriefIntro(rotationName?: string): string {
+export function buildRotationDebriefIntro(
+  rotationName?: string,
+  phase: "start" | "mid" | "end" = "end",
+): string {
   const name = rotationName ? ` **${rotationName}**` : "";
+
+  if (phase === "start") {
+    const base = `Let's set intentions for the start of${name}.
+
+Two quick questions — one at a time.`;
+    return rotationName
+      ? `${base}\n\nWhat do you hope to learn or strengthen on **${rotationName}**?`
+      : `${base}\n\nWhat rotation are you starting — and what do you hope to learn?`;
+  }
+
+  if (phase === "mid") {
+    const base = `Mid-rotation check-in for${name}. One question at a time.`;
+    return rotationName
+      ? `${base}\n\nWhat's going well on **${rotationName}** so far?`
+      : `${base}\n\nWhat's going well on this rotation so far?`;
+  }
+
   return `Let's debrief${name} while it's still fresh — three short layers:
 
 1. **What happened** — setting, cases, skills, feedback
@@ -110,7 +145,7 @@ export function buildRotationDebriefMakSystemContext(
   });
 
   return [
-    `Rotation debrief — layer "${session.layer}", question ${session.layer_question_index + 1}/${QUESTIONS_PER_LAYER}.`,
+    `Rotation ${session.phase ?? "end"} touchpoint — layer "${session.layer}", question ${session.layer_question_index + 1}/${QUESTIONS_PER_LAYER}.`,
     prompt,
   ].join("\n\n");
 }
@@ -167,6 +202,27 @@ function extractThemeTags(text: string): string[] {
   return themes.filter((t) => lower.includes(t.split(" ")[0]!));
 }
 
+function phaseCompleteStepIndex(phase?: "start" | "mid" | "end"): number {
+  if (phase === "start" || phase === "mid") return 3;
+  return 4;
+}
+
+function phaseFirstQuestion(phase: "start" | "mid" | "end", rotationName?: string): string {
+  if (phase === "start") {
+    return rotationName
+      ? `Starting **${rotationName}**. What do you hope to learn or strengthen on this block?`
+      : "What rotation are you starting — and what do you hope to learn?";
+  }
+  if (phase === "mid") {
+    return rotationName
+      ? `Mid-block on **${rotationName}**. What's going well so far?`
+      : "What's going well on this rotation so far?";
+  }
+  return rotationName
+    ? `Got it — **${rotationName}**.\n\nWhat's the clinical setting, your role, and one thing that stood out clinically?`
+    : "What's the clinical setting, your role, and one thing that stood out clinically?";
+}
+
 export function processRotationDebriefTurn(input: {
   message: string;
   meta: OnboardingMetadata;
@@ -182,14 +238,15 @@ export function processRotationDebriefTurn(input: {
     };
   }
 
+  const phase = session.phase ?? "end";
+  const completeAt = phaseCompleteStepIndex(phase);
   const msg = input.message.trim();
+
   if (session.step_index === 0 && !session.rotation_name && msg.length > 1) {
     session = { ...session, rotation_name: msg.slice(0, 120), step_index: 1 };
     return {
       meta: { ...input.meta, rotation_debrief_session: session },
-      response: `Got it — **${session.rotation_name}**.
-
-What's the clinical setting, your role, and one thing that stood out clinically?`,
+      response: phaseFirstQuestion(phase, session.rotation_name),
       suggested_actions: [],
       complete: false,
     };
@@ -197,15 +254,83 @@ What's the clinical setting, your role, and one thing that stood out clinically?
 
   const layer = session.layer;
   const captured = { ...session.captured_entries };
-  const existing = captured[layer] ?? "";
-  captured[layer] = existing ? `${existing}\n${msg}` : msg;
 
-  session = advanceLayer({ ...session, captured_entries: captured });
+  if (phase === "start" || phase === "mid") {
+    const nextStep = session.step_index + 1;
 
-  if (session.step_index >= 4) {
+    if (session.step_index === 1) {
+      captured.facts = msg;
+    } else if (session.step_index === 2) {
+      captured.reflection = msg;
+    }
+
+    session = { ...session, step_index: nextStep, captured_entries: captured };
+
+    if (nextStep < completeAt) {
+      const q =
+        phase === "start"
+          ? "What feels unclear or worth planning for upfront?"
+          : "What would you adjust for the second half of the block?";
+      return {
+        meta: { ...input.meta, rotation_debrief_session: session },
+        response: `Got it.\n\n${q}`,
+        suggested_actions: [],
+        complete: false,
+      };
+    }
+
     const entry: RotationDebriefEntry = {
       id: crypto.randomUUID(),
       rotation_name: session.rotation_name ?? "Rotation",
+      rotation_code: session.rotation_code,
+      block_id: session.block_id,
+      phase,
+      completed_at: new Date().toISOString(),
+      facts: phase === "start" ? captured.reflection ?? captured.facts : captured.facts,
+      reflection: captured.reflection,
+      connection: captured.connection,
+      theme_tags: extractThemeTags(Object.values(captured).filter(Boolean).join(" ")),
+    };
+    const entries = [...(input.meta.rotation_debrief_entries ?? []), entry];
+    const cleared = clearRotationDebriefSession(input.meta);
+    const withHistory = {
+      ...cleared,
+      rotation_debrief_entries: entries,
+      rotation_touchpoint_history: [
+        ...(input.meta.rotation_touchpoint_history ?? []),
+        {
+          block_id: session.block_id ?? entry.id,
+          rotation_code: session.rotation_code ?? "unknown",
+          rotation_label: session.rotation_name ?? "Rotation",
+          phase,
+          completed_at: entry.completed_at,
+          notes: [captured.facts, captured.reflection, captured.connection].filter(Boolean).join(" | "),
+        },
+      ],
+    };
+    const phaseLabel = phase === "start" ? "Start-of-rotation" : "Mid-rotation";
+    return {
+      meta: withHistory,
+      response: `${phaseLabel} check-in saved for **${entry.rotation_name}**. I'll reference this on your lattice and in goal conversations.`,
+      suggested_actions: [
+        { action: "Open Career Map", url: "/app/objective?tab=lattice" },
+        { action: "View calendar", url: "/app/calendar" },
+      ],
+      complete: true,
+    };
+  }
+
+  const existing = captured[layer] ?? "";
+  captured[layer] = existing ? `${existing}\n${msg}` : msg;
+  session = advanceLayer({ ...session, captured_entries: captured });
+
+  if (session.step_index >= completeAt) {
+    const entry: RotationDebriefEntry = {
+      id: crypto.randomUUID(),
+      rotation_name: session.rotation_name ?? "Rotation",
+      rotation_code: session.rotation_code,
+      block_id: session.block_id,
+      phase: "end",
       completed_at: new Date().toISOString(),
       facts: captured.facts,
       reflection: captured.reflection,
@@ -216,13 +341,28 @@ What's the clinical setting, your role, and one thing that stood out clinically?
     };
     const entries = [...(input.meta.rotation_debrief_entries ?? []), entry];
     const cleared = clearRotationDebriefSession(input.meta);
+    const withHistory = {
+      ...cleared,
+      rotation_debrief_entries: entries,
+      rotation_touchpoint_history: [
+        ...(input.meta.rotation_touchpoint_history ?? []),
+        {
+          block_id: session.block_id ?? entry.id,
+          rotation_code: session.rotation_code ?? "unknown",
+          rotation_label: session.rotation_name ?? "Rotation",
+          phase: "end" as const,
+          completed_at: entry.completed_at,
+          notes: [captured.facts, captured.reflection, captured.connection].filter(Boolean).join(" | "),
+        },
+      ],
+    };
     return {
-      meta: { ...cleared, rotation_debrief_entries: entries },
+      meta: withHistory,
       response: `Debrief saved for **${entry.rotation_name}**.${
         entry.theme_tags?.length ? ` Themes: ${entry.theme_tags.join(", ")}.` : ""
       }
 
-This is now career evidence for your vault, ILP, and personal statement. Want to capture another rotation?`,
+This is now career evidence for your vault, ILP, and personal statement.`,
       suggested_actions: [
         { action: "Capture another rotation", url: "/app/objective?tab=activities" },
         { action: "Draft personal statement", url: "/app/output" },

@@ -13,6 +13,8 @@ import { buildLatticeDashboard } from "@/lib/v2/lattice/aggregate";
 import type { LatticeTimeframe } from "@/lib/v2/lattice/types";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { isTraineeCareerLevel } from "@/lib/v2/onboarding-options";
+import { listBlocksForTrainee } from "@/lib/v2/programs/block-schedule";
+import { lookupInviteTokenForUser } from "@/lib/v2/programs/invite-tokens";
 
 const TIMEFRAMES: LatticeTimeframe[] = ["30d", "90d", "1y", "all"];
 
@@ -21,6 +23,19 @@ function parseTimeframe(value: string | null): LatticeTimeframe {
     return value as LatticeTimeframe;
   }
   return "90d";
+}
+
+async function resolveProgramBlocks(
+  userId: string,
+  meta: ReturnType<typeof getOnboardingMetadata>,
+) {
+  let initials = meta.trainee_initials?.trim().toUpperCase() ?? "";
+  if (!initials) {
+    const tokenRow = await lookupInviteTokenForUser(userId, meta.invite_token);
+    initials = tokenRow?.trainee_initials?.trim().toUpperCase() ?? "";
+  }
+  if (!initials) return [];
+  return listBlocksForTrainee(initials);
 }
 
 export async function GET(request: Request) {
@@ -41,12 +56,17 @@ export async function GET(request: Request) {
   ]);
 
   const meta = getOnboardingMetadata(user);
+  const scheduleEvents = meta.schedule_events ?? [];
+  const programBlocks = await resolveProgramBlocks(auth.userId, meta);
+
   const { dashboard, documentCache, documentCacheHit } = buildLatticeDashboard({
     activities,
     documents,
     timeframe,
     isTrainee: isTraineeCareerLevel(user.career_stage),
     documentCache: meta.lattice_document_cache,
+    scheduleEvents,
+    programBlocks,
   });
 
   if (!documentCacheHit) {

@@ -359,6 +359,12 @@ export function MakPanel({
           setGoalsConfirmed(true);
         }
       }
+      if (data.schedule_updated) {
+        window.dispatchEvent(new CustomEvent("fiscmak:schedule-updated"));
+      }
+      if (data.coaching_cadence_updated) {
+        window.dispatchEvent(new CustomEvent("fiscmak:coaching-cadence-updated"));
+      }
       if (data.escalation?.trigger) {
         setActiveEscalation({
           trigger: data.escalation.trigger,

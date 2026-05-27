@@ -65,10 +65,12 @@ export function LatticeView() {
     window.addEventListener("fiscmak:activity-logged", onUpdate);
     window.addEventListener("fiscmak:document-uploaded", onUpdate);
     window.addEventListener("fiscmak:touchpoint-complete", onUpdate);
+    window.addEventListener("fiscmak:schedule-updated", onUpdate);
     return () => {
       window.removeEventListener("fiscmak:activity-logged", onUpdate);
       window.removeEventListener("fiscmak:document-uploaded", onUpdate);
       window.removeEventListener("fiscmak:touchpoint-complete", onUpdate);
+      window.removeEventListener("fiscmak:schedule-updated", onUpdate);
     };
   }, [load, timeframe]);
 
@@ -77,8 +79,8 @@ export function LatticeView() {
     tab === "acgme" && data?.acgme ? data.acgme : data?.fiscmak ?? null;
 
   const description = data
-    ? `${data.evidence_total} mapped items (${data.activity_evidence_count} activities, ${data.document_evidence_count} from documents). All counts are relative to you in the selected window.`
-    : "Map skills and tasks from activities and career documents onto your lattice.";
+    ? `${data.evidence_total} mapped items (${data.activity_evidence_count} activities, ${data.document_evidence_count} documents, ${data.rotation_evidence_count} rotation blocks, ${data.schedule_evidence_count} calendar events). All counts are relative to you in the selected window.`
+    : "Map skills and tasks from activities, your schedule, and career documents onto your lattice.";
 
   return (
     <div className="space-y-4">

@@ -15,6 +15,7 @@ export async function GET(request: Request) {
   if (!user) return jsonOk({ error: "not_found" }, 404);
 
   const meta = getOnboardingMetadata(user);
+  const userEvents = meta.schedule_events ?? [];
   const { searchParams } = new URL(request.url);
   const programSlug = searchParams.get("program") ?? meta.program_slug ?? "uh-psych-cmc";
   const program = getProgramBySlug(programSlug);
@@ -22,6 +23,7 @@ export async function GET(request: Request) {
   if (!program?.schedule_source) {
     return jsonOk({
       enabled: false,
+      user_events: userEvents,
       message: "Schedule calendar is not configured for this program.",
     });
   }
@@ -38,6 +40,7 @@ export async function GET(request: Request) {
       matched: false,
       program_slug: program.slug,
       blocks: [],
+      user_events: userEvents,
       current: null,
       message: "Roster initials not linked — redeem your program invite token.",
     });
@@ -53,6 +56,7 @@ export async function GET(request: Request) {
     program_label: program.display_title,
     trainee_initials: initials,
     blocks,
+    user_events: userEvents,
     current: current.matched
       ? {
           block_id: current.block_id,

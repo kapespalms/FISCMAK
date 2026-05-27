@@ -8,7 +8,7 @@ import type { MakDiscussConfig } from "@/lib/card-mak-prompts";
 type MakDiscussLinkProps = {
   mak: MakDiscussConfig;
   className?: string;
-  variant?: "link" | "button";
+  variant?: "link" | "button" | "chip";
 };
 
 export function MakDiscussLink({
@@ -36,6 +36,21 @@ export function MakDiscussLink({
   }
 
   const label = mak.label ?? "Discuss with Mak";
+
+  if (variant === "chip") {
+    return (
+      <button
+        type="button"
+        onClick={handleClick}
+        className={cn(
+          "font-futura-medium inline-flex items-center rounded-full border border-dashed border-cx-forest-dark/30 bg-white px-2 py-0.5 text-[11px] text-cx-forest-dark transition-colors hover:border-cx-forest-dark/50 hover:bg-cx-forest-dark/5",
+          className,
+        )}
+      >
+        {label}
+      </button>
+    );
+  }
 
   if (variant === "button") {
     return (
