@@ -6,6 +6,7 @@ import { HealthScoreCard } from "@/components/dashboard/HealthScoreCard";
 import { AssessmentInsightsCompositePanel } from "@/components/workspace/retired/AssessmentInsightsCompositePanel";
 import { Card } from "@/components/ui/Card";
 import { UH_PSYCH_CMC_PROGRAM } from "@/lib/v2/programs/registry";
+import { KpAdminGmePanel } from "@/components/admin/KpAdminGmePanel";
 import { KpAdminProgramInvitesPanel } from "@/components/admin/KpAdminProgramInvitesPanel";
 import { KpAdminFeedbackPanel } from "@/components/admin/KpAdminFeedbackPanel";
 import { RETIRED_METRICS_DEMO } from "@/lib/v2/user-facing-analytics";
@@ -347,6 +348,8 @@ export function KpAdminDashboard() {
       </Card>
 
       <KpAdminProgramInvitesPanel />
+
+      <KpAdminGmePanel />
 
       <KpAdminFeedbackPanel />
 

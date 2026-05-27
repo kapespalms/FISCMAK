@@ -2,7 +2,7 @@ import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
 import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 
-/** Wellbeing + CDI domain slices for dashboard and Perspective tab. */
+/** Wellbeing slices for dashboard and Perspective tab — no composite Career Health Score. */
 export type UserFacingCareerHealth = Pick<
   CareerHealthView,
   | "wellbeing_metrics"
@@ -10,20 +10,7 @@ export type UserFacingCareerHealth = Pick<
   | "aspiration_prompt"
   | "promotion_label"
   | "domains"
-  | "career_health_score"
-  | "career_health_summary"
   | "intro"
->;
-
-export type UserFacingAssessmentInsights = Omit<
-  AssessmentInsights,
-  | "coherence_score"
-  | "coherence_label"
-  | "s_index"
-  | "iwq"
-  | "service_citizenship_summary"
-  | "unrecognized_work_summary"
-  | "recognition_gaps"
 >;
 
 export function sanitizeCareerHealthForUser(
@@ -36,11 +23,20 @@ export function sanitizeCareerHealthForUser(
     aspiration_prompt: view.aspiration_prompt,
     promotion_label: view.promotion_label,
     domains: view.domains,
-    career_health_score: view.career_health_score,
-    career_health_summary: view.career_health_summary,
     intro: view.intro,
   };
 }
+
+export type UserFacingAssessmentInsights = Omit<
+  AssessmentInsights,
+  | "coherence_score"
+  | "coherence_label"
+  | "s_index"
+  | "iwq"
+  | "service_citizenship_summary"
+  | "unrecognized_work_summary"
+  | "recognition_gaps"
+>;
 
 export function sanitizeAssessmentInsightsForUser(
   insights: AssessmentInsights,
@@ -65,7 +61,7 @@ export function sanitizeAnalyticsDashboardForUser(
   return {
     ...dashboard,
     career_readiness_index: null,
-    previous_career_health_score: dashboard.previous_career_health_score,
+    previous_career_health_score: null,
     career_health: sanitizeCareerHealthForUser(dashboard.career_health) as AnalyticsDashboard["career_health"],
     cv_metrics: null,
     metric_history: {
