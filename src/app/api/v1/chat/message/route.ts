@@ -62,6 +62,7 @@ import {
 } from "@/lib/v2/mak-coaching-engine";
 import {
   buildOnboardingSuggestedActions,
+  buildSelfAssessmentIntro,
   buildWelcomeGreeting,
 } from "@/lib/v2/onboarding-flow";
 import { buildCareerHealthView } from "@/lib/v2/career-health-view";
@@ -183,6 +184,7 @@ import {
 
 const API_GREETING_TOKENS = new Set([
   "__welcome__",
+  "__self_assessment_intro__",
   "__rotation_debrief__",
   "__narrative_anchor__",
   "__promotion_context__",
@@ -243,7 +245,12 @@ export async function POST(request: Request) {
   let reconcileCompleteFlag = false;
   let reconcileNextPrompt: string | undefined;
 
-  if (user && message && message !== "__welcome__") {
+  if (
+    user &&
+    message &&
+    message !== "__welcome__" &&
+    message !== "__self_assessment_intro__"
+  ) {
     const metaForReconcile = getOnboardingMetadata(user);
     const needsReconcile =
       user.cv_uploaded &&
@@ -1405,6 +1412,12 @@ export async function POST(request: Request) {
       response = buildWelcomeGreeting(user);
       suggested_actions = buildOnboardingSuggestedActions();
     }
+  } else if (message === "__self_assessment_intro__" && user) {
+    response = buildSelfAssessmentIntro(user);
+    suggested_actions = [
+      { action: "Lay of the Land tour", url: "#tour" },
+      { action: "Start self-assessment", url: "" },
+    ];
   } else if (reconcileCaptured && reconcileNextPrompt) {
     response = reconcileNextPrompt;
     if (reconcileCompleteFlag) {

@@ -235,6 +235,7 @@ export function MakPanel({
     if (!pendingFlow) return;
     const apiGreetingFlows = [
       "__welcome__",
+      "__self_assessment_intro__",
       "__rotation_debrief__",
       "__narrative_anchor__",
       "__promotion_context__",
@@ -259,7 +260,9 @@ export function MakPanel({
           message: pendingFlow.greeting,
           context: {
             section,
-            onboarding: pendingFlow.greeting === "__welcome__",
+            onboarding:
+              pendingFlow.greeting === "__welcome__" ||
+              pendingFlow.greeting === "__self_assessment_intro__",
             touchpoint_number: 1,
             flow_intent: pendingFlow.intent,
             output_template_type: pendingFlow.outputTemplateType,

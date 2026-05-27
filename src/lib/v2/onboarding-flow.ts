@@ -1,5 +1,8 @@
+import { nextInstrumentPrompt } from "@/lib/v2/instrument-conversation-service";
 import type { AppUser } from "@/lib/v2/types";
 import { formatDisplayName } from "@/lib/mak-greeting";
+
+export const SELF_ASSESSMENT_MAK_INTRO_KEY = "fiscmak_self_assessment_mak_intro";
 
 export const TOUR_STORAGE_KEY = "fiscmak_lay_of_land_tour_seen";
 
@@ -77,6 +80,20 @@ export function buildOnboardingSuggestedActions() {
     { action: "I'm focused on promotion", url: "/app/dashboard" },
     { action: "Help me see invisible work", url: "/app/dashboard" },
   ];
+}
+
+/** Opening copy after onboarding instruments step (dashboard welcome). */
+export function buildSelfAssessmentIntro(user: AppUser): string {
+  const first =
+    formatDisplayName(user.name?.split(" ")[0], user.name?.split(" ").slice(1).join(" ")) ??
+    (user.name ? `Dr. ${user.name.split(" ").pop()}` : null);
+  const salutation = first ? `${first},` : "Welcome back.";
+  const next = nextInstrumentPrompt(user);
+  return `${salutation} your profile and Career Data are set — great work.
+
+Next is your **self-assessment battery**: validated instruments (fulfillment, burnout signals, career energy, and more) woven into conversation — no forms.
+
+${next ? `Let's start here:\n\n${next}` : "Tell me when you're ready and we'll begin with your first instrument cluster."}`;
 }
 
 export function isTourSeen(): boolean {

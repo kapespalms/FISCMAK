@@ -9,6 +9,7 @@ import type { AppUser, CareerAssessment } from "@/lib/v2/types";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { DocumentRecord } from "@/lib/v2/types";
 import type { ScheduleBlock, UserScheduleEvent } from "@/lib/v2/schedule-calendar/types";
+import type { MakFeedbackSummary } from "@/lib/v2/chat-feedback-admin";
 
 /** Internal only — not shown to end users (ADR-003). */
 export const S_INDEX_TRACKING = {
@@ -54,6 +55,7 @@ export type KpAdminEvaluationSummary = {
     schedule_events_count: number;
     rotation_history_count: number;
   };
+  mak_feedback: MakFeedbackSummary | null;
 };
 
 export function buildKpAdminEvaluationSummary(input: {
@@ -65,6 +67,7 @@ export function buildKpAdminEvaluationSummary(input: {
   scheduleEvents: UserScheduleEvent[];
   programBlocks: ScheduleBlock[];
   isTrainee: boolean;
+  makFeedback?: MakFeedbackSummary | null;
 }): KpAdminEvaluationSummary {
   const { dashboard } = buildLatticeDashboard({
     activities: input.activities,
@@ -126,6 +129,7 @@ export function buildKpAdminEvaluationSummary(input: {
       schedule_events_count: input.scheduleEvents.length,
       rotation_history_count: input.meta.rotation_touchpoint_history?.length ?? 0,
     },
+    mak_feedback: input.makFeedback ?? null,
   };
 }
 

@@ -66,13 +66,15 @@ export async function GET(request: Request) {
   }
 
   return jsonOk({
-    templates: Object.entries(all).map(([type, t]) => ({
-      template_type: type,
-      source: t.source ?? "upload",
-      file_name: t.file_name,
-      word_count: t.word_count,
-      uploaded_at: t.uploaded_at,
-    })),
+    templates: Object.entries(all)
+      .filter((entry): entry is [string, UserOutputTemplate] => entry[1] != null)
+      .map(([type, t]) => ({
+        template_type: type,
+        source: t.source ?? "upload",
+        file_name: t.file_name,
+        word_count: t.word_count,
+        uploaded_at: t.uploaded_at,
+      })),
     seedable_documents: seedableDocuments,
   });
 }

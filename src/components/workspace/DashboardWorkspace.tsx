@@ -20,6 +20,7 @@ import {
   type ProposedGoal,
 } from "@/components/onboarding/GoalSettingPanel";
 import { buildCareerDirectionAnnualGreeting } from "@/lib/mak-chatbot-states";
+import { SELF_ASSESSMENT_MAK_INTRO_KEY } from "@/lib/v2/onboarding-flow";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
 import {
@@ -143,10 +144,19 @@ export function DashboardWorkspace() {
   useEffect(() => {
     if (loading || onboardingPhase || !profile?.tier3_complete) return;
     if (typeof window === "undefined") return;
+
+    if (welcome && !localStorage.getItem(SELF_ASSESSMENT_MAK_INTRO_KEY)) {
+      localStorage.setItem(SELF_ASSESSMENT_MAK_INTRO_KEY, "1");
+      localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
+      startMakFlow("assess", undefined, "__self_assessment_intro__");
+      router.replace("/app/dashboard");
+      return;
+    }
+
     if (localStorage.getItem("fiscmak_dashboard_mak_intro")) return;
     localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
     openMak();
-  }, [loading, onboardingPhase, profile?.tier3_complete, openMak]);
+  }, [loading, onboardingPhase, profile?.tier3_complete, welcome, startMakFlow, openMak, router]);
 
   function beginAnnualMak(href?: string) {
     const name = displayName ?? "there";

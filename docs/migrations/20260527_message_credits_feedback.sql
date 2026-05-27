@@ -24,5 +24,20 @@ DROP POLICY IF EXISTS "Users read own chat feedback" ON chat_feedback;
 CREATE POLICY "Users read own chat feedback" ON chat_feedback
   FOR SELECT USING (user_id = auth.uid());
 
+DROP POLICY IF EXISTS "KP admin read all chat feedback" ON chat_feedback;
+CREATE POLICY "KP admin read all chat feedback" ON chat_feedback
+  FOR SELECT USING (
+    EXISTS (
+      SELECT 1 FROM app_users au
+      WHERE au.user_id = auth.uid()
+        AND lower(au.email) = ANY (
+          ARRAY[
+            'kristenpalmermd@gmail.com',
+            'fiscmak@outlook.com'
+          ]::text[]
+        )
+    )
+  );
+
 COMMENT ON TABLE chat_feedback IS 'Thumbs up/down on Coach Mak assistant messages';
 COMMENT ON COLUMN app_users.message_balance IS 'Remaining free AI messages when not on Premium';

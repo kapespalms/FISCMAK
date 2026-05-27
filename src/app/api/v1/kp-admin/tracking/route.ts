@@ -6,6 +6,7 @@ import {
 import { getAppUser, isErrorResponse, jsonOk } from "@/lib/v2/api-helpers";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { buildKpAdminMakSignalPreview } from "@/lib/v2/mak-coaching-engine";
+import { fetchMakFeedbackSummary } from "@/lib/v2/chat-feedback-admin";
 import { buildKpAdminEvaluationSummary } from "@/lib/v2/kp-admin-tracking";
 import { requireKpAdminApiUser } from "@/lib/v2/kp-admin";
 import { isTraineeCareerLevel } from "@/lib/v2/onboarding-options";
@@ -42,6 +43,7 @@ export async function GET() {
   const programBlocks = user ? await resolveProgramBlocks(auth.userId, meta) : [];
 
   const preview = buildKpAdminMakSignalPreview(cv?.extracted_text, assessments, meta);
+  const makFeedback = user ? await fetchMakFeedbackSummary(auth.userId) : null;
   const evaluation =
     user
       ? buildKpAdminEvaluationSummary({
@@ -53,6 +55,7 @@ export async function GET() {
           scheduleEvents,
           programBlocks,
           isTrainee: isTraineeCareerLevel(user.career_stage),
+          makFeedback,
         })
       : null;
 

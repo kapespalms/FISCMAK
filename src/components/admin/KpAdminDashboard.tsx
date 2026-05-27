@@ -170,6 +170,41 @@ function KpAdminEvaluationPanel() {
               </p>
             </div>
           ) : null}
+
+          <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-3">
+            <p className="text-sm font-semibold text-cx-forest-dark">Mak feedback</p>
+            {evaluation.mak_feedback ? (
+              <>
+                <p className="mt-2 text-sm text-cx-forest-dark/80">
+                  👍 {evaluation.mak_feedback.thumbs_up} · 👎 {evaluation.mak_feedback.thumbs_down}
+                  {evaluation.mak_feedback.recent_snippet_count > 0
+                    ? ` · ${evaluation.mak_feedback.recent_snippet_count} total ratings`
+                    : ""}
+                </p>
+                {evaluation.mak_feedback.recent_snippets.length > 0 ? (
+                  <ul className="mt-2 space-y-2 text-xs text-cx-forest-dark/70">
+                    {evaluation.mak_feedback.recent_snippets.map((row, i) => (
+                      <li key={`${row.created_at}-${i}`} className="rounded-md bg-cx-forest-dark/[0.04] px-2 py-1.5">
+                        <span className="font-medium">
+                          {row.rating === "up" ? "Up" : "Down"}
+                          {row.section ? ` · ${row.section}` : ""}
+                        </span>
+                        {row.preview ? (
+                          <p className="mt-0.5 line-clamp-2">{row.preview}</p>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-1 text-xs text-cx-forest-dark/60">No ratings yet.</p>
+                )}
+              </>
+            ) : (
+              <p className="mt-1 text-xs text-cx-forest-dark/60">
+                Feedback table not loaded (migration or service role).
+              </p>
+            )}
+          </div>
         </div>
       )}
     </Card>

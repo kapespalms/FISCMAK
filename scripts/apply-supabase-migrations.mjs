@@ -213,6 +213,12 @@ async function main() {
     requiresTable: "app_users",
   });
 
+  steps.push({
+    file: "docs/migrations/20260527b_message_balance_monthly_reset.sql",
+    label: "Monthly message balance reset function",
+    requiresTable: "app_users",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {
