@@ -272,7 +272,7 @@ export async function POST(request: Request) {
         ...(uh_psych_enrichment_tracks?.length
           ? { uh_psych_enrichment_tracks: uh_psych_enrichment_tracks.filter(Boolean) }
           : {}),
-        ...(institutionalProgram ? { call_schedule_note: "not_configured" } : {}),
+        ...(institutionalProgram ? { call_schedule_note: "seeded_cmc_grid" } : {}),
         ...(updatedMembership ? { program_membership: updatedMembership } : {}),
         ...(narrativeAnchor ? { narrative_anchor: narrativeAnchor } : {}),
         ...(evaluationFramework

@@ -1,0 +1,1403 @@
+{
+  "program": {
+    "name": "Cleveland - Psychiatry",
+    "site": "University Hospitals Cleveland Medical Center",
+    "schedule_type": "call_coverage",
+    "source_file": "Cleveland_-_Psychiatry.xlsx",
+    "printed_at": "5/27/2026 12:12 AM",
+    "date_range": {
+      "start": "2026-05-01",
+      "end": "2027-07-01"
+    },
+    "privacy_note": "Sanitized export: call grid only (role, date, initials, shift). Phone directory omitted.",
+    "qgenda_note": "Resident call switches and live assignments are managed in QGenda."
+  },
+  "roles": [
+    {
+      "role": "Psych Service Answering RES CMC",
+      "assignments": [
+        {
+          "date": "2026-05-01",
+          "day_of_week": "Fri",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-02",
+          "day_of_week": "Sat",
+          "assignee_abbr": "HouA",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-03",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PolterY",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-04",
+          "day_of_week": "Mon",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-05",
+          "day_of_week": "Tue",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-06",
+          "day_of_week": "Wed",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-07",
+          "day_of_week": "Thu",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-08",
+          "day_of_week": "Fri",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-09",
+          "day_of_week": "Sat",
+          "assignee_abbr": "TabbaaL",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-10",
+          "day_of_week": "Sun",
+          "assignee_abbr": "HouA",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-11",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-12",
+          "day_of_week": "Tue",
+          "assignee_abbr": "TaylorM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-13",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-14",
+          "day_of_week": "Thu",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-15",
+          "day_of_week": "Fri",
+          "assignee_abbr": "HouA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-16",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PitcherJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-17",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PitcherJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-18",
+          "day_of_week": "Mon",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-19",
+          "day_of_week": "Tue",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-20",
+          "day_of_week": "Wed",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-21",
+          "day_of_week": "Thu",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-22",
+          "day_of_week": "Fri",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-23",
+          "day_of_week": "Sat",
+          "assignee_abbr": "TabbaaL",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-24",
+          "day_of_week": "Sun",
+          "assignee_abbr": "HouA",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-25",
+          "day_of_week": "Mon",
+          "assignee_abbr": "HouA",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-26",
+          "day_of_week": "Tue",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-27",
+          "day_of_week": "Wed",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-28",
+          "day_of_week": "Thu",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-29",
+          "day_of_week": "Fri",
+          "assignee_abbr": "LiK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-30",
+          "day_of_week": "Sat",
+          "assignee_abbr": "LentskevichM",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-31",
+          "day_of_week": "Sun",
+          "assignee_abbr": "LentskevichM",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-01",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-02",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-03",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-04",
+          "day_of_week": "Thu",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-05",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-06",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PitcherJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-07",
+          "day_of_week": "Sun",
+          "assignee_abbr": "HughesS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-08",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-09",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-10",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-11",
+          "day_of_week": "Thu",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-12",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-13",
+          "day_of_week": "Sat",
+          "assignee_abbr": "HughesS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-14",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PitcherJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-15",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-16",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-17",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-18",
+          "day_of_week": "Thu",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-19",
+          "day_of_week": "Fri",
+          "assignee_abbr": "LentskevichM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-20",
+          "day_of_week": "Sat",
+          "assignee_abbr": "TaylorM",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-21",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PitcherJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-22",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-23",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-24",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PolterY",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-25",
+          "day_of_week": "Thu",
+          "assignee_abbr": "LentskevichM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-26",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PitcherJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-27",
+          "day_of_week": "Sat",
+          "assignee_abbr": "HughesS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-28",
+          "day_of_week": "Sun",
+          "assignee_abbr": "LentskevichM",
+          "shift": "8a-8a"
+        }
+      ]
+    },
+    {
+      "role": "Psychiatry ATT CMC",
+      "assignments": [
+        {
+          "date": "2026-05-01",
+          "day_of_week": "Fri",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-02",
+          "day_of_week": "Sat",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-03",
+          "day_of_week": "Sun",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-04",
+          "day_of_week": "Mon",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-05",
+          "day_of_week": "Tue",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-06",
+          "day_of_week": "Wed",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-07",
+          "day_of_week": "Thu",
+          "assignee_abbr": "HuntA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-08",
+          "day_of_week": "Fri",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-09",
+          "day_of_week": "Sat",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-10",
+          "day_of_week": "Sun",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-11",
+          "day_of_week": "Mon",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-12",
+          "day_of_week": "Tue",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-13",
+          "day_of_week": "Wed",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-14",
+          "day_of_week": "Thu",
+          "assignee_abbr": "MussoM",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-15",
+          "day_of_week": "Fri",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-16",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-17",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-18",
+          "day_of_week": "Mon",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-19",
+          "day_of_week": "Tue",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-20",
+          "day_of_week": "Wed",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-21",
+          "day_of_week": "Thu",
+          "assignee_abbr": "ShresthaR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-22",
+          "day_of_week": "Fri",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-23",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-24",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-25",
+          "day_of_week": "Mon",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-26",
+          "day_of_week": "Tue",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-27",
+          "day_of_week": "Wed",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-28",
+          "day_of_week": "Thu",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-29",
+          "day_of_week": "Fri",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-30",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-31",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-01",
+          "day_of_week": "Mon",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-02",
+          "day_of_week": "Tue",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-03",
+          "day_of_week": "Wed",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-04",
+          "day_of_week": "Thu",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-05",
+          "day_of_week": "Fri",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-06",
+          "day_of_week": "Sat",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-07",
+          "day_of_week": "Sun",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-08",
+          "day_of_week": "Mon",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-09",
+          "day_of_week": "Tue",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-10",
+          "day_of_week": "Wed",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-11",
+          "day_of_week": "Thu",
+          "assignee_abbr": "DinesP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-12",
+          "day_of_week": "Fri",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-13",
+          "day_of_week": "Sat",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-14",
+          "day_of_week": "Sun",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-15",
+          "day_of_week": "Mon",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-16",
+          "day_of_week": "Tue",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-17",
+          "day_of_week": "Wed",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-18",
+          "day_of_week": "Thu",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-19",
+          "day_of_week": "Fri",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-20",
+          "day_of_week": "Sat",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-21",
+          "day_of_week": "Sun",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-22",
+          "day_of_week": "Mon",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-23",
+          "day_of_week": "Tue",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-24",
+          "day_of_week": "Wed",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-25",
+          "day_of_week": "Thu",
+          "assignee_abbr": "AlsarrajB",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-26",
+          "day_of_week": "Fri",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-27",
+          "day_of_week": "Sat",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-28",
+          "day_of_week": "Sun",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-29",
+          "day_of_week": "Mon",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-30",
+          "day_of_week": "Tue",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-07-01",
+          "day_of_week": "Wed",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-07-02",
+          "day_of_week": "Thu",
+          "assignee_abbr": "KovacevichA",
+          "shift": "5p-8a"
+        }
+      ]
+    },
+    {
+      "role": "Psychiatry Extra Duty FEL CMC",
+      "assignments": [
+        {
+          "date": "2026-05-01",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PalmerK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-02",
+          "day_of_week": "Sat",
+          "assignee_abbr": "LuiJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-03",
+          "day_of_week": "Sun",
+          "assignee_abbr": "GiakasS",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-04",
+          "day_of_week": "Mon",
+          "assignee_abbr": "ZhengD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-05",
+          "day_of_week": "Tue",
+          "assignee_abbr": "GiakasS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-06",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-07",
+          "day_of_week": "Thu",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-08",
+          "day_of_week": "Fri",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-09",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ZhengD",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-10",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PiksJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-11",
+          "day_of_week": "Mon",
+          "assignee_abbr": "ShandA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-12",
+          "day_of_week": "Tue",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-13",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PalmerK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-14",
+          "day_of_week": "Thu",
+          "assignee_abbr": "Martinez-McfalineR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-15",
+          "day_of_week": "Fri",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-16",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PiksJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-17",
+          "day_of_week": "Sun",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-18",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PotluriP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-19",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-20",
+          "day_of_week": "Wed",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-21",
+          "day_of_week": "Thu",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-22",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-23",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PalmerK",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-24",
+          "day_of_week": "Sun",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-25",
+          "day_of_week": "Mon",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-26",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PhillipD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-27",
+          "day_of_week": "Wed",
+          "assignee_abbr": "ZhengD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-28",
+          "day_of_week": "Thu",
+          "assignee_abbr": "ShandA",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-29",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-05-30",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PalmerK",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-05-31",
+          "day_of_week": "Sun",
+          "assignee_abbr": "LuiJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-01",
+          "day_of_week": "Mon",
+          "assignee_abbr": "GiakasS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-02",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-03",
+          "day_of_week": "Wed",
+          "assignee_abbr": "ZhengD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-04",
+          "day_of_week": "Thu",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-05",
+          "day_of_week": "Fri",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-06",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PotluriP",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-07",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PiksJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-08",
+          "day_of_week": "Mon",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-09",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PalmerK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-10",
+          "day_of_week": "Wed",
+          "assignee_abbr": "PotluriP",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-11",
+          "day_of_week": "Thu",
+          "assignee_abbr": "LuiJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-12",
+          "day_of_week": "Fri",
+          "assignee_abbr": "Martinez-McfalineR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-13",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ZhengD",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-14",
+          "day_of_week": "Sun",
+          "assignee_abbr": "PiksJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-15",
+          "day_of_week": "Mon",
+          "assignee_abbr": "GiakasS",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-16",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-17",
+          "day_of_week": "Wed",
+          "assignee_abbr": "ZhengD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-18",
+          "day_of_week": "Thu",
+          "assignee_abbr": "Martinez-McfalineR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-19",
+          "day_of_week": "Fri",
+          "assignee_abbr": "PalmerK",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-20",
+          "day_of_week": "Sat",
+          "assignee_abbr": "LuiJ",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-21",
+          "day_of_week": "Sun",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-22",
+          "day_of_week": "Mon",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-23",
+          "day_of_week": "Tue",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-24",
+          "day_of_week": "Wed",
+          "assignee_abbr": "LuiJ",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-25",
+          "day_of_week": "Thu",
+          "assignee_abbr": "Martinez-McfalineR",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-26",
+          "day_of_week": "Fri",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-27",
+          "day_of_week": "Sat",
+          "assignee_abbr": "PalmerK",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-28",
+          "day_of_week": "Sun",
+          "assignee_abbr": "Martinez-MeehanD",
+          "shift": "8a-8a"
+        },
+        {
+          "date": "2026-06-29",
+          "day_of_week": "Mon",
+          "assignee_abbr": "JiaoG",
+          "shift": "5p-8a"
+        },
+        {
+          "date": "2026-06-30",
+          "day_of_week": "Tue",
+          "assignee_abbr": "PiksJ",
+          "shift": "5p-8a"
+        }
+      ]
+    },
+    {
+      "role": "CL Attending",
+      "assignments": [
+        {
+          "date": "2026-05-02",
+          "day_of_week": "Sat",
+          "assignee_abbr": "LackampJ",
+          "shift": null
+        },
+        {
+          "date": "2026-05-03",
+          "day_of_week": "Sun",
+          "assignee_abbr": "LackampJ",
+          "shift": null
+        },
+        {
+          "date": "2026-05-09",
+          "day_of_week": "Sat",
+          "assignee_abbr": "MussoM",
+          "shift": null
+        },
+        {
+          "date": "2026-05-10",
+          "day_of_week": "Sun",
+          "assignee_abbr": "MussoM",
+          "shift": null
+        },
+        {
+          "date": "2026-05-16",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ShresthaR",
+          "shift": null
+        },
+        {
+          "date": "2026-05-17",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ShresthaR",
+          "shift": null
+        },
+        {
+          "date": "2026-05-23",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-24",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-25",
+          "day_of_week": "Mon",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-30",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-31",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-06-06",
+          "day_of_week": "Sat",
+          "assignee_abbr": "LackampJ",
+          "shift": null
+        },
+        {
+          "date": "2026-06-07",
+          "day_of_week": "Sun",
+          "assignee_abbr": "LackampJ",
+          "shift": null
+        },
+        {
+          "date": "2026-06-13",
+          "day_of_week": "Sat",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": null
+        },
+        {
+          "date": "2026-06-14",
+          "day_of_week": "Sun",
+          "assignee_abbr": "BrandstetterJ",
+          "shift": null
+        },
+        {
+          "date": "2026-06-20",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ScheidemantelT",
+          "shift": null
+        },
+        {
+          "date": "2026-06-21",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ScheidemantelT",
+          "shift": null
+        },
+        {
+          "date": "2026-06-27",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-06-28",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-07-04",
+          "day_of_week": "Sat",
+          "assignee_abbr": "WobbeH",
+          "shift": null
+        },
+        {
+          "date": "2026-07-05",
+          "day_of_week": "Sun",
+          "assignee_abbr": "WobbeH",
+          "shift": null
+        }
+      ]
+    },
+    {
+      "role": "MPU Attending",
+      "assignments": [
+        {
+          "date": "2026-05-02",
+          "day_of_week": "Sat",
+          "assignee_abbr": "HuntA",
+          "shift": null
+        },
+        {
+          "date": "2026-05-03",
+          "day_of_week": "Sun",
+          "assignee_abbr": "HuntA",
+          "shift": null
+        },
+        {
+          "date": "2026-05-09",
+          "day_of_week": "Sat",
+          "assignee_abbr": "GoldmanS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-10",
+          "day_of_week": "Sun",
+          "assignee_abbr": "GoldmanS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-16",
+          "day_of_week": "Sat",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-17",
+          "day_of_week": "Sun",
+          "assignee_abbr": "ParrisbalogunS",
+          "shift": null
+        },
+        {
+          "date": "2026-05-23",
+          "day_of_week": "Sat",
+          "assignee_abbr": "DinesP",
+          "shift": null
+        },
+        {
+          "date": "2026-05-24",
+          "day_of_week": "Sun",
+          "assignee_abbr": "DinesP",
+          "shift": null
+        },
+        {
+          "date": "2026-05-25",
+          "day_of_week": "Mon",
+          "assignee_abbr": "DinesP",
+          "shift": null
+        },
+        {
+          "date": "2026-05-30",
+          "day_of_week": "Sat",
+          "assignee_abbr": "HuntA",
+          "shift": null
+        },
+        {
+          "date": "2026-05-31",
+          "day_of_week": "Sun",
+          "assignee_abbr": "HuntA",
+          "shift": null
+        },
+        {
+          "date": "2026-06-06",
+          "day_of_week": "Sat",
+          "assignee_abbr": "DinesP",
+          "shift": null
+        },
+        {
+          "date": "2026-06-07",
+          "day_of_week": "Sun",
+          "assignee_abbr": "DinesP",
+          "shift": null
+        },
+        {
+          "date": "2026-06-13",
+          "day_of_week": "Sat",
+          "assignee_abbr": "AndersenM",
+          "shift": null
+        },
+        {
+          "date": "2026-06-14",
+          "day_of_week": "Sun",
+          "assignee_abbr": "AndersenM",
+          "shift": null
+        },
+        {
+          "date": "2026-06-20",
+          "day_of_week": "Sat",
+          "assignee_abbr": "AlsarrajB",
+          "shift": null
+        },
+        {
+          "date": "2026-06-21",
+          "day_of_week": "Sun",
+          "assignee_abbr": "AlsarrajB",
+          "shift": null
+        },
+        {
+          "date": "2026-06-27",
+          "day_of_week": "Sat",
+          "assignee_abbr": "EppesS",
+          "shift": null
+        },
+        {
+          "date": "2026-06-28",
+          "day_of_week": "Sun",
+          "assignee_abbr": "EppesS",
+          "shift": null
+        },
+        {
+          "date": "2026-07-03",
+          "day_of_week": "Fri",
+          "assignee_abbr": "SalzmanB",
+          "shift": null
+        },
+        {
+          "date": "2026-07-04",
+          "day_of_week": "Sat",
+          "assignee_abbr": "SalzmanB",
+          "shift": null
+        },
+        {
+          "date": "2026-07-05",
+          "day_of_week": "Sun",
+          "assignee_abbr": "SalzmanB",
+          "shift": null
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "role_count": 5,
+    "day_columns": 427,
+    "assignment_count": 226
+  }
+}

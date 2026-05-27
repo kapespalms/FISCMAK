@@ -27,8 +27,8 @@ export function EducationHubWorkspace() {
           </p>
           <h1 className="text-page-title">Psychiatry education hub</h1>
           <p className="mt-2 max-w-2xl text-sm text-cx-forest-dark/75">
-            Landmark articles, psychopharmacology references, patient handouts, core readings, and the
-            master elective spreadsheet.
+            {EDUCATION_CATEGORIES.reduce((n, c) => n + c.documents.length, 0)} documents across landmark
+            articles, psychopharmacology, patient handouts, core readings, and electives.
           </p>
         </div>
         <Link
@@ -91,12 +91,7 @@ export function EducationHubWorkspace() {
               />
             </div>
             <div className="mt-4">
-              <DocumentList
-                documents={category.documents.map((d) => ({
-                  ...d,
-                  categoryLabel: category.title,
-                }))}
-              />
+              <CategoryDocuments category={category} />
             </div>
           </section>
         ))
@@ -111,8 +106,46 @@ type DocRow = {
   href: string;
   filename: string;
   description?: string;
+  subcategory?: string;
   categoryLabel?: string;
 };
+
+function CategoryDocuments({
+  category,
+}: {
+  category: (typeof EDUCATION_CATEGORIES)[number];
+}) {
+  const groups = useMemo(() => {
+    const bySub = new Map<string, DocRow[]>();
+    for (const doc of category.documents) {
+      const key = doc.subcategory ?? "";
+      const row: DocRow = { ...doc, categoryLabel: category.title };
+      const list = bySub.get(key) ?? [];
+      list.push(row);
+      bySub.set(key, list);
+    }
+    return [...bySub.entries()].sort(([a], [b]) => a.localeCompare(b));
+  }, [category]);
+
+  if (groups.length === 1 && groups[0][0] === "") {
+    return <DocumentList documents={groups[0][1]} />;
+  }
+
+  return (
+    <div className="space-y-5">
+      {groups.map(([subcategory, documents]) => (
+        <div key={subcategory || "root"}>
+          {subcategory ? (
+            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+              {subcategory}
+            </h3>
+          ) : null}
+          <DocumentList documents={documents} />
+        </div>
+      ))}
+    </div>
+  );
+}
 
 function DocumentList({ documents }: { documents: DocRow[] }) {
   if (documents.length === 0) {
@@ -136,8 +169,10 @@ function DocumentList({ documents }: { documents: DocRow[] }) {
               {doc.description && (
                 <p className="mt-0.5 text-xs text-cx-forest-dark/60">{doc.description}</p>
               )}
-              {doc.categoryLabel && (
-                <p className="mt-0.5 text-xs text-cx-forest-dark/45">{doc.categoryLabel}</p>
+              {(doc.subcategory || doc.categoryLabel) && (
+                <p className="mt-0.5 text-xs text-cx-forest-dark/45">
+                  {[doc.subcategory, doc.categoryLabel].filter(Boolean).join(" · ")}
+                </p>
               )}
             </div>
             <Download className="h-4 w-4 shrink-0 text-cx-forest-dark/40" aria-hidden />

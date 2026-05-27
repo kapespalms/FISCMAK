@@ -64,21 +64,13 @@ export type ResidencyHubCategory = {
   pageSlugs: string[];
 };
 
-export type EducationDocument = {
-  id: string;
-  title: string;
-  href: string;
-  filename: string;
-  description?: string;
-  tags?: string[];
-};
+import {
+  EDUCATION_CATEGORIES,
+  type EducationCategory,
+  type EducationDocument,
+} from "@/lib/v2/programs/uh-education-manifest";
 
-export type EducationCategory = {
-  id: string;
-  title: string;
-  description: string;
-  documents: EducationDocument[];
-};
+export type { EducationCategory, EducationDocument };
 
 const ADMIN_PAGES: ResidencyPageContent[] = [
   {
@@ -99,6 +91,7 @@ const ADMIN_PAGES: ResidencyPageContent[] = [
       resources: [
         "MedHub — evaluations, curriculum objectives, portfolio entries",
         "QGenda — call schedule, switch rules, and backup assignments",
+        "CMC call coverage grid — seeded from Cleveland psychiatry schedule (initials + shift only)",
         "Office calendar — daily attending assignments (CL/MPU and outpatient clinics)",
         "Full block schedule — Dashboard calendar or /app/calendar",
       ],
@@ -273,100 +266,7 @@ export function searchResidencyPages(query: string): ResidencyPageContent[] {
   });
 }
 
-const CONTENT_BASE = "/content/uh-psych";
-
-export const EDUCATION_CATEGORIES: EducationCategory[] = [
-  {
-    id: "landmark-articles",
-    title: "Landmark articles",
-    description: "Seminal papers by diagnosis and topic — program reading list.",
-    documents: [
-      {
-        id: "kirsch-antidepressants",
-        title: "Kirsch et al. — Initial severity and antidepressant benefits (meta-analysis)",
-        href: `${CONTENT_BASE}/landmark-articles/kirsch-antidepressant-meta-analysis.pdf`,
-        filename: "kirsch-antidepressant-meta-analysis.pdf",
-        tags: ["depression", "meta-analysis"],
-      },
-      {
-        id: "appelbaum-cl",
-        title: "Appelbaum — Assessment of competence to consent to treatment",
-        href: `${CONTENT_BASE}/landmark-articles/Appelbaum - Assessment of Patients_ Competence to Consent to Treatment.pdf`,
-        filename: "Appelbaum - Assessment of Patients_ Competence to Consent to Treatment.pdf",
-        tags: ["capacity", "CL", "ethics"],
-      },
-    ],
-  },
-  {
-    id: "psychopharmacology",
-    title: "Psychopharmacology",
-    description: "Quick-reference charts and fact sheets for inpatient and outpatient prescribing.",
-    documents: [
-      {
-        id: "benzo-equiv",
-        title: "Benzodiazepine equivalence table",
-        href: `${CONTENT_BASE}/psychopharmacology/benzodiazepine-equivalence-table.pdf`,
-        filename: "benzodiazepine-equivalence-table.pdf",
-      },
-      {
-        id: "clozapine-facts",
-        title: "Clozapine fact sheet",
-        href: `${CONTENT_BASE}/psychopharmacology/clozapine-fact-sheet.pdf`,
-        filename: "clozapine-fact-sheet.pdf",
-        tags: ["clozapine", "inpatient"],
-      },
-    ],
-  },
-  {
-    id: "patient-handouts",
-    title: "For patients",
-    description: "Handouts and community resources to share with patients and families.",
-    documents: [
-      {
-        id: "carelines",
-        title: "Carelines & helplines",
-        href: `${CONTENT_BASE}/patient-handouts/carelines-helplines.pdf`,
-        filename: "carelines-helplines.pdf",
-        tags: ["crisis", "resources"],
-      },
-      {
-        id: "local-mh",
-        title: "Local mental health resources (concise, 2024)",
-        href: `${CONTENT_BASE}/patient-handouts/local-mh-resources-concise-2024.pdf`,
-        filename: "local-mh-resources-concise-2024.pdf",
-        tags: ["community", "Cuyahoga"],
-      },
-    ],
-  },
-  {
-    id: "core-readings",
-    title: "Core readings",
-    description: "Foundational texts for capacity, ethics, and clinical reasoning.",
-    documents: [
-      {
-        id: "appelbaum-competence",
-        title: "Appelbaum — Competence to consent to treatment",
-        href: `${CONTENT_BASE}/core-readings/appelbaum-competence-to-consent.pdf`,
-        filename: "appelbaum-competence-to-consent.pdf",
-        tags: ["capacity", "ethics"],
-      },
-    ],
-  },
-  {
-    id: "electives",
-    title: "Electives",
-    description: "Master elective catalog spreadsheet — locations, faculty, and requirements.",
-    documents: [
-      {
-        id: "master-electives",
-        title: "Master elective spreadsheet",
-        href: `${CONTENT_BASE}/electives/master-elective-spreadsheet.xlsx`,
-        filename: "master-elective-spreadsheet.xlsx",
-        description: "Full catalog of approved electives with contacts and scheduling notes.",
-      },
-    ],
-  },
-];
+export { EDUCATION_CATEGORIES };
 
 export function listAllEducationDocuments(): EducationDocument[] {
   return EDUCATION_CATEGORIES.flatMap((c) => c.documents);
@@ -383,7 +283,14 @@ export function searchEducationDocuments(query: string): Array<EducationDocument
   );
   if (!q) return all;
   return all.filter((doc) => {
-    const haystack = [doc.title, doc.description, doc.filename, ...(doc.tags ?? []), doc.categoryTitle]
+    const haystack = [
+      doc.title,
+      doc.description,
+      doc.filename,
+      doc.subcategory,
+      ...(doc.tags ?? []),
+      doc.categoryTitle,
+    ]
       .filter(Boolean)
       .join(" ")
       .toLowerCase();

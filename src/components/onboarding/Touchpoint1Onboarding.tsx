@@ -1065,11 +1065,26 @@ export function Touchpoint1Onboarding() {
               )}
 
               {isInstitutional && (
-                <div className="rounded-xl border border-dashed border-cx-forest-dark/20 px-4 py-3">
+                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
                   <p className="font-futura-medium text-base text-cx-forest-dark">Call schedule</p>
                   <OnboardingProfileHint>
-                    Coming soon — your program call schedule is not uploaded yet.
+                    CMC call coverage is seeded in FISCMAK (initials + shift). Use QGenda for live
+                    assignments and switch rules.
                   </OnboardingProfileHint>
+                  <div className="mt-2 flex flex-wrap gap-3 text-sm">
+                    <Link
+                      href="/app/residency/contacts-calendars#resources"
+                      className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+                    >
+                      Contacts &amp; calendars
+                    </Link>
+                    <Link
+                      href="/app/calendar"
+                      className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+                    >
+                      Block schedule
+                    </Link>
+                  </div>
                 </div>
               )}
             </OnboardingProfileSection>
