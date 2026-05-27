@@ -6,3 +6,4 @@ export * from "./document-parser";
 export * from "./document-cache";
 export * from "./aggregate";
 export * from "./schedule-lattice-evidence";
+export * from "./profile-lattice-evidence";

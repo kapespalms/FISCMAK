@@ -8,7 +8,8 @@ import { Card } from "@/components/ui/Card";
 import { UH_PSYCH_CMC_PROGRAM } from "@/lib/v2/programs/registry";
 import { KpAdminProgramInvitesPanel } from "@/components/admin/KpAdminProgramInvitesPanel";
 import { RETIRED_METRICS_DEMO } from "@/lib/v2/user-facing-analytics";
-import type { KpAdminTrackingSnapshot } from "@/lib/v2/kp-admin-tracking";
+import { RETIRED_SURFACES } from "@/lib/v2/retired-surfaces";
+import type { KpAdminTrackingSnapshot, KpAdminEvaluationSummary } from "@/lib/v2/kp-admin-tracking";
 import type { MakCoachingHint } from "@/lib/v2/mak-coaching-prompts";
 import type { DashboardHeaderModel } from "@/lib/v2/dashboard-architecture";
 
@@ -30,12 +31,150 @@ const DEMO_HEALTH_HEADER: DashboardHeaderModel = {
 type TrackingResponse = {
   cv_uploaded: boolean;
   tracking: KpAdminTrackingSnapshot;
+  evaluation: KpAdminEvaluationSummary | null;
   mak_coaching: {
     escalation_level: number;
     hints: MakCoachingHint[];
     context_block: string;
   };
 };
+
+function KpAdminEvaluationPanel() {
+  const [data, setData] = useState<TrackingResponse | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/v1/kp-admin/tracking")
+      .then((r) => {
+        if (!r.ok) throw new Error("Failed to load");
+        return r.json();
+      })
+      .then(setData)
+      .catch(() => setError("Could not load evaluation summary."));
+  }, []);
+
+  const evaluation = data?.evaluation;
+
+  return (
+    <Card>
+      <p className="text-cx-label uppercase">Internal · your evaluation</p>
+      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+        User evaluation & lattice coverage
+      </h3>
+      <p className="mt-2 text-sm text-cx-forest-dark/75">
+        Mirrors your profile, self-assessment instruments, touchpoint answers, goals, and how they
+        populate the career lattice — for KP admin review only.
+      </p>
+
+      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {!data && !error && <p className="mt-3 text-sm text-cx-forest-dark/70">Loading…</p>}
+
+      {evaluation && (
+        <div className="mt-4 space-y-4">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
+              <p className="text-xs uppercase text-cx-forest-dark/60">Profile</p>
+              <p className="mt-1 text-sm font-medium text-cx-forest-dark">
+                {evaluation.profile.specialty ?? "—"}
+              </p>
+              <p className="text-xs text-cx-forest-dark/65">
+                {evaluation.profile.career_track ?? "No primary track"}
+                {evaluation.profile.current_rotation
+                  ? ` · ${evaluation.profile.current_rotation}`
+                  : ""}
+              </p>
+            </div>
+            <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
+              <p className="text-xs uppercase text-cx-forest-dark/60">Self-assessment</p>
+              <p className="mt-1 text-xl font-semibold">
+                {evaluation.instruments.answered}/{evaluation.instruments.total}
+              </p>
+              <p className="text-xs text-cx-forest-dark/65">
+                {evaluation.instruments.complete
+                  ? "Complete"
+                  : evaluation.instruments.pending_cluster
+                    ? `Next: ${evaluation.instruments.pending_cluster}`
+                    : "In progress"}
+              </p>
+            </div>
+            <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
+              <p className="text-xs uppercase text-cx-forest-dark/60">Lattice evidence</p>
+              <p className="mt-1 text-xl font-semibold">{evaluation.lattice_coverage.evidence_total}</p>
+              <p className="text-xs text-cx-forest-dark/65">
+                {evaluation.lattice_coverage.populated_domain_count}/8 domains populated
+              </p>
+            </div>
+            <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
+              <p className="text-xs uppercase text-cx-forest-dark/60">Touchpoints</p>
+              <p className="mt-1 text-xl font-semibold">
+                {evaluation.touchpoint_assessments.completed}
+              </p>
+              <p className="text-xs text-cx-forest-dark/65">
+                {evaluation.touchpoint_assessments.total_answered_questions} captured answers
+              </p>
+            </div>
+          </div>
+
+          {evaluation.instruments.scores.length > 0 ? (
+            <div>
+              <p className="text-sm font-semibold text-cx-forest-dark">Instrument summaries</p>
+              <ul className="mt-2 space-y-2 text-sm text-cx-forest-dark/80">
+                {evaluation.instruments.scores.map((score) => (
+                  <li
+                    key={score.instrument_id}
+                    className="rounded-lg border border-cx-forest-dark/10 px-3 py-2"
+                  >
+                    <span className="font-medium">{score.name}</span>
+                    {score.interpretation ? (
+                      <p className="mt-1 text-cx-forest-dark/75">{score.interpretation}</p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <div>
+            <p className="text-sm font-semibold text-cx-forest-dark">Lattice sources</p>
+            <div className="mt-2 flex flex-wrap gap-2 text-xs">
+              {Object.entries(evaluation.lattice_coverage.by_source).map(([source, count]) =>
+                count > 0 ? (
+                  <span
+                    key={source}
+                    className="rounded-full bg-cx-forest-dark/[0.06] px-2 py-0.5 capitalize text-cx-forest-dark/75"
+                  >
+                    {source}: {count}
+                  </span>
+                ) : null,
+              )}
+            </div>
+            {evaluation.lattice_coverage.populated_domains.length > 0 ? (
+              <p className="mt-2 text-xs text-cx-forest-dark/65">
+                Domains with evidence:{" "}
+                {evaluation.lattice_coverage.populated_domains.join(", ")}
+              </p>
+            ) : null}
+          </div>
+
+          {evaluation.evaluation_framework ? (
+            <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-3 text-sm">
+              <p className="font-semibold text-cx-forest-dark">GME evaluation framework</p>
+              <p className="mt-1 text-cx-forest-dark/75">
+                {evaluation.evaluation_framework.primary_name}
+                {evaluation.evaluation_framework.subspecialty
+                  ? ` · ${evaluation.evaluation_framework.subspecialty}`
+                  : ""}
+              </p>
+              <p className="text-xs text-cx-forest-dark/60">
+                Milestones: {evaluation.evaluation_framework.milestone_status ?? "—"}
+              </p>
+            </div>
+          ) : null}
+        </div>
+      )}
+    </Card>
+  );
+}
 
 function KpAdminInternalCoachingPanel() {
   const [data, setData] = useState<TrackingResponse | null>(null);
@@ -172,6 +311,8 @@ export function KpAdminDashboard() {
       </Card>
 
       <KpAdminProgramInvitesPanel />
+
+      <KpAdminEvaluationPanel />
 
       <KpAdminInternalCoachingPanel />
 

@@ -200,6 +200,13 @@ export type OnboardingMetadata = {
   output_user_templates?: import("@/lib/v2/output-user-templates").UserOutputTemplatesMap;
   /** Cached document→lattice evidence (invalidated when vault docs change) */
   lattice_document_cache?: import("@/lib/v2/lattice/document-cache").LatticeDocumentCache;
+  /** GME trainee evaluation framework resolved at onboarding */
+  evaluation_framework?: {
+    primary_name?: string;
+    subspecialty?: string | null;
+    milestone_status?: string;
+    milestone_version?: string | null;
+  };
   /** Server-only Mak coaching bands — never expose s_index to users */
   _internal_coaching?: {
     service_footprint_band: "minimal" | "moderate" | "strong";

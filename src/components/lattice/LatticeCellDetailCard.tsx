@@ -23,6 +23,12 @@ function evidenceSourceLabel(source: LatticeCellMetrics["evidence"][number]["sou
       return "Calendar";
     case "rotation":
       return "Rotation";
+    case "profile":
+      return "Profile";
+    case "assessment":
+      return "Assessment";
+    case "goal":
+      return "Goal";
     default:
       return "Activity";
   }
@@ -87,8 +93,9 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
           </div>
         ) : (
           <p className="mt-4 text-sm text-cx-forest-dark/75">
-            No evidence mapped here yet. Log activities, add calendar events with Coach Mak, or
-            upload career documents — mapped skills and tasks will appear when they match this cell.
+            No evidence mapped here yet. Log activities, add calendar events with Coach Mak,
+            complete self-assessment, or upload career documents — mapped skills and tasks will
+            appear when they match this cell.
           </p>
         )}
 

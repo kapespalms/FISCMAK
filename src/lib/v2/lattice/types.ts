@@ -1,6 +1,13 @@
 export type LatticeTimeframe = "30d" | "90d" | "1y" | "all";
 
-export type LatticeEvidenceSource = "activity" | "document" | "schedule" | "rotation";
+export type LatticeEvidenceSource =
+  | "activity"
+  | "document"
+  | "schedule"
+  | "rotation"
+  | "profile"
+  | "assessment"
+  | "goal";
 
 export type LatticeEvidence = {
   id: string;
@@ -46,5 +53,8 @@ export type LatticeDashboardResponse = {
   activity_evidence_count: number;
   schedule_evidence_count: number;
   rotation_evidence_count: number;
+  profile_evidence_count: number;
+  assessment_evidence_count: number;
+  goal_evidence_count: number;
   parsed_at: string;
 };

@@ -79,8 +79,8 @@ export function LatticeView() {
     tab === "acgme" && data?.acgme ? data.acgme : data?.fiscmak ?? null;
 
   const description = data
-    ? `${data.evidence_total} mapped items (${data.activity_evidence_count} activities, ${data.document_evidence_count} documents, ${data.rotation_evidence_count} rotation blocks, ${data.schedule_evidence_count} calendar events). All counts are relative to you in the selected window.`
-    : "Map skills and tasks from activities, your schedule, and career documents onto your lattice.";
+    ? `${data.evidence_total} mapped items (${data.activity_evidence_count} activities, ${data.document_evidence_count} documents, ${data.profile_evidence_count} profile, ${data.assessment_evidence_count} assessments, ${data.goal_evidence_count} goals, ${data.rotation_evidence_count} rotation blocks, ${data.schedule_evidence_count} calendar events). All counts are relative to you in the selected window.`
+    : "Map skills and tasks from your profile, assessments, activities, schedule, and career documents onto your lattice.";
 
   return (
     <div className="space-y-4">

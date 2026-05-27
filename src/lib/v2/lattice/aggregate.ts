@@ -11,6 +11,7 @@ import { resolveActivityLatticePlacement } from "@/lib/v2/lattice/activity-norma
 import { resolveCachedDocumentEvidence } from "@/lib/v2/lattice/document-cache";
 import type { LatticeDocumentCache } from "@/lib/v2/lattice/document-cache";
 import { buildScheduleLatticeEvidence } from "@/lib/v2/lattice/schedule-lattice-evidence";
+import { buildProfileLatticeEvidence } from "@/lib/v2/lattice/profile-lattice-evidence";
 import type {
   LatticeCellMetrics,
   LatticeDashboardResponse,
@@ -18,7 +19,9 @@ import type {
   LatticeGridModel,
   LatticeTimeframe,
 } from "@/lib/v2/lattice/types";
+import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import type { ScheduleBlock, UserScheduleEvent } from "@/lib/v2/schedule-calendar/types";
+import type { AppUser, CareerAssessment } from "@/lib/v2/types";
 
 function timeframeStart(tf: LatticeTimeframe): Date | null {
   if (tf === "all") return null;
@@ -143,6 +146,9 @@ export function buildLatticeDashboard(input: {
   documentCache?: LatticeDocumentCache;
   scheduleEvents?: UserScheduleEvent[];
   programBlocks?: ScheduleBlock[];
+  user?: AppUser;
+  meta?: OnboardingMetadata;
+  assessments?: CareerAssessment[];
 }): {
   dashboard: LatticeDashboardResponse;
   documentCache: LatticeDocumentCache;
@@ -158,9 +164,20 @@ export function buildLatticeDashboard(input: {
     programBlocks: input.programBlocks ?? [],
     timeframe: input.timeframe,
   });
-  const all = [...activityEvidence, ...docEvidence, ...scheduleEvidence].filter((e) =>
-    inTimeframe(e.date, input.timeframe),
-  );
+  const profileEvidence =
+    input.user && input.meta
+      ? buildProfileLatticeEvidence({
+          user: input.user,
+          meta: input.meta,
+          assessments: input.assessments,
+        })
+      : [];
+  const all = [
+    ...activityEvidence,
+    ...docEvidence,
+    ...scheduleEvidence,
+    ...profileEvidence,
+  ].filter((e) => inTimeframe(e.date, input.timeframe));
 
   return {
     dashboard: {
@@ -173,6 +190,9 @@ export function buildLatticeDashboard(input: {
       activity_evidence_count: all.filter((e) => e.source === "activity").length,
       schedule_evidence_count: all.filter((e) => e.source === "schedule").length,
       rotation_evidence_count: all.filter((e) => e.source === "rotation").length,
+      profile_evidence_count: all.filter((e) => e.source === "profile").length,
+      assessment_evidence_count: all.filter((e) => e.source === "assessment").length,
+      goal_evidence_count: all.filter((e) => e.source === "goal").length,
       parsed_at: new Date().toISOString(),
     },
     documentCache: cache,

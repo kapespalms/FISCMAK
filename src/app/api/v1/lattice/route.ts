@@ -1,5 +1,6 @@
 import {
   fetchActivities,
+  fetchAssessments,
   fetchDocuments,
 } from "@/lib/v2/db";
 import {
@@ -50,9 +51,10 @@ export async function GET(request: Request) {
     user = await upsertAppUser(auth.userId, auth.email, {}, auth.demo);
   }
 
-  const [activities, documents] = await Promise.all([
+  const [activities, documents, assessments] = await Promise.all([
     fetchActivities(auth.userId, auth.demo, 500),
     fetchDocuments(auth.userId, auth.demo),
+    fetchAssessments(auth.userId, auth.demo),
   ]);
 
   const meta = getOnboardingMetadata(user);
@@ -67,6 +69,9 @@ export async function GET(request: Request) {
     documentCache: meta.lattice_document_cache,
     scheduleEvents,
     programBlocks,
+    user,
+    meta,
+    assessments,
   });
 
   if (!documentCacheHit) {
