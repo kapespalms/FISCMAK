@@ -2,6 +2,7 @@
 
 import { User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DEFAULT_PROFILE_AVATAR_SRC } from "@/lib/brand-assets";
 
 type UserAvatarProps = {
   src?: string | null;
@@ -25,6 +26,7 @@ function initialsFromName(name?: string | null): string {
 
 export function UserAvatar({ src, name, size = "sm", className }: UserAvatarProps) {
   const initials = initialsFromName(name);
+  const imageSrc = src ?? DEFAULT_PROFILE_AVATAR_SRC;
 
   return (
     <span
@@ -34,9 +36,9 @@ export function UserAvatar({ src, name, size = "sm", className }: UserAvatarProp
         className,
       )}
     >
-      {src ? (
+      {imageSrc ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" className="h-full w-full object-cover" />
+        <img src={imageSrc} alt="" className="h-full w-full object-cover" />
       ) : initials ? (
         <span aria-hidden>{initials}</span>
       ) : (

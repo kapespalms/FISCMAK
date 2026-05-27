@@ -13,7 +13,9 @@ import { PROFILE_MAK } from "@/lib/card-mak-prompts";
 import {
   AVATAR_CHANGED_EVENT,
   getProfileAvatarUrl,
+  hasCustomProfileAvatar,
   processAvatarFile,
+  resolveProfileAvatarUrl,
 } from "@/lib/profile-avatar";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import {
@@ -156,8 +158,8 @@ export default function ProfilePage() {
                   goals: p.goals ?? "",
                 }));
               }
-              if (p.photo_url && !getProfileAvatarUrl()) {
-                setAvatarUrl(p.photo_url);
+              if (p.photo_url && !hasCustomProfileAvatar()) {
+                setAvatarUrl(resolveProfileAvatarUrl(p.photo_url));
               }
               if (!me.base_specialty && p.specialty) {
                 applySpecialtyFromUser({ ...me, specialty: p.specialty });

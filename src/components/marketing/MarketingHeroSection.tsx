@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { HERO_CHESS_SRC } from "@/lib/brand-assets";
 import { institutionAccentClass } from "@/lib/v2/programs/institution-brand";
 import { joinInstitutionLabel } from "@/lib/v2/programs/program-join-display";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
@@ -55,8 +56,21 @@ export function MarketingHeroSection({
     <section
       id="hero-value-proposition"
       aria-label="Hero value proposition"
-      className="relative flex min-h-[min(720px,85svh)] items-start justify-start px-8 pb-20 pt-32 md:px-10 md:pb-24 md:pt-36 lg:px-16 lg:pt-40"
+      className="relative flex min-h-[min(720px,85svh)] items-start justify-start overflow-hidden px-8 pb-20 pt-32 md:px-10 md:pb-24 md:pt-36 lg:px-16 lg:pt-40"
     >
+      <div
+        className="pointer-events-none absolute bottom-0 right-0 top-24 hidden w-[min(42vw,520px)] items-end justify-end pr-4 md:flex lg:pr-10"
+        aria-hidden
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={HERO_CHESS_SRC}
+          alt=""
+          className="max-h-[min(72svh,640px)] w-auto max-w-full object-contain object-bottom drop-shadow-[0_24px_80px_rgba(103,225,81,0.15)]"
+          decoding="async"
+        />
+      </div>
+
       <div className="relative w-full max-w-6xl">
         {institutionLabel ? (
           <p

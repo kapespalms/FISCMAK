@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-
-const ICON_SRC = "/brand/nav/coach-mak.png";
+import { MAK_AVATAR_SRC } from "@/lib/brand-assets";
 
 type CoachMakAvatarProps = {
   size?: number;
@@ -11,7 +10,7 @@ export function CoachMakAvatar({ size = 32, className }: CoachMakAvatarProps) {
   return (
     // Native img avoids Next/Image issues with uploaded brand assets
     <img
-      src={ICON_SRC}
+      src={MAK_AVATAR_SRC}
       alt="Coach Mak"
       width={size}
       height={size}

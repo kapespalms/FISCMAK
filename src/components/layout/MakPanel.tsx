@@ -31,6 +31,7 @@ import { resolveSectionQuickAction, type SectionQuickAction } from "@/lib/v2/sec
 import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions } from "@/lib/v2/goal-setting-mak-flow";
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
+import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
 import { MakMessageActions } from "@/components/layout/MakMessageActions";
 import { CreditLimitModal } from "@/components/layout/CreditLimitModal";
 import {
@@ -787,13 +788,16 @@ export function MakPanel({
         <div className={cn("flex h-full flex-col bg-white", expanded && "min-w-0")}>
           <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white">
             <div className="flex h-14 items-center justify-between gap-2 px-3">
-              <div className="min-w-0">
-                <p className="truncate text-base font-semibold text-cx-forest-dark">Coach Mak</p>
-                {userTier === "free" && messageBalance != null && (
-                  <p className="truncate text-[11px] text-cx-forest-dark/50">
-                    {messageBalance} free AI {messageBalance === 1 ? "message" : "messages"} left
-                  </p>
-                )}
+              <div className="flex min-w-0 items-center gap-2.5">
+                <CoachMakAvatar size={36} className="rounded-full" />
+                <div className="min-w-0">
+                  <p className="truncate text-base font-semibold text-cx-forest-dark">Coach Mak</p>
+                  {userTier === "free" && messageBalance != null && (
+                    <p className="truncate text-[11px] text-cx-forest-dark/50">
+                      {messageBalance} free AI {messageBalance === 1 ? "message" : "messages"} left
+                    </p>
+                  )}
+                </div>
               </div>
               <div className="flex shrink-0 items-center gap-1.5">
                 <button
@@ -833,18 +837,21 @@ export function MakPanel({
 
           if (msg.role === "assistant") {
             return (
-              <div key={`${i}-${msg.content.slice(0, 12)}`} className="space-y-1.5">
-                <div className="max-w-[95%] whitespace-pre-line rounded-2xl bg-[#eceef1] px-4 py-3 text-sm leading-relaxed text-cx-forest-dark">
-                  {msg.content}
-                </div>
-                {showTimestamp && (
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
-                      {formatMessageTime(msg.at)}
-                    </p>
-                    <MakMessageActions content={msg.content} section={section} />
+              <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex gap-2.5">
+                <CoachMakAvatar size={28} className="mt-1 rounded-full" />
+                <div className="min-w-0 flex-1 space-y-1.5">
+                  <div className="max-w-[95%] whitespace-pre-line rounded-2xl bg-[#eceef1] px-4 py-3 text-sm leading-relaxed text-cx-forest-dark">
+                    {msg.content}
                   </div>
-                )}
+                  {showTimestamp && (
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
+                        {formatMessageTime(msg.at)}
+                      </p>
+                      <MakMessageActions content={msg.content} section={section} />
+                    </div>
+                  )}
+                </div>
               </div>
             );
           }
@@ -858,8 +865,11 @@ export function MakPanel({
           );
         })}
         {loading && (
-          <div className="max-w-[95%] rounded-2xl bg-[#eceef1] px-4 py-3 text-sm text-cx-forest-dark/70">
-            Mak is thinking…
+          <div className="flex gap-2.5">
+            <CoachMakAvatar size={28} className="mt-1 rounded-full opacity-80" />
+            <div className="max-w-[95%] rounded-2xl bg-[#eceef1] px-4 py-3 text-sm text-cx-forest-dark/70">
+              Mak is thinking…
+            </div>
           </div>
         )}
         </div>

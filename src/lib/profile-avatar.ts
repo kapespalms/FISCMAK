@@ -1,9 +1,24 @@
+import { DEFAULT_PROFILE_AVATAR_SRC } from "@/lib/brand-assets";
+
 const STORAGE_KEY = "fiscmak_profile_avatar";
 export const AVATAR_CHANGED_EVENT = "fiscmak-avatar-changed";
 
-export function getProfileAvatarUrl(): string | null {
-  if (typeof window === "undefined") return null;
-  return localStorage.getItem(STORAGE_KEY);
+export function hasCustomProfileAvatar(): boolean {
+  if (typeof window === "undefined") return false;
+  return Boolean(localStorage.getItem(STORAGE_KEY));
+}
+
+export function getProfileAvatarUrl(): string {
+  if (typeof window === "undefined") return DEFAULT_PROFILE_AVATAR_SRC;
+  return localStorage.getItem(STORAGE_KEY) ?? DEFAULT_PROFILE_AVATAR_SRC;
+}
+
+export function resolveProfileAvatarUrl(remoteUrl?: string | null): string {
+  if (typeof window !== "undefined") {
+    const local = localStorage.getItem(STORAGE_KEY);
+    if (local) return local;
+  }
+  return remoteUrl ?? DEFAULT_PROFILE_AVATAR_SRC;
 }
 
 export function setProfileAvatarUrl(dataUrl: string) {
@@ -13,7 +28,9 @@ export function setProfileAvatarUrl(dataUrl: string) {
 
 export function clearProfileAvatarUrl() {
   localStorage.removeItem(STORAGE_KEY);
-  window.dispatchEvent(new CustomEvent(AVATAR_CHANGED_EVENT, { detail: null }));
+  window.dispatchEvent(
+    new CustomEvent(AVATAR_CHANGED_EVENT, { detail: DEFAULT_PROFILE_AVATAR_SRC }),
+  );
 }
 
 export async function readImageFileAsDataUrl(file: File): Promise<string> {
