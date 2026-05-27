@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { PreCccSummaryPanel } from "@/components/gme/PreCccSummaryPanel";
+import type { PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
 
 type ImportRow = {
   import_id: string;
@@ -16,6 +17,14 @@ type ImportRow = {
   };
 };
 
+type IlpGoal = {
+  goal_id: string;
+  subcompetency_id: string | null;
+  goal_text: string;
+  status: string;
+  source: string | null;
+};
+
 export function KpAdminGmePanel() {
   const programSlug = "uh-psych-cmc";
   const [csvText, setCsvText] = useState("");
@@ -25,12 +34,41 @@ export function KpAdminGmePanel() {
   const [imports, setImports] = useState<ImportRow[]>([]);
   const [traineeUserId, setTraineeUserId] = useState("");
   const [meUserId, setMeUserId] = useState<string | null>(null);
+  const [ilpGoals, setIlpGoals] = useState<IlpGoal[]>([]);
+  const [ilpLoading, setIlpLoading] = useState(false);
+  const [ilpMessage, setIlpMessage] = useState<string | null>(null);
+  const [batchSummaries, setBatchSummaries] = useState<PreCccSummary[]>([]);
+  const [batchLoading, setBatchLoading] = useState(false);
+  const [surveyManual, setSurveyManual] = useState("45");
+  const [surveyFiscmak, setSurveyFiscmak] = useState("15");
+  const [surveySaved, setSurveySaved] = useState("");
+  const [surveyNotes, setSurveyNotes] = useState("");
+  const [surveyRecommend, setSurveyRecommend] = useState(true);
 
   const refreshImports = useCallback(async () => {
     const res = await fetch(`/api/v1/programs/${programSlug}/imports`);
     if (!res.ok) return;
     const data = await res.json();
     setImports(data.imports ?? []);
+  }, []);
+
+  const loadIlpGoals = useCallback(async (userId: string) => {
+    if (!userId.trim()) return;
+    setIlpLoading(true);
+    setIlpMessage(null);
+    try {
+      const res = await fetch(
+        `/api/v1/programs/${programSlug}/residents/${encodeURIComponent(userId.trim())}/ilp?period=current`,
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message ?? "Could not load ILP goals.");
+      setIlpGoals(data.goals ?? []);
+    } catch (err) {
+      setIlpMessage(err instanceof Error ? err.message : "Could not load ILP goals.");
+      setIlpGoals([]);
+    } finally {
+      setIlpLoading(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -45,6 +83,10 @@ export function KpAdminGmePanel() {
       })
       .catch(() => undefined);
   }, [refreshImports]);
+
+  useEffect(() => {
+    if (traineeUserId.trim()) void loadIlpGoals(traineeUserId);
+  }, [traineeUserId, loadIlpGoals]);
 
   async function handleFileChange(file: File | null) {
     if (!file) return;
@@ -80,6 +122,70 @@ export function KpAdminGmePanel() {
     } finally {
       setImporting(false);
     }
+  }
+
+  async function approveGoal(goalId: string) {
+    if (!traineeUserId.trim()) return;
+    setIlpMessage(null);
+    try {
+      const res = await fetch(
+        `/api/v1/programs/${programSlug}/ilp/${encodeURIComponent(goalId)}/approve`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ trainee_user_id: traineeUserId.trim(), period: "current" }),
+        },
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message ?? "Could not approve goal.");
+      setIlpMessage("Goal approved and activated.");
+      await loadIlpGoals(traineeUserId);
+    } catch (err) {
+      setIlpMessage(err instanceof Error ? err.message : "Could not approve goal.");
+    }
+  }
+
+  async function loadBatchPreCcc() {
+    setBatchLoading(true);
+    try {
+      const res = await fetch(`/api/v1/programs/${programSlug}/pre-ccc/batch?period=current`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message ?? "Could not load batch summaries.");
+      setBatchSummaries(data.summaries ?? []);
+    } catch {
+      setBatchSummaries([]);
+    } finally {
+      setBatchLoading(false);
+    }
+  }
+
+  async function submitSurvey() {
+    const manual = Number(surveyManual);
+    const fiscmak = Number(surveyFiscmak);
+    const saved =
+      manual > 0 ? Math.round(((manual - fiscmak) / manual) * 100) : Number(surveySaved) || 0;
+
+    const res = await fetch(`/api/v1/programs/${programSlug}/pilot-survey`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        prep_minutes_manual: manual,
+        prep_minutes_fiscmak: fiscmak,
+        percent_time_saved: Math.max(0, Math.min(100, saved)),
+        would_recommend: surveyRecommend,
+        notes: surveyNotes,
+      }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      setSurveySaved(`Error: ${data.message ?? "Could not submit survey."}`);
+      return;
+    }
+    setSurveySaved(
+      data.demo
+        ? "Demo mode — survey not persisted."
+        : `Submitted — ${saved}% prep time reduction reported.`,
+    );
   }
 
   return (
@@ -137,16 +243,115 @@ export function KpAdminGmePanel() {
       </Card>
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">Pre-CCC preview</h3>
+        <h3 className="text-lg font-semibold text-cx-forest-dark">Batch pre-CCC (cohort)</h3>
         <p className="mt-2 text-sm text-cx-forest-dark/75">
-          Enter a trainee user ID (defaults to your account for self-test).
+          Load pre-CCC snapshots for all trainees linked to the program or import.
+        </p>
+        <Button className="mt-3" variant="secondary" onClick={() => void loadBatchPreCcc()} disabled={batchLoading}>
+          {batchLoading ? "Loading…" : "Load cohort summaries"}
+        </Button>
+        {batchSummaries.length > 0 && (
+          <ul className="mt-4 space-y-2 text-sm">
+            {batchSummaries.map((s) => (
+              <li key={s.trainee_user_id ?? s.trainee_initials} className="rounded-lg border border-cx-forest-dark/10 px-3 py-2">
+                <p className="font-medium text-cx-forest-dark">
+                  {s.trainee_initials ?? "—"} · PGY {s.pgy_level ?? "—"}
+                </p>
+                <p className="text-xs text-cx-forest-dark/60">
+                  {s.evaluations.length} eval(s) · avg {s.milestone_overview.average_across_evals ?? "—"} ·{" "}
+                  {s.ilp_status.active_count} active ILP goal(s)
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Card>
+
+      <Card>
+        <h3 className="text-lg font-semibold text-cx-forest-dark">ILP review (PD)</h3>
+        <p className="mt-2 text-sm text-cx-forest-dark/75">
+          Approve trainee draft goals after CCC co-production.
         </p>
         <input
           value={traineeUserId}
           onChange={(e) => setTraineeUserId(e.target.value)}
-          placeholder={meUserId ?? "user uuid"}
+          placeholder={meUserId ?? "trainee uuid"}
           className="cx-field mt-3 w-full max-w-md font-mono text-xs"
         />
+        {ilpLoading ? (
+          <p className="mt-3 text-sm text-cx-forest-dark/70">Loading ILP goals…</p>
+        ) : ilpGoals.length === 0 ? (
+          <p className="mt-3 text-sm text-cx-forest-dark/70">No ILP goals for this trainee.</p>
+        ) : (
+          <ul className="mt-3 space-y-3 text-sm">
+            {ilpGoals.map((goal) => (
+              <li key={goal.goal_id} className="rounded-lg border border-cx-forest-dark/10 px-3 py-2">
+                <p className="font-medium text-cx-forest-dark">{goal.goal_text}</p>
+                <p className="mt-1 text-xs text-cx-forest-dark/60">
+                  {goal.status} · {goal.source ?? "unknown source"}
+                </p>
+                {goal.status === "draft" && (
+                  <Button
+                    className="mt-2"
+                    variant="secondary"
+                    onClick={() => void approveGoal(goal.goal_id)}
+                  >
+                    Approve goal
+                  </Button>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+        {ilpMessage && <p className="mt-3 text-sm text-cx-forest-dark/80">{ilpMessage}</p>}
+      </Card>
+
+      <Card>
+        <h3 className="text-lg font-semibold text-cx-forest-dark">Coordinator prep-time survey</h3>
+        <p className="mt-2 text-sm text-cx-forest-dark/75">
+          Pilot metric: compare manual CCC prep minutes vs FISCMAK-assisted prep.
+        </p>
+        <div className="mt-4 grid max-w-md gap-3 text-sm">
+          <label className="block">
+            Manual prep (minutes)
+            <input
+              type="number"
+              min={0}
+              value={surveyManual}
+              onChange={(e) => setSurveyManual(e.target.value)}
+              className="cx-field mt-1 w-full"
+            />
+          </label>
+          <label className="block">
+            FISCMAK-assisted prep (minutes)
+            <input
+              type="number"
+              min={0}
+              value={surveyFiscmak}
+              onChange={(e) => setSurveyFiscmak(e.target.value)}
+              className="cx-field mt-1 w-full"
+            />
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={surveyRecommend}
+              onChange={(e) => setSurveyRecommend(e.target.checked)}
+            />
+            Would recommend for CCC prep
+          </label>
+          <textarea
+            value={surveyNotes}
+            onChange={(e) => setSurveyNotes(e.target.value)}
+            placeholder="Optional notes…"
+            rows={3}
+            className="cx-field w-full text-sm"
+          />
+          <Button variant="secondary" onClick={() => void submitSurvey()}>
+            Submit survey
+          </Button>
+          {surveySaved && <p className="text-cx-forest-dark/80">{surveySaved}</p>}
+        </div>
       </Card>
 
       {traineeUserId.trim() && (

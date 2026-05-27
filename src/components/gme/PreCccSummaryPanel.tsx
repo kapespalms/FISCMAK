@@ -89,6 +89,53 @@ export function PreCccSummaryPanel({
             </p>
           </div>
 
+          {summary.narrative_synthesis.strengths.length > 0 && (
+            <div>
+              <p className="font-semibold text-cx-forest-dark">Narrative synthesis · strengths</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {summary.narrative_synthesis.strengths.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {summary.narrative_synthesis.areas_for_growth.length > 0 && (
+            <div>
+              <p className="font-semibold text-cx-forest-dark">Areas for growth</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {summary.narrative_synthesis.areas_for_growth.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {summary.narrative_synthesis.quotes.length > 0 && (
+            <div>
+              <p className="font-semibold text-cx-forest-dark">Faculty quotes</p>
+              <ul className="mt-2 space-y-2">
+                {summary.narrative_synthesis.quotes.map((quote) => (
+                  <li
+                    key={`${quote.eval_id}-${quote.text.slice(0, 40)}`}
+                    className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-xs italic"
+                  >
+                    &ldquo;{quote.text}&rdquo;
+                    <span className="mt-1 block not-italic text-cx-forest-dark/55">
+                      {quote.supervisor_name ?? "Faculty"}
+                      {quote.rotation_name ? ` · ${quote.rotation_name}` : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
+            <p className="font-semibold text-cx-forest-dark">ILP status</p>
+            <p className="mt-1">{summary.ilp_status.note}</p>
+          </div>
+
           {summary.narrative_themes.length > 0 && (
             <div>
               <p className="font-semibold text-cx-forest-dark">Narrative themes</p>

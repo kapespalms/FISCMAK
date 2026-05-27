@@ -242,6 +242,12 @@ async function main() {
     requiresTable: "app_users",
   });
 
+  steps.push({
+    file: "docs/migrations/20260532_gme_staff_ilp_survey.sql",
+    label: "GME staff ILP policies + coordinator survey",
+    requiresTable: "programs",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

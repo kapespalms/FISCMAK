@@ -1,6 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getAppUser, upsertAppUser } from "@/lib/v2/api-helpers";
+import { getServerDemo } from "@/lib/v2/demo-store";
 import { getProgramBySlug } from "@/lib/v2/programs/registry";
 import type { AppUser } from "@/lib/v2/types";
 
@@ -329,4 +331,107 @@ export async function loadRotationEvaluations(
 
   if (error) throw new Error(error.message);
   return (data ?? []) as Array<{ numeric_scores?: Record<string, number> | null }>;
+}
+
+export async function approveIlpGoalForTrainee(input: {
+  traineeUserId: string;
+  goalId: string;
+  approverUserId: string;
+  demo: boolean;
+  period?: string;
+}): Promise<IlpGoalRow | null> {
+  const period = input.period ?? "current";
+  const patch = {
+    status: "active",
+    source: "pd",
+    locked_at: new Date().toISOString(),
+  };
+
+  if (!isSupabaseConfigured() || input.demo) {
+    const state = getServerDemo(input.traineeUserId);
+    const meta = (state.user.onboarding_metadata ?? {}) as GmeOnboardingMeta;
+    const gme = meta.gme ?? {};
+    const goals = [...(gme.ilp_goals?.[period] ?? [])];
+    const idx = goals.findIndex((g) => g.goal_id === input.goalId);
+    if (idx < 0) return null;
+    goals[idx] = { ...goals[idx], ...patch };
+    state.user = {
+      ...state.user,
+      onboarding_metadata: {
+        ...meta,
+        gme: {
+          ...gme,
+          ilp_goals: { ...(gme.ilp_goals ?? {}), [period]: goals },
+        },
+      } as Record<string, unknown>,
+    };
+    return goals[idx];
+  }
+
+  try {
+    const admin = createAdminClient();
+    const { data, error } = await admin
+      .from("ilp_goals")
+      .update(patch)
+      .eq("goal_id", input.goalId)
+      .eq("user_id", input.traineeUserId)
+      .select(
+        "goal_id, subcompetency_id, goal_text, resources, target_date, status, source, created_at, locked_at",
+      )
+      .maybeSingle();
+    if (error) throw error;
+    return (data as IlpGoalRow | null) ?? null;
+  } catch {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("ilp_goals")
+      .update(patch)
+      .eq("goal_id", input.goalId)
+      .eq("user_id", input.traineeUserId)
+      .select(
+        "goal_id, subcompetency_id, goal_text, resources, target_date, status, source, created_at, locked_at",
+      )
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    return (data as IlpGoalRow | null) ?? null;
+  }
+}
+
+export async function listProgramTraineeIds(programId: string): Promise<string[]> {
+  if (!isSupabaseConfigured()) return [];
+
+  const supabase = await createClient();
+  const ids = new Set<string>();
+
+  const { data: members } = await supabase
+    .from("program_memberships")
+    .select("user_id")
+    .eq("program_id", programId)
+    .eq("role", "trainee")
+    .eq("active", true);
+
+  for (const row of members ?? []) {
+    if (row.user_id) ids.add(row.user_id);
+  }
+
+  const { data: users } = await supabase
+    .from("app_users")
+    .select("user_id")
+    .eq("primary_program_id", programId);
+
+  for (const row of users ?? []) {
+    if (row.user_id) ids.add(row.user_id);
+  }
+
+  const { data: evalTrainees } = await supabase
+    .from("rotation_evaluations")
+    .select("trainee_user_id")
+    .eq("program_id", programId)
+    .not("trainee_user_id", "is", null);
+
+  for (const row of evalTrainees ?? []) {
+    if (row.trainee_user_id) ids.add(row.trainee_user_id);
+  }
+
+  return [...ids];
 }

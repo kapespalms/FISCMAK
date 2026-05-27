@@ -1,4 +1,8 @@
 import type { ParsedMedhubEvalRow } from "@/lib/v2/gme/medhub-csv-import";
+import {
+  type NarrativeSynthesis,
+  synthesizeNarratives,
+} from "@/lib/v2/gme/narrative-synthesis";
 
 export type PreCccEvalSummary = {
   eval_id: string | null;
@@ -28,6 +32,12 @@ export type PreCccSummary = {
   };
   evaluations: PreCccEvalSummary[];
   narrative_themes: string[];
+  narrative_synthesis: NarrativeSynthesis;
+  ilp_status: {
+    draft_count: number;
+    active_count: number;
+    note: string;
+  };
   disclaimer: string;
 };
 
@@ -51,6 +61,7 @@ export function buildPreCccSummary(input: {
   pgyLevel?: string | null;
   reportingPeriod?: string;
   evaluations: ParsedMedhubEvalRow[];
+  ilpGoals?: Array<{ status: string }>;
 }): PreCccSummary {
   const evalSummaries: PreCccEvalSummary[] = input.evaluations.map((ev) => {
     const scoreValues = Object.values(ev.numeric_scores);
@@ -84,6 +95,10 @@ export function buildPreCccSummary(input: {
 
   const count = input.evaluations.length;
   const sufficient = count >= 1;
+  const synthesis = synthesizeNarratives(input.evaluations);
+  const ilpGoals = input.ilpGoals ?? [];
+  const draftCount = ilpGoals.filter((g) => g.status === "draft").length;
+  const activeCount = ilpGoals.filter((g) => g.status === "active").length;
 
   return {
     trainee_user_id: input.traineeUserId ?? null,
@@ -104,6 +119,17 @@ export function buildPreCccSummary(input: {
     },
     evaluations: evalSummaries,
     narrative_themes: [...themes],
+    narrative_synthesis: synthesis,
+    ilp_status: {
+      draft_count: draftCount,
+      active_count: activeCount,
+      note:
+        activeCount > 0
+          ? `${activeCount} PD-approved ILP goal(s) on file.`
+          : draftCount > 0
+            ? `${draftCount} draft ILP goal(s) awaiting PD review.`
+            : "No ILP goals recorded for this period.",
+    },
     disclaimer:
       "AI-assisted synthesis from imported MedHub data — verify against original evaluations in MedHub.",
   };

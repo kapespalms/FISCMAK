@@ -38,6 +38,21 @@ export async function exportPreCccPdf(summary: PreCccSummary): Promise<Blob> {
     { size: 10, gap: 12 },
   );
 
+  if (summary.narrative_synthesis.strengths.length) {
+    addLine("Strengths (synthesized)", { bold: true, size: 12 });
+    addLine(summary.narrative_synthesis.strengths.map((t) => `• ${t}`).join("\n"), { gap: 10 });
+  }
+
+  if (summary.narrative_synthesis.areas_for_growth.length) {
+    addLine("Areas for growth", { bold: true, size: 12 });
+    addLine(summary.narrative_synthesis.areas_for_growth.map((t) => `• ${t}`).join("\n"), {
+      gap: 10,
+    });
+  }
+
+  addLine("ILP status", { bold: true, size: 12 });
+  addLine(summary.ilp_status.note, { gap: 12 });
+
   if (summary.narrative_themes.length) {
     addLine("Narrative themes", { bold: true, size: 12 });
     addLine(summary.narrative_themes.map((t) => `• ${t}`).join("\n"), { gap: 12 });

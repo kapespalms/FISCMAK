@@ -38,3 +38,29 @@ export async function canAccessProgramStaffTools(
 
   return data?.role ? STAFF_ROLES.has(data.role) : false;
 }
+
+export async function verifyTraineeInProgram(
+  traineeUserId: string,
+  programId: string,
+): Promise<boolean> {
+  if (!isSupabaseConfigured()) return true;
+
+  const supabase = await createClient();
+  const { data: membership } = await supabase
+    .from("program_memberships")
+    .select("membership_id")
+    .eq("program_id", programId)
+    .eq("user_id", traineeUserId)
+    .eq("active", true)
+    .maybeSingle();
+
+  if (membership) return true;
+
+  const { data: user } = await supabase
+    .from("app_users")
+    .select("primary_program_id")
+    .eq("user_id", traineeUserId)
+    .maybeSingle();
+
+  return user?.primary_program_id === programId;
+}
