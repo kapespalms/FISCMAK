@@ -1,16 +1,10 @@
 import { cn } from "@/lib/utils";
-import { LANDING_CHESS_QUEEN_SRC } from "@/lib/brand-assets";
-import {
-  MarketingHeroHeadline,
-  MarketingHeroHeadlineSpacer,
-  marketingHeroHeadlineClass,
-} from "@/components/marketing/MarketingHeroHeadline";
+import { LANDING_HERO_QUEEN_SRC } from "@/lib/brand-assets";
+import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
+import { MarketingHeroHeadline } from "@/components/marketing/MarketingHeroHeadline";
 import { institutionAccentClass } from "@/lib/v2/programs/institution-brand";
 import { joinInstitutionLabel } from "@/lib/v2/programs/program-join-display";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
-
-const heroSubheroClass =
-  "font-futura-medium text-lg leading-snug tracking-[0.04em] md:text-xl lg:text-2xl";
 
 function HeroTagline({
   verb,
@@ -22,7 +16,7 @@ function HeroTagline({
   end: string;
 }) {
   return (
-    <p className={`${heroSubheroClass} whitespace-nowrap`}>
+    <p className="font-futura-medium text-base leading-relaxed text-white/85 md:text-lg">
       <span className="text-marketing-accent">{verb}</span>{" "}
       <span className="text-white">{middle}</span>{" "}
       <span className="text-marketing-gold">{end}</span>
@@ -47,14 +41,18 @@ export function MarketingHeroSection({
     <section
       id="hero-value-proposition"
       aria-label="Hero value proposition"
-      className="px-8 pb-20 pt-32 md:px-10 md:pb-24 md:pt-36 lg:px-16 lg:pt-40"
+      className="relative px-6 pb-12 pt-28 sm:px-8 md:pb-16 md:pt-32 lg:px-10 lg:pt-36"
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_min(36vw,400px)] lg:gap-x-10 xl:grid-cols-[minmax(0,1fr)_min(38vw,440px)]">
-        <div className="min-w-0">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-6 xl:grid-cols-[1.1fr_0.9fr] xl:gap-8">
+        <MarketingGlassPanel accent className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
+          <p className="font-futura-medium text-xs uppercase tracking-[0.22em] text-marketing-accent/90">
+            Promise
+          </p>
+
           {institutionLabel ? (
             <p
               className={cn(
-                "font-futura-bold mb-5 text-2xl tracking-wide md:mb-6 md:text-3xl lg:text-4xl",
+                "font-futura-bold mt-4 text-xl tracking-wide md:text-2xl",
                 institutionAccentClass(institutionLabel),
               )}
             >
@@ -62,39 +60,35 @@ export function MarketingHeroSection({
             </p>
           ) : null}
 
-          <MarketingHeroHeadline />
-
-          <div
-            className={cn(
-              "mt-4 inline-flex w-fit items-start gap-x-[0.35em] text-white",
-              marketingHeroHeadlineClass,
-            )}
-          >
-            <MarketingHeroHeadlineSpacer />
-            <div className="pl-[1.05ch] normal-case">
-              <p className={`max-w-xl whitespace-nowrap text-white ${heroSubheroClass}`}>
-                An intelligent career platform for physicians.
-              </p>
-
-              <div className="mt-5 flex flex-col gap-2 md:mt-6 md:gap-2.5">
-                <HeroTagline verb="Capture" middle="the" end="invisible." />
-                <HeroTagline verb="Clarify" middle="your" end="direction." />
-                <HeroTagline verb="Build" middle="the career" end="you want." />
-              </div>
-            </div>
+          <div className={institutionLabel ? "mt-4" : "mt-3"}>
+            <MarketingHeroHeadline />
           </div>
-        </div>
 
-        <div className="flex items-center justify-center lg:items-end lg:justify-end lg:self-stretch">
+          <p className="font-futura-medium mt-5 max-w-lg text-lg leading-relaxed text-white/75">
+            An intelligent career platform for physicians.
+          </p>
+
+          <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-6 md:gap-2.5">
+            <HeroTagline verb="Capture" middle="the" end="invisible." />
+            <HeroTagline verb="Clarify" middle="your" end="direction." />
+            <HeroTagline verb="Build" middle="the career" end="you want." />
+          </div>
+        </MarketingGlassPanel>
+
+        <MarketingGlassPanel className="relative flex items-center justify-center overflow-hidden p-6 md:p-8">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(169,255,92,0.14),transparent_65%)]"
+            aria-hidden
+          />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={LANDING_CHESS_QUEEN_SRC}
+            src={LANDING_HERO_QUEEN_SRC}
             alt=""
             aria-hidden
-            className="h-auto w-full max-w-[280px] object-contain object-bottom drop-shadow-[0_24px_80px_rgba(103,225,81,0.18)] sm:max-w-[320px] lg:max-h-[min(58vh,540px)] lg:max-w-none lg:w-auto"
+            className="relative z-[1] h-auto w-full max-w-[min(100%,360px)] object-contain drop-shadow-[0_24px_64px_rgba(0,0,0,0.5)]"
             decoding="async"
           />
-        </div>
+        </MarketingGlassPanel>
       </div>
     </section>
   );

@@ -400,6 +400,60 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: var(--marketing-gold);
 }
 
+/* Marketing glassmorphism — dark canvas + frosted panels */
+.marketing-canvas {
+  background: #030303;
+  color: var(--marketing-cream);
+}
+
+.marketing-canvas-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 15% 10%, rgba(169, 255, 92, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 25%, rgba(212, 197, 116, 0.08), transparent 50%),
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(169, 255, 92, 0.06), transparent 55%);
+}
+
+.marketing-glass {
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.marketing-glass-accent {
+  border-color: rgba(169, 255, 92, 0.22);
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(169, 255, 92, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.marketing-glass-light {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.marketing-glass-hover {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.marketing-glass-hover:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(169, 255, 92, 0.28);
+}
+
 .cx-section-surface {
   background: #ffffff;
   border: 1px solid color-mix(in srgb, var(--cx-forest-dark) 10%, transparent);
