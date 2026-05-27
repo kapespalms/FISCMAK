@@ -110,7 +110,7 @@ const ADMIN_PAGES: ResidencyPageContent[] = [
         "Program Administrator — Melvyna Williams (melvyna.williams@uhhospitals.org)",
         "Chief Residents — Daniel Phillip, Eric Reinhart, Jonathan Hardy",
         "Education Chief — Andrea Costin",
-        "Kate Kilbane — department staff (role to confirm)",
+        "Kate Kilbane — Program Manager, Addiction Psychiatry Fellowship (kate.kilbane@uhhospitals.org · 216-983-5627)",
         "Addiction Psychiatry Fellowship — same PD/APD/administrator as General Adult Psychiatry residency",
         "Attending and resident contact tables — office phone, cell, pager, and notes (legacy resident site)",
       ],

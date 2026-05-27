@@ -12,7 +12,8 @@
     "db:verify": "node scripts/verify-supabase.mjs",
     "audit:acgme": "node scripts/audit-acgme-onboarding.mjs",
     "content:education-manifest": "node scripts/generate-education-manifest.mjs",
-    "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs"
+    "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs",
+    "db:seed-mak-profile": "node scripts/seed-mak-profile.mjs"
   },
   "dependencies": {
     "@lexical/link": "^0.44.0",

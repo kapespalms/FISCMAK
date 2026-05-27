@@ -230,6 +230,12 @@ async function main() {
     requiresTable: "app_users",
   });
 
+  steps.push({
+    file: "docs/migrations/20260530_gme_evaluation_imports.sql",
+    label: "GME evaluation imports + rotation evaluations",
+    requiresTable: "programs",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

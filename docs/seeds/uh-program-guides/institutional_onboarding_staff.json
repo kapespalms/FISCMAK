@@ -4,56 +4,81 @@
   "program_slug": "uh-psych-cmc",
   "institution": "University Hospitals",
   "department": "Department of Psychiatry",
-  "last_updated": "2026-05-27",
-  "source": "Department onboarding draft — institutional staff directory",
+  "last_updated": "2026-05-28",
+  "source": "Department onboarding draft + uhhospitals.org medical education pages (May 2026)",
+  "sources": [
+    "https://www.uhhospitals.org/medical-education/psychiatry-medical-education/faculty",
+    "https://www.uhhospitals.org/medical-education/psychiatry-medical-education/addiction-psychiatry-fellowship"
+  ],
   "department_leadership": [
     {
-      "role": "Department Chair",
+      "role": "Interim Department Chair",
       "name": "Dr. Jeanne Lackamp",
       "email": "jeanne.lackamp@uhhospitals.org",
       "phone": null
-    },
-    {
-      "role": "Department Staff",
-      "name": "Kate Kilbane",
-      "email": null,
-      "phone": null,
-      "notes": "Role to confirm"
     }
   ],
   "divisions_and_fellowships": [
     {
       "division": "General Adult Psychiatry",
-      "contacts": []
+      "contacts": [
+        {
+          "role": "Division Chief",
+          "name": "Dr. Kathleen Clegg",
+          "email": null,
+          "phone": null
+        }
+      ]
     },
     {
       "division": "Child and Adolescent Psychiatry",
-      "contacts": []
+      "contacts": [
+        {
+          "role": "Division Chief",
+          "name": "Dr. John Hertzer",
+          "email": null,
+          "phone": null
+        },
+        {
+          "role": "Associate Program Director",
+          "name": "Dr. Neil Bruce",
+          "email": null,
+          "phone": null
+        }
+      ]
     },
     {
       "division": "Geriatric Psychiatry Fellowship",
-      "contacts": []
+      "contacts": [
+        {
+          "role": "Program Director",
+          "name": "Dr. Philipp Dines",
+          "email": null,
+          "phone": "216-844-2400",
+          "notes": "UH Walker Building — geriatric psychiatry"
+        }
+      ]
     },
     {
       "division": "Addiction Psychiatry Fellowship",
       "contacts": [
         {
           "role": "Program Director",
-          "name": "Dr. Cathleen Cerny-Suelzer",
-          "email": "cathleen.cerny@uhhospitals.org",
+          "name": "Dr. Akhil Anand",
+          "email": null,
           "phone": null
         },
         {
-          "role": "Assistant Program Director",
-          "name": "Dr. Andrew Hunt",
-          "email": "andrew.hunt@uhhospitals.org",
+          "role": "Associate Program Director",
+          "name": "Dr. Brian Barnett",
+          "email": null,
           "phone": null
         },
         {
-          "role": "Program Administrator",
-          "name": "Melvyna Williams",
-          "email": "melvyna.williams@uhhospitals.org",
-          "phone": null
+          "role": "Program Manager",
+          "name": "Kate Kilbane",
+          "email": "kate.kilbane@uhhospitals.org",
+          "phone": "216-983-5627"
         }
       ]
     }
@@ -107,8 +132,9 @@
   },
   "onboarding_notes": [
     "Residents joining via institutional onboarding should save program leadership contacts before first day.",
-    "For MedHub access, scheduling, and orientation logistics, start with the Program Administrator.",
-    "For clinical workflow, call coverage, and resident questions, contact a Chief Resident.",
-    "Division and fellowship contacts will be expanded as additional staff information is confirmed."
+    "General psychiatry residency logistics: Melvyna Williams (MedHub, scheduling, orientation).",
+    "Addiction fellowship logistics: Kate Kilbane (kate.kilbane@uhhospitals.org · 216-983-5627).",
+    "For clinical workflow and call questions, contact a chief resident.",
+    "Division chief emails are not published on the UH faculty directory — confirm with program admin."
   ]
 }
