@@ -9,7 +9,7 @@ import {
   resolveProgramId,
   verifyTraineeInProgram,
 } from "@/lib/v2/gme/gme-program-access";
-import { synthesizeNarratives } from "@/lib/v2/gme/narrative-synthesis";
+import { synthesizeNarrativesEnhanced } from "@/lib/v2/gme/narrative-synthesis";
 import type { ParsedMedhubEvalRow } from "@/lib/v2/gme/medhub-csv-import";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
@@ -48,7 +48,7 @@ export async function POST(
   if (!isSupabaseConfigured() || auth.demo) {
     return jsonOk({
       period,
-      synthesis: synthesizeNarratives([]),
+      synthesis: await synthesizeNarrativesEnhanced([]),
     });
   }
 
@@ -81,6 +81,6 @@ export async function POST(
   return jsonOk({
     period,
     trainee_user_id: traineeUserId,
-    synthesis: synthesizeNarratives(evaluations),
+    synthesis: await synthesizeNarrativesEnhanced(evaluations),
   });
 }

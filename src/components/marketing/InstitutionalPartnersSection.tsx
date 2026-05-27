@@ -2,14 +2,14 @@ import Link from "next/link";
 
 const cards = [
   {
-    title: "MASTERING CREATIVITY IN CAREER CLARITY",
-    body: "Each element is designed to tell a compelling story and uncover the hidden value in physician work.",
+    title: "CCC PREP IN MINUTES, NOT HOURS",
+    body: "Import MedHub evals, synthesize pre-CCC summaries, and export cohort PDFs — built for psychiatry program directors and coordinators.",
     className: "from-yellow-200 to-yellow-100 text-gray-900",
     bodyClass: "text-gray-800",
   },
   {
-    title: "SETTING TRENDS IN RESIDENT RETENTION",
-    body: "Reshape how programs see and support their residents with longitudinal career intelligence.",
+    title: "MILESTONE HEATMAPS THAT MATCH ACGME",
+    body: "21 psychiatry subcompetencies with PGY benchmarks, self-vs-faculty discrepancy, and ILP goals drafted from gaps.",
     className: "from-pink-200 to-pink-100 text-gray-900",
     bodyClass: "text-gray-800",
   },
@@ -37,7 +37,8 @@ export function InstitutionalPartnersSection() {
           <span className="text-marketing-accent">PARTNERSHIPS</span>
         </h2>
         <p className="mb-12 text-lg text-gray-400">
-          See how leading programs transform physician development with FISCMAK.
+          GME programs use FISCMAK for MedHub import, pre-CCC synthesis, milestone tracking, and
+          resident career development — starting with UH Psychiatry.
         </p>
 
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -54,7 +55,7 @@ export function InstitutionalPartnersSection() {
 
         <div className="text-center">
           <Link
-            href="/join/uh/psychiatry"
+            href="/join/uh-psychiatry"
             className="font-futura-bold cx-btn inline-block bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
           >
             Explore Partnerships →

@@ -7,6 +7,7 @@ import {
   type PreCccSummary,
 } from "@/lib/v2/gme/pre-ccc-summary";
 import { loadIlpGoals } from "@/lib/v2/gme/trainee-gme-data";
+import { synthesizeNarrativesEnhanced } from "@/lib/v2/gme/narrative-synthesis";
 
 export async function buildTraineePreCccSummary(input: {
   programId: string;
@@ -81,5 +82,6 @@ export async function buildTraineePreCccSummary(input: {
     evaluations,
     ilpGoals,
     priteExams,
+    narrative_synthesis: await synthesizeNarrativesEnhanced(evaluations),
   });
 }

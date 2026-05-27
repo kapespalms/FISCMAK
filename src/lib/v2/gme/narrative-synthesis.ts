@@ -110,3 +110,81 @@ export function synthesizeNarratives(evaluations: ParsedMedhubEvalRow[]): Narrat
     ai_generated: true,
   };
 }
+
+const LLM_PROMPT = `You synthesize psychiatry residency faculty evaluation narratives for a CCC pre-read.
+Return JSON only:
+{
+  "strengths": ["string"],
+  "areas_for_growth": ["string"],
+  "concerns": ["string"],
+  "subcompetency_tags": ["string"]
+}
+Rules: never assign milestone levels; extract themes only; flag concerns only when explicitly stated; max 6 items per array.`;
+
+function parseLlmSynthesis(raw: string, evaluations: ParsedMedhubEvalRow[]): NarrativeSynthesis | null {
+  const jsonMatch = raw.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) return null;
+  try {
+    const parsed = JSON.parse(jsonMatch[0]) as {
+      strengths?: string[];
+      areas_for_growth?: string[];
+      concerns?: string[];
+      subcompetency_tags?: string[];
+    };
+    const base = synthesizeNarratives(evaluations);
+    return {
+      strengths: (parsed.strengths ?? base.strengths).slice(0, 6),
+      areas_for_growth: (parsed.areas_for_growth ?? base.areas_for_growth).slice(0, 6),
+      concerns: (parsed.concerns ?? base.concerns).slice(0, 4),
+      quotes: base.quotes,
+      subcompetency_tags: (parsed.subcompetency_tags ?? base.subcompetency_tags).slice(0, 8),
+      low_quality_eval_ids: base.low_quality_eval_ids,
+      ai_generated: true,
+    };
+  } catch {
+    return null;
+  }
+}
+
+/** Rule-based fallback; uses Claude when ANTHROPIC_API_KEY is set. */
+export async function synthesizeNarrativesEnhanced(
+  evaluations: ParsedMedhubEvalRow[],
+): Promise<NarrativeSynthesis> {
+  const ruleBased = synthesizeNarratives(evaluations);
+  const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
+  if (!apiKey || process.env.NARRATIVE_SYNTHESIS_LLM === "false") {
+    return ruleBased;
+  }
+
+  const narratives = evaluations
+    .map(
+      (ev, i) =>
+        `[${i + 1}] ${ev.rotation_name ?? "Rotation"} / ${ev.supervisor_name ?? "Faculty"}:\n${(ev.narrative_text ?? "").slice(0, 2000)}`,
+    )
+    .filter((n) => n.length > 20)
+    .join("\n\n");
+
+  if (!narratives.trim()) return ruleBased;
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model: "claude-3-5-haiku-20241022",
+        max_tokens: 1024,
+        messages: [{ role: "user", content: `${LLM_PROMPT}\n\nNARRATIVES:\n${narratives.slice(0, 24000)}` }],
+      }),
+    });
+    if (!res.ok) return ruleBased;
+    const data = await res.json();
+    const raw = data.content?.find((b: { type: string }) => b.type === "text")?.text ?? "";
+    return parseLlmSynthesis(raw, evaluations) ?? ruleBased;
+  } catch {
+    return ruleBased;
+  }
+}

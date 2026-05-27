@@ -78,6 +78,7 @@ export function buildPreCccSummary(input: {
   evaluations: ParsedMedhubEvalRow[];
   ilpGoals?: Array<{ status: string }>;
   priteExams?: PreCccPriteExam[];
+  narrative_synthesis?: NarrativeSynthesis;
 }): PreCccSummary {
   const evalSummaries: PreCccEvalSummary[] = input.evaluations.map((ev) => {
     const scoreValues = Object.values(ev.numeric_scores);
@@ -111,7 +112,7 @@ export function buildPreCccSummary(input: {
 
   const count = input.evaluations.length;
   const sufficient = count >= 1;
-  const synthesis = synthesizeNarratives(input.evaluations);
+  const synthesis = input.narrative_synthesis ?? synthesizeNarratives(input.evaluations);
   const ilpGoals = input.ilpGoals ?? [];
   const draftCount = ilpGoals.filter((g) => g.status === "draft").length;
   const activeCount = ilpGoals.filter((g) => g.status === "active").length;
