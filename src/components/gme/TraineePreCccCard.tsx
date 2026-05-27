@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { PreCccSummaryPanel } from "@/components/gme/PreCccSummaryPanel";
+import type { UserSurface } from "@/lib/v2/profile-contract";
 
-/** Pre-CCC card for institutional trainees on Output Studio. */
+/** Pre-CCC card — institutional trainees only (persona contract). */
 export function TraineePreCccCard() {
   const [programSlug, setProgramSlug] = useState<string | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
@@ -14,9 +15,9 @@ export function TraineePreCccCard() {
       fetch("/api/v1/onboarding/touchpoint1").then((r) => r.json()),
     ])
       .then(([me, onboarding]) => {
-        const path = onboarding.onboarding?.onboarding_path;
+        const surfaces = (onboarding.profile_contract?.user_surfaces ?? []) as UserSurface[];
         const slug = onboarding.onboarding?.program_slug;
-        if (path === "institutional" && slug) {
+        if (surfaces.includes("pre_ccc") && slug) {
           setProgramSlug(slug);
           setUserId(me.user_id ?? null);
         }

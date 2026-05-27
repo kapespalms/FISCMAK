@@ -10,15 +10,16 @@ import {
 } from "../src/lib/v2/profile-scenario-audit";
 
 function printTable(rows: ReturnType<typeof formatProfileScenarioSummary>): void {
-  const headers = ["scenario_id", "content_pack", "instruments", "required_docs", "gme", "mak_stage"];
+  const headers = ["scenario_id", "persona", "content_pack", "instruments", "surfaces", "gme", "mak_stage"];
   const widths = headers.map((h) => h.length);
   for (const row of rows) {
     widths[0] = Math.max(widths[0], row.scenario_id.length);
-    widths[1] = Math.max(widths[1], row.content_pack.length);
-    widths[2] = Math.max(widths[2], String(row.instruments).length);
-    widths[3] = Math.max(widths[3], row.required_docs.length);
-    widths[4] = Math.max(widths[4], row.gme.length);
-    widths[5] = Math.max(widths[5], row.mak_stage.length);
+    widths[1] = Math.max(widths[1], row.persona_id.length);
+    widths[2] = Math.max(widths[2], row.content_pack.length);
+    widths[3] = Math.max(widths[3], String(row.instruments).length);
+    widths[4] = Math.max(widths[4], String(row.surfaces).length);
+    widths[5] = Math.max(widths[5], row.gme.length);
+    widths[6] = Math.max(widths[6], row.mak_stage.length);
   }
 
   const pad = (value: string, index: number) => value.padEnd(widths[index]);
@@ -30,9 +31,10 @@ function printTable(rows: ReturnType<typeof formatProfileScenarioSummary>): void
     console.log(
       line([
         row.scenario_id,
+        row.persona_id,
         row.content_pack,
         String(row.instruments),
-        row.required_docs,
+        String(row.surfaces),
         row.gme,
         row.mak_stage,
       ]),

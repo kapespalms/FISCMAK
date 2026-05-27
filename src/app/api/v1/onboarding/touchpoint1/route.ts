@@ -18,6 +18,7 @@ import {
 } from "@/lib/v2/onboarding-touchpoint1";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
+import { resolveProfileContractFromUser } from "@/lib/v2/profile-contract";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -52,6 +53,8 @@ export async function GET() {
     const { first, last } = splitTrustedName(user.name);
     if (first) trustedName = { first, last, source: "profile" };
   }
+
+  const contract = resolveProfileContractFromUser(user);
 
   return jsonOk({
     profile: {
@@ -108,5 +111,13 @@ export async function GET() {
     pending_reconcile_count: (meta.reconciliation ?? []).filter((r) => r.status === "pending").length,
     reconciliation: meta.reconciliation ?? [],
     instrument_progress: meta.instrument_answers?.length ?? 0,
+    profile_contract: contract
+      ? {
+          persona_id: contract.persona_id,
+          user_surfaces: contract.user_surfaces,
+          onboarding_layers: contract.onboarding_layers,
+          cohort_aggregate_only: contract.cohort_aggregate_only,
+        }
+      : null,
   });
 }
