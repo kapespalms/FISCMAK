@@ -37,11 +37,24 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
     setError(null);
     try {
       const res = await fetch(
-        `/api/v1/programs/${encodeURIComponent(programSlug)}/cohort/dashboard?period=current`,
+        `/api/v1/programs/${encodeURIComponent(programSlug)}/cohort-heatmap?period=current`,
       );
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message ?? "Could not load cohort dashboard.");
-      setDashboard(data.dashboard ?? null);
+      if (!res.ok) throw new Error(data.message ?? "Could not load cohort heatmap.");
+      setDashboard({
+        period: data.period,
+        subcompetencies: data.subcompetencies ?? [],
+        trainees: data.trainees ?? [],
+        milestone_heatmap: data.heatmap ?? [],
+        assessment_volume: [],
+        narrative_quality_pct: data.narrative_quality_pct ?? 0,
+        equity_alerts: data.equity_alerts ?? [],
+        summary: data.summary ?? {
+          trainee_count: 0,
+          total_evaluations: 0,
+          cohort_avg_milestone: null,
+        },
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not load cohort dashboard.");
       setDashboard(null);

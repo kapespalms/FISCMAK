@@ -45,6 +45,8 @@ export async function GET(
       trainees: dashboard.trainees,
       heatmap: dashboard.milestone_heatmap,
       summary: dashboard.summary,
+      narrative_quality_pct: dashboard.narrative_quality_pct,
+      equity_alerts: dashboard.equity_alerts,
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Could not load cohort heatmap.";

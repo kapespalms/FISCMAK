@@ -59,7 +59,55 @@ export function cvIdentifiersFromSnapshot(snapshot: EnrichmentSnapshot): CvIdent
   };
 }
 
-/** Mark bulk reconciliation items confirmed when all extracted identifiers are CV-exact. */
+export type ReconciliationConfidence = ReconciliationItem["confidence"];
+
+export type VaultPublicationFlags = {
+  reconciled: boolean;
+  cv_listed: boolean;
+  api_discovered: boolean;
+  confidence: NonNullable<ReconciliationConfidence>;
+};
+
+/** Auto-confirm when CV DOI/PMID exactly matches API extract; else manual review. */
+export function publicationVaultFlags(
+  pub: VaultPublicationExtract,
+  cvIds: CvIdentifierSet,
+): VaultPublicationFlags {
+  if (isAutoReconcilablePublication(pub, cvIds)) {
+    return {
+      reconciled: true,
+      cv_listed: true,
+      api_discovered: true,
+      confidence: "exact_match",
+    };
+  }
+  return {
+    reconciled: false,
+    cv_listed: true,
+    api_discovered: true,
+    confidence: "manual_review",
+  };
+}
+
+export function grantVaultFlags(
+  grantId: string,
+  cvIds: CvIdentifierSet,
+): VaultPublicationFlags {
+  if (isAutoReconcilableGrant(grantId, cvIds)) {
+    return {
+      reconciled: true,
+      cv_listed: true,
+      api_discovered: true,
+      confidence: "exact_match",
+    };
+  }
+  return {
+    reconciled: false,
+    cv_listed: true,
+    api_discovered: true,
+    confidence: "manual_review",
+  };
+}
 export function applyAutoConfirmToReconciliationItems(
   items: ReconciliationItem[],
   snapshot: EnrichmentSnapshot,
@@ -76,14 +124,29 @@ export function applyAutoConfirmToReconciliationItems(
 
   return items.map((item) => {
     if (item.id === "enrichment-publications" && allPubsAuto) {
-      return { ...item, status: "confirmed" as const };
+      return {
+        ...item,
+        status: "confirmed" as const,
+        confidence: "exact_match" as const,
+        detail: `${item.detail} Auto-confirmed: CV DOI/PMID matched exactly.`,
+      };
     }
     if (item.id === "enrichment-grants" && allGrantsAuto) {
-      return { ...item, status: "confirmed" as const };
+      return {
+        ...item,
+        status: "confirmed" as const,
+        confidence: "exact_match" as const,
+        detail: `${item.detail} Auto-confirmed: CV grant number matched exactly.`,
+      };
     }
     if (item.id === "enrichment-npi" && snapshot.npi_verified) {
-      return { ...item, status: "confirmed" as const };
+      return {
+        ...item,
+        status: "confirmed" as const,
+        confidence: "verified_registry" as const,
+        detail: `${item.detail} Auto-confirmed: NPI verified in NPPES registry.`,
+      };
     }
-    return item;
+    return { ...item, confidence: item.confidence ?? ("manual_review" as const) };
   });
 }

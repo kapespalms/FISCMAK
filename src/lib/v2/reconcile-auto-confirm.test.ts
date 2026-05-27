@@ -1,12 +1,49 @@
 import { describe, expect, it } from "vitest";
+import { extractCvIdentifiers } from "@/lib/v2/api-enrichment";
 import {
   applyAutoConfirmToReconciliationItems,
   isAutoReconcilablePublication,
   normalizeDoi,
+  publicationVaultFlags,
 } from "@/lib/v2/reconcile-auto-confirm";
 import type { EnrichmentSnapshot } from "@/lib/v2/api-enrichment";
 
+const CV_WITH_DOI = `
+Publications
+Smith K, et al. Novel findings in psychiatry. J Clin Psychiatry. 2024. doi:10.1000/abc.def
+`;
+
 describe("reconcile auto-confirm", () => {
+  it("extracts DOI from CV text", () => {
+    const ids = extractCvIdentifiers(CV_WITH_DOI);
+    expect(ids.dois).toContain("10.1000/abc.def");
+  });
+
+  it("sets reconciled true when CV DOI matches API publication", () => {
+    const cvIds = extractCvIdentifiers(CV_WITH_DOI);
+    const flags = publicationVaultFlags(
+      { doi: "10.1000/ABC.DEF", title: "Novel findings" },
+      cvIds,
+    );
+    expect(flags).toEqual({
+      reconciled: true,
+      cv_listed: true,
+      api_discovered: true,
+      confidence: "exact_match",
+    });
+  });
+
+  it("requires manual review when DOI not on CV", () => {
+    const cvIds = extractCvIdentifiers(CV_WITH_DOI);
+    const flags = publicationVaultFlags(
+      { doi: "10.5555/other", title: "Other paper" },
+      cvIds,
+    );
+    expect(flags.reconciled).toBe(false);
+    expect(flags.confidence).toBe("manual_review");
+    expect(flags.cv_listed).toBe(true);
+  });
+
   it("matches DOI case-insensitively", () => {
     expect(
       isAutoReconcilablePublication(
@@ -18,13 +55,11 @@ describe("reconcile auto-confirm", () => {
   });
 
   it("auto-confirms enrichment-publications when all vault pubs match CV ids", () => {
+    const cvIds = extractCvIdentifiers(CV_WITH_DOI);
     const snapshot = {
       npi_verified: false,
       vault_extracts: {
-        publications: [
-          { doi: "10.1000/a", title: "A" },
-          { pmid: "12345678", title: "B" },
-        ],
+        publications: [{ doi: cvIds.dois[0], title: "Novel findings" }],
         grant_ids: [],
       },
     } as EnrichmentSnapshot;
@@ -34,8 +69,8 @@ describe("reconcile auto-confirm", () => {
         {
           id: "enrichment-publications",
           source: "PubMed",
-          label: "2 identifiers",
-          detail: "",
+          label: "1 publication identifier detected",
+          detail: "Confirm authorship.",
           status: "pending",
         },
       ],
@@ -43,5 +78,6 @@ describe("reconcile auto-confirm", () => {
     );
 
     expect(items[0]?.status).toBe("confirmed");
+    expect(items[0]?.confidence).toBe("exact_match");
   });
 });

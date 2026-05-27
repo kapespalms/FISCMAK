@@ -301,7 +301,7 @@ function buildReconciliationFromEnrichment(input: {
       status: "pending",
     });
   }
-  return items;
+  return items.map((item) => ({ ...item, confidence: "manual_review" as const }));
 }
 
 export async function runApiEnrichment(input: {

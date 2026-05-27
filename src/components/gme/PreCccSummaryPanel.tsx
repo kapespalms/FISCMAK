@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import type { PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
@@ -8,18 +8,21 @@ import { exportPreCccPdf } from "@/lib/v2/gme/pre-ccc-export";
 import { downloadBlob } from "@/lib/studio-export";
 
 type PreCccSummaryPanelProps = {
-  programSlug: string;
-  userId: string;
   title?: string;
   description?: string;
-};
+} & (
+  | { self: true; programSlug?: never; userId?: never }
+  | { self?: false; programSlug: string; userId: string }
+);
 
-export function PreCccSummaryPanel({
-  programSlug,
-  userId,
-  title = "Pre-CCC summary",
-  description = "Imported MedHub rotation evaluations synthesized for semiannual review prep.",
-}: PreCccSummaryPanelProps) {
+export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
+  const {
+    title = "Pre-CCC summary",
+    description = "Imported MedHub rotation evaluations synthesized for semiannual review prep.",
+  } = props;
+  const self = props.self === true;
+  const programSlug = !self ? props.programSlug : undefined;
+  const userId = !self ? props.userId : undefined;
   const [summary, setSummary] = useState<PreCccSummary | null>(null);
   const [loading, setLoading] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -30,7 +33,9 @@ export function PreCccSummaryPanel({
     setError(null);
     try {
       const res = await fetch(
-        `/api/v1/programs/${encodeURIComponent(programSlug)}/residents/${encodeURIComponent(userId)}/pre-ccc?period=current`,
+        self
+          ? "/api/v1/self/pre-ccc-summary?period=current"
+          : `/api/v1/programs/${encodeURIComponent(programSlug!)}/residents/${encodeURIComponent(userId!)}/pre-ccc?period=current`,
       );
       const data = await res.json();
       if (!res.ok) throw new Error(data.message ?? "Could not load pre-CCC summary.");
@@ -41,7 +46,11 @@ export function PreCccSummaryPanel({
     } finally {
       setLoading(false);
     }
-  }, [programSlug, userId]);
+  }, [self, programSlug, userId]);
+
+  useEffect(() => {
+    if (self) void load();
+  }, [self, load]);
 
   const exportPdf = useCallback(async () => {
     if (!summary) return;
