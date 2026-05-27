@@ -45,7 +45,6 @@ export function CoachingCadencePanel() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cadence }),
     }).then(() => {
-      void load();
       window.dispatchEvent(new CustomEvent("fiscmak:coaching-cadence-updated"));
     });
   }
