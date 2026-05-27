@@ -1,0 +1,39 @@
+{
+  "rotation_code": "elective",
+  "service_name": "Elective (Master Catalog)",
+  "category": "elective",
+  "source": {
+    "website_section": "Electives",
+    "source_file": "Master Elective Spreadsheet / Catalog",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review Master Elective Spreadsheet on resident website",
+    "Develop plan with mentor: location, schedule, supervisor, brief description and objectives",
+    "Non-UH supervisor: email Melvyna Williams for affiliation agreement",
+    "Submit elective request form + mentor approval email to Dr. Andrew Hunt ≥6 weeks before start",
+    "PGY3/4/PPP electives: coordinate through Dr. Kathleen Cerny"
+  ],
+  "overview": "Flexible educational experience — block (often 2-week) or longitudinal (half-day to 1.5 days/week for PGY3/4). 62 catalogued options across adult, CAP, CL, college, community, forensic, geriatric, integrated, interventional, scholarly, senior, substance use, and women's mental health. Residents may be cross-covered for required services; remain in town unless backup arranged.",
+  "logistics": [
+    "PGY1: often 2-week blocks; study/reading for Step 3/Level 3; QI or research electives",
+    "PGY2: ~6 weeks in 2-week blocks — forensic shadowing, interventional (ECT/TMS/ketamine), specialty clinics",
+    "PGY3/4: mostly longitudinal outpatient-style electives; fast-track CAP affects availability",
+    "Active vs observational varies by site — confirm in catalog row before planning ILP evidence",
+    "Longitudinal electives may count toward outpatient requirements when noted in catalog"
+  ],
+  "debrief_prompts": [
+    "What competency did this elective develop that your core rotations did not?",
+    "One patient or system interaction that belongs in your ILP or career narrative",
+    "If longitudinal: how did continuity change your formulation or alliance?",
+    "Scholarship or QI product emerging from the elective?"
+  ],
+  "capture_tags": [
+    "elective",
+    "community psychiatry",
+    "scholarship",
+    "specialty clinic",
+    "longitudinal care",
+    "systems advocacy"
+  ]
+}

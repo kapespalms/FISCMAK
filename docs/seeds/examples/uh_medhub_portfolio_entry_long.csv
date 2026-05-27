@@ -1,0 +1,3 @@
+portfolio_entry_id,eval_id,entry_type,entry_title,entry_notes,trainee_initials,pgy_level,uploaded_by,upload_date,attachment_filename,attachment_size_kb,competency_patient_care,competency_medical_knowledge,competency_pblimprovement,competency_interpersonal_communication,competency_professionalism,competency_systems_based_practice,visible_to_pd_and_mentors,linked_evaluation_requested,source_system
+uh-portfolio-2024-csv1,uh-csv-2024-0716-001,General Entry,CSV 1 by Dr. Wang,,KP,PGY-3,Palmer,2024-07-22,IMG_5489.jpg,84,true,true,false,true,true,true,true,false,medhub_portfolio
+uh-portfolio-2024-csv1,uh-csv-2024-0716-001,General Entry,CSV 1 by Dr. Wang,,KP,PGY-3,Palmer,2024-07-22,IMG_5490.jpg,64,true,true,false,true,true,true,true,false,medhub_portfolio

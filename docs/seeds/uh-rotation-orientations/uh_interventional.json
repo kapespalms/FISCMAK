@@ -1,0 +1,42 @@
+{
+  "rotation_code": "uh_interventional",
+  "service_name": "Interventional Psychiatry (UH/VA Neuromodulation)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Interventional Psychiatry (UH)",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Contact neuromodulation team (VA: Dr. Vaidya / Lavakumar) to confirm schedule",
+    "Review ECT, rTMS, and ketamine consent and monitoring protocols",
+    "Review indication/contraindication checklists before first procedure day"
+  ],
+  "overview": "Short interventional psychiatry exposure — ECT, rTMS, and/or ketamine protocols with emphasis on treatment-resistant depression workflows, capacity/consent, and peri-procedure monitoring.",
+  "location": [
+    "VA neuromodulation suite and/or affiliated UH/Summa sites per assignment"
+  ],
+  "schedule": [
+    "Often 2-week block or PGY-2/4 half-day exposure — schedule varies by site",
+    "Procedure days may start early; confirm on-call coverage rules"
+  ],
+  "logistics": [
+    "Document indication, failed trials, and risk/benefit for neuromodulation",
+    "Observe consent, anesthesia coordination (ECT), and post-procedure monitoring",
+    "Track cognitive monitoring and maintenance planning for ECT when applicable"
+  ],
+  "debrief_prompts": [
+    "Patient selection for ECT, TMS, or ketamine — criteria you applied",
+    "Consent or capacity conversation for neuromodulation",
+    "Adverse effect or monitoring decision during or after a procedure",
+    "Would you pursue interventional psychiatry as a career signal from this block?"
+  ],
+  "capture_tags": [
+    "ECT",
+    "neuromodulation",
+    "treatment-resistant depression",
+    "capacity evaluation",
+    "procedure",
+    "risk assessment",
+    "informed consent"
+  ]
+}

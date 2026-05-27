@@ -4,8 +4,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { OUTPUT_TEMPLATES } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import { Badge } from "@/components/ui/Badge";
 import { PageShell } from "@/components/layout/PageShell";
+import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import { fetchActivities } from "@/lib/activities-storage";
 import type { ActivityEntry } from "@/lib/types/database";
 import { EvidenceDrawer } from "@/components/studio/EvidenceDrawer";
@@ -21,8 +23,19 @@ import {
   type DocumentVersion,
 } from "@/lib/studio-versions";
 import { PromotionNarrativeWizard } from "@/components/workspace/PromotionNarrativeWizard";
+import { CareerNarrativeWizard } from "@/components/workspace/CareerNarrativeWizard";
+import { AcademicCoreDocumentWizard } from "@/components/workspace/AcademicCoreDocumentWizard";
+import { CoverLetterWizard } from "@/components/workspace/CoverLetterWizard";
+import { IndustryCareerWizard } from "@/components/workspace/IndustryCareerWizard";
+import { normalizeCoreDocumentId } from "@/lib/v2/academic-core-document-templates";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
 import { useAppShell } from "@/components/layout/AppShell";
+import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
+import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
+import { OutputUserTemplatePanel } from "@/components/workspace/OutputUserTemplatePanel";
+import { OUTPUT_TEMPLATE_TYPE_SESSION_KEY } from "@/lib/v2/output-user-templates";
+import { TraineePreCccCard } from "@/components/gme/TraineePreCccCard";
+import { Database, FileText, TrendingUp } from "lucide-react";
 
 type ReadinessProfile = {
   target_track: string;
@@ -79,6 +92,9 @@ export function OutputStudioWorkspace() {
   }, [loadEvidence]);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem(OUTPUT_TEMPLATE_TYPE_SESSION_KEY, selected);
+    }
     setVersions(loadVersions(selected));
     fetch("/api/v1/promotion/readiness")
       .then((r) => r.json())
@@ -210,12 +226,21 @@ export function OutputStudioWorkspace() {
 
   const overLimit = wordCount > template.words * 1.1;
   const isPromotionWizard = selected === "promotion_narrative";
+  const isCareerNarrativeWizard =
+    selected === "career_narrative" || selected === "personal_statement";
+  const isCoreDocumentWizard =
+    selected === "biosketch" ||
+    selected === "institutional_cv" ||
+    selected === "teaching_portfolio";
+  const isCoverLetterWizard = selected === "cover_letter";
+  const isIndustryCareerWizard =
+    selected === "industry_resume" || selected === "industry_cover_letter";
 
   return (
     <PageShell
-      eyebrow="Documents"
-      title="Career Documents"
-      subtitle="Generate and manage CVs, biosketches, reports, and career briefs from your Career Data"
+      eyebrow={SOAP_TAB.output.nav}
+      title={SOAP_TAB.output.title}
+      subtitle={SOAP_TAB.output.description}
       maxWidth="full"
       className="flex h-[calc(100vh-10rem)] flex-col gap-4"
       action={
@@ -235,35 +260,45 @@ export function OutputStudioWorkspace() {
       }
     >
       <AcademicSoapSectionGate intent="create" />
+      <TraineePreCccCard />
       {(outputContext?.enrichment_delta || outputContext?.career_vault?.summary) && (
-        <Card accent="green">
-          <p className="text-cx-label uppercase">Career Data source</p>
-          <p className="mt-1 text-sm font-medium">{outputContext.career_vault?.summary}</p>
+        <CardSection
+          accent="green"
+          eyebrow="Career Data source"
+          title="Document inputs"
+          description={outputContext.career_vault?.summary}
+          icon={Database}
+          mak={OUTPUT_MAK.career_data_source}
+        >
           {outputContext.enrichment_delta && (
-            <p className="mt-1 text-sm text-fm-strong">{outputContext.enrichment_delta}</p>
+            <p className="text-sm font-medium text-cx-forest-dark">{outputContext.enrichment_delta}</p>
           )}
           {(outputContext.career_vault?.pending_review ?? 0) > 0 && (
-            <p className="mt-1 text-xs text-fm-developing">
+            <p className="mt-2 text-xs text-cx-forest-dark/70">
               {outputContext.career_vault?.pending_review} item(s) pending review — reconcile in
-              Objective before finalizing documents.
+              Career Data before finalizing documents.
             </p>
           )}
-        </Card>
+        </CardSection>
       )}
       <div className="flex min-h-0 flex-1 gap-6">
       <aside className="w-56 shrink-0 space-y-2 overflow-y-auto">
-        <h2 className="px-2 text-cx-label uppercase">
-          FISCMAK templates
-        </h2>
+        <CardSection
+          compact
+          eyebrow="Templates"
+          title="FISCMAK library"
+          icon={FileText}
+          mak={OUTPUT_MAK.template(template.name, selected)}
+        />
         {OUTPUT_TEMPLATES.map((t) => (
           <button
             key={t.id}
             type="button"
             onClick={() => setSelected(t.id)}
-            className={`w-full rounded-md px-3 py-2 text-left text-sm ${
+            className={`w-full rounded-lg px-3 py-2 text-left text-sm ${
               selected === t.id
-                ? "bg-cx-accent-soft font-semibold text-cx-text"
-                : "hover:bg-white"
+                ? "bg-cx-forest-dark/10 font-semibold text-cx-forest-dark"
+                : "text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
             }`}
           >
             {t.name}
@@ -271,16 +306,32 @@ export function OutputStudioWorkspace() {
         ))}
         {v2Templates.length > 0 && (
           <>
-            <h2 className="mt-4 px-2 text-cx-label uppercase">
+            <h2 className="mt-4 px-2 text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
               Spec templates
             </h2>
             {v2Templates.map((t) => (
               <button
                 key={t.template_id}
                 type="button"
-                onClick={() => setSelected(t.type === "promotion_narrative" ? "promotion_narrative" : t.type)}
+                onClick={() =>
+                  setSelected(
+                    t.type === "promotion_narrative"
+                      ? "promotion_narrative"
+                      : t.type === "career_narrative"
+                        ? "career_narrative"
+                        : t.type === "personal_statement"
+                          ? "personal_statement"
+                          : t.type === "biosketch"
+                            ? "biosketch"
+                            : t.type === "institutional_cv"
+                              ? "institutional_cv"
+                              : t.type === "teaching_portfolio"
+                                ? "teaching_portfolio"
+                                : t.type,
+                  )
+                }
                 title={t.description}
-                className="w-full rounded-md px-3 py-2 text-left text-sm hover:bg-white"
+                className="w-full rounded-lg px-3 py-2 text-left text-sm text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
               >
                 {t.name}
               </button>
@@ -292,32 +343,48 @@ export function OutputStudioWorkspace() {
 
       <div className="flex min-w-0 flex-1 flex-col gap-4">
         {readiness && (
-          <Card className="border-cx-accent/30 bg-cx-accent-soft/30">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div>
-                <p className="text-sm font-semibold">Promotion readiness</p>
-                <p className="text-xs text-cx-text-secondary">
-                  {readiness.target_rank} · {readiness.target_track} ·{" "}
-                  {readiness.promotion_timeline}
-                </p>
-              </div>
+          <CardSection
+            compact
+            className="border-cx-forest-dark/15 bg-cx-forest-dark/[0.03]"
+            eyebrow="Promotion"
+            title="Readiness profile"
+            description={`${readiness.target_rank} · ${readiness.target_track} · ${readiness.promotion_timeline}`}
+            icon={TrendingUp}
+            mak={OUTPUT_MAK.promotion_readiness}
+            action={
               <Badge energy={readiness.overall_readiness >= 70 ? "energizing" : "neutral"}>
                 {readiness.overall_readiness}% ready
               </Badge>
-            </div>
-          </Card>
+            }
+          />
         )}
+        <OutputUserTemplatePanel templateType={selected} templateName={template.name} />
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <h2 className="text-xl font-bold">{template.name}</h2>
-            <p className="text-sm text-cx-text-secondary">
-              {isPromotionWizard
-                ? "Six-section wizard — Master Document template"
-                : `Target ~${template.words} words`}
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+              Active template
             </p>
+            <h2 className="text-xl font-semibold text-cx-forest-dark">{template.name}</h2>
+            <p className="text-sm text-cx-forest-dark/70">
+              {isPromotionWizard
+                ? "Track-specific promotion wizard — section by section"
+                : isCareerNarrativeWizard
+                  ? "Stage × track × application wizard — living career narrative"
+                  : isCoreDocumentWizard
+                    ? "Section-by-section drafting — NIH Biosketch, Institutional CV, or Teaching Portfolio"
+                    : isCoverLetterWizard
+                      ? "Stage × position × specialty × setting — comprehensive cover letter guide"
+                      : isIndustryCareerWizard
+                        ? "Industry transition — resume or cover letter by sector and career stage"
+                        : `Target ~${template.words} words`}
+            </p>
+            <MakDiscussLink
+              mak={OUTPUT_MAK.template(template.name, selected)}
+              className="mt-2 text-cx-forest-dark hover:text-cx-forest-dark/80"
+            />
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            {!isPromotionWizard && (
+            {!isPromotionWizard && !isCareerNarrativeWizard && !isCoreDocumentWizard && !isCoverLetterWizard && !isIndustryCareerWizard && (
               <>
                 <Button onClick={generate} disabled={generating}>
                   {generating ? "Generating…" : "Generate"}
@@ -337,17 +404,54 @@ export function OutputStudioWorkspace() {
               </>
             )}
             {exportMsg && (
-              <span className="text-sm text-cx-success">{exportMsg}</span>
+              <span className="text-sm text-[#5FD65F]">{exportMsg}</span>
             )}
           </div>
         </div>
 
-        {isPromotionWizard ? (
+        {isCareerNarrativeWizard ? (
+          <CareerNarrativeWizard
+            defaultApplicationId={
+              selected === "personal_statement" ? "training_personal_statement" : undefined
+            }
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full narrative copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isPromotionWizard ? (
           <PromotionNarrativeWizard
             readiness={readiness}
             onFullDraft={(text) => {
               void navigator.clipboard.writeText(text);
               setExportMsg("Full narrative copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isCoreDocumentWizard ? (
+          <AcademicCoreDocumentWizard
+            documentId={normalizeCoreDocumentId(selected)}
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full draft copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isCoverLetterWizard ? (
+          <CoverLetterWizard
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Full cover letter copied to clipboard");
+              setTimeout(() => setExportMsg(""), 2500);
+            }}
+          />
+        ) : isIndustryCareerWizard ? (
+          <IndustryCareerWizard
+            documentType={selected}
+            onFullDraft={(text) => {
+              void navigator.clipboard.writeText(text);
+              setExportMsg("Industry document copied to clipboard");
               setTimeout(() => setExportMsg(""), 2500);
             }}
           />
@@ -362,7 +466,7 @@ export function OutputStudioWorkspace() {
               setSaveStatus((s) => (s === "saved" ? "unsaved" : s));
             }}
           />
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-cx-border px-4 py-2 text-sm text-cx-text-secondary">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-cx-forest-dark/15 px-4 py-2 text-sm text-cx-forest-dark/70">
             <span className={overLimit ? "font-medium text-cx-attention" : ""}>
               {wordCount} / {template.words} words
               {overLimit && " — over recommended limit"}
@@ -378,7 +482,7 @@ export function OutputStudioWorkspace() {
         </Card>
         )}
 
-        {!isPromotionWizard && (
+        {!isPromotionWizard && !isCareerNarrativeWizard && !isCoreDocumentWizard && !isCoverLetterWizard && !isIndustryCareerWizard && (
       <EvidenceDrawer
         evidence={evidence}
         onInsertChip={(item) =>

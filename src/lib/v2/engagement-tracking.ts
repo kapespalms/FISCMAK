@@ -1,6 +1,16 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { annualRefreshStatus } from "@/lib/v2/annual-refresh";
+import {
+  buildTouchpointCadenceNotifications,
+  type TouchpointCadenceContext,
+} from "@/lib/v2/touchpoint-cadence";
+
+export type EngagementContext = TouchpointCadenceContext & {
+  /** Invisible Work Quotient — higher = more unrecognized work on CV */
+  iwq?: number | null;
+  activityCount?: number;
+};
 
 export type EngagementNotification = {
   id: string;
@@ -13,10 +23,53 @@ export type EngagementNotification = {
 
 export function buildEngagementNotifications(
   meta: OnboardingMetadata,
+  context?: EngagementContext,
 ): EngagementNotification[] {
   const notes: EngagementNotification[] = [];
   const pulse = quarterlyPulseStatus(meta);
   const annual = annualRefreshStatus(meta);
+
+  if (context?.tier3Complete && context.userCreatedAt) {
+    notes.push(
+      ...buildTouchpointCadenceNotifications({
+        userCreatedAt: context.userCreatedAt,
+        completedTouchpoints: context.completedTouchpoints,
+        tier3Complete: context.tier3Complete,
+      }),
+    );
+  }
+
+  const iwq = context?.iwq ?? meta.iwq ?? null;
+  const internalGap =
+    meta._internal_coaching?.workload_recognition_gap === "elevated" ||
+    meta._internal_coaching?.portfolio_documentation_gap === true;
+  if (iwq != null && iwq >= 50 && internalGap) {
+    notes.push({
+      id: "portfolio_completeness",
+      severity: iwq >= 70 ? "attention" : "info",
+      title: "Portfolio completeness",
+      message:
+        "Some professional contributions may not yet be reflected in your portfolio. Mak can help you explore what to capture — on your terms.",
+      href: "/app/objective?tab=activities",
+      actionLabel: "Talk with Mak",
+    });
+  }
+
+  if (
+    context?.tier3Complete &&
+    (context.activityCount ?? 0) === 0 &&
+    meta.computed_at
+  ) {
+    notes.push({
+      id: "capture_first_activity",
+      severity: "info",
+      title: "Start capturing invisible work",
+      message:
+        "Tell Mak about teaching, mentoring, or coordination you did this week — it builds your promotion narrative.",
+      href: "/app/dashboard",
+      actionLabel: "Capture with Mak",
+    });
+  }
 
   if (annual.due) {
     notes.push({
@@ -35,7 +88,7 @@ export function buildEngagementNotifications(
       message:
         pulse.last_summary ??
         "Quick well-being, unrecognized work, and momentum update (~5–8 min).",
-      href: "/app/dashboard",
+      href: "/app/subjective",
       actionLabel: "Start check-in",
     });
   }

@@ -1,0 +1,52 @@
+{
+  "rotation_code": "neurology",
+  "service_name": "Neurology",
+  "category": "off_service",
+  "source": {
+    "website_section": "Neurology",
+    "last_updated": "2025-06-28",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Ensure tools for neurological exam; review exam basics",
+    "Review evaluation and management of seizures and encephalopathy (most common consult questions)"
+  ],
+  "overview": "Psychiatry residents on general neurology — consults on medical/surgical floors (not primary neurology admissions). Assisted by PGY-3 neurology resident.",
+  "location": [
+    "UH-CMC Lerner Tower 4th Floor — Neuro Floor Conference Room (behind nurses' station)",
+    "Parking: UH-CMC employee garages"
+  ],
+  "personnel": [
+    "Attendings rotate weekly",
+    "2025-2026 Neurology Inpatient Chiefs: Ibrahim Alkhodair & Beddome Allen",
+    "Check Qgenda: NEU - General Sr - Res for daily assignment"
+  ],
+  "schedule": [
+    "Monday–Friday, 8:00 AM – 4:00 PM; no weekends",
+    "Notify seniors/attendings for post-call, VA Bridge Shift, Access Clinic, Wednesday Didactics",
+    "Neurology follows IM holiday rules — may round on holidays",
+    "Attend Psychiatry Didactics Wednesdays; do NOT attend Friday Grand Rounds"
+  ],
+  "logistics": [
+    "Psychiatry rotators: consults only (PGY-3 assist); may cover inpatients if needed",
+    "Pre-round consult follow-ups; concise consult notes and daily progress notes"
+  ],
+  "recommended_reading": [
+    "Neurological exam basics review (linked on resident site)",
+    "EEG reports on UH network (reader / eegeeg — UH network only)"
+  ],
+  "debrief_prompts": [
+    "Seizure or encephalopathy consult — presentation and workup",
+    "Neuro exam finding that changed your differential",
+    "Consult note structure — concise HPI and plan for neurology attending",
+    "How psychiatry training helped on a neuro consult (or where you felt out of depth)"
+  ],
+  "capture_tags": [
+    "neurology consult",
+    "seizure",
+    "encephalopathy",
+    "neuro exam",
+    "consult note",
+    "inter-service collaboration"
+  ]
+}

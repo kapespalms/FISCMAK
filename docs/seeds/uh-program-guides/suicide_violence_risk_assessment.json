@@ -1,0 +1,113 @@
+{
+  "id": "suicide_violence_risk_assessment",
+  "title": "Suicide and Violence Risk Assessment Guide",
+  "program_slug": "uh-psych-cmc",
+  "sources": [
+    "Resnick P. Suicide and Violence Risk Assessment. UH Psychiatry Didactics",
+    "Resnick P. Suicide Risk Assessment Update. UH Psychiatry Grand Rounds",
+    "Magellan Healthcare Practice Guideline for Assessing and Managing the Suicidal Patient",
+    "APA Practice Guideline for the Assessment and Treatment of Patients with Suicidal Behaviors",
+    "APA Resource Document on Psychiatric Violence Risk Assessment"
+  ],
+  "disclaimer": "Guidelines only — not a standard of medical care. Ultimate judgment is the treating provider's based on individual clinical data.",
+  "checklist": [
+    "Identify acute vs chronic risk factors; static vs dynamic",
+    "Identify protective factors",
+    "Identify warning signs",
+    "Assess acute and chronic risk",
+    "Document treatment plan for acute/dynamic risk factors"
+  ],
+  "documentation_template": "A risk assessment was performed during this visit. Acute risk of suicide and self-harm is [low/moderate/high] [due to/despite] [factors]. Chronic risk of suicide is [low/moderate/high] [due to/despite] [factors]. Acute risk of violence is [low/moderate/high] [due to/despite] [factors]. Chronic risk of violence is [low/moderate/high] [due to/despite] [factors]. Ongoing risk will be mitigated by [risk reduction strategies].",
+  "suicide_risk_levels": {
+    "high": "Severe psychiatric symptoms or acute precipitating event; protective factors not relevant; potentially lethal attempt or persistent ideation with strong intent/rehearsal",
+    "moderate": "Multiple risk factors, few protective factors; ideation with plan but not intent or behavior",
+    "low": "Modifiable risk factors, strong protective factors; thoughts of death without plan, intent, or behavior"
+  },
+  "violence_risk_levels_note": "Use same low/moderate/high framing; assess acute vs chronic separately",
+  "suicide_warning_signs": [
+    "Threatening or planning self-harm; seeking lethal means",
+    "Talking/writing about death or suicide (including social media)",
+    "Increased substance use; neglecting welfare",
+    "Affairs in order, giving possessions away, unexpected visits",
+    "Hopelessness, burdensomeness, withdrawal, trapped feeling",
+    "Sudden improvement after decision to die by suicide"
+  ],
+  "suicide_acute_dynamic_factors": [
+    "Current/prior suicidal thoughts, plans, intent, behavior (plan > thoughts; lethality matters)",
+    "Severe anxiety, akathisia, panic, insomnia, agitation, impulsivity, hopelessness, anhedonia",
+    "Command hallucinations, mood-congruent delusions, psychological turmoil",
+    "Life crisis, shame, humiliation, recent loss; exposure to suicide",
+    "Treatment access gaps, nonadherence, abrupt lithium discontinuation"
+  ],
+  "suicide_chronic_static_factors": [
+    "Prior attempts, family suicide history, trauma/abuse, borderline/antisocial traits",
+    "Demographics: male, older adult, youth, veteran, rural, sexual minority, unmarried",
+    "Chronic psychiatric illness severity and comorbidity"
+  ],
+  "suicide_chronic_dynamic_factors": [
+    "Post-discharge or treatment transition; chronic pain or fatal medical illness",
+    "Substance abuse; access to lethal means; social isolation; unemployment; bullying"
+  ],
+  "violence_acute_dynamic_factors": [
+    "Violent/homicidal thoughts, plans, intent, behavior",
+    "Command hallucinations, persecutory delusions, lack of insight",
+    "Impulsivity, negative affect, stress destabilizers"
+  ],
+  "violence_chronic_factors": [
+    "Prior violence history, antisocial/borderline traits, nonadherence",
+    "Male, young age, weapons access, substance abuse, social isolation",
+    "Military/weapons training, low SES, family turmoil"
+  ],
+  "protective_factors": [
+    "Religious/spiritual beliefs, moral objections to suicide, fear of act or disapproval",
+    "Responsibility to family/children, marriage/partnership, pregnancy",
+    "Positive social support, employment, coping skills, hopefulness, reality testing"
+  ],
+  "risk_reduction_strategies": [
+    "Lethal means reduction; collateral; medication adjustment",
+    "Outpatient follow-up and communication with treater",
+    "Family/friend support; coping skills; 24/7 or medication supervision",
+    "Safety plan; crisis resources (988); consider lithium, clozapine, ketamine, ECT for severe cases"
+  ],
+  "appendix_highlights": {
+    "ed_discharge_after_attempt": "May be possible when suicidality is reactive to precipitant with changed view, low-lethality plan/intent, stable/supportive housing, cooperative follow-up",
+    "chronic_elevated_risk": "Focus dynamic factors, protective factors, stressors, lethal means vs baseline; document why inpatient care not indicated when applicable",
+    "contingency_statements": "Contingent suicide threats may express unmet needs vs imminent risk — interpret in context"
+  },
+  "population_specific": {
+    "veterans": "PTSD, TBI, assault in service, transition times, clinical depression, comorbidity",
+    "schizophrenia": "Realistic illness awareness, higher education/aspirations, chronic deterioration",
+    "bipolar": "Highest suicide risk in depression > mixed > mania",
+    "youth_10_24": "Stressful events, disorders, substance, family conflict, bullying, self-harm, peer suicide exposure",
+    "older_adults_70_plus": "Functional disability, isolation, malignant/chronic disease",
+    "post_discharge_90_days": "Recent self-harm, severe mental illness, first psychotic episode"
+  },
+  "lattice_tags": [
+    "risk assessment",
+    "safety planning",
+    "violence assessment",
+    "suicide prevention",
+    "collateral history",
+    "lethal means counseling"
+  ],
+  "lattice_hints": [
+    { "domain": "Clinical Expertise", "track": "Clinician" },
+    { "domain": "Professionalism & Ethics", "track": "Quality/Safety" },
+    { "domain": "Communication", "track": "Clinician" }
+  ],
+  "mak_usage": [
+    "Help residents identify and reflect on factors they considered — not to stratify risk",
+    "NEVER assign or state low/moderate/high (or any) suicide or violence risk level for a patient",
+    "NEVER say a patient is high risk, moderate risk, or low risk — that is the treating provider's judgment only",
+    "NEVER fill in, suggest, or complete documentation template language with risk levels",
+    "Suggest lattice placement for safety-planning learning captures only",
+    "If resident asks Mak to rate risk: redirect to their attending, safety plan, and factors they documented",
+    "Do not recite factor lists unprompted"
+  ],
+  "mak_prohibitions": [
+    "Assigning risk levels",
+    "Stating patient is at imminent risk",
+    "Generating note-ready risk assessment prose",
+    "Replacing clinical supervision or emergency services (988, ED)"
+  ]
+}

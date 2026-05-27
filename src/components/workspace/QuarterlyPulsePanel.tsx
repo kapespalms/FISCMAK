@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import type { QuarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
 import { filterTouchpointAnswers } from "@/lib/v2/touchpoint-eligibility";
 import { postTouchpointJson } from "@/lib/v2/touchpoint-fetch";
@@ -62,32 +63,37 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
 
   if (summary) {
     return (
-      <Card accent="green">
-        <p className="text-cx-label uppercase">{status.quarter_label} pulse complete</p>
-        <pre className="mt-3 whitespace-pre-wrap text-sm text-cx-body">{summary}</pre>
+      <CardSection
+        accent="green"
+        eyebrow={status.quarter_label}
+        title="Pulse complete"
+        icon={HeartPulse}
+      >
+        <pre className="whitespace-pre-wrap text-sm text-cx-forest-dark/80">{summary}</pre>
         <Button variant="secondary" className="mt-4" onClick={() => setSummary(null)}>
           Done
         </Button>
-      </Card>
+      </CardSection>
     );
   }
 
   return (
-    <Card accent="amber">
-      <p className="text-cx-label uppercase">Touchpoint 2 · Quarterly pulse · ~5–8 min</p>
-      <h2 className="mt-1 text-cx-h3">{status.quarter_label} check-in</h2>
-      <p className="mt-2 text-cx-body">
-        Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your
-        dashboard and Career Data vault automatically.
-      </p>
-      {status.days_since_last != null && (
-        <p className="mt-1 text-xs text-cx-text-secondary">
-          Last pulse: {status.days_since_last} days ago
-        </p>
-      )}
-
+    <CardSection
+      accent="amber"
+      eyebrow="Quarterly pulse"
+      title={`${status.quarter_label} check-in`}
+      description="Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your dashboard and Career Data vault automatically."
+      icon={HeartPulse}
+      footer={
+        status.days_since_last != null ? (
+          <p className="text-xs text-cx-forest-dark/70">
+            Last pulse: {status.days_since_last} days ago
+          </p>
+        ) : undefined
+      }
+    >
       {!showFallback ? (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {onBeginWithMak && (
             <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
           )}
@@ -96,9 +102,9 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
           </Button>
         </div>
       ) : (
-        <div className="mt-4 space-y-4">
+        <div className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="text-sm text-cx-text">
+            <label className="text-sm text-cx-forest-dark">
               <span className="font-semibold">Emotional exhaustion (0–6)</span>
               <input
                 type="number"
@@ -109,7 +115,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
                 className="cx-field mt-1 w-full"
               />
             </label>
-            <label className="text-sm text-cx-text">
+            <label className="text-sm text-cx-forest-dark">
               <span className="font-semibold">Depersonalization (0–6)</span>
               <input
                 type="number"
@@ -121,7 +127,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               />
             </label>
           </div>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">Unrecognized work hours per week</span>
             <input
               type="number"
@@ -132,7 +138,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">Biggest unrecognized work category this quarter</span>
             <input
               type="text"
@@ -142,7 +148,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">Energy for primary career track (1–10)</span>
             <input
               type="number"
@@ -153,7 +159,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">New achievements since last update (optional)</span>
             <textarea
               value={cvUpdate}
@@ -178,6 +184,6 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
           )}
         </div>
       )}
-    </Card>
+    </CardSection>
   );
 }

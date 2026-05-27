@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { PageShell } from "@/components/layout/PageShell";
+import { SOAP_TAB } from "@/lib/v2/soap-tab-spec";
 import { LatticeView } from "@/components/workspace/LatticeView";
 import { ActivitiesView } from "@/components/workspace/ActivitiesView";
 import { DocumentsView } from "@/components/workspace/DocumentsView";
@@ -38,14 +39,14 @@ export function ObjectiveWorkspace() {
   }, []);
 
   if (!mounted) {
-    return <p className="text-sm text-cx-text-secondary">Loading…</p>;
+    return <p className="text-sm text-cx-forest-dark/70">Loading…</p>;
   }
 
   return (
     <PageShell
-      eyebrow="Verified career data"
-      title="Career Data"
-      subtitle="From uploaded documents and public databases"
+      eyebrow={SOAP_TAB.objective.nav}
+      title={SOAP_TAB.objective.title}
+      subtitle={SOAP_TAB.objective.description}
       maxWidth="full"
     >
       <AcademicSoapSectionGate intent="review" />
@@ -70,7 +71,16 @@ export function ObjectiveWorkspace() {
         {tab === "vault" && <CareerDataVaultPanel />}
         {tab === "reconcile" && <CareerDataReconcilePanel />}
         {tab === "activities" && <ActivitiesView />}
-        {tab === "documents" && <DocumentsView />}
+        {tab === "documents" && (
+          <>
+            <DocumentsView />
+            <p className="mt-4 text-center text-sm text-cx-forest-dark/65">
+              <a href="/app/documents" className="font-medium underline">
+                Open full Documents workspace →
+              </a>
+            </p>
+          </>
+        )}
       </div>
     </PageShell>
   );

@@ -50,8 +50,12 @@ export async function POST() {
       coaching_summary: summary,
       key_facts: {
         cdi: computed.cdi,
-        iwq: computed.iwq,
-        s_index: computed.s_index,
+        ...(computed._internal_coaching
+          ? {
+              service_footprint_band: computed._internal_coaching.service_footprint_band,
+              workload_recognition_gap: computed._internal_coaching.workload_recognition_gap,
+            }
+          : {}),
         practice_setting: user.practice_setting,
         primary_career_track: user.primary_career_track,
       },
@@ -69,8 +73,12 @@ export async function POST() {
       key_facts: {
         ...(existing?.key_facts ?? {}),
         cdi: computed.cdi,
-        iwq: computed.iwq,
-        s_index: computed.s_index,
+        ...(computed._internal_coaching
+          ? {
+              service_footprint_band: computed._internal_coaching.service_footprint_band,
+              workload_recognition_gap: computed._internal_coaching.workload_recognition_gap,
+            }
+          : {}),
       },
       preferences: existing?.preferences ?? {},
       career_evolution: existing?.career_evolution ?? {},
@@ -79,9 +87,6 @@ export async function POST() {
 
   return jsonOk({
     tier3_complete: true,
-    cdi: computed.cdi,
-    iwq: computed.iwq,
-    s_index: computed.s_index,
     instrument_scores: computed.instrument_scores,
     redirect: "/app/dashboard?welcome=1",
   });

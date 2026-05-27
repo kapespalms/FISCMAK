@@ -1,18 +1,21 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import { Badge } from "@/components/ui/Badge";
 import { ENERGY_OPTIONS } from "@/lib/constants";
+import { OBJECTIVE_MAK } from "@/lib/card-mak-prompts";
 import { fetchActivities } from "@/lib/activities-storage";
+import { cn } from "@/lib/utils";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { ClassificationResult } from "@/lib/types/database";
 
 export function ActivitiesView() {
   const [activities, setActivities] = useState<ActivityEntry[]>([]);
   const [text, setText] = useState("");
-  const [energy, setEnergy] = useState("energizing");
+  const [energy, setEnergy] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [lastClassification, setLastClassification] =
@@ -43,7 +46,7 @@ export function ActivitiesView() {
       const res = await fetch("/api/v1/activities", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: text.trim(), energy_valence: energy }),
+        body: JSON.stringify({ text: text.trim(), energy_valence: energy ?? undefined }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -64,6 +67,7 @@ export function ActivitiesView() {
       }
 
       setText("");
+      setEnergy(null);
       await loadActivities();
       window.dispatchEvent(new CustomEvent("fiscmak:activity-logged"));
     } catch (err) {
@@ -95,13 +99,14 @@ export function ActivitiesView() {
         </p>
       )}
 
-      <Card>
-        <p className="text-cx-label uppercase">Activity log</p>
-        <h2 className="mt-1 font-semibold text-cx-text">Log career evidence</h2>
-        <p className="mt-1 text-cx-body">
-          Capture work that may not show on your CV — or tell Mak from the dashboard.
-        </p>
-        <form onSubmit={addActivity} className="mt-4 space-y-4">
+      <CardSection
+        eyebrow="Career Data"
+        title="Log career evidence"
+        description="Capture work that may not show on your CV — or tell Mak from the dashboard."
+        icon={ClipboardList}
+        mak={OBJECTIVE_MAK.activities}
+      >
+        <form onSubmit={addActivity} className="space-y-4">
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -110,45 +115,72 @@ export function ActivitiesView() {
             placeholder="Something meaningful that might not show up on a CV…"
             aria-label="Activity description"
           />
-          <select
-            value={energy}
-            onChange={(e) => setEnergy(e.target.value)}
-            className="cx-field min-h-11 w-full"
-            aria-label="Energy level"
-          >
-            {ENERGY_OPTIONS.map((o) => (
-              <option key={o.value} value={o.value}>
-                {o.label}
-              </option>
-            ))}
-          </select>
+          <div>
+            <p className="text-cx-label">Energy level (optional)</p>
+            <div className="mt-2 flex flex-wrap gap-2" role="group" aria-label="Energy level">
+              {ENERGY_OPTIONS.map((o) => {
+                const selected = energy === o.value;
+                return (
+                  <button
+                    key={o.value}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setEnergy(selected ? null : o.value)}
+                    className={cn(
+                      "cx-nav-pill text-sm",
+                      selected ? "cx-nav-pill-active" : "cx-nav-pill-inactive",
+                    )}
+                  >
+                    {o.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
           <Button type="submit" disabled={saving}>
             {saving ? "Saving & classifying…" : "Save activity"}
           </Button>
         </form>
 
         {lastClassification && (
-          <Card accent="green" className="mt-4">
-            <p className="text-cx-label uppercase">Classification</p>
-            <p className="mt-1 text-cx-body">
-              {lastClassification.primary_domain} × {lastClassification.primary_track} (
-              {Math.round(lastClassification.confidence_score * 100)}% confidence)
+          <div className="mt-4 rounded-xl border border-l-4 border-cx-forest-dark/15 border-l-[#5FD65F] bg-cx-forest-dark/[0.03] p-4">
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">Classification</p>
+            <p className="mt-1 font-semibold text-cx-forest-dark">
+              {lastClassification.primary_domain} × {lastClassification.primary_track}
             </p>
-          </Card>
+            <p className="mt-1 text-sm text-cx-forest-dark/80">
+              {Math.round(lastClassification.confidence_score * 100)}% confidence
+            </p>
+          </div>
         )}
-      </Card>
+      </CardSection>
 
-      <div className="space-y-4">
-        <h2 className="font-semibold text-cx-text">Recent activities</h2>
-        {loading && <p className="text-sm text-cx-text-secondary">Loading…</p>}
+      <CardSection
+        eyebrow="History"
+        title="Recent activities"
+        mak={OBJECTIVE_MAK.activities}
+      >
+        {loading && <p className="text-sm text-cx-forest-dark/70">Loading…</p>}
         {!loading && activities.length === 0 && (
-          <p className="text-sm text-cx-text-secondary">
+          <p className="text-sm text-cx-forest-dark/70">
             No activities yet. Log your first one above or through Mak.
           </p>
         )}
+        <div className="space-y-3">
         {activities.map((a) => (
-          <Card key={a.id} accent={energyAccent(a.energy_valence)}>
-            <p className="text-sm text-cx-text">{a.raw_text}</p>
+          <div
+            key={a.id}
+            className={`cx-surface-elevated rounded-xl p-4 ${
+              energyAccent(a.energy_valence) === "red"
+                ? "border-l-4 border-l-red-500"
+                : energyAccent(a.energy_valence) === "green"
+                  ? "border-l-4 border-l-cx-success"
+                  : energyAccent(a.energy_valence) === "amber"
+                    ? "border-l-4 border-l-cx-attention"
+                    : ""
+            }`}
+          >
+            <p className="text-sm text-cx-forest-dark">{a.raw_text}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               <Badge energy={badgeEnergy(a.energy_valence)}>
                 {a.energy_valence?.replace(/_/g, " ") ?? "—"}
@@ -156,11 +188,12 @@ export function ActivitiesView() {
               {a.primary_domain && <Badge>{a.primary_domain}</Badge>}
               {a.primary_track && <Badge>{a.primary_track}</Badge>}
               {a.input_source === "mak_capture" && <Badge>Mak</Badge>}
-              <span className="text-xs text-cx-text-secondary">{a.activity_date}</span>
+              <span className="text-xs text-cx-forest-dark/70">{a.activity_date}</span>
             </div>
-          </Card>
+          </div>
         ))}
-      </div>
+        </div>
+      </CardSection>
     </div>
   );
 }

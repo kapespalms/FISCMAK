@@ -7,6 +7,7 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
+import { sanitizeAssessmentInsightsForUser } from "@/lib/v2/user-facing-analytics";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -21,5 +22,5 @@ export async function GET() {
   const documents = await fetchDocuments(auth.userId, auth.demo);
   const insights = buildAssessmentInsights({ user, assessments, documents });
 
-  return jsonOk(insights);
+  return jsonOk(sanitizeAssessmentInsightsForUser(insights));
 }

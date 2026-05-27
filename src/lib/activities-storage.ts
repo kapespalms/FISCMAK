@@ -23,14 +23,14 @@ export const DEMO_ACTIVITIES: ActivityEntry[] = [
 ];
 
 export function loadDemoActivities(): ActivityEntry[] {
-  if (typeof window === "undefined" || !isClientDemoMode()) return DEMO_ACTIVITIES;
+  if (typeof window === "undefined" || !isClientDemoMode()) return [];
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) return JSON.parse(raw) as ActivityEntry[];
   } catch {
     /* ignore */
   }
-  return DEMO_ACTIVITIES;
+  return [];
 }
 
 export function saveDemoActivities(items: ActivityEntry[]) {

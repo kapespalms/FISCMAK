@@ -1,0 +1,41 @@
+{
+  "rotation_code": "outpatient_adult",
+  "service_name": "Outpatient Adult Psychiatry Clinics",
+  "category": "longitudinal",
+  "source": {
+    "website_section": "Outpatient Adult Psychiatry Clinics",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Confirm clinic site, faculty supervisor, and weekly schedule",
+    "Set up Epic templates and Zoom for hybrid clinics",
+    "Review PGY-3/4 outpatient expectations and panel size targets"
+  ],
+  "overview": "Longitudinal adult outpatient psychiatry — medication management, brief therapy elements, risk documentation, and continuity across PGY-3/4 with direct attending supervision.",
+  "location": [
+    "W.O. Walker and affiliated UH adult outpatient sites — assignment-specific"
+  ],
+  "schedule": [
+    "Typically half-day to full-day weekly clinic during PGY-3/4",
+    "Supervision at end of clinic sessions; notes within 24–48 hours"
+  ],
+  "logistics": [
+    "Brief risk assessment (static/dynamic factors) each visit when clinically indicated",
+    "Refill and prior-authorization workflows per site",
+    "Vacation coverage — arrange fellow/resident coverage and patient notification"
+  ],
+  "debrief_prompts": [
+    "Medication adjustment with shared decision-making — how you documented rationale",
+    "High-risk patient in outpatient — safety plan and follow-up interval",
+    "Continuity over months — how formulation or alliance evolved",
+    "Supervision feedback that changed your outpatient practice"
+  ],
+  "capture_tags": [
+    "outpatient psychiatry",
+    "medication management",
+    "risk assessment",
+    "safety planning",
+    "telepsychiatry",
+    "care coordination"
+  ]
+}

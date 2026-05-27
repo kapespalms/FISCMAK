@@ -24,6 +24,7 @@ import { useIsMobile } from "@/lib/use-media-query";
 import { IconSidebar } from "@/components/layout/IconSidebar";
 import { TopNavBar } from "@/components/layout/TopNavBar";
 import { MakPanel } from "@/components/layout/MakPanel";
+import { AnalyticsProvider } from "@/components/layout/AnalyticsProvider";
 import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
 
 export type MakFlowTouchpoint = "annual" | "quarterly";
@@ -41,6 +42,10 @@ type AppShellContextValue = {
     navigateTo?: string,
     customGreeting?: string,
     touchpoint?: MakFlowTouchpoint,
+    goalFlow?: "set" | "modify",
+    goalModifyId?: string,
+    autoMessage?: string,
+    outputTemplateType?: string,
   ) => void;
   openMakWithMessage: (message?: string, navigateTo?: string) => void;
   displayName: string | null;
@@ -60,6 +65,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const isMobile = useIsMobile();
   const section = sectionFromPath(pathname);
+  const isOnboardingRoute = pathname.startsWith("/app/onboarding");
   const [makOpen, setMakOpen] = useState(false);
   const [displayName, setDisplayName] = useState<string | null>(null);
   const [onboardingActive, setOnboardingActive] = useState(false);
@@ -71,16 +77,24 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     intent: MakFlowIntent;
     greeting: string;
     touchpoint?: MakFlowTouchpoint;
+    goalFlow?: "set" | "modify";
+    goalModifyId?: string;
+    outputTemplateType?: string;
   } | null>(null);
 
   useEffect(() => {
+    if (isOnboardingRoute) {
+      setMakOpen(false);
+      return;
+    }
     const mobile = window.matchMedia("(max-width: 767px)").matches;
     setMakOpen(mobile ? false : loadMakPanelOpen(true));
-  }, []);
+  }, [isOnboardingRoute]);
 
   useEffect(() => {
+    if (isOnboardingRoute) return;
     saveMakPanelOpen(makOpen);
-  }, [makOpen]);
+  }, [makOpen, isOnboardingRoute]);
 
   useEffect(() => {
     fetch("/api/v1/onboarding/status")
@@ -117,24 +131,40 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       navigateTo?: string,
       customGreeting?: string,
       touchpoint?: MakFlowTouchpoint,
+      goalFlow?: "set" | "modify",
+      goalModifyId?: string,
+      autoMessage?: string,
+      outputTemplateType?: string,
     ) => {
       const greeting = customGreeting ?? MAK_FLOW_GREETINGS[intent];
-      setPendingFlow({ intent, greeting, touchpoint });
+      setPendingFlow({
+        intent,
+        greeting,
+        touchpoint,
+        goalFlow,
+        goalModifyId,
+        outputTemplateType,
+      });
       setFlowNonce((n) => n + 1);
-      setMakOpen(true);
+      if (autoMessage?.trim()) setPendingInitialMessage(autoMessage.trim());
+      if (!pathname.startsWith("/app/onboarding")) {
+        setMakOpen(true);
+        if (!isMobile) focusMakInput();
+      }
       if (navigateTo) router.push(navigateTo);
-      if (!isMobile) focusMakInput();
     },
-    [router, focusMakInput, isMobile],
+    [router, focusMakInput, isMobile, pathname],
   );
 
   const openMakWithMessage = useCallback(
     (message?: string, navigateTo?: string) => {
       if (message?.trim()) setPendingInitialMessage(message.trim());
-      setMakOpen(true);
+      if (!pathname.startsWith("/app/onboarding")) {
+        setMakOpen(true);
+      }
       if (navigateTo) router.push(navigateTo);
     },
-    [router],
+    [router, pathname],
   );
 
   const value = useMemo(
@@ -166,25 +196,31 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <AppShellContext.Provider value={value}>
-      <div className="flex h-screen overflow-hidden bg-cx-gradient-from">
-        <IconSidebar />
-        <MakPanel
-          open={makOpen}
-          pendingFlow={pendingFlow}
-          flowNonce={flowNonce}
-          onFlowHandled={() => setPendingFlow(null)}
-          onClose={closeMak}
-          onboardingActive={onboardingActive}
-          onOpenTour={() => setTourOpen(true)}
-          initialMessage={pendingInitialMessage}
-          onInitialMessageHandled={() => setPendingInitialMessage(null)}
-        />
+      <div className="flex h-screen overflow-hidden bg-cx-forest-dark">
+        {!isOnboardingRoute && (
+          <div className="flex h-full shrink-0">
+            <IconSidebar />
+            <MakPanel
+              open={makOpen}
+              pendingFlow={pendingFlow}
+              flowNonce={flowNonce}
+              onFlowHandled={() => setPendingFlow(null)}
+              onClose={closeMak}
+              onboardingActive={onboardingActive}
+              onOpenTour={() => setTourOpen(true)}
+              initialMessage={pendingInitialMessage}
+              onInitialMessageHandled={() => setPendingInitialMessage(null)}
+            />
+          </div>
+        )}
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
-        <div className="flex min-w-0 flex-1 flex-col">
-          <TopNavBar />
-          <main className="cx-page-gradient min-h-0 flex-1 overflow-auto p-4 md:p-8">
-            {children}
-          </main>
+        <div className="cx-main-shell flex min-w-0 flex-1 flex-col">
+          {!isOnboardingRoute && <TopNavBar />}
+          <AnalyticsProvider>
+            <main className="font-futura-book min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
+              {children}
+            </main>
+          </AnalyticsProvider>
         </div>
       </div>
     </AppShellContext.Provider>

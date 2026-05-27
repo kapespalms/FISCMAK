@@ -1,0 +1,1146 @@
+{
+  "coordination": {
+    "pgy3_4_coordinator": "Dr. Kathleen Cerny (cathleen.cerny@uhhospitals.org) — coordinates all PGY3/4/PPP2/3 electives",
+    "elective_request_contact": "Dr. Andrew Hunt (Andrew.Hunt@UHHospitals.org)",
+    "deadline_weeks_before": 6,
+    "affiliation_contact": "Melvyna Williams — affiliation agreements for non-UH supervisors",
+    "process_notes": [
+      "Review Master Elective Spreadsheet before planning",
+      "Develop plan with mentor: location, schedule, supervisor, objectives",
+      "Submit elective request form + mentor email approval to Dr. Hunt ≥6 weeks prior",
+      "Non-UH supervisor requires affiliation agreement via program coordinator",
+      "PGY3/4 longitudinal electives often 12 months; some require 6+ blocks",
+      "Residents on elective may be called for cross-cover; remain available unless backup arranged"
+    ]
+  },
+  "categories": [
+    "Adult",
+    "CAP",
+    "CL",
+    "College",
+    "Community",
+    "Forensic",
+    "Geriatric",
+    "Integrated",
+    "Interventional",
+    "Scholarly",
+    "Senior",
+    "Substance Use",
+    "Women's Mental Health"
+  ],
+  "category_lattice_hints": {
+    "Adult": "Clinical Expertise × Clinician; Communication × Clinician",
+    "CAP": "Clinical Expertise × Clinician; Communication × Educator",
+    "CL": "Clinical Expertise × Clinician; Collaboration & Teamwork × Clinician",
+    "College": "Communication × Clinician; Systems Thinking × Advocate",
+    "Community": "Systems Thinking × Advocate; Clinical Expertise × Clinician",
+    "Forensic": "Clinical Expertise × Clinician; Systems Thinking × Advocate",
+    "Geriatric": "Clinical Expertise × Clinician; Systems Thinking × Quality/Safety",
+    "Integrated": "Clinical Expertise × Clinician; Scholarship & Learning × Clinician",
+    "Interventional": "Clinical Expertise × Clinician; Innovation × Innovator",
+    "Scholarly": "Scholarship & Learning × Researcher; Scholarship & Learning × Educator",
+    "Senior": "Clinical Expertise × Clinician; Leadership & Management × Clinician",
+    "Substance Use": "Clinical Expertise × Clinician; Systems Thinking × Advocate",
+    "Women's Mental Health": "Clinical Expertise × Clinician; Communication × Clinician"
+  },
+  "entries": [
+    {
+      "id": "adult_eating_disorder",
+      "name": "Adult Eating Disorder Program",
+      "category": "Adult",
+      "location": "Hull Institute Beachwood",
+      "faculty": [
+        "Dr. Marcie Hall"
+      ],
+      "contact": "mary.hall-mennes@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "modality": "in-person",
+      "notes": "Theoretical; no resident has done yet"
+    },
+    {
+      "id": "marital_sexual_health",
+      "name": "Center for Marital and Sexual Health Outpatient Clinic",
+      "category": "Adult",
+      "location": "Beachwood",
+      "faculty": [
+        "Dr. Stephen Levine"
+      ],
+      "contact": "stephen.levine2@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "schedule": "T PM or R PM",
+      "modality": "in-person",
+      "notes": "PGY3/4 only; 6+ blocks required"
+    },
+    {
+      "id": "mood_disorders_op",
+      "name": "Mood Disorders Outpatient Clinic",
+      "category": "Adult",
+      "location": "Walker 12th floor",
+      "faculty": [
+        "Dr. Keming Gao"
+      ],
+      "contact": "keming.gao@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "modality": "both",
+      "notes": "Theoretical option"
+    },
+    {
+      "id": "tay_clinic",
+      "name": "Transitional Age Youth (TAY) Clinic",
+      "category": "Adult",
+      "location": "Walker 8th floor",
+      "faculty": [
+        "Dr. Andrew Hunt"
+      ],
+      "contact": "andrew.hunt@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "T PM, F PM",
+      "modality": "both",
+      "notes": "12 months longitudinal"
+    },
+    {
+      "id": "idd_clinic",
+      "name": "Intellectual Disability/Developmental Delay Clinic",
+      "category": "Adult",
+      "location": "Walker 1st floor",
+      "faculty": [
+        "Dr. Stephen Ruedrich",
+        "Dr. Tom Scheidemantel"
+      ],
+      "contact": "stephen.ruedrich@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "W PM",
+      "modality": "both",
+      "notes": "12 months; CAP cross-listed"
+    },
+    {
+      "id": "inpatient_child_cap",
+      "name": "Inpatient Child Psychiatry",
+      "category": "CAP",
+      "location": "UH RBC",
+      "faculty": [
+        "Dr. Erum Ahmad"
+      ],
+      "contact": "erum.ahmad@uhhospitals.org",
+      "timeframe": "block",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "Any",
+      "modality": "in-person",
+      "rotation_code": "capu"
+    },
+    {
+      "id": "child_cl_op",
+      "name": "Child Consult-Liaison/Outpatient Psychiatry",
+      "category": "CAP",
+      "location": "RBC, Walker",
+      "faculty": [
+        "Dr. Sarah Lytle"
+      ],
+      "contact": "sarah.lytle@uhhospitals.org",
+      "timeframe": "block",
+      "patient_care": "both",
+      "outpatient_longitudinal": false,
+      "schedule": "Any",
+      "modality": "both"
+    },
+    {
+      "id": "child_psychiatry_ambulatory",
+      "name": "Child Psychiatry Ambulatory",
+      "category": "CAP",
+      "location": "Various UH",
+      "faculty": [
+        "Various"
+      ],
+      "contact": "Sarah.Spurbeck@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "Variable",
+      "modality": "both",
+      "notes": "Spurbeck coordinates"
+    },
+    {
+      "id": "child_psychiatry_research",
+      "name": "Child Psychiatry Research",
+      "category": "CAP",
+      "location": "UH",
+      "faculty": [
+        "Dr. Molly McVoy"
+      ],
+      "contact": "molly.mcvoy@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na"
+    },
+    {
+      "id": "psych_oncology",
+      "name": "Psychiatry-Oncology Clinic",
+      "category": "CL",
+      "location": "UH Seidman",
+      "faculty": [
+        "Dr. Fawad Taj",
+        "Dr. Jennifer Brandstetter"
+      ],
+      "contact": "fawad.taj@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "M PM Taj; R AM Brandstetter",
+      "modality": "both",
+      "notes": "6+ months longitudinal"
+    },
+    {
+      "id": "mpu",
+      "name": "Medical Psychiatry Unit (MPU)",
+      "category": "CL",
+      "location": "Lakeside 4th floor",
+      "faculty": [
+        "Dr. Amir Shah",
+        "Dr. Stefani Parrisbalogun"
+      ],
+      "contact": "SyedAmir.Shah@UHhospitals.org",
+      "timeframe": "block",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "Any",
+      "modality": "in-person",
+      "rotation_code": "mpu_cl"
+    },
+    {
+      "id": "cl_va",
+      "name": "Consultation-Liaison Psychiatry (VA)",
+      "category": "CL",
+      "location": "VA",
+      "faculty": [
+        "Dr. Marianne Jhee"
+      ],
+      "contact": "marianne.jhee@va.gov",
+      "timeframe": "block",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "modality": "in-person",
+      "notes": "1-4 month block"
+    },
+    {
+      "id": "oberlin_college",
+      "name": "Oberlin College Mental Health Clinic",
+      "category": "College",
+      "location": "Oberlin Counseling Center",
+      "faculty": [
+        "Dr. Alexandra Wang",
+        "Dr. Matthew Newton"
+      ],
+      "contact": "alexandra.wang@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "M AM, PM",
+      "modality": "in-person",
+      "notes": "Far; 12 months",
+      "lattice_tags": [
+        "college mental health",
+        "counseling"
+      ]
+    },
+    {
+      "id": "cwru_college",
+      "name": "CWRU Mental Health Clinic",
+      "category": "College",
+      "location": "CWRU",
+      "faculty": [
+        "Dr. Michelle Romero",
+        "Dr. Alexandra Wang"
+      ],
+      "contact": "michelle.romero@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "M-F various",
+      "modality": "both",
+      "notes": "12 months",
+      "lattice_tags": [
+        "college mental health",
+        "counseling"
+      ]
+    },
+    {
+      "id": "jcu_college",
+      "name": "JCU Mental Health Clinic",
+      "category": "College",
+      "location": "JCU",
+      "faculty": [
+        "Dr. Matthew Andersen"
+      ],
+      "contact": "matthew.andersen@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "W PM",
+      "modality": "in-person",
+      "notes": "12 months",
+      "lattice_tags": [
+        "college mental health",
+        "counseling"
+      ]
+    },
+    {
+      "id": "csu_college",
+      "name": "CSU Mental Health Clinic",
+      "category": "College",
+      "location": "CSU",
+      "faculty": [
+        "Dr. Alexandra Wang"
+      ],
+      "contact": "alexandra.wang@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "T AM/PM, W PM",
+      "modality": "both",
+      "notes": "12 months",
+      "lattice_tags": [
+        "college mental health",
+        "counseling"
+      ]
+    },
+    {
+      "id": "public_policy",
+      "name": "Public Policy Elective",
+      "category": "Community",
+      "location": "N/A",
+      "faculty": [
+        "Dr. Megan Testa"
+      ],
+      "contact": "megantesta@gmail.com",
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "asian_services_action",
+      "name": "Asian Services in Action",
+      "category": "Community",
+      "location": "Akron",
+      "faculty": [
+        "Dr. Matthew Andersen"
+      ],
+      "contact": "matthew.andersen@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "M AM, PM",
+      "notes": "Refugee population",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "population_health",
+      "name": "Population Health",
+      "category": "Community",
+      "location": "N/A",
+      "faculty": [
+        "Dr. Patrick Runnels"
+      ],
+      "contact": "patrick.runnels1@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "act_centers_east",
+      "name": "ACT at The Centers - East",
+      "category": "Community",
+      "location": "4400 Euclid Cleveland",
+      "faculty": [
+        "Dr. Elena Yanchar"
+      ],
+      "contact": "elena.yanchar@thecentersohio.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "M PM, R AM/PM",
+      "modality": "in-person",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "act_css_akron",
+      "name": "ACT at Community Support Services (Akron)",
+      "category": "Community",
+      "location": "Akron",
+      "faculty": [
+        "Dr. Sara West"
+      ],
+      "contact": "sara.west@cssbh.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "M AM, PM",
+      "modality": "in-person",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "fep_catholic_charities",
+      "name": "First Episode Psychosis at Catholic Charities",
+      "category": "Community",
+      "location": "Cleveland",
+      "faculty": [
+        "Dr. Mark Woyshville"
+      ],
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "M PM, F PM",
+      "modality": "both",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "fep_centers_east",
+      "name": "First Episode Psychosis at The Centers East",
+      "category": "Community",
+      "location": "4400 Euclid",
+      "faculty": [
+        "Dr. Nora McNamara"
+      ],
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": true,
+      "schedule": "T AM",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "hopewell_farm",
+      "name": "Hopewell Therapeutic Farm",
+      "category": "Community",
+      "location": "Middlefield",
+      "faculty": [
+        "Dr. Cerny facilitates"
+      ],
+      "contact": "cathleen.cerny@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "modality": "in-person",
+      "notes": "Feasibility via Cerny",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "absolute_care",
+      "name": "Absolute Care Clinic",
+      "category": "Community",
+      "location": "Brooklyn",
+      "faculty": [
+        "Dr. Susan Padrino"
+      ],
+      "contact": "spadrino@absolutecare.com",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "modality": "in-person",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "bh_urgent_care",
+      "name": "Behavioral Health Urgent Care (The Centers)",
+      "category": "Community",
+      "location": "Uptown/Gordon Square Cleveland",
+      "faculty": [
+        "Dr. Vincent Caringi"
+      ],
+      "contact": "Vincent.Caringi@thecentersohio.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "T AM, PM",
+      "modality": "in-person",
+      "notes": "PGY4 only",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "diversion_center",
+      "name": "Diversion Center",
+      "category": "Community",
+      "location": "Cleveland",
+      "faculty": [
+        "Dr. Megan Testa"
+      ],
+      "contact": "megantesta@gmail.com",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "modality": "in-person",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "access_clinic",
+      "name": "Access Clinic",
+      "category": "Community",
+      "location": "Walker 8th floor",
+      "faculty": [
+        "Dr. Kathleen Clegg",
+        "Dr. Matt Andersen"
+      ],
+      "contact": "kathleen.clegg@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "T PM",
+      "modality": "both",
+      "rotation_code": "access_clinic",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "northcoast_forensic_long",
+      "name": "Northcoast Behavioral Healthcare (Forensic)",
+      "category": "Forensic",
+      "location": "Middlefield",
+      "faculty": [
+        "Dr. Daniel Ionescu",
+        "Dr. Tetyana Bodnar"
+      ],
+      "contact": "daniel.ionescu@mha.ohio.gov",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "modality": "in-person",
+      "notes": "TB test may be required; NGRI/RTC",
+      "rotation_code": "northcoast",
+      "lattice_tags": [
+        "forensic psychiatry",
+        "legal systems"
+      ]
+    },
+    {
+      "id": "cleveland_justice_center",
+      "name": "Cleveland Justice Center",
+      "category": "Forensic",
+      "location": "Justice Center",
+      "faculty": [
+        "Dr. Cerny",
+        "Dr. Susan Hatters-Friedman"
+      ],
+      "contact": "cathleen.cerny@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "schedule": "T AM, PM",
+      "lattice_tags": [
+        "forensic psychiatry",
+        "legal systems"
+      ]
+    },
+    {
+      "id": "forensic_fellow_shadow",
+      "name": "Forensic Psychiatry - Shadowing Fellows",
+      "category": "Forensic",
+      "location": "Multiple sites",
+      "faculty": [
+        "Dr. Stephen Noffsinger",
+        "Dr. Susan Hatters-Friedman"
+      ],
+      "contact": "stephen.noffsinger@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "notes": "Spurbeck coordinates; TB test for NCBH",
+      "lattice_tags": [
+        "forensic psychiatry",
+        "legal systems"
+      ]
+    },
+    {
+      "id": "op_geriatric_foley",
+      "name": "Outpatient Geriatric Psychiatry",
+      "category": "Geriatric",
+      "location": "Foley ElderHealth Beachwood",
+      "faculty": [
+        "Dr. Philipp Dines"
+      ],
+      "contact": "philipp.dines@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "modality": "both",
+      "notes": "12 months; rarely used recently"
+    },
+    {
+      "id": "geriatric_psychiatry_va",
+      "name": "Geriatric Psychiatry at Cleveland VA",
+      "category": "Geriatric",
+      "location": "VA",
+      "faculty": [
+        "Dr. Peijun Chen"
+      ],
+      "contact": "peijun.chen@va.gov",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "modality": "both",
+      "notes": "Rarely used recently"
+    },
+    {
+      "id": "geriatric_psychiatry_swg",
+      "name": "Geriatric Psychiatry (inpatient/outpatient)",
+      "category": "Geriatric",
+      "location": "Southwest General",
+      "faculty": [
+        "Dr. Daniel Polster"
+      ],
+      "contact": "dpolster@swgeneral.com",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "notes": "Rarely used recently",
+      "rotation_code": "geriatric_psychiatry"
+    },
+    {
+      "id": "anesthesia_pain",
+      "name": "Anesthesia Pain Clinic at UH-CMC",
+      "category": "Integrated",
+      "location": "UH",
+      "faculty": [
+        "Dr. Salim Hayek"
+      ],
+      "contact": "salim.hayek@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "notes": "Rarely used"
+    },
+    {
+      "id": "neuropsychiatry_geriatric",
+      "name": "Neuropsychiatry/Geriatric Psychiatry",
+      "category": "Integrated",
+      "location": "UH",
+      "faculty": [
+        "Dr. Brian Appleby",
+        "Dr. Rajeet Shrestha"
+      ],
+      "contact": "brian.appleby@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "both",
+      "outpatient_longitudinal": true,
+      "schedule": "W PM",
+      "modality": "both",
+      "notes": "Appleby active; Shrestha observational"
+    },
+    {
+      "id": "sleep_medicine",
+      "name": "Sleep Medicine",
+      "category": "Integrated",
+      "location": "VA, UH",
+      "faculty": [
+        "Dr. Kamal Gandotra",
+        "Dr. Susheel Patil"
+      ],
+      "contact": "kamal.gandotra2@va.gov",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "notes": "Contact Lavakumar for VA"
+    },
+    {
+      "id": "palliative_care",
+      "name": "Palliative Care Elective",
+      "category": "Integrated",
+      "location": "UH",
+      "faculty": [
+        "Dr. Rab Razzak"
+      ],
+      "contact": "abdulrab.razzak@uhhospitals.org",
+      "timeframe": "block",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "schedule": "Any",
+      "modality": "in-person",
+      "notes": "2 weeks; Seidman oncology clinic W; R reflection"
+    },
+    {
+      "id": "neuropsych_testing",
+      "name": "Neuropsychological Testing",
+      "category": "Interventional",
+      "location": "UH",
+      "faculty": [
+        "Dr. Amir Poreh"
+      ],
+      "contact": "amir.poreh@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "notes": "Rarely used"
+    },
+    {
+      "id": "va_neuromodulation",
+      "name": "VA Neuromodulation (ECT, rTMS, Ketamine)",
+      "category": "Interventional",
+      "location": "VA",
+      "faculty": [
+        "Dr. Vaidya"
+      ],
+      "contact": "punit.vaidya@va.gov",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "PGY2/PGY4 schedules vary",
+      "modality": "in-person",
+      "notes": "Contact Lavakumar",
+      "rotation_code": "uh_interventional"
+    },
+    {
+      "id": "ect_summa",
+      "name": "ECT at Summa",
+      "category": "Interventional",
+      "location": "Summa",
+      "faculty": [
+        "Dr. Todd Ivan"
+      ],
+      "contact": "ivant@summahealth.org",
+      "timeframe": "block",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "M",
+      "modality": "in-person"
+    },
+    {
+      "id": "ethics_elective",
+      "name": "Ethics Elective",
+      "category": "Scholarly",
+      "location": "UH CMC",
+      "faculty": [
+        "TBD"
+      ],
+      "contact": "cathleen.cerny@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "observational",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "scholarly_project",
+      "name": "Scholarly Project",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "UH-affiliated mentor"
+      ],
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "research_elective",
+      "name": "Research Elective",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "UH-affiliated mentor"
+      ],
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "journal_review",
+      "name": "Journal Review Elective",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "UH-affiliated mentor"
+      ],
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "quality_improvement",
+      "name": "Quality Improvement Elective",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "Dr. Jeanne Lackamp / mentor"
+      ],
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "rotation_code": "qi",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "psych_philosophy",
+      "name": "Psychiatry and Philosophy",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "Dr. Awais Aftab"
+      ],
+      "contact": "awaisaftab@gmail.com",
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "online_courses",
+      "name": "Online Courses (NEI, APA, etc.)",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "N/A"
+      ],
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "notes": "Education dollars eligible",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "narrative_medicine",
+      "name": "Narrative Medicine",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "Dr. Susan Stagno"
+      ],
+      "contact": "suchefpwd@gmail.com",
+      "timeframe": "either",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "wellness_elective",
+      "name": "Wellness Elective",
+      "category": "Scholarly",
+      "location": "N/A",
+      "faculty": [
+        "Dr. Cerny"
+      ],
+      "contact": "cathleen.cerny@uhhospitals.org",
+      "timeframe": "block",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "modality": "na",
+      "notes": "2 weeks",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "sami_case_teaching",
+      "name": "SAMI Case Teaching",
+      "category": "Scholarly",
+      "location": "",
+      "timeframe": "longitudinal",
+      "patient_care": "na",
+      "outpatient_longitudinal": false,
+      "schedule": "F PM",
+      "modality": "in-person",
+      "lattice_tags": [
+        "scholarship",
+        "research",
+        "QI"
+      ]
+    },
+    {
+      "id": "cl_senior",
+      "name": "CL Senior",
+      "category": "Senior",
+      "location": "UH CMC",
+      "faculty": [
+        "Dr. Jennifer Brandstetter"
+      ],
+      "contact": "jennifer.brandstetter@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "Any",
+      "modality": "in-person"
+    },
+    {
+      "id": "psych_ed_senior",
+      "name": "Psych ED Senior",
+      "category": "Senior",
+      "location": "UH CMC",
+      "faculty": [
+        "Dr. Sara Goldman"
+      ],
+      "contact": "sara.goldman@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "Any",
+      "modality": "both"
+    },
+    {
+      "id": "iop_substance",
+      "name": "Intensive Outpatient and Partial Hospitalization",
+      "category": "Substance Use",
+      "location": "ARS; SWG; UH West Hub",
+      "faculty": [
+        "Dr. Cerny facilitates"
+      ],
+      "contact": "cathleen.cerny@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "notes": "Longitudinal option",
+      "lattice_tags": [
+        "addiction psychiatry",
+        "MAT"
+      ]
+    },
+    {
+      "id": "addiction_psychiatry_va",
+      "name": "Addiction Psychiatry",
+      "category": "Substance Use",
+      "location": "VA",
+      "faculty": [
+        "Dr. Youssef Mahfoud"
+      ],
+      "contact": "youssef.mahfoud@va.gov",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "modality": "both",
+      "rotation_code": "va_addiction",
+      "lattice_tags": [
+        "addiction psychiatry",
+        "MAT"
+      ]
+    },
+    {
+      "id": "perinatal_iop",
+      "name": "Perinatal Intensive Outpatient Program (IOP)",
+      "category": "Women's Mental Health",
+      "location": "Virtual",
+      "faculty": [
+        "Dr. Eric Reed"
+      ],
+      "contact": "eric.reed2@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "both",
+      "outpatient_longitudinal": true,
+      "schedule": "T AM/PM, F PM",
+      "modality": "virtual",
+      "lattice_tags": [
+        "reproductive psychiatry",
+        "perinatal mental health"
+      ]
+    },
+    {
+      "id": "reproductive_nicu",
+      "name": "Outpatient Reproductive Psychiatry (NICU)",
+      "category": "Women's Mental Health",
+      "location": "Mac House, Walker",
+      "faculty": [
+        "Dr. Susan Hatters-Friedman"
+      ],
+      "contact": "susan.hattersfriedman@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "R PM",
+      "modality": "virtual/in-person NICU",
+      "notes": "12 months",
+      "lattice_tags": [
+        "reproductive psychiatry",
+        "perinatal mental health"
+      ]
+    },
+    {
+      "id": "reproductive_midtown",
+      "name": "Outpatient Reproductive Psychiatry (Midtown)",
+      "category": "Women's Mental Health",
+      "location": "Chester & 55th",
+      "faculty": [
+        "Dr. Eric Reed"
+      ],
+      "contact": "eric.reed2@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "W AM/PM, R PM",
+      "modality": "both",
+      "notes": "12 months",
+      "lattice_tags": [
+        "reproductive psychiatry",
+        "perinatal mental health"
+      ]
+    },
+    {
+      "id": "new_directions",
+      "name": "New Directions",
+      "category": "Substance Use",
+      "location": "Cleveland",
+      "faculty": [
+        "Dr. Samantha Imfeld"
+      ],
+      "contact": "samantha.imfeld@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "TBD",
+      "notes": "Theoretical",
+      "lattice_tags": [
+        "addiction psychiatry",
+        "MAT"
+      ]
+    },
+    {
+      "id": "walker_resident_clinic",
+      "name": "UH Walker Resident Clinic",
+      "category": "Community",
+      "location": "Walker 8th floor",
+      "faculty": [
+        "Dr. Hunt",
+        "Dr. Musso",
+        "Dr. Heather"
+      ],
+      "contact": "andrew.hunt@uhhospitals.org",
+      "timeframe": "longitudinal",
+      "patient_care": "active",
+      "outpatient_longitudinal": true,
+      "schedule": "T PM, W PM",
+      "notes": "Core longitudinal clinic",
+      "rotation_code": "outpatient_adult",
+      "lattice_tags": [
+        "community psychiatry",
+        "health equity",
+        "systems advocacy"
+      ]
+    },
+    {
+      "id": "ect_ketamine_uh",
+      "name": "ECT/Ketamine/Esketamine (Currently Unavailable)",
+      "category": "Interventional",
+      "location": "UH",
+      "faculty": [
+        "Dr. Keming Gao"
+      ],
+      "contact": "keming.gao@uhhospitals.org",
+      "timeframe": "either",
+      "patient_care": "both",
+      "outpatient_longitudinal": false,
+      "schedule": "M, W, F",
+      "notes": "Unavailable"
+    },
+    {
+      "id": "mood_iop",
+      "name": "Mood Disorders Intensive Outpatient Program",
+      "category": "Adult",
+      "location": "Walker 3rd floor",
+      "timeframe": "either",
+      "patient_care": "active",
+      "outpatient_longitudinal": false,
+      "schedule": "M AM, W AM",
+      "notes": "IOP"
+    }
+  ]
+}

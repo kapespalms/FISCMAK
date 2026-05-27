@@ -1,0 +1,493 @@
+{
+  "source": "ACGME Data Resource Book 2024-2025 Appendix B",
+  "primary_specialties": [
+    {
+      "name": "Anesthesiology",
+      "slug": "anesthesiology",
+      "group": "hospital_based",
+      "subspecialties": [
+        "Adult cardiothoracic anesthesiology",
+        "Critical care medicine",
+        "Regional anesthesiology and acute pain medicine",
+        "Pediatric cardiac anesthesiology",
+        "Obstetric anesthesiology",
+        "Pain medicine (multidisciplinary)",
+        "Pediatric anesthesiology"
+      ]
+    },
+    {
+      "name": "Emergency medicine",
+      "slug": "emergency-medicine",
+      "group": "hospital_based",
+      "subspecialties": [
+        "Emergency medical services",
+        "Medical toxicology",
+        "Pediatric emergency medicine",
+        "Sports medicine",
+        "Undersea and hyperbaric medicine"
+      ]
+    },
+    {
+      "name": "Medical genetics and genomics",
+      "slug": "medical-genetics-and-genomics",
+      "group": "hospital_based",
+      "subspecialties": [
+        "Medical biochemical genetics",
+        "Molecular genetic pathology (multidisciplinary)"
+      ]
+    },
+    {
+      "name": "Clinical biochemical genetics",
+      "slug": "clinical-biochemical-genetics",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Laboratory genetics and genomics",
+      "slug": "laboratory-genetics-and-genomics",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Nuclear medicine",
+      "slug": "nuclear-medicine",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Pathology-anatomic and clinical",
+      "slug": "pathology-anatomic-and-clinical",
+      "group": "hospital_based",
+      "subspecialties": [
+        "Blood banking/transfusion medicine",
+        "Clinical informatics",
+        "Chemical pathology",
+        "Cytopathology",
+        "Forensic pathology",
+        "Hematopathology",
+        "Medical microbiology",
+        "Neuropathology",
+        "Pediatric pathology",
+        "Selective pathology"
+      ]
+    },
+    {
+      "name": "Public health and general preventive medicine",
+      "slug": "public-health-and-general-preventive-medicine",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Aerospace medicine",
+      "slug": "aerospace-medicine",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Occupational and environmental medicine",
+      "slug": "occupational-and-environmental-medicine",
+      "group": "hospital_based",
+      "subspecialties": [
+        "Undersea and hyperbaric medicine"
+      ]
+    },
+    {
+      "name": "Radiation oncology",
+      "slug": "radiation-oncology",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Radiology-diagnostic",
+      "slug": "radiology-diagnostic",
+      "group": "hospital_based",
+      "subspecialties": [
+        "Abdominal radiology",
+        "Neuroendovascular intervention",
+        "Musculoskeletal radiology",
+        "Neuroradiology",
+        "Nuclear radiology",
+        "Pediatric radiology"
+      ]
+    },
+    {
+      "name": "Interventional radiology \u2013 independent",
+      "slug": "interventional-radiology-independent",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Interventional radiology \u2013 integrated",
+      "slug": "interventional-radiology-integrated",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Transitional year",
+      "slug": "transitional-year",
+      "group": "hospital_based",
+      "subspecialties": []
+    },
+    {
+      "name": "Allergy and immunology",
+      "slug": "allergy-and-immunology",
+      "group": "medical",
+      "subspecialties": []
+    },
+    {
+      "name": "Dermatology",
+      "slug": "dermatology",
+      "group": "medical",
+      "subspecialties": [
+        "Dermatopathology (multidisciplinary)",
+        "Micrographic surgery and dermatologic oncology",
+        "Pediatric dermatology"
+      ]
+    },
+    {
+      "name": "Family medicine",
+      "slug": "family-medicine",
+      "group": "medical",
+      "subspecialties": [
+        "Clinical informatics",
+        "Geriatric medicine",
+        "Hospice and palliative medicine (multidisciplinary)",
+        "Sports medicine"
+      ]
+    },
+    {
+      "name": "Internal medicine",
+      "slug": "internal-medicine",
+      "group": "medical",
+      "subspecialties": [
+        "Adult congenital heart disease",
+        "Advanced heart failure and transplant cardiology",
+        "Cardiovascular disease",
+        "Clinical cardiac electrophysiology",
+        "Clinical informatics",
+        "Critical care medicine",
+        "Endocrinology, diabetes, and metabolism",
+        "Gastroenterology",
+        "Geriatric medicine",
+        "Hematology and medical oncology",
+        "Infectious disease",
+        "Interventional cardiology",
+        "Nephrology",
+        "Medical oncology",
+        "Pulmonary disease",
+        "Pulmonary disease and critical care medicine",
+        "Rheumatology",
+        "Sleep medicine (multidisciplinary)",
+        "Transplant hepatology"
+      ]
+    },
+    {
+      "name": "Neurology",
+      "slug": "neurology",
+      "group": "medical",
+      "subspecialties": [
+        "Clinical neurophysiology",
+        "Epilepsy",
+        "Neurocritical care (multidisciplinary)",
+        "Neuroendovascular intervention",
+        "Neurodevelopmental disabilities",
+        "Neuromuscular medicine",
+        "Vascular neurology"
+      ]
+    },
+    {
+      "name": "Child neurology",
+      "slug": "child-neurology",
+      "group": "medical",
+      "subspecialties": []
+    },
+    {
+      "name": "Osteopathic neuromusculoskeletal medicine",
+      "slug": "osteopathic-neuromusculoskeletal-medicine",
+      "group": "medical",
+      "subspecialties": []
+    },
+    {
+      "name": "Pediatrics",
+      "slug": "pediatrics",
+      "group": "medical",
+      "subspecialties": [
+        "Adolescent medicine",
+        "Child abuse pediatrics",
+        "Clinical informatics",
+        "Developmental-behavioral pediatrics",
+        "Neonatal-perinatal medicine",
+        "Pediatric cardiology",
+        "Pediatric critical care medicine",
+        "Pediatric emergency medicine",
+        "Pediatric endocrinology",
+        "Pediatric gastroenterology",
+        "Pediatric hematology/oncology",
+        "Pediatric infectious diseases",
+        "Pediatric nephrology",
+        "Pediatric pulmonology",
+        "Pediatric rheumatology",
+        "Sports medicine",
+        "Pediatric transplant hepatology",
+        "Pediatric hospital medicine"
+      ]
+    },
+    {
+      "name": "170 Data Resource Book, Academic Year 2024-2025",
+      "slug": "170-data-resource-book-academic-year-2024-2025",
+      "group": "medical",
+      "subspecialties": []
+    },
+    {
+      "name": "Physical medicine and rehabilitation",
+      "slug": "physical-medicine-and-rehabilitation",
+      "group": "medical",
+      "subspecialties": [
+        "Brain injury medicine",
+        "Neuromuscular medicine",
+        "Spinal cord injury medicine",
+        "Pediatric rehabilitation medicine",
+        "Sports medicine"
+      ]
+    },
+    {
+      "name": "Psychiatry",
+      "slug": "psychiatry",
+      "group": "medical",
+      "subspecialties": [
+        "Addiction medicine (multidisciplinary)",
+        "Addiction psychiatry",
+        "Child and adolescent psychiatry",
+        "Forensic psychiatry",
+        "Geriatric psychiatry",
+        "Consultation-liaison psychiatry"
+      ]
+    },
+    {
+      "name": "Internal medicine/Pediatrics",
+      "slug": "internal-medicine-pediatrics",
+      "group": "medical",
+      "subspecialties": []
+    },
+    {
+      "name": "Colon and rectal surgery",
+      "slug": "colon-and-rectal-surgery",
+      "group": "surgical",
+      "subspecialties": []
+    },
+    {
+      "name": "Neurological surgery",
+      "slug": "neurological-surgery",
+      "group": "surgical",
+      "subspecialties": [
+        "Neuroendovascular intervention"
+      ]
+    },
+    {
+      "name": "Obstetrics and gynecology",
+      "slug": "obstetrics-and-gynecology",
+      "group": "surgical",
+      "subspecialties": [
+        "Female pelvic medicine and reconstructive surgery",
+        "Gynecologic oncology",
+        "Maternal-fetal medicine",
+        "Reproductive endocrinology and infertility",
+        "Complex family planning"
+      ]
+    },
+    {
+      "name": "Ophthalmology",
+      "slug": "ophthalmology",
+      "group": "surgical",
+      "subspecialties": [
+        "Ophthalmic plastic and reconstructive surgery"
+      ]
+    },
+    {
+      "name": "Orthopaedic surgery",
+      "slug": "orthopaedic-surgery",
+      "group": "surgical",
+      "subspecialties": [
+        "Adult reconstructive orthopaedics",
+        "Foot and ankle orthopaedics",
+        "Hand surgery",
+        "Musculoskeletal oncology",
+        "Orthopaedic sports medicine",
+        "Orthopaedic surgery of the spine",
+        "Orthopaedic trauma",
+        "Pediatric orthopaedics"
+      ]
+    },
+    {
+      "name": "Otolaryngology \u2013 head and neck surgery",
+      "slug": "otolaryngology-head-and-neck-surgery",
+      "group": "surgical",
+      "subspecialties": [
+        "Neurotology",
+        "Pediatric otolaryngology"
+      ]
+    },
+    {
+      "name": "Plastic surgery",
+      "slug": "plastic-surgery",
+      "group": "surgical",
+      "subspecialties": []
+    },
+    {
+      "name": "Plastic surgery \u2013 integrated",
+      "slug": "plastic-surgery-integrated",
+      "group": "surgical",
+      "subspecialties": [
+        "Craniofacial surgery",
+        "Hand surgery"
+      ]
+    },
+    {
+      "name": "Surgery",
+      "slug": "surgery",
+      "group": "surgical",
+      "subspecialties": [
+        "Complex general surgical oncology",
+        "Hand surgery",
+        "Pediatric surgery",
+        "Surgical critical care",
+        "Vascular surgery"
+      ]
+    },
+    {
+      "name": "Vascular surgery \u2013 integrated",
+      "slug": "vascular-surgery-integrated",
+      "group": "surgical",
+      "subspecialties": []
+    },
+    {
+      "name": "Thoracic surgery",
+      "slug": "thoracic-surgery",
+      "group": "surgical",
+      "subspecialties": [
+        "Congenital cardiac surgery"
+      ]
+    },
+    {
+      "name": "Thoracic surgery \u2013 integrated",
+      "slug": "thoracic-surgery-integrated",
+      "group": "surgical",
+      "subspecialties": []
+    },
+    {
+      "name": "Urology",
+      "slug": "urology",
+      "group": "surgical",
+      "subspecialties": [
+        "Female pelvic medicine and reconstructive surgery",
+        "Pediatric urology"
+      ]
+    }
+  ],
+  "subspecialty_to_primary": {
+    "Adult cardiothoracic anesthesiology": "Anesthesiology",
+    "Critical care medicine": "Internal medicine",
+    "Regional anesthesiology and acute pain medicine": "Anesthesiology",
+    "Pediatric cardiac anesthesiology": "Anesthesiology",
+    "Obstetric anesthesiology": "Anesthesiology",
+    "Pain medicine (multidisciplinary)": "Anesthesiology",
+    "Pediatric anesthesiology": "Anesthesiology",
+    "Emergency medical services": "Emergency medicine",
+    "Medical toxicology": "Emergency medicine",
+    "Pediatric emergency medicine": "Pediatrics",
+    "Sports medicine": "Physical medicine and rehabilitation",
+    "Undersea and hyperbaric medicine": "Occupational and environmental medicine",
+    "Medical biochemical genetics": "Medical genetics and genomics",
+    "Molecular genetic pathology (multidisciplinary)": "Medical genetics and genomics",
+    "Blood banking/transfusion medicine": "Pathology-anatomic and clinical",
+    "Clinical informatics": "Pediatrics",
+    "Chemical pathology": "Pathology-anatomic and clinical",
+    "Cytopathology": "Pathology-anatomic and clinical",
+    "Forensic pathology": "Pathology-anatomic and clinical",
+    "Hematopathology": "Pathology-anatomic and clinical",
+    "Medical microbiology": "Pathology-anatomic and clinical",
+    "Neuropathology": "Pathology-anatomic and clinical",
+    "Pediatric pathology": "Pathology-anatomic and clinical",
+    "Selective pathology": "Pathology-anatomic and clinical",
+    "Abdominal radiology": "Radiology-diagnostic",
+    "Neuroendovascular intervention": "Neurological surgery",
+    "Musculoskeletal radiology": "Radiology-diagnostic",
+    "Neuroradiology": "Radiology-diagnostic",
+    "Nuclear radiology": "Radiology-diagnostic",
+    "Pediatric radiology": "Radiology-diagnostic",
+    "Dermatopathology (multidisciplinary)": "Dermatology",
+    "Micrographic surgery and dermatologic oncology": "Dermatology",
+    "Pediatric dermatology": "Dermatology",
+    "Geriatric medicine": "Internal medicine",
+    "Hospice and palliative medicine (multidisciplinary)": "Family medicine",
+    "Adult congenital heart disease": "Internal medicine",
+    "Advanced heart failure and transplant cardiology": "Internal medicine",
+    "Cardiovascular disease": "Internal medicine",
+    "Clinical cardiac electrophysiology": "Internal medicine",
+    "Endocrinology, diabetes, and metabolism": "Internal medicine",
+    "Gastroenterology": "Internal medicine",
+    "Hematology and medical oncology": "Internal medicine",
+    "Infectious disease": "Internal medicine",
+    "Interventional cardiology": "Internal medicine",
+    "Nephrology": "Internal medicine",
+    "Medical oncology": "Internal medicine",
+    "Pulmonary disease": "Internal medicine",
+    "Pulmonary disease and critical care medicine": "Internal medicine",
+    "Rheumatology": "Internal medicine",
+    "Sleep medicine (multidisciplinary)": "Internal medicine",
+    "Transplant hepatology": "Internal medicine",
+    "Clinical neurophysiology": "Neurology",
+    "Epilepsy": "Neurology",
+    "Neurocritical care (multidisciplinary)": "Neurology",
+    "Neurodevelopmental disabilities": "Neurology",
+    "Neuromuscular medicine": "Physical medicine and rehabilitation",
+    "Vascular neurology": "Neurology",
+    "Adolescent medicine": "Pediatrics",
+    "Child abuse pediatrics": "Pediatrics",
+    "Developmental-behavioral pediatrics": "Pediatrics",
+    "Neonatal-perinatal medicine": "Pediatrics",
+    "Pediatric cardiology": "Pediatrics",
+    "Pediatric critical care medicine": "Pediatrics",
+    "Pediatric endocrinology": "Pediatrics",
+    "Pediatric gastroenterology": "Pediatrics",
+    "Pediatric hematology/oncology": "Pediatrics",
+    "Pediatric infectious diseases": "Pediatrics",
+    "Pediatric nephrology": "Pediatrics",
+    "Pediatric pulmonology": "Pediatrics",
+    "Pediatric rheumatology": "Pediatrics",
+    "Pediatric transplant hepatology": "Pediatrics",
+    "Pediatric hospital medicine": "Pediatrics",
+    "Brain injury medicine": "Physical medicine and rehabilitation",
+    "Spinal cord injury medicine": "Physical medicine and rehabilitation",
+    "Pediatric rehabilitation medicine": "Physical medicine and rehabilitation",
+    "Addiction medicine (multidisciplinary)": "Psychiatry",
+    "Addiction psychiatry": "Psychiatry",
+    "Child and adolescent psychiatry": "Psychiatry",
+    "Forensic psychiatry": "Psychiatry",
+    "Geriatric psychiatry": "Psychiatry",
+    "Consultation-liaison psychiatry": "Psychiatry",
+    "Female pelvic medicine and reconstructive surgery": "Urology",
+    "Gynecologic oncology": "Obstetrics and gynecology",
+    "Maternal-fetal medicine": "Obstetrics and gynecology",
+    "Reproductive endocrinology and infertility": "Obstetrics and gynecology",
+    "Complex family planning": "Obstetrics and gynecology",
+    "Ophthalmic plastic and reconstructive surgery": "Ophthalmology",
+    "Adult reconstructive orthopaedics": "Orthopaedic surgery",
+    "Foot and ankle orthopaedics": "Orthopaedic surgery",
+    "Hand surgery": "Surgery",
+    "Musculoskeletal oncology": "Orthopaedic surgery",
+    "Orthopaedic sports medicine": "Orthopaedic surgery",
+    "Orthopaedic surgery of the spine": "Orthopaedic surgery",
+    "Orthopaedic trauma": "Orthopaedic surgery",
+    "Pediatric orthopaedics": "Orthopaedic surgery",
+    "Neurotology": "Otolaryngology \u2013 head and neck surgery",
+    "Pediatric otolaryngology": "Otolaryngology \u2013 head and neck surgery",
+    "Craniofacial surgery": "Plastic surgery \u2013 integrated",
+    "Complex general surgical oncology": "Surgery",
+    "Pediatric surgery": "Surgery",
+    "Surgical critical care": "Surgery",
+    "Vascular surgery": "Surgery",
+    "Congenital cardiac surgery": "Thoracic surgery",
+    "Pediatric urology": "Urology"
+  }
+}

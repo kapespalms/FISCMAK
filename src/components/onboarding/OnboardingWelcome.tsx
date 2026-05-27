@@ -1,69 +1,86 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
+import { isUniversityHospitalsInstitution } from "@/lib/v2/programs/institution-brand";
+import type { ResidencyProgram } from "@/lib/v2/programs/registry";
 
-const SOAPO_OVERVIEW = [
-  {
-    letter: "S",
-    name: "Career Perspective",
-    detail: "Career aspirations, professional satisfaction, and work-life factors",
-  },
-  {
-    letter: "O",
-    name: "Career Data",
-    detail: "Verified data from uploaded documents and public databases",
-  },
-  {
-    letter: "A",
-    name: "Career Profile",
-    detail: "Synthesized profile with strengths, growth areas, and benchmarks",
-  },
-  {
-    letter: "P",
-    name: "Career Strategy",
-    detail: "Structured goals with quarterly milestones",
-  },
-  {
-    letter: "O",
-    name: "Career Documents",
-    detail: "CV, biosketch, personal statements, and more",
-  },
-];
+const SETUP_STEPS = [
+  { title: "Profile", detail: "Name, training level, and current rotation." },
+  { title: "Documents", detail: "Upload your CV and key career files." },
+  { title: "Self-assessment", detail: "Short check-in — finish on your dashboard when ready." },
+] as const;
+
+export type OnboardingWelcomeVariant = "default" | "public" | "institutional";
 
 type OnboardingWelcomeProps = {
   onBegin: () => void;
+  variant?: OnboardingWelcomeVariant;
+  program?: Pick<
+    ResidencyProgram,
+    "display_title" | "institution_name" | "program_name" | "academic_year" | "welcome_blurb"
+  >;
 };
 
-export function OnboardingWelcome({ onBegin }: OnboardingWelcomeProps) {
+export function OnboardingWelcome({
+  onBegin,
+  variant = "default",
+  program,
+}: OnboardingWelcomeProps) {
+  const isInstitutional = variant === "institutional" && Boolean(program);
+  const isPublic = variant === "public";
+  const isUh = isUniversityHospitalsInstitution(program?.institution_name);
+
   return (
     <Card>
-      <p className="text-cx-label uppercase">Step 1 of 7</p>
-      <h1 className="mt-1 text-page-title">Welcome to FISCMAK</h1>
-      <p className="mt-3 text-cx-body">
-        This platform organizes career development using a framework familiar to every
-        physician: <strong className="text-cx-text">SOAPO</strong> — Subjective, Objective,
-        Assessment, Plan, Output.
-      </p>
-      <ul className="mt-6 space-y-3">
-        {SOAPO_OVERVIEW.map((item) => (
+      {isInstitutional && program ? (
+        <>
+          <ProgramJoinHeadline program={program} variant="onboarding" />
+          <p className="mt-2 text-sm text-cx-forest-dark/75">
+            Academic year {program.academic_year}
+          </p>
+          {isUh && (
+            <Image
+              src="/brands/uh-university-hospitals.png"
+              alt="University Hospitals"
+              width={120}
+              height={40}
+              className="mt-4 h-8 w-auto object-contain"
+            />
+          )}
+        </>
+      ) : (
+        <>
+          <h1 className="text-page-title">Welcome to FISCMAK</h1>
+          {isPublic && (
+            <p className="mt-2 text-sm text-cx-forest-dark/75">
+              Individual physician platform — not tied to a residency program.
+            </p>
+          )}
+        </>
+      )}
+
+      <ol className="mt-6 space-y-3">
+        {SETUP_STEPS.map((step, index) => (
           <li
-            key={item.letter + item.name}
-            className="flex gap-3 rounded-2xl border border-cx-border bg-cx-white px-4 py-3"
+            key={step.title}
+            className="cx-surface-elevated flex gap-3 rounded-2xl px-4 py-3"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-primary text-sm font-bold text-white">
-              {item.letter}
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark text-sm font-bold text-[#5FD65F]">
+              {index + 1}
             </span>
             <div>
-              <p className="font-semibold text-cx-text">{item.name}</p>
-              <p className="text-sm text-cx-text-secondary">{item.detail}</p>
+              <p className="font-semibold text-cx-forest-dark">{step.title}</p>
+              <p className="text-sm text-cx-forest-dark/70">{step.detail}</p>
             </div>
           </li>
         ))}
-      </ul>
-      <p className="mt-6 text-cx-body">Getting started takes about 20 minutes.</p>
+      </ol>
+
       <Button className="mt-6 w-full" onClick={onBegin}>
-        Begin setup
+        Get started
       </Button>
     </Card>
   );

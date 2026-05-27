@@ -1,0 +1,42 @@
+{
+  "source": "ACGME Common Program Requirements — Core Competencies",
+  "version": "2024",
+  "competencies": [
+    {
+      "key": "pc",
+      "name": "Patient Care",
+      "short_name": "Patient Care",
+      "description": "Compassionate, appropriate, and effective treatment and health promotion."
+    },
+    {
+      "key": "mk",
+      "name": "Medical Knowledge",
+      "short_name": "Medical Knowledge",
+      "description": "Established and evolving biomedical and clinical sciences applied to patient care."
+    },
+    {
+      "key": "pbli",
+      "name": "Practice-Based Learning and Improvement",
+      "short_name": "Practice-Based Learning",
+      "description": "Investigation and evaluation of practice, appraisal of evidence, and improvement."
+    },
+    {
+      "key": "ics",
+      "name": "Interpersonal and Communication Skills",
+      "short_name": "Communication",
+      "description": "Effective information exchange and collaboration with patients, families, and teams."
+    },
+    {
+      "key": "prof",
+      "name": "Professionalism",
+      "short_name": "Professionalism",
+      "description": "Commitment to professional responsibilities and ethical principles."
+    },
+    {
+      "key": "sbp",
+      "name": "Systems-Based Practice",
+      "short_name": "Systems-Based Practice",
+      "description": "Effective work in health care systems for safe, equitable, high-quality care."
+    }
+  ]
+}

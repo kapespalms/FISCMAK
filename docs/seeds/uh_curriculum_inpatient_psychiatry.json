@@ -1,0 +1,110 @@
+{
+  "rotation": {
+    "service_name": "Inpatient Psychiatry",
+    "program": "CMC Psychiatry / UH General Psychiatry",
+    "medhub_curriculum_path": "Home > Curriculum Objectives > Inpatient Psychiatry",
+    "source_file": "curriculum_cmcpsych_inpatient_psych.docx",
+    "effective_date": "July 2021 and beyond",
+    "sites": ["UH CMC", "VA Wade Park", "UH Concord (expanded spring 2025)"]
+  },
+  "pgy_tracks": [
+    {
+      "pgy_level": "PGY-1",
+      "portal_track": "Portal 1 – 1st semester",
+      "milestone_targets": {
+        "PC1": ["L1:A,B,C", "L2:A,B,C"],
+        "PC2": ["L1:A,B,C", "L2:A,B,C"],
+        "PC3": ["L1:A,B,C"],
+        "PC4": ["L1:A,B,C", "L2:A"],
+        "PC5": ["L1:A,B,C", "L2:A,C"],
+        "PC6": ["L1:A,B", "L2:A"],
+        "MK1": ["L1:A,B"],
+        "MK2": ["L1:A,B", "L2:A,B"],
+        "MK3": ["L1:A,B,C", "L2:A"],
+        "MK4": ["L1:A"],
+        "SBP1": ["L1:A,B", "L2:A,B"],
+        "SBP2": ["L1:A,B,C", "L2:A,B"],
+        "SBP3": ["L1:A,C"],
+        "PBLI1": ["L1:A"],
+        "PBLI2": ["L1:A,B,C"],
+        "PROF1": ["L1:A,B,C", "L2:A"],
+        "PROF2": ["L1:A,B", "L2:A,B"],
+        "PROF3": ["L1:A"],
+        "ICS1": ["L1:A,B,C", "L2:A"],
+        "ICS2": ["L1:A,B", "L2:A,B"],
+        "ICS3": ["L1:A,B,C", "L2:A,B,C", "L3:A"]
+      },
+      "other_competency_objectives": [
+        "Proper use of empathic and bridging statements in interviews",
+        "Address patient emotions as they appear",
+        "Can correctly file a PASS report",
+        "Considers costs of care, transportation, systems issues in discharge planning",
+        "Accurately completes and updates EMR hand-off tool",
+        "Understands role on inpatient team and expectations"
+      ],
+      "goal_domains": ["patient_care", "medical_knowledge", "pbli", "ics", "professionalism", "sbp"]
+    },
+    {
+      "pgy_level": "PGY-2",
+      "portal_track": "Portal 2 – second semester",
+      "milestone_targets": {
+        "PC1": ["L3:A,B,C"],
+        "PC2": ["L3:A"],
+        "PC3": ["L2:A,B"],
+        "PC4": ["L2:A,B"],
+        "PC5": ["L2:B", "L3:A"],
+        "MK1": ["L2:A,B"],
+        "MK2": ["L3:A"],
+        "MK3": ["L2:B,C"],
+        "MK4": ["L1:B,C"],
+        "SBP1": ["L1:C", "L2:C"],
+        "SBP2": ["L2:C", "L3:A,B"],
+        "SBP3": ["L2:A,B"],
+        "PBLI1": ["L2:A"],
+        "PBLI2": ["L2:A,B,C"],
+        "PROF1": ["L2:B,C", "L3:A"],
+        "PROF2": ["L3:A,B"],
+        "PROF3": ["L2:A,B", "L3:A,B"],
+        "ICS1": ["L2:B,C", "L3:A"],
+        "ICS2": ["L3:A,B"],
+        "ICS3": ["L3:B,C"]
+      },
+      "other_competency_objectives": [
+        "More sophisticated interviewing: follow natural flow, circle back to unanswered questions"
+      ]
+    },
+    {
+      "pgy_level": "PGY-4",
+      "role": "Acting Attending (≥50% time on service)",
+      "milestone_targets": {
+        "PC1": ["L4:A,B,C", "L5:B,C"],
+        "PC2": ["L4:A,B,C", "L5:A"],
+        "PC3": ["L4:A,B,C", "L5:A"],
+        "PC5": ["L3:B,C", "L4:A,B,C", "L5:A"],
+        "PC6": ["L3:A", "L4:A,C"],
+        "MK2": ["L3:B", "L4:A,B"],
+        "MK3": ["L3:A,B,C", "L4:A,B,C"],
+        "SBP1": ["L3:A,B", "L4:B"],
+        "SBP2": ["L4:A,B"],
+        "SBP3": ["L3:B,C", "L4:A,B"],
+        "PBLI1": ["L3:A", "L4:A"],
+        "PBLI2": ["L4:A,B", "L5:A,B,C"],
+        "PROF1": ["L4:C", "L5:A"],
+        "PROF2": ["L4:A,B"],
+        "ICS1": ["L4:A,B,C", "L5:A,B,C"],
+        "ICS2": ["L4:A,B", "L5:A,B"],
+        "ICS3": ["L4:A,B,C"]
+      },
+      "other_competency_objectives": [
+        "Basic motivational interviewing in patient interviews",
+        "Help junior residents reason through medication choices (pros/cons)"
+      ]
+    }
+  ],
+  "fiscmak_use": {
+    "rotation_debrief_prompts": "Pull PGY-specific goals + other objectives as checklist",
+    "capture_moment_tags": ["PASS report", "handoff", "discharge planning", "team role", "motivational interviewing"],
+    "milestone_prefill": "Suggest ILP self-ratings aligned to rotation milestone targets for current PGY",
+    "pre_ccc": "Compare eval milestone ratings vs rotation target levels"
+  }
+}

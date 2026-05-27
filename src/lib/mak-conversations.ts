@@ -1,7 +1,7 @@
 import type { AppSection } from "@/lib/mak-sections";
 import { isClientDemoMode } from "@/lib/demo-mode";
 
-export type MakMessage = { role: "user" | "assistant"; content: string };
+export type MakMessage = { role: "user" | "assistant"; content: string; at?: string };
 
 const STORAGE_KEY = "fiscmak_mak_conversations";
 

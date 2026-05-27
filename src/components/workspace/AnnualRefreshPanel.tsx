@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { CalendarClock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import type { AnnualRefreshStatus } from "@/lib/v2/annual-refresh";
 import { filterTouchpointAnswers } from "@/lib/v2/touchpoint-eligibility";
 import { postTouchpointJson } from "@/lib/v2/touchpoint-fetch";
@@ -78,35 +79,39 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
 
   if (summary) {
     return (
-      <Card accent="green">
-        <p className="text-cx-label uppercase">{status.year} annual refresh complete</p>
-        <pre className="mt-3 whitespace-pre-wrap text-sm text-cx-body">{summary}</pre>
+      <CardSection
+        accent="green"
+        eyebrow={`${status.year} annual refresh`}
+        title="Complete"
+        icon={CalendarClock}
+      >
+        <pre className="whitespace-pre-wrap text-sm text-cx-forest-dark/80">{summary}</pre>
         <Button variant="secondary" className="mt-4" onClick={() => setSummary(null)}>
           Done
         </Button>
-      </Card>
+      </CardSection>
     );
   }
 
   return (
-    <Card accent="amber">
-      <p className="text-cx-label uppercase">
-        Touchpoint 3 · Annual deep refresh · ~{status.estimated_minutes} min
-      </p>
-      <h2 className="mt-1 text-cx-h3">{status.year} annual career refresh</h2>
-      <p className="mt-2 text-cx-body">
-        Coach Mak guides seven modules — career direction, engagement, well-being, task burden,
-        unrecognized work, Career Data refresh, and goal reset. Enrichment runs automatically when
-        you finish.
-      </p>
-      {status.days_since_last != null && (
-        <p className="mt-1 text-xs text-cx-text-secondary">
-          Last annual refresh: {status.days_since_last} days ago
-        </p>
-      )}
-
+    <CardSection
+      accent="amber"
+      eyebrow="Annual refresh"
+      title={`${status.year} annual career refresh`}
+      description="Coach Mak guides seven modules — career direction, engagement, well-being, task burden, unrecognized work, Career Data refresh, and goal reset. Enrichment runs automatically when you finish."
+      icon={CalendarClock}
+      footer={
+        status.days_since_last != null ? (
+          <p className="text-xs text-cx-forest-dark/70">
+            Last annual refresh: {status.days_since_last} days ago · ~{status.estimated_minutes} min
+          </p>
+        ) : (
+          <p className="text-xs text-cx-forest-dark/70">~{status.estimated_minutes} min</p>
+        )
+      }
+    >
       {!showFallback ? (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
           {onBeginWithMak && (
             <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
           )}
@@ -115,8 +120,8 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
           </Button>
         </div>
       ) : (
-        <div className="mt-4 space-y-3">
-          <label className="block text-sm text-cx-text">
+        <div className="space-y-3">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">3-year career objective</span>
             <textarea
               value={careerObjective}
@@ -126,7 +131,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">Track energy (1–10)</span>
             <input
               type="number"
@@ -137,7 +142,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">Unrecognized work (hours/week)</span>
             <input
               type="number"
@@ -147,7 +152,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-text">
+          <label className="block text-sm text-cx-forest-dark">
             <span className="font-semibold">Goal review summary</span>
             <textarea
               value={goalReview}
@@ -172,6 +177,6 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
           )}
         </div>
       )}
-    </Card>
+    </CardSection>
   );
 }

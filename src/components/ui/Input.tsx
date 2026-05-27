@@ -7,7 +7,7 @@ export const Input = forwardRef<
 >(({ className, label, id, ...props }, ref) => (
   <div className="flex flex-col gap-2">
     {label && (
-      <label htmlFor={id} className="text-sm font-semibold text-foreground">
+      <label htmlFor={id} className="text-sm font-semibold text-cx-forest-dark">
         {label}
       </label>
     )}
@@ -15,7 +15,7 @@ export const Input = forwardRef<
       ref={ref}
       id={id}
       className={cn(
-        "min-h-11 rounded-md border border-fiscmak-border px-4 py-3 text-base focus:border-fiscmak-green",
+        "min-h-11 rounded-xl border border-cx-forest-dark/20 bg-white px-4 py-3 text-base text-cx-forest-dark focus:border-cx-forest-dark focus:outline-none",
         className,
       )}
       {...props}

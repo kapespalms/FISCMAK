@@ -1,0 +1,4712 @@
+{
+  "program": {
+    "name": "University Hospitals Psychiatry Residency",
+    "institution": "University Hospitals Cleveland",
+    "schedule_source": "Google Sheets — updated May 25, 2026",
+    "schedule_url": "https://docs.google.com/spreadsheets/d/1Zx36dUH1JD8dMNySRJA7JjPIqm45YhH0muOZ6HAX1FM/edit",
+    "academic_year": "2026-2027",
+    "year_start": "2026-06-28",
+    "year_end": "2027-06-30",
+    "block_unit": "2_weeks",
+    "blocks_per_year": 26,
+    "privacy_note": "Public FISCMAK files use trainee initials only; map to user_id via program roster in production."
+  },
+  "trainee_roster": [
+    {
+      "initials": "AG",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "AH",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "AK",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "AO",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "AW",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "DCD",
+      "pgy_level": "PPP-1"
+    },
+    {
+      "initials": "FP",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "HM",
+      "pgy_level": "PPP-1"
+    },
+    {
+      "initials": "JP",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "KAC",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "KL",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "LM",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "LT",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "ML",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "MP",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "MT",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "SH",
+      "pgy_level": "PGY-2"
+    },
+    {
+      "initials": "TS",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "YD",
+      "pgy_level": "PGY-1"
+    },
+    {
+      "initials": "YP",
+      "pgy_level": "PGY-2"
+    }
+  ],
+  "block_calendar": {
+    "1A": {
+      "start": "6/28/2026",
+      "end": "7/12/2026"
+    },
+    "1B": {
+      "start": "7/13/2026",
+      "end": "7/26/2026"
+    },
+    "2A": {
+      "start": "7/27/2026",
+      "end": "8/9/2026"
+    },
+    "2B": {
+      "start": "8/10/2026",
+      "end": "8/23/2026"
+    },
+    "3A": {
+      "start": "8/24/2026",
+      "end": "9/6/2026"
+    },
+    "3B": {
+      "start": "9/7/2026",
+      "end": "9/20/2026"
+    },
+    "4A": {
+      "start": "9/21/2026",
+      "end": "10/4/2026"
+    },
+    "4B": {
+      "start": "10/5/2026",
+      "end": "10/18/2026"
+    },
+    "5A": {
+      "start": "10/19/2026",
+      "end": "11/1/2026"
+    },
+    "5B": {
+      "start": "11/2/2026",
+      "end": "11/15/2026"
+    },
+    "6A": {
+      "start": "11/16/2026",
+      "end": "11/29/2026"
+    },
+    "6B": {
+      "start": "11/30/2026",
+      "end": "12/13/2026"
+    },
+    "7A": {
+      "start": "12/14/2026",
+      "end": "12/27/2026"
+    },
+    "7B": {
+      "start": "12/28/2026",
+      "end": "1/10/2027"
+    },
+    "8A": {
+      "start": "1/11/2027",
+      "end": "1/24/2027"
+    },
+    "8B": {
+      "start": "1/25/2027",
+      "end": "2/7/2027"
+    },
+    "9A": {
+      "start": "2/8/2027",
+      "end": "2/21/2027"
+    },
+    "9B": {
+      "start": "2/22/2027",
+      "end": "3/7/2027"
+    },
+    "10A": {
+      "start": "3/8/2027",
+      "end": "3/21/2027"
+    },
+    "10B": {
+      "start": "3/22/2027",
+      "end": "4/4/2027"
+    },
+    "11A": {
+      "start": "4/5/2027",
+      "end": "4/18/2027"
+    },
+    "11B": {
+      "start": "4/19/2027",
+      "end": "5/2/2027"
+    },
+    "12A": {
+      "start": "5/3/2027",
+      "end": "5/16/2027"
+    },
+    "12B": {
+      "start": "5/17/2027",
+      "end": "5/30/2027"
+    },
+    "13A": {
+      "start": "5/31/2027",
+      "end": "6/13/2027"
+    },
+    "13B": {
+      "start": "6/14/2027",
+      "end": "6/27/2027"
+    }
+  },
+  "trainee_block_assignments": [
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "swg",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "swg",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "va_ct6",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "va_ct6",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "medtox",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "uh_interventional",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "neurology",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "neurology",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "vacation",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "va_ct6",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "va_ct6",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "peds_ed",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "elective",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "uh_concord",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "uh_concord",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "va_ed_im",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "va_ed_im",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "pediatrics",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "pediatrics",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "qi",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "va_im",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "va_im",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "KAC",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "uh_ed",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "va_ct6",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "va_ct6",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "uh_ed",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "uh_interventional",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "va_ct6",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "va_ct6",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "uh_ed",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "elective",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "va_im",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "va_im",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "vacation",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "va_ed_im",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "va_ed_im",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "uh_im",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "uh_im",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "neurology",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "neurology",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "uh_concord",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "uh_concord",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "swg",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "swg",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "medtox",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "YD",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "qi",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "va_ct6",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "va_ct6",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "pediatrics",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "pediatrics",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "peds_ed",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "uh_ed",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "vacation",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "va_ct6",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "va_ct6",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "uh_interventional",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "swg",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "swg",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "neurology",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "neurology",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "elective",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "qi",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "va_ct6",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "va_ct6",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "va_im",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "va_im",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "medtox",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "va_ed_im",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "AG",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "va_ed_im",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "va_ct6",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "va_ct6",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "uh_interventional",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "neurology",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "neurology",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "qi",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "va_im",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "va_im",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "medtox",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "vacation",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "uh_ed",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "elective",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "uh_im",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "uh_im",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "uh_ed",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "va_ct6",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "va_ct6",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "va_ed_im",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "va_ed_im",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "va_ct6",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "va_ct6",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "swg",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "AK",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "swg",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "swg",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "swg",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "neurology",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "neurology",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "pediatrics",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "pediatrics",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "va_ct6",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "va_ct6",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "uh_interventional",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "vacation",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "uh_ed",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "va_ed_im",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "va_ed_im",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "va_ct6",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "va_ct6",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "va_im",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "va_im",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "qi",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "swg",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "swg",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "medtox",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "peds_ed",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "elective",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "LM",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "neurology",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "neurology",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "swg",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "swg",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "va_ct6",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "va_ct6",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "uh_interventional",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "vacation",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "va_im",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "va_im",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "va_ed_im",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "va_ed_im",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "medtox",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "peds_ed",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "elective",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "pediatrics",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "pediatrics",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "uh_ed",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "va_ct6",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "va_ct6",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "qi",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "va_ct6",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "AO",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "va_ct6",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "uh_interventional",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "va_ed_im",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "va_ed_im",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "va_ct6",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "va_ct6",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "elective",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "uh_ed",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "pediatrics",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "pediatrics",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "peds_ed",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "va_ct6",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "va_ct6",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "swg",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "swg",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "medtox",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "uh_concord",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "uh_concord",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "neurology",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "neurology",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "va_im",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "vacation",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "qi",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "FP",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "va_im",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "neurology",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "neurology",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "va_ct6",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "va_ct6",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "va_im",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "va_im",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "medtox",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "elective",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "va_ct6",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "va_ct6",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "uh_ed",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "uh_interventional",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "vacation",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "swg",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "swg",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "uh_concord",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "uh_concord",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "va_ed_im",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "va_ed_im",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "va_ct6",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "uh_ed",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "va_ct6",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "uh_im",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "TS",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "uh_im",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "1A",
+      "rotation_code": "psych_ed_uh_va",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "1B",
+      "rotation_code": "medtox",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "2A",
+      "rotation_code": "va_im",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "2B",
+      "rotation_code": "va_im",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "3A",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "3B",
+      "rotation_code": "qi",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "4A",
+      "rotation_code": "va_ed_im",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "4B",
+      "rotation_code": "va_ed_im",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "5A",
+      "rotation_code": "uh_concord",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "5B",
+      "rotation_code": "uh_concord",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "6A",
+      "rotation_code": "va_ct6",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "6B",
+      "rotation_code": "va_ct6",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "7A",
+      "rotation_code": "vacation",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "7B",
+      "rotation_code": "uh_ed",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "8A",
+      "rotation_code": "elective",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "8B",
+      "rotation_code": "psych_ed_uh",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "9A",
+      "rotation_code": "va_ct6",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "9B",
+      "rotation_code": "va_ct6",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "10A",
+      "rotation_code": "uh_im",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "10B",
+      "rotation_code": "uh_im",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "11A",
+      "rotation_code": "va_ct6",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "11B",
+      "rotation_code": "va_ct6",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "12A",
+      "rotation_code": "neurology",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "12B",
+      "rotation_code": "neurology",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "13A",
+      "rotation_code": "uh_ed",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "AW",
+      "pgy_level": "PGY-1",
+      "block_id": "13B",
+      "rotation_code": "uh_interventional",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "cl",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "cl",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "mpu_cl",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "vacation",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "nf",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "elective",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "capu",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "capu",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "cl",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "cl",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "va_ct6",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "va_ct6",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "uh_interventional",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "addiction",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "elective",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "nf",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "swg",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "swg",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "neurology",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "neurology",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "cl",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "cl",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "elective",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "AH",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "nf",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "nf",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "elective",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "swg",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "swg",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "uh_concord",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "uh_concord",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "cl",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "cl",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "nf",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "mpu_cl",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "elective",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "vacation",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "cl",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "cl",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "capu",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "capu",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "uh_interventional",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "nf",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "addiction",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "elective",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "cl",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "cl",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "neurology",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "SH",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "neurology",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "northcoast",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "northcoast",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "nf",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "elective",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "cl",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "cl",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "mpu_cl",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "elective",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "swg",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "swg",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "nf",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "vacation",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "cl",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "cl",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "neurology",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "neurology",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "cl",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "cl",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "capu",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "capu",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "va_ct6",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "nf",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "addiction",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "ML",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "elective",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "cl",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "cl",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "elective",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "nf",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "northcoast",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "northcoast",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "vacation",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "elective",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "mpu_cl",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "nf",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "capu",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "capu",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "cl",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "cl",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "va_ct6",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "va_ct6",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "neurology",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "neurology",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "uh_interventional",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "nf",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "addiction",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "elective",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "cl",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "KL",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "cl",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "capu",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "capu",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "cl",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "cl",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "elective",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "nf",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "neurology",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "neurology",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "uh_concord",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "uh_concord",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "elective",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "nf",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "addiction",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "elective",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "cl",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "cl",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "nf",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "uh_interventional",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "cl",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "cl",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "vacation",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "mpu_cl",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "va_ct6",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "MP",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "va_ct6",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "elective",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "nf",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "va_ct6",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "va_ct6",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "northcoast",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "northcoast",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "cl",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "cl",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "vacation",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "nf",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "capu",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "capu",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "cl",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "cl",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "neurology",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "neurology",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "elective",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "addiction",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "cl",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "cl",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "nf",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "elective",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "mpu_cl",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "uh_interventional",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "JP",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "ipp_inpatient",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "ipp_inpatient",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "cl",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "cl",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "neurology",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "neurology",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "uh_concord",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "uh_concord",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "cl",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "cl",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "nf",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "elective",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "addiction",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "mpu_cl",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "elective",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "nf",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "vacation",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "mpu_cl",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "elective",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "uh_interventional",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "capu",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "capu",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "cl",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "YP",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "cl",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "va_ct6",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "va_ct6",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "cl",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "cl",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "elective",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "nf",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "neurology",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "neurology",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "capu",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "capu",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "cl",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "cl",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "nf",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "elective",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "cl",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "cl",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "addiction",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "vacation",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "swg",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "swg",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "nf",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "elective",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "uh_interventional",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "MT",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "mpu_cl",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "1A",
+      "rotation_code": "cl",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "1B",
+      "rotation_code": "cl",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "2A",
+      "rotation_code": "vacation",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "2B",
+      "rotation_code": "addiction",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "3A",
+      "rotation_code": "swg",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "3B",
+      "rotation_code": "swg",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "4A",
+      "rotation_code": "nf",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "4B",
+      "rotation_code": "elective",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "5A",
+      "rotation_code": "cl",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "5B",
+      "rotation_code": "cl",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "6A",
+      "rotation_code": "neurology",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "6B",
+      "rotation_code": "neurology",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "7A",
+      "rotation_code": "mpu_cl",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "7B",
+      "rotation_code": "elective",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "8A",
+      "rotation_code": "va_ct6",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "8B",
+      "rotation_code": "va_ct6",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "9A",
+      "rotation_code": "nf",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "9B",
+      "rotation_code": "uh_interventional",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "10A",
+      "rotation_code": "capu",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "10B",
+      "rotation_code": "capu",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "11A",
+      "rotation_code": "cl",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "11B",
+      "rotation_code": "cl",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "12A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "12B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "13A",
+      "rotation_code": "nf",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "LT",
+      "pgy_level": "PGY-2",
+      "block_id": "13B",
+      "rotation_code": "elective",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "1A",
+      "rotation_code": "swg",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "1B",
+      "rotation_code": "swg",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "2A",
+      "rotation_code": "capu",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "2B",
+      "rotation_code": "capu",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "3A",
+      "rotation_code": "addiction",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "3B",
+      "rotation_code": "addiction",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "4A",
+      "rotation_code": "capu",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "4B",
+      "rotation_code": "capu",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "5A",
+      "rotation_code": "swg",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "5B",
+      "rotation_code": "swg",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "6A",
+      "rotation_code": "neurology",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "6B",
+      "rotation_code": "neurology",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "7A",
+      "rotation_code": "uh_concord",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "7B",
+      "rotation_code": "uh_concord",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "8A",
+      "rotation_code": "cl",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "8B",
+      "rotation_code": "cl",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "9A",
+      "rotation_code": "capu",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "9B",
+      "rotation_code": "capu",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "10A",
+      "rotation_code": "northcoast",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "10B",
+      "rotation_code": "northcoast",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "11A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "11B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "12A",
+      "rotation_code": "child_cl",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "12B",
+      "rotation_code": "child_cl",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "13A",
+      "rotation_code": "capu",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "DCD",
+      "pgy_level": "PPP-1",
+      "block_id": "13B",
+      "rotation_code": "capu",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "1A",
+      "rotation_code": "capu",
+      "start_date": "6/28/2026",
+      "end_date": "7/12/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "1B",
+      "rotation_code": "capu",
+      "start_date": "7/13/2026",
+      "end_date": "7/26/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "2A",
+      "rotation_code": "neurology",
+      "start_date": "7/27/2026",
+      "end_date": "8/9/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "2B",
+      "rotation_code": "neurology",
+      "start_date": "8/10/2026",
+      "end_date": "8/23/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "3A",
+      "rotation_code": "capu",
+      "start_date": "8/24/2026",
+      "end_date": "9/6/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "3B",
+      "rotation_code": "capu",
+      "start_date": "9/7/2026",
+      "end_date": "9/20/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "4A",
+      "rotation_code": "swg",
+      "start_date": "9/21/2026",
+      "end_date": "10/4/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "4B",
+      "rotation_code": "swg",
+      "start_date": "10/5/2026",
+      "end_date": "10/18/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "5A",
+      "rotation_code": "capu",
+      "start_date": "10/19/2026",
+      "end_date": "11/1/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "5B",
+      "rotation_code": "capu",
+      "start_date": "11/2/2026",
+      "end_date": "11/15/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "6A",
+      "rotation_code": "addiction",
+      "start_date": "11/16/2026",
+      "end_date": "11/29/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "6B",
+      "rotation_code": "addiction",
+      "start_date": "11/30/2026",
+      "end_date": "12/13/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "7A",
+      "rotation_code": "capu",
+      "start_date": "12/14/2026",
+      "end_date": "12/27/2026"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "7B",
+      "rotation_code": "capu",
+      "start_date": "12/28/2026",
+      "end_date": "1/10/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "8A",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "1/11/2027",
+      "end_date": "1/24/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "8B",
+      "rotation_code": "geriatric_psychiatry",
+      "start_date": "1/25/2027",
+      "end_date": "2/7/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "9A",
+      "rotation_code": "swg",
+      "start_date": "2/8/2027",
+      "end_date": "2/21/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "9B",
+      "rotation_code": "swg",
+      "start_date": "2/22/2027",
+      "end_date": "3/7/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "10A",
+      "rotation_code": "cl",
+      "start_date": "3/8/2027",
+      "end_date": "3/21/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "10B",
+      "rotation_code": "cl",
+      "start_date": "3/22/2027",
+      "end_date": "4/4/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "11A",
+      "rotation_code": "northcoast",
+      "start_date": "4/5/2027",
+      "end_date": "4/18/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "11B",
+      "rotation_code": "northcoast",
+      "start_date": "4/19/2027",
+      "end_date": "5/2/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "12A",
+      "rotation_code": "uh_concord",
+      "start_date": "5/3/2027",
+      "end_date": "5/16/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "12B",
+      "rotation_code": "uh_concord",
+      "start_date": "5/17/2027",
+      "end_date": "5/30/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "13A",
+      "rotation_code": "child_cl",
+      "start_date": "5/31/2027",
+      "end_date": "6/13/2027"
+    },
+    {
+      "trainee_initials": "HM",
+      "pgy_level": "PPP-1",
+      "block_id": "13B",
+      "rotation_code": "child_cl",
+      "start_date": "6/14/2027",
+      "end_date": "6/27/2027"
+    }
+  ],
+  "access_clinic_overlays": [
+    {
+      "trainee_initials": "MP",
+      "block_id": "1A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "MP",
+      "block_id": "1B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "MP",
+      "block_id": "2A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "MP",
+      "block_id": "2B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "KL",
+      "block_id": "3A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "KL",
+      "block_id": "3B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "ML",
+      "block_id": "4A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "ML",
+      "block_id": "4B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "AH",
+      "block_id": "5A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "AH",
+      "block_id": "5B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "JP",
+      "block_id": "6A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "JP",
+      "block_id": "6B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "MT",
+      "block_id": "7A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "MT",
+      "block_id": "7B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "SH",
+      "block_id": "8A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "SH",
+      "block_id": "8B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "SH",
+      "block_id": "9A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "SH",
+      "block_id": "9B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "YP",
+      "block_id": "10A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "YP",
+      "block_id": "10B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "DCD",
+      "block_id": "11A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "DCD",
+      "block_id": "11B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "LT",
+      "block_id": "12A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "LT",
+      "block_id": "12B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "JP",
+      "block_id": "13A",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "JP",
+      "block_id": "13B",
+      "access_slot": "Access clinic 1"
+    },
+    {
+      "trainee_initials": "DCD",
+      "block_id": "2A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "DCD",
+      "block_id": "2B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "YP",
+      "block_id": "3A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "YP",
+      "block_id": "3B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "MT",
+      "block_id": "4A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "MT",
+      "block_id": "4B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "MP",
+      "block_id": "5A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "MP",
+      "block_id": "5B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "LT",
+      "block_id": "6A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "LT",
+      "block_id": "6B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "KL",
+      "block_id": "7A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "KL",
+      "block_id": "7B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "JP",
+      "block_id": "8A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "JP",
+      "block_id": "8B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "ML",
+      "block_id": "9A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "ML",
+      "block_id": "9B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "KL",
+      "block_id": "10A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "KL",
+      "block_id": "10B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "AH",
+      "block_id": "11A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "AH",
+      "block_id": "11B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "YP",
+      "block_id": "12A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "YP",
+      "block_id": "12B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "SH",
+      "block_id": "13A",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "SH",
+      "block_id": "13B",
+      "access_slot": "Access clinic 2"
+    },
+    {
+      "trainee_initials": "HM",
+      "block_id": "2A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "HM",
+      "block_id": "2B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "DCD",
+      "block_id": "3A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "DCD",
+      "block_id": "3B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "AH",
+      "block_id": "4A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "AH",
+      "block_id": "4B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "MT",
+      "block_id": "5A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "MT",
+      "block_id": "5B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "HM",
+      "block_id": "6A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "HM",
+      "block_id": "6B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "HM",
+      "block_id": "7A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "HM",
+      "block_id": "7B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "LT",
+      "block_id": "10A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "LT",
+      "block_id": "10B",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "ML",
+      "block_id": "11A",
+      "access_slot": "Access Clinic 3"
+    },
+    {
+      "trainee_initials": "ML",
+      "block_id": "11B",
+      "access_slot": "Access Clinic 3"
+    }
+  ],
+  "roster_counts": {
+    "PGY-1": 9,
+    "PGY-2": 9,
+    "PPP-1": 2
+  },
+  "changes_from_2025_2026_cohort": {
+    "new_pgy1_class": 9,
+    "prior_pgy1_promoted_to_pgy2": "Same names as 2025 PDF PGY-1 cohort (now PGY-2)",
+    "ppp1_residents": "DCD, HM (replaced prior PPP cohort)",
+    "new_rotation_codes": [
+      "qi",
+      "ipp_inpatient",
+      "uh_im"
+    ],
+    "new_site": "IPP (inpatient psych, location TBD / NCBH?)"
+  }
+}

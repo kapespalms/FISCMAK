@@ -1,5 +1,6 @@
 import { isClientDemoMode } from "@/lib/demo-mode";
 import type { GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
+import type { GoalArchetype, GoalArchetypeAnatomy } from "@/lib/v2/goal-archetype-templates";
 
 export type CareerGoal = {
   id: string;
@@ -7,6 +8,8 @@ export type CareerGoal = {
   goal_title: string;
   goal_description: string | null;
   goal_type: string | null;
+  goal_archetype?: GoalArchetype | null;
+  goal_anatomy?: GoalArchetypeAnatomy | null;
   why_this_fits: string | null;
   missing_evidence: string[] | null;
   recommended_actions: string[] | null;
@@ -40,6 +43,14 @@ export const DEMO_GOALS: CareerGoal[] = [
     goal_title: "Build educational leadership portfolio",
     goal_description: "Advance toward stated program director objective.",
     goal_type: "development",
+    goal_archetype: "skill_development",
+    goal_anatomy: {
+      current_skills: "Clinical expert, strong teaching evaluations, ad-hoc mentoring",
+      target_credential: "Formal educational leadership credential and accreditation experience",
+      pathway: "Certificate (6 mo) → education scholarship (6 mo) → clerkship director (6 mo) → program director track (6 mo)",
+      timeline: "18 months",
+      internal_obstacle: 'Imposter syndrome — "I\'m a clinician, not an administrator"',
+    },
     why_this_fits:
       "Teaching impact is strong; educational leadership experience is the primary gap relative to your 3-year objective.",
     missing_evidence: ["Education scholarship manuscript", "Accreditation experience"],
@@ -58,6 +69,14 @@ export const DEMO_GOALS: CareerGoal[] = [
     goal_title: "Sustain clinical teaching excellence",
     goal_description: "Protect teaching capacity as administrative responsibilities expand.",
     goal_type: "maintenance",
+    goal_archetype: "visibility_recognition",
+    goal_anatomy: {
+      invisible_work: "Teaching hours and curriculum design without protected time or formal credit",
+      formalization_goal: "Protected teaching schedule (≥60% current hours) and teaching award nomination",
+      stakeholders: "Department chair, medical education committee",
+      timeline: "12 months — schedule protection → evaluation check → award nomination",
+      internal_obstacle: 'Fear of asking — "Teaching is just what I do, not something to negotiate for"',
+    },
     why_this_fits:
       "Teaching evaluations are in a strong percentile — a documented professional strength worth protecting.",
     missing_evidence: [],
@@ -76,6 +95,14 @@ export const DEMO_GOALS: CareerGoal[] = [
     goal_title: "Optimize task alignment",
     goal_description: "Reduce unrecognized work and reallocate time toward core professional activities.",
     goal_type: "sustainability",
+    goal_archetype: "work_life_integration",
+    goal_anatomy: {
+      burnout_signals: "35% of time on tasks outside core role; 10 hrs/week unrecognized work; unreasonable task score 3.2/5.0",
+      target_state: "Core-role focus with ≤8 hrs/week unrecognized work and sustainable energy",
+      constraints: "Cannot reduce clinical volume below contract minimum; limited admin support",
+      experiment: "Delegate Documentation Overspill via scribe workflow; reassign Care Coordination to RN team",
+      internal_obstacle: 'Guilt — "If I push back, I\'m not being a team player"',
+    },
     why_this_fits:
       "Task alignment data shows 35% of work time on tasks outside core role, with 10 hrs/week unrecognized work. Unreasonable task score (3.2/5.0) is above specialty median.",
     missing_evidence: ["Delegation plan documentation", "Pre/post workflow hours tracked"],
@@ -121,7 +148,7 @@ export function saveOnboardingGoalsFromProposal(
     priority: i + 1,
     status: "active",
   }));
-  saveDemoGoals(mapped);
+  void persistGoals(mapped);
   void confirmGoalsOnServer(mapped);
   if (typeof window !== "undefined") {
     localStorage.setItem("fiscmak_goals_onboarding_complete", "1");
@@ -130,66 +157,62 @@ export function saveOnboardingGoalsFromProposal(
 }
 
 export function loadDemoGoals(): CareerGoal[] {
-  if (typeof window === "undefined" || !isClientDemoMode()) return DEMO_GOALS;
+  if (typeof window === "undefined" || !isClientDemoMode()) return [];
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw) as CareerGoal[];
   } catch {
     /* ignore */
   }
-  return DEMO_GOALS;
+  return [];
 }
 
 export function saveDemoGoals(goals: CareerGoal[]) {
   if (!isClientDemoMode()) return;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(goals));
-  void syncGoalsToServer(goals);
 }
 
 export async function syncGoalsToServer(goals: CareerGoal[]): Promise<void> {
-  if (typeof window === "undefined") return;
+  await persistGoals(goals);
+}
+
+export async function persistGoals(
+  goals: CareerGoal[],
+): Promise<{ ok: boolean; error?: string }> {
+  if (typeof window === "undefined") return { ok: true };
+
+  saveDemoGoals(goals);
+
   try {
-    await fetch("/api/v1/goals", {
+    const res = await fetch("/api/v1/goals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ goals }),
     });
+    if (!res.ok) {
+      const data = (await res.json().catch(() => ({}))) as { message?: string };
+      return { ok: false, error: data.message ?? "Could not save goals." };
+    }
+    return { ok: true };
   } catch {
-    /* server sync is best-effort */
+    return { ok: false, error: "Could not save goals." };
   }
 }
 
 export async function fetchGoals(): Promise<CareerGoal[]> {
-  if (typeof window === "undefined") return DEMO_GOALS;
+  if (typeof window === "undefined") return [];
 
-  const { createClient, isSupabaseConfigured } = await import(
-    "@/lib/supabase/client"
-  );
-
-  if (!isSupabaseConfigured()) {
-    return loadDemoGoals();
+  try {
+    const res = await fetch("/api/v1/goals");
+    if (res.ok) {
+      const data = (await res.json()) as { goals?: CareerGoal[] };
+      return data.goals ?? [];
+    }
+  } catch {
+    /* fall through to local demo cache */
   }
 
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return loadDemoGoals();
-  }
-
-  const { data, error } = await supabase
-    .from("career_goals")
-    .select("*")
-    .eq("user_id", user.id)
-    .order("priority", { ascending: true });
-
-  if (error || !data?.length) {
-    return loadDemoGoals();
-  }
-
-  return data as CareerGoal[];
+  return loadDemoGoals();
 }
 
 export function emptyGoalForm(): GoalFormData {

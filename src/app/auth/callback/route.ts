@@ -1,17 +1,15 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ensureAppUser } from "@/lib/v2/ensure-app-user";
+import { sanitizeNextPath } from "@/lib/auth/oauth";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? "/app";
+  const next = sanitizeNextPath(searchParams.get("next"));
 
-  if (
-    !code ||
-    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  ) {
+  if (!code || !isSupabaseConfigured()) {
     return NextResponse.redirect(`${origin}/login`);
   }
 
@@ -22,6 +20,10 @@ export async function GET(request: Request) {
     return NextResponse.redirect(
       `${origin}/login?error=${encodeURIComponent(error.message)}`,
     );
+  }
+
+  if (searchParams.get("next") === "/reset-password") {
+    return NextResponse.redirect(`${origin}/reset-password`);
   }
 
   const {
@@ -42,7 +44,8 @@ export async function GET(request: Request) {
       .maybeSingle();
 
     if (!appUser?.tier1_complete) {
-      return NextResponse.redirect(`${origin}/app/onboarding`);
+      const onboardingTarget = next.startsWith("/app/onboarding") ? next : "/app/onboarding";
+      return NextResponse.redirect(`${origin}${onboardingTarget}`);
     }
   }
 

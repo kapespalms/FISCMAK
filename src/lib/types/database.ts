@@ -24,6 +24,7 @@ export type Profile = {
   institution_name: string | null;
   department_name: string | null;
   goals: string | null;
+  photo_url: string | null;
 };
 
 export type ClassificationResult = {

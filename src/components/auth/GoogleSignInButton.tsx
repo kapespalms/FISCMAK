@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { getAuthCallbackUrl } from "@/lib/auth/oauth";
 
 type GoogleSignInButtonProps = {
   next?: string;
   label?: string;
+  variant?: "default" | "marketing";
 };
 
 function GoogleIcon() {
@@ -35,6 +37,7 @@ function GoogleIcon() {
 export function GoogleSignInButton({
   next = "/app",
   label = "Continue with Google",
+  variant = "default",
 }: GoogleSignInButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -49,7 +52,7 @@ export function GoogleSignInButton({
     setError("");
 
     const supabase = createClient();
-    const redirectTo = `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`;
+    const redirectTo = getAuthCallbackUrl(next, window.location.origin);
     const { error: authError } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
@@ -62,26 +65,48 @@ export function GoogleSignInButton({
     });
 
     if (authError) {
-      setError(authError.message);
+      const msg = authError.message.includes("provider is not enabled")
+        ? "Google sign-in is not enabled yet. Enable Google under Supabase → Authentication → Providers."
+        : authError.message;
+      setError(msg);
       setLoading(false);
     }
   }
 
   if (!isSupabaseConfigured()) return null;
 
+  const marketingButtonClass =
+    "inline-flex min-h-11 w-full items-center justify-center gap-2 cx-btn border border-white/20 bg-[#0f1410] px-6 py-3 font-futura-bold text-sm text-white transition hover:border-marketing-accent hover:text-marketing-accent disabled:opacity-50";
+
   return (
     <div className="space-y-2">
-      <Button
-        type="button"
-        variant="secondary"
-        className="w-full gap-2"
-        disabled={loading}
-        onClick={() => void handleGoogleSignIn()}
-      >
-        <GoogleIcon />
-        {loading ? "Redirecting…" : label}
-      </Button>
-      {error && <p className="text-sm text-fiscmak-red">{error}</p>}
+      {variant === "marketing" ? (
+        <button
+          type="button"
+          className={marketingButtonClass}
+          disabled={loading}
+          onClick={() => void handleGoogleSignIn()}
+        >
+          <GoogleIcon />
+          {loading ? "Redirecting…" : label}
+        </button>
+      ) : (
+        <Button
+          type="button"
+          variant="secondary"
+          className="w-full gap-2"
+          disabled={loading}
+          onClick={() => void handleGoogleSignIn()}
+        >
+          <GoogleIcon />
+          {loading ? "Redirecting…" : label}
+        </Button>
+      )}
+      {error && (
+        <p className={variant === "marketing" ? "text-sm text-[#f5d4c4]" : "text-sm text-cx-attention"}>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

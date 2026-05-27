@@ -1,8 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { GitCompare } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
+import { OBJECTIVE_MAK } from "@/lib/card-mak-prompts";
 
 type ReconciliationItem = {
   id: string;
@@ -61,41 +63,52 @@ export function CareerDataReconcilePanel() {
   const pending = items.filter((i) => i.status === "pending");
 
   if (loading) {
-    return <p className="text-sm text-cx-text-secondary">Loading items pending review…</p>;
+    return <p className="text-sm text-cx-forest-dark/70">Loading items pending review…</p>;
   }
 
   if (!items.length) {
     return (
-      <Card>
-        <p className="text-cx-body">
-          No enrichment items pending review. Upload an updated CV to trigger API reconciliation.
-        </p>
-      </Card>
+      <CardSection
+        eyebrow="Reconciliation"
+        title="Nothing to review"
+        description="No enrichment items pending review. Upload an updated CV to trigger API reconciliation."
+        icon={GitCompare}
+        mak={OBJECTIVE_MAK.reconcile}
+      />
     );
   }
 
   return (
-    <Card accent={pending.length ? "amber" : "green"}>
-      <p className="text-cx-label uppercase">Reconciliation queue</p>
-      <h2 className="mt-1 text-cx-h3">
-        {pending.length
+    <CardSection
+      accent={pending.length ? "amber" : "green"}
+      eyebrow="Reconciliation queue"
+      title={
+        pending.length
           ? `${pending.length} item${pending.length > 1 ? "s" : ""} pending review`
-          : "All items reviewed"}
-      </h2>
-      <ul className="mt-4 space-y-3">
+          : "All items reviewed"
+      }
+      icon={GitCompare}
+      mak={OBJECTIVE_MAK.reconcile}
+      footer={
+        pending.length > 0 ? (
+          <Button onClick={() => void save()} disabled={saving}>
+            {saving ? "Saving…" : "Save reconciliation"}
+          </Button>
+        ) : undefined
+      }
+    >
+      <ul className="space-y-3">
         {items.map((item) => (
           <li
             key={item.id}
-            className="rounded-xl border border-cx-border bg-cx-cream/40 p-4 text-sm"
+            className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-4 text-sm"
           >
-            <p className="font-semibold text-cx-text">{item.label}</p>
-            <p className="mt-1 text-cx-body">{item.detail}</p>
+            <p className="font-semibold text-cx-forest-dark">{item.label}</p>
+            <p className="mt-1 text-sm text-cx-forest-dark/80">{item.detail}</p>
             <p className="mt-1 text-cx-label">Source: {item.source}</p>
             {item.status === "pending" ? (
               <div className="mt-3 flex gap-2">
-                <Button onClick={() => setStatus(item.id, "confirmed")}>
-                  Confirm
-                </Button>
+                <Button onClick={() => setStatus(item.id, "confirmed")}>Confirm</Button>
                 <Button variant="secondary" onClick={() => setStatus(item.id, "rejected")}>
                   Reject
                 </Button>
@@ -107,15 +120,10 @@ export function CareerDataReconcilePanel() {
         ))}
       </ul>
       {error && (
-        <p className="mt-3 rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
+        <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
           {error}
         </p>
       )}
-      {pending.length > 0 && (
-        <Button className="mt-4" onClick={() => void save()} disabled={saving}>
-          {saving ? "Saving…" : "Save reconciliation"}
-        </Button>
-      )}
-    </Card>
+    </CardSection>
   );
 }

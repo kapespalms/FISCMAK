@@ -58,7 +58,7 @@ function Toolbar() {
   const [editor] = useLexicalComposerContext();
 
   return (
-    <div className="flex flex-wrap gap-1 border-b border-cx-border px-3 py-2">
+    <div className="flex flex-wrap gap-1 border-b border-cx-forest-dark/15 px-3 py-2">
       {[
         { label: "B", cmd: () => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold") },
         { label: "I", cmd: () => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic") },
@@ -72,7 +72,7 @@ function Toolbar() {
           key={label}
           type="button"
           onClick={cmd}
-          className="min-h-9 min-w-9 rounded-md border border-cx-border bg-cx-white px-2 text-sm font-semibold text-cx-text hover:bg-cx-cream"
+          className="min-h-9 min-w-9 rounded-md border border-cx-forest-dark/20 bg-white px-2 text-sm font-semibold text-cx-forest-dark hover:bg-cx-forest-dark/5"
         >
           {label}
         </button>
@@ -241,7 +241,7 @@ export const StudioLexicalEditor = forwardRef<StudioEditorHandle, Props>(
               <ContentEditable className="min-h-[400px] resize-none px-6 py-4 text-base outline-none" />
             }
             placeholder={
-              <div className="pointer-events-none absolute left-6 top-4 text-cx-text-secondary">
+              <div className="pointer-events-none absolute left-6 top-4 text-cx-forest-dark/50">
                 Select a template and click Generate, or start writing…
               </div>
             }

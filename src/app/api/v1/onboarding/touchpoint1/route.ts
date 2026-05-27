@@ -1,4 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { trustedNameFromOAuthMetadata, splitTrustedName } from "@/lib/auth/trusted-name";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { fetchDocuments } from "@/lib/v2/db";
 import {
@@ -15,6 +17,7 @@ import {
   buildReconciliationCandidates,
 } from "@/lib/v2/onboarding-touchpoint1";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -28,15 +31,72 @@ export async function GET() {
   const instruments = deployedInstruments(level, setting);
   const enrichment = apiEnrichmentPlan(setting, level);
   const meta = getOnboardingMetadata(user);
+  const pathCtx = onboardingPathFromMetadata(meta);
+  const program = pathCtx?.program ?? null;
+
+  let trustedName: ReturnType<typeof trustedNameFromOAuthMetadata> = null;
+  if (!auth.demo && isSupabaseConfigured()) {
+    try {
+      const supabase = await createClient();
+      const {
+        data: { user: authUser },
+      } = await supabase.auth.getUser();
+      trustedName = trustedNameFromOAuthMetadata(
+        authUser?.user_metadata as Record<string, unknown> | undefined,
+      );
+    } catch {
+      /* ignore */
+    }
+  }
+  if (!trustedName && user.tier1_complete && user.name?.trim()) {
+    const { first, last } = splitTrustedName(user.name);
+    if (first) trustedName = { first, last, source: "profile" };
+  }
 
   return jsonOk({
     profile: {
       name: user.name,
+      trusted_name: trustedName,
       specialty: user.specialty,
+      base_specialty: user.base_specialty,
+      subspecialty: user.subspecialty,
+      subspecialty_training_complete: user.subspecialty_training_complete,
       career_stage: user.career_stage,
       practice_setting: user.practice_setting,
       academic_rank: user.academic_rank,
       primary_career_track: user.primary_career_track,
+      pgy_level: user.pgy_level,
+      current_rotation: user.current_rotation,
+      specialty_origin: user.specialty_origin,
+      institution: user.institution,
+    },
+    onboarding_metadata: {
+      career_track_rankings: meta.career_track_rankings ?? null,
+      subspecialty_interests: meta.subspecialty_interests ?? null,
+      uh_psych_enrichment_tracks: meta.uh_psych_enrichment_tracks ?? null,
+      invite_token: meta.invite_token ?? null,
+    },
+    onboarding: {
+      path: pathCtx?.path ?? null,
+      path_chosen: Boolean(meta.onboarding_path),
+      program_id: meta.program_id ?? null,
+      program_slug: meta.program_slug ?? null,
+      trainee_initials: meta.trainee_initials ?? null,
+      program: program
+        ? {
+            slug: program.slug,
+            display_title: program.display_title,
+            institution_name: program.institution_name,
+            program_name: program.program_name,
+            base_specialty: program.base_specialty,
+            specialty_locked: program.specialty_locked,
+            default_career_stage: program.default_career_stage,
+            default_practice_setting: program.default_practice_setting,
+            career_stages_allowed: program.career_stages_allowed,
+            academic_year: program.academic_year,
+            rotations: program.rotations,
+          }
+        : null,
     },
     documents: docs,
     instruments,

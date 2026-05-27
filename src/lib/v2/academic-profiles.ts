@@ -444,7 +444,7 @@ export function academicSectionGateGreeting(input: {
   const name = input.displayName?.split(" ")[0] ?? "there";
   const adaptation = resolveAcademicProfile(input.profile);
   if (!adaptation) {
-    return `Hi ${name}, let's explore your ${input.section} workspace together.`;
+    return `Hi ${name}, let's explore ${input.section} together on the platform.`;
   }
 
   const leadMap = {

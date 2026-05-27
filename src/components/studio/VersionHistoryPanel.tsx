@@ -1,7 +1,9 @@
 "use client";
 
-import { Card } from "@/components/ui/Card";
+import { History } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { CardSection } from "@/components/ui/CardSection";
+import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
 import type { DocumentVersion } from "@/lib/studio-versions";
 
 export function VersionHistoryPanel({
@@ -14,13 +16,19 @@ export function VersionHistoryPanel({
   if (versions.length === 0) return null;
 
   return (
-    <Card className="mt-4 p-4">
-      <p className="text-cx-label uppercase">Version history</p>
-      <ul className="mt-3 max-h-40 space-y-2 overflow-y-auto">
+    <CardSection
+      compact
+      className="mt-4"
+      eyebrow="Versions"
+      title="Version history"
+      icon={History}
+      mak={OUTPUT_MAK.version_history}
+    >
+      <ul className="max-h-40 space-y-2 overflow-y-auto">
         {versions.slice(0, 5).map((v) => (
           <li
             key={v.id}
-            className="flex items-center justify-between gap-2 text-xs text-cx-text-secondary"
+            className="flex items-center justify-between gap-2 text-xs text-cx-forest-dark/70"
           >
             <span>
               v{v.version_number} ·{" "}
@@ -39,6 +47,6 @@ export function VersionHistoryPanel({
           </li>
         ))}
       </ul>
-    </Card>
+    </CardSection>
   );
 }

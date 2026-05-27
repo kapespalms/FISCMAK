@@ -1,0 +1,14 @@
+rotation_id,service_name,pgy_level,subcompetency_id,milestone_level,objective_codes,source_document
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,PC1,1,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,PC1,2,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,PC2,1,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,PC2,2,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,PC3,1,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,SBP1,1,"A,B",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-1,ICS3,3,A,curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-2,PC1,3,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-2,PC2,3,A,curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-2,ICS1,3,A,curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-4,PC1,4,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-4,PC1,5,"B,C",curriculum_cmcpsych_inpatient_psych.docx
+uh-inpt-psych,Inpatient Psychiatry,PGY-4,PBLI2,5,"A,B,C",curriculum_cmcpsych_inpatient_psych.docx

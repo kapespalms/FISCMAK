@@ -1,14 +1,31 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import type { ReconciliationItem } from "@/lib/v2/onboarding-touchpoint1";
+import { isNpiReconcileId } from "@/lib/v2/npi-registry";
+
+function isBlockingPending(meta: OnboardingMetadata, id: string, status: string): boolean {
+  if (status !== "pending") return false;
+  if (meta.npi_verification_deferred && isNpiReconcileId(id)) return false;
+  return true;
+}
 
 export function pendingReconciliationCount(meta: OnboardingMetadata): number {
-  return (meta.reconciliation ?? []).filter((r) => r.status === "pending").length;
+  const snapshotItems = meta.enrichment_snapshot?.reconciliation_items ?? [];
+  const statusMap = new Map((meta.reconciliation ?? []).map((r) => [r.id, r.status]));
+  const ids = new Set([
+    ...(meta.reconciliation ?? []).map((r) => r.id),
+    ...snapshotItems.map((item) => item.id),
+  ]);
+
+  let count = 0;
+  for (const id of ids) {
+    const status = statusMap.get(id) ?? "pending";
+    if (isBlockingPending(meta, id, status)) count += 1;
+  }
+  return count;
 }
 
 export function reconcileComplete(meta: OnboardingMetadata): boolean {
-  const items = meta.reconciliation ?? [];
-  if (items.length === 0) return true;
-  return items.every((r) => r.status !== "pending");
+  return pendingReconciliationCount(meta) === 0;
 }
 
 export function reconciliationItemsDetailed(meta: OnboardingMetadata): ReconciliationItem[] {

@@ -1,6 +1,7 @@
 import type { AppUser, CareerAssessment, QuestionDef } from "@/lib/v2/types";
 import { QUESTION_BANK, questionsForTouchpoint } from "@/lib/v2/question-bank";
 import type { CareerStage } from "@/lib/v2/onboarding-options";
+import { formatSpecialtyLine, normalizeSpecialtyProfile } from "@/lib/v2/specialty-hierarchy";
 
 export type ExtractedAnswer = {
   q_id: string;
@@ -59,9 +60,10 @@ export function seedAnswersFromProfile(user: AppUser): ExtractedAnswer[] {
     });
   }
   if (user.name) {
+    const line = formatSpecialtyLine(normalizeSpecialtyProfile(user));
     seeded.push({
       q_id: "Q1.3",
-      answer: `${user.name}, ${user.specialty ?? "physician"} — ${user.career_stage ?? "career stage pending"}.`,
+      answer: `${user.name}, ${line} — ${user.career_stage ?? "career stage pending"}.`,
       confidence: "medium",
     });
   }

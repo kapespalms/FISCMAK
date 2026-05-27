@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:migrate": "node scripts/apply-supabase-migrations.mjs",
+    "db:invite-tokens": "node scripts/generate-program-invite-tokens.mjs",
+    "db:verify": "node scripts/verify-supabase.mjs",
+    "audit:acgme": "node scripts/audit-acgme-onboarding.mjs",
+    "content:education-manifest": "node scripts/generate-education-manifest.mjs",
+    "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs",
+    "db:seed-mak-profile": "node scripts/seed-mak-profile.mjs"
   },
   "dependencies": {
     "@lexical/link": "^0.44.0",
@@ -26,7 +33,8 @@
     "next": "16.2.6",
     "pdf-parse": "^2.4.5",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "stripe": "^22.1.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -36,7 +44,9 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "pg": "^8.21.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "xlsx": "^0.18.5"
   }
 }

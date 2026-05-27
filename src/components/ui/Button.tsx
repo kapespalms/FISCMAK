@@ -9,11 +9,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-fm-primary text-white hover:bg-fiscmak-green-dark active:border-2 active:border-fm-accent",
+    "bg-cx-forest-dark text-white hover:bg-cx-forest-dark/90 active:border-2 active:border-[#5FD65F]",
   secondary:
-    "bg-fm-surface text-foreground border border-fiscmak-border hover:bg-fm-background",
+    "bg-white text-cx-forest-dark border border-cx-forest-dark/20 hover:bg-cx-forest-dark/5",
   destructive: "bg-fm-attention text-white hover:opacity-90",
-  link: "bg-transparent text-fm-accent hover:underline p-0 min-h-0",
+  link: "bg-transparent text-cx-forest-dark hover:text-cx-forest-dark/80 hover:underline p-0 min-h-0",
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,7 +21,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     <button
       ref={ref}
       className={cn(
-        "inline-flex min-h-11 items-center justify-center rounded-md px-6 py-3 text-base font-semibold transition-colors disabled:opacity-50",
+        "inline-flex min-h-11 items-center justify-center px-6 py-3 font-futura-medium text-base font-semibold transition-colors disabled:opacity-50",
         variants[variant],
         className,
       )}

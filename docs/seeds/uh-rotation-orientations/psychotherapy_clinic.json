@@ -1,0 +1,42 @@
+{
+  "rotation_code": "psychotherapy_clinic",
+  "service_name": "Resident Psychotherapy Clinic",
+  "category": "longitudinal",
+  "source": {
+    "website_section": "Resident Psychotherapy Clinic",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Confirm psychotherapy supervisor assignment and weekly supervision slot",
+    "Review clinic policies for recording, boundaries, and missed sessions",
+    "Identify long-term therapy patient panel targets per PGY level (typically PGY-2+)"
+  ],
+  "overview": "Longitudinal psychotherapy training clinic — weekly psychotherapy with assigned long-term patients, formal supervision, and progression toward independent psychodynamic or integrative psychotherapy skills.",
+  "location": [
+    "W.O. Walker Building psychotherapy suites — confirm room with program office"
+  ],
+  "schedule": [
+    "Weekly psychotherapy sessions plus dedicated supervision",
+    "Parallel to block rotations — protect clinic time on schedule",
+    "Psychiatry Didactics may include psychotherapy case conference"
+  ],
+  "logistics": [
+    "Document psychotherapy process notes per clinic policy — separate from med management notes when required",
+    "Track termination, boundaries, and countertransference in supervision",
+    "Complete required psychotherapy readings and case presentations"
+  ],
+  "debrief_prompts": [
+    "Therapeutic alliance shift — moment that changed the work",
+    "Countertransference or boundary issue you brought to supervision",
+    "Formulation update — how your understanding of the patient evolved",
+    "Termination planning or frame repair — what you would do differently"
+  ],
+  "capture_tags": [
+    "psychotherapy",
+    "outpatient psychiatry",
+    "professional identity",
+    "communication",
+    "risk assessment",
+    "collateral history"
+  ]
+}

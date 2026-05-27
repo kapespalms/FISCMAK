@@ -1,0 +1,95 @@
+{
+  "document": {
+    "title": "Annual Program Evaluation (APE) Report",
+    "institution": "University Hospitals",
+    "program": "Psychiatry",
+    "pec_meeting_date": "2025-09-05",
+    "distributed_date": "2025-09-12",
+    "source_file": "12325_psychiatry_annual_program_eva.docx",
+    "medhub_location": "Resources > Annual Program Evaluations"
+  },
+  "pec_attendees_summary": {
+    "faculty_count": 15,
+    "housestaff_count": 5,
+    "administrators_count": 3,
+    "notable_attendees": ["Cathleen Cerny-Suelzer (PD)", "Andrew Hunt (APD)", "Margaret Musso (ambulatory supervisor)", "Jennifer Brandstetter (CL PD)"]
+  },
+  "program_complement": {
+    "approved_positions": { "PGY1": 9, "PGY2": 9, "PGY3": 9, "PGY4": 8 },
+    "current_complement": { "PGY1": 9, "PGY2": 9, "PGY3": 9, "PGY4": 8 },
+    "total_with_portal": 38
+  },
+  "accreditation": {
+    "status": "Continued Accreditation",
+    "current_citations": false,
+    "current_afis": false
+  },
+  "program_aims_categories": [
+    "Excellence in Patient Care",
+    "Humanism",
+    "Intellectual Engagement and Stimulation",
+    "Community"
+  ],
+  "acgme_survey_resident_deterioration_areas": [
+    { "item": "Faculty discuss cost awareness", "compliance_pct": 74, "program_mean": 3.1, "specialty_mean": 3.4 },
+    { "item": "Access confidential mental health counseling", "compliance_pct": 74, "program_mean": 3.9, "specialty_mean": 4.6 },
+    { "item": "Satisfied with safety and health conditions", "compliance_pct": 68, "program_mean": 3.8, "specialty_mean": 4.2 },
+    { "item": "Interprofessional teamwork modeled or taught", "compliance_pct": 65, "program_mean": 3.6, "specialty_mean": 4.1 },
+    { "item": "Faculty effectively creates environment of inquiry", "compliance_pct": 68, "program_mean": 3.9, "specialty_mean": 4.2 },
+    { "item": "Increasing clinical responsibility granted appropriately", "compliance_pct": 71, "program_mean": 3.9, "specialty_mean": 4.2 },
+    { "item": "Satisfied with faculty feedback", "compliance_pct": 56, "program_mean": 3.6, "specialty_mean": 4.0 },
+    { "item": "Four or more days free in 28 day period", "compliance_pct": 65, "program_mean": 3.9, "specialty_mean": 4.3 }
+  ],
+  "acgme_survey_faculty_deterioration_areas": [
+    { "item": "Process to transition care when trainees fatigued", "compliance_pct": 76, "program_mean": 3.8, "specialty_mean": 4.4 },
+    { "item": "Faculty satisfied with evaluation as educators", "compliance_pct": 66, "program_mean": 3.8, "specialty_mean": 4.2 }
+  ],
+  "ilp_compliance": {
+    "all_trainees_provided_ilp": true,
+    "timing": "semi-annual evaluation meeting per ACGME"
+  },
+  "prite_summary_2024": {
+    "pgy1_total_mean": 381.2,
+    "pgy1_national_mean": 433.6,
+    "pgy4_total_mean": 482.9,
+    "pgy4_national_mean": 547.8,
+    "abpn_first_time_pass_rate_sept_2024": "6/7 (85.7%)"
+  },
+  "qi_ps_changes": {
+    "class_qi_project_moved_to": "PGY4 Walker Medication Management Clinic",
+    "prior_location": "PGY3",
+    "supervisors": ["Clegg", "Andersen", "Cheren", "Cerny", "Musso"]
+  },
+  "curriculum_links": {
+    "airtable_2024_2025": "https://airtable.com/appEWkTtk0MVrLwbN/shr52oCOo1JcHzCr1/tblZsHuoun3AXEA0I/viw7nNLbftepLWMma",
+    "airtable_2025_2026": "https://airtable.com/appPZyJYz2TNiY4KU/tblZsHuoun3AXEA0I/viwqAv0vAaFWU5SCF"
+  },
+  "action_plans": [
+    {
+      "action_number": 1,
+      "title": "Hero's Journey Professional Identity Development",
+      "responsible": ["Cerny-Suelzer", "Hunt", "Chief Residents", "Kristen Palmer"],
+      "target_completion": "2026-06-30",
+      "metrics": ["ACGME annual survey >70%", "Milestone achievement", "Scholarly productivity", "Wellness survey"]
+    },
+    {
+      "action_number": 2,
+      "title": "Bi-annual faculty feedback summaries",
+      "responsible": ["Cerny-Suelzer", "Hunt", "Williams"],
+      "delivery_schedule": ["January/February", "July/August"],
+      "target": ">70% faculty satisfaction with feedback process on ACGME survey"
+    }
+  ],
+  "program_strengths": [
+    "Diversity of clinical sites",
+    "Robust didactics",
+    "Individualized trainee schedules",
+    "Trainee elective time"
+  ],
+  "program_challenges": [
+    "No academic inpatient unit",
+    "Learner density on UH services",
+    "PGY2 scheduling/vacation difficulty",
+    "Federal DEI climate concerns"
+  ]
+}

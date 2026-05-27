@@ -12,10 +12,10 @@ export function Badge({
   className?: string;
 }) {
   const styles: Record<Energy, string> = {
-    default: "bg-cx-accent-soft text-cx-text",
-    energizing: "bg-cx-accent-soft text-cx-text",
-    draining: "bg-red-50 text-red-700",
-    neutral: "bg-amber-50 text-cx-attention",
+    default: "bg-cx-forest-dark/10 text-cx-forest-dark",
+    energizing: "bg-[#5FD65F]/15 text-cx-success",
+    draining: "bg-fm-attention/10 text-fm-attention",
+    neutral: "bg-fm-developing/15 text-fm-developing",
   };
 
   return (

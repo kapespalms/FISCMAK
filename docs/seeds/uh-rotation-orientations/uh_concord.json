@@ -1,0 +1,53 @@
+{
+  "rotation_code": "uh_concord",
+  "service_name": "Inpatient Adult Psychiatry (UH Concord)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Inpatient Adult Psychiatry (UH Concord)",
+    "last_updated": "2023-03-16",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Contact Dr. Zarowitz (joshua.zarowitz@uhhospitals.org) ≥30 days before rotation",
+    "Confirm dates, absences, and Day 1 start time",
+    "Review UH Concord Inpatient Workflow Videos",
+    "Review Ohio involuntary commitment criteria (ORC 5122.01, 5122.10, 5122.11)"
+  ],
+  "overview": "Inpatient adult psychiatry (18–64) at UH Concord — acute mental illness with community-hospital workflow and Epic documentation.",
+  "location": [
+    "10977 Capital Parkway, Concord Township, OH 44077",
+    "Free on-site parking; proprietary security badge from Dr. Zarowitz",
+    "No on-site cafeteria — TriPoint hospital nearby"
+  ],
+  "personnel": [
+    "Dr. Joshua Zarowitz — Attending / Unit Director",
+    "Charla Rives — Unit Nurse Manager",
+    "Donna Ritter — Unit Nurse Assistant Manager"
+  ],
+  "schedule": [
+    "Monday–Friday; arrive 9:00 AM for pre-rounding before treatment team",
+    "Typically until ~4:30 PM; ~5–6 patients per day",
+    "No call or weekend rounding",
+    "Psychiatry Didactics Wednesdays; Grand Rounds virtual Fridays as allowed"
+  ],
+  "logistics": [
+    "Epic context: TRI CCC BH PROVIDER",
+    "Use only system templates: UH BH IP H&P - ADULT, PROGRESS NOTE - ADULT, DISCHARGE SUMMARY",
+    "Dr. Zarowitz is sole cosigner — all notes signed before leaving",
+    "Personal dotphrases allowed"
+  ],
+  "debrief_prompts": [
+    "Involuntary commitment criteria in practice — one case",
+    "Community hospital workflow vs. academic center",
+    "Caseload management (~5–6 patients) — prioritization",
+    "Treatment team + attending rounds structure"
+  ],
+  "capture_tags": [
+    "involuntary commitment",
+    "Epic documentation",
+    "community psychiatry",
+    "discharge planning",
+    "treatment team",
+    "caseload management"
+  ]
+}

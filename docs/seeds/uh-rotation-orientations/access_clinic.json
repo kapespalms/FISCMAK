@@ -1,0 +1,47 @@
+{
+  "rotation_code": "access_clinic",
+  "service_name": "Access Clinic",
+  "category": "longitudinal",
+  "source": {
+    "website_section": "Access Clinic",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Confirm Tuesday PM schedule and Walker 8th floor clinic room assignment",
+    "Review Access Clinic mission — underserved and high-acuity outpatient access",
+    "Set up Epic and Zoom workflows before first clinic"
+  ],
+  "overview": "Longitudinal Access Clinic at W.O. Walker — outpatient psychiatry for patients with barriers to care, emphasizing engagement, safety planning, and systems navigation with community psychiatry faculty.",
+  "location": [
+    "W.O. Walker Building, 8th floor, 10524 Euclid Avenue, Cleveland OH 44106"
+  ],
+  "personnel": [
+    "Dr. Kathleen Clegg",
+    "Dr. Matt Andersen"
+  ],
+  "schedule": [
+    "Tuesday PM longitudinal clinic — confirm exact hours with faculty",
+    "Direct supervision toward end of sessions; notes within 24–48 hours"
+  ],
+  "logistics": [
+    "Prioritize engagement, no-show outreach, and warm handoffs to resources",
+    "Document risk assessment and safety planning each visit when indicated",
+    "Coordinate with social work and primary care for patients with complex psychosocial needs"
+  ],
+  "debrief_prompts": [
+    "Engagement strategy for a patient with access barriers — what worked?",
+    "Safety planning or crisis resource connection you facilitated",
+    "Systems advocacy — when you pushed for housing, benefits, or care coordination",
+    "Telehealth vs. in-person — impact on alliance or assessment"
+  ],
+  "capture_tags": [
+    "community psychiatry",
+    "health equity",
+    "systems advocacy",
+    "outpatient psychiatry",
+    "risk assessment",
+    "safety planning",
+    "care coordination",
+    "telepsychiatry"
+  ]
+}

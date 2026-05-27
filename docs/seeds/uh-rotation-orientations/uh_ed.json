@@ -1,0 +1,42 @@
+{
+  "rotation_code": "uh_ed",
+  "service_name": "Emergency Medicine (UH)",
+  "category": "off_service",
+  "source": {
+    "website_section": "Emergency Medicine (UH)",
+    "last_updated": "2024-06-10",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review UH ED orientation and psychiatry rotator expectations",
+    "Confirm shift schedule, badge access, and supervision contact",
+    "Review medical clearance and psychiatric hold pathways for UH ED"
+  ],
+  "overview": "Off-service emergency medicine block at UH — rapid assessment, stabilization, and disposition of undifferentiated patients with psychiatry rotators focusing on medical clearance, agitation/safety, and handoffs to psychiatry when indicated.",
+  "location": [
+    "UH Cleveland Medical Center Emergency Department"
+  ],
+  "schedule": [
+    "Shift-based schedule per UH EM program — variable hours including evenings/weekends",
+    "Confirm psychiatry consultation availability during shifts"
+  ],
+  "logistics": [
+    "Prioritize ABCs, tox/metabolic workup, and safe disposition",
+    "Document medical clearance rationale when psychiatry accepts transfer of care",
+    "De-escalation and restraint/seclusion policies per UH protocol"
+  ],
+  "debrief_prompts": [
+    "Undifferentiated presentation — medical vs. psychiatric primary driver",
+    "Agitation or safety event — de-escalation or restraint decision",
+    "Handoff to psychiatry or medicine — what information mattered most?",
+    "Shift pace — prioritization under time pressure"
+  ],
+  "capture_tags": [
+    "ED consultation",
+    "medical clearance",
+    "disposition planning",
+    "risk assessment",
+    "after-hours coverage",
+    "interdisciplinary team"
+  ]
+}

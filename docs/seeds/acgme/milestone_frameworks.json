@@ -1,0 +1,14 @@
+{
+  "source_note": "Specialty-specific ACGME Milestones 2.0 seeds. Unlisted primaries use universal six only until seeded.",
+  "frameworks": {
+    "psychiatry": {
+      "primary_slug": "psychiatry",
+      "primary_name": "Psychiatry",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "psychiatry_milestones_v2.json",
+      "citation": "ACGME Psychiatry Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "rotation_code": "capu",
+  "service_name": "Inpatient Child & Adolescent Psychiatry (CAPU)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Inpatient Child & Adolescent Psychiatry (CAPU)",
+    "last_updated": "2025-01-03",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Review all materials on the CAPU resident website page",
+    "Review any additional information from Dr. Ahmad",
+    "Review CAPU H&P and discharge summary templates"
+  ],
+  "overview": "Only inpatient child psychiatry unit at UH/Rainbow — acute psychiatric illness in children and adolescents.",
+  "location": [
+    "UH Rainbow Babies & Children's — CAPU, 3rd floor",
+    "RBC Lobby elevators → 3rd floor; call unit secretary to buzz in",
+    "Unit key provided for rotation duration",
+    "Parking: UH-CMC garages"
+  ],
+  "personnel": [
+    "Attending: Dr. Erum Ahmad",
+    "Team: social workers, nurses, recreational therapists"
+  ],
+  "schedule": [
+    "Monday–Friday, 8:00 AM – 5:00 PM",
+    "One resident/fellow rounds each Saturday (timing varies)",
+    "9:00 AM interdisciplinary team meeting → rounds",
+    "3:00 PM afternoon huddle; sign-out 4:30–5:00 PM",
+    "One trainee stays until 5:00 PM weekdays for acute issues (seclusion/restraint, medical)"
+  ],
+  "resources": [
+    "CAPU H&P and discharge summary templates",
+    "UH CAP Google Site",
+    "Child Fellows manual"
+  ],
+  "debrief_prompts": [
+    "Family/guardian communication — one conversation that went well or was hard",
+    "Developmental formulation — how did age change your approach?",
+    "Safety event or high-acuity moment (seclusion/restraint, medical comorbidity)",
+    "Interdisciplinary team role — social work, nursing, rec therapy"
+  ],
+  "capture_tags": [
+    "child psychiatry",
+    "family meeting",
+    "developmental formulation",
+    "safety planning",
+    "guardian communication",
+    "interdisciplinary team"
+  ]
+}

@@ -28,6 +28,7 @@ type GoalSettingPanelProps = {
   goals: ProposedGoal[];
   onConfirm: (goals: ProposedGoal[]) => void;
   onModifyWithMak?: (goalType: GoalFrameworkType) => void;
+  onWalkthroughWithMak?: () => void;
   loading?: boolean;
 };
 
@@ -72,6 +73,7 @@ export function GoalSettingPanel({
   goals: initial,
   onConfirm,
   onModifyWithMak,
+  onWalkthroughWithMak,
   loading,
 }: GoalSettingPanelProps) {
   const [goals, setGoals] = useState(initial);
@@ -90,11 +92,29 @@ export function GoalSettingPanel({
     );
   }
 
+  function applyGoalReplacement(goalType: GoalFrameworkType) {
+    const text = replaceText.trim();
+    if (!text) return;
+    setGoals((prev) =>
+      prev.map((g) =>
+        g.type === goalType
+          ? {
+              ...g,
+              title: text,
+              rationale: text,
+            }
+          : g,
+      ),
+    );
+    setModifyType(null);
+    setReplaceText("");
+  }
+
   return (
     <Card>
-      <p className="text-cx-label uppercase">Step 7 of 7</p>
+      <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">Step 7 of 7</p>
       <h1 className="mt-1 text-page-title">Career Strategy</h1>
-      <p className="mt-2 text-cx-body">
+      <p className="mt-2 text-sm text-cx-forest-dark/80">
         Based on your Career Profile, the platform suggests three goals — Development,
         Maintenance, and Sustainability — each with quarterly SMART milestones. Review each
         and confirm, modify, or replace.
@@ -103,19 +123,19 @@ export function GoalSettingPanel({
         {goals.map((goal, gi) => (
           <div
             key={goal.type}
-            className="rounded-2xl border border-cx-border bg-cx-white p-5"
+            className="cx-surface-elevated rounded-2xl p-5"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="text-cx-label uppercase">{GOAL_FRAMEWORK_LABELS[goal.type].label}</p>
               {goal.status && <StatusChip status={goal.status} />}
             </div>
-            <h3 className="mt-2 font-semibold text-cx-text">{goal.title}</h3>
-            <p className="mt-2 text-cx-body">
-              <span className="font-medium text-cx-text">Rationale: </span>
+            <h3 className="mt-2 font-semibold text-cx-forest-dark">{goal.title}</h3>
+            <p className="mt-2 text-sm text-cx-forest-dark/80">
+              <span className="font-medium text-cx-forest-dark">Rationale: </span>
               {goal.rationale}
             </p>
             {goal.progress != null && (
-              <p className="mt-2 text-sm text-cx-text">Progress: {goal.progress}%</p>
+              <p className="mt-2 text-sm text-cx-forest-dark">Progress: {goal.progress}%</p>
             )}
             {goal.latticeCells && goal.latticeCells.length > 0 && (
               <p className="mt-2 text-cx-label">
@@ -134,13 +154,13 @@ export function GoalSettingPanel({
                   <li key={m}>
                     <button
                       type="button"
-                      className="flex items-start gap-2 text-left text-cx-text hover:text-cx-primary"
+                      className="flex items-start gap-2 text-left text-cx-forest-dark hover:text-cx-forest-dark/80"
                       onClick={() => toggleMilestone(gi, mi)}
                     >
                       {done ? (
                         <Check size={16} className="mt-0.5 shrink-0 text-cx-success" />
                       ) : (
-                        <Square size={16} className="mt-0.5 shrink-0 text-cx-text-secondary" />
+                        <Square size={16} className="mt-0.5 shrink-0 text-cx-forest-dark/60" />
                       )}
                       <span>{text}</span>
                     </button>
@@ -168,16 +188,24 @@ export function GoalSettingPanel({
               </Button>
             </div>
             {modifyType === goal.type && (
-              <div className="mt-4 rounded-xl border border-cx-border bg-cx-white p-4 text-sm">
-                <p className="whitespace-pre-line text-cx-body">{GOAL_MODIFY_PROMPT}</p>
+              <div className="cx-surface-elevated mt-4 rounded-xl p-4 text-sm">
+                <p className="whitespace-pre-line text-sm text-cx-forest-dark/80">{GOAL_MODIFY_PROMPT}</p>
                 <textarea
-                  className="mt-3 w-full rounded-xl border border-cx-border p-3 text-sm"
+                  className="mt-3 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-forest-dark"
                   rows={2}
                   placeholder={GOAL_REPLACE_PROMPT}
                   value={replaceText}
                   onChange={(e) => setReplaceText(e.target.value)}
                 />
-                <div className="mt-3 flex gap-2">
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Button
+                    variant="secondary"
+                    className="text-xs"
+                    disabled={!replaceText.trim()}
+                    onClick={() => applyGoalReplacement(goal.type)}
+                  >
+                    Apply replacement
+                  </Button>
                   <Button
                     variant="secondary"
                     className="text-xs"
@@ -188,9 +216,12 @@ export function GoalSettingPanel({
                   <Button
                     variant="secondary"
                     className="text-xs"
-                    onClick={() => setModifyType(null)}
+                    onClick={() => {
+                      setModifyType(null);
+                      setReplaceText("");
+                    }}
                   >
-                    Done
+                    Cancel
                   </Button>
                 </div>
               </div>
@@ -198,9 +229,16 @@ export function GoalSettingPanel({
           </div>
         ))}
       </div>
-      <Button className="mt-6 w-full" disabled={loading} onClick={() => onConfirm(goals)}>
-        {loading ? "Saving goals…" : "Confirm goals and open dashboard"}
-      </Button>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        {onWalkthroughWithMak && (
+          <Button variant="secondary" className="flex-1" onClick={onWalkthroughWithMak}>
+            Walk through with Coach Mak
+          </Button>
+        )}
+        <Button className="flex-1" disabled={loading} onClick={() => onConfirm(goals)}>
+          {loading ? "Saving goals…" : "Confirm in template"}
+        </Button>
+      </div>
     </Card>
   );
 }

@@ -75,13 +75,9 @@ export async function GET() {
               suggestion: "Complete TP5 assessment for personalized gap analysis.",
             },
           ],
-      overall_readiness: tp5?.score ?? Math.round(metrics.promotion_aligned_pct * 0.7 + metrics.s_index * 0.3),
+      overall_readiness: tp5?.score ?? metrics.promotion_aligned_pct,
       promotion_timeline: metrics.iwq >= 60 ? "24-30 months" : "18-24 months",
-      cv_metrics: {
-        s_index: metrics.s_index,
-        iwq: metrics.iwq,
-        promotion_aligned_pct: metrics.promotion_aligned_pct,
-      },
+      cv_metrics: null,
     });
   }
 

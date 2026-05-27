@@ -1,24 +1,36 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Bell, Settings, User } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Bell, Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   SECTION_NAV,
   SECTION_TO_FLOW,
   sectionFromPath,
+  sectionNavShortLabel,
   type AppSection,
 } from "@/lib/mak-sections";
 import { useAppShell } from "@/components/layout/AppShell";
-
-const EXTRA_NAV = [{ href: "/app/jobs", shortLabel: "Jobs", match: "/app/jobs" }];
+import { ProfileMenu } from "@/components/profile/ProfileMenu";
+import { getPreferredTheme, setTheme, type ThemeMode } from "@/lib/theme-preference";
 
 export function TopNavBar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { section, startMakFlow } = useAppShell();
+  const { startMakFlow, displayName } = useAppShell();
   const current = sectionFromPath(pathname);
+  const [theme, setThemeState] = useState<ThemeMode>("light");
+
+  useEffect(() => {
+    setThemeState(getPreferredTheme());
+  }, []);
+
+  function toggleDarkMode() {
+    const next: ThemeMode = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    setThemeState(next);
+  }
 
   function navigateSection(navSection: AppSection, href: string) {
     if (navSection === "dashboard") {
@@ -29,97 +41,65 @@ export function TopNavBar() {
     startMakFlow(intent as "discuss" | "review" | "assess" | "plan" | "create", href);
   }
 
-
   return (
-    <header className="sticky top-0 z-20 border-b border-cx-border/80 bg-cx-white/90 px-4 py-3 backdrop-blur-md md:px-6">
-      <div className="mx-auto flex max-w-[1400px] items-center gap-4">
-        <Link
-          href="/app/dashboard"
-          className="shrink-0 rounded-full border border-cx-border bg-cx-white px-4 py-2 text-sm font-semibold text-cx-text"
-        >
-          FISCMAK
-        </Link>
-
-        <nav
-          className="hidden min-w-0 flex-1 items-center gap-1 overflow-x-auto md:flex"
-          aria-label="Main"
-        >
-          {SECTION_NAV.map(({ section: navSection, href, shortLabel }) => {
+    <header className="cx-app-top-bar sticky top-0 z-20 px-4 py-3 md:px-5 md:py-3.5">
+      <div className="mx-auto flex max-w-[1400px] items-center gap-2 md:gap-3">
+        <nav className="cx-top-nav-strip" aria-label="Main">
+          {SECTION_NAV.map(({ section: navSection, href }) => {
             const active = current === navSection;
+            const label = sectionNavShortLabel(navSection, displayName);
             return (
               <button
                 key={href}
                 type="button"
                 onClick={() => navigateSection(navSection, href)}
+                aria-current={active ? "page" : undefined}
+                title={navSection === "subjective" && displayName ? label : undefined}
                 className={cn(
-                  "cx-nav-pill shrink-0 whitespace-nowrap",
-                  active ? "cx-nav-pill-active" : "cx-nav-pill-inactive",
+                  "cx-top-nav-tab",
+                  active ? "cx-top-nav-tab-active" : "cx-top-nav-tab-inactive",
+                  navSection === "subjective" && displayName && "max-w-[7.5rem] truncate",
                 )}
               >
-                {shortLabel}
+                {label}
               </button>
             );
           })}
-          {EXTRA_NAV.map(({ href, shortLabel, match }) => {
-            const active = pathname.startsWith(match);
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={cn(
-                  "cx-nav-pill shrink-0 whitespace-nowrap",
-                  active ? "cx-nav-pill-active" : "cx-nav-pill-inactive",
-                )}
-              >
-                {shortLabel}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="ml-auto flex shrink-0 items-center gap-1">
           <button
             type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full text-cx-text-secondary hover:bg-cx-cream hover:text-cx-text"
+            onClick={() => router.push("/app/documents")}
+            aria-current={pathname.startsWith("/app/documents") ? "page" : undefined}
+            className={cn(
+              "cx-top-nav-tab",
+              pathname.startsWith("/app/documents")
+                ? "cx-top-nav-tab-active"
+                : "cx-top-nav-tab-inactive",
+            )}
+          >
+            Documents
+          </button>
+        </nav>
+
+        <div className="flex shrink-0 items-center gap-0.5 md:gap-1">
+          <button
+            type="button"
+            className="cx-app-top-bar-icon-btn flex h-9 w-9 items-center justify-center"
             aria-label="Notifications"
           >
             <Bell size={18} />
           </button>
-          <Link
-            href="/app/settings"
-            className="flex h-9 w-9 items-center justify-center rounded-full text-cx-text-secondary hover:bg-cx-cream hover:text-cx-text"
-            aria-label="Settings"
+          <button
+            type="button"
+            onClick={toggleDarkMode}
+            className="cx-app-top-bar-icon-btn flex h-9 w-9 items-center justify-center"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            title={theme === "dark" ? "Light mode" : "Dark mode"}
           >
-            <Settings size={18} />
-          </Link>
-          <Link
-            href="/app/profile"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-cx-cream text-cx-text-secondary hover:text-cx-text"
-            aria-label="Profile"
-          >
-            <User size={18} />
-          </Link>
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <ProfileMenu />
         </div>
       </div>
-
-      <nav className="mt-3 flex gap-1 overflow-x-auto md:hidden" aria-label="Main mobile">
-        {SECTION_NAV.map(({ section: navSection, href, shortLabel }) => {
-          const active = section === navSection;
-          return (
-            <button
-              key={href}
-              type="button"
-              onClick={() => navigateSection(navSection, href)}
-              className={cn(
-                "cx-nav-pill shrink-0 whitespace-nowrap text-xs",
-                active ? "cx-nav-pill-active" : "cx-nav-pill-inactive",
-              )}
-            >
-              {shortLabel}
-            </button>
-          );
-        })}
-      </nav>
     </header>
   );
 }

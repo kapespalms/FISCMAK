@@ -1,27 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { DashboardWelcome } from "@/components/dashboard/DashboardWelcome";
-import { TouchpointStatusBar } from "@/components/dashboard/TouchpointStatusBar";
-import { DashboardHeroMetrics } from "@/components/dashboard/DashboardHeroMetrics";
-import { DashboardProfileSection } from "@/components/dashboard/DashboardProfileSection";
-import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
-import { DashboardNextActions } from "@/components/dashboard/DashboardNextActions";
-import { DashboardDeepDiveTabs } from "@/components/dashboard/DashboardDeepDiveTabs";
-import { DashboardActiveTouchpoint } from "@/components/dashboard/DashboardActiveTouchpoint";
-import { AnnualRefreshPanel } from "@/components/workspace/AnnualRefreshPanel";
-import { QuarterlyPulsePanel } from "@/components/workspace/QuarterlyPulsePanel";
 import { useAppShell } from "@/components/layout/AppShell";
-import type { AnalyticsDashboard } from "@/lib/v2/types";
+import { useAnalytics } from "@/components/layout/AnalyticsProvider";
 import { buildSoapDashboardBands } from "@/lib/v2/dashboard-snapshot";
-import type { DashboardQuickAction } from "@/lib/v2/dashboard-architecture";
-import {
-  buildContextualQuickActions,
-  buildDashboardHeader,
-} from "@/lib/v2/dashboard-architecture";
+import { buildDashboardHeader } from "@/lib/v2/dashboard-architecture";
 import { loadSubjectiveCheckIn } from "@/lib/subjective-storage";
+import { GOAL_MODIFY_PROMPT } from "@/lib/v2/goal-framework";
+import { buildGoalSettingIntro } from "@/lib/v2/goal-setting-mak-flow";
 import { fetchGoals, saveOnboardingGoalsFromProposal, type CareerGoal } from "@/lib/goals";
+import { GOAL_FRAMEWORK_LABELS } from "@/lib/v2/soap-tab-spec";
 import type { PracticeSetting, CareerStage, AcademicRank } from "@/lib/v2/onboarding-options";
 import { DashboardRevealOverlay } from "@/components/onboarding/DashboardRevealOverlay";
 import {
@@ -29,26 +19,21 @@ import {
   defaultProposedGoals,
   type ProposedGoal,
 } from "@/components/onboarding/GoalSettingPanel";
-import {
-  buildCareerDirectionAnnualGreeting,
-  buildAnnualPlanResetGreeting,
-} from "@/lib/mak-chatbot-states";
+import { buildCareerDirectionAnnualGreeting } from "@/lib/mak-chatbot-states";
+import { SELF_ASSESSMENT_MAK_INTRO_KEY } from "@/lib/v2/onboarding-flow";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
-import { fetchDashboardWithTouchpoints } from "@/lib/v2/touchpoint-fetch";
 import {
   buildActiveTouchpointView,
+  buildDashboardDueNow,
+  buildDashboardSecondaryAlerts,
   buildGoalCards,
-  buildHealthStatusRow,
-  buildNextActions,
   buildProfileRows,
   buildProgressStatus,
   touchpointBarStates,
-  DASHBOARD_MAK_ACTIONS,
-  makActionGreeting,
   type ActiveTouchpointView,
-  type DashboardMakAction,
 } from "@/lib/v2/dashboard-redesign";
+
 type ProfileState = {
   name?: string | null;
   specialty?: string | null;
@@ -62,57 +47,83 @@ type ProfileState = {
 
 function DashboardSkeleton() {
   return (
-    <div className="space-y-8 animate-pulse">
-      <div className="h-12 rounded-xl bg-cx-border" />
-      <div className="grid gap-6 md:grid-cols-3">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="h-36 rounded-xl bg-cx-border" />
-        ))}
+    <div className="animate-pulse rounded-2xl bg-cx-forest-dark/20 p-6">
+      <div className="h-8 w-2/3 rounded-lg bg-cx-forest-dark/30" />
+      <div className="mt-4 grid gap-4 md:grid-cols-2">
+        <div className="h-48 rounded-xl bg-white/40" />
+        <div className="h-48 rounded-xl bg-white/40" />
       </div>
-      <div className="h-48 rounded-xl bg-cx-border" />
     </div>
   );
 }
 
 export function DashboardWorkspace() {
-  const { startMakFlow, openMak, focusMakInput, displayName } = useAppShell();
+  const { startMakFlow, openMak, displayName } = useAppShell();
+  const { analytics, loading, error: touchpointError } = useAnalytics();
   const router = useRouter();
   const searchParams = useSearchParams();
   const welcome = searchParams.get("welcome") === "1";
-  const [analytics, setAnalytics] = useState<AnalyticsDashboard | null>(null);
-  const [loading, setLoading] = useState(true);
   const [goals, setGoals] = useState<CareerGoal[]>([]);
   const [profile, setProfile] = useState<ProfileState | null>(null);
   const [onboardingPhase, setOnboardingPhase] = useState<"reveal" | "goals" | null>(null);
   const [proposedGoals, setProposedGoals] = useState<ProposedGoal[]>([]);
-  const [touchpointError, setTouchpointError] = useState<string | null>(null);
+  const [institutionalProgramSlug, setInstitutionalProgramSlug] = useState<string | null>(null);
+  const [scheduleBlocks, setScheduleBlocks] = useState<
+    import("@/components/dashboard/ResidentScheduleCalendar").ScheduleBlock[]
+  >([]);
+  const [scheduleUserEvents, setScheduleUserEvents] = useState<
+    import("@/lib/v2/schedule-calendar/types").UserScheduleEvent[]
+  >([]);
+  const [scheduleProgramLabel, setScheduleProgramLabel] = useState<string | null>(null);
+  const [scheduleCalendarEnabled, setScheduleCalendarEnabled] = useState(false);
 
-  const load = useCallback(async () => {
-    const result = await fetchDashboardWithTouchpoints();
-    setAnalytics(result.analytics);
-    setTouchpointError(result.error);
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    void load();
-  }, [load]);
+  function refreshSchedule() {
+    return fetch("/api/v1/onboarding/schedule")
+      .then((r) => r.json())
+      .then((schedule) => {
+        if (schedule.enabled) {
+          setScheduleBlocks(schedule.blocks ?? []);
+          setScheduleUserEvents(schedule.user_events ?? []);
+          setScheduleProgramLabel(schedule.program_label ?? null);
+          setScheduleCalendarEnabled(true);
+        }
+      })
+      .catch(() => undefined);
+  }
 
   useEffect(() => {
     void fetchGoals().then(setGoals);
+    const onGoalsUpdated = () => void fetchGoals().then(setGoals);
+    window.addEventListener("fiscmak:goals-updated", onGoalsUpdated);
+    return () => window.removeEventListener("fiscmak:goals-updated", onGoalsUpdated);
+  }, []);
+
+  useEffect(() => {
+    const onScheduleUpdated = () => void refreshSchedule();
+    window.addEventListener("fiscmak:schedule-updated", onScheduleUpdated);
+    return () => window.removeEventListener("fiscmak:schedule-updated", onScheduleUpdated);
   }, []);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/v1/onboarding/status").then((r) => r.json()),
       fetch("/api/v1/users/me").then((r) => r.json()),
+      fetch("/api/v1/onboarding/touchpoint1").then((r) => r.json()),
+      fetch("/api/v1/onboarding/schedule").then((r) => r.json()),
     ])
-      .then(([status, me]) => {
+      .then(([status, me, touchpoint, schedule]) => {
         setProfile({
           ...status,
           academic_rank: me.academic_rank ?? null,
           name: me.name ?? status.name,
         });
+        setInstitutionalProgramSlug(touchpoint.onboarding?.program_slug ?? null);
+        if (schedule.enabled) {
+          setScheduleBlocks(schedule.blocks ?? []);
+          setScheduleUserEvents(schedule.user_events ?? []);
+          setScheduleProgramLabel(schedule.program_label ?? null);
+          setScheduleCalendarEnabled(true);
+        }
         if (
           status.tier3_complete &&
           typeof window !== "undefined" &&
@@ -126,34 +137,26 @@ export function DashboardWorkspace() {
           );
           setOnboardingPhase("reveal");
         }
-        if (welcome && status.tier1_complete && !status.tier3_complete) {
-          startMakFlow("onboarding");
-        }
       })
-      .catch(() => {
-        if (welcome) startMakFlow("onboarding");
-      });
-  }, [welcome, startMakFlow]);
-
-  useEffect(() => {
-    const onRefresh = () => {
-      void load();
-    };
-    window.addEventListener("fiscmak:touchpoint-complete", onRefresh);
-    window.addEventListener("fiscmak:activity-logged", onRefresh);
-    return () => {
-      window.removeEventListener("fiscmak:touchpoint-complete", onRefresh);
-      window.removeEventListener("fiscmak:activity-logged", onRefresh);
-    };
-  }, [load]);
+      .catch(() => undefined);
+  }, [welcome]);
 
   useEffect(() => {
     if (loading || onboardingPhase || !profile?.tier3_complete) return;
     if (typeof window === "undefined") return;
+
+    if (welcome && !localStorage.getItem(SELF_ASSESSMENT_MAK_INTRO_KEY)) {
+      localStorage.setItem(SELF_ASSESSMENT_MAK_INTRO_KEY, "1");
+      localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
+      startMakFlow("assess", undefined, "__self_assessment_intro__");
+      router.replace("/app/dashboard");
+      return;
+    }
+
     if (localStorage.getItem("fiscmak_dashboard_mak_intro")) return;
     localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
     openMak();
-  }, [loading, onboardingPhase, profile?.tier3_complete, openMak]);
+  }, [loading, onboardingPhase, profile?.tier3_complete, welcome, startMakFlow, openMak, router]);
 
   function beginAnnualMak(href?: string) {
     const name = displayName ?? "there";
@@ -181,52 +184,6 @@ export function DashboardWorkspace() {
     });
   }
 
-  function handleQuickAction(action: DashboardQuickAction) {
-    if (action.label === "Annual refresh") {
-      beginAnnualMak(action.href);
-      return;
-    }
-    if (action.label === "Quarterly check-in") {
-      beginQuarterlyMak();
-      router.push(action.href);
-      return;
-    }
-    if (action.intent === "capture") {
-      const captureAction = DASHBOARD_MAK_ACTIONS.find((a) => a.id === "capture");
-      if (captureAction) {
-        startMakFlow("capture", action.href, makActionGreeting(captureAction));
-        focusMakInput();
-      }
-      return;
-    }
-    if (action.label === "Review goals" && analytics?.annual_refresh?.due) {
-      startMakFlow("plan", action.href, buildAnnualPlanResetGreeting({ goals, analytics }));
-    } else {
-      startMakFlow(action.intent, action.href);
-    }
-    router.push(action.href);
-  }
-
-  function handleMakAction(action: DashboardMakAction) {
-    if (action.id === "discuss-energy" && analytics?.quarterly_pulse?.due) {
-      beginQuarterlyMak();
-      return;
-    }
-    startMakFlow(action.intent, action.href, makActionGreeting(action));
-    if (action.intent === "capture") {
-      focusMakInput();
-      return;
-    }
-    if (action.href !== "/app/dashboard") {
-      router.push(action.href);
-    }
-  }
-
-  function handleTouchpointComplete() {
-    void load();
-    window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
-  }
-
   function handleTouchpointContinue(tp: ActiveTouchpointView) {
     if (tp.kind === "annual") {
       beginAnnualMak("/app/subjective");
@@ -234,26 +191,17 @@ export function DashboardWorkspace() {
     }
     if (tp.kind === "quarterly") {
       beginQuarterlyMak();
+      router.push("/app/subjective");
       return;
     }
     startMakFlow("assess", "/app/assessment");
     router.push("/app/assessment");
   }
 
-  function handleGoalStart(goalId: string) {
-    const goal = goals.find((g) => g.id === goalId);
-    startMakFlow(
-      "plan",
-      "/app/plan",
-      goal ? `I want to work on my goal: ${goal.goal_title}` : undefined,
-    );
-    router.push("/app/plan");
-  }
-
   const subjective = loadSubjectiveCheckIn();
-  const soapBands = useMemo(() => {
+  const subjectiveMetrics = useMemo(() => {
     if (!analytics) return [];
-    return buildSoapDashboardBands({
+    const bands = buildSoapDashboardBands({
       analytics,
       subjective,
       goals,
@@ -265,6 +213,7 @@ export function DashboardWorkspace() {
       rank: profile?.academic_rank ?? null,
       careerObjective: profile?.career_objective ?? null,
     });
+    return bands.find((b) => b.id === "subjective")?.metrics ?? [];
   }, [analytics, subjective, goals, profile]);
 
   const headerModel = useMemo(() => {
@@ -275,35 +224,15 @@ export function DashboardWorkspace() {
       setting: profile?.practice_setting ?? null,
       rank: profile?.academic_rank ?? null,
       level: profile?.career_stage ?? null,
-      track: profile?.primary_career_track ?? null,
       analytics,
       quarterlyPulse: analytics.quarterly_pulse,
     });
   }, [analytics, profile]);
 
-  const quickActions = useMemo(() => {
-    if (!analytics) return [];
-    const cvNeedsUpdate = soapBands.some((b) =>
-      b.documentCards?.some((d) => d.actionLabel === "Update Now"),
-    );
-    const goalMilestoneDue = goals.some((g) =>
-      g.recommended_actions?.some((a) => !a.includes("COMPLETED")),
-    );
-    return buildContextualQuickActions({
-      quarterlyPulseDue: analytics.quarterly_pulse?.due ?? false,
-      annualRefreshDue: analytics.annual_refresh?.due ?? false,
-      cvNeedsUpdate,
-      goalMilestoneDue,
-      tier2Complete: analytics.onboarding_progress.tier2_complete,
-    });
-  }, [analytics, goals, soapBands]);
-
-  const subjectiveBand = soapBands.find((b) => b.id === "subjective");
   const profileRows = useMemo(() => {
     if (!analytics || !headerModel) return [];
-    const base = buildProfileRows(subjectiveBand?.metrics ?? []);
-    return [...base, buildProgressStatus(analytics), buildHealthStatusRow(headerModel)];
-  }, [analytics, headerModel, subjectiveBand]);
+    return [...buildProfileRows(subjectiveMetrics), buildProgressStatus(analytics)];
+  }, [analytics, headerModel, subjectiveMetrics]);
 
   const goalCards = useMemo(
     () => buildGoalCards(goals, analytics?.goal_milestone_history ?? []),
@@ -315,17 +244,17 @@ export function DashboardWorkspace() {
     [analytics],
   );
 
-  const nextActions = useMemo(
+  const dueNow = useMemo(
+    () => (analytics ? buildDashboardDueNow(analytics, touchpointViews) : null),
+    [analytics, touchpointViews],
+  );
+
+  const secondaryAlerts = useMemo(
     () =>
       analytics
-        ? buildNextActions({
-            analytics,
-            notifications: analytics.engagement_notifications ?? [],
-            quickActions,
-            jobSearchActive: analytics.job_search_active,
-          })
+        ? buildDashboardSecondaryAlerts(analytics.engagement_notifications, dueNow)
         : [],
-    [analytics, quickActions],
+    [analytics, dueNow],
   );
 
   const tpStates = useMemo(
@@ -341,17 +270,41 @@ export function DashboardWorkspace() {
     return analytics?.next_touchpoint?.category ?? null;
   }, [goals, analytics]);
 
+  function handleDueNowContinue() {
+    if (!dueNow) return;
+    if (dueNow.kind === "annual") {
+      beginAnnualMak("/app/subjective");
+      return;
+    }
+    if (dueNow.kind === "quarterly") {
+      beginQuarterlyMak();
+      router.push("/app/subjective");
+      return;
+    }
+    const active = touchpointViews.active;
+    if (active) handleTouchpointContinue(active);
+  }
+
   return (
     <>
       {onboardingPhase === "reveal" && (
         <DashboardRevealOverlay onComplete={() => setOnboardingPhase("goals")} />
       )}
       {onboardingPhase === "goals" && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-cx-cream/95 p-6">
+        <div className="fixed inset-0 z-50 overflow-y-auto bg-cx-page-muted/95 p-6">
           <GoalSettingPanel
             goals={proposedGoals}
-            onModifyWithMak={() =>
-              startMakFlow("plan", "/app/plan", "I would like to modify one of my proposed goals.")
+            onWalkthroughWithMak={() =>
+              startMakFlow("plan", "/app/plan", buildGoalSettingIntro(), undefined, "set")
+            }
+            onModifyWithMak={(goalType) =>
+              startMakFlow(
+                "plan",
+                "/app/plan",
+                `Let's refine your ${GOAL_FRAMEWORK_LABELS[goalType].label}.\n\n${GOAL_MODIFY_PROMPT}\n\nOr confirm goals in the template and use **Edit in template** for direct field updates.`,
+                undefined,
+                "set",
+              )
             }
             onConfirm={(confirmed) => {
               const saved = saveOnboardingGoalsFromProposal(
@@ -369,90 +322,39 @@ export function DashboardWorkspace() {
         </div>
       )}
 
-      <div className="mx-auto max-w-[1200px] space-y-8">
-        {loading || !analytics || !headerModel ? (
+      <div className="mx-auto max-w-[1200px]">
+        {loading ? (
           <DashboardSkeleton />
+        ) : !analytics || !headerModel ? (
+          <div className="cx-alert-banner px-4 py-3 text-sm">
+            {touchpointError ?? "Could not load dashboard. Refresh the page or finish onboarding first."}
+          </div>
         ) : (
           <>
             {touchpointError && (
-              <div className="rounded-xl border border-cx-attention bg-amber-50 px-4 py-3 text-sm text-cx-text">
-                {touchpointError}
-              </div>
+              <div className="cx-alert-banner mb-4 px-4 py-3 text-sm">{touchpointError}</div>
             )}
-
-            <TouchpointStatusBar states={tpStates} />
-
             <DashboardWelcome
               displayName={headerModel.displayName}
-              lastUpdated={headerModel.lastUpdated}
-            />
-
-            <div className="cx-section-surface space-y-8">
-              <DashboardHeroMetrics
-                header={headerModel}
-                track={profile?.primary_career_track ?? null}
-                nextMilestone={nextMilestone}
-              />
-            </div>
-
-            <div className="cx-section-surface space-y-8">
-              <DashboardProfileSection
-                displayName={headerModel.displayName}
-                rows={profileRows}
-                onMakAction={handleMakAction}
-              />
-            </div>
-
-            {(touchpointViews.active || touchpointViews.upcoming) && (
-              <DashboardActiveTouchpoint
-                active={touchpointViews.active}
-                upcoming={touchpointViews.upcoming}
-                onContinue={handleTouchpointContinue}
-                onViewHistory={() => router.push("/app/assessment")}
-              />
-            )}
-
-            {analytics.annual_refresh?.due && (
-              <AnnualRefreshPanel
-                status={analytics.annual_refresh}
-                onBeginWithMak={() => beginAnnualMak("/app/subjective")}
-                onComplete={handleTouchpointComplete}
-              />
-            )}
-
-            {!analytics.annual_refresh?.due && analytics.quarterly_pulse?.due && (
-              <QuarterlyPulsePanel
-                status={analytics.quarterly_pulse}
-                onBeginWithMak={beginQuarterlyMak}
-                onComplete={handleTouchpointComplete}
-              />
-            )}
-
-            <DashboardGoalsGrid
+              tracks={
+                profile?.primary_career_track ? [profile.primary_career_track] : null
+              }
+              profileLine={institutionalProgramSlug ? null : headerModel.profileLine}
+              profileRows={profileRows}
+              header={headerModel}
+              nextMilestone={nextMilestone}
               goals={goalCards}
-              onStart={handleGoalStart}
-              onDetails={() => router.push("/app/plan")}
+              touchpointStates={tpStates}
+              latticeCells={analytics.dashboard_lattice}
+              dueNow={dueNow}
+              secondaryAlerts={secondaryAlerts}
+              onDueNowContinue={handleDueNowContinue}
+              institutionalProgramSlug={institutionalProgramSlug}
+              scheduleBlocks={scheduleBlocks}
+              scheduleUserEvents={scheduleUserEvents}
+              scheduleProgramLabel={scheduleProgramLabel}
+              scheduleCalendarEnabled={scheduleCalendarEnabled}
             />
-
-            <DashboardNextActions
-              actions={nextActions}
-              onAction={(a) => {
-                if (!a.href) return;
-                handleQuickAction({
-                  label: a.label,
-                  intent: a.intent ?? "discuss",
-                  href: a.href,
-                });
-              }}
-            />
-
-            <div className="cx-section-surface">
-              <DashboardDeepDiveTabs
-                bands={soapBands}
-                jobEngagement={analytics.job_engagement}
-                onDiscuss={(href) => startMakFlow("discuss", href)}
-              />
-            </div>
           </>
         )}
       </div>

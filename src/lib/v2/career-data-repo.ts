@@ -38,7 +38,7 @@ export async function ensurePhysicianRow(user: AppUser, email: string): Promise<
   }
 }
 
-/** Dual-write enrichment run + reconciliation queue to Supabase (no-op if tables missing). */
+/** Dual-write enrichment run + reconciliation queue + vault domain tables. */
 export async function persistEnrichmentSnapshot(
   user: AppUser,
   email: string,
@@ -47,6 +47,17 @@ export async function persistEnrichmentSnapshot(
   try {
     await ensurePhysicianRow(user, email);
     const supabase = await createClient();
+
+    if (snapshot.npi || snapshot.orcid) {
+      await supabase
+        .from("physicians")
+        .update({
+          npi: snapshot.npi ?? undefined,
+          orcid: snapshot.orcid ?? undefined,
+          updated_at: new Date().toISOString(),
+        })
+        .eq("physician_id", user.user_id);
+    }
 
     await supabase.from("api_enrichment_runs").upsert(
       {
@@ -87,8 +98,125 @@ export async function persistEnrichmentSnapshot(
         await supabase.from("reconciliation_items").insert(row);
       }
     }
+
+    await persistVaultExtracts(supabase, user.user_id, snapshot);
   } catch (e) {
     console.error("persistEnrichmentSnapshot failed:", e);
+  }
+}
+
+async function persistVaultExtracts(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  physicianId: string,
+  snapshot: EnrichmentSnapshot,
+): Promise<void> {
+  const extracts = snapshot.vault_extracts;
+  if (!extracts) return;
+
+  for (const pub of extracts.publications) {
+    const title = pub.title?.trim() || "Untitled publication";
+    const matchCol = pub.doi ? "doi" : pub.pmid ? "pmid" : null;
+    const matchVal = pub.doi ?? pub.pmid ?? null;
+
+    if (matchCol && matchVal) {
+      const { data: existing } = await supabase
+        .from("publications")
+        .select("pub_id")
+        .eq("physician_id", physicianId)
+        .eq(matchCol, matchVal)
+        .maybeSingle();
+
+      const row = {
+        physician_id: physicianId,
+        doi: pub.doi ?? null,
+        pmid: pub.pmid ?? null,
+        title,
+        citation_count: pub.citation_count ?? null,
+        api_discovered: true,
+        reconciled: false,
+        data_source: pub.doi ? "openalex" : "pubmed",
+        updated_at: new Date().toISOString(),
+      };
+
+      if (existing?.pub_id) {
+        await supabase.from("publications").update(row).eq("pub_id", existing.pub_id);
+      } else {
+        await supabase.from("publications").insert(row);
+      }
+    } else {
+      await supabase.from("publications").insert({
+        physician_id: physicianId,
+        title,
+        citation_count: pub.citation_count ?? null,
+        api_discovered: true,
+        reconciled: false,
+        data_source: "cv_parse",
+      });
+    }
+  }
+
+  for (const grantId of extracts.grant_ids) {
+    const normalized = grantId.replace(/\s+/g, " ").trim();
+    const { data: existing } = await supabase
+      .from("grants")
+      .select("grant_id")
+      .eq("physician_id", physicianId)
+      .eq("nih_project_number", normalized)
+      .maybeSingle();
+
+    const row = {
+      physician_id: physicianId,
+      nih_project_number: normalized,
+      funder: "NIH",
+      grant_title: `Grant ${normalized}`,
+      api_discovered: true,
+      reconciled: false,
+      data_source: "nih_reporter",
+      updated_at: new Date().toISOString(),
+    };
+
+    if (existing?.grant_id) {
+      await supabase.from("grants").update(row).eq("grant_id", existing.grant_id);
+    } else {
+      await supabase.from("grants").insert(row);
+    }
+  }
+
+  if (snapshot.committees_detected > 0) {
+    const { count } = await supabase
+      .from("service_activities")
+      .select("service_id", { count: "exact", head: true })
+      .eq("physician_id", physicianId)
+      .eq("category", "committee")
+      .eq("data_source", "cv_parse");
+
+    if ((count ?? 0) === 0) {
+      await supabase.from("service_activities").insert({
+        physician_id: physicianId,
+        activity_name: "Committee service (CV-detected)",
+        category: "committee",
+        scope: "institutional",
+        role: "member",
+        data_source: "cv_parse",
+      });
+    }
+  }
+
+  if (snapshot.courses_detected > 0) {
+    const { count } = await supabase
+      .from("educational_activities")
+      .select("edu_id", { count: "exact", head: true })
+      .eq("physician_id", physicianId)
+      .eq("data_source", "cv_parse");
+
+    if ((count ?? 0) === 0) {
+      await supabase.from("educational_activities").insert({
+        physician_id: physicianId,
+        activity_name: "Teaching activities (CV-detected)",
+        activity_type: "lecturer",
+        data_source: "cv_parse",
+      });
+    }
   }
 }
 

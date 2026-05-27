@@ -1,5 +1,8 @@
+import { nextInstrumentPrompt } from "@/lib/v2/instrument-conversation-prompts";
 import type { AppUser } from "@/lib/v2/types";
 import { formatDisplayName } from "@/lib/mak-greeting";
+
+export const SELF_ASSESSMENT_MAK_INTRO_KEY = "fiscmak_self_assessment_mak_intro";
 
 export const TOUR_STORAGE_KEY = "fiscmak_lay_of_land_tour_seen";
 
@@ -14,30 +17,30 @@ export const LAY_OF_LAND_STEPS: TourStep[] = [
   {
     id: "dashboard",
     title: "Dashboard — your career at a glance",
-    body: "Career Health Score, service citizenship, and unrecognized work — all in plain career language. Quick actions capture work, upload documents, and create outputs.",
+    body: "Wellbeing metrics, activity capture, and quick actions — your home base for coaching progress.",
     highlight: "Home base for coaching progress",
   },
   {
     id: "subjective",
-    title: "Subjective — how you're doing",
+    title: "Your perspective — how you're doing",
     body: "Track energy, burnout signals, and wellbeing. Mak uses this to personalize coaching.",
     highlight: "Your inner experience matters",
   },
   {
     id: "objective",
-    title: "Objective — evidence & documents",
-    body: "Log activities, upload your CV, and see your career lattice. Evidence feeds promotion narratives.",
+    title: "Career Data — what's on record",
+    body: "Log activities, upload your CV, and see your career map. This feeds promotion narratives and coaching.",
     highlight: "Make invisible work visible",
   },
   {
     id: "assessment",
-    title: "Assessment — career patterns",
-    body: "This page shows insights from everything Mak learns — touchpoint progress, strengths, recognition gaps, and coherence. You never answer forms here; conversation fills it in automatically.",
+    title: "Insights — career patterns",
+    body: "This page shows insights from everything Mak learns — check-in progress, strengths, recognition gaps, and coherence. You never answer forms here; conversation fills it in automatically.",
     highlight: "Results and insights, not questions",
   },
   {
     id: "plan",
-    title: "Plan — strategy & goals",
+    title: "Strategy — goals & next steps",
     body: "Set promotion timelines, goals, and next steps with Mak's guidance.",
     highlight: "Turn insight into action",
   },
@@ -77,6 +80,20 @@ export function buildOnboardingSuggestedActions() {
     { action: "I'm focused on promotion", url: "/app/dashboard" },
     { action: "Help me see invisible work", url: "/app/dashboard" },
   ];
+}
+
+/** Opening copy after onboarding instruments step (dashboard welcome). */
+export function buildSelfAssessmentIntro(user: AppUser): string {
+  const first =
+    formatDisplayName(user.name?.split(" ")[0], user.name?.split(" ").slice(1).join(" ")) ??
+    (user.name ? `Dr. ${user.name.split(" ").pop()}` : null);
+  const salutation = first ? `${first},` : "Welcome back.";
+  const next = nextInstrumentPrompt(user);
+  return `${salutation} your profile and Career Data are set — great work.
+
+Next is your **self-assessment battery**: validated instruments (fulfillment, burnout signals, career energy, and more) woven into conversation — no forms.
+
+${next ? `Let's start here:\n\n${next}` : "Tell me when you're ready and we'll begin with your first instrument cluster."}`;
 }
 
 export function isTourSeen(): boolean {

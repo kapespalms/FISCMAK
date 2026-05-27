@@ -48,7 +48,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 1. Supabase → **Authentication → Providers → Google** — enable and add OAuth client ID/secret
 2. Google Cloud Console: authorized redirect URI `https://<project-ref>.supabase.co/auth/v1/callback`
-3. Supabase → **Authentication → URL Configuration**: Site URL `http://localhost:3000`, redirect URL `http://localhost:3000/auth/callback`
+3. Supabase → **Authentication → URL Configuration**:
+   - **Site URL:** `https://www.fiscmak.com`
+   - **Redirect URLs:** `https://www.fiscmak.com/auth/callback`, `https://fiscmak.com/auth/callback`, plus `http://127.0.0.1:3000/auth/callback` for local dev
+4. Set `NEXT_PUBLIC_APP_URL=https://www.fiscmak.com` in production (Vercel env)
 
 V1 lattice schema is archived at `docs/archive/FISCMAK_V1_SCHEMA.sql`. See `docs/MIGRATION_V1_TO_V2.md` — V1 activity/lattice data is **not** auto-migrated.
 

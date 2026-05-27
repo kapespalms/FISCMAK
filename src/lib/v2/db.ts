@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { findCvDocument } from "@/lib/v2/onboarding-document-types";
 import { fetchJobEngagementFromDb } from "@/lib/v2/career-data-repo";
 import type {
   AnalyticsDashboard,
@@ -20,9 +21,8 @@ import { computeCvMetrics } from "@/lib/v2/cv-metrics";
 import { buildCareerHealthView } from "@/lib/v2/career-health-view";
 import { buildCareerRecommendations } from "@/lib/v2/career-recommendations";
 import { quarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
-import { DEMO_ACTIVITIES } from "@/lib/activities-storage";
-import { DEMO_GOALS, type CareerGoal } from "@/lib/goals";
 import type { ActivityEntry } from "@/lib/types/database";
+import type { CareerGoal } from "@/lib/goals";
 import {
   buildDashboardLattice,
   buildDocumentCards,
@@ -61,25 +61,25 @@ export async function fetchDocuments(userId: string, demo: boolean): Promise<Doc
   return (data ?? []) as DocumentRecord[];
 }
 
-export async function fetchActivities(userId: string, demo: boolean): Promise<ActivityEntry[]> {
+export async function fetchActivities(userId: string, demo: boolean, limit = 50): Promise<ActivityEntry[]> {
   if (demo) return getServerDemo(userId).activities;
-  if (!isSupabaseConfigured()) return getServerDemo(userId).activities;
+  if (!isSupabaseConfigured()) return [];
   const supabase = await createClient();
   const { data } = await supabase
     .from("activity_entries")
     .select("*")
     .eq("user_id", userId)
     .order("activity_date", { ascending: false })
-    .limit(50);
-  return (data as ActivityEntry[]) ?? DEMO_ACTIVITIES;
+    .limit(limit);
+  return (data as ActivityEntry[]) ?? [];
 }
 
 export async function fetchCareerGoals(userId: string, demo: boolean): Promise<CareerGoal[]> {
   if (demo) {
     const stored = getOnboardingMetadata(getServerDemo(userId).user).stored_goals;
-    return stored?.length ? stored : DEMO_GOALS;
+    return stored ?? [];
   }
-  if (!isSupabaseConfigured()) return DEMO_GOALS;
+  if (!isSupabaseConfigured()) return [];
   const supabase = await createClient();
   const { data } = await supabase
     .from("career_goals")
@@ -94,7 +94,7 @@ export async function fetchCareerGoals(userId: string, demo: boolean): Promise<C
     .eq("user_id", userId)
     .maybeSingle();
   const meta = (userRow?.onboarding_metadata ?? {}) as { stored_goals?: CareerGoal[] };
-  return meta.stored_goals?.length ? meta.stored_goals : DEMO_GOALS;
+  return meta.stored_goals ?? [];
 }
 
 export async function fetchLatestMemPalace(
@@ -114,34 +114,7 @@ export async function fetchLatestMemPalace(
 }
 
 export async function fetchJobs(demo: boolean): Promise<Job[]> {
-  if (demo) {
-    return [
-      {
-        job_id: "demo-job-1",
-        source: "MedJobs",
-        title: "Interventional Cardiologist",
-        institution: "Mayo Clinic",
-        location: "Rochester, MN",
-        salary: 350000,
-        specialties: ["Cardiology"],
-        description: "Leading interventional cardiology program.",
-        growth_potential: "HIGH",
-        posted_date: new Date().toISOString().slice(0, 10),
-      },
-      {
-        job_id: "demo-job-2",
-        source: "LinkedIn",
-        title: "Academic Hospitalist",
-        institution: "Johns Hopkins",
-        location: "Baltimore, MD",
-        salary: 280000,
-        specialties: ["Internal Medicine"],
-        description: "Academic hospital medicine with teaching.",
-        growth_potential: "HIGH",
-        posted_date: new Date().toISOString().slice(0, 10),
-      },
-    ];
-  }
+  if (demo) return [];
   const supabase = await createClient();
   const { data } = await supabase.from("jobs").select("*").order("posted_date", { ascending: false });
   return (data ?? []) as Job[];
@@ -199,7 +172,7 @@ export async function buildAnalyticsDashboard(
 
   const documents = await fetchDocuments(user.user_id, demo);
   const activities = await fetchActivities(user.user_id, demo);
-  const cv = documents.find((d) => d.document_type === "CV" && d.extracted_text);
+  const cv = findCvDocument(documents);
   const cvMetrics = cv?.extracted_text
     ? computeCvMetrics(cv.extracted_text, assessments)
     : null;
@@ -235,8 +208,20 @@ export async function buildAnalyticsDashboard(
     cvMetrics?.bits_score != null ? Math.round(100 - cvMetrics.bits_score * 8) : undefined;
 
   const metric_history = buildMetricHistory(onboardingMeta, {
-    fulfillment: fulfillmentMetric?.status === "strong" ? 72 : fulfillmentMetric?.status === "developing" ? 55 : 40,
-    strain: strainMetric?.status === "strong" ? 72 : strainMetric?.status === "developing" ? 55 : 40,
+    fulfillment: fulfillmentMetric
+      ? fulfillmentMetric.status === "strong"
+        ? 72
+        : fulfillmentMetric.status === "developing"
+          ? 55
+          : 40
+      : undefined,
+    strain: strainMetric
+      ? strainMetric.status === "strong"
+        ? 72
+        : strainMetric.status === "developing"
+          ? 55
+          : 40
+      : undefined,
     alignment: alignmentPct,
     taskAlignment: taskAlignmentPct,
   });
@@ -276,7 +261,13 @@ export async function buildAnalyticsDashboard(
     coaching_brief: coachingBrief,
     quarterly_pulse: quarterlyPulse,
     annual_refresh: annualRefresh,
-    engagement_notifications: buildEngagementNotifications(onboardingMeta),
+    engagement_notifications: buildEngagementNotifications(onboardingMeta, {
+      userCreatedAt: user.created_at,
+      completedTouchpoints,
+      tier3Complete: user.tier3_complete,
+      iwq: cvMetrics?.iwq ?? onboardingMeta.iwq ?? null,
+      activityCount: activities.length,
+    }),
     pulse_streak,
     previous_career_health_score,
     pulse_history,

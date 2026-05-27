@@ -8,6 +8,7 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
+import { findCvDocument } from "@/lib/v2/onboarding-document-types";
 import {
   apiEnrichmentPlan,
   buildReconciliationCandidates,
@@ -24,7 +25,7 @@ export async function GET() {
   if (!user) return jsonOk({ error: "not_found", message: "User not found" }, 404);
 
   const docs = await fetchDocuments(auth.userId, auth.demo);
-  const cv = docs.find((d) => d.document_type === "CV");
+  const cv = findCvDocument(docs);
   const plan = apiEnrichmentPlan(user.practice_setting, user.career_stage);
   const meta = getOnboardingMetadata(user);
 
@@ -48,7 +49,16 @@ export async function GET() {
           status: (statusMap.get(item.id) as ReconciliationItem["status"]) ?? item.status,
         }));
 
-  return jsonOk({ items, cv_uploaded: Boolean(cv) });
+  return jsonOk({
+    items,
+    cv_uploaded: Boolean(cv),
+    npi: meta.enrichment_snapshot?.npi ?? null,
+    npi_verified: meta.enrichment_snapshot?.npi_verified ?? false,
+    npi_verification_deferred: Boolean(meta.npi_verification_deferred),
+    provider_name: meta.enrichment_snapshot?.npi_provider_name ?? null,
+    credential: meta.enrichment_snapshot?.npi_credential ?? null,
+    organization: meta.enrichment_snapshot?.npi_organization ?? null,
+  });
 }
 
 export async function POST(request: Request) {

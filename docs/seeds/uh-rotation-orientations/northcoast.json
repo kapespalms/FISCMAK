@@ -1,0 +1,45 @@
+{
+  "rotation_code": "northcoast",
+  "service_name": "Inpatient Adult Psychiatry (Northcoast)",
+  "category": "psychiatry_core",
+  "source": {
+    "website_section": "Inpatient Adult Psychiatry (Northcoast)",
+    "last_updated": "2024-06-24",
+    "curriculum_seed": null
+  },
+  "prior_to_rotation": [
+    "Watch for onboarding email from Fayann Tomes (Fayann.Tomes@mha.ohio.gov)",
+    "Complete onboarding paperwork; annual TB test may be required"
+  ],
+  "overview": "State-operated psychiatric hospital — predominantly forensic population (NGRI, restoration to competency) plus longer-term civil patients. Treatment plans differ substantially from acute academic rotations.",
+  "location": [
+    "1756 Sagamore Rd., Northfield, OH 44067",
+    "Surface lot parking"
+  ],
+  "schedule": [
+    "Monday–Friday, ~8:00 AM – 4:00 PM",
+    "Psychiatry Didactics Wednesdays; Grand Rounds virtual Fridays",
+    "Daily schedule varies — coordinate with attending"
+  ],
+  "logistics": [
+    "Patients not seen daily; treatment teams meet on set days",
+    "Note volume highly variable (0–12 notes/day)",
+    "May assist with forensic or court reports",
+    "Keys and proxy wristband for secured areas",
+    "No cafeteria — bring lunch; vending only"
+  ],
+  "debrief_prompts": [
+    "Forensic vs. civil patient — how did formulation differ?",
+    "Restoration to competency or NGRI — one learning moment",
+    "Longitudinal care on a state hospital unit vs. acute inpatient",
+    "Court report or forensic documentation exposure"
+  ],
+  "capture_tags": [
+    "forensic psychiatry",
+    "NGRI",
+    "restoration to competency",
+    "state hospital",
+    "longitudinal care",
+    "court report"
+  ]
+}

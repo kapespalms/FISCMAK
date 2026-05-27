@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import { Badge } from "@/components/ui/Badge";
-import { Upload } from "lucide-react";
+import { FileText, Upload } from "lucide-react";
+import { OBJECTIVE_MAK } from "@/lib/card-mak-prompts";
 import {
   ACCEPTED_CV_ACCEPT,
   ACCEPTED_CV_LABEL,
@@ -71,6 +72,7 @@ export function DocumentsView() {
       });
       await loadDocuments();
       setPasteText("");
+      window.dispatchEvent(new CustomEvent("fiscmak:document-uploaded"));
     } catch (e) {
       setError(e instanceof Error ? e.message : "Upload failed");
     } finally {
@@ -99,22 +101,38 @@ export function DocumentsView() {
 
   return (
     <div className="space-y-6">
+      <div className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] px-4 py-4">
+        <p className="font-semibold text-cx-forest-dark">CV workspace</p>
+        <p className="mt-1 text-sm text-cx-forest-dark/70">
+          Structured drafts, merge sources, and live preview — open the full Documents hub.
+        </p>
+        <a
+          href="/app/documents"
+          className="mt-3 inline-flex min-h-11 items-center rounded-lg bg-cx-forest-dark px-5 text-sm font-semibold text-white hover:bg-cx-forest-dark/90"
+        >
+          Open Documents workspace
+        </a>
+      </div>
+
       {error && (
         <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
           {error}
         </p>
       )}
 
-      <Card>
+      <CardSection
+        eyebrow="Upload"
+        title="CV & documents"
+        description={`${ACCEPTED_CV_LABEL} — syncs to MemPalace for Mak coaching`}
+        icon={Upload}
+        mak={OBJECTIVE_MAK.documents}
+      >
         <label
           htmlFor="file-upload-objective"
-          className="flex cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-cx-border bg-cx-cream/40 px-6 py-10 transition-colors hover:border-cx-charcoal hover:bg-cx-cream/70"
+          className="flex cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] px-6 py-10 transition-colors hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/[0.06]"
         >
-          <Upload className="text-cx-charcoal" size={28} />
-          <p className="mt-3 font-semibold text-cx-text">Drop or click to upload CV</p>
-          <p className="mt-1 text-sm text-cx-text-secondary">
-            {ACCEPTED_CV_LABEL} — syncs to MemPalace for Mak coaching
-          </p>
+          <Upload className="text-cx-forest-dark" size={28} />
+          <p className="mt-3 font-semibold text-cx-forest-dark">Drop or click to upload CV</p>
           <input
             ref={fileInputRef}
             id="file-upload-objective"
@@ -126,15 +144,19 @@ export function DocumentsView() {
           />
         </label>
         {processing && (
-          <p className="mt-4 text-center text-sm text-cx-text-secondary">
+          <p className="mt-4 text-center text-sm text-cx-forest-dark/70">
             Processing document and syncing MemPalace…
           </p>
         )}
-      </Card>
+      </CardSection>
 
-      <Card>
-        <h2 className="font-semibold text-cx-text">Or paste document text</h2>
-        <form onSubmit={onPasteSubmit} className="mt-4 space-y-4">
+      <CardSection
+        eyebrow="Alternative"
+        title="Paste document text"
+        icon={FileText}
+        mak={OBJECTIVE_MAK.documents}
+      >
+        <form onSubmit={onPasteSubmit} className="space-y-4">
           <textarea
             value={pasteText}
             onChange={(e) => setPasteText(e.target.value)}
@@ -146,26 +168,30 @@ export function DocumentsView() {
             Upload pasted text
           </Button>
         </form>
-      </Card>
+      </CardSection>
 
-      <div className="space-y-4">
-        <h2 className="font-semibold text-cx-text">Uploaded</h2>
-        {loading && <p className="text-sm text-cx-text-secondary">Loading…</p>}
+      <CardSection eyebrow="Library" title="Uploaded documents" mak={OBJECTIVE_MAK.documents}>
+        {loading && <p className="text-sm text-cx-forest-dark/70">Loading…</p>}
         {!loading && documents.length === 0 && (
-          <p className="text-sm text-cx-text-secondary">No documents yet.</p>
+          <p className="text-sm text-cx-forest-dark/70">No documents yet.</p>
         )}
+        <div className="space-y-3">
         {documents.map((doc) => (
-          <Card key={doc.document_id}>
+          <div
+            key={doc.document_id}
+            className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-4"
+          >
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="font-medium text-cx-text">{doc.document_type}</p>
+              <p className="font-semibold text-cx-forest-dark">{doc.document_type}</p>
               <Badge>{doc.extraction_status}</Badge>
             </div>
-            <p className="mt-2 text-xs text-cx-text-secondary">
+            <p className="mt-2 text-xs text-cx-forest-dark/70">
               Uploaded {new Date(doc.uploaded_at).toLocaleDateString()}
             </p>
-          </Card>
+          </div>
         ))}
-      </div>
+        </div>
+      </CardSection>
     </div>
   );
 }

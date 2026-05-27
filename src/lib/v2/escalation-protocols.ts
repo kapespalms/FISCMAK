@@ -1,5 +1,9 @@
 /** Part 8: Escalation and Safety Protocols — complete specification */
 
+import { orderSupportResources } from "@/lib/v2/crisis-resources";
+
+export { CRISIS_RESOURCES } from "@/lib/v2/crisis-resources";
+
 export type EscalationAction =
   | "crisis_resources"
   | "wellness_resources"
@@ -138,23 +142,27 @@ export const CRISIS_LANGUAGE_PATTERN =
 export const CAREER_EXIT_PATTERN =
   /leave medicine|quit being a doctor|leave clinical practice|stop practicing medicine|get out of medicine/i;
 
+function crisisResourceActions(preferOhio?: boolean): { action: string; url: string }[] {
+  return orderSupportResources({ preferOhio })
+    .filter((r) => r.url)
+    .slice(0, 6)
+    .map((r) => ({ action: r.label, url: r.url! }));
+}
+
 export type MakEscalation = {
   trigger: EscalationTriggerId;
   action: EscalationAction;
   message: string;
   pauseChatbot?: boolean;
   pauseCareerCoaching?: boolean;
+  preferOhioResources?: boolean;
   suggestedActions?: { action: string; url: string }[];
 };
 
-export const CRISIS_RESOURCES = [
-  { label: "988 Suicide & Crisis Lifeline", detail: "Call or text 988 (US)" },
-  { label: "Physician Support Line", detail: "1-888-409-0141 — free and confidential" },
-  { label: "Dr. Lorna Breen Heroes' Foundation", detail: "Physician mental health resources" },
-];
-
 export type EscalationInput = {
   message: string;
+  /** Ohio institutional programs — surfaces Ohio Careline first */
+  preferOhioResources?: boolean;
   burnoutScore?: number | null;
   mmbiScreenLevel?: string | null;
   careerAlignmentPct?: number | null;
@@ -194,17 +202,21 @@ export function detectAllEscalations(input: EscalationInput): MakEscalation[] {
     input.burnoutScore != null && input.burnoutScore >= PFI_BURNOUT_THRESHOLD;
 
   if (CRISIS_LANGUAGE_PATTERN.test(lower)) {
+    const ohio = input.preferOhioResources;
+    const crisisLead = ohio
+      ? "If you are in crisis, please contact the 988 Suicide Crisis Lifeline (call or text 988), Ohio's Careline (1-800-720-9616), or the Physician Support Line (1-888-409-0141). These services are free and confidential."
+      : "If you are in crisis, please contact the 988 Suicide Crisis Lifeline (call or text 988) or the Physician Support Line (1-888-409-0141). These services are free and confidential.";
     found.push({
       trigger: "crisis_language",
       action: "crisis_resources",
       pauseChatbot: true,
       pauseCareerCoaching: true,
-      message:
-        "If you are in crisis, please contact the 988 Suicide Crisis Lifeline (call or text 988) or the Physician Support Line (1-888-409-0141). These services are free and confidential. Human support is essential — other coaching functions are paused while you connect with resources.",
-      suggestedActions: CRISIS_RESOURCES.map((r) => ({
-        action: r.label,
-        url: r.label.includes("988") ? "https://988lifeline.org" : "/app/subjective",
-      })),
+      preferOhioResources: ohio,
+      message: `${crisisLead} Human support is essential — other coaching functions are paused while you connect with resources.`,
+      suggestedActions: [
+        ...crisisResourceActions(ohio),
+        { action: "View all support resources", url: "/app/subjective" },
+      ],
     });
   }
 
@@ -365,6 +377,7 @@ export function extractEscalationInputFromMetadata(
 
   return {
     message,
+    preferOhioResources: meta?.program_slug === "uh-psych-cmc",
     burnoutScore: typeof pfi?.burnout === "number" ? pfi.burnout : null,
     mmbiScreenLevel: typeof meta?.mmbi_screen === "string" ? meta.mmbi_screen : null,
     unreasonableTaskScore:
@@ -394,3 +407,65 @@ export function extractEscalationInputFromMetadata(
       : undefined,
   };
 }
+
+export type EscalationEngagementSignal =
+  | "ambient_mention"
+  | "gap_articulation"
+  | "micro_commitment"
+  | "dismissal";
+
+export type EscalationProgressionRecord = {
+  detectedAt: Date;
+  currentLevel: 1 | 2 | 3 | 4;
+  monthsAtLevel: number;
+  engagementSignals: Array<{
+    date: Date;
+    signal: EscalationEngagementSignal;
+  }>;
+  shouldAdvance: boolean;
+  advanceReason?: string;
+};
+
+export type MeceBucket = "internal_energy" | "institutional_friction" | "relational_capital";
+
+/** Classify user message engagement for escalation ladder progression (server-side only). */
+export function logEscalationEngagementSignal(input: {
+  userId: string;
+  currentEscalationLevel: 1 | 2 | 3 | 4;
+  userMessage: string;
+  meceClassification?: MeceBucket;
+}): EscalationEngagementSignal {
+  const msg = input.userMessage.toLowerCase();
+
+  if (
+    msg.includes("not now") ||
+    msg.includes("skip") ||
+    msg.includes("don't want") ||
+    msg.includes("not interested")
+  ) {
+    return "dismissal";
+  }
+
+  if (
+    msg.includes("i'll try") ||
+    msg.includes("i will") ||
+    msg.includes("this week") ||
+    msg.includes("coffee with") ||
+    msg.includes("talk to")
+  ) {
+    return "micro_commitment";
+  }
+
+  if (
+    msg.includes("gap") ||
+    msg.includes("underrecognized") ||
+    msg.includes("invisible") ||
+    msg.includes("no one sees") ||
+    input.meceClassification === "institutional_friction"
+  ) {
+    return "gap_articulation";
+  }
+
+  return "ambient_mention";
+}
+

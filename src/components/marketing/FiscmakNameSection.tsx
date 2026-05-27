@@ -1,0 +1,117 @@
+import Link from "next/link";
+import { LANDING_LOGO_CM_SRC, LANDING_NAME_BREAKDOWN_SRC } from "@/lib/brand-assets";
+
+type FiscmakNameIntroProps = {
+  id?: string;
+};
+
+export function FiscmakNameIntro({ id }: FiscmakNameIntroProps) {
+  return (
+    <section id={id} className="bg-black px-6 py-16 md:px-10 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={LANDING_LOGO_CM_SRC}
+          alt="FISCMAK"
+          className="h-16 w-auto md:h-20"
+          decoding="async"
+        />
+
+        <p className="font-futura-bold mt-8 text-xl md:text-2xl">
+          <span className="text-marketing-accent">PRONOUNCED: </span>
+          <span className="text-marketing-accent">[ </span>
+          <span className="text-white">FIZ-MAK</span>
+          <span className="text-marketing-accent"> ]</span>
+        </p>
+
+        <p className="font-futura-medium mt-5 max-w-3xl text-base text-white md:text-lg">
+          By the standard rules of grammar, you should pronounce the C in FISC.
+        </p>
+        <p className="font-futura-bold mt-2 text-base text-marketing-accent md:text-lg">
+          We don&apos;t follow the rules here.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+export function FiscmakNameBreakdown() {
+  return (
+    <section className="bg-white px-6 py-14 md:px-10 md:py-20" aria-label="What FISCMAK means">
+      <div className="mx-auto max-w-6xl">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={LANDING_NAME_BREAKDOWN_SRC}
+          alt="FISCMAK name breakdown: FISC is the hidden treasury of expertise, dedication, and time; the silent C is unspoken invisible work made fully seen; MAK is Maximus professional agency for maximum potential."
+          className="h-auto w-full"
+          decoding="async"
+        />
+      </div>
+    </section>
+  );
+}
+
+export function FoundersNarrativeSection() {
+  return (
+    <section id="our-narrative" className="bg-black px-6 py-16 md:px-10 md:py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="font-futura-bold mb-8 text-4xl text-white md:text-5xl">
+          Founders&apos; Narrative
+        </h2>
+        <div className="space-y-6 leading-relaxed text-gray-400">
+          <p>
+            We built FISCMAK because we saw the same pattern over and over: brilliant physicians doing
+            invisible work.
+          </p>
+          <p>
+            The teaching happens but isn&apos;t documented. The mentorship exists but isn&apos;t
+            recognized. The emotional labor sustains entire programs but never appears in career
+            advancement decisions.
+          </p>
+          <p>
+            We started with a simple question:{" "}
+            <span className="font-futura-medium text-marketing-accent">
+              What if every activity a physician logs becomes insight about their career trajectory?
+            </span>
+          </p>
+          <p>
+            Not coaching. Not job boards. Not wellness tools.{" "}
+            <span className="font-futura-medium text-marketing-accent">Career intelligence.</span>
+          </p>
+          <p>Longitudinal understanding. Pattern recognition. Opportunity mobility.</p>
+          <p className="italic">
+            FISCMAK is our attempt to make invisible work visible, to honor the treasures physicians
+            carry, and to build the career clarity they deserve.
+          </p>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/app/onboarding"
+            className="font-futura-bold cx-btn inline-block bg-marketing-accent px-8 py-4 text-black transition hover:bg-white"
+          >
+            Start Building
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function FiscmakNameSection() {
+  return (
+    <>
+      <FiscmakNameIntro id="about-fiscmak" />
+      <FiscmakNameBreakdown />
+    </>
+  );
+}
+
+export function AboutFiscmakContent() {
+  return (
+    <>
+      <FiscmakNameIntro />
+      <FiscmakNameBreakdown />
+    </>
+  );
+}

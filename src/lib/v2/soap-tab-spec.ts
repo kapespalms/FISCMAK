@@ -1,45 +1,69 @@
-/** Professional SOAPO tab labels and display copy (spec Part 2–3) */
+/** SOAP section labels and display copy (SOAP keys are internal only). */
+
+export const SUBJECTIVE_NAV_FALLBACK = "Perspective";
 
 export const SOAP_TAB = {
   subjective: {
-    nav: "Career Perspective",
-    title: "Career Perspective",
+    nav: SUBJECTIVE_NAV_FALLBACK,
+    title: "Perspective",
     description:
-      "Self-reported career direction, professional satisfaction, task alignment, and work engagement.",
+      "Career direction, professional satisfaction, task alignment, and work engagement.",
     chatEntry:
-      "This section captures your professional perspective — career direction, work engagement, and task alignment.",
+      "This section captures how you're doing — career direction, work engagement, and task alignment.",
   },
   objective: {
     nav: "Career Data",
     title: "Career Data",
     description:
-      "Verified career data from uploaded documents and public databases.",
+      "What's on record — from your CV, uploads, enrichment, and what you've shared with Mak.",
     chatEntry:
-      "This section displays verified career data from your uploaded documents and public databases.",
+      "This section holds your career data — documents, verified facts, activities, and your career map.",
   },
   assessment: {
-    nav: "Career Profile",
-    title: "Career Profile",
+    nav: "Insights",
+    title: "Insights",
     description:
-      "Synthesized Career Health Score, Career Map, and benchmarked standing.",
+      "Synthesized career patterns from your perspective and career data — conversation coverage and reflection themes.",
     chatEntry:
-      "This section synthesizes your Career Perspective and Career Data into a comprehensive Career Profile.",
+      "This section synthesizes what Mak has learned into reflection themes and coaching coverage.",
   },
   plan: {
-    nav: "Career Strategy",
-    title: "Career Strategy",
+    nav: "Strategy",
+    title: "Strategy",
     description: "Development, maintenance, and sustainability goals with quarterly milestones.",
-    chatEntry:
-      "This section tracks your career goals and quarterly milestones.",
+    chatEntry: "This section tracks your strategy — goals and quarterly milestones.",
   },
   output: {
-    nav: "Career Documents",
-    title: "Career Documents",
+    nav: "Output Studio",
+    title: "Output Studio",
     description: "Generated CVs, biosketches, reports, and career briefs.",
     chatEntry:
-      "This section generates and manages your career documents from Career Data.",
+      "This section generates and manages your career documents from your career data.",
   },
 } as const;
+
+/** Top nav: Dr. {Last} when profile name is available. */
+export function subjectiveNavLabel(displayName?: string | null): string {
+  const name = displayName?.trim();
+  return name || SUBJECTIVE_NAV_FALLBACK;
+}
+
+/** Page title on the subjective workspace. */
+export function subjectivePageTitle(displayName?: string | null): string {
+  const name = displayName?.trim();
+  if (name) return `${name}'s perspective`;
+  return SOAP_TAB.subjective.title;
+}
+
+export const SOAP_SECTION_ORDER = [
+  "subjective",
+  "objective",
+  "assessment",
+  "plan",
+  "output",
+] as const;
+
+export type SoapSectionKey = (typeof SOAP_SECTION_ORDER)[number];
 
 export type GoalFrameworkType = "development" | "maintenance" | "sustainability";
 

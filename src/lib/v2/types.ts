@@ -11,18 +11,31 @@ export type AppUser = {
   user_id: string;
   email: string;
   name: string | null;
+  /** @deprecated Use base_specialty + subspecialty — kept for display/back-compat */
   specialty: string | null;
+  base_specialty: string | null;
+  subspecialty: string | null;
+  subspecialty_training_complete: boolean;
   career_stage: CareerStage | null;
   practice_setting: PracticeSetting | null;
   academic_rank: AcademicRank | null;
   primary_career_track: PrimaryCareerTrack | null;
   institution: string | null;
+  /** GME — resident/fellow onboarding */
+  pgy_level: string | null;
+  current_rotation: string | null;
+  /** Onboarding origin: why this specialty/subspecialty (one sentence) */
+  specialty_origin: string | null;
+  content_pack: string | null;
+  primary_program_id: string | null;
   cv_uploaded: boolean;
   mempalace_id: string | null;
   tier1_complete: boolean;
   tier2_complete: boolean;
   tier3_complete: boolean;
   onboarding_metadata: Record<string, unknown> | null;
+  /** Remaining free AI messages when not on Premium */
+  message_balance?: number | null;
   preferred_location: string | null;
   salary_min: number | null;
   salary_max: number | null;
@@ -78,6 +91,9 @@ export type Job = {
   location: string | null;
   salary: number | null;
   specialties: string[];
+  /** When set, user must have completed this fellowship subspecialty */
+  required_subspecialty?: string | null;
+  required_base_specialty?: string | null;
   description: string | null;
   growth_potential: string | null;
   posted_date: string;
@@ -162,7 +178,7 @@ import type { CareerVaultModel } from "@/lib/v2/career-vault";
 import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 
 export type AnalyticsDashboard = {
-  career_readiness_index: number;
+  career_readiness_index: number | null;
   career_health: CareerHealthView | null;
   coaching_brief: CareerCoachingBrief | null;
   quarterly_pulse: QuarterlyPulseStatus | null;
@@ -223,5 +239,5 @@ export type AnalyticsDashboard = {
       s_index: string | null;
       iwq: string | null;
     };
-  };
+  } | null;
 };

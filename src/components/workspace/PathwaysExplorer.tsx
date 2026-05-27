@@ -3,21 +3,25 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronRight, Map } from "lucide-react";
-import { Card } from "@/components/ui/Card";
+import { CardSection } from "@/components/ui/CardSection";
 import { Badge } from "@/components/ui/Badge";
+import { PATHWAYS_MAK } from "@/lib/card-mak-prompts";
+import type { Pathway } from "@/lib/v2/types";
 
-type Pathway = {
-  pathway_id: string;
-  specialty: string;
-  pathway_type: string;
-  description: string;
-  salary_range: string;
-  job_market_demand: string;
-  open_positions?: number;
+type PathwayRow = Pathway & { open_positions?: number };
+
+function demandBadge(demand: string | null) {
+  if (demand === "HIGH") return "energizing" as const;
+  if (demand === "LOW") return "draining" as const;
+  return "neutral" as const;
+}
+
+type PathwaysExplorerProps = {
+  embedded?: boolean;
 };
 
-export function PathwaysExplorer() {
-  const [pathways, setPathways] = useState<Pathway[]>([]);
+export function PathwaysExplorer({ embedded = false }: PathwaysExplorerProps) {
+  const [pathways, setPathways] = useState<PathwayRow[]>([]);
   const [specialty, setSpecialty] = useState("");
   const [loading, setLoading] = useState(true);
 
@@ -25,69 +29,90 @@ export function PathwaysExplorer() {
     fetch("/api/v1/pathways")
       .then((r) => r.json())
       .then((d) => {
-        setPathways(d.pathways ?? []);
+        setPathways((d.pathways as PathwayRow[]) ?? []);
         setSpecialty(d.specialty ?? "");
-        setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch(() => undefined)
+      .finally(() => setLoading(false));
   }, []);
 
-  function demandBadge(demand: string) {
-    if (demand === "HIGH") return "energizing" as const;
-    if (demand === "LOW") return "draining" as const;
-    return "neutral" as const;
-  }
-
-  return (
-    <section className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 className="flex items-center gap-2 text-lg font-semibold">
-          <Map className="text-cx-text" size={22} />
-          Career pathways
-          {specialty && (
-            <span className="text-base font-normal text-cx-text-secondary">
-              · {specialty}
-            </span>
-          )}
-        </h2>
+  const body = (
+    <>
+      {!embedded && (
         <Link
-          href="/app/jobs"
-          className="inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-primary"
+          href="/app/plan"
+          className="mb-6 inline-block text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
         >
-          View job matches
-          <ChevronRight size={16} />
+          Back to strategy
         </Link>
-      </div>
-
-      {loading && <p className="text-sm text-cx-text-secondary">Loading pathways…</p>}
-
-      {!loading && pathways.length === 0 && (
-        <Card>
-          <p className="text-sm text-cx-text-secondary">
-            Complete onboarding to see pathways for your specialty.
-          </p>
-        </Card>
       )}
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        {pathways.map((p) => (
-          <Card key={p.pathway_id} accent="green">
-            <div className="flex items-start justify-between gap-2">
-              <h3 className="font-semibold">{p.pathway_type}</h3>
-              <Badge energy={demandBadge(p.job_market_demand)}>
-                {p.job_market_demand} demand
-              </Badge>
-            </div>
-            <p className="mt-2 text-sm text-cx-text-secondary">{p.description}</p>
-            <p className="mt-2 text-sm">{p.salary_range}</p>
-            {p.open_positions != null && (
-              <p className="mt-1 text-xs text-cx-text-secondary">
-                {p.open_positions} open positions
-              </p>
-            )}
-          </Card>
-        ))}
-      </div>
-    </section>
+      {loading && <p className="text-sm text-cx-forest-dark/70">Loading pathways…</p>}
+
+      {!loading && pathways.length === 0 && (
+        <CardSection
+          eyebrow="Career pathways"
+          title="No pathways yet"
+          description="Complete your Career Profile to see specialty pathways tailored to your background."
+          icon={Map}
+          mak={PATHWAYS_MAK.overview}
+        />
+      )}
+
+      {!loading && pathways.length > 0 && (
+        <div className="space-y-4">
+          <CardSection
+            compact
+            eyebrow={specialty ? `${specialty} pathways` : "Career pathways"}
+            title={`${pathways.length} pathway${pathways.length === 1 ? "" : "s"} for your specialty`}
+            description="Compare clinical, research, and hybrid tracks — then explore matched open positions."
+            icon={Map}
+            mak={PATHWAYS_MAK.overview}
+            footer={
+              <Link
+                href="/app/plan?tab=jobs"
+                className="inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+              >
+                View job matches
+                <ChevronRight size={16} />
+              </Link>
+            }
+          />
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {pathways.map((pathway) => (
+              <CardSection
+                key={pathway.pathway_id}
+                eyebrow={pathway.specialty}
+                title={pathway.pathway_type}
+                description={pathway.description ?? undefined}
+                mak={PATHWAYS_MAK.pathway(pathway.pathway_type, pathway.description ?? "")}
+                footer={
+                  pathway.open_positions != null ? (
+                    <p className="text-xs text-cx-forest-dark/60">
+                      {pathway.open_positions} open position
+                      {pathway.open_positions === 1 ? "" : "s"}
+                    </p>
+                  ) : undefined
+                }
+              >
+                <div className="flex flex-wrap items-center gap-2">
+                  {pathway.job_market_demand && (
+                    <Badge energy={demandBadge(pathway.job_market_demand)}>
+                      {pathway.job_market_demand} demand
+                    </Badge>
+                  )}
+                  {pathway.salary_range && (
+                    <span className="text-sm text-cx-forest-dark/80">{pathway.salary_range}</span>
+                  )}
+                </div>
+              </CardSection>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
+
+  return body;
 }

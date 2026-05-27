@@ -15,31 +15,7 @@ export async function GET(request: Request) {
     "Cardiology";
 
   if (auth.demo) {
-    return jsonOk({
-      specialty,
-      pathways: [
-        {
-          pathway_id: "demo-clinical",
-          specialty,
-          pathway_type: "Clinical",
-          description: "Focus on patient care and clinical excellence.",
-          salary_range: "$200,000 - $400,000",
-          job_market_demand: "HIGH",
-          milestones: [{ year: 1, goal: "Board certification" }],
-          open_positions: 45,
-        },
-        {
-          pathway_id: "demo-research",
-          specialty,
-          pathway_type: "Research",
-          description: "Career in research and grants.",
-          salary_range: "$120,000 - $250,000",
-          job_market_demand: "MEDIUM",
-          milestones: [],
-          open_positions: 12,
-        },
-      ],
-    });
+    return jsonOk({ specialty, pathways: [] });
   }
 
   const supabase = await createClient();

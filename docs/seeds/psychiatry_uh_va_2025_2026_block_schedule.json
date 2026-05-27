@@ -1,0 +1,336 @@
+{
+  "program": {
+    "name": "Psychiatry Residency (UH/VA Cleveland area)",
+    "schedule_source": "Public 2025-2026 Block Schedule",
+    "academic_year": "2025-2026",
+    "year_start": "2025-07-01",
+    "year_end": "2026-06-28",
+    "block_unit": "2_weeks",
+    "blocks_per_year": 26,
+    "block_labels": [
+      "1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "6A", "6B",
+      "7A", "7B", "8A", "8B", "9A", "9B", "10A", "10B", "11A", "11B", "12A", "12B", "13A", "13B"
+    ],
+    "notes": [
+      "Schedule subject to change per program",
+      "NF = Night Float (overnight coverage; generally no vacation)",
+      "# suffix = BHI/Access Clinic overlay (case-by-case)",
+      "PPP-1 = program-specific training year (treat as PGY-3 equivalent for lattice)"
+    ]
+  },
+  "block_calendar": {
+    "1A": { "start": "2025-07-01", "end": "2025-07-13" },
+    "1B": { "start": "2025-07-14", "end": "2025-07-27" },
+    "2A": { "start": "2025-07-28", "end": "2025-08-10" },
+    "2B": { "start": "2025-08-11", "end": "2025-08-24" },
+    "3A": { "start": "2025-08-25", "end": "2025-09-07" },
+    "3B": { "start": "2025-09-08", "end": "2025-09-21" },
+    "4A": { "start": "2025-09-22", "end": "2025-10-05" },
+    "4B": { "start": "2025-10-06", "end": "2025-10-19" },
+    "5A": { "start": "2025-10-20", "end": "2025-11-02" },
+    "5B": { "start": "2025-11-03", "end": "2025-11-16" },
+    "6A": { "start": "2025-11-17", "end": "2025-11-30" },
+    "6B": { "start": "2025-12-01", "end": "2025-12-14" },
+    "7A": { "start": "2025-12-15", "end": "2025-12-28" },
+    "7B": { "start": "2025-12-29", "end": "2026-01-11" },
+    "8A": { "start": "2026-01-12", "end": "2026-01-25" },
+    "8B": { "start": "2026-01-26", "end": "2026-02-08" },
+    "9A": { "start": "2026-02-09", "end": "2026-02-22" },
+    "9B": { "start": "2026-02-23", "end": "2026-03-08" },
+    "10A": { "start": "2026-03-09", "end": "2026-03-22" },
+    "10B": { "start": "2026-03-23", "end": "2026-04-05" },
+    "11A": { "start": "2026-04-06", "end": "2026-04-19" },
+    "11B": { "start": "2026-04-20", "end": "2026-05-03" },
+    "12A": { "start": "2026-05-04", "end": "2026-05-17" },
+    "12B": { "start": "2026-05-18", "end": "2026-05-31" },
+    "13A": { "start": "2026-06-01", "end": "2026-06-14" },
+    "13B": { "start": "2026-06-15", "end": "2026-06-28" }
+  },
+  "rotation_catalog": [
+    {
+      "code": "va_ct6",
+      "display_name": "VA CT6 Inpatient Psychiatry",
+      "category": "inpatient",
+      "site": "VA",
+      "typical_pgy": ["PGY-1", "PGY-2"],
+      "vacation_policy": "inpatient_psych",
+      "career_domains": ["clinical_craft", "relational_leadership", "systems_impact"],
+      "career_signals": ["acute stabilization", "psychopharmacology", "risk assessment", "team leadership"],
+      "capture_prompts": {
+        "mid_block": "What acute case sharpened your diagnostic or safety planning skills?",
+        "end_block": "What crisis management evidence did this inpatient month generate?"
+      }
+    },
+    {
+      "code": "uh_concord",
+      "display_name": "UH Concord Inpatient Psychiatry",
+      "category": "inpatient",
+      "site": "UH",
+      "typical_pgy": ["PGY-1", "PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "relational_leadership"],
+      "career_signals": ["inpatient psychiatry", "treatment planning", "discharge planning"],
+      "capture_prompts": {
+        "end_block": "What discharge or systems barrier did you navigate?"
+      }
+    },
+    {
+      "code": "swg",
+      "display_name": "SWG Inpatient Psychiatry",
+      "category": "inpatient",
+      "site": "SWG",
+      "typical_pgy": ["PGY-1", "PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "systems_impact"],
+      "career_signals": ["community hospital psychiatry", "resource-limited settings"]
+    },
+    {
+      "code": "northcoast",
+      "display_name": "Northcoast Inpatient Psychiatry",
+      "category": "inpatient",
+      "site": "Northcoast",
+      "typical_pgy": ["PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "systems_impact"]
+    },
+    {
+      "code": "capu",
+      "display_name": "CAPU (Portals) — Child/Adolescent Inpatient",
+      "category": "child_inpatient",
+      "site": "Portals",
+      "typical_pgy": ["PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "relational_leadership", "trust_identity"],
+      "career_signals": ["child adolescent psychiatry", "family systems", "developmental formulation"],
+      "capture_prompts": {
+        "end_block": "What family/systems work from CAPU supports a CAP fellowship narrative?"
+      }
+    },
+    {
+      "code": "psych_ed_uh",
+      "display_name": "Psych ED — UH",
+      "category": "emergency",
+      "site": "UH",
+      "typical_pgy": ["PGY-1"],
+      "career_domains": ["clinical_craft", "relational_leadership", "systems_impact"],
+      "career_signals": ["crisis evaluation", "risk assessment", "disposition", "rapid formulation"],
+      "capture_prompts": {
+        "mid_block": "What disposition or safety decision did you lead or observe?",
+        "end_block": "What emergency psych story could you use in an interview?"
+      }
+    },
+    {
+      "code": "psych_ed_uh_va",
+      "display_name": "Psych ED — UH/VA",
+      "category": "emergency",
+      "site": "UH/VA",
+      "typical_pgy": ["PGY-1"],
+      "career_domains": ["clinical_craft", "systems_impact"],
+      "career_signals": ["VA + academic emergency psych", "triage", "collaboration across sites"]
+    },
+    {
+      "code": "cl",
+      "display_name": "Consultation-Liaison Psychiatry",
+      "category": "consultation_liaison",
+      "site": "UH/VA",
+      "typical_pgy": ["PGY-1", "PGY-2", "PPP-1"],
+      "vacation_policy": "no_vacation",
+      "career_domains": ["clinical_craft", "relational_leadership", "systems_impact", "knowledge_base"],
+      "career_signals": ["CL psychiatry", "capacity", "delirium", "medical complexity", "interprofessional communication"],
+      "capture_prompts": {
+        "mid_block": "What consult required you to communicate psychiatric recommendations to a medical team?",
+        "end_block": "Generate CL rotation debrief: 3 strengths, 2 growth areas, 1 capacity/delirium story."
+      }
+    },
+    {
+      "code": "mpu_cl",
+      "display_name": "MPU-CL",
+      "category": "consultation_liaison",
+      "site": "UH",
+      "typical_pgy": ["PGY-1", "PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "systems_impact"],
+      "career_signals": ["medical psychiatry unit", "complex medical-psychiatric interface"]
+    },
+    {
+      "code": "child_cl",
+      "display_name": "Child Consultation-Liaison",
+      "category": "consultation_liaison",
+      "site": "UH",
+      "typical_pgy": ["PPP-1"],
+      "career_domains": ["clinical_craft", "relational_leadership"],
+      "career_signals": ["pediatric CL", "CAP", "family meetings"]
+    },
+    {
+      "code": "outpatient_addiction",
+      "display_name": "Outpatient Addiction Psychiatry",
+      "category": "addiction",
+      "site": "UH",
+      "typical_pgy": ["PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "trust_identity", "systems_impact"],
+      "career_signals": ["addiction psychiatry", "MAT", "harm reduction", "motivational interviewing"]
+    },
+    {
+      "code": "va_addiction",
+      "display_name": "VA Addiction Psychiatry",
+      "category": "addiction",
+      "site": "VA",
+      "typical_pgy": ["PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "systems_impact"],
+      "career_signals": ["VA SUD care", "dual diagnosis"]
+    },
+    {
+      "code": "mat_addiction",
+      "display_name": "MAT Addiction",
+      "category": "addiction",
+      "site": "UH/VA",
+      "typical_pgy": ["PGY-1", "PGY-2", "PPP-1"],
+      "block_length": "2_weeks",
+      "career_domains": ["clinical_craft", "knowledge_base"],
+      "career_signals": ["buprenorphine", "medication for OUD"]
+    },
+    {
+      "code": "geriatric_psychiatry",
+      "display_name": "Geriatric Psychiatry",
+      "category": "geriatric",
+      "site": "UH/VA",
+      "typical_pgy": ["PGY-2", "PPP-1"],
+      "career_domains": ["clinical_craft", "knowledge_base", "systems_impact"],
+      "career_signals": ["geriatric psychiatry", "capacity", "polypharmacy", "caregiver systems"]
+    },
+    {
+      "code": "neurology",
+      "display_name": "Neurology (off-service)",
+      "category": "off_service",
+      "site": "UH/VA",
+      "typical_pgy": ["PGY-1", "PGY-2", "PPP-1"],
+      "required": true,
+      "career_domains": ["knowledge_base", "clinical_craft"],
+      "career_signals": ["neuropsychiatric interface", "brain-behavior", "differential diagnosis"]
+    },
+    {
+      "code": "va_im",
+      "display_name": "VA Internal Medicine",
+      "category": "off_service",
+      "site": "VA",
+      "typical_pgy": ["PGY-1"],
+      "required": true,
+      "career_domains": ["knowledge_base", "clinical_craft"],
+      "career_signals": ["medical foundation", "med-psych interface"]
+    },
+    {
+      "code": "va_ed_im",
+      "display_name": "VA ED for IM",
+      "category": "off_service",
+      "site": "VA",
+      "typical_pgy": ["PGY-1"],
+      "career_domains": ["clinical_craft", "systems_impact"]
+    },
+    {
+      "code": "uh_ed",
+      "display_name": "UH Emergency Medicine",
+      "category": "off_service",
+      "site": "UH",
+      "typical_pgy": ["PGY-1"],
+      "career_domains": ["clinical_craft", "relational_leadership"]
+    },
+    {
+      "code": "pediatrics",
+      "display_name": "Pediatrics (off-service)",
+      "category": "off_service",
+      "site": "UH/VA",
+      "typical_pgy": ["PGY-1"],
+      "required": true,
+      "career_domains": ["knowledge_base", "relational_leadership"],
+      "career_signals": ["developmental medicine", "CAP interest signal"]
+    },
+    {
+      "code": "peds_ed",
+      "display_name": "Pediatrics ED",
+      "category": "off_service",
+      "site": "UH",
+      "typical_pgy": ["PGY-1"],
+      "career_domains": ["clinical_craft"]
+    },
+    {
+      "code": "medtox",
+      "display_name": "Medical Toxicology",
+      "category": "off_service",
+      "block_length": "2_weeks",
+      "typical_pgy": ["PGY-1"],
+      "career_domains": ["knowledge_base", "clinical_craft"],
+      "career_signals": ["toxicology", "overdose", "medical complexity"]
+    },
+    {
+      "code": "uh_interventional",
+      "display_name": "UH Interventional Psychiatry",
+      "category": "specialty_exposure",
+      "block_length": "2_weeks",
+      "typical_pgy": ["PGY-1", "PGY-2"],
+      "career_domains": ["knowledge_base", "clinical_craft"],
+      "career_signals": ["ECT", "TMS", "interventional psychiatry"]
+    },
+    {
+      "code": "nf",
+      "display_name": "Night Float",
+      "category": "coverage",
+      "typical_pgy": ["PGY-2"],
+      "vacation_policy": "generally_no_vacation",
+      "career_domains": ["clinical_craft", "growth_engine"],
+      "capture_prompts": {
+        "end_block": "What did overnight coverage teach you about autonomy and knowing when to escalate?"
+      },
+      "fiscmak_note": "Lower capture pressure; focus on growth/autonomy not volume logging"
+    },
+    {
+      "code": "elective",
+      "display_name": "Elective",
+      "category": "elective",
+      "vacation_policy": "backup_coverage_required",
+      "career_domains": ["growth_engine"],
+      "career_signals": ["career exploration", "scholarship", "subspecialty sampling"]
+    },
+    {
+      "code": "vacation",
+      "display_name": "Vacation",
+      "category": "non_clinical",
+      "fiscmak_note": "No capture prompts"
+    },
+    {
+      "code": "leave",
+      "display_name": "Leave",
+      "category": "non_clinical",
+      "fiscmak_note": "No capture prompts; PD visibility only"
+    },
+    {
+      "code": "bhi_access",
+      "display_name": "BHI/Access Clinic (overlay)",
+      "category": "outpatient",
+      "suffix_marker": "#",
+      "career_domains": ["systems_impact", "clinical_craft"],
+      "career_signals": ["collaborative care", "access psychiatry", "primary care integration"]
+    }
+  ],
+  "pgy_rotation_summary": {
+    "PGY-1": {
+      "focus": "Foundation: inpatient, emergency psych, off-service medicine/peds/neuro, early CL exposure",
+      "required_exposures": ["va_im_or_equivalent", "pediatrics", "neurology", "psych_ed", "inpatient_psych", "cl_exposure"],
+      "typical_block_count": 26,
+      "semiannual_reviews": ["~Block 7B (late Dec/Jan)", "~Block 13B (late June)"]
+    },
+    "PGY-2": {
+      "focus": "CL-heavy, CAPU, geriatric, addiction, NF, Northcoast; career differentiation begins",
+      "required_exposures": ["cl", "capu", "geriatric_psychiatry", "addiction", "nf"],
+      "typical_block_count": 26
+    },
+    "PPP-1": {
+      "focus": "Advanced CL, CAPU, Child CL, addiction, geriatric — treat as PGY-3 for FISCMAK",
+      "fiscmak_pgy_mapping": "PGY-3",
+      "typical_block_count": 26
+    }
+  },
+  "vacation_policy_key": {
+    "inpatient_psych": "Request up to 5 days",
+    "required_month_long": "Long block — case-by-case up to 3 days/month per ACGME",
+    "cl": "No vacation",
+    "off_service": "No vacation",
+    "nf": "Generally no vacation",
+    "elective": "Only with backup coverage",
+    "vacation": "Pre-scheduled"
+  }
+}

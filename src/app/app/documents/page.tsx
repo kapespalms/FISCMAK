@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { DocumentsWorkspace } from "@/components/workspace/DocumentsWorkspace";
 
 export default function DocumentsPage() {
-  redirect("/app/objective?tab=documents");
+  return <DocumentsWorkspace />;
 }

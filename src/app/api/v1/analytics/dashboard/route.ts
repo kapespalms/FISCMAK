@@ -6,6 +6,7 @@ import {
   requireApiUser,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
+import { sanitizeAnalyticsDashboardForUser } from "@/lib/v2/user-facing-analytics";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -15,27 +16,5 @@ export async function GET() {
     user = await upsertAppUser(auth.userId, auth.email, {}, auth.demo);
   }
   const dashboard = await buildAnalyticsDashboard(user, auth.demo);
-  return jsonOk({
-    career_readiness_index: dashboard.career_readiness_index,
-    career_health: dashboard.career_health,
-    coaching_brief: dashboard.coaching_brief,
-    quarterly_pulse: dashboard.quarterly_pulse,
-    annual_refresh: dashboard.annual_refresh,
-    pulse_streak: dashboard.pulse_streak,
-    previous_career_health_score: dashboard.previous_career_health_score,
-    pulse_history: dashboard.pulse_history,
-    metric_history: dashboard.metric_history,
-    dashboard_lattice: dashboard.dashboard_lattice,
-    objective_summary: dashboard.objective_summary,
-    document_cards: dashboard.document_cards,
-    goal_milestone_history: dashboard.goal_milestone_history,
-    stalled_goal_title: dashboard.stalled_goal_title,
-    stalled_goal_quarters: dashboard.stalled_goal_quarters,
-    onboarding_progress: dashboard.onboarding_progress,
-    assessment_progress: dashboard.assessment_progress,
-    burnout_trend: dashboard.burnout_trend,
-    job_engagement: dashboard.job_engagement,
-    next_touchpoint: dashboard.next_touchpoint,
-    cv_metrics: dashboard.cv_metrics,
-  });
+  return jsonOk(sanitizeAnalyticsDashboardForUser(dashboard));
 }

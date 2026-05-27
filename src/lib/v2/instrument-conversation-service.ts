@@ -69,11 +69,4 @@ export async function processInstrumentTurn(
   };
 }
 
-export function nextInstrumentPrompt(user: AppUser): string | null {
-  const meta = getOnboardingMetadata(user);
-  const instrumentIds =
-    meta.instrument_ids ??
-    deployedInstruments(user.career_stage, user.practice_setting).map((i) => i.id);
-  const progress = instrumentProgress(instrumentIds, meta.instrument_answers ?? []);
-  return progress.pendingCluster?.makPrompt ?? null;
-}
+export { nextInstrumentPrompt } from "@/lib/v2/instrument-conversation-prompts";

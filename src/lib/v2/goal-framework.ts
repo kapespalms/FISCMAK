@@ -1,5 +1,12 @@
 import type { CareerStage, PracticeSetting, PrimaryCareerTrack, AcademicRank } from "@/lib/v2/onboarding-options";
 import type { GoalFrameworkType } from "@/lib/v2/soap-tab-spec";
+import {
+  buildGoalArchetypeSummaryBlock,
+  GOAL_ARCHETYPE_DEFINITIONS,
+  resolveGoalArchetype,
+  type GoalArchetype,
+  type GoalArchetypeAnatomy,
+} from "@/lib/v2/goal-archetype-templates";
 import type { CareerGoal } from "@/lib/goals";
 import { resolveAcademicProfile, isAcademicContext } from "@/lib/v2/academic-profiles";
 
@@ -19,6 +26,8 @@ export type StructuredGoal = {
   milestones: GoalMilestone[];
   latticeCells?: string[];
   invisibleWorkTargets?: string[];
+  goalArchetype?: GoalArchetype;
+  anatomy?: GoalArchetypeAnatomy;
 };
 
 export type GoalAdaptationRow = {
@@ -236,6 +245,8 @@ export function careerGoalsToStructuredGoals(goals: CareerGoal[]): StructuredGoa
       rationale: g.why_this_fits ?? g.goal_description ?? "",
       progress,
       milestones,
+      goalArchetype: g.goal_archetype ?? undefined,
+      anatomy: g.goal_anatomy ?? undefined,
     };
   });
 }
@@ -257,6 +268,14 @@ export function defaultStructuredGoals(input: {
     {
       type: "development",
       title: "Build educational leadership portfolio",
+      goalArchetype: "skill_development",
+      anatomy: {
+        current_skills: "Clinical expert, strong teaching evaluations, ad-hoc mentoring",
+        target_credential: "Formal educational leadership credential and accreditation experience",
+        pathway: "Certificate (6 mo) → education scholarship (6 mo) → clerkship director (6 mo) → program director track (6 mo)",
+        timeline: "18 months",
+        internal_obstacle: 'Imposter syndrome — "I\'m a clinician, not an administrator"',
+      },
       rationale: `Your Career Profile shows strong teaching skills${input.teachingPercentile ? ` (${input.teachingPercentile}th percentile)` : ""} but limited educational leadership experience. Your stated 3-year objective is ${objective}. The gap is primarily in educational leadership, accreditation experience, and educational scholarship.`,
       progress: 60,
       latticeCells: [
@@ -294,6 +313,14 @@ export function defaultStructuredGoals(input: {
     {
       type: "maintenance",
       title: "Sustain clinical teaching excellence",
+      goalArchetype: "visibility_recognition",
+      anatomy: {
+        invisible_work: "Teaching hours and curriculum design without protected time or formal credit",
+        formalization_goal: "Protected teaching schedule (≥60% current hours) and teaching award nomination",
+        stakeholders: "Department chair, medical education committee",
+        timeline: "12 months — schedule protection → evaluation check → award nomination",
+        internal_obstacle: 'Fear of asking — "Teaching is just what I do, not something to negotiate for"',
+      },
       rationale:
         "Teaching evaluations are in a strong percentile — a significant professional strength. As administrative responsibilities expand, there is documented risk of teaching quality erosion. Protecting this strength is essential for professional identity and advancement portfolio.",
       progress: 80,
@@ -328,6 +355,14 @@ export function defaultStructuredGoals(input: {
     {
       type: "sustainability",
       title: "Optimize task alignment",
+      goalArchetype: "work_life_integration",
+      anatomy: {
+        burnout_signals: `35% of time on tasks outside core role; ${unrecognized} hrs/week unrecognized work; unreasonable task score ${unreasonable.toFixed(1)}/5.0`,
+        target_state: "Core-role focus with ≤8 hrs/week unrecognized work and sustainable energy",
+        constraints: "Cannot reduce clinical volume below contract minimum; limited admin support",
+        experiment: "Delegate Documentation Overspill via scribe workflow; reassign Care Coordination to RN team",
+        internal_obstacle: 'Guilt — "If I push back, I\'m not being a team player"',
+      },
       rationale: `Your Task Alignment data shows 35% of work time spent on tasks outside your core professional role, with ${unrecognized} hours/week of unrecognized work. Your unreasonable task score (${unreasonable.toFixed(1)}/5.0) is above the median for your specialty. Reducing this burden will protect professional engagement and reduce strain risk.`,
       progress: 30,
       latticeCells: [
@@ -376,20 +411,30 @@ export const GOAL_MODIFY_PROMPT = `Which aspect would you like to modify?
 2. The milestones — adjust timelines, add or remove milestones
 3. The scope — make it more or less ambitious`;
 
-export const GOAL_REPLACE_PROMPT = `Describe your goal in one sentence. The platform will help structure it with SMART milestones.
+export const GOAL_REPLACE_PROMPT = `Describe your goal in one sentence. Most physician goals follow one of four patterns:
+
+- **Role shift** — move from one career identity to another (e.g., researcher → leader)
+- **Work-life integration** — sustainable balance without burnout
+- **Skill development** — build a credential or competency with a clear pathway
+- **Visibility** — get credit for invisible work (mentoring, admin, quality)
 
 Example: "I want to transition from clinical practice to medical education leadership"`;
 
-export function buildGoalReplaceDraft(freeText: string): string {
-  return `Based on your input, here is a structured version:
+export function buildGoalReplaceDraft(freeText: string, frameworkType?: GoalFrameworkType): string {
+  const archetype = resolveGoalArchetype({ text: freeText, frameworkType });
+  const def = GOAL_ARCHETYPE_DEFINITIONS[archetype];
+  const anatomyBlock = buildGoalArchetypeSummaryBlock(archetype);
 
-Development Goal: ${freeText.trim()}
+  return `Based on your input, this looks like a **${def.label}** goal — ${def.pattern.toLowerCase()}.
 
-Rationale: Your Career Profile shows strong clinical and teaching foundations. The transition requires building administrative competency, educational scholarship, and accreditation experience.
+**Your objective:** ${freeText.trim()}
 
-Proposed milestones will be generated for the next four quarters based on your Career Map gaps.
+**Structure we'll fill in:**
+${def.anatomyFields.map((f) => `- ${f.label}`).join("\n")}
 
-Confirm, modify, or start over.`;
+${anatomyBlock}
+
+Choose an option below, or tell me more about your current state, target, and timeline.`;
 }
 
 export function buildQuarterlyGoalReview(input: {
