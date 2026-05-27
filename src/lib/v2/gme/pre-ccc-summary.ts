@@ -4,6 +4,13 @@ import {
   synthesizeNarratives,
 } from "@/lib/v2/gme/narrative-synthesis";
 
+export type PreCccPriteExam = {
+  exam_type: string;
+  exam_year: number;
+  overall_percentile: number | null;
+  domain_scores: Record<string, number>;
+};
+
 export type PreCccEvalSummary = {
   eval_id: string | null;
   rotation_name: string | null;
@@ -38,6 +45,10 @@ export type PreCccSummary = {
     active_count: number;
     note: string;
   };
+  prite_scores: {
+    exams: PreCccPriteExam[];
+    note: string;
+  };
   disclaimer: string;
 };
 
@@ -55,6 +66,10 @@ function lowestMilestone(scores: Record<string, number>) {
   );
 }
 
+export function formatPriteDomainLabel(key: string): string {
+  return key.replace(/^domain_/, "").replace(/_/g, " ");
+}
+
 export function buildPreCccSummary(input: {
   traineeUserId?: string | null;
   traineeInitials?: string | null;
@@ -62,6 +77,7 @@ export function buildPreCccSummary(input: {
   reportingPeriod?: string;
   evaluations: ParsedMedhubEvalRow[];
   ilpGoals?: Array<{ status: string }>;
+  priteExams?: PreCccPriteExam[];
 }): PreCccSummary {
   const evalSummaries: PreCccEvalSummary[] = input.evaluations.map((ev) => {
     const scoreValues = Object.values(ev.numeric_scores);
@@ -99,6 +115,8 @@ export function buildPreCccSummary(input: {
   const ilpGoals = input.ilpGoals ?? [];
   const draftCount = ilpGoals.filter((g) => g.status === "draft").length;
   const activeCount = ilpGoals.filter((g) => g.status === "active").length;
+  const priteExams = input.priteExams ?? [];
+  const latestPrite = [...priteExams].sort((a, b) => b.exam_year - a.exam_year)[0];
 
   return {
     trainee_user_id: input.traineeUserId ?? null,
@@ -129,6 +147,12 @@ export function buildPreCccSummary(input: {
           : draftCount > 0
             ? `${draftCount} draft ILP goal(s) awaiting PD review.`
             : "No ILP goals recorded for this period.",
+    },
+    prite_scores: {
+      exams: priteExams,
+      note: latestPrite
+        ? `Latest ${latestPrite.exam_type} (${latestPrite.exam_year}): ${latestPrite.overall_percentile ?? "—"}th percentile overall.`
+        : "No PRITE/in-training exam scores imported — upload PRITE CSV in KP Admin.",
     },
     disclaimer:
       "AI-assisted synthesis from imported MedHub data — verify against original evaluations in MedHub.",

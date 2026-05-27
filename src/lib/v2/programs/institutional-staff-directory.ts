@@ -52,24 +52,58 @@ function toRow(department: string, contact: StaffContact): StaffContactRow {
   };
 }
 
+function withContactRouting(row: StaffContactRow): StaffContactRow {
+  const routing = (seed as StaffDirectorySeed & {
+    contact_routing?: {
+      chief_residents?: { names: string[]; route_to: StaffContact; note: string };
+      education_chief?: { name: string; route_to: StaffContact };
+    };
+  }).contact_routing;
+
+  if (routing?.chief_residents?.names.includes(row.name.replace(/^Dr\.\s*/, ""))) {
+    const target = routing.chief_residents.route_to;
+    return {
+      ...row,
+      notes:
+        row.notes ??
+        `Contact via ${target.name} (${target.email ?? "program admin"}) — ${routing.chief_residents.note}`,
+    };
+  }
+
+  if (routing?.education_chief?.name === row.name.replace(/^Dr\.\s*/, "")) {
+    const target = routing.education_chief.route_to;
+    return {
+      ...row,
+      email: row.email ?? target.email ?? null,
+      notes: row.notes ?? `Education questions — cc ${target.name} (${target.email})`,
+    };
+  }
+
+  return row;
+}
+
 export function getInstitutionalStaffDirectorySections(): StaffDirectorySection[] {
+  const mapRows = (rows: StaffContactRow[]) => rows.map(withContactRouting);
+
   return [
     {
       id: "department-leadership",
       title: "Department leadership",
-      rows: seed.department_leadership.map((contact) => toRow(contact.role, contact)),
+      rows: mapRows(seed.department_leadership.map((contact) => toRow(contact.role, contact))),
     },
     ...seed.divisions_and_fellowships.map((division) => ({
       id: division.division.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
       title: division.division,
-      rows: division.contacts.map((contact) => toRow(contact.role, contact)),
+      rows: mapRows(division.contacts.map((contact) => toRow(contact.role, contact))),
       emptyMessage: "Contacts pending.",
     })),
     {
       id: "general-adult-psychiatry-residency",
       title: seed.general_adult_psychiatry_residency.program_name,
-      rows: seed.general_adult_psychiatry_residency.staff.map((contact) =>
-        toRow(contact.role, contact),
+      rows: mapRows(
+        seed.general_adult_psychiatry_residency.staff.map((contact) =>
+          toRow(contact.role, contact),
+        ),
       ),
     },
   ];

@@ -130,6 +130,27 @@
       }
     ]
   },
+  "contact_routing": {
+    "chief_residents": {
+      "names": ["Daniel Phillip", "Eric Reinhart", "Jonathan Hardy"],
+      "email_public": false,
+      "route_to": {
+        "role": "Program Administrator",
+        "name": "Melvyna Williams",
+        "email": "melvyna.williams@uhhospitals.org"
+      },
+      "note": "Chief resident emails are not on the public UH directory — contact Melvyna Williams for chief resident routing."
+    },
+    "education_chief": {
+      "name": "Andrea Costin",
+      "email_public": false,
+      "route_to": {
+        "role": "Assistant Program Director",
+        "name": "Dr. Andrew Hunt",
+        "email": "andrew.hunt@uhhospitals.org"
+      }
+    }
+  },
   "onboarding_notes": [
     "Residents joining via institutional onboarding should save program leadership contacts before first day.",
     "General psychiatry residency logistics: Melvyna Williams (MedHub, scheduling, orientation).",

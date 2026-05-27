@@ -4,7 +4,10 @@ import { useCallback, useEffect, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { PreCccSummaryPanel } from "@/components/gme/PreCccSummaryPanel";
+import { CohortHeatmapPanel } from "@/components/gme/CohortHeatmapPanel";
 import type { PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
+import { exportPreCccBatchPdf } from "@/lib/v2/gme/pre-ccc-export";
+import { downloadBlob } from "@/lib/studio-export";
 
 type ImportRow = {
   import_id: string;
@@ -39,11 +42,15 @@ export function KpAdminGmePanel() {
   const [ilpMessage, setIlpMessage] = useState<string | null>(null);
   const [batchSummaries, setBatchSummaries] = useState<PreCccSummary[]>([]);
   const [batchLoading, setBatchLoading] = useState(false);
+  const [batchExporting, setBatchExporting] = useState(false);
   const [surveyManual, setSurveyManual] = useState("45");
   const [surveyFiscmak, setSurveyFiscmak] = useState("15");
   const [surveySaved, setSurveySaved] = useState("");
   const [surveyNotes, setSurveyNotes] = useState("");
   const [surveyRecommend, setSurveyRecommend] = useState(true);
+  const [priteCsv, setPriteCsv] = useState("");
+  const [priteResult, setPriteResult] = useState<string | null>(null);
+  const [syncResult, setSyncResult] = useState<string | null>(null);
 
   const refreshImports = useCallback(async () => {
     const res = await fetch(`/api/v1/programs/${programSlug}/imports`);
@@ -159,6 +166,62 @@ export function KpAdminGmePanel() {
     }
   }
 
+  async function exportBatchPreCccPdf() {
+    if (!batchSummaries.length) return;
+    setBatchExporting(true);
+    try {
+      const blob = await exportPreCccBatchPdf(batchSummaries);
+      downloadBlob(blob, `pre-ccc-cohort-${programSlug}-current.pdf`);
+    } finally {
+      setBatchExporting(false);
+    }
+  }
+
+  async function triggerMedhubSync() {
+    setSyncResult(null);
+    const res = await fetch(`/api/v1/programs/${programSlug}/imports/medhub/sync`, {
+      method: "POST",
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      setSyncResult(data.message ?? "Sync request failed.");
+      return;
+    }
+    const last = data.recent_runs?.[0] as
+      | { status?: string; started_at?: string }
+      | undefined;
+    const history =
+      data.recent_runs?.length > 1
+        ? ` · ${data.recent_runs.length} run(s) logged`
+        : "";
+    setSyncResult(
+      `${data.message ?? `Status: ${data.status}`}${last?.started_at ? ` · last check ${new Date(last.started_at).toLocaleString()}` : ""}${history}`,
+    );
+  }
+
+  async function submitPriteImport() {
+    if (!priteCsv.trim()) {
+      setPriteResult("Paste PRITE CSV first.");
+      return;
+    }
+    setPriteResult(null);
+    const res = await fetch(`/api/v1/programs/${programSlug}/exams/import`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ csv_text: priteCsv }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      setPriteResult(data.message ?? "PRITE import failed.");
+      return;
+    }
+    setPriteResult(
+      data.demo
+        ? `Demo: parsed ${data.preview?.length ?? 0} row(s).`
+        : `Imported ${data.row_count} PRITE row(s).`,
+    );
+  }
+
   async function submitSurvey() {
     const manual = Number(surveyManual);
     const fiscmak = Number(surveyFiscmak);
@@ -243,13 +306,58 @@ export function KpAdminGmePanel() {
       </Card>
 
       <Card>
+        <h3 className="text-lg font-semibold text-cx-forest-dark">MedHub live sync</h3>
+        <p className="mt-2 text-sm text-cx-forest-dark/75">
+          Pilot uses CSV import by default. Live sync requires{" "}
+          <code className="text-xs">MEDHUB_API_URL</code> +{" "}
+          <code className="text-xs">MEDHUB_API_KEY</code> env vars.
+        </p>
+        <Button className="mt-3" variant="secondary" onClick={() => void triggerMedhubSync()}>
+          Check sync status
+        </Button>
+        {syncResult && <p className="mt-2 text-sm text-cx-forest-dark/80">{syncResult}</p>}
+      </Card>
+
+      <Card>
+        <h3 className="text-lg font-semibold text-cx-forest-dark">PRITE scores import</h3>
+        <p className="mt-2 text-sm text-cx-forest-dark/75">
+          Example:{" "}
+          <code className="text-xs">docs/seeds/examples/uh_prite_scores_wide.csv</code>
+        </p>
+        <textarea
+          value={priteCsv}
+          onChange={(e) => setPriteCsv(e.target.value)}
+          placeholder="Paste PRITE CSV…"
+          rows={4}
+          className="cx-field mt-3 w-full font-mono text-xs"
+        />
+        <Button className="mt-3" variant="secondary" onClick={() => void submitPriteImport()}>
+          Import PRITE CSV
+        </Button>
+        {priteResult && <p className="mt-2 text-sm text-cx-forest-dark/80">{priteResult}</p>}
+      </Card>
+
+      <CohortHeatmapPanel programSlug={programSlug} />
+
+      <Card>
         <h3 className="text-lg font-semibold text-cx-forest-dark">Batch pre-CCC (cohort)</h3>
         <p className="mt-2 text-sm text-cx-forest-dark/75">
           Load pre-CCC snapshots for all trainees linked to the program or import.
         </p>
-        <Button className="mt-3" variant="secondary" onClick={() => void loadBatchPreCcc()} disabled={batchLoading}>
-          {batchLoading ? "Loading…" : "Load cohort summaries"}
-        </Button>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <Button variant="secondary" onClick={() => void loadBatchPreCcc()} disabled={batchLoading}>
+            {batchLoading ? "Loading…" : "Load cohort summaries"}
+          </Button>
+          {batchSummaries.length > 0 && (
+            <Button
+              variant="secondary"
+              onClick={() => void exportBatchPreCccPdf()}
+              disabled={batchExporting}
+            >
+              {batchExporting ? "Exporting…" : "Export cohort PDF"}
+            </Button>
+          )}
+        </div>
         {batchSummaries.length > 0 && (
           <ul className="mt-4 space-y-2 text-sm">
             {batchSummaries.map((s) => (
@@ -259,6 +367,7 @@ export function KpAdminGmePanel() {
                 </p>
                 <p className="text-xs text-cx-forest-dark/60">
                   {s.evaluations.length} eval(s) · avg {s.milestone_overview.average_across_evals ?? "—"} ·{" "}
+                  {s.prite_scores.exams.length ? `PRITE ${s.prite_scores.exams[0]?.overall_percentile ?? "—"}th` : "no PRITE"} ·{" "}
                   {s.ilp_status.active_count} active ILP goal(s)
                 </p>
               </li>

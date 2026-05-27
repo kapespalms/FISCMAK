@@ -248,6 +248,12 @@ async function main() {
     requiresTable: "programs",
   });
 
+  steps.push({
+    file: "docs/migrations/20260533_gme_exams_medhub_sync.sql",
+    label: "PRITE exams + MedHub sync runs",
+    requiresTable: "programs",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

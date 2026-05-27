@@ -1,7 +1,11 @@
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import type { ParsedMedhubEvalRow } from "@/lib/v2/gme/medhub-csv-import";
-import { buildPreCccSummary, type PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
+import {
+  buildPreCccSummary,
+  type PreCccPriteExam,
+  type PreCccSummary,
+} from "@/lib/v2/gme/pre-ccc-summary";
 import { loadIlpGoals } from "@/lib/v2/gme/trainee-gme-data";
 
 export async function buildTraineePreCccSummary(input: {
@@ -31,14 +35,29 @@ export async function buildTraineePreCccSummary(input: {
     .eq("trainee_user_id", input.traineeUserId)
     .order("eval_date", { ascending: false });
 
-  const { data: trainee } = await supabase
-    .from("app_users")
-    .select("pgy_level, onboarding_metadata")
-    .eq("user_id", input.traineeUserId)
-    .maybeSingle();
+  const [{ data: trainee }, { data: exams }] = await Promise.all([
+    supabase
+      .from("app_users")
+      .select("pgy_level, onboarding_metadata")
+      .eq("user_id", input.traineeUserId)
+      .maybeSingle(),
+    supabase
+      .from("in_training_exams")
+      .select("exam_type, exam_year, overall_percentile, domain_scores")
+      .eq("program_id", input.programId)
+      .eq("trainee_user_id", input.traineeUserId)
+      .order("exam_year", { ascending: false }),
+  ]);
 
   const meta = trainee?.onboarding_metadata as { trainee_initials?: string } | null;
   const ilpGoals = await loadIlpGoals(input.traineeUserId, false, period);
+
+  const priteExams: PreCccPriteExam[] = (exams ?? []).map((row) => ({
+    exam_type: row.exam_type,
+    exam_year: row.exam_year,
+    overall_percentile: row.overall_percentile,
+    domain_scores: (row.domain_scores ?? {}) as Record<string, number>,
+  }));
 
   const evaluations: ParsedMedhubEvalRow[] = (evals ?? []).map((row) => ({
     eval_id: row.eval_id,
@@ -61,5 +80,6 @@ export async function buildTraineePreCccSummary(input: {
     reportingPeriod: period,
     evaluations,
     ilpGoals,
+    priteExams,
   });
 }

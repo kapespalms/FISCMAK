@@ -132,6 +132,20 @@ export function PreCccSummaryPanel({
           )}
 
           <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
+            <p className="font-semibold text-cx-forest-dark">PRITE / in-training exams</p>
+            <p className="mt-1">{summary.prite_scores.note}</p>
+            {summary.prite_scores.exams.length > 0 && (
+              <ul className="mt-2 space-y-1 text-xs text-cx-forest-dark/70">
+                {summary.prite_scores.exams.map((exam) => (
+                  <li key={`${exam.exam_type}-${exam.exam_year}`}>
+                    {exam.exam_type} {exam.exam_year}: {exam.overall_percentile ?? "—"}th percentile
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+
+          <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
             <p className="font-semibold text-cx-forest-dark">ILP status</p>
             <p className="mt-1">{summary.ilp_status.note}</p>
           </div>
