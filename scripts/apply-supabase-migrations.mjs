@@ -236,6 +236,12 @@ async function main() {
     requiresTable: "programs",
   });
 
+  steps.push({
+    file: "docs/migrations/20260531_gme_milestone_ilp.sql",
+    label: "GME milestone self-ratings + ILP goals",
+    requiresTable: "app_users",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

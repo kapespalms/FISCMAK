@@ -35,6 +35,7 @@ import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
 import { OutputUserTemplatePanel } from "@/components/workspace/OutputUserTemplatePanel";
 import { OUTPUT_TEMPLATE_TYPE_SESSION_KEY } from "@/lib/v2/output-user-templates";
 import { TraineePreCccCard } from "@/components/gme/TraineePreCccCard";
+import { TraineeMilestoneCard } from "@/components/gme/TraineeMilestoneCard";
 import { Database, FileText, TrendingUp } from "lucide-react";
 
 type ReadinessProfile = {
@@ -261,6 +262,7 @@ export function OutputStudioWorkspace() {
     >
       <AcademicSoapSectionGate intent="create" />
       <TraineePreCccCard />
+      <TraineeMilestoneCard />
       {(outputContext?.enrichment_delta || outputContext?.career_vault?.summary) && (
         <CardSection
           accent="green"

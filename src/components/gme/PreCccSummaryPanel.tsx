@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import type { PreCccSummary } from "@/lib/v2/gme/pre-ccc-summary";
+import { exportPreCccPdf } from "@/lib/v2/gme/pre-ccc-export";
+import { downloadBlob } from "@/lib/studio-export";
 
 type PreCccSummaryPanelProps = {
   programSlug: string;
@@ -20,6 +22,7 @@ export function PreCccSummaryPanel({
 }: PreCccSummaryPanelProps) {
   const [summary, setSummary] = useState<PreCccSummary | null>(null);
   const [loading, setLoading] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
@@ -40,6 +43,18 @@ export function PreCccSummaryPanel({
     }
   }, [programSlug, userId]);
 
+  const exportPdf = useCallback(async () => {
+    if (!summary) return;
+    setExporting(true);
+    try {
+      const blob = await exportPreCccPdf(summary);
+      const initials = summary.trainee_initials ?? "trainee";
+      downloadBlob(blob, `pre-ccc-${initials}-${summary.reporting_period}.pdf`);
+    } finally {
+      setExporting(false);
+    }
+  }, [summary]);
+
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · CCC prep</p>
@@ -49,6 +64,17 @@ export function PreCccSummaryPanel({
       <Button className="mt-4" variant="secondary" onClick={() => void load()} disabled={loading}>
         {loading ? "Loading…" : summary ? "Refresh summary" : "Load summary"}
       </Button>
+
+      {summary && (
+        <Button
+          className="mt-4 ml-2"
+          variant="secondary"
+          onClick={() => void exportPdf()}
+          disabled={exporting}
+        >
+          {exporting ? "Exporting…" : "Export PDF"}
+        </Button>
+      )}
 
       {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
 
