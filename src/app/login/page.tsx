@@ -2,24 +2,19 @@
 
 import Link from "next/link";
 import { useState, useEffect, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
-import {
-  navigateToAppPath,
-  rememberOnboardingNextPath,
-  sanitizeNextPath,
-} from "@/lib/auth/oauth";
+import { rememberOnboardingNextPath, navigateToAppPath, sanitizeNextPath } from "@/lib/auth/oauth";
 
 function LoginPageContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
   const searchParams = useSearchParams();
   const nextPath = sanitizeNextPath(searchParams.get("next"));
 
@@ -38,65 +33,37 @@ function LoginPageContent() {
     setError("");
 
     if (!isSupabaseConfigured()) {
-      router.push(nextPath);
+      navigateToAppPath(nextPath);
       return;
     }
 
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20_000);
-
-      const res = await fetch("/api/v1/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({ email, password }),
-        signal: controller.signal,
+      const supabase = createClient();
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
       });
-      clearTimeout(timeoutId);
 
-      const payload = (await res.json().catch(() => ({}))) as {
-        message?: string;
-        access_token?: string;
-        refresh_token?: string;
-      };
-
-      if (!res.ok) {
-        const raw = payload.message ?? "Sign-in failed. Please try again.";
-        const msg = raw.includes("Email not confirmed")
+      if (authError) {
+        const msg = authError.message.includes("Email not confirmed")
           ? "Check your email to confirm your account, then try again."
-          : raw;
+          : authError.message;
         setError(msg);
         setLoading(false);
         return;
       }
 
-      if (!payload.access_token || !payload.refresh_token) {
+      if (!data.session) {
         setError("Sign-in did not create a session. Confirm your email or reset your password.");
-        setLoading(false);
-        return;
-      }
-
-      const supabase = createClient();
-      const { error: sessionError } = await supabase.auth.setSession({
-        access_token: payload.access_token,
-        refresh_token: payload.refresh_token,
-      });
-      if (sessionError) {
-        setError(sessionError.message);
         setLoading(false);
         return;
       }
 
       navigateToAppPath(nextPath);
     } catch (e) {
-      const msg =
-        e instanceof Error && e.name === "AbortError"
-          ? "Sign-in timed out. Check your connection and try again."
-          : e instanceof Error
-            ? e.message
-            : "Sign-in failed. Please try again.";
-      setError(msg);
+      setError(
+        e instanceof Error ? e.message : "Sign-in failed. Please try again.",
+      );
       setLoading(false);
     }
   }

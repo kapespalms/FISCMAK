@@ -16,8 +16,8 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
     <header
       className={
         overlay
-          ? "absolute left-0 right-0 top-0 z-20"
-          : "sticky top-0 z-50 bg-black/50 backdrop-blur-xl"
+          ? "absolute left-0 right-0 top-0 z-20 bg-transparent"
+          : "sticky top-0 z-50 bg-[#030303]/95 backdrop-blur-xl"
       }
     >
       <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:gap-4 md:px-10">

@@ -16,10 +16,12 @@ export function MarketingHomePage() {
         </a>
 
         <div className="relative z-[1]">
-          <MarketingHeader overlay />
-          <main id="main-content">
-            <MarketingLandingExperience />
-          </main>
+          <div className="marketing-dark-zone">
+            <MarketingHeader overlay />
+            <main id="main-content">
+              <MarketingLandingExperience />
+            </main>
+          </div>
           <MarketingFooter />
         </div>
       </MarketingCanvas>
