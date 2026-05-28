@@ -10,6 +10,7 @@ import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/Ma
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
 import {
   extractInviteTokenFromPath,
+  navigateToAppPath,
   onboardingPathWithOptionalToken,
   rememberOnboardingNextPath,
   sanitizeNextPath,
@@ -67,8 +68,7 @@ function SignupPageContent() {
     }
 
     if (data.session) {
-      await supabase.auth.getSession();
-      window.location.assign(effectiveNext);
+      navigateToAppPath(effectiveNext);
       return;
     }
 

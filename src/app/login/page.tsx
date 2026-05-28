@@ -8,7 +8,11 @@ import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
-import { sanitizeNextPath, rememberOnboardingNextPath } from "@/lib/auth/oauth";
+import {
+  navigateToAppPath,
+  rememberOnboardingNextPath,
+  sanitizeNextPath,
+} from "@/lib/auth/oauth";
 
 function LoginPageContent() {
   const [email, setEmail] = useState("");
@@ -40,11 +44,11 @@ function LoginPageContent() {
 
     try {
       const supabase = createClient();
-      const signIn = supabase.auth.signInWithPassword({ email, password });
+      const signInPromise = supabase.auth.signInWithPassword({ email, password });
       const timeout = new Promise<never>((_, reject) => {
         setTimeout(() => reject(new Error("timeout")), 20_000);
       });
-      const { data, error: authError } = await Promise.race([signIn, timeout]);
+      const { data, error: authError } = await Promise.race([signInPromise, timeout]);
 
       if (authError) {
         const msg =
@@ -62,9 +66,8 @@ function LoginPageContent() {
         return;
       }
 
-      // Ensure auth cookies are persisted before navigation.
-      await supabase.auth.getSession();
-      window.location.assign(nextPath);
+      // Profile bootstrap runs in AuthGuard — do not call getSession here; it deadlocks auth.
+      navigateToAppPath(nextPath);
     } catch (e) {
       setError(
         e instanceof Error && e.message === "timeout"

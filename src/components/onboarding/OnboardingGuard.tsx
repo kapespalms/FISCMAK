@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function OnboardingGuard({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
       .then(async (response) => {
         if (!response.ok) {
           if (response.status === 401) {
-            window.location.assign("/login");
+            router.replace("/login");
             return null;
           }
           throw new Error("Could not load profile");
@@ -34,7 +35,7 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
             typeof sessionStorage !== "undefined"
               ? sessionStorage.getItem("fiscmak_onboarding_next")
               : null;
-          window.location.assign(pending ?? "/app/onboarding");
+          router.replace(pending ?? "/app/onboarding");
           return;
         }
 
@@ -47,7 +48,7 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [pathname]);
+  }, [pathname, router]);
 
   if (!ready) {
     return (
