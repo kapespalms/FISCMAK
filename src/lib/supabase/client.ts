@@ -10,7 +10,7 @@ export function createClient() {
     throw new Error("Supabase is not configured");
   }
   if (!browserClient) {
-    browserClient = createBrowserClient(url, key);
+    browserClient = createBrowserClient(getSupabaseUrl(), getSupabaseAnonKey());
   }
   return browserClient;
 }
