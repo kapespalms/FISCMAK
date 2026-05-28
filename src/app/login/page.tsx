@@ -43,59 +43,30 @@ function LoginPageContent() {
     }
 
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20_000);
-
-      const res = await fetch("/api/v1/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({ email, password }),
-        signal: controller.signal,
+      const supabase = createClient();
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
       });
-      clearTimeout(timeoutId);
 
-      const payload = (await res.json().catch(() => ({}))) as {
-        message?: string;
-        access_token?: string;
-        refresh_token?: string;
-      };
-
-      if (!res.ok) {
-        const raw = payload.message ?? "Sign-in failed. Please try again.";
-        const msg = raw.includes("Email not confirmed")
+      if (authError) {
+        const msg = authError.message.includes("Email not confirmed")
           ? "Check your email to confirm your account, then try again."
-          : raw;
+          : authError.message;
         setError(msg);
         setLoading(false);
         return;
       }
 
-      if (!payload.access_token || !payload.refresh_token) {
+      if (!data.session) {
         setError("Sign-in did not create a session. Confirm your email or reset your password.");
         setLoading(false);
         return;
       }
 
-      // Sync browser client so AuthGuard sees the session immediately after navigation.
-      const supabase = createClient();
-      const { error: sessionError } = await supabase.auth.setSession({
-        access_token: payload.access_token,
-        refresh_token: payload.refresh_token,
-      });
-      if (sessionError) {
-        setError(sessionError.message);
-        setLoading(false);
-        return;
-      }
-
       navigateToAppPath(nextPath);
-    } catch (e) {
-      setError(
-        e instanceof Error && e.name === "AbortError"
-          ? "Sign-in timed out. Check your connection and try again."
-          : "Sign-in failed. Please try again.",
-      );
+    } catch {
+      setError("Sign-in failed. Please try again.");
       setLoading(false);
     }
   }
