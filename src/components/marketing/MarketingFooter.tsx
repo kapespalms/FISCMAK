@@ -17,7 +17,7 @@ const footerLinks: FooterLink[] = [
 
 export function MarketingFooter() {
   return (
-    <footer id="contact" aria-label="Footer navigation" className="relative z-[1] border-t border-white/10">
+    <footer id="contact" aria-label="Footer navigation" className="marketing-site-footer relative z-[1] border-t border-white/10">
       <ContactFormPopover />
 
       <div className="px-6 py-10 md:px-10 md:py-12">

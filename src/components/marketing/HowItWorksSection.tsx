@@ -28,10 +28,10 @@ export function HowItWorksSection() {
   return (
     <section aria-label="How FISCMAK works" className="relative px-6 py-16 md:px-10 md:py-20">
       <div className="relative mx-auto max-w-6xl">
-        <h1 className="font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl">
+        <h1 className="font-futura-bold text-3xl text-cx-forest-dark md:text-4xl lg:text-5xl">
           How <span className="text-marketing-accent">FISCMAK</span> works
         </h1>
-        <p className="font-futura-bold mt-4 max-w-2xl text-base leading-relaxed text-white md:text-lg">
+        <p className="font-futura-bold mt-4 max-w-2xl text-base leading-relaxed text-cx-forest-dark/80 md:text-lg">
           From invisible work to career evidence — a loop designed for physicians who are too busy to
           maintain a portfolio by hand.
         </p>

@@ -336,13 +336,13 @@ button {
     0 24px 48px rgba(36, 59, 49, 0.08);
 }
 
-/* Marketing site — black hero, lime accent, Futura PT Bold (headline font) */
+/* Marketing site — light canvas, lime accent, Futura PT Bold (headline font) */
 .marketing-page {
   --marketing-accent: #a9ff5c;
   --marketing-cream: #f1fbe7;
   --marketing-gold: #d4c574;
-  background-color: #000;
-  color: #fff;
+  background-color: transparent;
+  color: var(--cx-forest-dark);
   font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
   font-weight: 700;
 }
@@ -350,7 +350,29 @@ button {
 .marketing-page p,
 .marketing-page li,
 .marketing-page a:not(.cx-btn) {
-  color: #fff;
+  color: var(--cx-forest-dark);
+}
+
+.marketing-dark-zone {
+  background: #030303;
+  color: #ffffff;
+}
+
+.marketing-dark-zone p,
+.marketing-dark-zone li,
+.marketing-dark-zone a:not(.cx-btn) {
+  color: #ffffff;
+}
+
+.marketing-site-footer {
+  background: #030303;
+  color: #ffffff;
+}
+
+.marketing-site-footer p,
+.marketing-site-footer li,
+.marketing-site-footer a:not(.cx-btn) {
+  color: #ffffff;
 }
 
 /* Mak landing console — app-style bubbles need forest text, not marketing white */
@@ -497,10 +519,10 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: var(--marketing-gold);
 }
 
-/* Marketing glassmorphism — dark canvas + frosted panels */
+/* Marketing glassmorphism — light canvas + frosted panels */
 .marketing-canvas {
-  background: #030303;
-  color: var(--marketing-cream);
+  background: #f7f8f6;
+  color: var(--cx-forest-dark);
 }
 
 .marketing-canvas-glow {

@@ -73,14 +73,14 @@ export function MarketingSection({
         ) : null}
         <h2
           className={cn(
-            "font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl",
+            "font-futura-bold text-3xl text-cx-forest-dark md:text-4xl lg:text-5xl",
             kicker ? "mt-3" : undefined,
           )}
         >
           {title}
         </h2>
         {description ? (
-          <p className="font-futura-bold mt-4 max-w-2xl text-base leading-relaxed text-white md:text-lg">
+          <p className="font-futura-bold mt-4 max-w-2xl text-base leading-relaxed text-cx-forest-dark/80 md:text-lg">
             {description}
           </p>
         ) : null}

@@ -29,7 +29,7 @@ export function CoachMakDeepDiveSection() {
         </>
       }
       description="Coach Mak is the guide inside the loop: coaching conversations when you need direction, and a lens on the mentoring you already do."
-      className="border-t border-white/[0.06] bg-white/[0.01]"
+      className="border-t border-cx-forest-dark/10"
     >
       <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-5">

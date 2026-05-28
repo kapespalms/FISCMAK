@@ -15,10 +15,10 @@ export default function MeetMakPage() {
     <MarketingPageShell>
       <section className="relative px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto max-w-6xl">
-          <h1 className="font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl">
+          <h1 className="font-futura-bold text-3xl text-cx-forest-dark md:text-4xl lg:text-5xl">
             Meet <span className="text-marketing-accent">Mak</span>
           </h1>
-          <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
+          <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-cx-forest-dark/70 md:text-lg">
             Helping you navigate every move — goal-setting, mentorship capture, promotion prep, and
             the longitudinal conversations that keep your career on course.
           </p>
