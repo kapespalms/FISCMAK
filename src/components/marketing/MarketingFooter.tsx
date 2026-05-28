@@ -21,18 +21,7 @@ export function MarketingFooter() {
       <ContactFormPopover />
 
       <div className="px-6 py-10 md:px-10 md:py-12">
-        <nav
-          aria-label="Footer links"
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white"
-        >
-          {footerLinks.map((item) => (
-            <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="mt-10 flex items-end justify-between gap-6">
+        <div className="flex items-end justify-between gap-6">
           <Link
             href="/"
             aria-label="FISCMAK home"
@@ -46,6 +35,22 @@ export function MarketingFooter() {
             FISCMAK LLC · {new Date().getFullYear()}
           </p>
         </div>
+
+        <div
+          className="mx-4 mt-10 border-t border-white/10 md:mx-8"
+          aria-hidden="true"
+        />
+
+        <nav
+          aria-label="Footer links"
+          className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white"
+        >
+          {footerLinks.map((item) => (
+            <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </footer>
   );

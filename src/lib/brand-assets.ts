@@ -30,8 +30,8 @@ export const LANDING_CHESS_QUEEN_SRC = "/marketing/landing/fiscmak-chess-queen.p
 
 /** @deprecated Glitchy 520px export — use LANDING_HERO_KING_SRC */
 export const LANDING_HERO_QUEEN_SRC = LANDING_HERO_KING_SRC;
-/** @deprecated Use MAK_AVATAR_SRC */
-export const LANDING_LOGO_CM_SRC = MAK_AVATAR_SRC;
+/** Hero lightbox — FISCMAK wordmark on landing film screen. */
+export const LANDING_HERO_LOGO_SRC = "/marketing/landing/fiscmak-wordmark.png";
 export const LANDING_CROWN_AVATAR_SRC = "/marketing/landing/fiscmak-crown-avatar.png";
 
 /** @deprecated Legacy Mak silhouette — use MAK_AVATAR_SRC (logo-cm) */
