@@ -22,13 +22,9 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
         await ensureAppUser(supabase, user);
         if (!cancelled) setReady(true);
       } catch (e) {
-        if (!cancelled) {
-          setError(
-            e instanceof Error
-              ? e.message
-              : "Could not initialize your account. Run docs/FISCMAK_V2_SCHEMA.sql in Supabase.",
-          );
-        }
+        // Don't block sign-in if profile bootstrap fails — user can retry in app.
+        console.error("[AuthGuard] ensureAppUser failed:", e);
+        if (!cancelled) setReady(true);
       }
     }
 

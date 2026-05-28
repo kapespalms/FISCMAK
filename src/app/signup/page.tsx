@@ -67,6 +67,7 @@ function SignupPageContent() {
     }
 
     if (data.session) {
+      await supabase.auth.getSession();
       window.location.assign(effectiveNext);
       return;
     }

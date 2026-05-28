@@ -2,61 +2,37 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/supabase/env";
 
-const PUBLIC_PATH_PREFIXES = ["/login", "/signup", "/forgot-password", "/reset-password", "/auth/callback", "/join"];
-
-const PUBLIC_MARKETING_PREFIXES = [
-  "/how-it-works",
-  "/meet-mak",
-  "/our-narrative",
-  "/institutions",
-  "/faq",
-  "/security",
-  "/about",
-];
-
-function isPublicPath(pathname: string) {
-  if (pathname === "/") return true;
-  if (PUBLIC_MARKETING_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {
-    return true;
-  }
-  return PUBLIC_PATH_PREFIXES.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-  );
-}
-
+/** Refresh Supabase session cookies on every request (required for SSR + API auth). */
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
-  if (isPublicPath(request.nextUrl.pathname)) {
-    return supabaseResponse;
-  }
-
   const url = getSupabaseUrl();
   const key = getSupabaseAnonKey();
-
   if (!url || !key) {
     return supabaseResponse;
   }
 
-  const supabase = createServerClient(url, key, {
-    cookies: {
-      getAll() {
-        return request.cookies.getAll();
+  try {
+    const supabase = createServerClient(url, key, {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          // Only mutate the response — request cookies are read-only on Edge.
+          supabaseResponse = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) => {
+            supabaseResponse.cookies.set(name, value, options);
+          });
+        },
       },
-      setAll(cookiesToSet) {
-        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
-        supabaseResponse = NextResponse.next({ request });
-        cookiesToSet.forEach(({ name, value, options }) =>
-          supabaseResponse.cookies.set(name, value, options),
-        );
-      },
-    },
-  });
+    });
 
-  await Promise.race([
-    supabase.auth.getUser(),
-    new Promise<void>((resolve) => setTimeout(resolve, 5000)),
-  ]);
+    await supabase.auth.getUser();
 
-  return supabaseResponse;
+    return supabaseResponse;
+  } catch (error) {
+    console.error("[middleware] session refresh failed:", error);
+    return supabaseResponse;
+  }
 }

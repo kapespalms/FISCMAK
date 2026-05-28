@@ -44,7 +44,7 @@ function LoginPageContent() {
       const timeout = new Promise<never>((_, reject) => {
         setTimeout(() => reject(new Error("timeout")), 20_000);
       });
-      const { error: authError } = await Promise.race([signIn, timeout]);
+      const { data, error: authError } = await Promise.race([signIn, timeout]);
 
       if (authError) {
         const msg =
@@ -56,8 +56,14 @@ function LoginPageContent() {
         return;
       }
 
-      // Profile bootstrap runs in AuthGuard after navigation — awaiting DB here
-      // can deadlock Supabase auth (same session lock as signInWithPassword).
+      if (!data.session) {
+        setError("Sign-in did not create a session. Confirm your email or reset your password.");
+        setLoading(false);
+        return;
+      }
+
+      // Ensure auth cookies are persisted before navigation.
+      await supabase.auth.getSession();
       window.location.assign(nextPath);
     } catch (e) {
       setError(

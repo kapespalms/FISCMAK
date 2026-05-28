@@ -1,6 +1,6 @@
 /** OAuth redirect helpers for Supabase Auth (Google, Apple, etc.) */
 
-const DEFAULT_NEXT = "/app";
+const DEFAULT_NEXT = "/app/onboarding";
 
 /** Safe internal path only — blocks open redirects. */
 export function sanitizeNextPath(next: string | null | undefined): string {
