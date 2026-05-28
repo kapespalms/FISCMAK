@@ -38,7 +38,16 @@ export function UserAvatar({ src, name, size = "sm", className }: UserAvatarProp
     >
       {imageSrc ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={imageSrc} alt="" className="h-full w-full object-cover" />
+        <img
+          src={imageSrc}
+          alt=""
+          className={cn(
+            "h-full w-full",
+            imageSrc.includes("/brands/default-profile")
+              ? "object-contain bg-black p-1"
+              : "object-cover",
+          )}
+        />
       ) : initials ? (
         <span aria-hidden>{initials}</span>
       ) : (

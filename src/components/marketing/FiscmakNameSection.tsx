@@ -1,10 +1,6 @@
 import Link from "next/link";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
-import {
-  LANDING_PANEL_FISC_SRC,
-  LANDING_PANEL_MAK_SRC,
-  LANDING_PANEL_SILENT_C_SRC,
-} from "@/lib/brand-assets";
+import { LANDING_NAME_BREAKDOWN_SRC } from "@/lib/brand-assets";
 import {
   MarketingGlassPanel,
   MarketingSection,
@@ -51,92 +47,22 @@ export function FiscmakNameIntro({ id }: FiscmakNameIntroProps) {
   );
 }
 
-const NAME_PILLARS = [
-  {
-    key: "fisc",
-    title: "FISC",
-    subtitle: "Fiscus",
-    heading: "The hidden treasury",
-    traits: ["Expertise", "Dedication", "Time"],
-    footer: "A physician's most valuable treasure.",
-    image: LANDING_PANEL_FISC_SRC,
-    imageAlt: "Chessboard — expertise and dedication as hidden value",
-  },
-  {
-    key: "silent-c",
-    title: "Silent C",
-    subtitle: "Unspoken",
-    heading: "The invisible work",
-    traits: ["Essential", "Dynamic", "Triumphant"],
-    footer: "A physician's whole career, fully seen.",
-    image: LANDING_PANEL_SILENT_C_SRC,
-    imageAlt: "Chess king — invisible work made visible",
-  },
-  {
-    key: "mak",
-    title: "MAK",
-    subtitle: "Maximus · Coach Mak",
-    heading: "Professional agency",
-    traits: ["Empowered", "Deliberate", "Transformative"],
-    footer: "Coach Mak helps you reach your maximum potential.",
-    image: LANDING_PANEL_MAK_SRC,
-    imageAlt: "Chess board — career at full potential",
-  },
-] as const;
-
-function NamePillarCard({
-  title,
-  subtitle,
-  heading,
-  traits,
-  footer,
-  image,
-  imageAlt,
-}: Omit<(typeof NAME_PILLARS)[number], "key">) {
-  return (
-    <MarketingGlassPanel
-      as="article"
-      accent
-      className="marketing-glass-hover flex h-full flex-col p-6 md:p-7"
-    >
-      <p className="font-futura-bold text-2xl tracking-tight text-marketing-accent md:text-3xl">
-        {title}
-      </p>
-      <p className="font-futura-medium mt-1 text-sm italic text-white/50">{subtitle}</p>
-      <h3 className="font-futura-bold mt-4 text-lg text-white md:text-xl">{heading}</h3>
-
-      <ul className="mt-4 space-y-1">
-        {traits.map((trait) => (
-          <li key={trait} className="font-futura-medium text-sm text-marketing-accent/95">
-            {trait}.
-          </li>
-        ))}
-      </ul>
-
-      <p className="font-futura-medium mt-5 text-sm leading-relaxed text-white/70">{footer}</p>
-
-      <div className="marketing-glass mt-6 overflow-hidden rounded-xl">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={image}
-          alt={imageAlt}
-          className="aspect-[4/3] w-full object-cover object-center"
-          decoding="async"
-        />
-      </div>
-    </MarketingGlassPanel>
-  );
-}
-
+/** Full Canva name board — FISC · Silent C · MAK with framed art (export at 2× from Canva). */
 export function FiscmakNameBreakdown() {
   return (
     <section className="px-6 pb-16 md:px-10 md:pb-20" aria-label="FISCMAK name pillars">
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
-          {NAME_PILLARS.map(({ key, ...pillar }) => (
-            <NamePillarCard key={key} {...pillar} />
-          ))}
-        </div>
+        <MarketingGlassPanel className="marketing-glass-light overflow-hidden rounded-2xl p-2 sm:p-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={LANDING_NAME_BREAKDOWN_SRC}
+            alt="FISC is the hidden treasury of expertise, dedication, and time; the silent C is unspoken invisible work made fully seen; MAK is Maximus professional agency for maximum potential."
+            className="h-auto w-full rounded-xl"
+            decoding="async"
+            width={1024}
+            height={542}
+          />
+        </MarketingGlassPanel>
       </div>
     </section>
   );

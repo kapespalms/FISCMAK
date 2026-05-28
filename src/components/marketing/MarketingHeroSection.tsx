@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { LANDING_HERO_QUEEN_SRC } from "@/lib/brand-assets";
+import { LANDING_CHESS_QUEEN_SRC } from "@/lib/brand-assets";
 import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
 import { MarketingHeroHeadline } from "@/components/marketing/MarketingHeroHeadline";
 import { institutionAccentClass } from "@/lib/v2/programs/institution-brand";
@@ -43,7 +43,7 @@ export function MarketingHeroSection({
       aria-label="Hero value proposition"
       className="relative px-6 pb-12 pt-28 sm:px-8 md:pb-16 md:pt-32 lg:px-10 lg:pt-36"
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-6 xl:grid-cols-[1.1fr_0.9fr] xl:gap-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-6 xl:grid-cols-[1.05fr_0.95fr] xl:gap-8">
         <MarketingGlassPanel accent className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
           <p className="font-futura-medium text-xs uppercase tracking-[0.22em] text-marketing-accent/90">
             Promise
@@ -75,18 +75,20 @@ export function MarketingHeroSection({
           </div>
         </MarketingGlassPanel>
 
-        <MarketingGlassPanel className="relative flex items-center justify-center overflow-hidden p-6 md:p-8">
+        <MarketingGlassPanel className="relative flex items-center justify-center overflow-hidden p-5 sm:p-6 md:p-8">
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(169,255,92,0.14),transparent_65%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(169,255,92,0.12),transparent_68%)]"
             aria-hidden
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={LANDING_HERO_QUEEN_SRC}
+            src={LANDING_CHESS_QUEEN_SRC}
             alt=""
             aria-hidden
-            className="relative z-[1] h-auto w-full max-w-[min(100%,360px)] object-contain drop-shadow-[0_24px_64px_rgba(0,0,0,0.5)]"
+            className="relative z-[1] h-auto w-full max-w-[min(100%,480px)] object-contain drop-shadow-[0_28px_72px_rgba(0,0,0,0.55)] xl:max-w-[520px]"
             decoding="async"
+            width={1024}
+            height={883}
           />
         </MarketingGlassPanel>
       </div>
