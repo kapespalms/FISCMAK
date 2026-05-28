@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { MarketingPageShell } from "@/components/marketing/MarketingPageShell";
-import { AboutFiscmakContent } from "@/components/marketing/FiscmakNameSection";
+import { FoundersNarrativeSection } from "@/components/marketing/FiscmakNameSection";
 
 export const metadata: Metadata = {
   title: "About FISCMAK",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <MarketingPageShell>
-      <AboutFiscmakContent />
+      <FoundersNarrativeSection />
     </MarketingPageShell>
   );
 }

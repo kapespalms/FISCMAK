@@ -17,7 +17,10 @@ const drop = path.join(root, "docs/canva-exports");
 const MAP = [
   { from: "default-profile.png", to: "public/brands/default-profile.png" },
   { from: "logo-cm.png", to: "public/brands/logo-cm.png" },
-  { from: "fiscmak-chess-queen.png", to: "public/marketing/landing/fiscmak-chess-queen.png" },
+  { from: "hero-king-focus.png", to: "public/marketing/landing/hero-king-focus.png" },
+  { from: "panel-fisc-hd.png", to: "public/marketing/landing/panel-fisc-hd.png" },
+  { from: "panel-silent-c-hd.png", to: "public/marketing/landing/panel-silent-c-hd.png" },
+  { from: "panel-mak-hd.png", to: "public/marketing/landing/panel-mak-hd.png" },
   { from: "fiscmak-name-breakdown.png", to: "public/marketing/landing/fiscmak-name-breakdown.png" },
   { from: "logo-cm.png", to: "public/marketing/landing/fiscmak-logo-cm.png" },
 ];

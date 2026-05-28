@@ -2,17 +2,11 @@ import { MarketingFontShell } from "@/components/marketing/MarketingFontShell";
 import { MarketingCanvas } from "@/components/marketing/MarketingGlass";
 import { MarketingHeader } from "@/components/marketing/MarketingHeader";
 import { MarketingHeroSection } from "@/components/marketing/MarketingHeroSection";
-import { FiscmakNameSection } from "@/components/marketing/FiscmakNameSection";
-import { HowItWorksSection } from "@/components/marketing/HowItWorksSection";
+import { FiscmakFlowSection } from "@/components/marketing/FiscmakFlowSection";
+import { MeetMakLandingSection } from "@/components/marketing/MeetMakLandingSection";
+import { FiscmakMeaningGlassSection } from "@/components/marketing/FiscmakMeaningGlassSection";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 
-/**
- * MECE landing structure:
- * 1. Promise — hero value proposition
- * 2. Meaning — FISC · silent C · MAK
- * 3. Method — how it works + outcomes
- * 4. Contact — footer + form
- */
 export function MarketingHomePage() {
   return (
     <MarketingFontShell className="min-h-full">
@@ -28,8 +22,9 @@ export function MarketingHomePage() {
           <MarketingHeader overlay />
           <main id="main-content">
             <MarketingHeroSection />
-            <FiscmakNameSection />
-            <HowItWorksSection />
+            <FiscmakFlowSection />
+            <MeetMakLandingSection />
+            <FiscmakMeaningGlassSection />
           </main>
           <MarketingFooter />
         </div>

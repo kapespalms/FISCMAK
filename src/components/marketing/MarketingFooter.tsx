@@ -4,40 +4,32 @@ import { ContactFormPopover } from "@/components/marketing/ContactFormPopover";
 type FooterLink = {
   label: string;
   href: string;
-  external?: boolean;
 };
 
 const footerLinks: FooterLink[] = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Our Narrative", href: "/our-narrative", external: true },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Meet Mak", href: "/meet-mak" },
+  { label: "Our Narrative", href: "/our-narrative" },
   { label: "Institutions", href: "/institutions" },
   { label: "FAQ", href: "/faq" },
-  { label: "Sign In", href: "/login" },
+  { label: "Security", href: "/security" },
 ];
 
 export function MarketingFooter() {
   return (
     <footer id="contact" aria-label="Footer navigation" className="relative z-[1] border-t border-white/10">
-      <div className="relative px-6 pt-10 md:px-10 md:pt-14">
-        <ContactFormPopover className="pb-4" />
-      </div>
+      <ContactFormPopover />
 
       <div className="px-6 py-10 md:px-10 md:py-12">
         <nav
           aria-label="Footer links"
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400"
         >
-          {footerLinks.map((item) =>
-            item.external ? (
-              <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
-                {item.label}
-              </Link>
-            ) : (
-              <a key={item.label} href={item.href} className="hover:text-marketing-accent">
-                {item.label}
-              </a>
-            ),
-          )}
+          {footerLinks.map((item) => (
+            <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
+              {item.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="mt-10 flex items-end justify-between gap-6">
@@ -51,7 +43,7 @@ export function MarketingFooter() {
           </Link>
 
           <p className="font-futura-medium text-sm text-gray-500">
-            © {new Date().getFullYear()} FISCMAK
+            FISCMAK LLC · {new Date().getFullYear()}
           </p>
         </div>
       </div>

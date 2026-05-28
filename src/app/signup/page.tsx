@@ -5,7 +5,6 @@ import { useState, useEffect, useMemo, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
@@ -91,19 +90,6 @@ function SignupPageContent() {
           </p>
 
           <form onSubmit={handleSignup} className="mt-8 space-y-4">
-            <GoogleSignInButton next={effectiveNext} label="Continue with Google" variant="marketing" />
-
-            <div className="relative py-1">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-white/20" />
-              </div>
-              <div className="relative flex justify-center">
-                <span className="font-futura-medium bg-[#1a2419] px-3 text-xs uppercase text-gray-500">
-                  or
-                </span>
-              </div>
-            </div>
-
             <MarketingAuthInput
               label="Email"
               id="email"
