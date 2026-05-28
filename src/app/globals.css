@@ -401,6 +401,41 @@ button {
   color: #ffffff;
 }
 
+.landing-mak-panel-footer.cx-mak-panel-footer {
+  background: #0a0c10;
+  border-color: rgb(39 39 42 / 0.8);
+}
+
+.landing-mak-panel-body {
+  background: #0a0c10;
+}
+
+.landing-mak-panel-rail {
+  background: #0a0c10;
+}
+
+.landing-mak-panel-chat.cx-mak-panel-chat {
+  background: #fafbfa;
+}
+
+.landing-mak-console.cx-mak-panel {
+  background: #0a0c10;
+  color: #ffffff;
+}
+
+.landing-mak-panel-header {
+  color: #ffffff;
+}
+
+.marketing-page .landing-mak-panel-header p {
+  color: inherit;
+}
+
+.marketing-page .landing-mak-bubble .mak-mini-chat-preview p,
+.marketing-page .mak-mini-chat-preview p {
+  color: rgb(255 255 255 / 0.8);
+}
+
 /* Body copy uses the same Futura PT Bold as the hero headline */
 .marketing-page .font-futura-medium,
 .marketing-page .font-futura-book {

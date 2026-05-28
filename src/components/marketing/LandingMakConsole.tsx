@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { Plus } from "lucide-react";
-import { useCallback, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
 import { MakAssistantBubble, MakUserBubble } from "@/components/mak/MakMessageBubble";
+import { MakMiniChatPreview } from "@/components/marketing/MakMiniChatPreview";
 import { MAK_INPUT_PLACEHOLDER } from "@/lib/mak-sections";
 import { cn } from "@/lib/utils";
 
@@ -103,9 +104,7 @@ function MakOverview() {
             <li>Direction when the path is unclear</li>
           </ul>
         </InfoCard>
-        <InfoCard label="Co-pilot mode">
-          <p>You fly the plane — I help you read the instruments.</p>
-        </InfoCard>
+        <MakMiniChatPreview />
       </CardsWithLink>
     </div>
   );
@@ -199,6 +198,16 @@ type LandingMakConsoleProps = {
 export function LandingMakConsole({ visible, className }: LandingMakConsoleProps) {
   const [activeTopic, setActiveTopic] = useState<GuideTopic>(null);
   const [messages, setMessages] = useState<Message[]>([]);
+  const chatScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = useCallback((node: HTMLDivElement | null) => {
+    if (!node) return;
+    node.scrollTo({ top: node.scrollHeight, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom(chatScrollRef.current);
+  }, [messages.length, scrollToBottom]);
 
   const selectTopic = useCallback((topic: GuideTopic, label: string) => {
     setActiveTopic(topic);
@@ -222,19 +231,19 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
   return (
     <div
       className={cn(
-        "cx-mak-panel flex flex-col overflow-hidden transition-all duration-700 ease-out",
+        "landing-mak-console cx-mak-panel flex flex-col overflow-hidden bg-[#0a0c10] transition-all duration-700 ease-out",
         visible ? "max-h-[2400px] opacity-100" : "max-h-0 opacity-0",
         className,
       )}
       aria-hidden={!visible}
     >
-      <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white/95">
+      <header className="landing-mak-panel-header shrink-0 border-b border-zinc-800/80 bg-gradient-to-b from-[#1a1f28] to-[#0a0c10]">
         <div className="flex h-12 items-center justify-between gap-2 px-4">
           <div className="flex min-w-0 items-center gap-2.5">
             <CoachMakAvatar size={36} />
             <div className="min-w-0">
-              <p className="truncate text-[14px] font-semibold text-cx-forest-dark">Coach Mak</p>
-              <p className="truncate text-[10px] text-cx-forest-dark/50">Your co-pilot on the journey</p>
+              <p className="truncate text-[14px] font-semibold text-white">Coach Mak</p>
+              <p className="truncate text-[10px] text-white/50">Your co-pilot on the journey</p>
             </div>
           </div>
           <Link
@@ -244,12 +253,40 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
             Start Building
           </Link>
         </div>
-        <div className="border-t border-cx-forest-dark/8 py-1.5 text-center text-[11px] text-cx-forest-dark/55">
-          Landing guide
-        </div>
       </header>
 
-      <div className="cx-mak-panel-chat flex min-h-[min(68vh,480px)] flex-1 flex-col space-y-4 overflow-y-auto px-4 py-4">
+      <div className="landing-mak-panel-body flex min-h-[min(68vh,480px)] flex-1 bg-[#0a0c10]">
+        <div className="landing-mak-panel-rail w-3 shrink-0 border-r border-zinc-800/80 sm:w-5" aria-hidden />
+
+        <div className="flex min-w-0 flex-1 flex-col">
+          <div
+            className="h-2 shrink-0 bg-gradient-to-b from-[#0a0c10] to-[#fafbfa]"
+            aria-hidden
+          />
+
+          <div
+            ref={chatScrollRef}
+            className="landing-mak-panel-chat cx-mak-panel-chat flex flex-1 flex-col space-y-4 overflow-y-auto bg-[#fafbfa] px-3 py-4 sm:px-4"
+          >
+        {messages.map((msg) =>
+          msg.role === "user" ? (
+            <div key={msg.id} className="flex justify-end mak-convo-fade-in">
+              <MakUserBubble variant="app" className="max-w-[88%] font-futura-medium text-sm">
+                {msg.text}
+              </MakUserBubble>
+            </div>
+          ) : (
+            <div key={msg.id} className="flex gap-3 mak-convo-fade-in">
+              <CoachMakAvatar size={32} className="mt-0.5 shrink-0" />
+              <div className="min-w-0 flex-1">
+                <MakAssistantBubble variant="app" className="landing-mak-bubble w-fit max-w-[95%]">
+                  {msg.text}
+                </MakAssistantBubble>
+              </div>
+            </div>
+          ),
+        )}
+
         <div className="flex gap-3">
           <CoachMakAvatar size={32} className="mt-0.5 shrink-0" />
           <div className="min-w-0 flex-1">
@@ -291,47 +328,37 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
             </MakAssistantBubble>
           </div>
         </div>
+          </div>
+        </div>
 
-        {messages.map((msg) =>
-          msg.role === "user" ? (
-            <div key={msg.id} className="flex justify-end mak-convo-fade-in">
-              <MakUserBubble variant="app" className="max-w-[88%] font-futura-medium text-sm">
-                {msg.text}
-              </MakUserBubble>
-            </div>
-          ) : (
-            <div key={msg.id} className="flex gap-3 mak-convo-fade-in">
-              <CoachMakAvatar size={32} className="mt-0.5 shrink-0" />
-              <div className="min-w-0 flex-1">
-                <MakAssistantBubble variant="app" className="landing-mak-bubble w-fit max-w-[95%]">
-                  {msg.text}
-                </MakAssistantBubble>
-              </div>
-            </div>
-          ),
-        )}
+        <div className="landing-mak-panel-rail w-3 shrink-0 border-l border-zinc-800/80 sm:w-5" aria-hidden />
       </div>
 
-      <div className="cx-mak-panel-footer shrink-0 border-t border-cx-forest-dark/10 bg-white px-3 py-3">
+      <div className="landing-mak-panel-footer cx-mak-panel-footer shrink-0 border-t border-zinc-800/80 bg-[#0a0c10] px-3 py-2.5">
         <div className="flex items-end gap-2">
           <button
             type="button"
             disabled
             data-no-glass
             aria-hidden
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cx-forest-dark/10 bg-[#e8eaec] text-cx-forest-dark opacity-50"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-[#e8eaec] text-cx-forest-dark opacity-50"
           >
-            <Plus size={18} />
+            <Plus size={16} />
           </button>
           <input
             readOnly
             disabled
             value=""
             placeholder={MAK_INPUT_PLACEHOLDER}
-            className="cx-mak-panel-input h-11 min-h-11 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-4 text-sm text-cx-forest-dark shadow-sm opacity-70"
+            className="cx-mak-panel-input h-9 min-h-9 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-3 text-xs text-cx-forest-dark shadow-sm opacity-70 sm:h-10 sm:min-h-10 sm:px-4 sm:text-sm"
             aria-label="Message to Coach Mak"
           />
-          <MakHexMicButton disabled onClick={() => {}} />
+          <MakHexMicButton
+            disabled
+            iconVariant="dark-accent"
+            className="!h-10 !w-10 [&_svg]:h-10 [&_svg]:w-10"
+            onClick={() => {}}
+          />
         </div>
       </div>
     </div>

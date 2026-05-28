@@ -3,10 +3,15 @@ import { cn } from "@/lib/utils";
 type CoachMakVoiceIconProps = {
   className?: string;
   recording?: boolean;
+  variant?: "default" | "dark-accent";
 };
 
 /** Coach Mak voice capture — waveform + mic mark (50×50). */
-export function CoachMakVoiceIcon({ className, recording }: CoachMakVoiceIconProps) {
+export function CoachMakVoiceIcon({
+  className,
+  recording,
+  variant = "default",
+}: CoachMakVoiceIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,9 +27,12 @@ export function CoachMakVoiceIcon({ className, recording }: CoachMakVoiceIconPro
         height="50"
         rx="25"
         className={cn(
-          "fill-black/5 transition-colors",
-          recording && "fill-[#67E151]/20",
+          "transition-colors",
+          variant === "dark-accent"
+            ? "fill-[#e4e4e7] stroke-marketing-accent"
+            : cn("fill-black/5", recording && "fill-[#67E151]/20"),
         )}
+        strokeWidth={variant === "dark-accent" ? 1.5 : 0}
       />
       <path
         d="M38.9 24.25C38.9 23.8358 39.2358 23.5 39.65 23.5C40.0642 23.5 40.4 23.8358 40.4 24.25V26.75C40.4 27.1642 40.0642 27.5 39.65 27.5C39.2358 27.5 38.9 27.1642 38.9 26.75V24.25Z"

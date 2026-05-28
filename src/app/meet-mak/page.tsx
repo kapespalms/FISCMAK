@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CoachMakDeepDiveSection } from "@/components/marketing/CoachMakDeepDiveSection";
-import { CoachMakConversationWidget } from "@/components/marketing/CoachMakConversationWidget";
+import { MakMiniChatPreview } from "@/components/marketing/MakMiniChatPreview";
 import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
 import { MarketingPageShell } from "@/components/marketing/MarketingPageShell";
 
@@ -24,7 +24,7 @@ export default function MeetMakPage() {
           </p>
 
           <MarketingGlassPanel accent className="mt-10 flex justify-center p-6 md:p-10">
-            <CoachMakConversationWidget />
+            <MakMiniChatPreview size="featured" />
           </MarketingGlassPanel>
         </div>
       </section>
