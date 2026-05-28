@@ -9,30 +9,42 @@ type ContactFormPopoverProps = {
   className?: string;
 };
 
-/** Collapsible contact drawer — lime tab flush on card top edge; card hidden until opened. */
+/** Fixed bottom-right contact drawer — collapsed tab shows "Connect with FISCMAK". */
 export function ContactFormPopover({ className }: ContactFormPopoverProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={cn("relative flex justify-start md:justify-end", className)}>
-      <div className="flex flex-col">
+    <div
+      className={cn(
+        "pointer-events-none fixed bottom-4 right-4 z-50 flex flex-col items-end md:bottom-6 md:right-6",
+        className,
+      )}
+    >
+      <div className="pointer-events-auto flex flex-col items-end">
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
           aria-controls="contact-form-drawer"
-          aria-label={open ? "Close contact form" : "Open contact form"}
+          aria-label={open ? "Close contact form" : "Connect with FISCMAK"}
           className={cn(
-            "flex h-7 w-7 shrink-0 items-center justify-center self-start md:self-end",
-            "border border-marketing-accent bg-[#1a2419] text-marketing-accent",
+            "flex items-center gap-2 border border-marketing-accent bg-[#1a2419] text-marketing-accent",
             "transition hover:bg-[#243028]",
-            open ? "rounded-t-md rounded-b-none border-b-0" : "rounded-md",
+            open
+              ? "rounded-t-md rounded-b-none border-b-0 px-2 py-1.5"
+              : "rounded-md px-3 py-2 shadow-[0_8px_32px_rgba(0,0,0,0.45)]",
           )}
         >
+          {!open ? (
+            <span className="font-futura-bold text-[11px] uppercase leading-none tracking-wide sm:text-xs">
+              <span className="text-white">Connect with FISC</span>
+              <span className="text-marketing-accent">MAK</span>
+            </span>
+          ) : null}
           <ChevronDown
             size={15}
             strokeWidth={2.5}
-            className={cn("transition-transform duration-200", open && "rotate-180")}
+            className={cn("shrink-0 transition-transform duration-200", open && "rotate-180")}
             aria-hidden
           />
         </button>
@@ -41,8 +53,8 @@ export function ContactFormPopover({ className }: ContactFormPopoverProps) {
           <ContactFormCard
             id="contact-form-drawer"
             className={cn(
-              "-mt-px self-start rounded-tl-2xl rounded-tr-md border border-t-0 border-marketing-accent/50 md:self-end md:rounded-tl-md md:rounded-tr-2xl",
-              "relative z-10 shadow-[0_16px_48px_rgba(0,0,0,0.55)] ring-1 ring-white/10",
+              "-mt-px rounded-tl-2xl rounded-tr-md border border-t-0 border-marketing-accent/50",
+              "shadow-[0_16px_48px_rgba(0,0,0,0.55)] ring-1 ring-white/10",
             )}
           />
         ) : null}

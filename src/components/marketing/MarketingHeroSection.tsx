@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { LANDING_CHESS_QUEEN_SRC } from "@/lib/brand-assets";
+import { LANDING_PANEL_SILENT_C_SRC } from "@/lib/brand-assets";
 import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
 import { MarketingHeroHeadline } from "@/components/marketing/MarketingHeroHeadline";
+import { MarketingPanelImage } from "@/components/marketing/MarketingPanelImage";
 import { institutionAccentClass } from "@/lib/v2/programs/institution-brand";
 import { joinInstitutionLabel } from "@/lib/v2/programs/program-join-display";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
@@ -45,14 +47,10 @@ export function MarketingHeroSection({
     >
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-6 xl:grid-cols-[1.05fr_0.95fr] xl:gap-8">
         <MarketingGlassPanel accent className="flex flex-col justify-center p-8 md:p-10 lg:p-12">
-          <p className="font-futura-medium text-xs uppercase tracking-[0.22em] text-marketing-accent/90">
-            Promise
-          </p>
-
           {institutionLabel ? (
             <p
               className={cn(
-                "font-futura-bold mt-4 text-xl tracking-wide md:text-2xl",
+                "font-futura-bold text-xl tracking-wide md:text-2xl",
                 institutionAccentClass(institutionLabel),
               )}
             >
@@ -60,18 +58,34 @@ export function MarketingHeroSection({
             </p>
           ) : null}
 
-          <div className={institutionLabel ? "mt-4" : "mt-3"}>
+          <div className={institutionLabel ? "mt-4" : undefined}>
             <MarketingHeroHeadline />
           </div>
 
           <p className="font-futura-medium mt-5 max-w-lg text-lg leading-relaxed text-white/75">
-            An intelligent career platform for physicians.
+            FISCMAK helps physicians turn invisible work into career evidence, narrative, and
+            direction.
           </p>
 
           <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-6 md:gap-2.5">
             <HeroTagline verb="Capture" middle="the" end="invisible." />
             <HeroTagline verb="Clarify" middle="your" end="direction." />
             <HeroTagline verb="Build" middle="the career" end="you want." />
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/app/onboarding"
+              className="font-futura-bold cx-btn bg-marketing-accent px-6 py-3 text-sm text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none"
+            >
+              Start Building
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="font-futura-bold cx-btn border border-white/20 bg-white/5 px-6 py-3 text-sm text-white backdrop-blur-sm transition hover:border-marketing-accent/40 hover:bg-white/10"
+            >
+              See How It Works
+            </Link>
           </div>
         </MarketingGlassPanel>
 
@@ -80,16 +94,14 @@ export function MarketingHeroSection({
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(169,255,92,0.12),transparent_68%)]"
             aria-hidden
           />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={LANDING_CHESS_QUEEN_SRC}
-            alt=""
-            aria-hidden
-            className="relative z-[1] h-auto w-full max-w-[min(100%,480px)] object-contain drop-shadow-[0_28px_72px_rgba(0,0,0,0.55)] xl:max-w-[520px]"
-            decoding="async"
-            width={1024}
-            height={883}
-          />
+          <div className="relative z-[1] w-full max-w-[min(100%,420px)]">
+            <MarketingPanelImage
+              src={LANDING_PANEL_SILENT_C_SRC}
+              alt="FISCMAK — career intelligence for physicians"
+              variant="hero"
+              className="marketing-glass shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+            />
+          </div>
         </MarketingGlassPanel>
       </div>
     </section>

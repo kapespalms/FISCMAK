@@ -5,8 +5,6 @@ import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
-import { ensureAppUser } from "@/lib/v2/ensure-app-user";
-import { GoogleSignInButton } from "@/components/auth/GoogleSignInButton";
 import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
@@ -40,25 +38,35 @@ function LoginPageContent() {
       return;
     }
 
-    const supabase = createClient();
-    const { data, error: authError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    try {
+      const supabase = createClient();
+      const signIn = supabase.auth.signInWithPassword({ email, password });
+      const timeout = new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error("timeout")), 20_000);
+      });
+      const { error: authError } = await Promise.race([signIn, timeout]);
 
-    if (authError) {
-      const msg =
-        authError.message.includes("Email not confirmed")
-          ? "Check your email to confirm your account, then try again."
-          : authError.message;
-      setError(msg);
+      if (authError) {
+        const msg =
+          authError.message.includes("Email not confirmed")
+            ? "Check your email to confirm your account, then try again."
+            : authError.message;
+        setError(msg);
+        setLoading(false);
+        return;
+      }
+
+      // Profile bootstrap runs in AuthGuard after navigation — awaiting DB here
+      // can deadlock Supabase auth (same session lock as signInWithPassword).
+      window.location.assign(nextPath);
+    } catch (e) {
+      setError(
+        e instanceof Error && e.message === "timeout"
+          ? "Sign-in timed out. Check your connection and try again."
+          : "Sign-in failed. Please try again.",
+      );
       setLoading(false);
-      return;
     }
-
-    if (data.user) await ensureAppUser(supabase, data.user);
-
-    window.location.assign(nextPath);
   }
 
   return (
@@ -78,19 +86,6 @@ function LoginPageContent() {
           </p>
 
           <form onSubmit={handleLogin} className="mt-8 space-y-4">
-            <GoogleSignInButton next={nextPath} variant="marketing" />
-
-            <div className="relative py-1">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-white/20" />
-              </div>
-              <div className="relative flex justify-center">
-                <span className="font-futura-medium bg-[#1a2419] px-3 text-xs uppercase text-gray-500">
-                  or
-                </span>
-              </div>
-            </div>
-
             <MarketingAuthInput
               label="Email"
               id="email"

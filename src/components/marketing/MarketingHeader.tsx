@@ -1,7 +1,8 @@
 import Link from "next/link";
 
 const navigationItems = [
-  { label: "How It Works", href: "/#how-it-works" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Meet Mak", href: "/meet-mak" },
   { label: "Our Narrative", href: "/our-narrative" },
   { label: "Institutions", href: "/institutions" },
 ];
@@ -25,13 +26,13 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
       >
         <div className="marketing-glass pointer-events-auto flex items-center gap-1 rounded-full px-2 py-1.5">
           {navigationItems.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               className="font-futura-medium rounded-full px-4 py-2 text-sm text-white/85 transition hover:bg-white/10 hover:text-marketing-accent"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>

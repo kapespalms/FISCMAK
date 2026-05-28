@@ -46,15 +46,15 @@ export function MarketingGlassPanel({
 
 type MarketingSectionProps = {
   id?: string;
-  /** MECE section label — small caps kicker */
-  kicker: string;
+  /** Optional small-caps label above the title */
+  kicker?: string;
   title: React.ReactNode;
   description?: string;
   children: React.ReactNode;
   className?: string;
 };
 
-/** MECE section shell: kicker + title + optional description + content. */
+/** Section shell: optional kicker + title + description + content. */
 export function MarketingSection({
   id,
   kicker,
@@ -66,10 +66,19 @@ export function MarketingSection({
   return (
     <section id={id} className={cn("relative px-6 py-16 md:px-10 md:py-20", className)}>
       <div className="relative mx-auto max-w-6xl">
-        <p className="font-futura-medium text-xs uppercase tracking-[0.22em] text-marketing-accent/90">
-          {kicker}
-        </p>
-        <h2 className="font-futura-bold mt-3 text-3xl text-white md:text-4xl lg:text-5xl">{title}</h2>
+        {kicker ? (
+          <p className="font-futura-medium text-xs uppercase tracking-[0.22em] text-marketing-accent/90">
+            {kicker}
+          </p>
+        ) : null}
+        <h2
+          className={cn(
+            "font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl",
+            kicker ? "mt-3" : undefined,
+          )}
+        >
+          {title}
+        </h2>
         {description ? (
           <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
             {description}

@@ -4,8 +4,21 @@ import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/supabase/env";
 
 const PUBLIC_PATH_PREFIXES = ["/login", "/signup", "/forgot-password", "/reset-password", "/auth/callback", "/join"];
 
+const PUBLIC_MARKETING_PREFIXES = [
+  "/how-it-works",
+  "/meet-mak",
+  "/our-narrative",
+  "/institutions",
+  "/faq",
+  "/security",
+  "/about",
+];
+
 function isPublicPath(pathname: string) {
   if (pathname === "/") return true;
+  if (PUBLIC_MARKETING_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {
+    return true;
+  }
   return PUBLIC_PATH_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );

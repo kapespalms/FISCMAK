@@ -1,65 +1,86 @@
-import { MarketingGlassPanel, MarketingSection } from "@/components/marketing/MarketingGlass";
+import Link from "next/link";
+import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
 
-/** MECE product loop — matches what FISCMAK actually ships today. */
-const STEPS = [
+const FLOW_STEPS = [
   {
-    n: 1,
-    title: "Connect your work",
-    body: "Log activities with Coach Mak. Programs import MedHub evals; trainees add milestone self-ratings and rotation context.",
+    n: "01",
+    title: "Capture what counts",
+    body: "Talk to Coach Mak after a hard case, a teaching moment, or a leadership win. Voice, chat, or structured entry — your invisible work becomes a living record.",
   },
   {
-    n: 2,
-    title: "Coach Mak remembers",
-    body: "One longitudinal coach — debriefs, goals, and wellbeing check-ins. Private signals for you; never surveillance scores on your dashboard.",
+    n: "02",
+    title: "Map your arc",
+    body: "Mak connects activities across time: competency signals, career goals, gaps worth closing, and the through-line that ties your work together.",
   },
   {
-    n: 3,
-    title: "Synthesize evidence",
-    body: "Pre-CCC summaries, milestone heatmaps, lattice mapping, and document drafts built from your real work — not invented metrics.",
+    n: "03",
+    title: "Build from evidence",
+    body: "Generate CV updates, career narratives, cover letters, and promotion materials from real work — not blank-page guesswork or last-minute scrambling.",
   },
   {
-    n: 4,
-    title: "Show up prepared",
-    body: "ILP goals from gaps, CCC-ready PDFs for program staff, and quarterly pulse so semiannual reviews take minutes, not hours.",
+    n: "04",
+    title: "Claim Your Career",
+    body: "Own the direction you've been building — portfolio, narrative, and next move aligned when opportunity arrives.",
   },
 ] as const;
 
 export function HowItWorksSection() {
   return (
-    <MarketingSection
-      id="how-it-works"
-      kicker="Method"
-      title={
-        <>
+    <section aria-label="How FISCMAK works" className="relative px-6 py-16 md:px-10 md:py-20">
+      <div className="relative mx-auto max-w-6xl">
+        <h1 className="font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl">
           How <span className="text-marketing-accent">FISCMAK</span> works
-        </>
-      }
-      description="Career intelligence for physicians and GME programs — capture, coach, synthesize, and arrive at CCC with evidence already assembled."
-    >
-      <ol className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        {STEPS.map((step) => (
-          <MarketingGlassPanel
-            key={step.n}
-            as="li"
-            accent
-            className="marketing-glass-hover group relative overflow-hidden p-6 md:p-7"
-          >
-            <div
-              className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-marketing-accent/80 via-marketing-accent/40 to-transparent"
-              aria-hidden
-            />
-            <div className="relative pl-3">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="font-futura-bold flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-marketing-accent/90 text-sm text-black shadow-[0_0_20px_rgba(169,255,92,0.35)]">
-                  {step.n}
-                </span>
-                <h3 className="font-futura-bold text-lg leading-tight text-white">{step.title}</h3>
-              </div>
-              <p className="text-sm leading-relaxed text-white/70">{step.body}</p>
-            </div>
-          </MarketingGlassPanel>
-        ))}
-      </ol>
-    </MarketingSection>
+        </h1>
+        <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
+          From invisible work to career evidence — a loop designed for physicians who are too busy to
+          maintain a portfolio by hand.
+        </p>
+
+        <MarketingGlassPanel accent className="relative mt-10 overflow-hidden p-8 md:p-12">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_0%_50%,rgba(169,255,92,0.06),transparent_60%)]"
+            aria-hidden
+          />
+
+          <ol className="relative space-y-0">
+            {FLOW_STEPS.map((step, index) => (
+              <li
+                key={step.n}
+                className="fiscmak-flow-detail group grid grid-cols-1 gap-4 border-b border-white/[0.06] py-8 last:border-b-0 md:grid-cols-[5rem_1fr] md:gap-8 md:py-10"
+              >
+                <div className="flex items-start md:justify-center">
+                  <span className="font-futura-bold text-2xl text-marketing-accent/80 transition-colors duration-300 group-hover:text-marketing-accent md:text-3xl">
+                    {step.n}
+                  </span>
+                </div>
+                <div>
+                  <h2 className="font-futura-bold text-xl text-white md:text-2xl">{step.title}</h2>
+                  <p className="font-futura-medium mt-3 max-w-2xl text-sm leading-relaxed text-white/65 md:text-base">
+                    {step.body}
+                  </p>
+                </div>
+                {index < FLOW_STEPS.length - 1 ? (
+                  <div
+                    className="col-span-full hidden h-px bg-gradient-to-r from-marketing-accent/30 via-white/5 to-transparent md:block"
+                    aria-hidden
+                  />
+                ) : null}
+              </li>
+            ))}
+          </ol>
+        </MarketingGlassPanel>
+
+        <MarketingGlassPanel className="mt-8 p-6 md:p-8">
+          <p className="font-futura-medium text-sm leading-relaxed text-white/70 md:text-base">
+            Residency and GME programs use FISCMAK for cohort dashboards, evaluation import, and
+            review prep —{" "}
+            <Link href="/institutions" className="text-marketing-accent transition hover:text-white">
+              see Institutions
+            </Link>
+            .
+          </p>
+        </MarketingGlassPanel>
+      </div>
+    </section>
   );
 }
