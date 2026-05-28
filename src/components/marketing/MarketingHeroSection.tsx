@@ -18,7 +18,7 @@ function HeroTagline({
   end: string;
 }) {
   return (
-    <p className="font-futura-medium text-base leading-relaxed text-white/85 md:text-lg">
+    <p className="font-futura-bold text-base leading-relaxed text-white md:text-lg">
       <span className="text-marketing-accent">{verb}</span>{" "}
       <span className="text-white">{middle}</span>{" "}
       <span className="text-marketing-gold">{end}</span>
@@ -62,7 +62,7 @@ export function MarketingHeroSection({
             <MarketingHeroHeadline />
           </div>
 
-          <p className="font-futura-medium mt-5 max-w-lg text-lg leading-relaxed text-white/75">
+          <p className="font-futura-bold mt-5 max-w-lg text-lg leading-relaxed text-white">
             FISCMAK helps physicians turn invisible work into career evidence, narrative, and
             direction.
           </p>

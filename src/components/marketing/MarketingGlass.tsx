@@ -80,7 +80,7 @@ export function MarketingSection({
           {title}
         </h2>
         {description ? (
-          <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
+          <p className="font-futura-bold mt-4 max-w-2xl text-base leading-relaxed text-white md:text-lg">
             {description}
           </p>
         ) : null}

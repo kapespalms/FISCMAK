@@ -11,7 +11,7 @@ export function MeetMakLandingSection() {
             <h2 className="font-futura-bold text-2xl text-white md:text-3xl">
               Meet <span className="text-marketing-accent">Mak</span>
             </h2>
-            <p className="font-futura-medium mt-1 max-w-xl text-sm text-white/60 md:text-base">
+            <p className="font-futura-bold mt-1 max-w-xl text-sm text-white md:text-base">
               Helping you navigate every move — goal-setting, mentorship, and career direction.
             </p>
           </div>

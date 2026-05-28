@@ -29,7 +29,7 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
             <Link
               key={item.label}
               href={item.href}
-              className="font-futura-medium rounded-full px-4 py-2 text-sm text-white/85 transition hover:bg-white/10 hover:text-marketing-accent"
+              className="font-futura-bold rounded-full px-4 py-2 text-sm text-white transition hover:bg-white/10 hover:text-marketing-accent"
             >
               {item.label}
             </Link>

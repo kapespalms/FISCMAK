@@ -336,14 +336,28 @@ button {
     0 24px 48px rgba(36, 59, 49, 0.08);
 }
 
-/* Marketing site — black hero, lime accent, Futura (see MarketingFontShell) */
+/* Marketing site — black hero, lime accent, Futura PT Bold (headline font) */
 .marketing-page {
   --marketing-accent: #a9ff5c;
   --marketing-cream: #f1fbe7;
   --marketing-gold: #d4c574;
   background-color: #000;
-  color: var(--marketing-cream);
-  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
+  color: #fff;
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
+  font-weight: 700;
+}
+
+.marketing-page p,
+.marketing-page li,
+.marketing-page a:not(.cx-btn) {
+  color: #fff;
+}
+
+/* Body copy uses the same Futura PT Bold as the hero headline */
+.marketing-page .font-futura-medium,
+.marketing-page .font-futura-book {
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
+  font-weight: 700;
 }
 
 .font-futura-bold {
@@ -511,12 +525,6 @@ input[type="reset"]:not([data-preserve-radius]) {
     transform: translateX(100%);
     opacity: 0;
   }
-}
-
-/* Canva panel PNGs — knock out light matte on dark marketing canvas */
-.marketing-panel-art {
-  mix-blend-mode: multiply;
-  filter: contrast(1.08) brightness(1.05);
 }
 
 .pillar-detail-pop {

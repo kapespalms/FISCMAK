@@ -31,7 +31,7 @@ export function HowItWorksSection() {
         <h1 className="font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl">
           How <span className="text-marketing-accent">FISCMAK</span> works
         </h1>
-        <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
+        <p className="font-futura-bold mt-4 max-w-2xl text-base leading-relaxed text-white md:text-lg">
           From invisible work to career evidence — a loop designed for physicians who are too busy to
           maintain a portfolio by hand.
         </p>
@@ -55,7 +55,7 @@ export function HowItWorksSection() {
                 </div>
                 <div>
                   <h2 className="font-futura-bold text-xl text-white md:text-2xl">{step.title}</h2>
-                  <p className="font-futura-medium mt-3 max-w-2xl text-sm leading-relaxed text-white/65 md:text-base">
+                  <p className="font-futura-bold mt-3 max-w-2xl text-sm leading-relaxed text-white md:text-base">
                     {step.body}
                   </p>
                 </div>
@@ -71,7 +71,7 @@ export function HowItWorksSection() {
         </MarketingGlassPanel>
 
         <MarketingGlassPanel className="mt-8 p-6 md:p-8">
-          <p className="font-futura-medium text-sm leading-relaxed text-white/70 md:text-base">
+          <p className="font-futura-bold text-sm leading-relaxed text-white md:text-base">
             Residency and GME programs use FISCMAK for cohort dashboards, evaluation import, and
             review prep —{" "}
             <Link href="/institutions" className="text-marketing-accent transition hover:text-white">

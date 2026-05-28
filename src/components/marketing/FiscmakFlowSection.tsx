@@ -21,7 +21,7 @@ export function FiscmakFlowSection() {
             <h2 className="font-futura-bold text-2xl text-white md:text-3xl">
               The <span className="text-marketing-accent">FISCMAK</span> Flow
             </h2>
-            <p className="font-futura-medium mt-1 max-w-xl text-sm text-white/60 md:text-base">
+            <p className="font-futura-bold mt-1 max-w-xl text-sm text-white md:text-base">
               Invisible work → career clarity.
             </p>
           </div>
@@ -47,7 +47,7 @@ export function FiscmakFlowSection() {
                   </span>
                   <div>
                     <h3 className="font-futura-bold text-base text-white md:text-lg">{step.label}</h3>
-                    <p className="font-futura-medium mt-0.5 text-xs leading-snug text-white/55 md:text-sm">
+                    <p className="font-futura-bold mt-0.5 text-xs leading-snug text-white md:text-sm">
                       {step.line}
                     </p>
                   </div>

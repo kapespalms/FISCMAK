@@ -23,7 +23,7 @@ export function MarketingFooter() {
       <div className="px-6 py-10 md:px-10 md:py-12">
         <nav
           aria-label="Footer links"
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400"
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white"
         >
           {footerLinks.map((item) => (
             <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
@@ -42,7 +42,7 @@ export function MarketingFooter() {
             <span className="text-marketing-accent">MAK</span>
           </Link>
 
-          <p className="font-futura-medium text-sm text-gray-500">
+          <p className="font-futura-bold text-sm text-white">
             FISCMAK LLC · {new Date().getFullYear()}
           </p>
         </div>

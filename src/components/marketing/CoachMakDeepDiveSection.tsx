@@ -36,12 +36,12 @@ export function CoachMakDeepDiveSection() {
           {COACH_PILLARS.map((pillar) => (
             <MarketingGlassPanel key={pillar.title} accent className="p-6 md:p-7">
               <h3 className="font-futura-bold text-lg text-white">{pillar.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">{pillar.body}</p>
+              <p className="font-futura-bold mt-2 text-sm leading-relaxed text-white">{pillar.body}</p>
             </MarketingGlassPanel>
           ))}
 
           <MarketingGlassPanel className="p-6 md:p-7">
-            <p className="font-futura-medium text-sm leading-relaxed text-white/65 md:text-base">
+            <p className="font-futura-bold text-sm leading-relaxed text-white md:text-base">
               Mak supplements your real mentors, sponsors, and coaches — it doesn&apos;t replace
               them. Think interim guidance and a private record until your board is full.
             </p>
