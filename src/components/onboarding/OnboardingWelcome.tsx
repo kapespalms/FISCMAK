@@ -8,9 +8,9 @@ import { isUniversityHospitalsInstitution } from "@/lib/v2/programs/institution-
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
 
 const SETUP_STEPS = [
-  { title: "Profile", detail: "Name, training level, and current rotation." },
-  { title: "Documents", detail: "Upload your CV and key career files." },
-  { title: "Self-assessment", detail: "Short check-in — finish on your dashboard when ready." },
+  { title: "You", detail: "Name, training level, and career direction." },
+  { title: "Records", detail: "CV upload (optional to skip)." },
+  { title: "Baseline", detail: "Short check-ins with Mak — one question at a time." },
 ] as const;
 
 export type OnboardingWelcomeVariant = "default" | "public" | "institutional";

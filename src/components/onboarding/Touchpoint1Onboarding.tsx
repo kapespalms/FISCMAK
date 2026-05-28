@@ -6,7 +6,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageShell } from "@/components/layout/PageShell";
-import { CheckCircle2, ChevronLeft, Circle } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
+import { OnboardingFlowChrome } from "@/components/onboarding/OnboardingFlowChrome";
 import { cn } from "@/lib/utils";
 import {
   CAREER_LEVELS,
@@ -73,15 +74,15 @@ type OnboardingProgramConfig = {
 };
 
 const STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[] = [
-  { id: "welcome", label: "Welcome" },
-  { id: "profile", label: "Profile" },
-  { id: "documents", label: "Documents" },
-  { id: "reconcile", label: "Confirm data" },
-  { id: "instruments", label: "Self-assessment" },
+  { id: "welcome", label: "Orient" },
+  { id: "profile", label: "You" },
+  { id: "documents", label: "Records" },
+  { id: "reconcile", label: "Verify" },
+  { id: "instruments", label: "Baseline" },
 ];
 
 const STEPS: { id: OnboardingStep; label: string }[] = [
-  { id: "path", label: "Path" },
+  { id: "path", label: "Join" },
   ...STEPS_AFTER_PATH,
 ];
 
@@ -147,6 +148,7 @@ export function Touchpoint1Onboarding() {
     () => searchParams.get("token"),
   );
   const [inviteTokenFromMeta, setInviteTokenFromMeta] = useState<string | null>(null);
+  const [tier1Complete, setTier1Complete] = useState(false);
 
   const isInstitutional = onboardingPath === "institutional" && Boolean(programConfig);
   const visibleSteps = pathChosen ? STEPS_AFTER_PATH : STEPS;
@@ -474,6 +476,7 @@ export function Touchpoint1Onboarding() {
         }
       }
       if (data.instruments) setInstruments(data.instruments);
+      if (data.tier1_complete) setTier1Complete(true);
       const pathChosenFromServer = Boolean(data.onboarding?.path_chosen);
       if (pathChosenFromServer || pathResolved) {
         setPathChosen(true);
@@ -572,14 +575,76 @@ export function Touchpoint1Onboarding() {
       setLoading(false);
       return;
     }
+    setTier1Complete(true);
     setLoading(false);
     setStep("documents");
     router.replace("/app/onboarding?step=documents");
   }
 
-  function goToReconcile() {
+  async function runAdvance(advanceStep: "records" | "verify" | "baseline" | "exit") {
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/v1/onboarding/advance", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ step: advanceStep }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.message ?? "Could not continue");
+        return;
+      }
+      if (data.redirect) {
+        router.replace(data.redirect);
+        router.refresh();
+        return;
+      }
+      if (data.next_step) {
+        setStep(data.next_step as OnboardingStep);
+        router.replace(`/app/onboarding?step=${data.next_step}`);
+      }
+    } catch {
+      setError("Could not continue");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function goToReconcile() {
+    try {
+      const res = await fetch("/api/v1/onboarding/reconciliation");
+      const data = await res.json();
+      const items = (data.items ?? []) as ReconcileItem[];
+      if (items.length === 0) {
+        await runAdvance("verify");
+        return;
+      }
+      setReconcileItems(items);
+    } catch {
+      /* continue */
+    }
     setStep("reconcile");
     router.replace("/app/onboarding?step=reconcile");
+  }
+
+  function skipCurrentStep() {
+    if (step === "welcome") {
+      setStep("profile");
+      router.replace("/app/onboarding?step=profile");
+      return;
+    }
+    if (step === "documents") void runAdvance("records");
+    else if (step === "reconcile") void runAdvance("verify");
+    else if (step === "instruments") void runAdvance("baseline");
+  }
+
+  function exitSetup() {
+    if (!tier1Complete) {
+      setError("Save your profile first. Optional steps can be skipped after that.");
+      return;
+    }
+    void runAdvance("exit");
   }
 
   async function submitReconciliation() {
@@ -628,20 +693,11 @@ export function Touchpoint1Onboarding() {
     refreshReconciliation();
   }
 
-  async function startMakConversation() {
+  async function openBaselineWithMak() {
     setLoading(true);
-    setError("");
     try {
-      const res = await fetch("/api/v1/onboarding/compute", { method: "POST" });
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data.message ?? "Could not finish setup");
-        return;
-      }
-      router.replace(data.redirect ?? "/app/dashboard?welcome=1");
+      router.replace("/app/dashboard?welcome=1");
       router.refresh();
-    } catch {
-      setError("Could not finish setup");
     } finally {
       setLoading(false);
     }
@@ -709,46 +765,11 @@ export function Touchpoint1Onboarding() {
 
   return (
     <PageShell
-      title="Onboarding"
+      title="Setup"
+      subtitle="Six steps. Skip anything optional — baseline check-ins happen with Mak on your dashboard."
       maxWidth="md"
       className="py-4"
     >
-      <div className="mb-6 flex gap-1 overflow-x-auto">
-        {visibleSteps.map((s, i) => {
-          const completed = i < stepIndex;
-          const current = i === stepIndex;
-          const pillClass = cn(
-            "cx-nav-pill flex shrink-0 items-center gap-1.5 text-xs",
-            current
-              ? "cx-nav-pill-active"
-              : completed
-                ? "cx-nav-pill-inactive bg-cx-forest-dark/10"
-                : "cx-nav-pill-inactive opacity-60",
-          );
-
-          if (completed) {
-            return (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => navigateToStep(s.id)}
-                className={cn(pillClass, "cursor-pointer hover:opacity-90")}
-              >
-                <CheckCircle2 size={14} />
-                {s.label}
-              </button>
-            );
-          }
-
-          return (
-            <div key={s.id} className={pillClass}>
-              {completed ? <CheckCircle2 size={14} /> : <Circle size={14} />}
-              {s.label}
-            </div>
-          );
-        })}
-      </div>
-
       {step === "path" && bootstrappingPath && (
         <Card>
           <p className="text-sm text-cx-forest-dark/70">
@@ -775,12 +796,23 @@ export function Touchpoint1Onboarding() {
         </Card>
       )}
 
-      {step === "path" && !bootstrappingPath && !pendingInviteToken && !pathChosen && (
+      {!bootstrappingPath && !(step === "path" && pendingInviteToken && !pathChosen) && (
+        <OnboardingFlowChrome
+          step={step === "path" ? "path" : step}
+          includeJoinPhase={step === "path"}
+          onClose={exitSetup}
+          onSkip={
+            step === "welcome" || step === "documents" || step === "reconcile" || step === "instruments"
+              ? skipCurrentStep
+              : undefined
+          }
+          skipDisabled={loading}
+          closeDisabled={!tier1Complete}
+        >
+      {step === "path" && !pathChosen && (
         <>
           <OnboardingPathSelect loading={loading} onSelectPublic={handleSelectPublicPath} />
-          {error && (
-            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">{error}</p>
-          )}
+          {error && <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">{error}</p>}
         </>
       )}
 
@@ -1170,7 +1202,12 @@ export function Touchpoint1Onboarding() {
               Back
             </button>
           )}
-          <OnboardingDocumentsStep onContinue={goToReconcile} continueDisabled={loading} />
+          <OnboardingDocumentsStep
+            onContinue={goToReconcile}
+            onSkip={() => void runAdvance("records")}
+            continueDisabled={loading}
+            skipDisabled={loading}
+          />
         </>
       )}
 
@@ -1211,7 +1248,7 @@ export function Touchpoint1Onboarding() {
               onClick={submitReconciliation}
               disabled={loading || !canContinueReconcile()}
             >
-              {loading ? "Saving…" : "Continue to self-assessment"}
+              {loading ? "Saving…" : "Continue to baseline"}
             </Button>
           </div>
           {error && (
@@ -1234,10 +1271,9 @@ export function Touchpoint1Onboarding() {
               Back
             </button>
           )}
-          <h1 className="text-page-title">Self-assessment</h1>
+          <h1 className="text-page-title">Baseline with Mak</h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Finish setup now. Complete these instruments from Coach Mak on your dashboard when you are
-            ready.
+            Mak asks one short question at a time (~15 min total). Reply with a number when you can.
           </p>
 
           <ul className="mt-4 space-y-2">
@@ -1255,10 +1291,22 @@ export function Touchpoint1Onboarding() {
             ))}
           </ul>
 
-          <Button className="mt-6 w-full" onClick={startMakConversation} disabled={loading}>
-            {loading ? "Finishing…" : "Go to dashboard"}
-          </Button>
+          <div className="mt-6 space-y-3">
+            <Button className="w-full" onClick={openBaselineWithMak} disabled={loading}>
+              {loading ? "Opening…" : "Start baseline with Mak"}
+            </Button>
+            <Button
+              variant="secondary"
+              className="w-full"
+              onClick={() => void runAdvance("baseline")}
+              disabled={loading}
+            >
+              Skip — do this later
+            </Button>
+          </div>
         </Card>
+      )}
+        </OnboardingFlowChrome>
       )}
     </PageShell>
   );
