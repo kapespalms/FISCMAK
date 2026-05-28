@@ -214,13 +214,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
         )}
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
-        <div className="cx-main-shell flex min-w-0 flex-1 flex-col">
+        <div className="flex min-w-0 flex-1 flex-col">
           {!isOnboardingRoute && <TopNavBar />}
-          <AnalyticsProvider>
-            <main className="font-futura-book min-h-0 flex-1 overflow-auto bg-cx-page-muted p-4 md:p-8">
-              {children}
-            </main>
-          </AnalyticsProvider>
+          <div className="cx-main-shell flex min-h-0 flex-1 flex-col">
+            <AnalyticsProvider>
+              <main className="font-futura-book min-h-0 flex-1 overflow-auto p-4 md:p-8">
+                {children}
+              </main>
+            </AnalyticsProvider>
+          </div>
         </div>
       </div>
     </AppShellContext.Provider>

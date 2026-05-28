@@ -1,4 +1,3 @@
-import { marketingFontVariables } from "@/lib/fonts/marketing-fonts";
 import { cn } from "@/lib/utils";
 
 export function MarketingFontShell({
@@ -8,9 +7,5 @@ export function MarketingFontShell({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <div className={cn("marketing-page", marketingFontVariables, className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("marketing-page", className)}>{children}</div>;
 }

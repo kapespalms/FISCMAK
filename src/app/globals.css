@@ -132,13 +132,17 @@
   --color-marketing-accent: #a9ff5c;
   --color-marketing-cream: #f1fbe7;
   --color-marketing-gold: #d4c574;
-  --font-sans: var(--font-futura-pt-book), "Futura PT", sans-serif;
+  --font-sans: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   background: var(--cx-gradient-from);
   color: var(--cx-text);
-  font-family: var(--font-sans);
+  font-family: inherit;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -147,7 +151,7 @@ input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select,
 button {
-  font-family: var(--font-sans);
+  font-family: inherit;
 }
 
 :focus-visible {
@@ -519,13 +523,13 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: var(--marketing-gold);
 }
 
-/* Marketing glassmorphism — light canvas + frosted panels */
-.marketing-canvas {
+/* Marketing glassmorphism — light canvas + frosted panels (marketing routes only) */
+.marketing-page .marketing-canvas {
   background: #f7f8f6;
   color: var(--cx-forest-dark);
 }
 
-.marketing-canvas-glow {
+.marketing-page .marketing-canvas-glow {
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -697,29 +701,33 @@ input[type="reset"]:not([data-preserve-radius]) {
 .cx-main-shell {
   margin-top: 10px;
   border-top-left-radius: 32px;
-  background: var(--cx-page-muted);
+  background: transparent;
   overflow: hidden;
   box-shadow:
     inset 1px 1px 0 color-mix(in srgb, #ffffff 40%, transparent),
     -1px -1px 0 color-mix(in srgb, #ffffff 6%, var(--cx-forest-dark));
 }
 
-/* Top nav — light header + grey rounded tab rail */
-.cx-app-top-bar {
+.cx-main-shell > main {
   background: var(--cx-page-muted);
-  border-bottom: 1px solid #e2e8e6;
-  color: var(--fm-primary);
+}
+
+/* Top nav — forest chrome + white labels (not marketing lime/forest on light) */
+.cx-app-top-bar {
+  background: var(--cx-forest-dark);
+  border-bottom: 1px solid color-mix(in srgb, #ffffff 10%, transparent);
+  color: #ffffff;
 }
 
 .cx-app-top-bar-icon-btn {
-  color: var(--fm-neutral);
+  color: color-mix(in srgb, #ffffff 72%, transparent);
   border-radius: var(--radius-button);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .cx-app-top-bar-icon-btn:hover {
-  background: #ffffff;
-  color: var(--cx-forest-dark);
+  background: color-mix(in srgb, #ffffff 12%, transparent);
+  color: #ffffff;
 }
 
 .cx-top-nav-strip {
@@ -728,10 +736,10 @@ input[type="reset"]:not([data-preserve-radius]) {
   flex: 1 1 auto;
   gap: 2px;
   padding: 3px;
-  background: color-mix(in srgb, #787880 14%, transparent);
+  background: color-mix(in srgb, #ffffff 12%, transparent);
   border: none;
   border-radius: 9999px;
-  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, #000000 6%, transparent);
+  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, #ffffff 10%, transparent);
 }
 
 .cx-top-nav-tab {
@@ -757,23 +765,22 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-top-nav-tab-active {
-  background: #ffffff;
-  color: var(--cx-forest-dark);
+  background: color-mix(in srgb, #ffffff 18%, var(--cx-forest-dark));
+  color: #ffffff;
   font-weight: 600;
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 0.5px 1px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.8);
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 0.5px color-mix(in srgb, #ffffff 22%, transparent);
 }
 
 .cx-top-nav-tab-inactive {
   background: transparent;
-  color: color-mix(in srgb, var(--cx-forest-dark) 55%, #6b7280);
+  color: color-mix(in srgb, #ffffff 68%, transparent);
 }
 
 .cx-top-nav-tab-inactive:hover {
-  background: color-mix(in srgb, #ffffff 45%, transparent);
-  color: var(--cx-forest-dark);
+  background: color-mix(in srgb, #ffffff 10%, transparent);
+  color: #ffffff;
 }
 
 .cx-top-nav-tab:active {
@@ -933,7 +940,9 @@ input[type="reset"]:not([data-preserve-radius]) {
 
 /* Dark mode — shell chrome */
 .dark .cx-app-top-bar {
-  border-bottom-color: #2a3d32;
+  background: var(--cx-forest-dark);
+  border-bottom-color: color-mix(in srgb, #ffffff 10%, transparent);
+  color: #ffffff;
 }
 
 .dark .cx-top-nav-strip {
@@ -958,15 +967,23 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: #e8f4ec;
 }
 
+.dark .cx-app-top-bar-icon-btn {
+  color: color-mix(in srgb, #ffffff 72%, transparent);
+}
+
 .dark .cx-app-top-bar-icon-btn:hover {
-  background: #243b31;
-  color: #e8f4ec;
+  background: color-mix(in srgb, #ffffff 12%, transparent);
+  color: #ffffff;
 }
 
 .dark .cx-main-shell {
   box-shadow:
     inset 1px 1px 0 color-mix(in srgb, #ffffff 6%, transparent),
     -1px -1px 0 color-mix(in srgb, #000000 20%, transparent);
+}
+
+.dark .cx-main-shell > main {
+  background: var(--cx-page-muted);
 }
 
 .dark .cx-main-shell .text-cx-forest-dark {
@@ -1063,10 +1080,6 @@ input[type="reset"]:not([data-preserve-radius]) {
   border-color: color-mix(in srgb, var(--fm-attention) 35%, transparent);
 }
 
-.dark .cx-app-top-bar {
-  color: #e8f4ec;
-}
-
 .dark .cx-nav-pill-inactive:hover {
   color: #e2ece6;
 }
@@ -1085,9 +1098,9 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: var(--cx-text);
 }
 
-/* Glass polymorphism — sitewide cx-btn links and buttons */
-button.cx-btn,
-a.cx-btn {
+/* Glass polymorphism — marketing cx-btn links and buttons only (not the in-app UI) */
+.marketing-page button.cx-btn,
+.marketing-page a.cx-btn {
   background: linear-gradient(
     145deg,
     rgb(255 255 255 / 0.12) 0%,
@@ -1105,8 +1118,8 @@ a.cx-btn {
     background 0.2s ease;
 }
 
-button.cx-btn:hover,
-a.cx-btn:hover {
+.marketing-page button.cx-btn:hover,
+.marketing-page a.cx-btn:hover {
   border-color: rgb(169 255 92 / 0.38) !important;
   box-shadow:
     0 6px 22px rgb(0 0 0 / 0.38),
@@ -1114,8 +1127,8 @@ a.cx-btn:hover {
     inset 0 1px 0 rgb(255 255 255 / 0.18);
 }
 
-button.cx-btn.bg-marketing-accent,
-a.cx-btn.bg-marketing-accent {
+.marketing-page button.cx-btn.bg-marketing-accent,
+.marketing-page a.cx-btn.bg-marketing-accent {
   background: linear-gradient(
     145deg,
     rgb(169 255 92 / 0.9) 0%,
@@ -1127,8 +1140,8 @@ a.cx-btn.bg-marketing-accent {
     inset 0 1px 0 rgb(255 255 255 / 0.35);
 }
 
-button.cx-btn.bg-marketing-accent:hover,
-a.cx-btn.bg-marketing-accent:hover {
+.marketing-page button.cx-btn.bg-marketing-accent:hover,
+.marketing-page a.cx-btn.bg-marketing-accent:hover {
   background: linear-gradient(
     145deg,
     rgb(255 255 255 / 0.92) 0%,
@@ -1140,14 +1153,14 @@ a.cx-btn.bg-marketing-accent:hover {
     inset 0 1px 0 rgb(255 255 255 / 0.65);
 }
 
-button.cx-btn.bg-black,
-a.cx-btn.bg-black {
+.marketing-page button.cx-btn.bg-black,
+.marketing-page a.cx-btn.bg-black {
   background: linear-gradient(145deg, rgb(0 0 0 / 0.82) 0%, rgb(0 0 0 / 0.58) 100%) !important;
   border-color: rgb(255 255 255 / 0.18) !important;
 }
 
-button.cx-btn[class*="border-white"],
-a.cx-btn[class*="border-white"] {
+.marketing-page button.cx-btn[class*="border-white"],
+.marketing-page a.cx-btn[class*="border-white"] {
   background: linear-gradient(
     145deg,
     rgb(255 255 255 / 0.14) 0%,
@@ -1155,8 +1168,8 @@ a.cx-btn[class*="border-white"] {
   ) !important;
 }
 
-button.cx-btn[class*="border-cx-forest-dark"],
-a.cx-btn[class*="border-cx-forest-dark"] {
+.marketing-page button.cx-btn[class*="border-cx-forest-dark"],
+.marketing-page a.cx-btn[class*="border-cx-forest-dark"] {
   background: linear-gradient(
     145deg,
     rgb(255 255 255 / 0.88) 0%,
