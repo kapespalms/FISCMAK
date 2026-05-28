@@ -26,6 +26,8 @@ import {
   processReconcileTurn,
 } from "@/lib/v2/reconcile-mak-flow";
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { instrumentsPending } from "@/lib/v2/onboarding-instrument-progress";
+import { instrumentsPending } from "@/lib/v2/onboarding-instrument-progress";
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 import { buildProgramMakContext } from "@/lib/v2/programs/registry";
 import { buildUhResidencyMakContext } from "@/lib/v2/uh-residency-mak-context";
@@ -247,6 +249,7 @@ export async function POST(request: Request) {
   let pendingCount = 0;
   let touchpointComplete = false;
   let instrumentCaptured: string[] = [];
+  let baselineInstrumentsComplete = false;
 
   let reconcileCaptured = false;
   let reconcileCompleteFlag = false;
@@ -277,11 +280,12 @@ export async function POST(request: Request) {
       reconcileNextPrompt = turn.nextPrompt;
       pendingCount = turn.pendingCount;
       touchpointComplete = turn.complete;
-    } else if (user.tier2_complete && !user.tier3_complete) {
+    } else if (user.tier2_complete && instrumentsPending(user)) {
       const inst = await processInstrumentTurn(user, auth.userId, auth.demo, message);
       instrumentCaptured = inst.captured;
       pendingCount = inst.pendingCluster ? 1 : 0;
       touchpointComplete = inst.instrumentsComplete;
+      baselineInstrumentsComplete = inst.instrumentsComplete;
     } else if (!user.tier3_complete) {
       const turn = await processConversationalTurn(
         user,
@@ -295,7 +299,7 @@ export async function POST(request: Request) {
       touchpointComplete = turn.touchpointComplete;
     }
 
-    if (touchpointComplete && onboarding) {
+    if (touchpointComplete && (onboarding || baselineInstrumentsComplete)) {
       const refreshedUser = await getAppUser(auth.userId, auth.demo);
       if (refreshedUser) {
         const cv = docs.find((d) => d.document_type === "CV");
@@ -1729,7 +1733,7 @@ export async function POST(request: Request) {
       docs.length ? `Documents: ${docs.length} uploaded` : "",
       autoAnswered.length ? `Auto-captured this turn: ${autoAnswered.join(", ")}` : "",
       instrumentCaptured.length ? `Instrument clusters captured: ${instrumentCaptured.join(", ")}` : "",
-      user?.tier2_complete && !user?.tier3_complete && nextInstrumentPrompt(user)
+      user && instrumentsPending(user) && nextInstrumentPrompt(user)
         ? `Next instrument prompt: ${nextInstrumentPrompt(user)}`
         : "",
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",

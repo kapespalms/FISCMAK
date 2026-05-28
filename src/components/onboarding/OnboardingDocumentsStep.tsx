@@ -79,7 +79,9 @@ function uploadWithProgress(
 
 export function OnboardingDocumentsStep({
   onContinue,
+  onSkip,
   continueDisabled = false,
+  skipDisabled = false,
 }: OnboardingDocumentsStepProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [documents, setDocuments] = useState<DocumentRow[]>([]);

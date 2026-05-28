@@ -142,10 +142,14 @@ export function DashboardWorkspace() {
   }, [welcome]);
 
   useEffect(() => {
-    if (loading || onboardingPhase || !profile?.tier3_complete) return;
+    if (loading || onboardingPhase) return;
     if (typeof window === "undefined") return;
 
-    if (welcome && !localStorage.getItem(SELF_ASSESSMENT_MAK_INTRO_KEY)) {
+    const baselineDue =
+      (profile?.instrument_pending ?? 0) > 0 && !profile?.instruments_deferred;
+    if (!profile?.tier3_complete && !baselineDue) return;
+
+    if (welcome && baselineDue && !localStorage.getItem(SELF_ASSESSMENT_MAK_INTRO_KEY)) {
       localStorage.setItem(SELF_ASSESSMENT_MAK_INTRO_KEY, "1");
       localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
       startMakFlow("assess", undefined, "__self_assessment_intro__");
@@ -156,7 +160,7 @@ export function DashboardWorkspace() {
     if (localStorage.getItem("fiscmak_dashboard_mak_intro")) return;
     localStorage.setItem("fiscmak_dashboard_mak_intro", "1");
     openMak();
-  }, [loading, onboardingPhase, profile?.tier3_complete, welcome, startMakFlow, openMak, router]);
+  }, [loading, onboardingPhase, profile, welcome, startMakFlow, openMak, router]);
 
   function beginAnnualMak(href?: string) {
     const name = displayName ?? "there";
