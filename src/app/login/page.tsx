@@ -43,34 +43,56 @@ function LoginPageContent() {
     }
 
     try {
-      const supabase = createClient();
-      const signInPromise = supabase.auth.signInWithPassword({ email, password });
-      const timeout = new Promise<never>((_, reject) => {
-        setTimeout(() => reject(new Error("timeout")), 20_000);
-      });
-      const { data, error: authError } = await Promise.race([signInPromise, timeout]);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20_000);
 
-      if (authError) {
-        const msg =
-          authError.message.includes("Email not confirmed")
-            ? "Check your email to confirm your account, then try again."
-            : authError.message;
+      const res = await fetch("/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ email, password }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      const payload = (await res.json().catch(() => ({}))) as {
+        message?: string;
+        access_token?: string;
+        refresh_token?: string;
+      };
+
+      if (!res.ok) {
+        const raw = payload.message ?? "Sign-in failed. Please try again.";
+        const msg = raw.includes("Email not confirmed")
+          ? "Check your email to confirm your account, then try again."
+          : raw;
         setError(msg);
         setLoading(false);
         return;
       }
 
-      if (!data.session) {
+      if (!payload.access_token || !payload.refresh_token) {
         setError("Sign-in did not create a session. Confirm your email or reset your password.");
         setLoading(false);
         return;
       }
 
-      // Profile bootstrap runs in AuthGuard — do not call getSession here; it deadlocks auth.
+      // Sync browser client so AuthGuard sees the session immediately after navigation.
+      const supabase = createClient();
+      const { error: sessionError } = await supabase.auth.setSession({
+        access_token: payload.access_token,
+        refresh_token: payload.refresh_token,
+      });
+      if (sessionError) {
+        setError(sessionError.message);
+        setLoading(false);
+        return;
+      }
+
       navigateToAppPath(nextPath);
     } catch (e) {
       setError(
-        e instanceof Error && e.message === "timeout"
+        e instanceof Error && e.name === "AbortError"
           ? "Sign-in timed out. Check your connection and try again."
           : "Sign-in failed. Please try again.",
       );
