@@ -32,6 +32,7 @@ import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
+import { MakAssistantBubble, MakUserBubble } from "@/components/mak/MakMessageBubble";
 import { MakMessageActions } from "@/components/layout/MakMessageActions";
 import { CreditLimitModal } from "@/components/layout/CreditLimitModal";
 import {
@@ -793,14 +794,14 @@ export function MakPanel({
         aria-hidden={!open}
       >
         <div className={cn("flex h-full flex-col bg-white", expanded && "min-w-0")}>
-          <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white">
-            <div className="flex h-14 items-center justify-between gap-2 px-3">
+          <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white/95">
+            <div className="flex h-12 items-center justify-between gap-2 px-4">
               <div className="flex min-w-0 items-center gap-2.5">
-                <CoachMakAvatar size={36} className="rounded-full" />
+                <CoachMakAvatar size={36} />
                 <div className="min-w-0">
-                  <p className="truncate text-base font-semibold text-cx-forest-dark">Coach Mak</p>
+                  <p className="truncate text-[14px] font-semibold text-cx-forest-dark">Coach Mak</p>
                   {userTier === "free" && messageBalance != null && (
-                    <p className="truncate text-[11px] text-cx-forest-dark/50">
+                    <p className="truncate text-[10px] text-cx-forest-dark/50">
                       {messageBalance} free AI {messageBalance === 1 ? "message" : "messages"} left
                     </p>
                   )}
@@ -827,11 +828,14 @@ export function MakPanel({
                 </button>
               </div>
             </div>
+            <div className="border-t border-cx-forest-dark/8 py-1.5 text-center text-[11px] text-cx-forest-dark/55">
+              {config.mode}
+            </div>
           </header>
 
         <div
           ref={scrollRef}
-          className="cx-mak-panel-chat flex-1 space-y-3 overflow-y-auto bg-white px-4 py-4"
+          className="cx-mak-panel-chat flex-1 space-y-4 overflow-y-auto bg-[#fafbfa] px-4 py-4"
         >
         {activeEscalation && (
           <EscalationResourcesPanel
@@ -844,12 +848,10 @@ export function MakPanel({
 
           if (msg.role === "assistant") {
             return (
-              <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex gap-2.5">
-                <CoachMakAvatar size={28} className="mt-1 rounded-full" />
+              <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex gap-3">
+                <CoachMakAvatar size={32} className="mt-0.5 shrink-0" />
                 <div className="min-w-0 flex-1 space-y-1.5">
-                  <div className="max-w-[95%] whitespace-pre-line rounded-2xl bg-[#eceef1] px-4 py-3 text-sm leading-relaxed text-cx-forest-dark">
-                    {msg.content}
-                  </div>
+                  <MakAssistantBubble className="max-w-[95%]">{msg.content}</MakAssistantBubble>
                   {showTimestamp && (
                     <div className="flex items-center justify-between gap-2">
                       <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
@@ -865,18 +867,16 @@ export function MakPanel({
 
           return (
             <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex justify-end">
-              <div className="max-w-[88%] whitespace-pre-line rounded-2xl bg-cx-forest-dark px-4 py-3 text-sm leading-relaxed text-white">
-                {msg.content}
-              </div>
+              <MakUserBubble className="max-w-[88%]">{msg.content}</MakUserBubble>
             </div>
           );
         })}
         {loading && (
-          <div className="flex gap-2.5">
-            <CoachMakAvatar size={28} className="mt-1 rounded-full opacity-80" />
-            <div className="max-w-[95%] rounded-2xl bg-[#eceef1] px-4 py-3 text-sm text-cx-forest-dark/70">
+          <div className="flex gap-3">
+            <CoachMakAvatar size={32} className="mt-0.5 shrink-0 opacity-80" />
+            <MakAssistantBubble className="max-w-[95%] text-cx-forest-dark/70">
               Mak is thinking…
-            </div>
+            </MakAssistantBubble>
           </div>
         )}
         </div>
@@ -901,7 +901,7 @@ export function MakPanel({
             }}
             placeholder={MAK_INPUT_PLACEHOLDER}
             disabled={loading || recording}
-            className="cx-mak-panel-input h-11 min-h-11 flex-1 rounded-xl border border-cx-forest-dark/8 bg-[#eceef1] px-3 text-sm text-cx-forest-dark focus:border-cx-forest-dark/20 focus:outline-none focus:ring-2 focus:ring-cx-forest-dark/10"
+            className="cx-mak-panel-input h-11 min-h-11 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-4 text-sm text-cx-forest-dark shadow-sm focus:border-[#67E151]/40 focus:outline-none focus:ring-2 focus:ring-[#67E151]/15"
             aria-label="Message to Coach Mak"
           />
           <MakHexMicButton

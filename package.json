@@ -15,7 +15,8 @@
     "content:education-manifest": "node scripts/generate-education-manifest.mjs",
     "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs",
     "db:seed-mak-profile": "node scripts/seed-mak-profile.mjs",
-    "pilot:dry-run": "node scripts/pilot-dry-run.mjs"
+    "pilot:dry-run": "node scripts/pilot-dry-run.mjs",
+    "brand:sync": "node scripts/sync-brand-assets.mjs"
   },
   "dependencies": {
     "@lexical/link": "^0.44.0",

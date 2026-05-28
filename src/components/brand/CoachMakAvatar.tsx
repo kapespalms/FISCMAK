@@ -16,7 +16,10 @@ export function CoachMakAvatar({ size = 32, className, framed = false }: CoachMa
       alt="Coach Mak"
       width={size}
       height={size}
-      className={cn("shrink-0 object-contain", !framed && className)}
+      className={cn(
+        "shrink-0 object-contain",
+        !framed && className,
+      )}
       decoding="async"
     />
   );
@@ -26,10 +29,10 @@ export function CoachMakAvatar({ size = 32, className, framed = false }: CoachMa
   return (
     <div
       className={cn(
-        "marketing-glass flex shrink-0 items-center justify-center rounded-full p-2",
+        "marketing-glass flex shrink-0 items-center justify-center rounded-2xl p-2.5",
         className,
       )}
-      style={{ width: size + 16, height: size + 16 }}
+      style={{ width: size + 20, height: size + 20 }}
     >
       {img}
     </div>
