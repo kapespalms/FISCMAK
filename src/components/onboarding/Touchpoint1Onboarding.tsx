@@ -1198,6 +1198,34 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "profile" && (
+        activeProfileCardId === "acceptance" ? (
+          <div className="-mx-6 -mt-6 min-h-[calc(100vh-12rem)] bg-[#0A0C10] px-6 text-white md:-mx-6">
+            <OnboardingProfileCarousel
+              cards={profileCarouselCards}
+              index={profileCardIndex}
+              onIndexChange={(i) => {
+                setError("");
+                setProfileCardIndex(i);
+              }}
+              onNext={() => void goToNextProfileCard()}
+              onPrev={goToPrevProfileCard}
+              error={error}
+              hideNav
+              variant="elevated"
+            >
+              <OnboardingTermsAcceptanceCard
+                chatConfidential={termsChatConfidential}
+                summativeReports={termsSummativeReports}
+                documentOwnership={termsDocumentOwnership}
+                onChatConfidentialChange={setTermsChatConfidential}
+                onSummativeReportsChange={setTermsSummativeReports}
+                onDocumentOwnershipChange={setTermsDocumentOwnership}
+                onAccept={() => void submitProfile()}
+                loading={loading}
+              />
+            </OnboardingProfileCarousel>
+          </div>
+        ) : (
         <Card className="font-futura-book">
           {resumeProfileStep ? (
             <OnboardingResumeBanner
@@ -1240,7 +1268,6 @@ export function Touchpoint1Onboarding() {
               onNext={() => void goToNextProfileCard()}
               onPrev={goToPrevProfileCard}
               error={error}
-              hideNav={activeProfileCardId === "acceptance"}
             >
               {activeProfileCardId === "about" && (
             <OnboardingProfileSection
@@ -1626,21 +1653,10 @@ export function Touchpoint1Onboarding() {
               </OnboardingProfileSection>
               )}
 
-              {activeProfileCardId === "acceptance" && (
-                <OnboardingTermsAcceptanceCard
-                  chatConfidential={termsChatConfidential}
-                  summativeReports={termsSummativeReports}
-                  documentOwnership={termsDocumentOwnership}
-                  onChatConfidentialChange={setTermsChatConfidential}
-                  onSummativeReportsChange={setTermsSummativeReports}
-                  onDocumentOwnershipChange={setTermsDocumentOwnership}
-                  onAccept={() => void submitProfile()}
-                  loading={loading}
-                />
-              )}
             </OnboardingProfileCarousel>
           </div>
         </Card>
+        )
       )}
 
       {step === "documents" && (
