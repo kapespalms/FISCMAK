@@ -76,9 +76,17 @@ export const ACADEMIC_RANKS = [
   "Full Professor",
   "Chair",
   "Emeritus",
+  "Volunteer / Adjunct Faculty",
 ] as const;
 
-export type AcademicRank = (typeof ACADEMIC_RANKS)[number];
+export const ACADEMIC_RANK_SPECIAL = ["Not applicable", "Other"] as const;
+
+export type AcademicRank =
+  | (typeof ACADEMIC_RANKS)[number]
+  | (typeof ACADEMIC_RANK_SPECIAL)[number];
+
+export const ACADEMIC_RANK_HELPER =
+  "Academic rank is optional. Some community physicians have academic or teaching titles, but many do not.";
 
 export const PRIMARY_CAREER_TRACKS = [
   "Clinician",
@@ -124,7 +132,23 @@ export function isValidPracticeSetting(value: string): value is PracticeSetting 
 }
 
 export function isValidAcademicRank(value: string): value is AcademicRank {
-  return (ACADEMIC_RANKS as readonly string[]).includes(value);
+  return (
+    (ACADEMIC_RANKS as readonly string[]).includes(value) ||
+    (ACADEMIC_RANK_SPECIAL as readonly string[]).includes(value)
+  );
+}
+
+export function isAttendingCareerLevel(level: string | null | undefined): boolean {
+  return (
+    level === "Early Career (0–7 yr)" ||
+    level === "Mid-Career (8–20 yr)" ||
+    level === "Late Career (20+ yr)" ||
+    level === "Retired"
+  );
+}
+
+export function isMedicalStudent(level: string | null | undefined): boolean {
+  return level === "Medical Student";
 }
 
 export function isValidCareerTrack(value: string): value is PrimaryCareerTrack {
@@ -135,6 +159,13 @@ export function isValidCareerStage(value: string): value is CareerLevel {
   return isValidCareerLevel(value);
 }
 
-export function requiresAcademicRank(setting: PracticeSetting | null): boolean {
-  return setting === "Academic" || setting === "Hybrid";
+/** Whether to show the academic rank field (always optional when shown). */
+export function requiresAcademicRank(
+  setting: PracticeSetting | null | undefined,
+  careerLevel?: CareerLevel | null,
+): boolean {
+  if (!setting || !careerLevel) return false;
+  if (isTraineeCareerLevel(careerLevel)) return false;
+  if (careerLevel === "Retired") return false;
+  return setting === "Academic" || setting === "Hybrid" || setting === "Community";
 }

@@ -5,7 +5,7 @@ export const ONBOARDING_LIME = "#39FF14";
 
 export type OnboardingMilestone = {
   id: 1 | 2 | 3;
-  label: "Core Profile" | "Evidence Vault" | "AI Diagnostic";
+  label: "Core Profile" | "Evidence Vault" | "Career Chat";
   detail: string;
   steps: readonly OnboardingWizardStep[];
 };
@@ -25,8 +25,8 @@ export const ONBOARDING_MILESTONES: readonly OnboardingMilestone[] = [
   },
   {
     id: 3,
-    label: "AI Diagnostic",
-    detail: "Initiate a brief 3-minute intake chat with Mak to map invisible career goals.",
+    label: "Career Chat",
+    detail: "Initiate an intake chat for career exploration and empowerment.",
     steps: ["instruments"],
   },
 ] as const;
@@ -34,7 +34,7 @@ export const ONBOARDING_MILESTONES: readonly OnboardingMilestone[] = [
 export const INSTITUTIONAL_MILESTONE_DETAILS: Record<OnboardingMilestone["id"], string> = {
   1: "Confirm training program, PGY level, and hospital affiliation.",
   2: "Upload CV, licensing documents, and prior evaluations.",
-  3: "Brief Mak intake to map competencies and invisible work.",
+  3: "Brief Mak intake for career exploration and empowerment.",
 };
 
 export function milestoneIndexForStep(step: string): number {

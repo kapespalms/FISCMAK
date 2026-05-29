@@ -13,8 +13,11 @@ import {
   PGY_LEVELS,
   PRACTICE_SETTINGS,
   ACADEMIC_RANKS,
+  ACADEMIC_RANK_SPECIAL,
+  ACADEMIC_RANK_HELPER,
   requiresAcademicRank,
   isTraineeCareerLevel,
+  isMedicalStudent,
   requiresGmePlacementFields,
   allowsSubspecialtyInterests,
   type AcademicRank,
@@ -22,7 +25,13 @@ import {
   type PgyLevel,
   type PracticeSetting,
 } from "@/lib/v2/onboarding-options";
-import { buildSpecialtyOriginQuestion } from "@/lib/v2/trainee-origin";
+import { buildNarrativePrompt, NARRATIVE_HELPER, showNarrativeField } from "@/lib/v2/narrative-prompts";
+import {
+  MEDICAL_STUDENT_YEARS,
+  type AdditionalDegreeEntry,
+  type CurrentGoal,
+  type MedicalStudentYear,
+} from "@/lib/v2/onboarding-profile-fields";
 import { combineName, splitTrustedName, type TrustedName } from "@/lib/auth/trusted-name";
 import type { OnboardingPath } from "@/lib/v2/onboarding-path";
 import type { ProgramRotation } from "@/lib/v2/programs/registry";
@@ -56,6 +65,7 @@ import {
   OnboardingChoiceButton,
 } from "@/components/onboarding/OnboardingProfileSection";
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
+import { OnboardingExtendedProfileFields } from "@/components/onboarding/OnboardingExtendedProfileFields";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
 import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import {
@@ -127,6 +137,12 @@ type ReconcileItem = {
 
 const ONBOARDING_NEXT_KEY = "fiscmak_onboarding_next";
 
+function resolveInitialStep(searchParams: URLSearchParams): OnboardingStep {
+  const param = searchParams.get("step");
+  if (param && STEPS.some((s) => s.id === param)) return param as OnboardingStep;
+  return "path";
+}
+
 function rememberOnboardingEntry(search: string) {
   if (typeof window === "undefined") return;
   const params = new URLSearchParams(search);
@@ -148,7 +164,8 @@ function clearStoredOnboardingEntry() {
 export function Touchpoint1Onboarding() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [step, setStep] = useState<OnboardingStep>("path");
+  const [step, setStep] = useState<OnboardingStep>(() => resolveInitialStep(searchParams));
+  const [bootstrapped, setBootstrapped] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [onboardingPath, setOnboardingPath] = useState<OnboardingPath | null>(null);
@@ -190,7 +207,15 @@ export function Touchpoint1Onboarding() {
   const [trainingComplete, setTrainingComplete] = useState(false);
   const [careerLevel, setCareerLevel] = useState<CareerLevel>("Fellow");
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
-  const [academicRank, setAcademicRank] = useState<AcademicRank>("Assistant Professor");
+  const [academicRank, setAcademicRank] = useState<AcademicRank | "">("");
+  const [academicRankOther, setAcademicRankOther] = useState("");
+  const [medicalStudentYear, setMedicalStudentYear] = useState<MedicalStudentYear | "">("");
+  const [medicalStudentYearOther, setMedicalStudentYearOther] = useState("");
+  const [specialtyInterests, setSpecialtyInterests] = useState<string[]>([]);
+  const [additionalDegrees, setAdditionalDegrees] = useState<AdditionalDegreeEntry[]>([]);
+  const [currentGoal, setCurrentGoal] = useState<CurrentGoal | "">("");
+  const [otherIndustries, setOtherIndustries] = useState<string[]>([]);
+  const [extracurricularInterests, setExtracurricularInterests] = useState<string[]>([]);
   const [careerTrackRankings, setCareerTrackRankings] = useState<CareerTrackRanking[]>(
     buildDefaultCareerTrackRankings(),
   );
@@ -201,17 +226,22 @@ export function Touchpoint1Onboarding() {
   const [specialtyOrigin, setSpecialtyOrigin] = useState("");
 
   const showGmeFields = requiresGmePlacementFields(careerLevel);
-  const showOriginField = isTraineeCareerLevel(careerLevel);
+  const showMedStudentFields = isMedicalStudent(careerLevel);
+  const showNarrative = showNarrativeField(careerLevel);
   const showSubspecialtyInterests = allowsSubspecialtyInterests(careerLevel);
+  const showPracticeSetting = !isInstitutional && !showMedStudentFields;
+  const showAcademicRankField =
+    !isInstitutional && requiresAcademicRank(practiceSetting, careerLevel);
+  const narrativePrompt = buildNarrativePrompt(
+    careerLevel,
+    showMedStudentFields ? specialtyInterests[0] : baseSpecialty,
+    subspecialty || null,
+  );
   const careerLevelOptions = isInstitutional
     ? (programConfig?.career_stages_allowed ?? (["Resident", "Fellow"] as CareerLevel[]))
     : CAREER_LEVELS;
   const institutionalCareerStageLocked =
     isInstitutional && careerLevelOptions.length === 1;
-  const originPrompt =
-    baseSpecialty && showOriginField
-      ? buildSpecialtyOriginQuestion(baseSpecialty, subspecialty || null, careerLevel)
-      : "What drew you to your specialty? Even one sentence.";
 
   function applyTrustedName(trusted: TrustedName | null | undefined) {
     if (!trusted?.first) return;
@@ -616,13 +646,6 @@ export function Touchpoint1Onboarding() {
           clearStoredOnboardingEntry();
           router.replace("/app/onboarding?step=welcome");
         }
-      } else {
-        pathResolved = await bootstrapOnboardingFromUrl({ path: "public" });
-        if (pathResolved) {
-          setOnboardingPath("public");
-          setPathChosen(true);
-          clearStoredOnboardingEntry();
-        }
       }
 
       const res = await fetch("/api/v1/onboarding/touchpoint1");
@@ -638,7 +661,10 @@ export function Touchpoint1Onboarding() {
       }
       if (data.profile?.career_stage) setCareerLevel(data.profile.career_stage);
       if (data.profile?.practice_setting) setPracticeSetting(data.profile.practice_setting);
-      if (data.profile?.academic_rank) setAcademicRank(data.profile.academic_rank);
+      if (data.profile?.academic_rank) {
+        const rank = data.profile.academic_rank as AcademicRank;
+        setAcademicRank(rank);
+      }
       if (data.profile?.primary_career_track || data.onboarding_metadata?.career_track_rankings) {
         setCareerTrackRankings(
           hydrateCareerTrackRankings(
@@ -649,6 +675,33 @@ export function Touchpoint1Onboarding() {
       }
       if (data.onboarding_metadata?.subspecialty_interests) {
         setSubspecialtyInterests(data.onboarding_metadata.subspecialty_interests);
+      }
+      if (data.onboarding_metadata?.specialty_interests) {
+        setSpecialtyInterests(data.onboarding_metadata.specialty_interests);
+      }
+      if (data.onboarding_metadata?.medical_student_year) {
+        const year = data.onboarding_metadata.medical_student_year as string;
+        if ((MEDICAL_STUDENT_YEARS as readonly string[]).includes(year)) {
+          setMedicalStudentYear(year as MedicalStudentYear);
+        } else {
+          setMedicalStudentYear("Other");
+          setMedicalStudentYearOther(year);
+        }
+      }
+      if (data.onboarding_metadata?.additional_degrees) {
+        setAdditionalDegrees(data.onboarding_metadata.additional_degrees);
+      }
+      if (data.onboarding_metadata?.current_goal) {
+        setCurrentGoal(data.onboarding_metadata.current_goal as CurrentGoal);
+      }
+      if (data.onboarding_metadata?.other_industries) {
+        setOtherIndustries(data.onboarding_metadata.other_industries);
+      }
+      if (data.onboarding_metadata?.extracurricular_interests) {
+        setExtracurricularInterests(data.onboarding_metadata.extracurricular_interests);
+      }
+      if (data.onboarding_metadata?.academic_rank_other) {
+        setAcademicRankOther(data.onboarding_metadata.academic_rank_other);
       }
       if (data.onboarding_metadata?.uh_psych_enrichment_tracks) {
         setUhPsychEnrichmentTracks(data.onboarding_metadata.uh_psych_enrichment_tracks);
@@ -704,8 +757,10 @@ export function Touchpoint1Onboarding() {
         { pathResolved: pathResolved || pathChosenFromServer },
       );
       setBootstrappingPath(false);
+      setBootstrapped(true);
     })().catch(() => {
       setBootstrappingPath(false);
+      setBootstrapped(true);
     });
   }, [resolveStep, searchParams]);
 
@@ -740,8 +795,15 @@ export function Touchpoint1Onboarding() {
       setError("Enter your first and last name.");
       return;
     }
-    if (!baseSpecialty || !isValidBaseSpecialty(baseSpecialty)) {
+    const resolvedBase = showMedStudentFields
+      ? specialtyInterests[0] ?? baseSpecialty
+      : baseSpecialty;
+    if (!showMedStudentFields && (!resolvedBase || !isValidBaseSpecialty(resolvedBase))) {
       setError("Select a base specialty from the list.");
+      return;
+    }
+    if (showMedStudentFields && !medicalStudentYear) {
+      setError("Select your medical school year.");
       return;
     }
     if (requiresGmePlacementFields(careerLevel)) {
@@ -754,33 +816,45 @@ export function Touchpoint1Onboarding() {
         return;
       }
     }
-    if (isTraineeCareerLevel(careerLevel) && !specialtyOrigin.trim()) {
-      setError("Share what drew you to your specialty — even one sentence.");
-      return;
-    }
     setLoading(true);
     setError("");
+
+    const resolvedAcademicRank =
+      academicRank === "Other" ? "Other" : academicRank || null;
+
+    const resolvedMsYear =
+      medicalStudentYear === "Other"
+        ? medicalStudentYearOther.trim() || "Other"
+        : medicalStudentYear || null;
+
     const res = await fetch("/api/v1/onboarding/profile", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: fullName.trim(),
-        base_specialty: baseSpecialty,
-        subspecialty: subspecialty || null,
+        base_specialty: resolvedBase || null,
+        subspecialty: showMedStudentFields ? null : subspecialty || null,
         subspecialty_training_complete: subspecialty ? trainingComplete : false,
         career_stage: careerLevel,
-        practice_setting: practiceSetting,
-        academic_rank: requiresAcademicRank(practiceSetting) ? academicRank : null,
+        practice_setting: showMedStudentFields ? null : practiceSetting,
+        academic_rank: showAcademicRankField ? resolvedAcademicRank : null,
+        academic_rank_other: academicRank === "Other" ? academicRankOther.trim() : null,
         primary_career_track: primaryTrackFromRankings(careerTrackRankings),
         career_track_rankings: careerTrackRankings,
         subspecialty_interests: showSubspecialtyInterests ? subspecialtyInterests : [],
+        specialty_interests: showMedStudentFields ? specialtyInterests : [],
+        medical_student_year: showMedStudentFields ? resolvedMsYear : null,
+        additional_degrees: additionalDegrees,
+        current_goal: currentGoal || null,
+        other_industries: otherIndustries,
+        extracurricular_interests: extracurricularInterests,
         uh_psych_enrichment_tracks:
           isInstitutional && programConfig?.slug === "uh-psych-cmc"
             ? uhPsychEnrichmentTracks
             : [],
         pgy_level: showGmeFields ? pgyLevel : null,
         current_rotation: showGmeFields ? currentRotation.trim() : null,
-        specialty_origin: showOriginField ? specialtyOrigin.trim() : null,
+        specialty_origin: specialtyOrigin.trim() || null,
       }),
     });
     const data = await res.json();
@@ -900,10 +974,11 @@ export function Touchpoint1Onboarding() {
       setSubspecialtyQuery("");
       setTrainingComplete(false);
     }
-    if (!isTraineeCareerLevel(next)) {
-      setSpecialtyOrigin("");
-    } else if (next !== "Fellow") {
-      setSpecialtyOrigin("");
+    if (isMedicalStudent(next)) {
+      setBaseSpecialty("");
+      setBaseQuery("");
+      setSubspecialty("");
+      setSubspecialtyQuery("");
     }
     if (subspecialty) {
       setTrainingComplete(defaultTrainingComplete(next, subspecialty));
@@ -939,6 +1014,12 @@ export function Touchpoint1Onboarding() {
       maxWidth="md"
       className="py-4"
     >
+      {!bootstrapped ? (
+        <div className="flex flex-1 items-center justify-center p-8">
+          <p className="text-cx-forest-dark/70">Loading onboarding…</p>
+        </div>
+      ) : (
+      <>
       <div className="mb-6">
         {pathChosen && step !== "path" ? (
           <OnboardingMilestoneNav
@@ -1148,7 +1229,35 @@ export function Touchpoint1Onboarding() {
                   trainingComplete={trainingComplete}
                   onTrainingCompleteChange={setTrainingComplete}
                   careerStage={careerLevel}
+                  specialtyInterests={specialtyInterests}
+                  onSpecialtyInterestsChange={setSpecialtyInterests}
                 />
+              )}
+
+              {showMedStudentFields && (
+                <div>
+                  <OnboardingFieldLabel>Medical school year</OnboardingFieldLabel>
+                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                    {MEDICAL_STUDENT_YEARS.map((year) => (
+                      <OnboardingChoiceButton
+                        key={year}
+                        active={medicalStudentYear === year}
+                        onClick={() => setMedicalStudentYear(year)}
+                      >
+                        {year}
+                      </OnboardingChoiceButton>
+                    ))}
+                  </div>
+                  {medicalStudentYear === "Other" && (
+                    <input
+                      type="text"
+                      value={medicalStudentYearOther}
+                      onChange={(e) => setMedicalStudentYearOther(e.target.value)}
+                      placeholder="Describe your year"
+                      className="cx-field mt-3 text-base text-black"
+                    />
+                  )}
+                </div>
               )}
 
               {institutionalCareerStageLocked ? (
@@ -1230,7 +1339,7 @@ export function Touchpoint1Onboarding() {
                 </>
               )}
 
-              {!isInstitutional ? (
+              {showPracticeSetting && (
                 <div>
                   <OnboardingFieldLabel>Practice setting</OnboardingFieldLabel>
                   <div className="mt-2 grid grid-cols-2 gap-2">
@@ -1245,7 +1354,9 @@ export function Touchpoint1Onboarding() {
                     ))}
                   </div>
                 </div>
-              ) : (
+              )}
+
+              {isInstitutional && (
                 <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
                   <p className="font-futura-book text-base text-black">
                     <span className="font-futura-medium text-cx-forest-dark">Practice setting:</span>{" "}
@@ -1255,10 +1366,20 @@ export function Touchpoint1Onboarding() {
                 </div>
               )}
 
-              {!isInstitutional && requiresAcademicRank(practiceSetting) && (
+              {showAcademicRankField && (
                 <div>
-                  <OnboardingFieldLabel>Academic rank</OnboardingFieldLabel>
+                  <OnboardingFieldLabel>
+                    Academic rank{" "}
+                    <span className="font-normal text-cx-forest-dark/70">(optional)</span>
+                  </OnboardingFieldLabel>
+                  <OnboardingProfileHint>{ACADEMIC_RANK_HELPER}</OnboardingProfileHint>
                   <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                    <OnboardingChoiceButton
+                      active={!academicRank}
+                      onClick={() => setAcademicRank("")}
+                    >
+                      No rank selected
+                    </OnboardingChoiceButton>
                     {ACADEMIC_RANKS.map((r) => (
                       <OnboardingChoiceButton
                         key={r}
@@ -1268,7 +1389,25 @@ export function Touchpoint1Onboarding() {
                         {r}
                       </OnboardingChoiceButton>
                     ))}
+                    {ACADEMIC_RANK_SPECIAL.map((r) => (
+                      <OnboardingChoiceButton
+                        key={r}
+                        active={academicRank === r}
+                        onClick={() => setAcademicRank(r)}
+                      >
+                        {r}
+                      </OnboardingChoiceButton>
+                    ))}
                   </div>
+                  {academicRank === "Other" && (
+                    <input
+                      type="text"
+                      value={academicRankOther}
+                      onChange={(e) => setAcademicRankOther(e.target.value)}
+                      placeholder="Describe your academic title"
+                      className="cx-field mt-3 text-base text-black"
+                    />
+                  )}
                 </div>
               )}
 
@@ -1297,34 +1436,40 @@ export function Touchpoint1Onboarding() {
               )}
             </OnboardingProfileSection>
 
-            {showOriginField && baseSpecialty && (
+            {showNarrative && (
               <OnboardingProfileSection
                 step="Section 3"
-                title="Your story"
-                description="One sentence is enough — this anchors your training narrative with Mak."
+                title="Your Narrative"
+                description={NARRATIVE_HELPER}
               >
                 <div>
-                  <OnboardingFieldLabel htmlFor="specialty-origin">{originPrompt}</OnboardingFieldLabel>
+                  <OnboardingFieldLabel htmlFor="specialty-origin">{narrativePrompt}</OnboardingFieldLabel>
                   <textarea
                     id="specialty-origin"
                     value={specialtyOrigin}
                     onChange={(e) => setSpecialtyOrigin(e.target.value)}
-                    placeholder="Even one sentence is enough — this becomes part of your training narrative."
+                    placeholder="Optional — one sentence is enough."
                     className="cx-field mt-2 min-h-[96px] resize-y text-base text-black"
                     rows={3}
                   />
+                  <OnboardingProfileHint>Optional — skip if you prefer.</OnboardingProfileHint>
                 </div>
               </OnboardingProfileSection>
             )}
 
-            {showSubspecialtyInterests && baseSpecialty && (
+            {showSubspecialtyInterests &&
+              (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
               <OnboardingProfileSection
-                step={showOriginField ? "Section 4" : "Section 3"}
+                step="Section 4"
                 title="Interests"
                 description="Optional — what you want to explore beyond your current rotation."
               >
                 <OnboardingInterestsBlock
-                  baseSpecialty={baseSpecialty}
+                  baseSpecialty={
+                    showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
+                  }
+                  baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
+                  careerStage={careerLevel}
                   subspecialtyInterests={subspecialtyInterests}
                   onSubspecialtyInterestsChange={setSubspecialtyInterests}
                   showUhPsychTracks={
@@ -1337,15 +1482,7 @@ export function Touchpoint1Onboarding() {
             )}
 
             <OnboardingProfileSection
-              step={
-                showSubspecialtyInterests && baseSpecialty
-                  ? showOriginField
-                    ? "Section 5"
-                    : "Section 4"
-                  : showOriginField
-                    ? "Section 4"
-                    : "Section 3"
-              }
+              step="Section 5"
               title="Career direction"
               description="Rank the eight FISCMAK career tracks — Mak uses this for goals and your lattice."
             >
@@ -1355,6 +1492,20 @@ export function Touchpoint1Onboarding() {
                 onChange={setCareerTrackRankings}
               />
             </OnboardingProfileSection>
+
+            {!isInstitutional && (
+              <OnboardingExtendedProfileFields
+                sectionStep="Section 6"
+                additionalDegrees={additionalDegrees}
+                onAdditionalDegreesChange={setAdditionalDegrees}
+                currentGoal={currentGoal}
+                onCurrentGoalChange={setCurrentGoal}
+                otherIndustries={otherIndustries}
+                onOtherIndustriesChange={setOtherIndustries}
+                extracurricularInterests={extracurricularInterests}
+                onExtracurricularInterestsChange={setExtracurricularInterests}
+              />
+            )}
 
             <Button className="w-full" onClick={submitProfile} disabled={loading}>
               {loading ? "Saving…" : "Continue to documents"}
@@ -1429,7 +1580,7 @@ export function Touchpoint1Onboarding() {
               onClick={submitReconciliation}
               disabled={loading || !canContinueReconcile()}
             >
-              {loading ? "Saving…" : "Continue to self-assessment"}
+              {loading ? "Saving…" : "Continue to Career Chat"}
             </Button>
           </div>
           {error && (
@@ -1444,7 +1595,7 @@ export function Touchpoint1Onboarding() {
         <Card>
           {resumeInstrumentsStep && coachMakConversationId ? (
             <OnboardingResumeBanner
-              message="Welcome back. Resume your AI Diagnostic with Coach Mak."
+              message="Welcome back. Resume your Career Chat with Coach Mak."
               storageKey="fiscmak_onboarding_resume_instruments"
             />
           ) : null}
@@ -1458,9 +1609,9 @@ export function Touchpoint1Onboarding() {
               Back
             </button>
           )}
-          <h1 className="text-page-title">AI Diagnostic</h1>
+          <h1 className="text-page-title">Career Chat</h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Brief intake with Coach Mak. Map goals and invisible work.
+            Initiate an intake chat for career exploration and empowerment with Coach Mak.
           </p>
 
           <ul className="mt-4 space-y-2">
@@ -1482,6 +1633,8 @@ export function Touchpoint1Onboarding() {
             {loading ? "Finishing…" : "Go to dashboard"}
           </Button>
         </Card>
+      )}
+      </>
       )}
     </PageShell>
   );

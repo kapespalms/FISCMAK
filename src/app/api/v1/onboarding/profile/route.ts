@@ -12,6 +12,7 @@ import {
   isValidPgyLevel,
   isValidPracticeSetting,
   isTraineeCareerLevel,
+  isMedicalStudent,
   requiresAcademicRank,
   requiresGmePlacementFields,
   PRIMARY_CAREER_TRACKS,
@@ -20,6 +21,10 @@ import {
   type PracticeSetting,
   type PrimaryCareerTrack,
 } from "@/lib/v2/onboarding-options";
+import {
+  isValidCurrentGoal,
+  type AdditionalDegreeEntry,
+} from "@/lib/v2/onboarding-profile-fields";
 import {
   resolveTraineeEvaluationFramework,
   validateTraineeSpecialtySelection,
@@ -63,6 +68,13 @@ export async function POST(request: Request) {
     career_track_rankings,
     subspecialty_interests,
     uh_psych_enrichment_tracks,
+    specialty_interests,
+    medical_student_year,
+    additional_degrees,
+    current_goal,
+    other_industries,
+    extracurricular_interests,
+    academic_rank_other,
   } = body as {
     name?: string;
     specialty?: string;
@@ -85,9 +97,20 @@ export async function POST(request: Request) {
     }>;
     subspecialty_interests?: string[];
     uh_psych_enrichment_tracks?: string[];
+    specialty_interests?: string[];
+    medical_student_year?: string | null;
+    additional_degrees?: AdditionalDegreeEntry[];
+    current_goal?: string | null;
+    other_industries?: string[];
+    extracurricular_interests?: string[];
+    academic_rank_other?: string | null;
   };
 
-  const resolvedBase = base_specialty ?? specialty;
+  const resolvedBase =
+    base_specialty ??
+    specialty ??
+    (specialty_interests?.length ? specialty_interests[0] : undefined);
+  const medStudent = isMedicalStudent(career_stage);
 
   const authUser = await getAppUser(auth.userId, auth.demo);
   const priorMeta = authUser ? getOnboardingMetadata(authUser) : {};
@@ -100,11 +123,15 @@ export async function POST(request: Request) {
   if (!name?.trim() || name.trim().length < 2) {
     return jsonOk({ error: "validation_error", message: "Enter your name." }, 400);
   }
-  if (!resolvedBase || !isValidBaseSpecialty(resolvedBase)) {
+  if (!medStudent && (!resolvedBase || !isValidBaseSpecialty(resolvedBase))) {
     return jsonOk({ error: "validation_error", message: "Select a valid base specialty." }, 400);
+  }
+  if (medStudent && !medical_student_year?.trim()) {
+    return jsonOk({ error: "validation_error", message: "Select your medical school year." }, 400);
   }
   if (
     subspecialty &&
+    resolvedBase &&
     career_stage !== "Fellow" &&
     !isValidSubspecialtyForBase(resolvedBase, subspecialty)
   ) {
@@ -113,7 +140,7 @@ export async function POST(request: Request) {
       400,
     );
   }
-  if (career_stage) {
+  if (career_stage && resolvedBase) {
     const traineeSpecialty = validateTraineeSpecialtySelection({
       career_stage,
       base_specialty: resolvedBase,
@@ -130,7 +157,10 @@ export async function POST(request: Request) {
   if (!career_stage || !isValidCareerLevel(career_stage)) {
     return jsonOk({ error: "validation_error", message: "Select a valid career level." }, 400);
   }
-  if (!resolvedPracticeSetting || !isValidPracticeSetting(resolvedPracticeSetting)) {
+  if (
+    !medStudent &&
+    (!resolvedPracticeSetting || !isValidPracticeSetting(resolvedPracticeSetting))
+  ) {
     return jsonOk({ error: "validation_error", message: "Select a practice setting." }, 400);
   }
 
@@ -154,7 +184,7 @@ export async function POST(request: Request) {
       );
     }
   }
-  if (requiresAcademicRank(resolvedPracticeSetting) && academic_rank && !isValidAcademicRank(academic_rank)) {
+  if (academic_rank && !isValidAcademicRank(academic_rank)) {
     return jsonOk({ error: "validation_error", message: "Select a valid academic rank." }, 400);
   }
   if (requiresGmePlacementFields(career_stage)) {
@@ -165,14 +195,8 @@ export async function POST(request: Request) {
       return jsonOk({ error: "validation_error", message: "Enter your current rotation." }, 400);
     }
   }
-  if (isTraineeCareerLevel(career_stage) && !specialty_origin?.trim()) {
-    return jsonOk(
-      {
-        error: "validation_error",
-        message: "Share what drew you to your specialty — even one sentence.",
-      },
-      400,
-    );
+  if (current_goal && !isValidCurrentGoal(current_goal)) {
+    return jsonOk({ error: "validation_error", message: "Select a valid current goal." }, 400);
   }
 
   if (institutionalProgram) {
@@ -202,21 +226,30 @@ export async function POST(request: Request) {
 
   const resolvedInstitution = institutionalProgram?.institution_name ?? authUser?.institution ?? null;
 
-  const instrumentIds = deployedInstruments(career_stage, resolvedPracticeSetting).map((i) => i.id);
+  const instrumentIds = deployedInstruments(career_stage, resolvedPracticeSetting ?? "Academic").map(
+    (i) => i.id,
+  );
 
-  const specialtyFields = buildSpecialtyStorage({
-    base_specialty: resolvedBase,
-    subspecialty: subspecialty ?? null,
-    subspecialty_training_complete,
-    career_stage,
-  });
+  const specialtyFields = resolvedBase
+    ? buildSpecialtyStorage({
+        base_specialty: resolvedBase,
+        subspecialty: subspecialty ?? null,
+        subspecialty_training_complete,
+        career_stage,
+      })
+    : {
+        base_specialty: null,
+        subspecialty: null,
+        subspecialty_training_complete: false,
+        specialty: null,
+      };
 
   const trimmedOrigin = specialty_origin?.trim() ?? null;
   const trimmedRotation = current_rotation?.trim() ?? null;
   const narrativeAnchor =
-    trimmedOrigin && isTraineeCareerLevel(career_stage)
+    trimmedOrigin
       ? seedNarrativeAnchorFromOrigin({
-          base_specialty: resolvedBase,
+          base_specialty: specialtyFields.base_specialty ?? resolvedBase ?? "Medicine",
           subspecialty: subspecialty ?? null,
           specialty_origin: trimmedOrigin,
           existing: priorMeta.narrative_anchor,
@@ -250,13 +283,16 @@ export async function POST(request: Request) {
       name: name.trim(),
       ...specialtyFields,
       career_stage,
-      practice_setting: resolvedPracticeSetting,
+      practice_setting: medStudent ? null : resolvedPracticeSetting,
       institution: resolvedInstitution,
-      academic_rank: requiresAcademicRank(resolvedPracticeSetting) ? (academic_rank ?? null) : null,
+      academic_rank:
+        requiresAcademicRank(resolvedPracticeSetting ?? null, career_stage) && academic_rank
+          ? academic_rank
+          : null,
       primary_career_track: resolvedPrimaryTrack,
       pgy_level: requiresGmePlacementFields(career_stage) ? (pgy_level ?? null) : null,
       current_rotation: requiresGmePlacementFields(career_stage) ? trimmedRotation : null,
-      specialty_origin: isTraineeCareerLevel(career_stage) ? trimmedOrigin : null,
+      specialty_origin: trimmedOrigin,
       primary_program_id: institutionalProgram?.id ?? authUser?.primary_program_id ?? null,
       content_pack: contentPack,
       tier1_complete: true,
@@ -264,13 +300,26 @@ export async function POST(request: Request) {
       onboarding_metadata: {
         ...priorMeta,
         instrument_ids: instrumentIds,
-        api_enrichment_plan: apiEnrichmentPlan(resolvedPracticeSetting, career_stage),
+        api_enrichment_plan: apiEnrichmentPlan(resolvedPracticeSetting ?? "Academic", career_stage),
         instrument_answers: priorMeta.instrument_answers ?? [],
         ...(resolvedInitials ? { trainee_initials: resolvedInitials } : {}),
         ...(rankings.length ? { career_track_rankings: rankings } : {}),
         ...(subspecialty_interests?.length
           ? { subspecialty_interests: subspecialty_interests.filter(Boolean) }
           : {}),
+        ...(specialty_interests?.length
+          ? { specialty_interests: specialty_interests.filter(Boolean) }
+          : {}),
+        ...(medical_student_year ? { medical_student_year } : {}),
+        ...(additional_degrees?.length ? { additional_degrees } : {}),
+        ...(current_goal ? { current_goal } : {}),
+        ...(other_industries?.length
+          ? { other_industries: other_industries.filter(Boolean) }
+          : {}),
+        ...(extracurricular_interests?.length
+          ? { extracurricular_interests: extracurricular_interests.filter(Boolean) }
+          : {}),
+        ...(academic_rank_other ? { academic_rank_other } : {}),
         ...(uh_psych_enrichment_tracks?.length
           ? { uh_psych_enrichment_tracks: uh_psych_enrichment_tracks.filter(Boolean) }
           : {}),

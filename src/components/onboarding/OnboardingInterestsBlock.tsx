@@ -8,6 +8,8 @@ import {
 
 type OnboardingInterestsBlockProps = {
   baseSpecialty: string;
+  baseSpecialties?: string[];
+  careerStage?: import("@/lib/v2/onboarding-options").CareerLevel;
   subspecialtyInterests: string[];
   onSubspecialtyInterestsChange: (next: string[]) => void;
   showUhPsychTracks: boolean;
@@ -17,6 +19,8 @@ type OnboardingInterestsBlockProps = {
 
 export function OnboardingInterestsBlock({
   baseSpecialty,
+  baseSpecialties,
+  careerStage,
   subspecialtyInterests,
   onSubspecialtyInterestsChange,
   showUhPsychTracks,
@@ -27,9 +31,11 @@ export function OnboardingInterestsBlock({
     <>
       <SubspecialtyInterestsFields
         baseSpecialty={baseSpecialty}
+        baseSpecialties={baseSpecialties}
         selected={subspecialtyInterests}
         onChange={onSubspecialtyInterestsChange}
         embedded
+        careerStage={careerStage}
       />
 
       {showUhPsychTracks && (
