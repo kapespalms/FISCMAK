@@ -357,6 +357,30 @@ button {
   color: var(--cx-forest-dark);
 }
 
+/* Auth routes (/login, /forgot-password) — dark canvas, white copy in header + card */
+.marketing-page.marketing-auth-zone {
+  color: #ffffff;
+}
+
+.marketing-page.marketing-auth-zone p,
+.marketing-page.marketing-auth-zone li,
+.marketing-page.marketing-auth-zone a:not(.cx-btn),
+.marketing-page.marketing-auth-zone label,
+.marketing-page.marketing-auth-zone h1,
+.marketing-page.marketing-auth-zone h2,
+.marketing-page.marketing-auth-zone h3,
+.marketing-page.marketing-auth-zone span:not(.text-marketing-accent):not(.text-black) {
+  color: inherit;
+}
+
+.marketing-page.marketing-auth-zone .auth-muted {
+  color: rgb(156 163 175);
+}
+
+.marketing-page.marketing-auth-zone .auth-subtle {
+  color: rgb(209 213 219);
+}
+
 .marketing-dark-zone {
   background: #030303;
   color: #ffffff;

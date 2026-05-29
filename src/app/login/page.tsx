@@ -191,7 +191,7 @@ function LoginPageContent() {
       <MarketingAuthPanel>
         <MarketingAuthCard>
           <h1 className="font-futura-bold text-3xl text-white md:text-4xl">Sign in</h1>
-          <p className="font-futura-medium mt-2 text-sm text-gray-400">
+          <p className="auth-muted font-futura-medium mt-2 text-sm">
             {!isSupabaseConfigured() && (
               <span className="text-marketing-accent">
                 Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
@@ -202,7 +202,7 @@ function LoginPageContent() {
           </p>
 
           {signedOut && !error && (
-            <p className="mt-4 rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-gray-200">
+            <p className="auth-subtle mt-4 rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm">
               You&apos;ve been signed out. Sign in again to continue.
             </p>
           )}
@@ -222,7 +222,7 @@ function LoginPageContent() {
               }}
             />
             {selectedDemo ? (
-              <p className="text-xs text-gray-400">
+              <p className="auth-muted text-xs">
                 {selectedDemo.label} — {selectedDemo.hint}
               </p>
             ) : null}
@@ -266,7 +266,7 @@ function LoginPageContent() {
             <p className="text-center">
               <Link
                 href="/forgot-password"
-                className="font-futura-medium text-sm text-white transition hover:text-marketing-accent"
+                className="font-futura-medium text-sm transition hover:text-marketing-accent"
               >
                 Reset password
               </Link>
@@ -285,7 +285,7 @@ function LoginPageContent() {
           <p className="mt-6 text-center">
             <Link
               href="/"
-              className="font-futura-medium inline-flex items-center gap-1 text-sm text-gray-400 transition hover:text-marketing-accent"
+              className="font-futura-medium inline-flex items-center gap-1 text-sm transition hover:text-marketing-accent"
             >
               <ChevronLeft size={16} />
               Back to home
@@ -304,7 +304,7 @@ export default function LoginPage() {
         <MarketingAuthShell>
           <MarketingAuthPanel>
             <MarketingAuthCard>
-              <p className="font-futura-medium text-sm text-gray-400">Loading…</p>
+              <p className="font-futura-medium auth-muted text-sm">Loading…</p>
             </MarketingAuthCard>
           </MarketingAuthPanel>
         </MarketingAuthShell>

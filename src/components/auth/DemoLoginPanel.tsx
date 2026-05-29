@@ -22,12 +22,12 @@ export function DemoAccountPicker({ identifier, onSelect }: DemoAccountPickerPro
       <p className="font-futura-bold text-sm uppercase tracking-wide text-marketing-accent">
         Demo accounts
       </p>
-      <p className="font-futura-medium mt-1 text-sm text-gray-300">
+      <p className="auth-subtle font-futura-medium mt-1 text-sm">
         No email needed — enter <strong className="font-normal text-white">demo1</strong> through{" "}
         <strong className="font-normal text-white">demo10</strong> above with the team password.
       </p>
       {selected ? (
-        <p className="mt-2 text-xs text-gray-400">
+        <p className="auth-muted mt-2 text-xs">
           {selected.label} — {selected.hint}
         </p>
       ) : null}
@@ -40,7 +40,7 @@ export function DemoAccountPicker({ identifier, onSelect }: DemoAccountPickerPro
               className="w-full rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-left transition hover:border-marketing-accent/60 hover:bg-black/30"
             >
               <span className="font-futura-bold text-sm text-white">{account.username}</span>
-              <span className="mt-0.5 block text-xs text-gray-400">{account.label}</span>
+              <span className="auth-muted mt-0.5 block text-xs">{account.label}</span>
             </button>
           </li>
         ))}
