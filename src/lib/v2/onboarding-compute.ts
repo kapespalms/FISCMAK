@@ -110,6 +110,13 @@ export type OnboardingMetadata = {
     fte?: number;
   }>;
   subspecialty_interests?: string[];
+  specialty_interests?: string[];
+  medical_student_year?: string;
+  additional_degrees?: import("@/lib/v2/onboarding-profile-fields").AdditionalDegreeEntry[];
+  current_goal?: string;
+  other_industries?: string[];
+  extracurricular_interests?: string[];
+  academic_rank_other?: string;
   uh_psych_enrichment_tracks?: string[];
   call_schedule_note?: string | null;
   schedule_color_overrides?: Record<string, string>;
