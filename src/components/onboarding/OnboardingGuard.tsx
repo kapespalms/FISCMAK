@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function OnboardingGuard({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const stepParam = searchParams.get("step");
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -13,14 +15,13 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
 
     async function ensureReady() {
       if (pathname.startsWith("/app/onboarding")) {
-        if (!pathname.includes("step=")) {
+        if (!stepParam) {
           try {
             const response = await fetch("/api/v1/onboarding/progress");
             if (response.ok) {
               const data = (await response.json()) as { path?: string };
               if (!cancelled && data.path?.includes("step=")) {
                 router.replace(data.path);
-                return;
               }
             }
           } catch {
@@ -63,7 +64,7 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, [pathname, router]);
+  }, [pathname, router, stepParam]);
 
   if (!ready) {
     return (
