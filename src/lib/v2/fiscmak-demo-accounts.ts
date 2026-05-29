@@ -26,9 +26,9 @@ const BATTERY_USERNAMES = new Set(
   battery.profiles.map((profile) => profile.username.toLowerCase()),
 );
 
-/** Enabled when demo username login is allowed (staging / team QA). */
+/** Demo username login — on by default; set NEXT_PUBLIC_FISCMAK_DEMO_LOGIN=false to hide. */
 export function isDemoLoginEnabled(): boolean {
-  return process.env.NEXT_PUBLIC_FISCMAK_DEMO_LOGIN === "true";
+  return process.env.NEXT_PUBLIC_FISCMAK_DEMO_LOGIN !== "false";
 }
 
 export function listFiscmakDemoAccounts(): FiscmakDemoAccount[] {
