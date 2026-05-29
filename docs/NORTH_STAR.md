@@ -172,6 +172,7 @@ These are **bugs against the north star**, not alternate visions:
 
 | Doc | Purpose |
 |-----|---------|
+| [FISCMAK_MEETING_OVERVIEW.md](./FISCMAK_MEETING_OVERVIEW.md) | Short overview for stakeholder meetings |
 | [FISCMAK_SYSTEM_MAP.md](./FISCMAK_SYSTEM_MAP.md) | Internal: User / Mak / lattice / institution / Output at each lifecycle phase |
 | [page-ownership.md](./page-ownership.md) | Which page owns which question |
 | [FISCMAK_REFINED_POSTLOGIN_FLOW.md](./FISCMAK_REFINED_POSTLOGIN_FLOW.md) | Dashboard-centric + docked Mak |
