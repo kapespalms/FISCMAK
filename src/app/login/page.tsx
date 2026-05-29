@@ -38,6 +38,10 @@ async function navigateAfterAuth(fallbackNext: string) {
 
 type AuthMode = "unknown" | "login" | "signup";
 
+function isTestProfileEmail(email: string): boolean {
+  return email.toLowerCase().endsWith("@test.fiscmak.local");
+}
+
 function LoginPageContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +53,10 @@ function LoginPageContent() {
   const searchParams = useSearchParams();
   const nextPath = sanitizeNextPath(searchParams.get("next") ?? "/app/onboarding");
   const signedOut = searchParams.get("signed_out") === "1";
+
+  const isDemoIdentifier = isDemoLoginIdentifier(email);
+  const authEmail = resolveDemoLoginEmail(email) ?? email.trim();
+  const selectedDemo = demoAccountForInput(email);
 
   useEffect(() => {
     rememberOnboardingNextPath(nextPath);
@@ -62,8 +70,12 @@ function LoginPageContent() {
   }, [searchParams]);
 
   useEffect(() => {
-    setAuthMode("unknown");
     setConfirmPassword("");
+    if (isDemoLoginIdentifier(email)) {
+      setAuthMode("login");
+      return;
+    }
+    setAuthMode("unknown");
   }, [email]);
 
   async function resolveAuthMode(): Promise<AuthMode> {
@@ -71,7 +83,15 @@ function LoginPageContent() {
       setAuthMode("login");
       return "login";
     }
+
+    const resolvedEmail = resolveDemoLoginEmail(email) ?? email.trim();
+    if (isTestProfileEmail(resolvedEmail)) {
+      setAuthMode("login");
+      return "login";
+    }
+
     if (!isSupabaseConfigured()) return "signup";
+
     setCheckingEmail(true);
     try {
       const res = await fetch("/api/v1/auth/email-status", {
@@ -101,10 +121,14 @@ function LoginPageContent() {
       return;
     }
 
-    const mode = authMode === "unknown" ? await resolveAuthMode() : authMode;
-    const authEmail = resolveDemoLoginEmail(email) ?? email.trim();
+    const demoLogin = isDemoLoginIdentifier(email) || isTestProfileEmail(authEmail);
+    const mode = demoLogin
+      ? "login"
+      : authMode === "unknown"
+        ? await resolveAuthMode()
+        : authMode;
 
-    if (mode === "signup") {
+    if (mode === "signup" && !demoLogin) {
       if (password.length < 8) {
         setError("Password must be at least 8 characters.");
         setLoading(false);
@@ -153,9 +177,13 @@ function LoginPageContent() {
     });
 
     if (authError) {
-      const msg = authError.message.includes("Email not confirmed")
-        ? "Check your email to confirm your account, then try again."
-        : authError.message;
+      let msg = authError.message;
+      if (authError.message.includes("Invalid login credentials") && demoLogin) {
+        msg =
+          "Invalid demo password, or this demo account has not been seeded yet. Use the team demo password.";
+      } else if (authError.message.includes("Email not confirmed")) {
+        msg = "Check your email to confirm your account, then try again.";
+      }
       setError(msg);
       setLoading(false);
       return;
@@ -170,19 +198,18 @@ function LoginPageContent() {
     void navigateAfterAuth(nextPath);
   }
 
-  const isDemoIdentifier = isDemoLoginIdentifier(email);
-  const showConfirmPassword = authMode === "signup" && !isDemoIdentifier;
-  const selectedDemo = demoAccountForInput(email);
+  const effectiveMode = isDemoIdentifier ? "login" : authMode;
+  const showConfirmPassword = effectiveMode === "signup";
   const submitLabel =
     checkingEmail
       ? "Checking…"
-      : authMode === "signup"
+      : effectiveMode === "signup"
         ? loading
           ? "Creating account…"
           : "Create account"
         : loading
           ? "Signing in…"
-          : authMode === "login"
+          : effectiveMode === "login"
             ? "Sign in"
             : "Continue";
 
@@ -197,8 +224,18 @@ function LoginPageContent() {
                 Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
               </span>
             )}
-            Enter your email and password, or a demo username (<span className="text-white">demo1</span>–
-            <span className="text-white">demo10</span>) with the team password.
+            {isDemoIdentifier ? (
+              <>
+                Signing in as <span className="text-white">{email.trim()}</span> — demo accounts
+                never create new profiles.
+              </>
+            ) : (
+              <>
+                Enter your email and password, or a demo username (
+                <span className="text-white">demo1</span>–<span className="text-white">demo10</span>
+                ) with the team password.
+              </>
+            )}
           </p>
 
           {signedOut && !error && (
@@ -218,7 +255,9 @@ function LoginPageContent() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={() => {
-                if (email.trim()) void resolveAuthMode();
+                if (email.trim() && !isDemoLoginIdentifier(email)) {
+                  void resolveAuthMode();
+                }
               }}
             />
             {selectedDemo ? (
@@ -232,7 +271,7 @@ function LoginPageContent() {
               type="password"
               required
               minLength={8}
-              autoComplete={authMode === "signup" ? "new-password" : "current-password"}
+              autoComplete={effectiveMode === "signup" ? "new-password" : "current-password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -279,6 +318,7 @@ function LoginPageContent() {
               setEmail(username);
               setAuthMode("login");
               setConfirmPassword("");
+              setError("");
             }}
           />
 
