@@ -1199,7 +1199,8 @@ export function Touchpoint1Onboarding() {
 
       {step === "profile" && (
         activeProfileCardId === "acceptance" ? (
-          <div className="-mx-6 -mt-6 min-h-[calc(100vh-12rem)] bg-[#0A0C10] px-6 text-white md:-mx-6">
+          <div className="-mx-6 -mt-6 flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center bg-[#0A0C10] px-6 py-16 font-sans text-white md:-mx-6 md:py-24">
+            <div className="w-full max-w-4xl space-y-12">
             <OnboardingProfileCarousel
               cards={profileCarouselCards}
               index={profileCardIndex}
@@ -1224,6 +1225,7 @@ export function Touchpoint1Onboarding() {
                 loading={loading}
               />
             </OnboardingProfileCarousel>
+            </div>
           </div>
         ) : (
         <Card className="font-futura-book">
