@@ -172,6 +172,7 @@ These are **bugs against the north star**, not alternate visions:
 
 | Doc | Purpose |
 |-----|---------|
+| [FISCMAK_MAK_QUESTION_CADENCE.md](./FISCMAK_MAK_QUESTION_CADENCE.md) | Phase-by-phase Mak questions, quarterly review, validation gates |
 | [FISCMAK_MEETING_OVERVIEW.md](./FISCMAK_MEETING_OVERVIEW.md) | Short overview for stakeholder meetings |
 | [FISCMAK_SYSTEM_MAP.md](./FISCMAK_SYSTEM_MAP.md) | Internal: User / Mak / lattice / institution / Output at each lifecycle phase |
 | [page-ownership.md](./page-ownership.md) | Which page owns which question |
