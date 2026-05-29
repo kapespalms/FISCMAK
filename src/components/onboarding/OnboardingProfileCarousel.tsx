@@ -3,6 +3,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
+import { ACCEPTANCE_CARD_COPY } from "@/lib/onboarding/acceptance-card-copy";
 
 export type ProfileCarouselCard = {
   id: string;
@@ -39,22 +40,22 @@ export function OnboardingProfileCarousel({
 
   if (elevated) {
     return (
-      <div className="w-full space-y-12 py-6 md:py-10">
+      <div className="w-full space-y-12 font-futura-book">
         <header className="space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#A3E635]">
-            Step 1: Core Profile
+          <span className="font-futura-bold text-xs uppercase tracking-[0.2em] text-[#A3E635]">
+            {ACCEPTANCE_CARD_COPY.kicker}
           </span>
           <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-            <h1 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-              Account Initialization
+            <h1 className="font-futura-bold text-3xl uppercase tracking-tight text-white md:text-4xl">
+              {ACCEPTANCE_CARD_COPY.title}
             </h1>
-            <span className="rounded-lg border border-white/5 bg-[#141722] px-3 py-1.5 font-mono text-sm text-gray-500">
-              Card {index + 1} of {cards.length}
+            <span className="rounded-lg border border-white/5 bg-[#141722] px-3 py-1.5 font-futura-medium text-sm text-gray-500">
+              {ACCEPTANCE_CARD_COPY.cardBadge(index + 1, cards.length)}
             </span>
           </div>
         </header>
 
-        <div className="flex items-center gap-3 pl-1" aria-hidden>
+        <div className="flex items-center gap-3 pl-1">
           {cards.map((card, i) => (
             <button
               key={card.id}
@@ -100,7 +101,7 @@ export function OnboardingProfileCarousel({
           <p className="font-futura-medium text-xs uppercase tracking-wide text-cx-forest-dark/60">
             Step 1: Core Profile
           </p>
-          <p className="font-futura-medium mt-0.5 text-base text-cx-forest-dark">
+          <p className="font-futura-medium mt-0.5 text-base uppercase tracking-wide text-cx-forest-dark">
             {current?.label ?? "Profile"}
           </p>
         </div>
