@@ -4,6 +4,7 @@ import type {
   PracticeSetting,
   PrimaryCareerTrack,
 } from "@/lib/v2/onboarding-options";
+import type { OnboardingStatus } from "@/lib/v2/onboarding-progress";
 
 export type { CareerStage };
 
@@ -33,6 +34,9 @@ export type AppUser = {
   tier1_complete: boolean;
   tier2_complete: boolean;
   tier3_complete: boolean;
+  onboarding_status?: OnboardingStatus | null;
+  current_onboarding_step?: number | null;
+  coach_mak_conversation_id?: string | null;
   onboarding_metadata: Record<string, unknown> | null;
   /** Remaining free AI messages when not on Premium */
   message_balance?: number | null;

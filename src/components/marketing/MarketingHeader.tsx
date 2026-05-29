@@ -55,7 +55,7 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
             Sign In
           </Link>
           <Link
-            href="/app/onboarding"
+            href="/login?next=%2Fapp%2Fonboarding"
             className="font-futura-bold cx-btn shrink-0 whitespace-nowrap bg-marketing-accent px-3 py-2 text-xs text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none sm:px-5 sm:py-2.5 sm:text-sm"
           >
             Start Building

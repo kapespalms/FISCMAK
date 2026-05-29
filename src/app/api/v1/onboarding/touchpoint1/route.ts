@@ -19,6 +19,7 @@ import {
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 import { resolveProfileContractFromUser } from "@/lib/v2/profile-contract";
+import { deriveOnboardingStatus } from "@/lib/v2/onboarding-progress";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -107,6 +108,9 @@ export async function GET() {
     tier1_complete: user.tier1_complete,
     tier2_complete: user.tier2_complete,
     tier3_complete: user.tier3_complete,
+    onboarding_status: deriveOnboardingStatus(user),
+    current_onboarding_step: user.current_onboarding_step ?? null,
+    coach_mak_conversation_id: user.coach_mak_conversation_id ?? null,
     cv_uploaded: user.cv_uploaded,
     pending_reconcile_count: (meta.reconciliation ?? []).filter((r) => r.status === "pending").length,
     reconciliation: meta.reconciliation ?? [],

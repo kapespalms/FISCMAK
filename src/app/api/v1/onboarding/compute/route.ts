@@ -13,6 +13,7 @@ import { tier3CompleteGate } from "@/lib/v2/checkin-summary-confirm";
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
+import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
 
 export async function POST() {
   const auth = await requireApiUser();
@@ -57,6 +58,7 @@ export async function POST() {
     auth.email,
     {
       tier3_complete: tier3Complete,
+      ...onboardingProgressPatch({ tier3_complete: tier3Complete }),
       onboarding_metadata: onboarding_metadata as Record<string, unknown>,
     },
     auth.demo,

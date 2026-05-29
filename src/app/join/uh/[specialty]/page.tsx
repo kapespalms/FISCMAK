@@ -29,7 +29,7 @@ export default async function JoinUhSpecialtyPage({ params }: PageProps) {
   if (!program) notFound();
 
   const onboardingNext = `/app/onboarding?program=${encodeURIComponent(program.slug)}`;
-  const signupHref = `/signup?next=${encodeURIComponent(onboardingNext)}`;
+  const signupHref = `/login?next=${encodeURIComponent(onboardingNext)}`;
   const loginHref = `/login?next=${encodeURIComponent(onboardingNext)}`;
 
   return (

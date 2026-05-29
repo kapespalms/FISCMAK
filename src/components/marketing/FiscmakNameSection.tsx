@@ -144,7 +144,7 @@ export function FoundersNarrativeSection() {
 
         <div className="mt-10 text-center">
           <Link
-            href="/app/onboarding"
+            href="/login?next=%2Fapp%2Fonboarding"
             className="font-futura-bold cx-btn inline-block bg-marketing-accent px-8 py-4 text-black shadow-[0_0_28px_rgba(169,255,92,0.3)] transition hover:bg-white hover:shadow-none"
           >
             Start Building

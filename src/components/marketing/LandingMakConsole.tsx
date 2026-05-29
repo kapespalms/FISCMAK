@@ -247,7 +247,7 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
             </div>
           </div>
           <Link
-            href="/app/onboarding"
+            href="/login?next=%2Fapp%2Fonboarding"
             className="font-futura-bold cx-btn shrink-0 bg-marketing-accent px-4 py-2 text-xs text-black transition hover:bg-white sm:text-sm"
           >
             Start Building

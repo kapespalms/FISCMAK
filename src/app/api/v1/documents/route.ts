@@ -23,6 +23,7 @@ import { invalidateLatticeDocumentCache } from "@/lib/v2/lattice/invalidate-cach
 import { documentListItem, documentBucketCounts } from "@/lib/v2/documents-workspace";
 import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
 import { getUserOutputTemplates } from "@/lib/v2/output-user-templates";
+import { onboardingProgressPatch, markDocumentsUploadProgress } from "@/lib/v2/onboarding-progress";
 
 async function clearLatticeDocumentCache(userId: string, email: string, demo: boolean) {
   const user = await getAppUser(userId, demo);
@@ -149,6 +150,7 @@ export async function POST(request: Request) {
         email,
         {
           cv_uploaded: true,
+          ...markDocumentsUploadProgress(),
           onboarding_metadata: updatedMeta as Record<string, unknown>,
         },
         demo,
@@ -178,6 +180,7 @@ export async function POST(request: Request) {
     });
     if (document_type === "CV") {
       state.user.cv_uploaded = true;
+      Object.assign(state.user, markDocumentsUploadProgress());
       void runEnrichmentAfterUpload();
     }
     void clearLatticeDocumentCache(userId, email, demo);
@@ -211,7 +214,10 @@ export async function POST(request: Request) {
   if (error) return jsonError("server_error", error.message, 500);
 
   if (document_type === "CV") {
-    await supabase.from("app_users").update({ cv_uploaded: true }).eq("user_id", userId);
+    await supabase
+      .from("app_users")
+      .update({ cv_uploaded: true, ...markDocumentsUploadProgress() })
+      .eq("user_id", userId);
     void runEnrichmentAfterUpload();
   }
 

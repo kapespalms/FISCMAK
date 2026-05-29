@@ -39,7 +39,7 @@ export default async function JoinTokenPage({ params }: PageProps) {
     };
 
   const onboardingNext = onboardingUrlForToken(token);
-  const signupHref = `/signup?next=${encodeURIComponent(onboardingNext)}`;
+  const signupHref = `/login?next=${encodeURIComponent(onboardingNext)}`;
   const loginHref = `/login?next=${encodeURIComponent(onboardingNext)}`;
 
   return (

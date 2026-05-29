@@ -87,7 +87,7 @@ export function MarketingHeroSection({
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/app/onboarding"
+                  href="/login?next=%2Fapp%2Fonboarding"
                   className="font-futura-bold cx-btn bg-marketing-accent px-6 py-3 text-sm text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none"
                 >
                   Start Building
