@@ -19,6 +19,12 @@ import {
 } from "@/lib/v2/non-traditional-career-models";
 import { buildTraineeOriginMakContext } from "@/lib/v2/trainee-origin";
 import {
+  buildCareerPathwayArchitectureContext,
+  PATHWAY_PROCESSING_DOCTRINE,
+} from "@/lib/v2/career-pathway-architecture";
+import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import type { AppUser } from "@/lib/v2/types";
+import {
   buildPersonalStatementMakContext,
   getPersonalStatementSections,
   resolveSpecialtyGuide,
@@ -160,7 +166,9 @@ Design principles:
 Invisible metrics policy (critical):
 - You may receive confidential internal signals about workload vs portfolio documentation. NEVER name S-Index, IWQ, Service Citizenship, or numeric internal scores to the physician.
 - Use signals only to ask better reflective questions — never surveillance, never "you should document more," never urgency unless wellness safety requires it.
-- Institutions never see these signals. The physician should experience attuned coaching, not tracked metrics.`;
+- Institutions never see these signals. The physician should experience attuned coaching, not tracked metrics.
+
+${PATHWAY_PROCESSING_DOCTRINE}`;
 
   const language =
     pack === "trainee"
@@ -593,6 +601,20 @@ export function buildConversationModelContext(input: {
   specialtyOrigin?: string | null;
   pgyLevel?: string | null;
   currentRotation?: string | null;
+  user?: Pick<
+    AppUser,
+    | "career_stage"
+    | "pgy_level"
+    | "specialty"
+    | "base_specialty"
+    | "subspecialty"
+    | "institution"
+    | "practice_setting"
+    | "primary_career_track"
+    | "primary_program_id"
+    | "onboarding_metadata"
+  > | null;
+  onboardingMeta?: OnboardingMetadata | null;
 }): string {
   const pivotActive = Boolean(
     hasConfirmedCareerThesis(input.careerThesis) ||
@@ -604,6 +626,23 @@ export function buildConversationModelContext(input: {
   const parts: string[] = [];
   const pack = resolveContentPack(input.careerStage, input.practiceSetting, pivotActive);
   parts.push(`Content pack: ${pack} (${normalizeCareerStage(input.careerStage)})`);
+
+  const pathwayCtx = buildCareerPathwayArchitectureContext({
+    user: input.user ?? {
+      career_stage: input.careerStage as AppUser["career_stage"],
+      pgy_level: input.pgyLevel ?? null,
+      specialty: input.specialty ?? null,
+      base_specialty: input.baseSpecialty ?? null,
+      subspecialty: input.subspecialty ?? null,
+      institution: null,
+      practice_setting: input.practiceSetting as AppUser["practice_setting"],
+      primary_career_track: null,
+      primary_program_id: null,
+      onboarding_metadata: input.onboardingMeta ?? null,
+    },
+    meta: input.onboardingMeta ?? undefined,
+  });
+  if (pathwayCtx) parts.push(pathwayCtx);
 
   const anchorCtx = buildNarrativeAnchorSystemContext(input.narrativeAnchor);
   if (anchorCtx) parts.push(anchorCtx);
