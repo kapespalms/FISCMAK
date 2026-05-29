@@ -47,7 +47,7 @@ export default function ForgotPasswordPage() {
       <MarketingAuthPanel>
         <MarketingAuthCard>
           <h1 className="font-futura-bold text-3xl text-white md:text-4xl">Reset password</h1>
-          <p className="font-futura-medium mt-2 text-sm text-gray-400">
+          <p className="auth-muted font-futura-medium mt-2 text-sm">
             {sent
               ? "If an account exists for that email, we sent a reset link."
               : "Enter your email and we will send a link to choose a new password."}
@@ -80,7 +80,7 @@ export default function ForgotPasswordPage() {
               </button>
             </form>
           ) : (
-            <p className="mt-8 rounded-lg border border-white/15 px-4 py-3 text-sm text-gray-300">
+            <p className="auth-subtle mt-8 rounded-lg border border-white/15 px-4 py-3 text-sm">
               Check your inbox (and spam) for the reset link. It expires after a short time.
             </p>
           )}
@@ -88,7 +88,7 @@ export default function ForgotPasswordPage() {
           <p className="mt-6 text-center">
             <Link
               href="/login"
-              className="font-futura-medium inline-flex items-center gap-1 text-sm text-white transition hover:text-marketing-accent"
+              className="font-futura-medium inline-flex items-center gap-1 text-sm transition hover:text-marketing-accent"
             >
               <ChevronLeft size={16} />
               Back to sign in
