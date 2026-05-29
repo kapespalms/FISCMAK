@@ -9,8 +9,9 @@ import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
 import { rememberOnboardingNextPath, navigateToAppPath, sanitizeNextPath } from "@/lib/auth/oauth";
-import { DemoLoginPanel } from "@/components/auth/DemoLoginPanel";
+import { DemoAccountPicker } from "@/components/auth/DemoLoginPanel";
 import {
+  demoAccountForInput,
   isDemoLoginEnabled,
   isDemoLoginIdentifier,
   resolveDemoLoginEmail,
@@ -66,7 +67,7 @@ function LoginPageContent() {
   }, [email]);
 
   async function resolveAuthMode(): Promise<AuthMode> {
-    if (isDemoLoginEnabled() && isDemoLoginIdentifier(email)) {
+    if (isDemoLoginIdentifier(email)) {
       setAuthMode("login");
       return "login";
     }
@@ -101,10 +102,7 @@ function LoginPageContent() {
     }
 
     const mode = authMode === "unknown" ? await resolveAuthMode() : authMode;
-    const authEmail =
-      isDemoLoginEnabled() && resolveDemoLoginEmail(email)
-        ? resolveDemoLoginEmail(email)!
-        : email.trim();
+    const authEmail = resolveDemoLoginEmail(email) ?? email.trim();
 
     if (mode === "signup") {
       if (password.length < 8) {
@@ -172,7 +170,9 @@ function LoginPageContent() {
     void navigateAfterAuth(nextPath);
   }
 
-  const showConfirmPassword = authMode === "signup";
+  const isDemoIdentifier = isDemoLoginIdentifier(email);
+  const showConfirmPassword = authMode === "signup" && !isDemoIdentifier;
+  const selectedDemo = demoAccountForInput(email);
   const submitLabel =
     checkingEmail
       ? "Checking…"
@@ -197,8 +197,8 @@ function LoginPageContent() {
                 Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
               </span>
             )}
-            Enter your email and password. New emails create an account automatically.
-            {isDemoLoginEnabled() ? " Or use a demo username below — no email needed." : null}
+            Enter your email and password, or a demo username (<span className="text-white">demo1</span>–
+            <span className="text-white">demo10</span>) with the team password.
           </p>
 
           {signedOut && !error && (
@@ -209,17 +209,23 @@ function LoginPageContent() {
 
           <form onSubmit={handleSubmit} className="mt-8 space-y-4">
             <MarketingAuthInput
-              label="Email"
+              label={isDemoLoginEnabled() ? "Email or demo username" : "Email"}
               id="email"
-              type="email"
+              type="text"
               required
-              autoComplete="email"
+              autoComplete="username"
+              placeholder={isDemoLoginEnabled() ? "you@example.com or demo1" : "you@example.com"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onBlur={() => {
                 if (email.trim()) void resolveAuthMode();
               }}
             />
+            {selectedDemo ? (
+              <p className="text-xs text-gray-400">
+                {selectedDemo.label} — {selectedDemo.hint}
+              </p>
+            ) : null}
             <MarketingAuthInput
               label="Password"
               id="password"
@@ -267,11 +273,13 @@ function LoginPageContent() {
             </p>
           </form>
 
-          <DemoLoginPanel
-            onSignedIn={() => {
-              void navigateAfterAuth(nextPath);
+          <DemoAccountPicker
+            identifier={email}
+            onSelect={(username) => {
+              setEmail(username);
+              setAuthMode("login");
+              setConfirmPassword("");
             }}
-            onError={setError}
           />
 
           <p className="mt-6 text-center">

@@ -32,7 +32,7 @@ node scripts/seed-test-profile-battery.mjs --all --dry-run
 
 ## Sign in
 
-- **Demo usernames (no email):** `demo1` through `demo10` + team password when `NEXT_PUBLIC_FISCMAK_DEMO_LOGIN=true`
+- **Demo usernames (no email):** `demo1` through `demo10` + team password (on by default on `/login`)
 - **Email:** `{username}@test.fiscmak.local` (e.g. `testgen2@test.fiscmak.local`, `test2@test.fiscmak.local`)
 - **Password:** value of `FISCMAK_TEST_PASSWORD` in your `.env.local`
 
@@ -55,11 +55,7 @@ FISCMAK_TEST_PASSWORD='…' npm run db:seed-demo-accounts
 | demo9 | MS4 · Individual |
 | demo10 | Fellow · Individual |
 
-Enable username login on `/login`:
-
-```bash
-NEXT_PUBLIC_FISCMAK_DEMO_LOGIN=true
-```
+To hide demo login on `/login`, set `NEXT_PUBLIC_FISCMAK_DEMO_LOGIN=false`.
 
 See `docs/seeds/fiscmak_demo_accounts.json`.
 
