@@ -46,7 +46,7 @@ import {
 } from "@/lib/v2/specialty-hierarchy";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
-import { OnboardingProgressStepper } from "@/components/onboarding/OnboardingProgressStepper";
+import { OnboardingMilestoneTimeline } from "@/components/onboarding/OnboardingMilestoneTimeline";
 import { OnboardingResumeBanner } from "@/components/onboarding/OnboardingResumeBanner";
 import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
 import { OnboardingDocumentsStep } from "@/components/onboarding/OnboardingDocumentsStep";
@@ -1096,6 +1096,7 @@ export function Touchpoint1Onboarding() {
   }
 
   const showProgressStepper = pathChosen && step !== "path";
+  const timelineDark = step === "profile" && activeProfileCardId === "acceptance";
 
   return (
     <>
@@ -1104,10 +1105,23 @@ export function Touchpoint1Onboarding() {
           <p className="text-cx-forest-dark/70">Loading onboarding…</p>
         </div>
       ) : showProgressStepper ? (
-        <div className="-mx-4 -mt-4 flex min-h-[calc(100vh-2rem)] flex-col bg-slate-50/50 md:-mx-8 md:-mt-8">
-          <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white">
-            <OnboardingProgressStepper
+        <div
+          className={cn(
+            "-mx-4 -mt-4 flex min-h-[calc(100vh-2rem)] flex-col md:-mx-8 md:-mt-8",
+            timelineDark ? "bg-[#0A0C10]" : "bg-slate-50/50",
+          )}
+        >
+          <header
+            className={cn(
+              "sticky top-0 z-50 w-full border-b",
+              timelineDark ? "border-white/10 bg-[#0A0C10]" : "border-slate-200/80 bg-white",
+            )}
+          >
+            <OnboardingMilestoneTimeline
               currentStep={step}
+              cardIndex={step === "profile" ? profileCardIndex : undefined}
+              cardCount={step === "profile" ? profileCarouselCards.length : undefined}
+              variant={timelineDark ? "dark" : "light"}
               onNavigate={(target) => navigateToStep(target as OnboardingStep)}
             />
           </header>

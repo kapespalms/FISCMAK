@@ -31,7 +31,7 @@ function AcceptanceCheckbox({
     <label
       htmlFor={id}
       className={cn(
-        "group flex cursor-pointer items-start gap-6 rounded-xl border bg-[#0A0C10] p-6 font-sans transition-all",
+        "group flex cursor-pointer items-start gap-6 rounded-xl border bg-[#0A0C10] p-6 font-futura-book transition-all",
         checked ? "border-[#A3E635]/40" : "border-white/5 hover:border-white/10",
       )}
     >
@@ -63,7 +63,7 @@ export function OnboardingTermsAcceptanceCard({
   const allChecked = chatConfidential && summativeReports && documentOwnership;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141722] p-10 font-sans shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:p-12">
+    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141722] p-10 font-futura-book shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:p-12">
       <div
         className="pointer-events-none absolute right-0 top-0 h-64 w-64 bg-[#0F3A20] opacity-20 blur-[80px]"
         aria-hidden
@@ -75,7 +75,7 @@ export function OnboardingTermsAcceptanceCard({
             <span className="text-xl" aria-hidden>
               🔒
             </span>
-            <h2 className="text-2xl font-bold tracking-tight text-white">
+            <h2 className="font-futura-bold text-xl uppercase tracking-tight text-white md:text-2xl">
               {ACCEPTANCE_CARD_COPY.heading}
             </h2>
           </div>
@@ -144,7 +144,7 @@ export function OnboardingTermsAcceptanceCard({
           type="button"
           onClick={onAccept}
           disabled={disabled || loading || !allChecked}
-          className="w-full rounded-xl bg-[#D4AF37] py-4.5 text-sm font-bold uppercase tracking-widest text-[#0A0C10] shadow-[0_4px_20px_rgba(212,175,55,0.15)] transition-all hover:bg-[#c29f2e] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40"
+          className="w-full rounded-xl bg-[#D4AF37] py-4.5 font-futura-bold text-sm uppercase tracking-widest text-[#0A0C10] shadow-[0_4px_20px_rgba(212,175,55,0.15)] transition-all hover:bg-[#c29f2e] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40"
         >
           {loading ? ACCEPTANCE_CARD_COPY.acceptButtonLoading : ACCEPTANCE_CARD_COPY.acceptButton}
         </button>

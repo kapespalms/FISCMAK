@@ -1,9 +1,9 @@
 /** Verbatim copy for Step 1 Card 5 — Account Initialization acceptance. */
 export const ACCEPTANCE_CARD_COPY = {
   kicker: "Step 1: Core Profile",
-  title: "Account Initialization",
+  title: "ACCOUNT INITIALIZATION",
+  heading: "ACCOUNT INITIALIZATION & PRIVACY ALIGNMENT",
   cardBadge: (current: number, total: number) => `Card ${current} of ${total}`,
-  heading: "Account Initialization & Privacy Alignment",
   intro:
     "Before Coach Mak initializes your profile, please verify how your proprietary data is protected and ring-fenced on this platform:",
   checkbox1:
