@@ -46,6 +46,7 @@ import { deriveContentPack } from "@/lib/v2/programs/program-membership";
 import { syncProgramMembership } from "@/lib/v2/programs/sync-program-membership";
 import { seedNarrativeAnchorFromOrigin } from "@/lib/v2/trainee-origin";
 import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
+import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
 
 export async function POST(request: Request) {
   const auth = await requireApiUser();
@@ -75,6 +76,8 @@ export async function POST(request: Request) {
     other_industries,
     extracurricular_interests,
     academic_rank_other,
+    terms_accepted,
+    terms_version,
   } = body as {
     name?: string;
     specialty?: string;
@@ -104,6 +107,8 @@ export async function POST(request: Request) {
     other_industries?: string[];
     extracurricular_interests?: string[];
     academic_rank_other?: string | null;
+    terms_accepted?: boolean;
+    terms_version?: string | null;
   };
 
   const resolvedBase =
@@ -122,6 +127,12 @@ export async function POST(request: Request) {
 
   if (!name?.trim() || name.trim().length < 2) {
     return jsonOk({ error: "validation_error", message: "Enter your name." }, 400);
+  }
+  if (!terms_accepted) {
+    return jsonOk(
+      { error: "validation_error", message: "Accept the Terms & Conditions to continue." },
+      400,
+    );
   }
   if (!medStudent && (!resolvedBase || !isValidBaseSpecialty(resolvedBase))) {
     return jsonOk({ error: "validation_error", message: "Select a valid base specialty." }, 400);
@@ -340,6 +351,11 @@ export async function POST(request: Request) {
               },
             }
           : {}),
+        terms_acceptance: {
+          accepted_at: new Date().toISOString(),
+          version: FISCMAK_TERMS_VERSION,
+          electronic_signature: true,
+        },
       },
     },
     auth.demo,
