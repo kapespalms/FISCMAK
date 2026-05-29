@@ -26,6 +26,7 @@ import {
   processReconcileTurn,
 } from "@/lib/v2/reconcile-mak-flow";
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
 import { deployedInstruments } from "@/lib/v2/onboarding-touchpoint1";
 import { instrumentProgress } from "@/lib/v2/onboarding-instruments";
 import {
@@ -325,6 +326,7 @@ export async function POST(request: Request) {
             auth.email,
             {
               tier3_complete: true,
+              ...onboardingProgressPatch({ tier3_complete: true }),
               onboarding_metadata: {
                 ...(user.onboarding_metadata ?? {}),
                 ...computed,
@@ -450,6 +452,7 @@ export async function POST(request: Request) {
             auth.email,
             {
               tier3_complete: true,
+              ...onboardingProgressPatch({ tier3_complete: true }),
               onboarding_metadata: {
                 ...(refreshedUser.onboarding_metadata ?? {}),
                 ...computed,

@@ -27,6 +27,7 @@ import { combineName, splitTrustedName, type TrustedName } from "@/lib/auth/trus
 import type { OnboardingPath } from "@/lib/v2/onboarding-path";
 import type { ProgramRotation } from "@/lib/v2/programs/registry";
 import { getProgramBySlug } from "@/lib/v2/programs/registry";
+import type { InstitutionalTokenPrefill } from "@/lib/v2/programs/institutional-onboarding-tokens";
 import { OnboardingPathSelect } from "@/components/onboarding/OnboardingPathSelect";
 import {
   defaultTrainingComplete,
@@ -35,6 +36,7 @@ import {
 } from "@/lib/v2/specialty-hierarchy";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
+import { OnboardingResumeBanner } from "@/components/onboarding/OnboardingResumeBanner";
 import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
 import { OnboardingDocumentsStep } from "@/components/onboarding/OnboardingDocumentsStep";
 import { ReconciliationItemCard } from "@/components/onboarding/ReconciliationItemCard";
@@ -55,6 +57,10 @@ import {
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
 import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
+import {
+  resolveOnboardingWizardStep,
+} from "@/lib/v2/onboarding-progress";
+import type { AppUser } from "@/lib/v2/types";
 
 type OnboardingStep = "path" | "welcome" | "profile" | "documents" | "reconcile" | "instruments";
 
@@ -74,11 +80,20 @@ type OnboardingProgramConfig = {
 
 const STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[] = [
   { id: "welcome", label: "Welcome" },
-  { id: "profile", label: "Profile" },
+  { id: "profile", label: "Demographics" },
   { id: "documents", label: "Documents" },
   { id: "reconcile", label: "Confirm data" },
   { id: "instruments", label: "Self-assessment" },
 ];
+
+const INSTITUTIONAL_STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[] =
+  [
+    { id: "welcome", label: "Welcome" },
+    { id: "profile", label: "Identity" },
+    { id: "documents", label: "Evidence" },
+    { id: "reconcile", label: "Confirm data" },
+    { id: "instruments", label: "Inventory" },
+  ];
 
 const STEPS: { id: OnboardingStep; label: string }[] = [
   { id: "path", label: "Path" },
@@ -147,9 +162,19 @@ export function Touchpoint1Onboarding() {
     () => searchParams.get("token"),
   );
   const [inviteTokenFromMeta, setInviteTokenFromMeta] = useState<string | null>(null);
+  const [welcomeToken, setWelcomeToken] = useState("");
+  const [welcomeTokenLabel, setWelcomeTokenLabel] = useState<string | null>(null);
+  const [welcomeTokenError, setWelcomeTokenError] = useState<string | null>(null);
+  const [welcomeTokenLoading, setWelcomeTokenLoading] = useState(false);
+  const [resumeProfileStep, setResumeProfileStep] = useState(false);
+  const [resumeDocumentsStep, setResumeDocumentsStep] = useState(false);
+  const [resumeInstrumentsStep, setResumeInstrumentsStep] = useState(false);
+  const [documentsProcessing, setDocumentsProcessing] = useState(false);
+  const [coachMakConversationId, setCoachMakConversationId] = useState<string | null>(null);
 
   const isInstitutional = onboardingPath === "institutional" && Boolean(programConfig);
-  const visibleSteps = pathChosen ? STEPS_AFTER_PATH : STEPS;
+  const stepsAfterPath = isInstitutional ? INSTITUTIONAL_STEPS_AFTER_PATH : STEPS_AFTER_PATH;
+  const visibleSteps = pathChosen ? stepsAfterPath : STEPS;
 
   // Profile fields
   const [firstName, setFirstName] = useState("");
@@ -192,6 +217,102 @@ export function Touchpoint1Onboarding() {
     setFirstName(trusted.first);
     setLastName(trusted.last);
     setNamePrefilled(true);
+  }
+
+  function applyInstitutionalPrefill(prefill: InstitutionalTokenPrefill | null | undefined) {
+    if (!prefill) return;
+    if (prefill.first_name?.trim()) {
+      setFirstName(prefill.first_name.trim());
+      setNamePrefilled(false);
+    }
+    if (prefill.last_name?.trim()) setLastName(prefill.last_name.trim());
+    if (prefill.career_stage) setCareerLevel(prefill.career_stage);
+    if (prefill.base_specialty) {
+      setBaseSpecialty(prefill.base_specialty);
+      setBaseQuery(prefill.base_specialty);
+    }
+    if (prefill.subspecialty) {
+      setSubspecialty(prefill.subspecialty);
+      setSubspecialtyQuery(prefill.subspecialty);
+      setTrainingComplete(defaultTrainingComplete(prefill.career_stage ?? careerLevel, prefill.subspecialty));
+    }
+    if (prefill.practice_setting) setPracticeSetting(prefill.practice_setting);
+    if (prefill.pgy_level) setPgyLevel(prefill.pgy_level as PgyLevel);
+    if (prefill.current_rotation) setCurrentRotation(prefill.current_rotation);
+  }
+
+  async function reloadOnboardingProgram() {
+    const res = await fetch("/api/v1/onboarding/touchpoint1");
+    const data = await res.json();
+    if (data.onboarding?.path) setOnboardingPath(data.onboarding.path);
+    if (data.onboarding?.path_chosen) setPathChosen(true);
+    if (data.onboarding?.program) {
+      const program = data.onboarding.program as OnboardingProgramConfig;
+      setProgramConfig(program);
+      if (data.onboarding.path === "institutional" && !data.profile?.base_specialty) {
+        applyInstitutionalDefaults(program);
+      }
+    }
+  }
+
+  async function handleApplyInstitutionalToken() {
+    const token = welcomeToken.trim();
+    if (!token) return;
+    setWelcomeTokenLoading(true);
+    setWelcomeTokenError(null);
+    setWelcomeTokenLabel(null);
+    setError("");
+    try {
+      const res = await fetch(
+        `/api/v1/onboarding/institutional-token?token=${encodeURIComponent(token)}`,
+      );
+      const preview = await res.json();
+      if (!preview.valid) {
+        setWelcomeTokenError(preview.message ?? "Token not recognized.");
+        return;
+      }
+
+      if (preview.roster_redeem) {
+        const ok = await redeemInviteFromUrl(token);
+        if (!ok) {
+          setWelcomeTokenError("Could not activate this roster invite.");
+          return;
+        }
+        setWelcomeTokenLabel(preview.program_title ?? preview.label ?? "Program linked.");
+        await reloadOnboardingProgram();
+        return;
+      }
+
+      const ok = await saveOnboardingPath({
+        onboarding_path: "institutional",
+        program_slug: preview.program_slug ?? undefined,
+      });
+      if (!ok) return;
+
+      applyInstitutionalPrefill(preview.prefill);
+      const program = preview.program_slug ? getProgramBySlug(preview.program_slug) : null;
+      if (program && !preview.prefill?.base_specialty) {
+        applyInstitutionalDefaults({
+          slug: program.slug,
+          display_title: program.display_title,
+          institution_name: program.institution_name,
+          program_name: program.program_name,
+          base_specialty: program.base_specialty,
+          specialty_locked: program.specialty_locked,
+          default_career_stage: program.default_career_stage,
+          career_stages_allowed: program.career_stages_allowed,
+          default_practice_setting: program.default_practice_setting,
+          academic_year: program.academic_year,
+          rotations: program.rotations,
+        });
+      }
+      await reloadOnboardingProgram();
+      setWelcomeTokenLabel(preview.label ?? preview.program_title ?? "Institutional program linked.");
+    } catch {
+      setWelcomeTokenError("Could not verify token. Try again.");
+    } finally {
+      setWelcomeTokenLoading(false);
+    }
   }
 
   function applyInstitutionalDefaults(program: OnboardingProgramConfig) {
@@ -314,36 +435,111 @@ export function Touchpoint1Onboarding() {
   const [savedNpi, setSavedNpi] = useState("");
   const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
 
+  async function saveOnboardingProgress(input: {
+    current_onboarding_step?: number | null;
+    coach_mak_conversation_id?: string | null;
+    profile_draft?: Record<string, unknown>;
+  }) {
+    try {
+      await fetch("/api/v1/onboarding/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(input),
+      });
+    } catch {
+      /* best-effort autosave */
+    }
+  }
+
+  async function saveProfileDraft() {
+    await saveOnboardingProgress({
+      current_onboarding_step: 1,
+      profile_draft: {
+        firstName,
+        lastName,
+        baseSpecialty,
+        subspecialty,
+        careerLevel,
+        practiceSetting,
+        pgyLevel,
+        currentRotation,
+        specialtyOrigin,
+      },
+    });
+  }
+
+  async function beginOnboarding() {
+    await saveOnboardingProgress({ current_onboarding_step: 1 });
+    setStep("profile");
+    router.replace("/app/onboarding?step=profile");
+  }
+
   const resolveStep = useCallback(
-    (u: {
-      tier1_complete?: boolean;
-      tier2_complete?: boolean;
-      tier3_complete?: boolean;
-      cv_uploaded?: boolean;
-      pending_reconcile_count?: number;
-      path_chosen?: boolean;
-    }, options?: { pathResolved?: boolean }) => {
-      if (u.tier3_complete) {
+    (
+      u: {
+        tier1_complete?: boolean;
+        tier2_complete?: boolean;
+        tier3_complete?: boolean;
+        cv_uploaded?: boolean;
+        pending_reconcile_count?: number;
+        path_chosen?: boolean;
+        onboarding_status?: string;
+        current_onboarding_step?: number | null;
+        coach_mak_conversation_id?: string | null;
+        enrichment_pending?: boolean;
+        profile_name?: string | null;
+        profile_base_specialty?: string | null;
+      },
+      options?: { pathResolved?: boolean },
+    ) => {
+      if (u.coach_mak_conversation_id) setCoachMakConversationId(u.coach_mak_conversation_id);
+      setDocumentsProcessing(Boolean(u.enrichment_pending));
+
+      if (u.tier3_complete || u.onboarding_status === "FULLY_ONBOARDED") {
         router.replace("/app/dashboard");
         return;
       }
+
       const param = searchParams.get("step") as OnboardingStep | null;
       if (param && STEPS.some((s) => s.id === param)) {
         setStep(param);
+        setResumeProfileStep(
+          param === "profile" &&
+            !u.tier1_complete &&
+            (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED"),
+        );
+        setResumeDocumentsStep(param === "documents");
+        setResumeInstrumentsStep(param === "instruments");
         return;
       }
-      if (!u.tier1_complete) {
-        if (!u.path_chosen && !options?.pathResolved) {
-          setStep("path");
-          return;
-        }
-        setStep("welcome");
+
+      if (!u.path_chosen && !options?.pathResolved) {
+        setStep("path");
         return;
       }
-      if (u.cv_uploaded && (u.pending_reconcile_count ?? 0) > 0 && !u.tier2_complete) {
-        setStep("reconcile");
-      } else if (!u.tier2_complete) setStep("documents");
-      else setStep("instruments");
+
+      const resolved = resolveOnboardingWizardStep(
+        {
+          tier1_complete: Boolean(u.tier1_complete),
+          tier2_complete: Boolean(u.tier2_complete),
+          tier3_complete: Boolean(u.tier3_complete),
+          onboarding_status: u.onboarding_status as AppUser["onboarding_status"],
+          current_onboarding_step: u.current_onboarding_step ?? null,
+          cv_uploaded: Boolean(u.cv_uploaded),
+          name: u.profile_name ?? null,
+          base_specialty: u.profile_base_specialty ?? null,
+        },
+        u.pending_reconcile_count ?? 0,
+      );
+      setStep(resolved);
+      setResumeProfileStep(
+        resolved === "profile" &&
+          !u.tier1_complete &&
+          (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED"),
+      );
+      setResumeDocumentsStep(resolved === "documents");
+      setResumeInstrumentsStep(resolved === "instruments");
+      router.replace(`/app/onboarding?step=${resolved}`);
     },
     [router, searchParams],
   );
@@ -419,6 +615,13 @@ export function Touchpoint1Onboarding() {
           clearStoredOnboardingEntry();
           router.replace("/app/onboarding?step=welcome");
         }
+      } else {
+        pathResolved = await bootstrapOnboardingFromUrl({ path: "public" });
+        if (pathResolved) {
+          setOnboardingPath("public");
+          setPathChosen(true);
+          clearStoredOnboardingEntry();
+        }
       }
 
       const res = await fetch("/api/v1/onboarding/touchpoint1");
@@ -483,6 +686,19 @@ export function Touchpoint1Onboarding() {
         {
           ...data,
           path_chosen: pathChosenFromServer || pathResolved,
+          onboarding_status: data.onboarding_status,
+          current_onboarding_step: data.current_onboarding_step,
+          coach_mak_conversation_id: data.coach_mak_conversation_id,
+          profile_name: data.profile?.name ?? null,
+          profile_base_specialty: data.profile?.base_specialty ?? null,
+          enrichment_pending: Boolean(
+            data.cv_uploaded &&
+              !data.tier2_complete &&
+              (data.reconciliation ?? []).some(
+                (r: { status?: string }) => r.status === "pending",
+              ) &&
+              !data.onboarding_metadata?.enrichment_snapshot,
+          ),
         },
         { pathResolved: pathResolved || pathChosenFromServer },
       );
@@ -632,6 +848,15 @@ export function Touchpoint1Onboarding() {
     setLoading(true);
     setError("");
     try {
+      const conversationId = coachMakConversationId ?? crypto.randomUUID();
+      if (!coachMakConversationId) {
+        await saveOnboardingProgress({
+          current_onboarding_step: 3,
+          coach_mak_conversation_id: conversationId,
+        });
+        setCoachMakConversationId(conversationId);
+      }
+
       const res = await fetch("/api/v1/onboarding/compute", { method: "POST" });
       const data = await res.json();
       if (!res.ok) {
@@ -809,16 +1034,25 @@ export function Touchpoint1Onboarding() {
               ? getProgramBySlug(programConfig.slug) ?? undefined
               : undefined
           }
-          onBegin={() => {
-            setStep("profile");
-            router.replace("/app/onboarding?step=profile");
-          }}
+          institutionalToken={welcomeToken}
+          onInstitutionalTokenChange={setWelcomeToken}
+          onApplyInstitutionalToken={handleApplyInstitutionalToken}
+          tokenPreviewLabel={welcomeTokenLabel}
+          tokenLoading={welcomeTokenLoading}
+          tokenError={welcomeTokenError}
+          onBegin={() => void beginOnboarding()}
         />
         </>
       )}
 
       {step === "profile" && (
         <Card className="font-futura-book">
+          {resumeProfileStep ? (
+            <OnboardingResumeBanner
+              message="Welcome back. Let's finish setting up your professional identity track."
+              storageKey="fiscmak_onboarding_resume_profile"
+            />
+          ) : null}
           {stepIndex > 0 && (
             <button
               type="button"
@@ -837,7 +1071,7 @@ export function Touchpoint1Onboarding() {
             />
           )}
           <h1 className="text-page-title">
-            {isInstitutional ? "Resident profile" : "Your profile"}
+            {isInstitutional ? "Professional Identity Context" : "Demographics"}
           </h1>
           {!isInstitutional && (
             <p className="font-futura-book mt-2 text-base text-black">
@@ -859,6 +1093,7 @@ export function Touchpoint1Onboarding() {
                     type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    onBlur={() => void saveProfileDraft()}
                     placeholder="Jane"
                     className="cx-field mt-2 text-base text-black"
                     autoComplete="given-name"
@@ -872,6 +1107,7 @@ export function Touchpoint1Onboarding() {
                     type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
+                    onBlur={() => void saveProfileDraft()}
                     placeholder="Smith"
                     className="cx-field mt-2 text-base text-black"
                     autoComplete="family-name"
@@ -1160,6 +1396,16 @@ export function Touchpoint1Onboarding() {
 
       {step === "documents" && (
         <>
+          {resumeDocumentsStep ? (
+            <OnboardingResumeBanner
+              message={
+                documentsProcessing
+                  ? "Resuming file processing... Your secure evidence dossier is updating."
+                  : "Welcome back. Continue building your evidence repository."
+              }
+              storageKey="fiscmak_onboarding_resume_documents"
+            />
+          ) : null}
           {stepIndex > 0 && (
             <button
               type="button"
@@ -1224,6 +1470,12 @@ export function Touchpoint1Onboarding() {
 
       {step === "instruments" && (
         <Card>
+          {resumeInstrumentsStep && coachMakConversationId ? (
+            <OnboardingResumeBanner
+              message="Welcome back! Open Coach Mak to continue your Professional Inventory where you left off."
+              storageKey="fiscmak_onboarding_resume_instruments"
+            />
+          ) : null}
           {stepIndex > 0 && (
             <button
               type="button"

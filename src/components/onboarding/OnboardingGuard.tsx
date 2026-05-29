@@ -16,26 +16,26 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
 
     let cancelled = false;
 
-    fetch("/api/v1/users/me")
+    fetch("/api/v1/onboarding/progress")
       .then(async (response) => {
         if (!response.ok) {
           if (response.status === 401) {
             router.replace("/login");
             return null;
           }
-          throw new Error("Could not load profile");
+          throw new Error("Could not load onboarding progress");
         }
         return response.json();
       })
-      .then((user) => {
-        if (cancelled || !user) return;
+      .then((data) => {
+        if (cancelled || !data) return;
 
-        if (!user.tier1_complete) {
+        if (data.path?.startsWith("/app/onboarding")) {
           const pending =
             typeof sessionStorage !== "undefined"
               ? sessionStorage.getItem("fiscmak_onboarding_next")
               : null;
-          router.replace(pending ?? "/app/onboarding");
+          router.replace(pending ?? data.path);
           return;
         }
 

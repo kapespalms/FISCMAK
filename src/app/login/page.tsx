@@ -10,13 +10,37 @@ import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/Ma
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
 import { rememberOnboardingNextPath, navigateToAppPath, sanitizeNextPath } from "@/lib/auth/oauth";
 
+async function navigateAfterAuth(fallbackNext: string) {
+  const safeFallback = sanitizeNextPath(fallbackNext);
+  const preserveOnboardingEntry = safeFallback.startsWith("/app/onboarding");
+
+  try {
+    const res = await fetch("/api/v1/onboarding/progress");
+    if (res.ok) {
+      const data = (await res.json()) as { path?: string };
+      const target = preserveOnboardingEntry ? safeFallback : (data.path ?? safeFallback);
+      navigateToAppPath(target);
+      return;
+    }
+  } catch {
+    /* use fallback */
+  }
+
+  navigateToAppPath(safeFallback);
+}
+
+type AuthMode = "unknown" | "login" | "signup";
+
 function LoginPageContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [authMode, setAuthMode] = useState<AuthMode>("unknown");
+  const [checkingEmail, setCheckingEmail] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
-  const nextPath = sanitizeNextPath(searchParams.get("next"));
+  const nextPath = sanitizeNextPath(searchParams.get("next") ?? "/app/onboarding");
   const signedOut = searchParams.get("signed_out") === "1";
 
   useEffect(() => {
@@ -26,63 +50,140 @@ function LoginPageContent() {
   useEffect(() => {
     const authError = new URLSearchParams(window.location.search).get("error");
     if (authError) setError(decodeURIComponent(authError));
-  }, []);
+    const emailParam = searchParams.get("email");
+    if (emailParam) setEmail(emailParam);
+  }, [searchParams]);
 
-  async function handleLogin(e: React.FormEvent) {
+  useEffect(() => {
+    setAuthMode("unknown");
+    setConfirmPassword("");
+  }, [email]);
+
+  async function resolveAuthMode(): Promise<AuthMode> {
+    if (!isSupabaseConfigured()) return "signup";
+    setCheckingEmail(true);
+    try {
+      const res = await fetch("/api/v1/auth/email-status", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      const data = await res.json();
+      const mode: AuthMode = data.exists ? "login" : "signup";
+      setAuthMode(mode);
+      return mode;
+    } catch {
+      setAuthMode("login");
+      return "login";
+    } finally {
+      setCheckingEmail(false);
+    }
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
 
     if (!isSupabaseConfigured()) {
-      navigateToAppPath(nextPath);
+      void navigateAfterAuth(nextPath);
       return;
     }
 
-    try {
+    const mode = authMode === "unknown" ? await resolveAuthMode() : authMode;
+
+    if (mode === "signup") {
+      if (password.length < 8) {
+        setError("Password must be at least 8 characters.");
+        setLoading(false);
+        return;
+      }
+      if (password !== confirmPassword) {
+        setError("Passwords do not match.");
+        setLoading(false);
+        return;
+      }
+
       const supabase = createClient();
-      const { data, error: authError } = await supabase.auth.signInWithPassword({
+      const { data, error: signUpError } = await supabase.auth.signUp({
         email: email.trim(),
         password,
       });
 
-      if (authError) {
-        const msg = authError.message.includes("Email not confirmed")
-          ? "Check your email to confirm your account, then try again."
-          : authError.message;
+      if (signUpError) {
+        const msg = signUpError.message.toLowerCase().includes("already")
+          ? "This email is already registered. Sign in instead."
+          : signUpError.message;
         setError(msg);
+        if (signUpError.message.toLowerCase().includes("already")) {
+          setAuthMode("login");
+        }
         setLoading(false);
         return;
       }
 
-      if (!data.session) {
-        setError("Sign-in did not create a session. Confirm your email or reset your password.");
-        setLoading(false);
+      if (data.session) {
+        void navigateAfterAuth(nextPath);
         return;
       }
 
-      navigateToAppPath(nextPath);
-    } catch (e) {
       setError(
-        e instanceof Error ? e.message : "Sign-in failed. Please try again.",
+        "Account created — check your email to confirm, then sign in. Or disable email confirmation in Supabase Auth settings for local dev.",
       );
       setLoading(false);
+      return;
     }
+
+    const supabase = createClient();
+    const { data, error: authError } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+
+    if (authError) {
+      const msg = authError.message.includes("Email not confirmed")
+        ? "Check your email to confirm your account, then try again."
+        : authError.message;
+      setError(msg);
+      setLoading(false);
+      return;
+    }
+
+    if (!data.session) {
+      setError("Sign-in did not create a session. Confirm your email or reset your password.");
+      setLoading(false);
+      return;
+    }
+
+    void navigateAfterAuth(nextPath);
   }
+
+  const showConfirmPassword = authMode === "signup";
+  const submitLabel =
+    checkingEmail
+      ? "Checking…"
+      : authMode === "signup"
+        ? loading
+          ? "Creating account…"
+          : "Create account"
+        : loading
+          ? "Signing in…"
+          : authMode === "login"
+            ? "Sign in"
+            : "Continue";
 
   return (
     <MarketingAuthShell>
       <MarketingAuthPanel>
         <MarketingAuthCard>
-          <h1 className="font-futura-bold text-3xl text-white md:text-4xl">Sign In</h1>
+          <h1 className="font-futura-bold text-3xl text-white md:text-4xl">Sign in</h1>
           <p className="font-futura-medium mt-2 text-sm text-gray-400">
             {!isSupabaseConfigured() && (
               <span className="text-marketing-accent">
                 Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
               </span>
             )}
-            <Link href="/signup" className="text-marketing-accent transition hover:text-white">
-              Create an account
-            </Link>
+            Enter your email and password. New emails create an account automatically.
           </p>
 
           {signedOut && !error && (
@@ -91,7 +192,7 @@ function LoginPageContent() {
             </p>
           )}
 
-          <form onSubmit={handleLogin} className="mt-8 space-y-4">
+          <form onSubmit={handleSubmit} className="mt-8 space-y-4">
             <MarketingAuthInput
               label="Email"
               id="email"
@@ -100,16 +201,32 @@ function LoginPageContent() {
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => {
+                if (email.trim()) void resolveAuthMode();
+              }}
             />
             <MarketingAuthInput
               label="Password"
               id="password"
               type="password"
               required
-              autoComplete="current-password"
+              minLength={8}
+              autoComplete={authMode === "signup" ? "new-password" : "current-password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {showConfirmPassword ? (
+              <MarketingAuthInput
+                label="Confirm password"
+                id="confirmPassword"
+                type="password"
+                required
+                minLength={8}
+                autoComplete="new-password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            ) : null}
 
             {error && (
               <p className="rounded-lg bg-[#f5d4c4] px-4 py-3 text-sm leading-relaxed text-[#1a2419]">
@@ -119,10 +236,10 @@ function LoginPageContent() {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || checkingEmail}
               className="font-futura-bold w-full cx-btn bg-marketing-accent px-4 py-3 text-sm text-black transition hover:bg-white disabled:opacity-60"
             >
-              {loading ? "Signing in…" : "Sign In"}
+              {submitLabel}
             </button>
 
             <p className="text-center">

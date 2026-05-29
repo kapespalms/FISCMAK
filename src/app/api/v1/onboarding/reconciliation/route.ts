@@ -17,6 +17,7 @@ import {
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { reconcileComplete } from "@/lib/v2/reconcile-mak-helpers";
 import { persistReconciliationStatuses } from "@/lib/v2/career-data-repo";
+import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -85,6 +86,7 @@ export async function POST(request: Request) {
     auth.email,
     {
       tier2_complete: complete,
+      ...onboardingProgressPatch({ tier2_complete: complete }),
       onboarding_metadata: updated as Record<string, unknown>,
     },
     auth.demo,

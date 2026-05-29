@@ -40,6 +40,7 @@ import { deployedInstruments, apiEnrichmentPlan } from "@/lib/v2/onboarding-touc
 import { deriveContentPack } from "@/lib/v2/programs/program-membership";
 import { syncProgramMembership } from "@/lib/v2/programs/sync-program-membership";
 import { seedNarrativeAnchorFromOrigin } from "@/lib/v2/trainee-origin";
+import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
 
 export async function POST(request: Request) {
   const auth = await requireApiUser();
@@ -259,6 +260,7 @@ export async function POST(request: Request) {
       primary_program_id: institutionalProgram?.id ?? authUser?.primary_program_id ?? null,
       content_pack: contentPack,
       tier1_complete: true,
+      ...onboardingProgressPatch({ tier1_complete: true }),
       onboarding_metadata: {
         ...priorMeta,
         instrument_ids: instrumentIds,
