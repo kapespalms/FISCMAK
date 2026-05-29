@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type OnboardingProfileSectionProps = {
@@ -8,6 +10,8 @@ type OnboardingProfileSectionProps = {
   title: string;
   description?: string;
   className?: string;
+  collapsible?: boolean;
+  defaultOpen?: boolean;
   children: React.ReactNode;
 };
 
@@ -17,8 +21,26 @@ export function OnboardingProfileSection({
   title,
   description,
   className,
+  collapsible = false,
+  defaultOpen = true,
   children,
 }: OnboardingProfileSectionProps) {
+  const [open, setOpen] = useState(defaultOpen);
+
+  const header = (
+    <>
+      {step && (
+        <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
+          {step}
+        </p>
+      )}
+      <h2 className="font-futura-medium text-xl text-cx-forest-dark">{title}</h2>
+      {description && (
+        <p className="font-futura-book mt-2 text-base leading-relaxed text-black">{description}</p>
+      )}
+    </>
+  );
+
   return (
     <section
       className={cn(
@@ -26,18 +48,26 @@ export function OnboardingProfileSection({
         className,
       )}
     >
-      <header className="border-b border-cx-forest-dark/10 pb-4">
-        {step && (
-          <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
-            {step}
-          </p>
-        )}
-        <h2 className="font-futura-medium text-xl text-cx-forest-dark">{title}</h2>
-        {description && (
-          <p className="font-futura-book mt-2 text-base leading-relaxed text-black">{description}</p>
-        )}
-      </header>
-      <div className="mt-4 space-y-4">{children}</div>
+      {collapsible ? (
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="flex w-full items-start justify-between gap-3 border-b border-cx-forest-dark/10 pb-4 text-left"
+          aria-expanded={open}
+        >
+          <div className="min-w-0 flex-1">{header}</div>
+          <ChevronDown
+            className={cn(
+              "mt-1 h-5 w-5 shrink-0 text-cx-forest-dark/50 transition-transform",
+              open && "rotate-180",
+            )}
+            aria-hidden
+          />
+        </button>
+      ) : (
+        <header className="border-b border-cx-forest-dark/10 pb-4">{header}</header>
+      )}
+      {(!collapsible || open) && <div className="mt-4 space-y-4">{children}</div>}
     </section>
   );
 }

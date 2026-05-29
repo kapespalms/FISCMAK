@@ -28,6 +28,7 @@ import {
 import { buildNarrativePrompt, NARRATIVE_HELPER, showNarrativeField } from "@/lib/v2/narrative-prompts";
 import {
   MEDICAL_STUDENT_YEARS,
+  CURRENT_GOAL_OPTIONS,
   type AdditionalDegreeEntry,
   type CurrentGoal,
   type MedicalStudentYear,
@@ -45,7 +46,7 @@ import {
 } from "@/lib/v2/specialty-hierarchy";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
-import { OnboardingMilestoneNav } from "@/components/onboarding/OnboardingMilestoneNav";
+import { OnboardingProgressStepper } from "@/components/onboarding/OnboardingProgressStepper";
 import { OnboardingResumeBanner } from "@/components/onboarding/OnboardingResumeBanner";
 import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
 import { OnboardingDocumentsStep } from "@/components/onboarding/OnboardingDocumentsStep";
@@ -65,7 +66,9 @@ import {
   OnboardingChoiceButton,
 } from "@/components/onboarding/OnboardingProfileSection";
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
-import { OnboardingExtendedProfileFields } from "@/components/onboarding/OnboardingExtendedProfileFields";
+import { AdditionalDegreesFields } from "@/components/onboarding/AdditionalDegreesFields";
+import { OnboardingBeyondPhysicianFields } from "@/components/onboarding/OnboardingBeyondPhysicianFields";
+import { milestoneIndexForStep } from "@/lib/v2/onboarding-milestones";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
 import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import {
@@ -199,11 +202,7 @@ export function Touchpoint1Onboarding() {
   const [lastName, setLastName] = useState("");
   const [namePrefilled, setNamePrefilled] = useState(false);
   const [baseSpecialty, setBaseSpecialty] = useState("");
-  const [baseQuery, setBaseQuery] = useState("");
-  const [baseListOpen, setBaseListOpen] = useState(false);
   const [subspecialty, setSubspecialty] = useState("");
-  const [subspecialtyQuery, setSubspecialtyQuery] = useState("");
-  const [subspecialtyListOpen, setSubspecialtyListOpen] = useState(false);
   const [trainingComplete, setTrainingComplete] = useState(false);
   const [careerLevel, setCareerLevel] = useState<CareerLevel>("Fellow");
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
@@ -260,11 +259,9 @@ export function Touchpoint1Onboarding() {
     if (prefill.career_stage) setCareerLevel(prefill.career_stage);
     if (prefill.base_specialty) {
       setBaseSpecialty(prefill.base_specialty);
-      setBaseQuery(prefill.base_specialty);
     }
     if (prefill.subspecialty) {
       setSubspecialty(prefill.subspecialty);
-      setSubspecialtyQuery(prefill.subspecialty);
       setTrainingComplete(defaultTrainingComplete(prefill.career_stage ?? careerLevel, prefill.subspecialty));
     }
     if (prefill.practice_setting) setPracticeSetting(prefill.practice_setting);
@@ -348,7 +345,6 @@ export function Touchpoint1Onboarding() {
 
   function applyInstitutionalDefaults(program: OnboardingProgramConfig) {
     setBaseSpecialty(program.base_specialty);
-    setBaseQuery(program.base_specialty);
     const stage =
       program.career_stages_allowed?.length === 1
         ? program.career_stages_allowed[0]!
@@ -448,11 +444,9 @@ export function Touchpoint1Onboarding() {
 
     if (normalized.base_specialty) {
       setBaseSpecialty(normalized.base_specialty);
-      setBaseQuery(normalized.base_specialty);
     }
     if (normalized.subspecialty) {
       setSubspecialty(normalized.subspecialty);
-      setSubspecialtyQuery(normalized.subspecialty);
       setTrainingComplete(
         profile.subspecialty_training_complete ??
           defaultTrainingComplete(profile.career_stage ?? careerLevel, normalized.subspecialty),
@@ -949,10 +943,7 @@ export function Touchpoint1Onboarding() {
 
   function pickBaseSpecialty(value: string) {
     setBaseSpecialty(value);
-    setBaseQuery(value);
-    setBaseListOpen(false);
     setSubspecialty("");
-    setSubspecialtyQuery("");
     setTrainingComplete(false);
     setSpecialtyOrigin("");
     setError("");
@@ -960,8 +951,6 @@ export function Touchpoint1Onboarding() {
 
   function pickSubspecialty(value: string) {
     setSubspecialty(value);
-    setSubspecialtyQuery(value);
-    setSubspecialtyListOpen(false);
     setTrainingComplete(defaultTrainingComplete(careerLevel, value || null));
     setSpecialtyOrigin("");
     setError("");
@@ -971,14 +960,11 @@ export function Touchpoint1Onboarding() {
     setCareerLevel(next);
     if (next !== "Fellow" && subspecialty) {
       setSubspecialty("");
-      setSubspecialtyQuery("");
       setTrainingComplete(false);
     }
     if (isMedicalStudent(next)) {
       setBaseSpecialty("");
-      setBaseQuery("");
       setSubspecialty("");
-      setSubspecialtyQuery("");
     }
     if (subspecialty) {
       setTrainingComplete(defaultTrainingComplete(next, subspecialty));
@@ -989,7 +975,12 @@ export function Touchpoint1Onboarding() {
 
   function navigateToStep(target: OnboardingStep) {
     const targetIdx = visibleSteps.findIndex((s) => s.id === target);
-    if (targetIdx < 0 || targetIdx >= stepIndex) return;
+    if (targetIdx < 0) return;
+
+    const targetMilestone = milestoneIndexForStep(target);
+    const currentMilestone = milestoneIndexForStep(step);
+    if (targetIdx >= stepIndex && targetMilestone >= currentMilestone) return;
+
     setError("");
     setStep(target);
     router.replace(`/app/onboarding?step=${target}`);
@@ -1008,27 +999,37 @@ export function Touchpoint1Onboarding() {
     }
   }
 
+  const showProgressStepper = pathChosen && step !== "path";
+
   return (
-    <PageShell
-      title="Onboarding"
-      maxWidth="md"
-      className="py-4"
-    >
+    <>
       {!bootstrapped ? (
         <div className="flex flex-1 items-center justify-center p-8">
           <p className="text-cx-forest-dark/70">Loading onboarding…</p>
         </div>
+      ) : showProgressStepper ? (
+        <div className="-mx-4 -mt-4 flex min-h-[calc(100vh-2rem)] flex-col bg-slate-50/50 md:-mx-8 md:-mt-8">
+          <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white">
+            <OnboardingProgressStepper
+              currentStep={step}
+              onNavigate={(target) => navigateToStep(target as OnboardingStep)}
+            />
+          </header>
+          <main className="mx-auto w-full max-w-4xl flex-1 p-6">
+            {renderOnboardingSteps()}
+          </main>
+        </div>
       ) : (
-      <>
-      <div className="mb-6">
-        {pathChosen && step !== "path" ? (
-          <OnboardingMilestoneNav
-            currentStep={step}
-            onNavigate={(target) => navigateToStep(target as OnboardingStep)}
-          />
-        ) : null}
-      </div>
+        <PageShell title="Onboarding" maxWidth="md" className="py-4">
+          {renderOnboardingSteps()}
+        </PageShell>
+      )}
+    </>
+  );
 
+  function renderOnboardingSteps() {
+    return (
+      <>
       {step === "path" && bootstrappingPath && (
         <Card>
           <p className="text-sm text-cx-forest-dark/70">
@@ -1137,6 +1138,8 @@ export function Touchpoint1Onboarding() {
               step="Section 1"
               title="About you"
               description="How your name appears across FISCMAK."
+              collapsible
+              defaultOpen
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -1173,6 +1176,21 @@ export function Touchpoint1Onboarding() {
                   ? "Pre-filled from your sign-in or program invite. Contact your program admin to change."
                   : "Enter your name as you would like it displayed."}
               </OnboardingProfileHint>
+
+              {!isInstitutional && (
+                <div className="border-t border-cx-forest-dark/10 pt-4">
+                  <p className="font-futura-medium text-base text-cx-forest-dark">Additional degrees</p>
+                  <p className="font-futura-book mt-1 text-sm text-black">
+                    Optional — other degrees beyond your MD/DO.
+                  </p>
+                  <div className="mt-3">
+                    <AdditionalDegreesFields
+                      value={additionalDegrees}
+                      onChange={setAdditionalDegrees}
+                    />
+                  </div>
+                </div>
+              )}
             </OnboardingProfileSection>
 
             <OnboardingProfileSection
@@ -1181,57 +1199,34 @@ export function Touchpoint1Onboarding() {
               description={
                 isInstitutional
                   ? "Your program, training year, and current rotation."
-                  : "Specialty, career stage, and where you are in training."
+                  : "Career stage drives which fields appear below."
               }
+              collapsible
+              defaultOpen
             >
-              {isInstitutional && programConfig?.specialty_locked ? (
-                <div className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-4">
-                  <p className="font-futura-medium text-base text-cx-forest-dark">Specialty</p>
-                  <p className="font-futura-book mt-1 text-base text-black">{programConfig.base_specialty}</p>
-                  {careerLevel === "Fellow" && (
-                    <OnboardingProfileHint>Select your fellowship subspecialty below.</OnboardingProfileHint>
-                  )}
-                  <div className="mt-4">
-                    <SpecialtyIntakeFields
-                      baseSpecialty={baseSpecialty}
-                      baseQuery={baseQuery}
-                      onBaseQueryChange={setBaseQuery}
-                      onPickBase={pickBaseSpecialty}
-                      baseListOpen={baseListOpen}
-                      onBaseListOpenChange={setBaseListOpen}
-                      subspecialty={subspecialty}
-                      subspecialtyQuery={subspecialtyQuery}
-                      onSubspecialtyQueryChange={setSubspecialtyQuery}
-                      onPickSubspecialty={pickSubspecialty}
-                      subspecialtyListOpen={subspecialtyListOpen}
-                      onSubspecialtyListOpenChange={setSubspecialtyListOpen}
-                      trainingComplete={trainingComplete}
-                      onTrainingCompleteChange={setTrainingComplete}
-                      careerStage={careerLevel}
-                      hideBaseSpecialtyPicker
-                    />
-                  </div>
+              {institutionalCareerStageLocked ? (
+                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
+                  <p className="font-futura-book text-base text-black">
+                    <span className="font-futura-medium text-cx-forest-dark">Career level:</span>{" "}
+                    {careerLevel}
+                  </p>
+                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
                 </div>
               ) : (
-                <SpecialtyIntakeFields
-                  baseSpecialty={baseSpecialty}
-                  baseQuery={baseQuery}
-                  onBaseQueryChange={setBaseQuery}
-                  onPickBase={pickBaseSpecialty}
-                  baseListOpen={baseListOpen}
-                  onBaseListOpenChange={setBaseListOpen}
-                  subspecialty={subspecialty}
-                  subspecialtyQuery={subspecialtyQuery}
-                  onSubspecialtyQueryChange={setSubspecialtyQuery}
-                  onPickSubspecialty={pickSubspecialty}
-                  subspecialtyListOpen={subspecialtyListOpen}
-                  onSubspecialtyListOpenChange={setSubspecialtyListOpen}
-                  trainingComplete={trainingComplete}
-                  onTrainingCompleteChange={setTrainingComplete}
-                  careerStage={careerLevel}
-                  specialtyInterests={specialtyInterests}
-                  onSpecialtyInterestsChange={setSpecialtyInterests}
-                />
+                <div>
+                  <OnboardingFieldLabel>Career level</OnboardingFieldLabel>
+                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                    {careerLevelOptions.map((s) => (
+                      <OnboardingChoiceButton
+                        key={s}
+                        active={careerLevel === s}
+                        onClick={() => handleCareerLevelChange(s)}
+                      >
+                        {s}
+                      </OnboardingChoiceButton>
+                    ))}
+                  </div>
+                </div>
               )}
 
               {showMedStudentFields && (
@@ -1257,31 +1252,6 @@ export function Touchpoint1Onboarding() {
                       className="cx-field mt-3 text-base text-black"
                     />
                   )}
-                </div>
-              )}
-
-              {institutionalCareerStageLocked ? (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-book text-base text-black">
-                    <span className="font-futura-medium text-cx-forest-dark">Career level:</span>{" "}
-                    {careerLevel}
-                  </p>
-                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
-                </div>
-              ) : (
-                <div>
-                  <OnboardingFieldLabel>Career level</OnboardingFieldLabel>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {careerLevelOptions.map((s) => (
-                      <OnboardingChoiceButton
-                        key={s}
-                        active={careerLevel === s}
-                        onClick={() => handleCareerLevelChange(s)}
-                      >
-                        {s}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
                 </div>
               )}
 
@@ -1411,6 +1381,70 @@ export function Touchpoint1Onboarding() {
                 </div>
               )}
 
+              {isInstitutional && programConfig?.specialty_locked ? (
+                <div className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-4">
+                  <p className="font-futura-medium text-base text-cx-forest-dark">Specialty</p>
+                  <p className="font-futura-book mt-1 text-base text-black">{programConfig.base_specialty}</p>
+                  <div className="mt-4">
+                    <SpecialtyIntakeFields
+                      baseSpecialty={baseSpecialty}
+                      onPickBase={pickBaseSpecialty}
+                      subspecialty={subspecialty}
+                      onPickSubspecialty={pickSubspecialty}
+                      trainingComplete={trainingComplete}
+                      onTrainingCompleteChange={setTrainingComplete}
+                      careerStage={careerLevel}
+                      hideBaseSpecialtyPicker
+                    />
+                  </div>
+                </div>
+              ) : (
+                <SpecialtyIntakeFields
+                  baseSpecialty={baseSpecialty}
+                  onPickBase={pickBaseSpecialty}
+                  subspecialty={subspecialty}
+                  onPickSubspecialty={pickSubspecialty}
+                  trainingComplete={trainingComplete}
+                  onTrainingCompleteChange={setTrainingComplete}
+                  careerStage={careerLevel}
+                  specialtyInterests={specialtyInterests}
+                  onSpecialtyInterestsChange={setSpecialtyInterests}
+                />
+              )}
+
+              {showSubspecialtyInterests &&
+                (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
+                  <OnboardingInterestsBlock
+                    baseSpecialty={
+                      showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
+                    }
+                    baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
+                    careerStage={careerLevel}
+                    subspecialtyInterests={subspecialtyInterests}
+                    onSubspecialtyInterestsChange={setSubspecialtyInterests}
+                    showUhPsychTracks={
+                      isInstitutional && programConfig?.slug === "uh-psych-cmc"
+                    }
+                    uhPsychTracks={uhPsychEnrichmentTracks}
+                    onUhPsychTracksChange={setUhPsychEnrichmentTracks}
+                  />
+                )}
+
+              {showNarrative && (
+                <div className="border-t border-cx-forest-dark/10 pt-4">
+                  <OnboardingFieldLabel htmlFor="specialty-origin">{narrativePrompt}</OnboardingFieldLabel>
+                  <textarea
+                    id="specialty-origin"
+                    value={specialtyOrigin}
+                    onChange={(e) => setSpecialtyOrigin(e.target.value)}
+                    placeholder="Optional — one sentence is enough."
+                    className="cx-field mt-2 min-h-[96px] resize-y text-base text-black"
+                    rows={3}
+                  />
+                  <OnboardingProfileHint>{NARRATIVE_HELPER}</OnboardingProfileHint>
+                </div>
+              )}
+
               {isInstitutional && (
                 <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
                   <p className="font-futura-medium text-base text-cx-forest-dark">Call schedule</p>
@@ -1436,75 +1470,54 @@ export function Touchpoint1Onboarding() {
               )}
             </OnboardingProfileSection>
 
-            {showNarrative && (
-              <OnboardingProfileSection
-                step="Section 3"
-                title="Your Narrative"
-                description={NARRATIVE_HELPER}
-              >
-                <div>
-                  <OnboardingFieldLabel htmlFor="specialty-origin">{narrativePrompt}</OnboardingFieldLabel>
-                  <textarea
-                    id="specialty-origin"
-                    value={specialtyOrigin}
-                    onChange={(e) => setSpecialtyOrigin(e.target.value)}
-                    placeholder="Optional — one sentence is enough."
-                    className="cx-field mt-2 min-h-[96px] resize-y text-base text-black"
-                    rows={3}
-                  />
-                  <OnboardingProfileHint>Optional — skip if you prefer.</OnboardingProfileHint>
-                </div>
-              </OnboardingProfileSection>
-            )}
-
-            {showSubspecialtyInterests &&
-              (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
-              <OnboardingProfileSection
-                step="Section 4"
-                title="Interests"
-                description="Optional — what you want to explore beyond your current rotation."
-              >
-                <OnboardingInterestsBlock
-                  baseSpecialty={
-                    showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
-                  }
-                  baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
-                  careerStage={careerLevel}
-                  subspecialtyInterests={subspecialtyInterests}
-                  onSubspecialtyInterestsChange={setSubspecialtyInterests}
-                  showUhPsychTracks={
-                    isInstitutional && programConfig?.slug === "uh-psych-cmc"
-                  }
-                  uhPsychTracks={uhPsychEnrichmentTracks}
-                  onUhPsychTracksChange={setUhPsychEnrichmentTracks}
-                />
-              </OnboardingProfileSection>
-            )}
-
             <OnboardingProfileSection
-              step="Section 5"
+              step="Section 3"
               title="Career direction"
               description="Rank the eight FISCMAK career tracks — Mak uses this for goals and your lattice."
+              collapsible
+              defaultOpen={false}
             >
               <CareerTrackRankingFields
                 careerLevel={careerLevel}
                 value={careerTrackRankings}
                 onChange={setCareerTrackRankings}
               />
+
+              {!isInstitutional && (
+                <div className="border-t border-cx-forest-dark/10 pt-4">
+                  <OnboardingFieldLabel>Current goal</OnboardingFieldLabel>
+                  <p className="font-futura-book mt-1 text-sm text-black">
+                    What do you most want FISCMAK to help with right now?
+                  </p>
+                  <div className="mt-3 grid gap-2">
+                    {CURRENT_GOAL_OPTIONS.map((option) => (
+                      <OnboardingChoiceButton
+                        key={option}
+                        active={currentGoal === option}
+                        onClick={() => setCurrentGoal(option)}
+                      >
+                        {option}
+                      </OnboardingChoiceButton>
+                    ))}
+                  </div>
+                </div>
+              )}
             </OnboardingProfileSection>
 
             {!isInstitutional && (
-              <OnboardingExtendedProfileFields
-                sectionStep="Section 6"
-                additionalDegrees={additionalDegrees}
-                onAdditionalDegreesChange={setAdditionalDegrees}
-                currentGoal={currentGoal}
-                onCurrentGoalChange={setCurrentGoal}
-                otherIndustries={otherIndustries}
-                onOtherIndustriesChange={setOtherIndustries}
-                extracurricularInterests={extracurricularInterests}
-                onExtracurricularInterestsChange={setExtracurricularInterests}
-              />
+              <OnboardingProfileSection
+                step="Section 4"
+                title="Beyond the physician"
+                collapsible
+                defaultOpen={false}
+              >
+                <OnboardingBeyondPhysicianFields
+                  otherIndustries={otherIndustries}
+                  onOtherIndustriesChange={setOtherIndustries}
+                  extracurricularInterests={extracurricularInterests}
+                  onExtracurricularInterestsChange={setExtracurricularInterests}
+                />
+              </OnboardingProfileSection>
             )}
 
             <Button className="w-full" onClick={submitProfile} disabled={loading}>
@@ -1635,7 +1648,6 @@ export function Touchpoint1Onboarding() {
         </Card>
       )}
       </>
-      )}
-    </PageShell>
-  );
+    );
+  }
 }

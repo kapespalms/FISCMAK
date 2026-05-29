@@ -6,6 +6,7 @@ export const ONBOARDING_LIME = "#39FF14";
 export type OnboardingMilestone = {
   id: 1 | 2 | 3;
   label: "Core Profile" | "Evidence Vault" | "Career Chat";
+  subtitle: string;
   detail: string;
   steps: readonly OnboardingWizardStep[];
 };
@@ -14,18 +15,21 @@ export const ONBOARDING_MILESTONES: readonly OnboardingMilestone[] = [
   {
     id: 1,
     label: "Core Profile",
+    subtitle: "About you",
     detail: "Verify medical specialty, licensing state, and current practice structure.",
     steps: ["welcome", "profile"],
   },
   {
     id: 2,
     label: "Evidence Vault",
+    subtitle: "Evidence & CVs",
     detail: "Securely drop CVs, board certifications, and historical peer reviews.",
     steps: ["documents", "reconcile"],
   },
   {
     id: 3,
     label: "Career Chat",
+    subtitle: "Talk with Mak",
     detail: "Initiate an intake chat for career exploration and empowerment.",
     steps: ["instruments"],
   },
@@ -53,5 +57,10 @@ export function milestoneDetail(milestone: OnboardingMilestone, institutional: b
 
 /** First wizard step for a milestone (for back navigation). */
 export function firstStepInMilestone(milestoneIndex: number): OnboardingWizardStep {
-  return ONBOARDING_MILESTONES[milestoneIndex]?.steps[0] ?? "welcome";
+  const milestone = ONBOARDING_MILESTONES[milestoneIndex];
+  if (!milestone) return "welcome";
+  if (milestoneIndex === 0 && (milestone.steps as readonly string[]).includes("profile")) {
+    return "profile";
+  }
+  return milestone.steps[0] ?? "welcome";
 }
