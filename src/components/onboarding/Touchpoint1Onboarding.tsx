@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -68,6 +68,12 @@ import {
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
 import { AdditionalDegreesFields } from "@/components/onboarding/AdditionalDegreesFields";
 import { OnboardingBeyondPhysicianFields } from "@/components/onboarding/OnboardingBeyondPhysicianFields";
+import {
+  OnboardingProfileCarousel,
+  type ProfileCarouselCard,
+} from "@/components/onboarding/OnboardingProfileCarousel";
+import { OnboardingTermsAcceptanceCard } from "@/components/onboarding/OnboardingTermsAcceptanceCard";
+import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
 import { milestoneIndexForStep } from "@/lib/v2/onboarding-milestones";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
 import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
@@ -223,7 +229,25 @@ export function Touchpoint1Onboarding() {
   const [pgyLevel, setPgyLevel] = useState<PgyLevel | "">("");
   const [currentRotation, setCurrentRotation] = useState("");
   const [specialtyOrigin, setSpecialtyOrigin] = useState("");
+  const [profileCardIndex, setProfileCardIndex] = useState(0);
+  const [termsChatConfidential, setTermsChatConfidential] = useState(false);
+  const [termsSummativeReports, setTermsSummativeReports] = useState(false);
+  const [termsDocumentOwnership, setTermsDocumentOwnership] = useState(false);
 
+  const profileCarouselCards = useMemo((): ProfileCarouselCard[] => {
+    const cards: ProfileCarouselCard[] = [
+      { id: "about", label: "About you" },
+      { id: "specialty", label: "Specialty & placement" },
+      { id: "career", label: "Career direction" },
+    ];
+    if (!isInstitutional) {
+      cards.push({ id: "beyond", label: "Beyond the physician" });
+    }
+    cards.push({ id: "acceptance", label: "Account initialization" });
+    return cards;
+  }, [isInstitutional]);
+
+  const activeProfileCardId = profileCarouselCards[profileCardIndex]?.id ?? "about";
   const showGmeFields = requiresGmePlacementFields(careerLevel);
   const showMedStudentFields = isMedicalStudent(careerLevel);
   const showNarrative = showNarrativeField(careerLevel);
@@ -783,7 +807,77 @@ export function Touchpoint1Onboarding() {
     }
   }, [step]);
 
+  async function validateProfileCard(cardId: string): Promise<boolean> {
+    setError("");
+    const fullName = combineName(firstName, lastName);
+    if (cardId === "about") {
+      if (!fullName.trim() || fullName.trim().length < 2) {
+        setError("Enter your first and last name.");
+        return false;
+      }
+      return true;
+    }
+    if (cardId === "specialty") {
+      const resolvedBase = showMedStudentFields
+        ? specialtyInterests[0] ?? baseSpecialty
+        : baseSpecialty;
+      if (!showMedStudentFields && (!resolvedBase || !isValidBaseSpecialty(resolvedBase))) {
+        setError("Select a base specialty from the list.");
+        return false;
+      }
+      if (showMedStudentFields && specialtyInterests.length === 0) {
+        setError("Add at least one specialty of interest.");
+        return false;
+      }
+      if (showMedStudentFields && !medicalStudentYear) {
+        setError("Select your medical school year.");
+        return false;
+      }
+      if (requiresGmePlacementFields(careerLevel)) {
+        if (!pgyLevel) {
+          setError("Select your PGY level.");
+          return false;
+        }
+        if (!currentRotation.trim()) {
+          setError("Enter your current rotation.");
+          return false;
+        }
+      }
+      return true;
+    }
+    return true;
+  }
+
+  async function goToNextProfileCard() {
+    const cardId = profileCarouselCards[profileCardIndex]?.id;
+    if (!cardId) return;
+    const ok = await validateProfileCard(cardId);
+    if (!ok) return;
+    setProfileCardIndex((i) => Math.min(i + 1, profileCarouselCards.length - 1));
+  }
+
+  function goToPrevProfileCard() {
+    setError("");
+    setProfileCardIndex((i) => Math.max(i - 1, 0));
+  }
+
   async function submitProfile() {
+    const acceptanceCardId = profileCarouselCards[profileCarouselCards.length - 1]?.id;
+    if (acceptanceCardId === "acceptance") {
+      for (const card of profileCarouselCards) {
+        if (card.id === "acceptance") break;
+        const ok = await validateProfileCard(card.id);
+        if (!ok) {
+          setProfileCardIndex(profileCarouselCards.findIndex((c) => c.id === card.id));
+          return;
+        }
+      }
+    }
+    if (!termsChatConfidential || !termsSummativeReports || !termsDocumentOwnership) {
+      setError("Please confirm all privacy and ownership items before continuing.");
+      setProfileCardIndex(profileCarouselCards.findIndex((c) => c.id === "acceptance"));
+      return;
+    }
     const fullName = combineName(firstName, lastName);
     if (!fullName.trim() || fullName.trim().length < 2) {
       setError("Enter your first and last name.");
@@ -849,6 +943,8 @@ export function Touchpoint1Onboarding() {
         pgy_level: showGmeFields ? pgyLevel : null,
         current_rotation: showGmeFields ? currentRotation.trim() : null,
         specialty_origin: specialtyOrigin.trim() || null,
+        terms_accepted: true,
+        terms_version: FISCMAK_TERMS_VERSION,
       }),
     });
     const data = await res.json();
@@ -1133,13 +1229,24 @@ export function Touchpoint1Onboarding() {
             </p>
           )}
 
-          <div className="mt-6 space-y-6">
+          <div className="mt-6">
+            <OnboardingProfileCarousel
+              cards={profileCarouselCards}
+              index={profileCardIndex}
+              onIndexChange={(i) => {
+                setError("");
+                setProfileCardIndex(i);
+              }}
+              onNext={() => void goToNextProfileCard()}
+              onPrev={goToPrevProfileCard}
+              error={error}
+              hideNav={activeProfileCardId === "acceptance"}
+            >
+              {activeProfileCardId === "about" && (
             <OnboardingProfileSection
               step="Section 1"
               title="About you"
               description="How your name appears across FISCMAK."
-              collapsible
-              defaultOpen
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -1192,7 +1299,9 @@ export function Touchpoint1Onboarding() {
                 </div>
               )}
             </OnboardingProfileSection>
+              )}
 
+              {activeProfileCardId === "specialty" && (
             <OnboardingProfileSection
               step="Section 2"
               title="Specialty & placement"
@@ -1201,8 +1310,6 @@ export function Touchpoint1Onboarding() {
                   ? "Your program, training year, and current rotation."
                   : "Career stage drives which fields appear below."
               }
-              collapsible
-              defaultOpen
             >
               {institutionalCareerStageLocked ? (
                 <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
@@ -1469,13 +1576,13 @@ export function Touchpoint1Onboarding() {
                 </div>
               )}
             </OnboardingProfileSection>
+              )}
 
+              {activeProfileCardId === "career" && (
             <OnboardingProfileSection
               step="Section 3"
               title="Career direction"
-              description="Rank the eight FISCMAK career tracks — Mak uses this for goals and your lattice."
-              collapsible
-              defaultOpen={false}
+              description="Rank the career tracks from most energizing to least energizing. Estimate the number of hours you spend in each every week."
             >
               <CareerTrackRankingFields
                 careerLevel={careerLevel}
@@ -1503,13 +1610,12 @@ export function Touchpoint1Onboarding() {
                 </div>
               )}
             </OnboardingProfileSection>
+              )}
 
-            {!isInstitutional && (
+              {activeProfileCardId === "beyond" && !isInstitutional && (
               <OnboardingProfileSection
                 step="Section 4"
                 title="Beyond the physician"
-                collapsible
-                defaultOpen={false}
               >
                 <OnboardingBeyondPhysicianFields
                   otherIndustries={otherIndustries}
@@ -1518,15 +1624,22 @@ export function Touchpoint1Onboarding() {
                   onExtracurricularInterestsChange={setExtracurricularInterests}
                 />
               </OnboardingProfileSection>
-            )}
+              )}
 
-            <Button className="w-full" onClick={submitProfile} disabled={loading}>
-              {loading ? "Saving…" : "Continue to documents"}
-            </Button>
+              {activeProfileCardId === "acceptance" && (
+                <OnboardingTermsAcceptanceCard
+                  chatConfidential={termsChatConfidential}
+                  summativeReports={termsSummativeReports}
+                  documentOwnership={termsDocumentOwnership}
+                  onChatConfidentialChange={setTermsChatConfidential}
+                  onSummativeReportsChange={setTermsSummativeReports}
+                  onDocumentOwnershipChange={setTermsDocumentOwnership}
+                  onAccept={() => void submitProfile()}
+                  loading={loading}
+                />
+              )}
+            </OnboardingProfileCarousel>
           </div>
-          {error && (
-            <p className="cx-alert-banner mt-3 px-4 py-3 text-base">{error}</p>
-          )}
         </Card>
       )}
 

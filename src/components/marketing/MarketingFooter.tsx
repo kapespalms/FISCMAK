@@ -13,6 +13,8 @@ const footerLinks: FooterLink[] = [
   { label: "Institutions", href: "/institutions" },
   { label: "FAQ", href: "/faq" },
   { label: "Security", href: "/security" },
+  { label: "Terms", href: "/legal/terms-of-service" },
+  { label: "Privacy", href: "/legal/privacy-policy" },
 ];
 
 export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
