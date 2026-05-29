@@ -18,6 +18,7 @@
     "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs",
     "db:seed-mak-profile": "node scripts/seed-mak-profile.mjs",
     "db:seed-test-profiles": "node scripts/seed-test-profile-battery.mjs --all",
+    "db:seed-demo-accounts": "node scripts/seed-test-profile-battery.mjs --demo-pack",
     "pilot:dry-run": "node scripts/pilot-dry-run.mjs",
     "brand:sync": "node scripts/sync-brand-assets.mjs",
     "brand:panels": "node scripts/knockout-panel-backgrounds.mjs"

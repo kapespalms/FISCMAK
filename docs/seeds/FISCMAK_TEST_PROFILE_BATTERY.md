@@ -32,8 +32,36 @@ node scripts/seed-test-profile-battery.mjs --all --dry-run
 
 ## Sign in
 
+- **Demo usernames (no email):** `demo1` through `demo10` + team password when `NEXT_PUBLIC_FISCMAK_DEMO_LOGIN=true`
 - **Email:** `{username}@test.fiscmak.local` (e.g. `testgen2@test.fiscmak.local`, `test2@test.fiscmak.local`)
 - **Password:** value of `FISCMAK_TEST_PASSWORD` in your `.env.local`
+
+### Quick demo pack (10 accounts)
+
+```bash
+FISCMAK_TEST_PASSWORD='…' npm run db:seed-demo-accounts
+```
+
+| Username | Persona |
+| --- | --- |
+| demo1 | PGY-1 · Individual |
+| demo2 | PGY-3 · Individual |
+| demo3 | Early Career · Individual |
+| demo4 | Mid Career · Individual |
+| demo5 | Retired · Individual |
+| demo6 | PGY-1 · UH Psych |
+| demo7 | PGY-2 · UH Psych |
+| demo8 | PGY-3 · UH Psych |
+| demo9 | MS4 · Individual |
+| demo10 | Fellow · Individual |
+
+Enable username login on `/login`:
+
+```bash
+NEXT_PUBLIC_FISCMAK_DEMO_LOGIN=true
+```
+
+See `docs/seeds/fiscmak_demo_accounts.json`.
 
 ## A. General signup test profiles
 

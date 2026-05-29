@@ -20,20 +20,24 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const battery = JSON.parse(
   fs.readFileSync(path.join(root, "docs/seeds/test_profile_battery.json"), "utf8"),
 );
+const demoPack = JSON.parse(
+  fs.readFileSync(path.join(root, "docs/seeds/fiscmak_demo_accounts.json"), "utf8"),
+);
 
 const PROGRAM_ID = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
 const PROGRAM_SLUG = "uh-psych-cmc";
 
 function parseArgs(argv) {
-  const out = { all: false, username: null, dryRun: false };
+  const out = { all: false, demoPack: false, username: null, dryRun: false };
   for (let i = 2; i < argv.length; i++) {
     if (argv[i] === "--all") out.all = true;
+    else if (argv[i] === "--demo-pack") out.demoPack = true;
     else if (argv[i] === "--username") out.username = argv[++i]?.toUpperCase();
     else if (argv[i] === "--dry-run") out.dryRun = true;
   }
-  if (!out.all && !out.username) {
+  if (!out.all && !out.demoPack && !out.username) {
     console.error(
-      "Usage: FISCMAK_TEST_PASSWORD='…' node scripts/seed-test-profile-battery.mjs --all | --username TESTGEN2 [--dry-run]",
+      "Usage: FISCMAK_TEST_PASSWORD='…' node scripts/seed-test-profile-battery.mjs --all | --demo-pack | --username TESTGEN2 [--dry-run]",
     );
     process.exit(1);
   }
@@ -253,7 +257,7 @@ async function upsertAppUser(client, userId, profile, resolved, dryRun) {
 }
 
 async function main() {
-  const { all, username, dryRun } = parseArgs(process.argv);
+  const { all, demoPack: seedDemoPack, username, dryRun } = parseArgs(process.argv);
   loadEnvLocal();
   const password = process.env.FISCMAK_TEST_PASSWORD;
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -268,11 +272,17 @@ async function main() {
     process.exit(1);
   }
 
+  const demoBatteryUsernames = seedDemoPack
+    ? new Set(demoPack.accounts.map((account) => account.battery_username))
+    : null;
+
   const profiles = all
     ? battery.profiles
-    : battery.profiles.filter((p) => p.username === username);
+    : seedDemoPack
+      ? battery.profiles.filter((profile) => demoBatteryUsernames.has(profile.username))
+      : battery.profiles.filter((p) => p.username === username);
   if (!profiles.length) {
-    throw new Error(`Unknown username ${username}`);
+    throw new Error(username ? `Unknown username ${username}` : "No profiles matched the requested seed pack.");
   }
 
   const admin = dryRun
@@ -284,7 +294,7 @@ async function main() {
   const { connectPostgres } = await import("./supabase-connection.mjs");
   const pg = dryRun ? null : await connectPostgres();
 
-  console.log(`\nFISCMAK test profile battery — ${profiles.length} profile(s)${dryRun ? " (dry run)" : ""}\n`);
+  console.log(`\nFISCMAK test profile battery — ${profiles.length} profile(s)${dryRun ? " (dry run)" : ""}${seedDemoPack ? " · demo pack" : ""}\n`);
 
   for (const profile of profiles) {
     const resolved = resolveProfile(profile);
@@ -308,7 +318,7 @@ async function main() {
 
   if (pg) await pg.end();
 
-  console.log("\nSign in at /login with the test email + FISCMAK_TEST_PASSWORD.\n");
+  console.log("\nSign in at /login with demo username (demo1–demo10) or test email + FISCMAK_TEST_PASSWORD.\n");
 }
 
 main().catch((err) => {
