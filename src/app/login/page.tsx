@@ -9,6 +9,12 @@ import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
 import { rememberOnboardingNextPath, navigateToAppPath, sanitizeNextPath } from "@/lib/auth/oauth";
+import { DemoLoginPanel } from "@/components/auth/DemoLoginPanel";
+import {
+  isDemoLoginEnabled,
+  isDemoLoginIdentifier,
+  resolveDemoLoginEmail,
+} from "@/lib/v2/fiscmak-demo-accounts";
 
 async function navigateAfterAuth(fallbackNext: string) {
   const safeFallback = sanitizeNextPath(fallbackNext);
@@ -60,6 +66,10 @@ function LoginPageContent() {
   }, [email]);
 
   async function resolveAuthMode(): Promise<AuthMode> {
+    if (isDemoLoginEnabled() && isDemoLoginIdentifier(email)) {
+      setAuthMode("login");
+      return "login";
+    }
     if (!isSupabaseConfigured()) return "signup";
     setCheckingEmail(true);
     try {
@@ -91,6 +101,10 @@ function LoginPageContent() {
     }
 
     const mode = authMode === "unknown" ? await resolveAuthMode() : authMode;
+    const authEmail =
+      isDemoLoginEnabled() && resolveDemoLoginEmail(email)
+        ? resolveDemoLoginEmail(email)!
+        : email.trim();
 
     if (mode === "signup") {
       if (password.length < 8) {
@@ -106,7 +120,7 @@ function LoginPageContent() {
 
       const supabase = createClient();
       const { data, error: signUpError } = await supabase.auth.signUp({
-        email: email.trim(),
+        email: authEmail,
         password,
       });
 
@@ -136,7 +150,7 @@ function LoginPageContent() {
 
     const supabase = createClient();
     const { data, error: authError } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
+      email: authEmail,
       password,
     });
 
@@ -184,6 +198,7 @@ function LoginPageContent() {
               </span>
             )}
             Enter your email and password. New emails create an account automatically.
+            {isDemoLoginEnabled() ? " Or use a demo username below — no email needed." : null}
           </p>
 
           {signedOut && !error && (
@@ -251,6 +266,13 @@ function LoginPageContent() {
               </Link>
             </p>
           </form>
+
+          <DemoLoginPanel
+            onSignedIn={() => {
+              void navigateAfterAuth(nextPath);
+            }}
+            onError={setError}
+          />
 
           <p className="mt-6 text-center">
             <Link
