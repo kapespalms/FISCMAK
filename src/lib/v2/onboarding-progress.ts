@@ -72,6 +72,28 @@ export function resolveOnboardingWizardStep(
   return "instruments";
 }
 
+/** Merge invite/program params from preferredNext into resolved onboarding path (keeps step=). */
+export function mergeOnboardingRedirectPath(
+  resolvedPath: string,
+  preferredNext?: string | null,
+): string {
+  if (!preferredNext?.startsWith("/app/onboarding")) {
+    return resolvedPath;
+  }
+  try {
+    const preferred = new URL(preferredNext, "https://www.fiscmak.com");
+    const target = new URL(resolvedPath, "https://www.fiscmak.com");
+    preferred.searchParams.forEach((value, key) => {
+      if (key !== "step") {
+        target.searchParams.set(key, value);
+      }
+    });
+    return `${target.pathname}${target.search}`;
+  } catch {
+    return resolvedPath;
+  }
+}
+
 /** Post-login / post-auth redirect target. */
 export function resolvePostLoginPath(
   user: AppUser,
@@ -86,14 +108,16 @@ export function resolvePostLoginPath(
     return "/app/dashboard";
   }
 
-  if (preferredNext?.startsWith("/app/onboarding")) {
-    return preferredNext;
-  }
-
   const meta = getOnboardingMetadata(user);
   const pendingReconcile = (meta.reconciliation ?? []).filter((r) => r.status === "pending").length;
   const step = resolveOnboardingWizardStep(user, pendingReconcile);
-  return `/app/onboarding?step=${step}`;
+  const resolved = `/app/onboarding?step=${step}`;
+
+  if (preferredNext?.startsWith("/app/onboarding")) {
+    return mergeOnboardingRedirectPath(resolved, preferredNext);
+  }
+
+  return resolved;
 }
 
 export function markDocumentsUploadProgress(): Pick<

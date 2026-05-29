@@ -140,7 +140,7 @@ const ONBOARDING_NEXT_KEY = "fiscmak_onboarding_next";
 function resolveInitialStep(searchParams: URLSearchParams): OnboardingStep {
   const param = searchParams.get("step");
   if (param && STEPS.some((s) => s.id === param)) return param as OnboardingStep;
-  return "path";
+  return "welcome";
 }
 
 function rememberOnboardingEntry(search: string) {
