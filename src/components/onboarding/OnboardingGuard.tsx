@@ -9,26 +9,39 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (pathname.startsWith("/app/onboarding")) {
-      setReady(true);
-      return;
-    }
-
     let cancelled = false;
 
-    fetch("/api/v1/onboarding/progress")
-      .then(async (response) => {
+    async function ensureReady() {
+      if (pathname.startsWith("/app/onboarding")) {
+        if (!pathname.includes("step=")) {
+          try {
+            const response = await fetch("/api/v1/onboarding/progress");
+            if (response.ok) {
+              const data = (await response.json()) as { path?: string };
+              if (!cancelled && data.path?.includes("step=")) {
+                router.replace(data.path);
+                return;
+              }
+            }
+          } catch {
+            /* fall through */
+          }
+        }
+        if (!cancelled) setReady(true);
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/v1/onboarding/progress");
         if (!response.ok) {
           if (response.status === 401) {
             router.replace("/login");
-            return null;
+            return;
           }
           throw new Error("Could not load onboarding progress");
         }
-        return response.json();
-      })
-      .then((data) => {
-        if (cancelled || !data) return;
+        const data = (await response.json()) as { path?: string };
+        if (cancelled) return;
 
         if (data.path?.startsWith("/app/onboarding")) {
           const pending =
@@ -40,10 +53,12 @@ export function OnboardingGuard({ children }: { children: React.ReactNode }) {
         }
 
         setReady(true);
-      })
-      .catch(() => {
+      } catch {
         if (!cancelled) setReady(true);
-      });
+      }
+    }
+
+    void ensureReady();
 
     return () => {
       cancelled = true;

@@ -9,6 +9,7 @@ import { MarketingAuthInput } from "@/components/auth/MarketingAuthInput";
 import { MarketingAuthCard, MarketingAuthPanel } from "@/components/marketing/MarketingAuthCard";
 import { MarketingAuthShell } from "@/components/marketing/MarketingAuthShell";
 import { rememberOnboardingNextPath, navigateToAppPath, sanitizeNextPath } from "@/lib/auth/oauth";
+import { mergeOnboardingRedirectPath } from "@/lib/v2/onboarding-progress";
 import { DemoAccountPicker } from "@/components/auth/DemoLoginPanel";
 import {
   demoAccountForInput,
@@ -19,13 +20,16 @@ import {
 
 async function navigateAfterAuth(fallbackNext: string) {
   const safeFallback = sanitizeNextPath(fallbackNext);
-  const preserveOnboardingEntry = safeFallback.startsWith("/app/onboarding");
 
   try {
     const res = await fetch("/api/v1/onboarding/progress");
     if (res.ok) {
       const data = (await res.json()) as { path?: string };
-      const target = preserveOnboardingEntry ? safeFallback : (data.path ?? safeFallback);
+      const progressPath = data.path ?? safeFallback;
+      const target = mergeOnboardingRedirectPath(
+        progressPath,
+        safeFallback.startsWith("/app/onboarding") ? safeFallback : null,
+      );
       navigateToAppPath(target);
       return;
     }
