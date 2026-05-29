@@ -1,13 +1,12 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { isSupabaseConfigured } from "@/lib/supabase/env";
-import { jsonError } from "@/lib/v2/api-helpers";
+import { createClient } from "@supabase/supabase-js";
+import { getSupabaseAnonKey, getSupabaseUrl, isSupabaseConfigured } from "@/lib/supabase/env";
+import { jsonError, jsonOk } from "@/lib/v2/api-helpers";
 
-/** Delegates to Supabase Auth; sets session cookies on the response. */
-export async function POST(request: NextRequest) {
+/** Validates credentials via Supabase Auth; client establishes browser session from tokens. */
+export async function POST(request: Request) {
   try {
     if (!isSupabaseConfigured()) {
-      return NextResponse.json({
+      return jsonOk({
         access_token: "demo-token",
         refresh_token: "demo-refresh",
         user_id: "demo-user",
@@ -21,15 +20,26 @@ export async function POST(request: NextRequest) {
       return jsonError("validation_error", "Email and password required", 400);
     }
 
-    const supabase = await createClient();
+    const supabase = createClient(getSupabaseUrl(), getSupabaseAnonKey(), {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
+
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
       return jsonError("auth_error", error.message, 401);
     }
 
-    return NextResponse.json({
-      access_token: data.session?.access_token,
-      refresh_token: data.session?.refresh_token,
+    if (!data.session?.access_token || !data.session.refresh_token) {
+      return jsonError(
+        "auth_error",
+        "Sign-in did not create a session. Confirm your email or reset your password.",
+        401,
+      );
+    }
+
+    return jsonOk({
+      access_token: data.session.access_token,
+      refresh_token: data.session.refresh_token,
       user_id: data.user?.id,
       email: data.user?.email,
     });

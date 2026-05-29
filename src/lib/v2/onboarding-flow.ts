@@ -1,4 +1,5 @@
 import { nextInstrumentPrompt } from "@/lib/v2/instrument-conversation-prompts";
+import { buildBaselineCheckinIntro } from "@/lib/v2/mak-likert-scale";
 import type { AppUser } from "@/lib/v2/types";
 import { formatDisplayName } from "@/lib/mak-greeting";
 
@@ -69,9 +70,9 @@ export function buildWelcomeGreeting(user: AppUser): string {
 
 You're set up as ${user.specialty ?? "a physician"} · ${user.career_stage ?? "career stage pending"}${setting}${track}.
 
-Next we'll walk through your self-assessment battery conversationally — PFI wellbeing, career aspirations, and more. No forms.
+${buildBaselineCheckinIntro(name)}
 
-When you're ready, take the **Lay of the Land** tour (link below) — then tell me: on a 0–4 scale, how fulfilled do you feel in your work overall?`;
+When you're ready, tap a number below or tell me how you've been feeling.`;
 }
 
 export function buildOnboardingSuggestedActions() {
@@ -87,13 +88,11 @@ export function buildSelfAssessmentIntro(user: AppUser): string {
   const first =
     formatDisplayName(user.name?.split(" ")[0], user.name?.split(" ").slice(1).join(" ")) ??
     (user.name ? `Dr. ${user.name.split(" ").pop()}` : null);
-  const salutation = first ? `${first},` : "Welcome back.";
+  const intro = buildBaselineCheckinIntro(first);
   const next = nextInstrumentPrompt(user);
-  return `${salutation} your profile and Career Data are set — great work.
+  return `${intro}
 
-Next is your **self-assessment battery**: validated instruments (fulfillment, burnout signals, career energy, and more) woven into conversation — no forms.
-
-${next ? `Let's start here:\n\n${next}` : "Tell me when you're ready and we'll begin with your first instrument cluster."}`;
+${next ? `First question:\n\n${next}` : "Tell me when you're ready and we'll begin with your first question."}`;
 }
 
 export function isTourSeen(): boolean {

@@ -20,7 +20,7 @@ export const DASHBOARD_MECE_OPTIONS: DashboardMeceOption[] = [
     intent: "discuss",
     href: "/app/dashboard",
     message:
-      "Walk me through my profile — track, health score, milestones, and metrics — and what to focus on next.",
+      "Walk me through my profile — track, milestones, and what to focus on next.",
   },
   {
     id: "capture",

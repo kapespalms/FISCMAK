@@ -1,18 +1,22 @@
 import { fetchAssessments } from "@/lib/v2/db";
 import { getGloballyAnsweredIds } from "@/lib/v2/conversational-assessment";
-import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import { getAppUser, isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { nextUnansweredQuestion, questionsForTouchpoint } from "@/lib/v2/question-bank";
+import { applyPfiQuestionDedupe } from "@/lib/v2/question-bank-dedupe";
 
 export async function GET() {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
+  const user = await getAppUser(auth.userId, auth.demo);
+  const meta = user ? getOnboardingMetadata(user) : null;
   const all = await fetchAssessments(auth.userId, auth.demo);
   const globalAnswered = getGloballyAnsweredIds(all);
   const active = all.find((a) => !a.completed_at);
 
   if (!active) {
     const nextTp = [1, 2, 3, 4, 5, 6, 7].find((tp) => {
-      const qs = questionsForTouchpoint(tp);
+      const qs = applyPfiQuestionDedupe(questionsForTouchpoint(tp), meta);
       return qs.some((q) => !globalAnswered.includes(q.q_id));
     });
     return jsonOk({
@@ -23,8 +27,11 @@ export async function GET() {
     });
   }
 
-  const nq = nextUnansweredQuestion(active.touchpoint_number, globalAnswered);
-  const tpQuestions = questionsForTouchpoint(active.touchpoint_number);
+  const nq = nextUnansweredQuestion(active.touchpoint_number, globalAnswered, meta);
+  const tpQuestions = applyPfiQuestionDedupe(
+    questionsForTouchpoint(active.touchpoint_number),
+    meta,
+  );
   const answeredInTp = tpQuestions.filter((q) => globalAnswered.includes(q.q_id)).length;
 
   if (!nq) {

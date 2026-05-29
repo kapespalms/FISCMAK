@@ -47,6 +47,13 @@ function inTimeframe(dateStr: string | null, tf: LatticeTimeframe): boolean {
 }
 
 function blockOverlapsTimeframe(block: ScheduleBlock, tf: LatticeTimeframe): boolean {
+  // Never include rotation blocks that haven't started yet — future rotations
+  // are not career evidence; they inflate counts and development levels.
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+  const blockStart = parseIsoDate(block.start_date);
+  if (blockStart > today) return false;
+
   const start = timeframeStart(tf);
   if (!start) return true;
   const blockEnd = parseIsoDate(block.end_date);

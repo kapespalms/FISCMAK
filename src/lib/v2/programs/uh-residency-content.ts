@@ -10,6 +10,8 @@ import {
   type RotationOrientationPack,
 } from "@/lib/v2/programs/rotation-orientation";
 import { getProgramBySlug } from "@/lib/v2/programs/registry";
+import { searchElectiveCatalogEntries, type ElectiveCatalogEntry } from "@/lib/v2/programs/elective-catalog";
+import orientationIndex from "../../../../docs/seeds/uh-rotation-orientations/index.json";
 import {
   EDUCATION_CATEGORIES,
   type EducationCategory,
@@ -73,6 +75,44 @@ export type { EducationCategory, EducationDocument };
 
 const QGENDA_URL = "https://www.qgenda.com";
 
+export type ScheduleExternalLink = {
+  id: string;
+  label: string;
+  description: string;
+  href?: string;
+  note?: string;
+};
+
+/** MedHub/QGenda and program calendars — links only, no essay text. */
+export function scheduleExternalLinks(): ScheduleExternalLink[] {
+  return [
+    {
+      id: "medhub",
+      label: "MedHub",
+      description: "Call schedule, evaluations, curriculum objectives, portfolio",
+      note: "Sign in with your program credentials — ask the program coordinator if you need the login URL.",
+    },
+    {
+      id: "qgenda",
+      label: "QGenda",
+      description: "Neurology and internal medicine call",
+      href: QGENDA_URL,
+      note: "Tasks → NEU General On-Call or Internal Medicine group",
+    },
+    {
+      id: "office-calendar",
+      label: "Office calendar",
+      description: "Daily CL/MPU and outpatient attending assignments",
+    },
+    {
+      id: "resident-calendar",
+      label: "Resident calendar",
+      description: "Life & wellness, time away, and birthdays",
+      note: "Subscribe via Google Calendar (+ on shared calendar)",
+    },
+  ];
+}
+
 /** Friendly URL aliases → canonical rotation/admin slug. */
 const RESIDENCY_SLUG_ALIASES: Record<string, string> = {
   "em-uh": "uh_ed",
@@ -124,7 +164,7 @@ const ADMIN_PAGES: ResidencyPageContent[] = [
         "MedHub — psychiatry call schedule, evaluations, curriculum objectives, portfolio",
         `QGenda — neurology and internal medicine call (${QGENDA_URL})`,
         "Office calendar — daily CL/MPU and outpatient attending assignments",
-        "Full block schedule — Dashboard calendar or /app/calendar",
+        "Full block schedule — Dashboard calendar or /app/schedule",
         "Faculty profiles — mentor directory on legacy resident site",
       ],
       logistics: [
@@ -588,14 +628,14 @@ const RESIDENCY_INLINE_PAGES: Record<string, ResidencyPageContent> = {
         "Review pediatrics orientation materials from hosting service",
       ],
       schedule: [
-        "Block schedule per UH/CWRU pediatrics service — see /app/calendar",
+        "Block schedule per UH/CWRU pediatrics service — see /app/schedule",
         "Coordinate psychiatry Didactics attendance with pediatrics chiefs",
       ],
       logistics: [
         "Document patient encounters in hosting service EMR",
         "Notify psychiatry program of schedule conflicts or duty-hour concerns",
       ],
-      resources: ["Block schedule — /app/calendar", "Program coordinator for site-specific contacts"],
+      resources: ["Block schedule — /app/schedule", "Program coordinator for site-specific contacts"],
     },
   },
   qi: {
@@ -643,7 +683,7 @@ const RESIDENCY_INLINE_PAGES: Record<string, ResidencyPageContent> = {
         "Remain reachable per program policy until coverage confirmed",
       ],
       resources: [
-        "Contacts — /app/residency/contacts-calendars",
+        "Contacts — /app/contacts",
         "Call switch rules — /app/residency/call",
       ],
     },
@@ -746,18 +786,39 @@ function placeholderRotationPage(code: string, serviceName: string): ResidencyPa
   };
 }
 
+function mergeDriveFiles(
+  base: ResidencyPageContent,
+  indexFiles?: Array<{ label: string; url: string }>,
+): ResidencyPageContent {
+  if (!indexFiles?.length) return base;
+  const existing = base.driveFiles ?? [];
+  const seen = new Set(existing.map((f) => f.url));
+  const merged = [...existing, ...indexFiles.filter((f) => !seen.has(f.url))];
+  return merged.length ? { ...base, driveFiles: merged } : base;
+}
+
 function buildRotationPage(code: string): ResidencyPageContent {
   const override = RESIDENCY_PAGE_OVERRIDES[code];
-  if (override) return { ...override, slug: code, seeded: true };
+  if (override) {
+    const page = { ...override, slug: code, seeded: true };
+    const indexEntry = listRotationOrientationIndex().find((e) => e.rotation_code === code);
+    return mergeDriveFiles(page, indexEntry?.drive_files);
+  }
 
   const inline = RESIDENCY_INLINE_PAGES[code];
-  if (inline) return { ...inline, slug: code, seeded: true };
+  if (inline) {
+    const page = { ...inline, slug: code, seeded: true };
+    const indexEntry = listRotationOrientationIndex().find((e) => e.rotation_code === code);
+    return mergeDriveFiles(page, indexEntry?.drive_files);
+  }
 
   const pack = getRotationOrientationPack(code);
   if (pack) {
     const page = packToPage(pack);
+    const indexEntry = listRotationOrientationIndex().find((e) => e.rotation_code === code);
+    const withFiles = mergeDriveFiles(page, indexEntry?.drive_files);
     const supplement = RESIDENCY_PAGE_SUPPLEMENTS[code];
-    return supplement ? mergePageContent(page, supplement) : page;
+    return supplement ? mergePageContent(withFiles, supplement) : withFiles;
   }
 
   return placeholderRotationPage(code, rotationServiceName(code));
@@ -828,6 +889,40 @@ export function searchResidencyPages(query: string): ResidencyPageContent[] {
       .toLowerCase();
     return haystack.includes(q) || page.slug.includes(q);
   });
+}
+
+export type ResidencyHubSearchGroup =
+  | { type: "rotation"; label: "Rotations"; items: ResidencyPageContent[] }
+  | {
+      type: "reading";
+      label: "Reading";
+      items: Array<EducationDocument & { categoryId: string; categoryTitle: string }>;
+    }
+  | { type: "elective"; label: "Electives"; items: ElectiveCatalogEntry[] };
+
+/** Grouped hub search — top 5 per type. */
+export function searchResidencyHub(query: string): ResidencyHubSearchGroup[] {
+  const q = query.trim();
+  if (!q) return [];
+
+  const groups: ResidencyHubSearchGroup[] = [
+    { type: "rotation", label: "Rotations", items: searchResidencyPages(q).slice(0, 5) },
+    { type: "reading", label: "Reading", items: searchEducationDocuments(q).slice(0, 5) },
+    { type: "elective", label: "Electives", items: searchElectiveCatalogEntries(q).slice(0, 5) },
+  ];
+
+  return groups.filter((g) => g.items.length > 0);
+}
+
+export type PendingDriveFile = {
+  label: string;
+  url: string;
+};
+
+/** Drive files awaiting rotation assignment or repo export — from orientation index. */
+export function listPendingDriveIdentifications(): PendingDriveFile[] {
+  return (orientationIndex as { drive_files_pending_identification?: PendingDriveFile[] })
+    .drive_files_pending_identification ?? [];
 }
 
 export { EDUCATION_CATEGORIES };

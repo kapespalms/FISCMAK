@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-05-29T05:49:14.016Z",
+  "content_root": "public/content/uh-psych",
+  "rotations": {
+    "cl": [
+      {
+        "label": "CL/MPU Rotation Syllabus",
+        "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit",
+        "local_path": null,
+        "status": "linked"
+      }
+    ],
+    "mpu_cl": [
+      {
+        "label": "CL/MPU Rotation Syllabus",
+        "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit",
+        "local_path": null,
+        "status": "linked"
+      }
+    ]
+  },
+  "pending_identification": [
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1ugI-d7zIXnWH5jnMKptDyC_CYo64C2HJ/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1bSe1jR0qEDFNwHiBCdob4j46KaiATNf6/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1_rQtVZpXbKKh2IyQs8jDxO2ci4ja3Cnv/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1tTuFQ22NjDKnyQwUnMHjKgB0hcwN0gxe/view"
+    },
+    {
+      "label": "Drive file (identify rotation)",
+      "url": "https://drive.google.com/file/d/1mpf6cvzvX7SSYgYxgg_2vA0YO5Bftdfd/view"
+    },
+    {
+      "label": "CL/MPU Rotation Syllabus (Google Doc — export to repo when ready)",
+      "url": "https://docs.google.com/document/d/1O7m1WHIlSUvp4h1-DvzgfP_WsHiuMxoj/edit"
+    }
+  ],
+  "stats": {
+    "rotation_count": 2,
+    "file_count": 2,
+    "in_repo": 0,
+    "linked": 2,
+    "pending_export": 0
+  }
+}

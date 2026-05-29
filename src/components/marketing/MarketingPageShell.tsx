@@ -3,7 +3,13 @@ import { MarketingCanvas } from "@/components/marketing/MarketingGlass";
 import { MarketingHeader } from "@/components/marketing/MarketingHeader";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 
-export function MarketingPageShell({ children }: { children: React.ReactNode }) {
+export function MarketingPageShell({
+  children,
+  hideFooterNav = false,
+}: {
+  children: React.ReactNode;
+  hideFooterNav?: boolean;
+}) {
   return (
     <MarketingFontShell className="min-h-full">
       <MarketingCanvas>
@@ -16,7 +22,7 @@ export function MarketingPageShell({ children }: { children: React.ReactNode }) 
         <div className="relative z-[1]">
           <MarketingHeader />
           <main id="main-content">{children}</main>
-          <MarketingFooter />
+          <MarketingFooter hideNav={hideFooterNav} />
         </div>
       </MarketingCanvas>
     </MarketingFontShell>

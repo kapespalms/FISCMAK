@@ -2,6 +2,10 @@ import type {
   InternalCoachingSignals,
   MakCoachingEscalationLevel,
 } from "@/lib/v2/internal-coaching-signals";
+import {
+  buildConfirmedEvidenceMakSummary,
+  type ConfirmedEvidenceItem,
+} from "@/lib/v2/confirmed-evidence";
 
 export type MakCoachingTechnique =
   | "reflective_mirror"
@@ -114,4 +118,11 @@ export function formatMakInternalCoachingContext(
   ];
 
   return lines.filter(Boolean).join("\n");
+}
+
+/** Confirmed-only career evidence for Mak coaching context (summary bullets, not vault dump). */
+export function buildConfirmedEvidenceMakContext(
+  items: ConfirmedEvidenceItem[],
+): string {
+  return buildConfirmedEvidenceMakSummary(items);
 }

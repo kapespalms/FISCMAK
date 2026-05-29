@@ -1073,13 +1073,13 @@ export function Touchpoint1Onboarding() {
                   </OnboardingProfileHint>
                   <div className="mt-2 flex flex-wrap gap-3 text-sm">
                     <Link
-                      href="/app/residency/contacts-calendars#staff-directory"
+                      href="/app/contacts#staff-directory"
                       className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
                     >
                       Program contacts
                     </Link>
                     <Link
-                      href="/app/calendar"
+                      href="/app/schedule?tab=blocks"
                       className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
                     >
                       Block schedule
@@ -1234,10 +1234,11 @@ export function Touchpoint1Onboarding() {
               Back
             </button>
           )}
-          <h1 className="text-page-title">Self-assessment</h1>
+          <h1 className="text-page-title">Baseline check-in</h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Finish setup now. Complete these instruments from Coach Mak on your dashboard when you are
-            ready.
+            Last step of onboarding — about <strong>10 minutes</strong> with Coach Mak. Standard
+            wellbeing and career questions, one at a time. Tap 0–4 or type a reply. No forms, no scores
+            on screen — just a summary to confirm at the end.
           </p>
 
           <ul className="mt-4 space-y-2">

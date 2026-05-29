@@ -4,16 +4,20 @@ import {
   jsonOk,
   requireApiUser,
 } from "@/lib/v2/api-helpers";
-import { buildCareerHealthView } from "@/lib/v2/career-health-view";
 import { buildCareerVaultModel } from "@/lib/v2/career-vault";
 import { computeCvMetrics } from "@/lib/v2/cv-metrics";
+import { buildConfirmedEvidenceList } from "@/lib/v2/confirmed-evidence";
 import { buildObjectiveSummary } from "@/lib/v2/dashboard-data";
 import {
   buildAnalyticsDashboard,
+  fetchActivities,
   fetchCareerGoals,
   fetchDocuments,
 } from "@/lib/v2/db";
+import { buildLatticeDashboard } from "@/lib/v2/lattice/aggregate";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { isTraineeCareerLevel } from "@/lib/v2/onboarding-options";
+import { appendOutputCitationFootnotes } from "@/lib/v2/output-citations";
 import {
   buildOutputGenerationContext,
   buildOutputGenerationPrompt,
@@ -45,11 +49,31 @@ export async function POST(request: Request) {
   }
 
   const meta = getOnboardingMetadata(user);
-  const docs = await fetchDocuments(auth.userId, auth.demo);
+  const [docs, goals, activities] = await Promise.all([
+    fetchDocuments(auth.userId, auth.demo),
+    fetchCareerGoals(auth.userId, auth.demo),
+    fetchActivities(auth.userId, auth.demo, 200),
+  ]);
   const cv = docs.find((d) => d.document_type === "CV");
   const cvMetrics = cv?.extracted_text ? computeCvMetrics(cv.extracted_text, []) : null;
-  const health = buildCareerHealthView({ user, cvMetrics });
-  const goals = await fetchCareerGoals(auth.userId, auth.demo);
+
+  const { dashboard: latticeDashboard } = buildLatticeDashboard({
+    activities,
+    documents: docs,
+    timeframe: "all",
+    isTrainee: isTraineeCareerLevel(user.career_stage),
+    documentCache: meta.lattice_document_cache,
+    scheduleEvents: meta.schedule_events ?? [],
+    programBlocks: [],
+    user,
+    meta,
+  });
+
+  const confirmedEvidence = buildConfirmedEvidenceList({
+    meta,
+    activities,
+    latticeDashboard,
+  });
 
   const objective = buildObjectiveSummary({
     user,
@@ -73,7 +97,7 @@ export async function POST(request: Request) {
     templateType,
     vault,
     goals,
-    health,
+    confirmedEvidence,
     cvText: cv?.extracted_text,
     cvEvidence: cvMetrics?.evidence ?? null,
     readiness: readiness ?? null,
@@ -82,7 +106,7 @@ export async function POST(request: Request) {
 
   const prefill = buildOutputPrefill(ctx);
   const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
-  let content = prefill;
+  let content = appendOutputCitationFootnotes(prefill, confirmedEvidence);
   let source: "ai" | "vault_prefill" = "vault_prefill";
 
   if (apiKey) {
@@ -109,7 +133,7 @@ export async function POST(request: Request) {
         const data = await res.json();
         const text = data.content?.find((b: { type: string }) => b.type === "text")?.text;
         if (text) {
-          content = text;
+          content = appendOutputCitationFootnotes(text, confirmedEvidence);
           source = "ai";
         }
       }
@@ -131,6 +155,7 @@ export async function POST(request: Request) {
     enrichment_delta: ctx.enrichmentDelta,
     vault_summary: vault.summary,
     pending_review: vault.pending_review,
+    confirmed_evidence_count: confirmedEvidence.length,
   });
 }
 

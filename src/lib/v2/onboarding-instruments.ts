@@ -1,13 +1,58 @@
 import type { CareerLevel, PracticeSetting } from "@/lib/v2/onboarding-options";
+import {
+  PFI_DEPERSONALIZATION_STEM,
+  PFI_EXHAUSTION_STEM,
+  PFI_FULFILLMENT_STEM,
+  PFI_SCALE_INSTRUCTION,
+  PFI_SELF_VALUATION_STEM,
+  pfiScreenPrompt,
+} from "@/lib/v2/pfi-scale";
 
 export type InstrumentCluster = {
   id: string;
   instrumentId: string;
   label: string;
+  /** Mak coaching intro/outro — wraps the published stem; never paraphrase the stem in UI. */
   makPrompt: string;
+  /** Published validated item text — shown verbatim in check-in UI. */
+  publishedStem: string;
   /** Expected numeric range for Likert extraction */
   likertMax: number;
 };
+
+const PFI_SCALE = PFI_SCALE_INSTRUCTION;
+
+/** Quarterly PFI 2-item screen — same stems and 0–4 scale as onboarding burnout clusters. */
+export const PFI_QUARTERLY_SCREEN_CLUSTERS: Pick<
+  InstrumentCluster,
+  "id" | "publishedStem" | "likertMax"
+>[] = [
+  {
+    id: "pfi-burnout-exhaustion",
+    publishedStem: PFI_EXHAUSTION_STEM,
+    likertMax: 4,
+  },
+  {
+    id: "pfi-burnout-disengagement",
+    publishedStem: PFI_DEPERSONALIZATION_STEM,
+    likertMax: 4,
+  },
+];
+
+export function formatInstrumentCheckInDisplay(cluster: InstrumentCluster): string {
+  if (cluster.likertMax === 0) {
+    return `${cluster.makPrompt}\n\n"${cluster.publishedStem}"`;
+  }
+  const scale =
+    cluster.likertMax === 4 && cluster.instrumentId === "pfi"
+      ? PFI_SCALE
+      : `Rate from 0 to ${cluster.likertMax}.`;
+  return `${cluster.makPrompt}\n\n"${cluster.publishedStem}"\n\n${scale}`;
+}
+
+export function formatPfiQuarterlyScreenPrompt(): string {
+  return pfiScreenPrompt();
+}
 
 export type InstrumentScore = {
   instrumentId: string;
@@ -22,32 +67,32 @@ const PFI_CLUSTERS: InstrumentCluster[] = [
     id: "pfi-fulfillment",
     instrumentId: "pfi",
     label: "Professional fulfillment",
-    makPrompt:
-      "On a 0–4 scale where 4 is highest, how fulfilled do you feel in your work overall — including meaning, contribution, and satisfaction?",
+    makPrompt: "Here's a standard professional fulfillment question.",
+    publishedStem: PFI_FULFILLMENT_STEM,
     likertMax: 4,
   },
   {
     id: "pfi-burnout-exhaustion",
     instrumentId: "pfi",
     label: "Work exhaustion",
-    makPrompt:
-      "On a 0–4 scale, how often do you feel emotionally exhausted from your work?",
+    makPrompt: "Next, a standard work exhaustion question.",
+    publishedStem: PFI_EXHAUSTION_STEM,
     likertMax: 4,
   },
   {
     id: "pfi-burnout-disengagement",
     instrumentId: "pfi",
     label: "Interpersonal disengagement",
-    makPrompt:
-      "On a 0–4 scale, how detached or cynical do you feel toward patients, colleagues, or your organization?",
+    makPrompt: "One more on how work affects your connections with others.",
+    publishedStem: PFI_DEPERSONALIZATION_STEM,
     likertMax: 4,
   },
   {
     id: "pfi-self-valuation",
     instrumentId: "pfi",
     label: "Self-valuation",
-    makPrompt:
-      "On a 0–4 scale, how valued do you feel by your institution or organization for the work you do?",
+    makPrompt: "Last PFI question — how valued you feel at work.",
+    publishedStem: PFI_SELF_VALUATION_STEM,
     likertMax: 4,
   },
 ];
@@ -57,16 +102,17 @@ const BITS_CLUSTERS: InstrumentCluster[] = [
     id: "bits-unnecessary",
     instrumentId: "bits",
     label: "Unnecessary tasks",
-    makPrompt:
-      "On a 1–5 scale, how much of your work feels unnecessary or could be eliminated without harming care?",
+    makPrompt: "A question about unnecessary tasks in your work.",
+    publishedStem: "I spend a lot of time on tasks that I think are unnecessary.",
     likertMax: 5,
   },
   {
     id: "bits-unreasonable",
     instrumentId: "bits",
     label: "Unreasonable tasks",
-    makPrompt:
-      "On a 1–5 scale, how often are you asked to do tasks that feel unreasonable given your role or training?",
+    makPrompt: "And one about tasks that feel unreasonable for your role.",
+    publishedStem:
+      "I spend a lot of time on tasks that are unreasonable given my training and role.",
     likertMax: 5,
   },
 ];
@@ -76,8 +122,9 @@ const CAREER_CLUSTERS: InstrumentCluster[] = [
     id: "career-track-energy",
     instrumentId: "career_aspirations",
     label: "Primary track energy",
-    makPrompt:
-      "On a 1–10 scale, how energized do you feel about your primary career track right now?",
+    makPrompt: "How energized do you feel about your primary career track right now?",
+    publishedStem:
+      "How energized do you feel about your primary career track right now? (1 = very low, 10 = very high)",
     likertMax: 10,
   },
   {
@@ -85,6 +132,7 @@ const CAREER_CLUSTERS: InstrumentCluster[] = [
     instrumentId: "career_aspirations",
     label: "Five-year goal",
     makPrompt: "What is your most important career goal for the next five years?",
+    publishedStem: "What is your most important career goal for the next five years?",
     likertMax: 0,
   },
 ];
@@ -94,8 +142,9 @@ const PIF_CLUSTERS: InstrumentCluster[] = [
     id: "pif-stage",
     instrumentId: "pif",
     label: "Identity formation",
-    makPrompt:
-      "Do you feel your professional identity is mostly shaped by others' expectations, authored by you, or transforming beyond either? (1 = others' expectations, 5 = self-transforming)",
+    makPrompt: "A question about how your professional identity is forming.",
+    publishedStem:
+      "My professional identity is mostly shaped by others' expectations, authored by me, or transforming beyond either. (1 = others' expectations, 5 = self-transforming)",
     likertMax: 5,
   },
 ];
@@ -105,8 +154,8 @@ const UWES_CLUSTERS: InstrumentCluster[] = [
     id: "uwes-engagement",
     instrumentId: "uwes",
     label: "Work engagement",
-    makPrompt:
-      "On a 0–6 scale, how engaged do you feel at work — vigor, dedication, and absorption combined?",
+    makPrompt: "A standard work engagement question.",
+    publishedStem: "I am enthusiastic about my job.",
     likertMax: 6,
   },
 ];
@@ -116,7 +165,8 @@ const INVISIBLE_CLUSTERS: InstrumentCluster[] = [
     id: "iw-hours",
     instrumentId: "invisible_work",
     label: "Invisible hours",
-    makPrompt:
+    makPrompt: "Estimate your weekly unrecognized work hours.",
+    publishedStem:
       "Roughly how many hours per week do you spend on invisible work — after-hours EHR, prior auth, care coordination, uncompensated call, informal mentoring?",
     likertMax: 80,
   },

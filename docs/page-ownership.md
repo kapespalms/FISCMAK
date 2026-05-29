@@ -21,21 +21,23 @@ Satellite: `/app/jobs` → `/app/plan?tab=jobs` (linked from Strategy, not top n
 
 ## Dashboard
 
-**Owns:** greeting, profile metrics glance, health score gauge, mini lattice, goal snapshot, due-now banner, touchpoint progress strip, single Mak entry (`DASHBOARD_MECE_OPTIONS`).
+**Owns:** greeting, mini lattice, goal snapshot, due-now banner (e.g. “Quarterly check-in due”), touchpoint progress strip, single Mak entry (`DASHBOARD_MECE_OPTIONS`).
 
-**Shows read-only:** health score, lattice heatmap, goal progress bars, track, next milestone.
+**Shows read-only:** lattice heatmap (confirmed), goal progress bars, track, next milestone.
 
-**Links out:** Strategy (goals), Objective (lattice), Insights (interpretation), Perspective (check-ins).
+**Target (north star):** no Career Health Score or numeric wellbeing gauge on dashboard — see [FISCMAK_UI_COPY_CONTRACT.md](./FISCMAK_UI_COPY_CONTRACT.md).
 
-**Never:** goal CRUD, document upload UI, activity forms, touchpoint input forms.
+**Links out:** Strategy (goals), Career Data (lattice), Insights (interpretation), Perspective (last check-in summary).
+
+**Never:** goal CRUD, document upload UI, activity forms, check-in question forms (check-ins live in Coach Mak).
 
 ---
 
 ## Perspective (`/app/subjective`)
 
-**Owns:** wellbeing metrics (direction, fulfillment, strain, alignment, engagement, unrecognized work), annual/quarterly **input** when due.
+**Owns:** link/CTA when a check-in is due; **last saved check-in summary** (plain bullets, read-only); optional yearly review status.
 
-**Never:** career pattern synthesis (Insights), vault/documents, goal editing.
+**Never:** numeric wellbeing scores, career pattern synthesis (Insights), vault/documents, goal editing. Check-in **questions** happen in Coach Mak, not forms on this page.
 
 ---
 

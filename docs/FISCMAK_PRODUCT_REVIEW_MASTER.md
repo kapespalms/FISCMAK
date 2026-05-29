@@ -53,7 +53,7 @@ This is your **single navigation file** for reviewing the entire product. Full R
 `onboarding/page.tsx` → `Touchpoint1Onboarding.tsx` → `OnboardingDocumentsStep.tsx` → `GoalSettingPanel.tsx` → `api/v1/onboarding/touchpoint1/route.ts`
 
 ### 3. Dashboard (SOAP nav)
-`app/app/dashboard/page.tsx` → `DashboardWorkspace.tsx` → `HealthScoreCard.tsx` ⚠️ → `MiniLattice.tsx` → `TopNavBar.tsx` + `soap-tab-spec.ts`
+`app/app/dashboard/page.tsx` → `DashboardWorkspace.tsx` → wellbeing slices (no CHS gauge) → `MiniLattice.tsx` → `TopNavBar.tsx` + `soap-tab-spec.ts`
 
 ### 4. Mak capture
 `MakPanel.tsx` → `api/v1/chat/message/route.ts` → `activity-capture.ts` → `FreeClassifier.ts` / `FISCMAKClassifier.ts`
@@ -74,7 +74,7 @@ This is your **single navigation file** for reviewing the entire product. Full R
 | Tier | Data | Where in code | User-facing? |
 |------|------|---------------|--------------|
 | **1** | CV, enrichment, activities, s-index, MSF | `api-enrichment.ts`, `activity-capture.ts`, `output-generation.ts` | Yes — documents |
-| **2** | PFI-16, UWES-9, effort % | `onboarding-instruments.ts`, `SubjectiveWorkspace.tsx` | Dashboard; opt-in export |
+| **2** | PFI-16, UWES-9, effort % | `onboarding-instruments.ts`, `SubjectiveWorkspace.tsx` | Plain wellbeing slices only — no scores or percentiles |
 | **3** | Self-ratings, Mak summaries, lattice self-scores | `LatticeView.tsx`, Mak prompts | Reflection only — never auto in promotion claims |
 | **Internal** | CDI, CRI, IWQ, career health, job match % | `formulas.ts`, `career-health-view.ts`, `cv-metrics.ts` | **Never** — admin/internal API only |
 

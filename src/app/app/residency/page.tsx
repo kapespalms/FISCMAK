@@ -1,10 +1,5 @@
-import { PageShell } from "@/components/layout/PageShell";
-import { ResidencyHubWorkspace } from "@/components/workspace/ResidencyHubWorkspace";
+import { redirect } from "next/navigation";
 
-export default function ResidencyHubPage() {
-  return (
-    <PageShell title="" maxWidth="xl" className="[&_header]:hidden">
-      <ResidencyHubWorkspace />
-    </PageShell>
-  );
+export default function ResidencyHubRedirect() {
+  redirect("/app/uh-psych");
 }

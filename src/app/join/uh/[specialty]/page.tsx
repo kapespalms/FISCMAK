@@ -33,14 +33,14 @@ export default async function JoinUhSpecialtyPage({ params }: PageProps) {
   const loginHref = `/login?next=${encodeURIComponent(onboardingNext)}`;
 
   return (
-    <MarketingPageShell>
+    <MarketingPageShell hideFooterNav>
       <ProgramJoinSection
         program={program}
         available
         signupHref={signupHref}
         loginHref={loginHref}
         altPathHref="/app/onboarding?path=public"
-        altPathLabel="Not joining through a program? Continue on your own"
+        altPathLabel="Not joining through an institution? Continue on your own"
         programJoinHref={`/join/uh/${specialty}`}
       />
     </MarketingPageShell>

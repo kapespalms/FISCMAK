@@ -314,7 +314,7 @@ export function processRotationDebriefTurn(input: {
       response: `${phaseLabel} check-in saved for **${entry.rotation_name}**. I'll reference this on your lattice and in goal conversations.`,
       suggested_actions: [
         { action: "Open Career Map", url: "/app/objective?tab=lattice" },
-        { action: "View calendar", url: "/app/calendar" },
+        { action: "View schedule", url: "/app/schedule" },
       ],
       complete: true,
     };
@@ -399,7 +399,7 @@ export function processNarrativeAnchorTurn(input: {
   meta: OnboardingMetadata;
   careerStage?: string | null;
 }): DebriefTurnResult {
-  let session = input.meta.narrative_anchor_session;
+  const session = input.meta.narrative_anchor_session;
   if (!session) {
     return {
       meta: input.meta,

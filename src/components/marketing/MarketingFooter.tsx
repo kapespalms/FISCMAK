@@ -15,7 +15,7 @@ const footerLinks: FooterLink[] = [
   { label: "Security", href: "/security" },
 ];
 
-export function MarketingFooter() {
+export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
   return (
     <footer id="contact" aria-label="Footer navigation" className="marketing-site-footer relative z-[1] border-t border-white/10">
       <ContactFormPopover />
@@ -36,21 +36,25 @@ export function MarketingFooter() {
           </p>
         </div>
 
-        <div
-          className="mx-4 mt-10 border-t border-white/10 md:mx-8"
-          aria-hidden="true"
-        />
+        {!hideNav ? (
+          <>
+            <div
+              className="mx-4 mt-10 border-t border-white/10 md:mx-8"
+              aria-hidden="true"
+            />
 
-        <nav
-          aria-label="Footer links"
-          className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white"
-        >
-          {footerLinks.map((item) => (
-            <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+            <nav
+              aria-label="Footer links"
+              className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white"
+            >
+              {footerLinks.map((item) => (
+                <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </>
+        ) : null}
       </div>
     </footer>
   );

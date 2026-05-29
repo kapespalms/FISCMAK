@@ -461,7 +461,7 @@ export const SCHEDULE_MAK = {
     "Help me add events to my schedule.",
     {
       label: "+ Events",
-      navigateTo: "/app/calendar",
+      navigateTo: "/app/schedule?tab=blocks",
       autoMessage: "__schedule_events__",
     },
   ),

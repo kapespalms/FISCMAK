@@ -59,6 +59,59 @@ export function listElectiveCatalogEntries(): ElectiveCatalogEntry[] {
   return DATA.entries;
 }
 
+export function listElectiveCategories(): string[] {
+  return DATA.categories;
+}
+
+export function electiveCatalogCoordination() {
+  return DATA.coordination;
+}
+
+export type ElectiveCatalogFilters = {
+  category?: string;
+  timeframe?: ElectiveCatalogEntry["timeframe"] | "all";
+  patientCare?: ElectiveCatalogEntry["patient_care"] | "all";
+};
+
+export function searchElectiveCatalogEntries(
+  query: string,
+  filters: ElectiveCatalogFilters = {},
+): ElectiveCatalogEntry[] {
+  const q = query.trim().toLowerCase();
+  return DATA.entries.filter((entry) => {
+    if (filters.category && filters.category !== "all" && entry.category !== filters.category) {
+      return false;
+    }
+    if (filters.timeframe && filters.timeframe !== "all" && entry.timeframe !== filters.timeframe) {
+      return false;
+    }
+    if (
+      filters.patientCare &&
+      filters.patientCare !== "all" &&
+      entry.patient_care !== filters.patientCare
+    ) {
+      return false;
+    }
+    if (!q) return true;
+    const haystack = [
+      entry.name,
+      entry.category,
+      entry.location,
+      entry.contact,
+      entry.schedule,
+      entry.modality,
+      entry.notes,
+      entry.pgy_restrictions,
+      ...(entry.faculty ?? []),
+      ...(entry.lattice_tags ?? []),
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    return haystack.includes(q);
+  });
+}
+
 export function getElectiveById(id: string): ElectiveCatalogEntry | undefined {
   return DATA.entries.find((e) => e.id === id);
 }

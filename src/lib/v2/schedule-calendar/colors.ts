@@ -1,4 +1,60 @@
+import { UH_PSYCH_ROTATION_SECTIONS } from "@/lib/v2/programs/rotation-catalog";
+
 export const PERSONAL_EVENT_COLOR = "#A5B4FC";
+
+/** Category palette — fewer hues than per-rotation colors (resident-readable at a glance). */
+export const ROTATION_CATEGORY_COLORS: Record<string, string> = {
+  inpatient: "#8B5CF6",
+  outpatient: "#0EA5E9",
+  consult: "#F59E0B",
+  off_service: "#22C55E",
+  elective: "#10B981",
+  operational: "#9CA3AF",
+  personal: PERSONAL_EVENT_COLOR,
+};
+
+const SECTION_BY_CODE = new Map<string, string>();
+for (const section of UH_PSYCH_ROTATION_SECTIONS) {
+  if (section.id === "overview") continue;
+  for (const code of section.rotationCodes) {
+    SECTION_BY_CODE.set(code, section.id);
+  }
+}
+
+export function rotationCategory(code: string): string {
+  if (code.startsWith("personal:")) return "personal";
+  if (code === "vacation" || code === "leave" || code === "bhi_access") return "operational";
+  if (code === "call" || code === "nf" || code === "extra_duty") return "operational";
+  return SECTION_BY_CODE.get(code) ?? "elective";
+}
+
+export function categoryColor(code: string): string {
+  return ROTATION_CATEGORY_COLORS[rotationCategory(code)] ?? ROTATION_CATEGORY_COLORS.elective;
+}
+
+export function rotationAbbreviation(label: string, code: string): string {
+  if (code === "va_ct6") return "VA";
+  if (code === "uh_concord") return "CON";
+  if (code === "swg") return "SWG";
+  if (code === "northcoast") return "NC";
+  if (code === "capu") return "CAP";
+  if (code === "mpu_cl") return "MPU";
+  if (code === "cl") return "CL";
+  if (code === "call") return "CALL";
+  if (code === "nf") return "NF";
+  if (code === "vacation") return "VAC";
+  if (code === "leave") return "OFF";
+  if (code === "elective") return "ELEC";
+  if (code === "bhi_access") return "BHI";
+  const words = label.split(/\s+/).filter(Boolean);
+  if (words.length >= 2) {
+    return words
+      .slice(0, 2)
+      .map((w) => w[0]?.toUpperCase() ?? "")
+      .join("");
+  }
+  return label.slice(0, 3).toUpperCase();
+}
 
 /** Distinct default colors per UH psych rotation code (hex — user-overridable). */
 export const DEFAULT_ROTATION_COLORS: Record<string, string> = {
@@ -54,8 +110,9 @@ function hashCode(value: string): number {
   return Math.abs(h);
 }
 
-export function defaultRotationColor(code: string): string {
+export function defaultRotationColor(code: string, mode: "category" | "rotation" = "category"): string {
   if (code.startsWith("personal:")) return PERSONAL_EVENT_COLOR;
+  if (mode === "category") return categoryColor(code);
   if (DEFAULT_ROTATION_COLORS[code]) return DEFAULT_ROTATION_COLORS[code];
   return FALLBACK_PALETTE[hashCode(code) % FALLBACK_PALETTE.length];
 }
@@ -63,11 +120,14 @@ export function defaultRotationColor(code: string): string {
 export function resolveRotationColors(
   codes: string[],
   overrides: Record<string, string> = {},
+  mode: "category" | "rotation" = "category",
 ): Record<string, string> {
   const map: Record<string, string> = {};
   for (const code of codes) {
     const override = overrides[code]?.trim();
-    map[code] = override && /^#[0-9A-Fa-f]{6}$/.test(override) ? override : defaultRotationColor(code);
+    map[code] = override && /^#[0-9A-Fa-f]{6}$/.test(override)
+      ? override
+      : defaultRotationColor(code, mode);
   }
   return map;
 }

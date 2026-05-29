@@ -34,9 +34,6 @@ export function MetricRow({
         {status && <StatusChip status={status} />}
       </div>
       <p className="mt-2 text-sm leading-relaxed text-cx-forest-dark/80">{summary}</p>
-      {percentile != null && (
-        <p className="mt-1 text-xs text-cx-forest-dark/60">Benchmark: {percentile}th percentile</p>
-      )}
       {trend && <p className="mt-1 text-xs text-cx-forest-dark/60">{trend}</p>}
       {(technical || sourceAttribution) && (
         <TechnicalDetailToggle technical={technical} sources={sourceAttribution} />

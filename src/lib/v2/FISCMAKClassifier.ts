@@ -28,7 +28,7 @@ interface ClassificationRequest {
   userRole?: string;
   userCareerTrack?: string;
   inputSource?: "chat" | "voice_note" | "form" | "api";
-  additionalContext?: Record<string, any>;
+  additionalContext?: Record<string, unknown>;
 }
 
 interface DetectedSignal {
@@ -70,13 +70,29 @@ interface ClassificationResult {
   mak_primary_response: string;
   mak_coaching_prompt: string;
   routing_category: string;
-  activity_entry?: Record<string, any>;
+  activity_entry?: Record<string, unknown>;
 }
+
+type SignalIndicatorRow = {
+  indicator_id: string;
+  indicator_key: string;
+  indicator_name: string;
+  category_id: string;
+  category_key: string;
+  confidence_default: number;
+  keywords?: string[];
+  regex_pattern?: string;
+};
+
+type ActivityMappingRow = OntologyMapping & {
+  track_key?: string;
+  related_activities?: string[];
+};
 
 export class FISCMAKClassifier {
   private supabase: SupabaseClient;
-  private signalIndicators: Map<string, any> = new Map();
-  private activityMappings: Map<string, any> = new Map();
+  private signalIndicators: Map<string, SignalIndicatorRow> = new Map();
+  private activityMappings: Map<string, ActivityMappingRow> = new Map();
   private cached_signals_at: Date = new Date(0);
   private cached_mappings_at: Date = new Date(0);
 
@@ -318,7 +334,7 @@ export class FISCMAKClassifier {
   /**
    * Infer context: energy, setting, scope, people involved
    */
-  private inferContext(rawText: string): Record<string, any> {
+  private inferContext(rawText: string): Record<string, unknown> {
     const text = rawText.toLowerCase();
 
     const energyKeywords = {
@@ -418,10 +434,10 @@ export class FISCMAKClassifier {
    * Infer development level (1-5)
    */
   private inferDevelopmentLevel(
-    context: Record<string, any>,
+    context: Record<string, unknown>,
     signals: DetectedSignal[]
   ): number {
-    const text = context._raw_text || "";
+    const text = typeof context._raw_text === "string" ? context._raw_text : "";
     const textLower = text.toLowerCase();
 
     const levelIndicators: Record<number, string[]> = {
@@ -483,7 +499,7 @@ export class FISCMAKClassifier {
   private generateCoachingResponse(
     signals: DetectedSignal[],
     activity?: OntologyMapping,
-    context?: Record<string, any>
+    context?: Record<string, unknown>
   ): {
     primaryResponse: string;
     coachingPrompt: string;
@@ -554,7 +570,7 @@ export class FISCMAKClassifier {
   private generateOutputTemplates(
     activity: OntologyMapping | undefined,
     rawText: string,
-    context: Record<string, any>
+    context: Record<string, unknown>
   ): Record<string, string> {
     const outputs: Record<string, string> = {};
 
@@ -618,14 +634,14 @@ export class FISCMAKClassifier {
     signals: DetectedSignal[],
     primary: OntologyMapping | undefined,
     related: OntologyMapping[],
-    context: Record<string, any>,
+    context: Record<string, unknown>,
     devLevel: number,
     outputs: Record<string, string>,
     confidence: number,
     primaryResponse: string,
     coachingPrompt: string,
     routingCategory: string
-  ): Promise<Record<string, any>> {
+  ): Promise<Record<string, unknown>> {
     // Fetch user's specialty info if not provided
     let userSpecialtyId = null;
     if (req.userSpecialty) {
@@ -763,7 +779,7 @@ export class FISCMAKClassifier {
         category_id: cat.category_id,
         category_key: cat.category_key,
       };
-      this.signalIndicators.set(indicator.indicator_key, enriched);
+      this.signalIndicators.set(indicator.indicator_key, enriched as SignalIndicatorRow);
     }
 
     this.cached_signals_at = new Date();
@@ -827,8 +843,9 @@ export class FISCMAKClassifier {
       const track = this.joinOne(mapping.ontology_career_tracks);
       this.activityMappings.set(key, {
         activity_id: mapping.activity_id,
-        activity_key: activity?.activity_key,
-        activity_name: activity?.activity_name,
+        activity_key: activity?.activity_key ?? "",
+        activity_name: activity?.activity_name ?? "",
+        track_key: track?.track_key,
         subcompetencies: subcompetency
           ? [
               {
@@ -847,6 +864,7 @@ export class FISCMAKClassifier {
               },
             ]
           : [],
+        development_level: 2,
         confidence: mapping.confidence_default,
         related_activities: [],
       });

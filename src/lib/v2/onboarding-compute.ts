@@ -67,6 +67,11 @@ export type OnboardingMetadata = {
   grow_exploration_context?: import("@/lib/v2/career-coaching-frameworks").GrowExplorationContext;
   goals_confirmed?: boolean;
   goals_confirmed_at?: string;
+  /** Set when user confirms "Does this summary sound right?" after baseline check-in. */
+  checkin_summary_confirmed_at?: string;
+  /** Plain bullets shown at summary confirm — cleared after save. */
+  pending_checkin_summary?: string[];
+  pending_checkin_summary_kind?: "baseline" | "quarterly" | "annual";
   touchpoint_session_mode?: "quarterly" | "annual";
   touchpoint_session_answers?: Array<
     | import("@/lib/v2/quarterly-pulse").PulseAnswer
@@ -117,6 +122,9 @@ export type OnboardingMetadata = {
   rotation_touchpoint_history?: import("@/lib/v2/coaching-cadence").RotationTouchpointHistoryEntry[];
   /** Remaining free AI messages (mirrors app_users.message_balance) */
   message_balance?: number;
+  /** QA test battery username (TESTGEN2, TEST2, etc.) */
+  test_profile_username?: string;
+  test_profile_group?: "general" | "institutional";
   invite_token?: string;
   invite_slot_number?: number;
   program_membership?: import("@/lib/v2/programs/program-membership").ProgramMembershipRecord;

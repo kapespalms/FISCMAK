@@ -142,7 +142,7 @@ export async function handleStripeWebhook(supabase: SupabaseClient, event: Strip
     }
     case "invoice.payment_succeeded": {
       const invoice = event.data.object as Stripe.Invoice;
-      console.log(`Payment succeeded for customer ${invoice.customer}`);
+      console.info(`Payment succeeded for customer ${invoice.customer}`);
       break;
     }
     case "invoice.payment_failed": {

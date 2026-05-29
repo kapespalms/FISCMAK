@@ -121,7 +121,7 @@ export function processScheduleReviewTurn(input: {
   const focusMatch = msg.match(/^__review_event:([a-zA-Z0-9_-]+)__$/);
   const eventFocusId = focusMatch?.[1];
 
-  let reviewedIds = [...session.reviewed_event_ids];
+  const reviewedIds = [...session.reviewed_event_ids];
   if (eventFocusId && session.event_ids.includes(eventFocusId) && !reviewedIds.includes(eventFocusId)) {
     reviewedIds.push(eventFocusId);
   } else if (msg.length > 2 && !msg.startsWith("__")) {

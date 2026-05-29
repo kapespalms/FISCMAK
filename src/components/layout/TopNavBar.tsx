@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Bell, Moon, Sun } from "lucide-react";
@@ -44,7 +45,16 @@ export function TopNavBar() {
   return (
     <header className="cx-app-top-bar sticky top-0 z-20 px-4 py-3 md:px-5 md:py-3.5">
       <div className="mx-auto flex max-w-[1400px] items-center gap-2 md:gap-3">
-        <nav className="cx-top-nav-strip" aria-label="Main">
+        <Link
+          href="/"
+          aria-label="FISCMAK home"
+          className="font-futura-bold shrink-0 text-lg tracking-wide md:text-xl"
+        >
+          <span className="text-white">FISC</span>
+          <span className="text-[#67E151]">MAK</span>
+        </Link>
+
+        <nav className="cx-top-nav-strip min-w-0 flex-1" aria-label="Main">
           {SECTION_NAV.map(({ section: navSection, href }) => {
             const active = current === navSection;
             const label = sectionNavShortLabel(navSection, displayName);
