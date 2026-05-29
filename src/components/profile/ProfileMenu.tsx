@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Camera, Home, LogOut, Settings, User } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { signOutAndRedirect } from "@/lib/auth/session";
+import { Camera, Home, Settings, User } from "lucide-react";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 import { useAppShell } from "@/components/layout/AppShell";
 import { UserAvatar } from "@/components/profile/UserAvatar";
 import {
@@ -19,7 +18,6 @@ export function ProfileMenu() {
   const [open, setOpen] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [signingOut, setSigningOut] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -52,17 +50,6 @@ export function ProfileMenu() {
       setOpen(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not update photo.");
-    }
-  }
-
-  async function handleSignOut() {
-    setSigningOut(true);
-    setOpen(false);
-    try {
-      await signOutAndRedirect("/");
-    } catch {
-      setSigningOut(false);
-      setError("Could not sign out. Please try again.");
     }
   }
 
@@ -125,19 +112,9 @@ export function ProfileMenu() {
           >
             <Home size={16} className="text-cx-forest-dark/60" />
             Back to home
+            <span className="sr-only"> (stays signed in)</span>
           </Link>
-          <button
-            type="button"
-            role="menuitem"
-            disabled={signingOut}
-            onClick={() => void handleSignOut()}
-            className={cn(
-              "flex w-full items-center gap-2.5 border-t border-cx-forest-dark/10 px-4 py-2.5 text-sm text-cx-forest-dark/70 transition-colors hover:bg-cx-forest-dark/5 hover:text-cx-forest-dark disabled:opacity-60",
-            )}
-          >
-            <LogOut size={16} />
-            {signingOut ? "Signing out…" : "Sign out"}
-          </button>
+          <SignOutButton />
         </div>
       )}
 

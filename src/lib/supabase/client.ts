@@ -15,4 +15,9 @@ export function createClient() {
   return browserClient;
 }
 
+/** Drop cached browser client after sign-out so the next session starts clean. */
+export function resetBrowserClient() {
+  browserClient = null;
+}
+
 export { isSupabaseConfigured };

@@ -1,6 +1,7 @@
 import type { AnnualRefreshAnswer } from "@/lib/v2/annual-refresh";
 import type { PulseAnswer } from "@/lib/v2/quarterly-pulse";
 import { INVISIBLE_WORK_CATEGORIES } from "@/lib/v2/invisible-work-taxonomy";
+import { clampPfiValue } from "@/lib/v2/pfi-scale";
 
 function extractNumbers(text: string): number[] {
   return (text.match(/\b(\d+(?:\.\d+)?)\b/g) ?? [])
@@ -36,13 +37,13 @@ export function captureQuarterlyFromMessage(
           {
             module_id: "pfi_screen",
             question_id: "exhaustion",
-            value: Math.min(6, numbers[0]),
+            value: clampPfiValue(numbers[0]),
             captured_at: capturedAt,
           },
           {
             module_id: "pfi_screen",
             question_id: "depersonalization",
-            value: Math.min(6, numbers[1]),
+            value: clampPfiValue(numbers[1]),
             captured_at: capturedAt,
           },
         );
@@ -50,7 +51,7 @@ export function captureQuarterlyFromMessage(
         answers.push({
           module_id: "pfi_screen",
           question_id: "exhaustion",
-          value: Math.min(6, numbers[0]),
+          value: clampPfiValue(numbers[0]),
           captured_at: capturedAt,
         });
       } else {

@@ -1,4 +1,5 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { quarterlyBurnoutComposite } from "@/lib/v2/pfi-scale";
 
 export type QuarterlyPulseModule = {
   id: string;
@@ -144,15 +145,6 @@ export function buildQuarterlyPulseSummary(input: {
         ? ` (${input.invisibleDeltaPct > 0 ? "↑" : "↓"}${Math.abs(Math.round(input.invisibleDeltaPct))}% from baseline)`
         : "";
     lines.push(`Unrecognized work: ~${input.invisibleHours} hours/week${delta}`);
-  }
-
-  if (input.prevScore != null) {
-    const delta = input.newScore - input.prevScore;
-    lines.push(
-      `Career Health Score: ${input.newScore}/100 (${delta >= 0 ? "↑" : "↓"}${Math.abs(delta)} from last quarter)`,
-    );
-  } else {
-    lines.push(`Career Health Score: ${input.newScore}/100`);
   }
 
   return lines.join("\n");

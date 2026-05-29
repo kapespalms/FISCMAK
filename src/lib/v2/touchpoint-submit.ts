@@ -68,9 +68,7 @@ export async function submitQuarterlyPulse(input: {
       ? ((parsed.invisible_hours - baseline.invisible_hours) / baseline.invisible_hours) * 100
       : null;
 
-  const burnout = burnoutRiskFromPfi(
-    parsed.burnout_screen != null ? parsed.burnout_screen / 1.2 : null,
-  );
+  const burnout = burnoutRiskFromPfi(parsed.burnout_screen ?? null);
 
   const cvAchievement = answers.find((a) => a.module_id === "cv_update")?.value;
   const summary = buildQuarterlyPulseSummary({
@@ -147,7 +145,7 @@ export async function submitQuarterlyPulse(input: {
   });
 
   const triggers: string[] = [];
-  if (parsed.burnout_screen != null && parsed.burnout_screen >= 4) {
+  if (parsed.burnout_screen != null && parsed.burnout_screen >= 3.325) {
     triggers.push("Full well-being assessment recommended at next login");
   }
   if (invisibleDeltaPct != null && invisibleDeltaPct > 25) {

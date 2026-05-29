@@ -3,8 +3,9 @@ import {
   QUARTERLY_MODULES,
   type QuarterlyPulseModule,
 } from "@/lib/v2/quarterly-pulse";
-import { invisibleWorkPromptsForSetting } from "@/lib/v2/invisible-work-taxonomy";
+import { formatPfiQuarterlyScreenPrompt } from "@/lib/v2/onboarding-instruments";
 import type { PracticeSetting } from "@/lib/v2/onboarding-options";
+import { invisibleWorkPromptsForSetting } from "@/lib/v2/invisible-work-taxonomy";
 
 export type QuarterlyPulseSession = {
   started_at: string;
@@ -70,11 +71,7 @@ const MODULE_PROMPTS: Record<
   string,
   (setting: PracticeSetting | null) => string
 > = {
-  pfi_screen: () =>
-    `Well-being screen (S-5 pulse):
-
-Rate emotional exhaustion and depersonalization from 0 (never) to 6 (every day).
-Share both numbers or describe how you've been feeling this quarter.`,
+  pfi_screen: () => formatPfiQuarterlyScreenPrompt(),
 
   invisible_pulse: (setting) => {
     const prompts = invisibleWorkPromptsForSetting(setting);
@@ -103,9 +100,9 @@ List them briefly — the platform will reconcile against API enrichment.`,
 };
 
 export function buildQuarterlyMakSystemContext(meta: OnboardingMetadata): string {
-  const module = currentQuarterlyModule(meta);
-  if (!module) return "";
-  return `Quarterly pulse session active. Current module: ${module.name} (${module.id}). ${module.description}. When the physician completes this module, acknowledge capture and offer the next module prompt.`;
+  const activeModule = currentQuarterlyModule(meta);
+  if (!activeModule) return "";
+  return `Quarterly pulse session active. Current module: ${activeModule.name} (${activeModule.id}). ${activeModule.description}. When the physician completes this module, acknowledge capture and offer the next module prompt.`;
 }
 
 export function isQuarterlyModuleAdvanceMessage(message: string): boolean {

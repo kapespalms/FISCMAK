@@ -183,3 +183,21 @@ export function addServerDemoActivity(userId: string, entry: ActivityEntry) {
   state.activities = [entry, ...state.activities];
   serverDemo.set(userId, state);
 }
+
+export function updateServerDemoActivity(
+  userId: string,
+  activityId: string,
+  patch: Partial<ActivityEntry>,
+): ActivityEntry | null {
+  const state = getServerDemo(userId);
+  const index = state.activities.findIndex((a) => a.id === activityId);
+  if (index < 0) return null;
+  const updated = { ...state.activities[index]!, ...patch };
+  state.activities = [
+    ...state.activities.slice(0, index),
+    updated,
+    ...state.activities.slice(index + 1),
+  ];
+  serverDemo.set(userId, state);
+  return updated;
+}

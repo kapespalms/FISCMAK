@@ -24,14 +24,14 @@ export async function GET() {
 
   const meta = getOnboardingMetadata(user);
   const session = getAnnualRefreshSession(meta);
-  const module = currentAnnualModule(meta);
+  const activeModule = currentAnnualModule(meta);
   const annualDue = annualRefreshStatus(meta).due;
 
   return jsonOk({
     due: annualDue,
     session,
-    current_module: module,
-    prompt: module ? buildAnnualModulePrompt(module) : null,
+    current_module: activeModule,
+    prompt: activeModule ? buildAnnualModulePrompt(activeModule) : null,
   });
 }
 
@@ -65,10 +65,10 @@ export async function POST(request: Request) {
     auth.demo,
   );
 
-  const module = currentAnnualModule(meta);
+  const activeModule = currentAnnualModule(meta);
   return jsonOk({
     session: getAnnualRefreshSession(meta),
-    current_module: module,
-    prompt: module ? buildAnnualModulePrompt(module) : null,
+    current_module: activeModule,
+    prompt: activeModule ? buildAnnualModulePrompt(activeModule) : null,
   });
 }

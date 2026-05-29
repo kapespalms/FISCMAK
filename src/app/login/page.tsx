@@ -17,6 +17,7 @@ function LoginPageContent() {
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const nextPath = sanitizeNextPath(searchParams.get("next"));
+  const signedOut = searchParams.get("signed_out") === "1";
 
   useEffect(() => {
     rememberOnboardingNextPath(nextPath);
@@ -83,6 +84,12 @@ function LoginPageContent() {
               Create an account
             </Link>
           </p>
+
+          {signedOut && !error && (
+            <p className="mt-4 rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-gray-200">
+              You&apos;ve been signed out. Sign in again to continue.
+            </p>
+          )}
 
           <form onSubmit={handleLogin} className="mt-8 space-y-4">
             <MarketingAuthInput

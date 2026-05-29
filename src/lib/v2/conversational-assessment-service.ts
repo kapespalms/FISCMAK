@@ -9,6 +9,7 @@ import {
   type ExtractedAnswer,
 } from "@/lib/v2/conversational-assessment";
 import { computeAssessmentScore } from "@/lib/v2/formulas";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { questionsForTouchpoint } from "@/lib/v2/question-bank";
 import type { AppUser, AssessmentAnswer, CareerAssessment } from "@/lib/v2/types";
 
@@ -134,8 +135,9 @@ export async function processConversationalTurn(
       ) ?? assessment;
   }
 
+  const meta = getOnboardingMetadata(user);
   const refreshed = await fetchAssessments(userId, demo);
-  const pending = getPendingQuestions(touchpoint, refreshed);
+  const pending = getPendingQuestions(touchpoint, refreshed, meta);
   const extracted = extractAnswersFromMessage(message, pending, user);
   const { applied, completed } = await applyExtractedAnswers(
     userId,
@@ -145,7 +147,7 @@ export async function processConversationalTurn(
   );
 
   const after = await fetchAssessments(userId, demo);
-  const pendingAfter = getPendingQuestions(touchpoint, after);
+  const pendingAfter = getPendingQuestions(touchpoint, after, meta);
 
   return {
     autoAnswered: applied,

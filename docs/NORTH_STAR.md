@@ -88,23 +88,34 @@ Industry-standard pattern (clinical records, CRM, grounded AI): **one evidence l
 
 ---
 
-## Coach Mak
+## Coach Mak (one entity)
 
-**Role:** Guide through capture, interpretation, planning, and document prep — **one integrated coach**, not a new bot per page.
+**Role:** Guide through capture, interpretation, planning, and document prep — **one integrated coach**, not a new bot per page. Perspective, Career Data, Insights, Strategy, and Output Studio are **places in the app**; Mak remembers the thread. Check-ins are **something Mak does with you**, not a separate product.
 
 **Target behavior:**
 
-- One primary conversation thread (or explicit continuity across SOAP sections)  
+- One primary conversation thread — not history siloed per section  
 - Memory summary + retrieval over confirmed evidence  
 - Section changes = context shift in the same thread, not a cold restart  
-- Onboarding self-assessment = Mak-led instrument battery with progress, not a static question list  
-- Document generation = Output Studio pulls **confirmed evidence**; Mak can open and explain the draft
+- Onboarding = baseline check-in with Mak (not a static form grid)  
+- Document generation = Output Studio pulls **confirmed evidence**; Mak can explain the draft  
+
+**User-facing language:** plain English only — [FISCMAK_MAK_LANGUAGE_GUIDE.md](./FISCMAK_MAK_LANGUAGE_GUIDE.md). No scores, SOAP/SOAPO, tier numbers, or instrument names in the UI.
 
 **Anti-patterns:**
 
 - Gate greeting that wipes visible history on every workspace visit  
-- Tier/onboarding flags that mark “complete” before data exists  
-- Chat context that omits lattice/CV evidence while the UI shows strong map signals
+- Onboarding flags that mark “complete” before check-in summary is saved  
+- Chat context that omits lattice/CV evidence while the UI shows strong map signals  
+
+---
+
+## Anti-gamification & ethics
+
+- No Career Health Score, percentiles, peer rank, or composite grades for physicians.  
+- Wellbeing instruments inform Mak **internally**; users see **summaries they confirm** (“Does this sound right?”).  
+- Coaching helps individuals navigate; **organizations** must still address workload and system drivers (Dyrbye et al.) — institution plane is aggregate signal, not a substitute.  
+- **No new validated instruments** for MVP unless one is removed with equal or lower burden.
 
 ---
 
@@ -160,7 +171,7 @@ These are **bugs against the north star**, not alternate visions:
 
 | Drift | Target state |
 |-------|--------------|
-| Self-assessment step lists instruments then skips them | Mak runs battery; tier complete only when answers saved |
+| Self-assessment step lists instruments then skips them | Mak runs baseline check-in; complete only when summary saved |
 | Mak history siloed per section; gate resets thread | One thread + memory; contextual nudges only |
 | CV/lattice/Mak use different pipelines | Single evidence API; map and chat agree |
 | Lattice counts raw parser snippets | Confirmed evidence only; scheduled items visually distinct |
@@ -172,7 +183,13 @@ These are **bugs against the north star**, not alternate visions:
 
 | Doc | Purpose |
 |-----|---------|
-| [FISCMAK_MAK_QUESTION_CADENCE.md](./FISCMAK_MAK_QUESTION_CADENCE.md) | Phase-by-phase Mak questions, quarterly review, validation gates |
+| [FISCMAK_INTEGRATED_ARCHITECTURE.md](./FISCMAK_INTEGRATED_ARCHITECTURE.md) | Index: layers, audiences, priorities |
+| [FISCMAK_MAK_LANGUAGE_GUIDE.md](./FISCMAK_MAK_LANGUAGE_GUIDE.md) | How Mak speaks; user vs backend words |
+| [FISCMAK_CHECKIN_FLOW.md](./FISCMAK_CHECKIN_FLOW.md) | Baseline / quarterly flow and summary confirm |
+| [FISCMAK_UI_COPY_CONTRACT.md](./FISCMAK_UI_COPY_CONTRACT.md) | Per-page allowed copy (in-app only) |
+| [FISCMAK_OUTPUT_STUDIO_SPEC.md](./FISCMAK_OUTPUT_STUDIO_SPEC.md) | Documents from confirmed facts |
+| [FISCMAK_OPENEVIDENCE_HANDOFF.md](./FISCMAK_OPENEVIDENCE_HANDOFF.md) | External AI + validation roadmap |
+| [FISCMAK_MAK_QUESTION_CADENCE.md](./FISCMAK_MAK_QUESTION_CADENCE.md) | Phase-by-phase Mak questions (internal detail) |
 | [FISCMAK_MEETING_OVERVIEW.md](./FISCMAK_MEETING_OVERVIEW.md) | Short overview for stakeholder meetings |
 | [FISCMAK_SYSTEM_MAP.md](./FISCMAK_SYSTEM_MAP.md) | Internal: User / Mak / lattice / institution / Output at each lifecycle phase |
 | [page-ownership.md](./page-ownership.md) | Which page owns which question |

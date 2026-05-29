@@ -8,6 +8,9 @@ import {
 } from "@/lib/v2/api-helpers";
 import { computeTouchpoint1Dashboard, careerHealthMakSummary, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { deployedInstruments } from "@/lib/v2/onboarding-touchpoint1";
+import { instrumentProgress } from "@/lib/v2/onboarding-instruments";
+import { tier3CompleteGate } from "@/lib/v2/checkin-summary-confirm";
+import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 
@@ -30,11 +33,30 @@ export async function POST() {
       deployedInstruments(user.career_stage, user.practice_setting).map((i) => i.id),
   };
 
+  // Gate tier3 completion — require all instrument clusters answered AND
+  // reconciliation resolved (no items still "pending") if a CV was uploaded.
+  const instrumentIds = onboarding_metadata.instrument_ids ?? [];
+  const answers = meta.instrument_answers ?? [];
+  const progress = instrumentProgress(instrumentIds, answers);
+  const instrumentsComplete = progress.total === 0 || progress.answered >= progress.total;
+
+  const reconciliationItems = meta.reconciliation ?? [];
+  const reconcileComplete = cv
+    ? reconciliationItems.length === 0 ||
+      reconciliationItems.every((r) => r.status !== "pending")
+    : true;
+
+  const tier3Complete = tier3CompleteGate({
+    instrumentsComplete,
+    reconcileComplete,
+    meta: onboarding_metadata as OnboardingMetadata,
+  });
+
   await upsertAppUser(
     auth.userId,
     auth.email,
     {
-      tier3_complete: true,
+      tier3_complete: tier3Complete,
       onboarding_metadata: onboarding_metadata as Record<string, unknown>,
     },
     auth.demo,
@@ -86,8 +108,10 @@ export async function POST() {
   }
 
   return jsonOk({
-    tier3_complete: true,
+    tier3_complete: tier3Complete,
     instrument_scores: computed.instrument_scores,
-    redirect: "/app/dashboard?welcome=1",
+    instruments_progress: { answered: progress.answered, total: progress.total },
+    reconcile_pending: !reconcileComplete,
+    redirect: tier3Complete ? "/app/dashboard?welcome=1" : undefined,
   });
 }

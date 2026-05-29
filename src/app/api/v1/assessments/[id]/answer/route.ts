@@ -1,7 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
-import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import { getAppUser, isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
 import { questionById } from "@/lib/v2/conversational-assessment";
+import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { nextUnansweredQuestion } from "@/lib/v2/question-bank";
 import type { AssessmentAnswer } from "@/lib/v2/types";
 
@@ -48,6 +49,9 @@ export async function POST(
     timestamp: timestamp ?? new Date().toISOString(),
   };
 
+  const user = await getAppUser(auth.userId, auth.demo);
+  const meta = user ? getOnboardingMetadata(user) : null;
+
   if (auth.demo) {
     const assessments = getServerDemo(auth.userId).assessments;
     const a = assessments.find((x) => x.assessment_id === id);
@@ -57,7 +61,7 @@ export async function POST(
       entry,
     ];
     const global = await globalAnsweredIds(auth.userId, true);
-    const nq = nextUnansweredQuestion(a.touchpoint_number, global);
+    const nq = nextUnansweredQuestion(a.touchpoint_number, global, meta);
     return jsonOk({
       assessment_id: id,
       q_id,
@@ -83,7 +87,7 @@ export async function POST(
     .eq("assessment_id", id);
 
   const global = await globalAnsweredIds(auth.userId, false);
-  const nq = nextUnansweredQuestion(a.touchpoint_number, global);
+  const nq = nextUnansweredQuestion(a.touchpoint_number, global, meta);
   return jsonOk({
     assessment_id: id,
     q_id,

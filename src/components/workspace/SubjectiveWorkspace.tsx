@@ -171,10 +171,10 @@ export function SubjectiveWorkspace() {
         />
 
         <MetricRow
-          label="Work-related strain"
+          label="How work has felt"
           summary={
             strain?.summary ??
-            "Work-related strain indicators appear after your first validated check-in."
+            "How work has felt will appear after your first validated check-in."
           }
           status={strain?.status}
           mak={SUBJECTIVE_MAK.work_strain}

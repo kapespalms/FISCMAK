@@ -4,6 +4,7 @@ import { deployedInstruments } from "@/lib/v2/onboarding-touchpoint1";
 import {
   clustersForInstruments,
   extractClusterValue,
+  formatInstrumentCheckInDisplay,
   instrumentProgress,
   type InstrumentAnswer,
 } from "@/lib/v2/onboarding-instruments";
@@ -63,7 +64,10 @@ export async function processInstrumentTurn(
   return {
     captured,
     pendingCluster: progress.pendingCluster
-      ? { id: progress.pendingCluster.id, makPrompt: progress.pendingCluster.makPrompt }
+      ? {
+          id: progress.pendingCluster.id,
+          makPrompt: formatInstrumentCheckInDisplay(progress.pendingCluster),
+        }
       : null,
     instrumentsComplete: progress.answered >= progress.total && progress.total > 0,
   };

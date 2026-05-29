@@ -295,8 +295,11 @@ const LEGACY_PATH_MAP: Record<string, AppSection> = {
   "/app/jobs": "plan",
   "/app/studio": "output",
   "/app/mak": "dashboard",
+  "/app/uh-psych": "dashboard",
   "/app/residency": "dashboard",
   "/app/education": "dashboard",
+  "/app/schedule": "dashboard",
+  "/app/contacts": "dashboard",
   "/app/rotations": "dashboard",
   "/app/calendar": "dashboard",
 };

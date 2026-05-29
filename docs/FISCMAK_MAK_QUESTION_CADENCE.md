@@ -2,9 +2,11 @@
 
 **Audience:** Product, prompt engineering, clinical advisors  
 **Status:** Internal spec — May 2026  
-**Related:** [FISCMAK_SYSTEM_MAP.md](./FISCMAK_SYSTEM_MAP.md), [FISCMAK_MEETING_OVERVIEW.md](./FISCMAK_MEETING_OVERVIEW.md), `src/lib/v2/onboarding-instruments.ts`, `src/lib/v2/quarterly-pulse.ts`
+**Related:** [FISCMAK_CHECKIN_FLOW.md](./FISCMAK_CHECKIN_FLOW.md), [FISCMAK_MAK_LANGUAGE_GUIDE.md](./FISCMAK_MAK_LANGUAGE_GUIDE.md), [FISCMAK_SYSTEM_MAP.md](./FISCMAK_SYSTEM_MAP.md), `src/lib/v2/onboarding-instruments.ts`, `src/lib/v2/quarterly-pulse.ts`
 
 This document defines **what Mak asks, when, and how validated instruments inform responses** — without user-facing scores.
+
+**User-facing words (use in UI/Mak):** baseline check-in, quarterly check-in, six-month check-in, yearly review, **“Does this summary sound right?”** — not sit-down, validation card, capacity weather, tier 3, or instrument names.
 
 ---
 
@@ -17,11 +19,11 @@ This document defines **what Mak asks, when, and how validated instruments infor
 | "Would you like to explore…?" | "You should transition to…" |
 | "Your logs and last check-in suggest…" | "Your score indicates…" |
 | Offer 2–3 choices | Single algorithmic recommendation |
-| Stop goal pressure when capacity is low | Assign homework when exhausted |
+| Stop goal pressure when work feels heavy (internal signal) | Assign homework when exhausted |
 
 ### Cognitive load (one input, many outputs)
 
-- One **sit-down session** or one **voice log** → updates ledger, lattice placement (proposed), instrument storage, Plan hints.
+- One **check-in with Mak** or one **voice log** → updates ledger, lattice placement (proposed), instrument storage, Plan hints.
 - Never send user to a separate form grid after Mak already captured the answer.
 - If exhausted (internal PFI/BITS trend): **shorten** session; skip optional modules.
 
@@ -29,29 +31,30 @@ This document defines **what Mak asks, when, and how validated instruments infor
 
 After capture, backend may map text to cross-industry skill labels for **Output Studio pivot docs only**. Mak may say: *"That sounds like operational coordination and resource allocation — want that in your horizon language?"* — never dump O\*NET codes to the user.
 
-### Validation gate (every sit-down)
+### Summary confirm (every check-in)
 
-End each onboarding / quarterly / semiannual / annual session with:
+End each baseline / quarterly / semiannual / annual check-in with:
 
 ```
-VALIDATION CARD (user-facing)
-• Fulfillment / strain (qualitative)
-• Horizon alignment (one sentence)
-• Optional: one anchor theme for lattice
+Does this summary sound right?
+• How work has felt (plain language, no scores)
+• Main drain or friction (if any)
+• Five-year direction (their words)
+• Optional: one theme for the career map
 
-[ Confirm ]  [ Edit with Mak ]  [ Something's off ]
+[ Yes, save this ]  [ Change with Mak ]  [ Not quite ]
 ```
 
-**Nothing updates Insights, Plan, or lattice density until Confirm.**
+**Nothing updates Insights, Plan, or lattice density until the user saves the summary.**
 
 ### Internal use of scores (Mak backend only)
 
 | Internal signal | Mak behavior | User sees |
 |-----------------|--------------|-----------|
-| PFI burnout screen positive | Shorter session; no new goals; shelter language | "Overcast" / sustained burden |
-| BITS elevated | Probe friction; suggest boundary topics | "Administrative friction" theme |
-| Track energy ↓ vs baseline | Invite horizon review, not panic | "Horizon worth revisiting?" |
-| Trend stable + fulfillment strong | Normal coaching depth | "Clear" capacity |
+| PFI burnout screen positive | Shorter session; no new goals; plain “heavy stretch” language | Normal sentences from Mak — **no badge or score** |
+| BITS elevated | Probe friction; suggest boundary topics | e.g. “Administrative friction” in summary bullets |
+| Track energy ↓ vs baseline | Invite horizon review, not panic | “Worth revisiting your five-year direction?” |
+| Trend stable + fulfillment strong | Normal coaching depth | No special label |
 
 ---
 

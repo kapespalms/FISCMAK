@@ -1,29 +1,45 @@
 import type { AssessmentInsights } from "@/lib/v2/assessment-insights";
-import type { CareerHealthView } from "@/lib/v2/career-health-view";
+import type { CareerHealthDomain, CareerHealthView } from "@/lib/v2/career-health-view";
 import type { AnalyticsDashboard } from "@/lib/v2/types";
 
+/**
+ * Domain entry for user-facing endpoints — score removed per ADR-003.
+ * Users see qualitative status + summary; numeric CDI domain scores are internal-only.
+ */
+export type UserFacingCareerHealthDomain = Omit<CareerHealthDomain, "score">;
+
 /** Wellbeing slices for dashboard and Perspective tab — no composite Career Health Score.
- *  Internal metrics (CRI, CHS, s-index, IWQ, etc.) align with profile-contract internal_only_metrics. */
-export type UserFacingCareerHealth = Pick<
-  CareerHealthView,
-  | "wellbeing_metrics"
-  | "dashboard_title"
-  | "aspiration_prompt"
-  | "promotion_label"
-  | "domains"
-  | "intro"
->;
+ *  Internal metrics (CRI, CHS, s-index, IWQ, CDI domain scores, etc.) align with
+ *  profile-contract internal_only_metrics. */
+export type UserFacingCareerHealth = Omit<
+  Pick<
+    CareerHealthView,
+    | "wellbeing_metrics"
+    | "dashboard_title"
+    | "aspiration_prompt"
+    | "promotion_label"
+    | "domains"
+    | "intro"
+  >,
+  "domains"
+> & {
+  domains: UserFacingCareerHealthDomain[];
+};
 
 export function sanitizeCareerHealthForUser(
   view: CareerHealthView | null,
 ): UserFacingCareerHealth | null {
   if (!view) return null;
+  // Strip numeric score from each domain — expose status + summary only.
+  const sanitizedDomains: UserFacingCareerHealthDomain[] = view.domains.map(
+    ({ score: _score, ...rest }) => rest,
+  );
   return {
     wellbeing_metrics: view.wellbeing_metrics,
     dashboard_title: view.dashboard_title,
     aspiration_prompt: view.aspiration_prompt,
     promotion_label: view.promotion_label,
-    domains: view.domains,
+    domains: sanitizedDomains,
     intro: view.intro,
   };
 }

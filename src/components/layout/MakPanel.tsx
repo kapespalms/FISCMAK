@@ -33,6 +33,8 @@ import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
 import { MakAssistantBubble, MakUserBubble } from "@/components/mak/MakMessageBubble";
+import { MakLikertChips } from "@/components/mak/MakLikertChips";
+import type { MakLikertScalePayload } from "@/lib/v2/mak-likert-scale";
 import { MakMessageActions } from "@/components/layout/MakMessageActions";
 import { CreditLimitModal } from "@/components/layout/CreditLimitModal";
 import {
@@ -147,6 +149,7 @@ export function MakPanel({
   const [upgradePrompt, setUpgradePrompt] = useState<string | null>(null);
   const [messageBalance, setMessageBalance] = useState<number | null>(null);
   const [userTier, setUserTier] = useState<"free" | "premium">("free");
+  const [likertScale, setLikertScale] = useState<MakLikertScalePayload | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSection = useRef<AppSection | null>(null);
   const [documentsMakContext, setDocumentsMakContext] =
@@ -188,7 +191,7 @@ export function MakPanel({
 
   useEffect(() => {
     if (!open || isClientDemoMode()) return;
-    fetch(`/api/v1/chat/history?limit=40&section=${section}`)
+    fetch("/api/v1/chat/history?limit=40")
       .then((r) => r.json())
       .then((d) => {
         const apiMessages = (d.messages ?? []) as {
@@ -200,7 +203,7 @@ export function MakPanel({
         }
       })
       .catch(() => undefined);
-  }, [open, section]);
+  }, [open]);
 
   useEffect(() => {
     if (section !== "plan" || isClientDemoMode()) return;
@@ -320,6 +323,7 @@ export function MakPanel({
         .then((data) => {
           setMessages([{ role: "assistant", content: data.response }]);
           setSuggestedActions(data.suggested_actions ?? []);
+      setLikertScale(data.likert_scale ?? null);
         })
         .catch(() => {
           setMessages([{ role: "assistant", content: "Welcome — I'm Coach Mak." }]);
@@ -438,6 +442,7 @@ export function MakPanel({
       }
 
       setSuggestedActions(data.suggested_actions ?? []);
+      setLikertScale(data.likert_scale ?? null);
       if (data.touchpoint_submitted) {
         setTouchpointMode(null);
         window.dispatchEvent(new CustomEvent("fiscmak:touchpoint-complete"));
@@ -882,6 +887,16 @@ export function MakPanel({
         </div>
 
         <div className="cx-mak-panel-footer shrink-0 border-t border-cx-forest-dark/10 bg-white px-3 py-3">
+        {likertScale && !loading && (
+          <div className="mb-3 rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-3 py-2">
+            <p className="text-xs font-medium text-cx-forest-dark/70">Tap your rating</p>
+            <MakLikertChips
+              scale={likertScale}
+              disabled={loading}
+              onSelect={(value) => void sendMessage(String(value))}
+            />
+          </div>
+        )}
         <div className="flex items-end gap-2">
           <MakPlusActionMenu
             open={actionMenuOpen}

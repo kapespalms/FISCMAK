@@ -207,14 +207,13 @@ export function fulfillmentSummary(fulfillmentScore: number | null | undefined):
   if (fulfillmentScore == null) {
     return "Professional Fulfillment: pending — complete your well-being conversation with Coach Mak.";
   }
-  const pct = Math.min(99, Math.round((fulfillmentScore / 4) * 100));
   if (fulfillmentScore >= 3) {
-    return `Professional Fulfillment: ${pct}${ordinalSuffix(pct)} percentile — Strong`;
+    return "Professional Fulfillment: Strong — fulfillment signals are in a healthy range.";
   }
   if (fulfillmentScore >= 2) {
-    return `Professional Fulfillment: ${pct}${ordinalSuffix(pct)} percentile — Developing`;
+    return "Professional Fulfillment: Developing — worth revisiting as workload shifts.";
   }
-  return `Professional Fulfillment: ${pct}${ordinalSuffix(pct)} percentile — Needs Attention`;
+  return "Professional Fulfillment: Needs Attention — consider a shorter check-in and support options.";
 }
 
 export function researchInfluenceSummary(input: {
