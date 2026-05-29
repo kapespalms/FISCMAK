@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "email_domain": "test.fiscmak.local",
+  "password_env": "FISCMAK_TEST_PASSWORD",
+  "groups": {
+    "general": {
+      "signup_type": "public",
+      "onboarding_path": "public",
+      "email_prefix": "testgen"
+    },
+    "institutional": {
+      "signup_type": "institutional",
+      "onboarding_path": "institutional",
+      "email_prefix": "test",
+      "program_slug": "uh-psych-cmc",
+      "institution": "University Hospitals Cleveland Medical Center",
+      "base_specialty": "Psychiatry",
+      "practice_setting": "Academic"
+    }
+  },
+  "profiles": [
+    {
+      "username": "TESTGEN00",
+      "group": "general",
+      "training_level": "MS3",
+      "formal_label": "Medical Student, Year 3",
+      "career_stage": "Medical Student",
+      "interpretation": "Clinical rotations, specialty exploration, early professional identity formation"
+    },
+    {
+      "username": "TESTGEN0",
+      "group": "general",
+      "training_level": "MS4",
+      "formal_label": "Medical Student, Year 4",
+      "career_stage": "Medical Student",
+      "interpretation": "Residency applications, interviews, rank list, Match pressure"
+    },
+    {
+      "username": "TESTGEN1",
+      "group": "general",
+      "training_level": "PGY1",
+      "formal_label": "First-Year Resident / Intern",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-1",
+      "base_specialty": "Internal Medicine",
+      "interpretation": "Transition to physician role, supervision, identity shock, clinical responsibility"
+    },
+    {
+      "username": "TESTGEN2",
+      "group": "general",
+      "training_level": "PGY2",
+      "formal_label": "Second-Year Resident",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-2",
+      "base_specialty": "Internal Medicine",
+      "interpretation": "Increasing autonomy, deeper specialty identity, workload adaptation"
+    },
+    {
+      "username": "TESTGEN3",
+      "group": "general",
+      "training_level": "PGY3",
+      "formal_label": "Third-Year Resident",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-3",
+      "base_specialty": "Internal Medicine",
+      "interpretation": "Senior resident development, leadership, teaching, fellowship/job planning depending on specialty"
+    },
+    {
+      "username": "TESTGEN4",
+      "group": "general",
+      "training_level": "PGY4",
+      "formal_label": "Fourth-Year Resident",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-4",
+      "base_specialty": "Psychiatry",
+      "interpretation": "Advanced resident, chief/fellowship/job transition, board prep depending on specialty"
+    },
+    {
+      "username": "TESTGEN5",
+      "group": "general",
+      "training_level": "PGY5",
+      "formal_label": "Fifth-Year Resident or Fellow-Level Trainee",
+      "career_stage": "Fellow",
+      "pgy_level": "PGY-5+",
+      "base_specialty": "Cardiology",
+      "subspecialty": "Interventional Cardiology",
+      "interpretation": "Long-training specialty, subspecialty development, leadership, transition planning"
+    },
+    {
+      "username": "TESTGEN6",
+      "group": "general",
+      "training_level": "Early Attending",
+      "formal_label": "Early-Career Attending (0–7 years post-training)",
+      "career_stage": "Early Career (0–7 yr)",
+      "base_specialty": "Family Medicine",
+      "interpretation": "First attending role, board certification, contracts, confidence, autonomy"
+    },
+    {
+      "username": "TESTGEN7",
+      "group": "general",
+      "training_level": "Mid-Career Attending",
+      "formal_label": "Mid-Career Attending (8–20 years post-training)",
+      "career_stage": "Mid-Career (8–20 yr)",
+      "base_specialty": "Emergency Medicine",
+      "interpretation": "Career leverage, promotion, leadership, reinvention, burnout/meaning"
+    },
+    {
+      "username": "TESTGEN8",
+      "group": "general",
+      "training_level": "Late-Career Attending",
+      "formal_label": "Late-Career Attending (20+ years post-training)",
+      "career_stage": "Late Career (20+ yr)",
+      "base_specialty": "Internal Medicine",
+      "interpretation": "Legacy, mentorship, succession, reduced clinical load, institutional memory"
+    },
+    {
+      "username": "TESTGEN9",
+      "group": "general",
+      "training_level": "Retired",
+      "formal_label": "Retired / Emeritus Physician",
+      "career_stage": "Retired",
+      "base_specialty": "Pediatrics",
+      "interpretation": "Legacy, mentorship, consulting, identity transition, portfolio reflection"
+    },
+    {
+      "username": "TEST00",
+      "group": "institutional",
+      "training_level": "MS3",
+      "formal_label": "Medical Student, Year 3",
+      "career_stage": "Medical Student",
+      "interpretation": "Institution-linked clinical rotations, specialty coaching, evaluation pressure"
+    },
+    {
+      "username": "TEST0",
+      "group": "institutional",
+      "training_level": "MS4",
+      "formal_label": "Medical Student, Year 4",
+      "career_stage": "Medical Student",
+      "interpretation": "Institution-supported residency application, interviews, rank strategy, Match prep"
+    },
+    {
+      "username": "TEST1",
+      "group": "institutional",
+      "training_level": "PGY1",
+      "formal_label": "First-Year Resident / Intern",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-1",
+      "current_rotation": "Orientation",
+      "interpretation": "Institution-linked onboarding, milestone development, supervision, transition support"
+    },
+    {
+      "username": "TEST2",
+      "group": "institutional",
+      "training_level": "PGY2",
+      "formal_label": "Second-Year Resident",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-2",
+      "current_rotation": "VA CT6 (Inpatient)",
+      "interpretation": "Program-based competency growth, increasing autonomy, feedback integration"
+    },
+    {
+      "username": "TEST3",
+      "group": "institutional",
+      "training_level": "PGY3",
+      "formal_label": "Third-Year Resident",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-3",
+      "current_rotation": "Consult-Liaison Psychiatry",
+      "interpretation": "Senior resident development, teaching, leadership, individualized career planning"
+    },
+    {
+      "username": "TEST4",
+      "group": "institutional",
+      "training_level": "PGY4",
+      "formal_label": "Fourth-Year Resident",
+      "career_stage": "Resident",
+      "pgy_level": "PGY-4",
+      "current_rotation": "Outpatient Adult Clinics",
+      "interpretation": "Advanced training, board prep, fellowship/job pathway, leadership documentation"
+    },
+    {
+      "username": "TEST5",
+      "group": "institutional",
+      "training_level": "PGY5",
+      "formal_label": "Fifth-Year Resident or Fellow-Level Trainee",
+      "career_stage": "Fellow",
+      "pgy_level": "PGY-5+",
+      "current_rotation": "Elective",
+      "interpretation": "Extended training, subspecialty identity, institutional leadership, transition planning"
+    },
+    {
+      "username": "TEST6",
+      "group": "institutional",
+      "training_level": "Early Attending",
+      "formal_label": "Early-Career Attending (0–7 years post-training)",
+      "career_stage": "Early Career (0–7 yr)",
+      "interpretation": "Early faculty/staff development, onboarding, mentorship, productivity and promotion systems"
+    },
+    {
+      "username": "TEST7",
+      "group": "institutional",
+      "training_level": "Mid-Career Attending",
+      "formal_label": "Mid-Career Attending (8–20 years post-training)",
+      "career_stage": "Mid-Career (8–20 yr)",
+      "interpretation": "Leadership pipeline, promotion readiness, burnout prevention, program-building"
+    },
+    {
+      "username": "TEST8",
+      "group": "institutional",
+      "training_level": "Late-Career Attending",
+      "formal_label": "Late-Career Attending (20+ years post-training)",
+      "career_stage": "Late Career (20+ yr)",
+      "interpretation": "Legacy capture, mentorship, succession planning, institutional knowledge"
+    },
+    {
+      "username": "TEST9",
+      "group": "institutional",
+      "training_level": "Retired",
+      "formal_label": "Retired / Emeritus Physician",
+      "career_stage": "Retired",
+      "interpretation": "Legacy portfolio, mentorship, advisory role, continued contribution pathways"
+    }
+  ]
+}

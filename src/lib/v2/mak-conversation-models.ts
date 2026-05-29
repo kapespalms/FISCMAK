@@ -603,6 +603,7 @@ export function buildConversationModelContext(input: {
   currentRotation?: string | null;
   user?: Pick<
     AppUser,
+    | "email"
     | "career_stage"
     | "pgy_level"
     | "specialty"
@@ -629,6 +630,7 @@ export function buildConversationModelContext(input: {
 
   const pathwayCtx = buildCareerPathwayArchitectureContext({
     user: input.user ?? {
+      email: "",
       career_stage: input.careerStage as AppUser["career_stage"],
       pgy_level: input.pgyLevel ?? null,
       specialty: input.specialty ?? null,

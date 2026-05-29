@@ -17,6 +17,7 @@ import {
 } from "@/lib/v2/mak-conversation-models";
 import { resolveProfileContractFromUser } from "@/lib/v2/profile-contract";
 import { getProgramById } from "@/lib/v2/programs/registry";
+import { lookupTestProfile, testProfileMakContext } from "@/lib/v2/test-profile-battery";
 import type { AppUser } from "@/lib/v2/types";
 
 /** Compact doctrine — always safe to inject; no framework names to users. */
@@ -308,6 +309,7 @@ function formatGrowHints(meta: OnboardingMetadata): string {
 export function buildCareerPathwayArchitectureContext(input: {
   user?: Pick<
     AppUser,
+    | "email"
     | "career_stage"
     | "pgy_level"
     | "specialty"
@@ -323,13 +325,20 @@ export function buildCareerPathwayArchitectureContext(input: {
 }): string {
   const parts: string[] = [PATHWAY_PROCESSING_DOCTRINE];
 
-  const card = input.user ? buildCareerStageCardSnapshot(input.user, input.meta ?? undefined) : null;
+  const meta = input.meta ?? ((input.user?.onboarding_metadata ?? {}) as OnboardingMetadata);
+  const testProfile = lookupTestProfile({
+    email: input.user?.email,
+    test_profile_username:
+      typeof meta.test_profile_username === "string" ? meta.test_profile_username : null,
+  });
+  if (testProfile) parts.push(testProfileMakContext(testProfile));
+
+  const card = input.user ? buildCareerStageCardSnapshot(input.user, meta) : null;
   if (card) {
     parts.push(formatStageCard(card));
     parts.push(formatStagePressures(input.user?.career_stage, input.user?.pgy_level));
   }
 
-  const meta = input.meta ?? ((input.user?.onboarding_metadata ?? {}) as OnboardingMetadata);
   const trackCtx = formatTrackRankings(meta);
   if (trackCtx) parts.push(trackCtx);
   const growCtx = formatGrowHints(meta);
