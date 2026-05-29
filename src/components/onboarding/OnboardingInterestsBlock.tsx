@@ -2,14 +2,13 @@
 
 import { SubspecialtyInterestsFields } from "@/components/onboarding/SubspecialtyInterestsFields";
 import { UhPsychEnrichmentTracksFields } from "@/components/onboarding/UhPsychEnrichmentTracksFields";
-import {
-  OnboardingProfileSubheading,
-} from "@/components/onboarding/OnboardingProfileSection";
+import { OnboardingProfileSubheading } from "@/components/onboarding/OnboardingProfileSection";
+import type { CareerLevel } from "@/lib/v2/onboarding-options";
 
 type OnboardingInterestsBlockProps = {
   baseSpecialty: string;
   baseSpecialties?: string[];
-  careerStage?: import("@/lib/v2/onboarding-options").CareerLevel;
+  careerStage?: CareerLevel;
   subspecialtyInterests: string[];
   onSubspecialtyInterestsChange: (next: string[]) => void;
   showUhPsychTracks: boolean;
@@ -34,7 +33,6 @@ export function OnboardingInterestsBlock({
         baseSpecialties={baseSpecialties}
         selected={subspecialtyInterests}
         onChange={onSubspecialtyInterestsChange}
-        embedded
         careerStage={careerStage}
       />
 
@@ -42,7 +40,7 @@ export function OnboardingInterestsBlock({
         <div className="border-t border-cx-forest-dark/10 pt-5">
           <OnboardingProfileSubheading
             title="UH Psychiatry program tracks"
-            description="Optional enrichment pathways offered by your program — separate from the eight FISCMAK career tracks below."
+            description="Optional enrichment pathways offered by your program."
           />
           <div className="mt-3">
             <UhPsychEnrichmentTracksFields

@@ -48,11 +48,7 @@ export default function ProfilePage() {
   const [avatarError, setAvatarError] = useState<string | null>(null);
 
   const [baseSpecialty, setBaseSpecialty] = useState("");
-  const [baseQuery, setBaseQuery] = useState("");
-  const [baseListOpen, setBaseListOpen] = useState(false);
   const [subspecialty, setSubspecialty] = useState("");
-  const [subspecialtyQuery, setSubspecialtyQuery] = useState("");
-  const [subspecialtyListOpen, setSubspecialtyListOpen] = useState(false);
   const [trainingComplete, setTrainingComplete] = useState(false);
 
   const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
@@ -81,11 +77,9 @@ export default function ProfilePage() {
 
     if (normalized.base_specialty) {
       setBaseSpecialty(normalized.base_specialty);
-      setBaseQuery(normalized.base_specialty);
     }
     if (normalized.subspecialty) {
       setSubspecialty(normalized.subspecialty);
-      setSubspecialtyQuery(normalized.subspecialty);
       setTrainingComplete(
         user.subspecialty_training_complete ??
           defaultTrainingComplete(user.career_stage, normalized.subspecialty),
@@ -201,17 +195,12 @@ export default function ProfilePage() {
 
   function pickBase(value: string) {
     setBaseSpecialty(value);
-    setBaseQuery(value);
-    setBaseListOpen(false);
     setSubspecialty("");
-    setSubspecialtyQuery("");
     setTrainingComplete(false);
   }
 
   function pickSubspecialty(value: string) {
     setSubspecialty(value);
-    setSubspecialtyQuery(value);
-    setSubspecialtyListOpen(false);
     setTrainingComplete(defaultTrainingComplete(form.career_stage, value));
   }
 
@@ -362,17 +351,9 @@ export default function ProfilePage() {
 
             <SpecialtyIntakeFields
               baseSpecialty={baseSpecialty}
-              baseQuery={baseQuery}
-              onBaseQueryChange={setBaseQuery}
               onPickBase={pickBase}
-              baseListOpen={baseListOpen}
-              onBaseListOpenChange={setBaseListOpen}
               subspecialty={subspecialty}
-              subspecialtyQuery={subspecialtyQuery}
-              onSubspecialtyQueryChange={setSubspecialtyQuery}
               onPickSubspecialty={pickSubspecialty}
-              subspecialtyListOpen={subspecialtyListOpen}
-              onSubspecialtyListOpenChange={setSubspecialtyListOpen}
               trainingComplete={trainingComplete}
               onTrainingCompleteChange={setTrainingComplete}
               careerStage={form.career_stage}

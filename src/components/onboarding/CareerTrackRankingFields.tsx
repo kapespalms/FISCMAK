@@ -213,20 +213,6 @@ export function CareerTrackRankingFields({
 
   return (
     <div className="space-y-4 font-futura-book">
-      <ul className="space-y-2 text-base leading-relaxed text-black">
-        <li>
-          <strong className="font-futura-medium text-cx-forest-dark">Rank each track once</strong>{" "}
-          — eight lanes, no duplicates.
-        </li>
-        <li>
-          <strong className="font-futura-medium text-cx-forest-dark">#1 = most energizing</strong>{" "}
-          today; #8 = least. Drag rows to reorder.
-        </li>
-        <li>
-          Optional: {useFte ? "FTE per track" : "estimated hours per week"} for Mak and your lattice.
-        </li>
-      </ul>
-
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2" aria-label="Career tracks ranks 1 through 4">
           <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">

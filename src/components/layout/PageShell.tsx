@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type PageShellProps = {
-  title: string;
+  title?: string;
   subtitle?: string;
   eyebrow?: string;
   action?: React.ReactNode;
@@ -28,6 +28,7 @@ export function PageShell({
 }: PageShellProps) {
   return (
     <div className={cn("mx-auto w-full", WIDTH[maxWidth], className)}>
+      {(title || subtitle || eyebrow || action) && (
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
           {eyebrow && (
@@ -35,7 +36,9 @@ export function PageShell({
               {eyebrow}
             </p>
           )}
-          <h1 className="text-[32px] font-bold leading-snug text-cx-forest-dark">{title}</h1>
+          {title ? (
+            <h1 className="text-[32px] font-bold leading-snug text-cx-forest-dark">{title}</h1>
+          ) : null}
           {subtitle && (
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-cx-forest-dark/70">
               {subtitle}
@@ -44,6 +47,7 @@ export function PageShell({
         </div>
         {action && <div className="shrink-0">{action}</div>}
       </header>
+      )}
       {children}
     </div>
   );
