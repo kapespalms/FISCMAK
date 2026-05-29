@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageShell } from "@/components/layout/PageShell";
-import { CheckCircle2, ChevronLeft, Circle } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   CAREER_LEVELS,
@@ -36,6 +36,7 @@ import {
 } from "@/lib/v2/specialty-hierarchy";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
+import { OnboardingMilestoneNav } from "@/components/onboarding/OnboardingMilestoneNav";
 import { OnboardingResumeBanner } from "@/components/onboarding/OnboardingResumeBanner";
 import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
 import { OnboardingDocumentsStep } from "@/components/onboarding/OnboardingDocumentsStep";
@@ -938,40 +939,13 @@ export function Touchpoint1Onboarding() {
       maxWidth="md"
       className="py-4"
     >
-      <div className="mb-6 flex gap-1 overflow-x-auto">
-        {visibleSteps.map((s, i) => {
-          const completed = i < stepIndex;
-          const current = i === stepIndex;
-          const pillClass = cn(
-            "cx-nav-pill flex shrink-0 items-center gap-1.5 text-xs",
-            current
-              ? "cx-nav-pill-active"
-              : completed
-                ? "cx-nav-pill-inactive bg-cx-forest-dark/10"
-                : "cx-nav-pill-inactive opacity-60",
-          );
-
-          if (completed) {
-            return (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => navigateToStep(s.id)}
-                className={cn(pillClass, "cursor-pointer hover:opacity-90")}
-              >
-                <CheckCircle2 size={14} />
-                {s.label}
-              </button>
-            );
-          }
-
-          return (
-            <div key={s.id} className={pillClass}>
-              {completed ? <CheckCircle2 size={14} /> : <Circle size={14} />}
-              {s.label}
-            </div>
-          );
-        })}
+      <div className="mb-6">
+        {pathChosen && step !== "path" ? (
+          <OnboardingMilestoneNav
+            currentStep={step}
+            onNavigate={(target) => navigateToStep(target as OnboardingStep)}
+          />
+        ) : null}
       </div>
 
       {step === "path" && bootstrappingPath && (
@@ -1049,7 +1023,7 @@ export function Touchpoint1Onboarding() {
         <Card className="font-futura-book">
           {resumeProfileStep ? (
             <OnboardingResumeBanner
-              message="Welcome back. Let's finish setting up your professional identity track."
+              message="Welcome back. Finish your Core Profile."
               storageKey="fiscmak_onboarding_resume_profile"
             />
           ) : null}
@@ -1070,12 +1044,10 @@ export function Touchpoint1Onboarding() {
               className="mb-2 text-2xl"
             />
           )}
-          <h1 className="text-page-title">
-            {isInstitutional ? "Professional Identity Context" : "Demographics"}
-          </h1>
+          <h1 className="text-page-title">Core Profile</h1>
           {!isInstitutional && (
             <p className="font-futura-book mt-2 text-base text-black">
-              Career level and specialty drive benchmarks and document requirements.
+              Specialty, career stage, and practice structure.
             </p>
           )}
 
@@ -1401,7 +1373,7 @@ export function Touchpoint1Onboarding() {
               message={
                 documentsProcessing
                   ? "Resuming file processing... Your secure evidence dossier is updating."
-                  : "Welcome back. Continue building your evidence repository."
+                  : "Welcome back. Continue your Evidence Vault."
               }
               storageKey="fiscmak_onboarding_resume_documents"
             />
@@ -1432,9 +1404,9 @@ export function Touchpoint1Onboarding() {
               Back
             </button>
           )}
-          <h1 className="text-page-title">Confirm your career data</h1>
+          <h1 className="text-page-title">Evidence Vault</h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
-            We found these items in your documents. Confirm what looks right.
+            Confirm parsed data from your uploaded artifacts.
           </p>
 
           <ul className="mt-6 space-y-4">
@@ -1472,7 +1444,7 @@ export function Touchpoint1Onboarding() {
         <Card>
           {resumeInstrumentsStep && coachMakConversationId ? (
             <OnboardingResumeBanner
-              message="Welcome back! Open Coach Mak to continue your Professional Inventory where you left off."
+              message="Welcome back. Resume your AI Diagnostic with Coach Mak."
               storageKey="fiscmak_onboarding_resume_instruments"
             />
           ) : null}
@@ -1486,11 +1458,9 @@ export function Touchpoint1Onboarding() {
               Back
             </button>
           )}
-          <h1 className="text-page-title">Baseline check-in</h1>
+          <h1 className="text-page-title">AI Diagnostic</h1>
           <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Last step of onboarding — about <strong>10 minutes</strong> with Coach Mak. Standard
-            wellbeing and career questions, one at a time. Tap 0–4 or type a reply. No forms, no scores
-            on screen — just a summary to confirm at the end.
+            Brief intake with Coach Mak. Map goals and invisible work.
           </p>
 
           <ul className="mt-4 space-y-2">

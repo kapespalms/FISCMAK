@@ -6,76 +6,38 @@ import { Card } from "@/components/ui/Card";
 import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
 import { isUniversityHospitalsInstitution } from "@/lib/v2/programs/institution-brand";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
+import {
+  ONBOARDING_MILESTONES,
+  milestoneDetail,
+} from "@/lib/v2/onboarding-milestones";
 
-const PUBLIC_SETUP_STEPS = [
+const INDIVIDUAL_PRIVACY_DISCLOSURES = [
   {
-    title: "Identity Context",
-    detail:
-      "A brief baseline to capture your professional background, industry focus, and personal career lens.",
+    title: "Zero Third-Party Sharing",
+    detail: "No institutional oversight. No employer reporting.",
   },
   {
-    title: "Evidence Repository",
-    detail:
-      "Securely upload your CV, resume, or past performance artifacts to build your encrypted, lifelong professional dossier.",
+    title: "Cryptographic Privacy",
+    detail: "Transcripts and files are fully encrypted and isolated.",
   },
   {
-    title: "Professional Inventory",
-    detail:
-      "An interactive blend of standardized career questions and private conversations with Coach Mak to audit your skills, surface your invisible work, and clarify your growth goals.",
-  },
-] as const;
-
-const INSTITUTIONAL_SETUP_STEPS = [
-  {
-    title: "Professional Identity Context",
-    detail:
-      "Select your training program, PGY level, and hospital system to align your dashboard with your specific specialty tracks.",
-  },
-  {
-    title: "Evidence Repository",
-    detail:
-      "Upload your current CV, licensing documents, and past evaluations to seed your professional dossier.",
-  },
-  {
-    title: "Professional Inventory",
-    detail:
-      "An interactive blend of standardized competency questions and personal conversations with Coach Mak to audit your skills, log your invisible work, and calculate your capacity.",
+    title: "Portable Career Map",
+    detail: "You own 100% of your career data permanently.",
   },
 ] as const;
 
 const INSTITUTIONAL_PRIVACY_DISCLOSURES = [
   {
     title: "Cohort Data Sharing",
-    detail:
-      "Your institution uses aggregated and cohort-level data from this platform to assist with program reviews, track overall training trends, and support Clinical Competency Committee (CCC) evaluations.",
+    detail: "Aggregated program data supports reviews and CCC evaluations.",
   },
   {
-    title: "Evaluations & Milestone Sync",
-    detail:
-      "Standardized assessment scores, logged hours, and milestone metrics from your Professional Inventory will generate structured review portfolios accessible by your Program Director and leadership.",
+    title: "Milestone Sync",
+    detail: "Assessment scores and metrics reach your Program Director. Not raw chat.",
   },
   {
     title: "AI Conversation Firewall",
-    detail:
-      "While your clinical metrics and milestone data are shared for reviews, your raw, unstructured chat transcripts with Coach Mak remain strictly confidential. Leadership sees the calculated competency outputs, not your private exploratory conversations.",
-  },
-] as const;
-
-const INDIVIDUAL_PRIVACY_DISCLOSURES = [
-  {
-    title: "Zero Third-Party Sharing",
-    detail:
-      "Because you are using an independent account, no one has access to your data. There is no institutional oversight, no employer reporting, and no corporate tracking.",
-  },
-  {
-    title: "Absolute Privacy Firewall",
-    detail:
-      "Every document uploaded to your Evidence Repository and every conversation with Coach Mak is strictly confidential, encrypted, and isolated. Your raw chat transcripts belong entirely to you.",
-  },
-  {
-    title: "Portable Narrative Career Map",
-    detail:
-      "Your data, calculated competencies, and generated CVs are completely portable. You own 100% of your career evidence base, moving with you wherever your career takes you.",
+    detail: "Private Mak transcripts stay confidential. Leadership sees outputs only.",
   },
 ] as const;
 
@@ -96,55 +58,31 @@ type OnboardingWelcomeProps = {
   tokenError?: string | null;
 };
 
-function InstitutionalPrivacyNotice() {
+function PrivacyVault({
+  title,
+  disclosures,
+  id,
+}: {
+  id: string;
+  title: string;
+  disclosures: readonly { title: string; detail: string }[];
+}) {
   return (
     <section
-      aria-labelledby="institutional-privacy-notice"
-      className="mt-6 rounded-2xl border-2 border-amber-500/70 bg-amber-50/90 px-4 py-4 shadow-sm"
+      id={id}
+      aria-labelledby={`${id}-heading`}
+      className="mt-8 rounded-r-xl border-l-[3px] border-[#39FF14] bg-zinc-100/90 px-6 py-5"
     >
-      <p className="text-xs font-bold uppercase tracking-wide text-amber-900/80">
-        Critical disclosures
+      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-500">
+        Secure disclosure
       </p>
-      <h2
-        id="institutional-privacy-notice"
-        className="mt-1 text-base font-bold text-cx-forest-dark"
-      >
-        Institutional Review &amp; Data Privacy Disclosure
-      </h2>
-      <p className="mt-2 text-sm text-cx-forest-dark/80">
-        Transparency here prevents users from feeling blindsided during review season.
-      </p>
-      <ul className="mt-4 space-y-3">
-        {INSTITUTIONAL_PRIVACY_DISCLOSURES.map((item) => (
-          <li key={item.title} className="text-sm text-cx-forest-dark/90">
-            <span className="font-semibold text-cx-forest-dark">{item.title}: </span>
-            {item.detail}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
-function IndividualPrivacyNotice() {
-  return (
-    <section
-      aria-labelledby="individual-privacy-notice"
-      className="mt-6 rounded-2xl border-2 border-sky-500/60 bg-sky-50/90 px-4 py-4 shadow-sm"
-    >
-      <p className="text-xs font-bold uppercase tracking-wide text-sky-900/80">
-        Critical Privacy &amp; Data Sovereignty Disclosures
-      </p>
-      <h2
-        id="individual-privacy-notice"
-        className="mt-1 text-base font-bold text-cx-forest-dark"
-      >
-        Your Data Sovereignty Guarantee
+      <h2 id={`${id}-heading`} className="mt-1 text-base font-bold text-[#0B0B0C]">
+        {title}
       </h2>
       <ul className="mt-4 space-y-3">
-        {INDIVIDUAL_PRIVACY_DISCLOSURES.map((item) => (
-          <li key={item.title} className="text-sm text-cx-forest-dark/90">
-            <span className="font-semibold text-cx-forest-dark">{item.title}: </span>
+        {disclosures.map((item) => (
+          <li key={item.title} className="text-sm leading-snug text-zinc-700">
+            <span className="font-semibold text-[#0B0B0C]">{item.title}: </span>
             {item.detail}
           </li>
         ))}
@@ -166,18 +104,15 @@ export function OnboardingWelcome({
 }: OnboardingWelcomeProps) {
   const isInstitutional = variant === "institutional" && Boolean(program);
   const isPublic = variant === "public" || (!isInstitutional && variant !== "institutional");
-  const setupSteps = isInstitutional ? INSTITUTIONAL_SETUP_STEPS : PUBLIC_SETUP_STEPS;
 
   return (
-    <Card>
+    <Card className="overflow-hidden border-zinc-200/80 bg-white px-7 py-8 sm:px-9 sm:py-10">
       {isInstitutional && program ? (
         <>
-          <h1 className="text-page-title">Welcome to Your Career Track Hub</h1>
-          <div className="mt-2">
+          <h1 className="text-page-title text-[#0B0B0C]">Your Career Track Hub</h1>
+          <div className="mt-3">
             <ProgramJoinHeadline program={program} variant="onboarding" className="text-lg" />
-            <p className="mt-1 text-sm text-cx-forest-dark/75">
-              Academic year {program.academic_year}
-            </p>
+            <p className="mt-1 text-sm text-zinc-500">Academic year {program.academic_year}</p>
           </div>
           {isUniversityHospitalsInstitution(program.institution_name) && (
             <Image
@@ -188,54 +123,67 @@ export function OnboardingWelcome({
               className="mt-4 h-8 w-auto object-contain"
             />
           )}
-          <p className="mt-4 text-sm leading-relaxed text-cx-forest-dark/80">
-            Your institutional token configures your workspace for standard training requirements,
-            allowing you to easily track your milestones, map your skills, and prepare for your
-            program reviews.
+          <p className="mt-4 max-w-prose text-sm leading-relaxed text-zinc-600">
+            Institutional token applied. Three steps activate your training workspace.
           </p>
         </>
       ) : (
         <>
-          <h1 className="text-page-title">Welcome to Your Personal Career Hub</h1>
-          <p className="mt-4 text-sm leading-relaxed text-cx-forest-dark/80">
-            You are in control of your professional narrative. This independent workspace is built
-            entirely for you—designed to help you map your competencies, track your impact, and
-            navigate your unique career trajectory on your own terms.
+          <h1 className="text-page-title text-[#0B0B0C]">Your Personal Career Hub</h1>
+          <p className="mt-3 max-w-prose text-sm leading-relaxed text-zinc-600">
+            Independent workspace. Your narrative, your data, your trajectory.
           </p>
         </>
       )}
 
-      <div className="mt-6">
-        <h2 className="text-lg font-bold text-cx-forest-dark">The Onboarding Process</h2>
-        <p className="mt-1 text-sm text-cx-forest-dark/75">
+      <div className="mt-8">
+        <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-zinc-500">
+          Three milestones
+        </h2>
+        <p className="mt-1 text-sm text-zinc-600">
           {isInstitutional
-            ? "You will complete three brief steps to establish your profile."
-            : "You will complete three brief steps to activate your personal dashboard."}
+            ? "Complete all three to unlock your program dashboard."
+            : "Complete all three to activate your dashboard."}
         </p>
       </div>
 
-      <ol className="mt-4 space-y-3">
-        {setupSteps.map((step, index) => (
+      <ol className="mt-5 space-y-4">
+        {ONBOARDING_MILESTONES.map((milestone, index) => (
           <li
-            key={step.title}
-            className="cx-surface-elevated flex gap-3 rounded-2xl px-4 py-3"
+            key={milestone.id}
+            className="flex gap-4 rounded-xl bg-white px-6 py-5 shadow-sm ring-1 ring-zinc-200/80"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark text-sm font-bold text-[#5FD65F]">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#0B0B0C] text-sm font-bold text-white">
               {index + 1}
             </span>
-            <div>
-              <p className="font-semibold text-cx-forest-dark">{step.title}</p>
-              <p className="mt-1 text-sm text-cx-forest-dark/75">{step.detail}</p>
+            <div className="min-w-0">
+              <p className="font-semibold text-[#0B0B0C]">{milestone.label}</p>
+              <p className="mt-1 text-sm leading-snug text-zinc-600">
+                {milestoneDetail(milestone, isInstitutional)}
+              </p>
             </div>
           </li>
         ))}
       </ol>
 
-      {isInstitutional ? <InstitutionalPrivacyNotice /> : isPublic ? <IndividualPrivacyNotice /> : null}
+      {isInstitutional ? (
+        <PrivacyVault
+          id="institutional-privacy"
+          title="Institutional Review & Data Privacy"
+          disclosures={INSTITUTIONAL_PRIVACY_DISCLOSURES}
+        />
+      ) : isPublic ? (
+        <PrivacyVault
+          id="individual-privacy"
+          title="Your Data Sovereignty Guarantee"
+          disclosures={INDIVIDUAL_PRIVACY_DISCLOSURES}
+        />
+      ) : null}
 
       {!isInstitutional && onInstitutionalTokenChange && onApplyInstitutionalToken ? (
-        <div className="mt-6 rounded-2xl border border-cx-forest-dark/10 bg-white/60 px-4 py-4">
-          <p className="font-semibold text-cx-forest-dark">Have an institutional token?</p>
+        <div className="mt-8 rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-5">
+          <p className="font-semibold text-[#0B0B0C]">Institutional token?</p>
+          <p className="mt-1 text-xs text-zinc-500">Switch to your program workspace.</p>
           <div className="mt-3 flex flex-col gap-2 sm:flex-row">
             <input
               type="text"
@@ -257,17 +205,19 @@ export function OnboardingWelcome({
             </Button>
           </div>
           {tokenPreviewLabel ? (
-            <p className="mt-2 text-sm text-cx-forest-dark/75">{tokenPreviewLabel}</p>
+            <p className="mt-2 text-sm text-zinc-600">{tokenPreviewLabel}</p>
           ) : null}
-          {tokenError ? (
-            <p className="mt-2 text-sm text-red-700">{tokenError}</p>
-          ) : null}
+          {tokenError ? <p className="mt-2 text-sm text-red-700">{tokenError}</p> : null}
         </div>
       ) : null}
 
-      <Button className="mt-6 w-full" onClick={onBegin}>
-        Begin Onboarding
-      </Button>
+      <button
+        type="button"
+        onClick={onBegin}
+        className="mt-8 w-full rounded-md bg-[#0B0B0C] px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-[#39FF14] hover:text-[#0B0B0C]"
+      >
+        Activate Hub
+      </button>
     </Card>
   );
 }
