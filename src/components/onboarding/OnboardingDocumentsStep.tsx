@@ -316,7 +316,10 @@ export function OnboardingDocumentsStep({
 
   return (
     <Card>
-      <h1 className="text-page-title">Upload your documents</h1>
+      <h1 className="text-page-title">Evidence Vault</h1>
+      <p className="mt-2 text-sm text-cx-forest-dark/80">
+        Drop CVs, certifications, and performance artifacts. Encrypted at rest.
+      </p>
 
       <div className="mt-5 space-y-3">
         <div className="flex items-center justify-between gap-3">
