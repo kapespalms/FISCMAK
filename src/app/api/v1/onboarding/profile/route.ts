@@ -3,6 +3,7 @@ import {
   isErrorResponse,
   jsonOk,
   requireApiUser,
+  storageErrorMessage,
   upsertAppUser,
 } from "@/lib/v2/api-helpers";
 import {
@@ -391,8 +392,7 @@ async function handleProfilePost(request: Request) {
     },
     auth.demo,
   ).catch((err: unknown) => {
-    saveErrorMessage =
-      err instanceof Error ? err.message : "Could not save profile to database.";
+    saveErrorMessage = storageErrorMessage(err);
     console.error("[onboarding/profile] upsertAppUser failed:", err);
     return null;
   });
