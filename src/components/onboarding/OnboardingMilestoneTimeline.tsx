@@ -61,12 +61,12 @@ export function OnboardingMilestoneTimeline({
     <nav
       aria-label="Onboarding milestone timeline"
       className={cn(
-        "w-full px-4 py-4 md:px-8 md:py-5",
-        dark ? "bg-[#0A0C10] text-white" : "bg-white text-cx-forest-dark",
+        "w-full py-4 md:py-5",
+        dark ? "text-white" : "text-cx-forest-dark",
       )}
     >
       {/* Top row: wordmark + card badge */}
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4">
+      <div className="flex w-full items-center justify-between gap-4">
         <p className="font-futura-bold text-base tracking-[0.18em] md:text-lg">
           <span className={dark ? "text-white" : "text-cx-forest-dark"}>FISC</span>
           <span className="text-[#A3E635]">MAK</span>
@@ -85,8 +85,8 @@ export function OnboardingMilestoneTimeline({
         ) : null}
       </div>
 
-      {/* Horizontal progress track — full width, rises left → right */}
-      <div className="relative mx-auto mt-4 max-w-[1400px">
+      {/* Horizontal progress track — aligned with cards below */}
+      <div className="relative mt-4 w-full">
         <div
           className={cn(
             "absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full",

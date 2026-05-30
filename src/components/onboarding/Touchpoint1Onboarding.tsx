@@ -1111,24 +1111,25 @@ export function Touchpoint1Onboarding() {
             timelineDark ? "bg-[#0A0C10]" : "bg-slate-50/50",
           )}
         >
-          <header
-            className={cn(
-              "sticky top-0 z-50 w-screen max-w-[100vw] border-b",
-              "relative left-1/2 -translate-x-1/2",
-              timelineDark ? "border-white/10 bg-[#0A0C10]" : "border-slate-200/80 bg-white",
-            )}
-          >
-            <OnboardingMilestoneTimeline
-              currentStep={step}
-              cardIndex={step === "profile" ? profileCardIndex : undefined}
-              cardCount={step === "profile" ? profileCarouselCards.length : undefined}
-              variant={timelineDark ? "dark" : "light"}
-              onNavigate={(target) => navigateToStep(target as OnboardingStep)}
-            />
-          </header>
-          <main className="mx-auto w-full max-w-4xl flex-1 p-6">
-            {renderOnboardingSteps()}
-          </main>
+          <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6">
+            <div
+              className={cn(
+                "sticky top-0 z-50 -mx-6 border-b px-6 pb-1 pt-2",
+                timelineDark ? "border-white/10 bg-[#0A0C10]" : "border-slate-200/80 bg-white",
+              )}
+            >
+              <OnboardingMilestoneTimeline
+                currentStep={step}
+                cardIndex={step === "profile" ? profileCardIndex : undefined}
+                cardCount={step === "profile" ? profileCarouselCards.length : undefined}
+                variant={timelineDark ? "dark" : "light"}
+                onNavigate={(target) => navigateToStep(target as OnboardingStep)}
+              />
+            </div>
+            <main className="flex-1 py-6">
+              {renderOnboardingSteps()}
+            </main>
+          </div>
         </div>
       ) : (
         <PageShell title="Onboarding" maxWidth="md" className="py-4">
