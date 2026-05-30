@@ -1,0 +1,700 @@
+{
+  "framework_key": "adult-cardiothoracic-anesthesiology",
+  "specialty": "Adult Cardiothoracic Anesthesiology",
+  "version": "2.0",
+  "source": "ACGME Adult Cardiothoracic Anesthesiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "anesthesiology",
+  "parent_name": "Anesthesiology",
+  "subcompetencies": [
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc1",
+      "number": 1,
+      "name": "Peri-Procedural Assessment and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs pre-procedural evaluation of patients with common cardiothoracic disease",
+          "Identifies patients with a history of chronic pain who require a modified peri-operative pain management plan"
+        ],
+        "level_2": [
+          "Identifies the components of a pain management plan for patients undergoing cardiothoracic surgery",
+          "Serves as the consultant anesthesiologist in pre- procedural care"
+        ],
+        "level_3": [
+          "Performs pre-procedural evaluation of patients with complex and less common cardiothoracic disease",
+          "Implements the anesthetic plan for patients with complex pain history and polypharmacy"
+        ],
+        "level_4": [
+          "Implements a simple peri- operative pain management plan",
+          "Leads the interprofessional care team in the peri-operative management of patients with complex and less common cardiac conditions for cardiac and non-cardiac surgery"
+        ],
+        "level_5": [
+          "Performs and interprets the pre-procedural evaluation and makes recommendations for optimization of patients with complex and less common cardiothoracic disease",
+          "In collaboration with other specialists, develops protocols for multimodal analgesia plan for patients with a complex pain history and substance use disorder (SUD)"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc2",
+      "number": 2,
+      "name": "Technical/Procedural Skills – Transesophageal Echocardiography (TEE)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires a basic TEE exam using basic ultrasound modalities",
+          "Performs and interprets a comprehensive quantified",
+          "TEE exams"
+        ],
+        "level_2": [
+          "Identifies normal anatomy and basic pathology on TEE imaging",
+          "TEE exam",
+          "Integrates TEE exam within clinical context and existing patient data to guide complex surgical decision-making and clinical care"
+        ],
+        "level_3": [
+          "Acquires a comprehensive 2D TEE exam, with assistance",
+          "Acquires a comprehensive TEE exam, including use of advanced modalities"
+        ],
+        "level_4": [
+          "Performs broad quantification of TEE imaging",
+          "Integrates TEE exam to guide standard surgical decision-making and clinical care"
+        ],
+        "level_5": [
+          "Acquires a comprehensive 2D TEE exam",
+          "Serves as a departmental resource for challenging"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc3",
+      "number": 3,
+      "name": "Technical/Procedural Skills – Fiberoptic Bronchoscopy and Lung Isolation Techniques",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a basic bronchoscopic exam and identifies the anatomy",
+          "Manages complex lung isolation, with assistance"
+        ],
+        "level_2": [
+          "Establishes lung isolation in standard situations",
+          "Advises and supervises others with bronchoscopy in routine clinical situations"
+        ],
+        "level_3": [
+          "Performs a bronchoscopic exam and identifies complex anatomy and basic pathology",
+          "Manages complex lung isolation using multiple modalities"
+        ],
+        "level_4": [
+          "Establishes lung isolation in standard situations and troubleshoots problems",
+          "Advises and supervises others with difficult bronchoscopy in complex clinical situations"
+        ],
+        "level_5": [
+          "Performs bronchoscopic evaluation to diagnose and manage airway pathology",
+          "Advises and supervises others with complex lung isolation strategies"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc4",
+      "number": 4,
+      "name": "Technical/Procedural Skills – Vascular Access",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs basic radial artery cannulation procedures",
+          "Interprets ultrasound to optimize technique and reduce complications in vascular access procedures",
+          "Performs complex central venous cannulation at various locations (e.g., subclavian, left internal jugular, femoral)"
+        ],
+        "level_2": [
+          "Performs basic right internal jugular central venous cannulation procedures",
+          "Performs arterial cannulation at various locations (e.g., femoral, axillary)",
+          "Advises and supervises others with ultrasound for vascular access"
+        ],
+        "level_3": [
+          "Identifies relevant vascular access anatomy and uses ultrasound in vascular access procedures",
+          "Performs central venous cannulation at various locations (e.g., subclavian, left internal jugular, femoral)",
+          "Serves as a departmental resource for challenging arterial cannulation procedures"
+        ],
+        "level_4": [
+          "Performs complex radial artery cannulation procedures",
+          "Independently conducts and interprets complex vascular access ultrasound (e.g., intravenous)",
+          "Serves as a departmental resource for challenging central venous cannulation procedures"
+        ],
+        "level_5": [
+          "Performs complex right internal jugular central venous cannulation procedures",
+          "Performs complex arterial cannulation at various locations (e.g., femoral, axillary)",
+          "Serves as a departmental resource for challenging vascular access ultrasound"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc5",
+      "number": 5,
+      "name": "Cardiac Procedures not Involving Extracorporeal Circulation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic understanding of catheter-based structural heart procedures, including electrophysiology procedures",
+          "Describes the necessary echocardiographic support for the technical aspects of the catheter- based procedure and predictors for successful transcatheter procedures"
+        ],
+        "level_2": [
+          "Identifies abnormal echocardiographic findings commonly treated with transcatheter interventions",
+          "Responds to intra- operative events/complications specifically associated with a given catheter structural heart intervention/advanced electrophysiology procedure"
+        ],
+        "level_3": [
+          "Creates an appropriate care plan for a patient presenting for catheter- based structural heart/electrophysiology interventions",
+          "Assesses (interprets) echocardiographic imaging relevant to the transcatheter procedure"
+        ],
+        "level_4": [
+          "Performs qualitative and quantitative echocardiographic assessment of pathology for transcatheter procedures",
+          "Consults with multidisciplinary teams for selection and peri- operative planning for patients undergoing structural heart intervention (e.g., transcatheter aortic valve insertions, mitral valve clipping)"
+        ],
+        "level_5": [
+          "Manages patient pathophysiology and anesthetic support for transcatheter procedures",
+          "Utilizes intra-operative echocardiography to guide and lead catheter- based procedures (e.g., advising on device deployment)"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc6",
+      "number": 6,
+      "name": "Aortic Surgery",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates appropriate hemodynamic management of acute and chronic aortic pathology",
+          "Understands utilization of laboratory data in diagnosing coagulopathy during aortic surgery",
+          "Analyzes neuromonitoring information and spinal cord perfusion optimization to manage peri-operative ischemic events during aortic surgery"
+        ],
+        "level_2": [
+          "Identifies the need for and basic components of spinal cord and cerebral protection during aortic surgery",
+          "Manages the intra- operative care of aortic surgical patients for open and endovascular aortic surgical procedures",
+          "Manages coagulopathy during aortic surgery with goal-directed therapy, and utilizes progressive therapies, such as concentrates, during aortic surgery"
+        ],
+        "level_3": [
+          "Identifies the potential of coagulopathy during aortic surgery",
+          "Integrates neuromonitoring and spinal cord perfusion techniques into patient care during open and endovascular aortic surgeries",
+          "Consults for multidisciplinary peri- operative best practices for management of aortic surgical patients"
+        ],
+        "level_4": [
+          "Creates an appropriate anesthetic plan for both endovascular and open aortic surgical interventions",
+          "Manages peri-operative coagulopathy by integrating laboratory data and appropriate therapy",
+          "Contributes to planning and utilizing advanced techniques to prevent spinal and cerebral protection during aortic surgery"
+        ],
+        "level_5": [
+          "Identifies the specific indicators for risk to spinal cord perfusion and cerebral ischemia during endovascular and open aortic surgical procedures",
+          "Manages the intra- operative care of complex aortic surgical patients, including anesthetic planning",
+          "Creates protocols for goal directed management of coagulopathy and transfusion during aortic surgery"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pc7",
+      "number": 7,
+      "name": "Circulatory Support Transitions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the basic principles and indications for cardiopulmonary bypass (CPB)",
+          "Integrates available hemodynamic and echocardiographic data to guide a patient on and off circulatory assist devices, with assistance"
+        ],
+        "level_2": [
+          "Discusses the basic principles and indications for circulatory assist devices",
+          "Guides a patient on and off complex CPB"
+        ],
+        "level_3": [
+          "Guides a patient on and off CPB with assistance",
+          "Integrates available hemodynamic and echocardiographic data to guide a patient on and off circulatory assist devices"
+        ],
+        "level_4": [
+          "Uses available hemodynamic data to guide a patient on and off circulatory assist devices, with assistance",
+          "Develops policies with the interdisciplinary team to guide institutional CPB protocols"
+        ],
+        "level_5": [
+          "Guides a patient on and off routine CPB"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_mk1",
+      "number": 8,
+      "name": "Extracorporeal Circulation and Circulatory Assist Device Principles",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes components and physiology of CPB",
+          "Demonstrates knowledge of percutaneous circulatory assist device management in standard situations"
+        ],
+        "level_2": [
+          "Describes physiologic effects of intra-aortic balloon counter-pulsation",
+          "Demonstrates knowledge of CPB, ECMO, and VAD management in atypical situations"
+        ],
+        "level_3": [
+          "Describes components and physiology of extracorporeal circulation and ventricular assist devices",
+          "Demonstrates knowledge of percutaneous circulatory assist device management in atypical situations"
+        ],
+        "level_4": [
+          "Describes the components and physiology of percutaneous circulatory assist devices",
+          "Is recognized as a departmental resource in extracorporeal circulation"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of CPB, extracorporeal membrane oxygenation (ECMO), and ventricular assist device (VAD) management in standard situations",
+          "Is recognized as a departmental resource for complex circulatory assist devices"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_mk2",
+      "number": 9,
+      "name": "Non-Ultrasound-Based Cardiovascular/Pulmonary Imaging and Monitoring",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Interprets data from non- invasive cardiac imaging and monitoring (e.g., electrocardiogram (ECG), stress testing, magnetic resonance imaging (MRI), computed tomography (CT) scans) to guide routine clinical decision-making",
+          "Interprets data from pulmonary imaging and monitoring to guide intermediate complexity clinical decision-making",
+          "Integrates data from invasive cardiac imaging and monitoring, including tools used infrequently outside of cardiothoracic surgery, to guide advanced clinical decision- making"
+        ],
+        "level_2": [
+          "Interprets data from invasive cardiac imaging and monitoring to guide routine clinical decision- making",
+          "Integrates data from non- invasive cardiac imaging and monitoring to guide advanced clinical decision- making",
+          "Integrates data from pulmonary imaging and monitoring, including tools used infrequently outside of cardiothoracic surgery, to guide advanced clinical decision-making"
+        ],
+        "level_3": [
+          "Interprets data from pulmonary imaging and monitoring to guide routine clinical decision-making",
+          "Integrates data from invasive cardiac imaging and monitoring to guide advanced clinical decision- making",
+          "Is recognized as a departmental resource for cardiovascular/pulmonary imaging and monitoring"
+        ],
+        "level_4": [
+          "Interprets data from non- invasive cardiac imaging and monitoring to guide intermediate complexity clinical decision-making",
+          "Integrates data from pulmonary imaging and monitoring to guide advanced clinical decision- making",
+          "Develops departmental protocols for cardiovascular/pulmonary imaging and monitoring"
+        ],
+        "level_5": [
+          "Interprets data from invasive cardiac imaging and monitoring to guide intermediate complexity clinical decision-making",
+          "Integrates data from non- invasive cardiac imaging and monitoring, including tools used infrequently outside of cardiothoracic surgery, to guide advanced clinical decision- making"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_mk3",
+      "number": 10,
+      "name": "Ultrasound-Based Imaging and Monitoring",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes all views of a comprehensive TEE exam",
+          "Differentiates normal findings from pathology on standard TTE images",
+          "Interprets abnormal findings on targeted TTE images",
+          "Is recognized (through scholarship or education of others) as an expert resource in peri-operative"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of standard",
+          "Recognizes normal structures and basic pathology on targeted",
+          "Interprets abnormal findings on POCUS",
+          "TEE"
+        ],
+        "level_3": [
+          "TTE views",
+          "POCUS exams",
+          "Interprets quantitative and qualitative findings on TEE images using advanced modalities and describes their use when integrated with a clinical picture to form a diagnosis",
+          "Serves as a departmental resource for complex TTE exam interpretation"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of typical non-cardiac point-of-care ultrasound (POCUS) views",
+          "Interprets quantitative and qualitative findings on",
+          "Integrates multiple complimentary TTE views with the clinical picture to form a diagnosis",
+          "Participates in the development of institutional protocols for"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of ultrasound physics sufficient to optimize TEE image quality and limit artifacts, and performs a comprehensive exam",
+          "TEE images within a comprehensive exam",
+          "Integrates POCUS findings to form a diagnosis",
+          "POCUS"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_mk4",
+      "number": 11,
+      "name": "Cardiovascular/Thoracic Pathophysiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common cardiothoracic pathophysiology and applies this knowledge during non-cardiac and cardiac surgical peri- operative patient care"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of complex cardiothoracic pathophysiology, including adult congenital heart disease, during non- cardiac and cardiac surgical peri-operative patient care"
+        ],
+        "level_3": [
+          "Applies advanced understanding of complex cardiothoracic pathophysiology, including adult congenital heart disease, during cardiac and non-cardiac surgical peri-operative care"
+        ],
+        "level_4": [
+          "Analyzes the impact of advanced cardiothoracic pathophysiology while preparing patient- specific peri-operative patient management plans"
+        ],
+        "level_5": [
+          "Demonstrates expertise in the field of advanced cardiothoracic pathophysiology confirmed by scholarly activity, including publication, presentation, or the advanced education of others"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_mk5",
+      "number": 12,
+      "name": "Diagnostic and Therapeutic Interventions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Interprets information from common pre- operative cardiothoracic diagnostic studies",
+          "Anticipates anesthetic implications of cardiothoracic therapeutic procedures and assesses risks and benefits of different techniques"
+        ],
+        "level_2": [
+          "Recognizes anesthetic implications of routine cardiothoracic therapeutic procedures",
+          "Interprets and integrates complex information from pre- and intra-operative advanced cardiothoracic diagnostic studies to anticipate and influence procedural decision- making, and to guide anesthetic management"
+        ],
+        "level_3": [
+          "Interprets and integrates information from common pre-operative cardiothoracic diagnostic studies to guide anesthetic management",
+          "Anticipates anesthetic implications of complex and less common cardiothoracic therapeutic procedures, and assesses risks and benefits of different techniques in collaboration with the interventional team"
+        ],
+        "level_4": [
+          "Anticipates anesthetic implications of cardiothoracic therapeutic procedures",
+          "Is recognized (through scholarship or education of others) as an expert resource in advanced understanding of complex cardiothoracic diagnostic studies and/or in collaboration and influence on procedural planning and conduct"
+        ],
+        "level_5": [
+          "Interprets and integrates information from pre- and intra-operative advanced cardiothoracic diagnostic studies to anticipate procedural decision- making, and to guide anesthetic management"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_sbp1",
+      "number": 13,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common events that impact patient safety",
+          "Describes divisional quality improvement initiatives",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in divisional quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional level or above"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_sbp2",
+      "number": 14,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and participates in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members",
+          "Uses institutional resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Advocates for populations and communities with health care needs in the peri-operative setting"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_sbp3",
+      "number": 15,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Explains the impact of documentation on billing and reimbursement"
+        ],
+        "level_2": [
+          "States factors impacting the costs of anesthetic care",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transitions of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how they impact patient care",
+          "Practices and advocates for cost- effective patient care"
+        ],
+        "level_4": [
+          "Documents anesthetic detail to facilitate accurate billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Engages in external activities related to advocacy for cost- effective care"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pbli1",
+      "number": 16,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accesses and uses current evidence in routine patient care"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide individualized care"
+        ],
+        "level_5": [
+          "Coaches others to appraise and apply evidence for complex patients and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_pbli2",
+      "number": 17,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Considers alternatives to improve performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to performance deficits",
+          "Seeks performance data episodically, with adaptability and humility",
+          "Integrates performance data to adapt the learning plan"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to improve performance",
+          "Role models consistently seeking performance data with adaptability and humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Models reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and acknowledges the factors that contribute to performance deficits",
+          "Intentionally seeks performance data consistently, with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_prof1",
+      "number": 18,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies potential triggers for professionalism lapses",
+          "Analyzes straightforward situations using ethical principles",
+          "Actively solicits help and acts on recommendations to resolve complex interpersonal situations"
+        ],
+        "level_2": [
+          "Describes when and how to report lapses in professionalism",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and utilizes resources for managing and resolving ethical dilemmas"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Recognizes the need to seek help in managing and resolving complex interpersonal situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Takes responsibility for one’s own professionalism lapses",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_prof2",
+      "number": 19,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete tasks",
+          "Takes responsibility for tasks not completed in a timely manner and identifies strategies to prevent recurrence"
+        ],
+        "level_2": [
+          "Takes responsibility for failure to complete tasks",
+          "Prioritizes tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner",
+          "Designs and implements an institutional systems approach to ensure timely task completion and shared responsibility"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_prof3",
+      "number": 20,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Lists available resources for personal and professional well-being",
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ],
+        "level_3": [
+          "Describes institutional resources that are meant to promote/support well- being",
+          "Creates institutional-level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "With assistance, proposes a plan to promote personal and professional well-being",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_5": [
+          "Recognizes which institutional factors affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_ics1",
+      "number": 21,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Uses shared decision- making to make a personalized care plan"
+        ],
+        "level_2": [
+          "Provides timely updates to patients and patients’ families",
+          "Facilitates difficult discussions with patients and patients’ families"
+        ],
+        "level_3": [
+          "Customizes communication in the setting of biases and barriers with patients and patients’ families",
+          "Effectively negotiates and manages conflict among patients, patients’ families, and the health care team"
+        ],
+        "level_4": [
+          "Actively listens to patients and patients’ families to elicit patient preferences and expectations",
+          "Mentors others in the facilitation of crucial conversations"
+        ],
+        "level_5": [
+          "Explains complex and difficult information to patients and patients’ families",
+          "Mentors others in conflict resolution"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_ics2",
+      "number": 22,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests or receives consultations",
+          "Solicits feedback on performance as a member of the health care team",
+          "Maintains effective communication in crisis situations"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Uses closed-loop communication to verify understanding",
+          "Communicates constructive feedback to superiors"
+        ],
+        "level_3": [
+          "Respectfully receives feedback from the health care team",
+          "Adapts communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_4": [
+          "Clearly, concisely, and promptly requests or responds to a consultation",
+          "Communicates concerns and provides feedback to peers and learners",
+          "Leads an after-event debrief of the health care team"
+        ],
+        "level_5": [
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "adult_cardiothoracic_anesthesiology_ics3",
+      "number": 23,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record; demonstrates judicious use of documentation shortcuts",
+          "Respectfully communicates concerns about the system",
+          "Models exemplary written or verbal communication"
+        ],
+        "level_2": [
+          "Safeguards patients’ personal health information",
+          "Accurately records information in the anesthetic record and communicates complex care decisions for complex cases",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Communicates through appropriate channels as required by institutional policy",
+          "Appropriately selects direct and indirect forms of communication based on context",
+          "Explores innovative uses of the medical record to facilitate peri-operative management"
+        ],
+        "level_4": [
+          "Accurately records information in the anesthetic record for basic cases",
+          "Respectfully communicates concerns about the system and contributes to solutions",
+          "Guides departmental or institutional policies and procedures around communication"
+        ],
+        "level_5": [
+          "Documents required data in formats specified by institutional policy",
+          "Uses medical record functionality to highlight challenges in anesthetic care to facilitate future peri-operative management",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultcardiothoracicanesthesiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultcardiothoracicanesthesiologysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "framework_key": "gastroenterology",
+  "specialty": "Gastroenterology",
+  "version": "2.0",
+  "source": "ACGME Gastroenterology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "internal-medicine",
+  "parent_name": "Internal Medicine",
+  "subcompetencies": [
+    {
+      "id": "gastroenterology_pc1",
+      "number": 1,
+      "name": "Data Gathering and Non-Procedural Diagnostic Testing",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Accesses data and gathers a history standard for general internal medicine",
+          "Selects and interprets diagnostic tests, with moderate assistance",
+          "Consistently performs a symptom-specific physical examination"
+        ],
+        "level_2": [
+          "Performs a physical examination standard for general internal medicine",
+          "Gathers data from multiple sources and collects symptom-specific history, including psychosocial issues",
+          "Independently selects and interprets diagnostic tests, with adjustments based on cost effectiveness and patient preferences"
+        ],
+        "level_3": [
+          "Selects and interprets diagnostic tests, with significant assistance",
+          "Performs a symptom- specific physical examination, without assistance",
+          "Role models gathering and synthesis of clinical information"
+        ],
+        "level_4": [
+          "Gathers a symptom- specific history and data, with assistance",
+          "Selects and interprets diagnostic tests, with minimal assistance and general awareness of cost effectiveness and patient preferences",
+          "Interprets subtleties of diagnostic test results to improve patient care"
+        ],
+        "level_5": [
+          "Performs a symptom- specific physical examination, with assistance",
+          "Consistently synthesizes data from multiple sources"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_pc2",
+      "number": 2,
+      "name": "Patient Management in Gastrointestinal and Liver Disease",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops focused care plans, with moderate assistance",
+          "Recognizes situations requiring urgent or emergent care with minimal assistance",
+          "Independently manages patients with complex and undifferentiated syndromes and recognizes disease presentations that deviate from common patterns"
+        ],
+        "level_2": [
+          "Requires direct supervision to prioritize and deliver patient care",
+          "Independently develops focused care plans",
+          "Independently manages urgent and emergent situations"
+        ],
+        "level_3": [
+          "Recognizes situations requiring urgent or emergent care, with significant assistance",
+          "Independently manages patients with straightforward diagnoses",
+          "Develops customized, prioritized care plans for complex patients, incorporating diagnostic uncertainty and cost- effectiveness principles"
+        ],
+        "level_4": [
+          "Develops focused care plans, with minimal assistance",
+          "Manages urgent and emergent situations, with minimal assistance",
+          "Effectively manages unusual, rare, or complex disorders"
+        ],
+        "level_5": [
+          "Manages patients with straightforward diagnoses, with minimal assistance",
+          "Modifies care plans based on a patient’s clinical course, additional data, patient preferences, and cost- effectiveness principles"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_pc3",
+      "number": 3,
+      "name": "Procedures Cognitive Components",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Selects clinically indicated procedure(s), with significant assistance",
+          "Recognizes and selects immediate interventions and subsequent plan of care, with moderate assistance",
+          "Independently identifies and interprets abnormal procedural findings"
+        ],
+        "level_2": [
+          "Recognizes normal and abnormal procedural findings",
+          "Selects clinically indicated procedure(s), with minimal assistance",
+          "Independently selects appropriate immediate interventions and subsequent plan of care, with recognition of personal limitations"
+        ],
+        "level_3": [
+          "Identifies immediate interventions and subsequent plan of care, with significant assistance",
+          "Identifies and interprets abnormal procedural findings, with minimal assistance",
+          "Recognizes when a novel or innovative procedure should be considered and seeks out assistance"
+        ],
+        "level_4": [
+          "Selects clinically indicated procedure(s), with moderate assistance",
+          "Selects appropriate immediate interventions and subsequent plan of care, with minimal assistance",
+          "Identifies and interprets atypical or rare variations during procedures"
+        ],
+        "level_5": [
+          "Identifies and interprets abnormal procedural findings, with moderate assistance",
+          "Independently selects clinically indicated procedure(s) based on assessment and indications, including capabilities and limitations of the procedure, resources, and risk/benefit ratio for the patient",
+          "Suggests and implements innovative and alternative interventions for versatile care plans"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_pc4",
+      "number": 4,
+      "name": "Procedures: Technical Components",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs peri-procedural assessment, including required diagnostic evaluation and selection of equipment, with moderate assistance",
+          "Independently performs peri-procedural assessment, including required diagnostic evaluation and selection of equipment in standard cases",
+          "Independently performs standard therapeutic interventions"
+        ],
+        "level_2": [
+          "Performs portions of the procedure, with significant assistance",
+          "Performs the complete procedure to intended extent, including thorough visualization/examination, with minimal assistance",
+          "Efficiently performs the complete procedure to intended extent, including thorough examination/ visualization, in complex cases"
+        ],
+        "level_3": [
+          "Performs peri-procedural assessment, including required diagnostic evaluation and selection of equipment, with minimal assistance",
+          "Performs most standard therapeutic interventions, with minimal assistance",
+          "Efficiently performs complex therapeutic interventions"
+        ],
+        "level_4": [
+          "Performs significant portions of the procedure, with moderate assistance",
+          "Independently performs peri-procedural assessment, including required diagnostic evaluation and selection of equipment in complex cases"
+        ],
+        "level_5": [
+          "Performs portions of the therapeutic interventions, with significant assistance",
+          "Independently performs the complete procedure to intended extent, including thorough visualization/ examination"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_mk1",
+      "number": 5,
+      "name": "Clinical Knowledge of Gastrointestinal and Liver Diseases (Non-Procedural)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of specialty disorders",
+          "Demonstrates broad knowledge of diagnostic, therapeutic/ pharmacologic options for prevention and treatment of diseases"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of diagnostic, therapeutic/ pharmacologic categories for prevention and treatment of disease",
+          "Synthesizes advanced knowledge of specialty disorders to develop personalized interventions"
+        ],
+        "level_3": [
+          "Demonstrates expanding knowledge of specialty disorders",
+          "Synthesizes advanced knowledge to select diagnostic, therapeutic/ pharmacologic options for prevention and treatment of disease"
+        ],
+        "level_4": [
+          "Demonstrates expanding knowledge of diagnostic, therapeutic/ pharmacologic options for prevention and treatment of diseases, including indications, contraindications, limitations, complications, alternatives, and techniques",
+          "Demonstrates expert knowledge within a focused area"
+        ],
+        "level_5": [
+          "Demonstrates broad knowledge of specialty disorders"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_mk2",
+      "number": 6,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Creates a focused differential diagnosis with moderate assistance",
+          "Independently creates a succinct, plausible, and prioritized differential diagnosis appropriate for the presentation of a patient with complex and/or multiple problems"
+        ],
+        "level_2": [
+          "Creates a focused differential diagnosis with minimal assistance",
+          "Consistently evaluates and adjusts differential diagnosis, integrating available new information and recognizing the factors that lead to bias"
+        ],
+        "level_3": [
+          "Maintains a fixed differential diagnosis despite new information",
+          "Recognizes rare presentations of common diagnoses and/or presentations of rare diagnoses"
+        ],
+        "level_4": [
+          "Independently creates a succinct, plausible, and prioritized differential diagnosis appropriate for the presentation of a patient with an uncomplicated presentation",
+          "Aware of cognitive biases and demonstrates behaviors to overcome them"
+        ],
+        "level_5": [
+          "Consistently incorporates new information to adjust differential diagnosis"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_sbp1",
+      "number": 7,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the national, institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_sbp2",
+      "number": 8,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations, effectively using the roles of interprofessional teams",
+          "Tailors individual practice to provide for the needs of a specific population or community"
+        ],
+        "level_3": [
+          "Demonstrates basic knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams",
+          "Uses local resources effectively to meet the needs of a patient population or community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_sbp3",
+      "number": 9,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Engages with patients in shared decision making, informed by each patient’s payment model(s)"
+        ],
+        "level_2": [
+          "Describes basic elements of health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transitions of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Leads and advocates for practice and population with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Distinguishes specialty- specific elements of health payment systems (e.g., office, endoscopy, inpatient)",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transitions of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Leads health policy advocacy activities related to access and payment reform"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_pbli1",
+      "number": 10,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence and incorporate patient preferences and values to take care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_pbli2",
+      "number": 11,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Designs and implements a learning plan, with prompting",
+          "Consistently evaluates and challenges one’s own assumptions, and considers alternative strategies to narrow the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors which contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data episodically, with adaptability and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and when necessary, adjusts it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Role models consistently seeking performance data with adaptability and humility"
+        ],
+        "level_4": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Intentionally seeks performance data consistently with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_prof1",
+      "number": 12,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates professional behavior in routine situations",
+          "Recognizes the need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, confidentiality, and related topics",
+          "Acts to prevent lapses in professional behavior in themselves and in others"
+        ],
+        "level_3": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical situations as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Recognizes the need to seek help in managing and resolving straightforward ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Identifies and demonstrates insight into potential triggers for lapses in professional behavior",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_prof2",
+      "number": 13,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes and acts on situations that may impact the team’s ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Takes ownership of system outcomes"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_prof3",
+      "number": 14,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "With assistance, proposes a plan to remediate or improve limits in the knowledge/ skills of oneself or the team"
+        ],
+        "level_2": [
+          "Recognizes limits in the knowledge/skills of oneself or the team, with assistance",
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes status of personal and professional well-being",
+          "Independently develops a plan to remediate or improve limits in the knowledge/skills of oneself or the team"
+        ],
+        "level_4": [
+          "Independently recognizes limits in the knowledge/ skills of oneself or the team",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_ics1",
+      "number": 15,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and establishes rapport",
+          "Establishes a therapeutic relationship in challenging patient encounters using active listening and clear language",
+          "Independently uses shared decision making to make a personalized care plan"
+        ],
+        "level_2": [
+          "Recognizes the need to adjust communication strategies based on patient need and context",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, uses shared decision making to align patient’s/family’s values, goals, and preferences with treatment options to make a personalized care plan",
+          "Role models self- awareness while identifying a contextual approach to minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Easily establishes therapeutic relationships, with attention to patient/family concerns and context, regardless of complexity",
+          "Role models shared decision making in patient/family communication, including those with a high degree of uncertainty/conflict"
+        ],
+        "level_5": [
+          "Verifies patient’s/family’s understanding of the clinical situation to optimize effective communication",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_ics2",
+      "number": 16,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Uses active listening to adapt communication style to fit team needs"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Coordinates recommendations from different members of the health care team to optimize patient care and resolve conflicts over recommendations"
+        ],
+        "level_3": [
+          "Clearly and concisely responds to a consultation request",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_4": [
+          "Communicates effectively with all health care team members, including inpatient and outpatient providers"
+        ],
+        "level_5": [
+          "Checks understanding of primary team when providing consultation recommendations"
+        ]
+      }
+    },
+    {
+      "id": "gastroenterology_ics3",
+      "number": 17,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Reports diagnostic and therapeutic reasoning in the patient record in a timely manner",
+          "Initiates difficult conversations with appropriate stakeholders in a professional manner to improve the system"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Respectfully uses appropriate channels to offer clear and constructive suggestions to improve the system",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_4": [
+          "Demonstrates accurate and appropriate use of documentation shortcuts",
+          "Communicates clearly, concisely, efficiently, and in an organized written form, and provides anticipatory guidance",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ],
+        "level_5": [
+          "Communicates through appropriate channels as required by institutional policy (e.g., patient safety reports, cell phone/pager usage)",
+          "Achieves written or verbal communication (patient notes, email, etc.) that serves as an example for others to follow"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/gastroenterologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/gastroenterologysupplementalguide.pdf"
+  }
+}

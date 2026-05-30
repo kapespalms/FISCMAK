@@ -1,0 +1,475 @@
+{
+  "framework_key": "congenital-cardiac-surgery",
+  "specialty": "Congenital Cardiac Surgery",
+  "version": "2.0",
+  "source": "ACGME Congenital Cardiac Surgery Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "thoracic-surgery",
+  "parent_name": "Thoracic Surgery",
+  "subcompetencies": [
+    {
+      "id": "congenital_cardiac_surgery_pc1",
+      "number": 1,
+      "name": "Technical Skills and Performance",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs components of basic complexity procedures"
+        ],
+        "level_2": [
+          "Performs basic complexity procedures"
+        ],
+        "level_3": [
+          "Performs moderate complexity procedures and recognizes intra- operative complications"
+        ],
+        "level_4": [
+          "Performs high complexity procedures and manages intra- operative complications"
+        ],
+        "level_5": [
+          "Independently performs high complexity procedures"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_pc2",
+      "number": 2,
+      "name": "Patient Evaluation and Clinical Decision Making",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patient specific factors needed to design a diagnostic work-up and surgical plan for a basic complexity procedure"
+        ],
+        "level_2": [
+          "Integrates information with patient specific factors to design a succinct diagnostic work- up and surgical plan for a basic complexity procedure"
+        ],
+        "level_3": [
+          "Integrates information with patient specific factors to design a succinct diagnostic work- up and surgical plan for a moderate complexity procedure"
+        ],
+        "level_4": [
+          "Integrates information with patient specific factors to design a succinct diagnostic work-up and surgical plan for a high complexity procedure"
+        ],
+        "level_5": [
+          "Formulates an approach for complex patients who do not fit into traditional algorithms"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_pc3",
+      "number": 3,
+      "name": "Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Interprets diagnostic data for a critically ill patient",
+          "Performs high complexity bedside procedures"
+        ],
+        "level_2": [
+          "Performs basic complexity bedside procedures",
+          "Implements a comprehensive treatment plan for peri- operative patients with high complexity procedures"
+        ],
+        "level_3": [
+          "Implements a treatment plan for peri-operative patients with basic complexity procedures",
+          "Performs high complexity procedures in urgent scenarios and determine need for emergent surgical intervention"
+        ],
+        "level_4": [
+          "Performs moderate complexity bedside procedures",
+          "Implements a comprehensive treatment plan for a patient condition that does not have clear guidelines"
+        ],
+        "level_5": [
+          "Implements a treatment plan for peri-operative patients with moderate complexity procedures",
+          "Teaches moderate complexity procedures to junior learners"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_mk1",
+      "number": 4,
+      "name": "Morphology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates comprehension of and explains morphology for basic complexity congenital cardiac defects"
+        ],
+        "level_2": [
+          "Demonstrates comprehension and applies knowledge of morphology for moderate complexity defects"
+        ],
+        "level_3": [
+          "Demonstrates comprehension of morphology for higher complexity defects and distinguishes between different morphologies"
+        ],
+        "level_4": [
+          "Demonstrates comprehension and integrates knowledge of morphology for most complex defects and uncommon or rare variants"
+        ],
+        "level_5": [
+          "Teaches morphology for complex defects to junior learners"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_mk2",
+      "number": 5,
+      "name": "Pathophysiology and Surgical Outcomes",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic comprehension of pathophysiology and surgical outcomes of basic complexity defects, including timing of repair"
+        ],
+        "level_2": [
+          "Demonstrates general comprehension of pathophysiology and surgical outcomes of moderate complexity defects, including timing of repair"
+        ],
+        "level_3": [
+          "Demonstrates detailed comprehension of pathophysiology and surgical outcomes of higher complexity defects, including timing of repair"
+        ],
+        "level_4": [
+          "Demonstrates in-depth comprehension of pathophysiology and surgical outcomes of most complex defects and uncommon or rare variants"
+        ],
+        "level_5": [
+          "Teaches pathophysiology and surgical outcomes of complex defects to junior learners"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_sbp1",
+      "number": 6,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Reports patient safety events through institutional reporting systems (actual or simulated)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the reporting/disclosure of patient safety events to superiors/organization"
+        ],
+        "level_5": [
+          "Reports patient safety events to superiors/ faculty members",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_sbp2",
+      "number": 7,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for their local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical/social situations effectively using the roles of the interprofessional teams",
+          "Adapts personal practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical/social situations effectively using the roles of the interprofessional teams",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_sbp3",
+      "number": 8,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the healthcare system (e.g., hospital, finance, personnel, technology)",
+          "Discusses the impact of component selection on overall costs"
+        ],
+        "level_2": [
+          "Understands the mechanisms for reimbursement, including types of payors",
+          "Discusses various components of the health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Recognizes the components of how a health care system are inter-related, and its impact on patient care",
+          "Makes cost effective decisions"
+        ],
+        "level_4": [
+          "Recognizes the impact of component selection on overall costs",
+          "Advocates for systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Understands how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_pbli1",
+      "number": 9,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence to take care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values in order to guide evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_pbli2",
+      "number": 10,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals and actively seeking opportunities to improve"
+        ],
+        "level_2": [
+          "When prompted, uses performance data to identify gaps, design, and implement a learning plan"
+        ],
+        "level_3": [
+          "Independently uses performance data to identify gaps, design, and implement a learning plan"
+        ],
+        "level_4": [
+          "Independently uses performance data to measure the effectiveness of the learning plan and adapt the plan as needed"
+        ],
+        "level_5": [
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_prof1",
+      "number": 11,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics"
+        ],
+        "level_2": [
+          "Applies ethical principles during patient care"
+        ],
+        "level_3": [
+          "Recognizes need to seek help in managing and resolving ethical situations"
+        ],
+        "level_4": [
+          "Uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_5": [
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_prof2",
+      "number": 12,
+      "name": "Professional Behavior and Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Completes patient care tasks and responsibilities, identifies potential barriers, and describes strategies for ensuring timely task completion",
+          "Episodically seeks feedback",
+          "Intervenes to prevent and correct lapses in professional behavior in self and others"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report lapses in professional behavior",
+          "Performs patient care tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Provides constructive feedback to others"
+        ],
+        "level_3": [
+          "Accepts feedback highlighting gaps",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Develops systems to enhance other’s ability to efficiently complete patient-care tasks and responsibilities"
+        ],
+        "level_4": [
+          "Performs patient care tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Intentionally seeks and integrates multisource feedback into practice",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Takes responsibility for his or her own professional behavior and reports lapses in self and others",
+          "Recognizes situations that may impact others’ ability to complete patient-care tasks and responsibilities in a timely manner"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_prof3",
+      "number": 13,
+      "name": "Administrative Tasks",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the need to complete administrative tasks and responsibilities"
+        ],
+        "level_2": [
+          "Performs administrative tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
+        ],
+        "level_3": [
+          "Performs administrative tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact others’ ability to complete administrative tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Facilitates efforts to enhance other’s ability to efficiently complete administrative tasks and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_prof4",
+      "number": 14,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance, recognizes status of personal and professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes status of personal and professional well-being"
+        ],
+        "level_3": [
+          "Proposes a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Executes a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Coaches others when emotional responses do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_ics1",
+      "number": 15,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Introduces themselves and explains their role to the patient and family",
+          "Identifies complex barriers to effective communication",
+          "Effectively negotiates and manages conflict among patients, families, and the health care team"
+        ],
+        "level_2": [
+          "Provides timely updates to patients and families",
+          "Delivers complex and difficult information to patients and families and confirms understanding",
+          "Manages communication barriers and biases"
+        ],
+        "level_3": [
+          "Identifies common barriers to effective communication",
+          "Uses shared decision making to make a personalized care plan",
+          "Coaches others in the facilitation of difficult conversations"
+        ],
+        "level_4": [
+          "Delivers routine information to patients and families and confirms understanding",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Coaches others in conflict resolution"
+        ],
+        "level_5": [
+          "Actively listens to patients and families to elicit patient preferences and expectations",
+          "Facilitates interdisciplinary patient and family conferences",
+          "Coaches others to manage communication barriers and biases"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_ics2",
+      "number": 16,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a consultation",
+          "Communicates information effectively with all health care team members",
+          "Navigates and resolves disagreements with interprofessional team"
+        ],
+        "level_2": [
+          "Respectfully receives a consultation request",
+          "Verifies own understanding of consultant recommendations",
+          "Mediates conflict within the team"
+        ],
+        "level_3": [
+          "Uses language that values all members of the health care team",
+          "Verifies understanding of recommendations when providing consultation",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_4": [
+          "Clearly and concisely requests a consultation",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Coaches others in navigating interprofessional disagreements"
+        ],
+        "level_5": [
+          "Clearly and concisely responds to a consultation request",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Coaches others in active listening and communication styles"
+        ]
+      }
+    },
+    {
+      "id": "congenital_cardiac_surgery_ics3",
+      "number": 17,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately and timely documents information in the patient record",
+          "Respectfully communicates concerns about the system",
+          "Uses written and verbal communication (e.g., patient notes, email) in a professional manner"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information",
+          "Completes documentation accurately, concisely, and completely",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_3": [
+          "Communicates through appropriate channels as required by institutional policy",
+          "Appropriately selects direct and indirect forms of communication",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_4": [
+          "Completes documentation thoroughly and communicates diagnostic and therapeutic reasoning in an organized fashion",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system",
+          "Facilitates departmental or institutional communication policies and procedures"
+        ],
+        "level_5": [
+          "Documents required data in formats specified by institutional policy",
+          "Communicates in a clearly organized, concise, and timely manner, and includes anticipatory guidance",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerysupplementalguide.pdf"
+  }
+}

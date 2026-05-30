@@ -316,6 +316,12 @@ export function getMilestoneCatalogForProgram(nameOrSlug: string): MilestoneCata
 
   const sub = normalizeToAcgmeSubspecialtyName(trimmed);
   if (sub) {
+    const sponsor = getPrimaryForSubspecialty(sub);
+    if (sponsor) {
+      const compositeSlug = `${sponsor.slug}--${slugifyProgramName(sub)}`;
+      const composite = CATALOG_BY_SLUG.get(compositeSlug);
+      if (composite) return composite;
+    }
     const match = MILESTONE_CATALOG_PROGRAMS.find(
       (p) => p.program_type === "subspecialty" && p.name === sub,
     );

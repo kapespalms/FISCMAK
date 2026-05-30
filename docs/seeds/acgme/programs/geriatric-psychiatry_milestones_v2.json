@@ -1,0 +1,628 @@
+{
+  "framework_key": "geriatric-psychiatry",
+  "specialty": "Geriatric Psychiatry",
+  "version": "2.0",
+  "source": "ACGME Geriatric Psychiatry Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "psychiatry",
+  "parent_name": "Psychiatry",
+  "subcompetencies": [
+    {
+      "id": "geriatric_psychiatry_pc1",
+      "number": 1,
+      "name": "Geriatric Psychiatric Evaluation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Consistently obtains complete, accurate, and relevant general psychiatry history and mental status and describes a functional assessment",
+          "Performs the neurocognitive assessment",
+          "Interprets collateral information and test results to determine necessary additional steps in the evaluation, while preserving patient autonomy"
+        ],
+        "level_2": [
+          "Collects relevant information from collateral sources and orders screening laboratory and diagnostic tests",
+          "Identifies subtle and unusual findings in geriatric psychiatry history and mental status and performs a pertinent functional assessment",
+          "Integrates findings from neurocognitive assessment with other clinical data"
+        ],
+        "level_3": [
+          "Describes the elements of neurocognitive assessment",
+          "Interprets collateral information and test results to determine necessary additional steps",
+          "Serves as a role model for gathering subtle and accurate findings from the patient and collateral sources"
+        ],
+        "level_4": [
+          "Obtains complete and relevant geriatric psychiatry history and mental status and performs a comprehensive functional assessment",
+          "Interprets the findings from the neurocognitive assessment and refers for neuropsychological testing, as indicated",
+          "Serves as a leader for neurocognitive testing, evaluation, and interpretation for treatment planning by the patient care team"
+        ],
+        "level_5": [
+          "Orders appropriate additional laboratory and diagnostic tests, including and neuroimaging",
+          "Integrates and synthesizes history, clinical data, and functional assessment to determine necessary additional steps in the evaluation"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_pc2",
+      "number": 2,
+      "name": "Psychiatric Formulation and Differential Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies information from relevant sources to develop a basic differential diagnosis for common geriatric patient presentations",
+          "Engages in a basic risk assessment and basic safety planning",
+          "Develops formulations based on multiple conceptual models"
+        ],
+        "level_2": [
+          "Describes the role of biological, psychosocial, cultural, and developmental/life cycle factors for a geriatric patient",
+          "Develops a thorough and prioritized differential diagnosis while avoiding premature closure for a range of geriatric patient presentations",
+          "Incorporates risk and protective factors into the assessment of complex patient presentations, including eliciting information not readily offered by the patient"
+        ],
+        "level_3": [
+          "Screens for safety and risk of harm to oneself, to others, or by others",
+          "Synthesizes all information into a concise but comprehensive formulation, taking into account biological, psychosocial, cultural, and developmental/life cycle factors",
+          "Serves as a role model in the development of accurate and complete differential diagnoses and formulations"
+        ],
+        "level_4": [
+          "Integrates information from relevant sources to develop a basic differential diagnosis for common geriatric patient presentations",
+          "Incorporates risk and protective factors into the assessment of imminent, short-, and long-term patient safety and the safety of others",
+          "Serves as a role model for safety and risk assessment"
+        ],
+        "level_5": [
+          "Identifies the specific biological, psychosocial, cultural, and developmental /life cycle factors that contribute to a geriatric patient’s presentation",
+          "Develops differential diagnoses in complex cases and incorporates subtle, unusual, or conflicting findings"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_pc3",
+      "number": 3,
+      "name": "Geriatric Therapeutic Modalities",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Applies knowledge of the general principles of psychopharmacology",
+          "Applies principles of geriatric psychopharmacology and treatment response in the selection and management of somatic therapies",
+          "Integrates behavioral and environmental setting intervention appropriately with other treatment modalities"
+        ],
+        "level_2": [
+          "Establishes and maintains a therapeutic alliance and professional boundaries while providing psychotherapies to patients with uncomplicated problems",
+          "Integrates the selected psychotherapy with other treatment modalities and other providers of care",
+          "Explains less common somatic treatment choices to patients and patient families in terms of proposed mechanisms of action"
+        ],
+        "level_3": [
+          "Applies knowledge of the geriatric psychopharmacology principles",
+          "Provides behavioral and environmental interventions when clinically appropriate",
+          "Integrates emerging studies of geriatric therapeutic modalities into clinical practice"
+        ],
+        "level_4": [
+          "Establishes and maintains a therapeutic alliance with older adults",
+          "Selects and manages appropriate psychopharmacologic and other somatic treatment options in patients with significant medical comorbidities and treatment refractory disorders"
+        ],
+        "level_5": [
+          "Identifies behavioral and environmental factors that impact psychiatric presentations",
+          "Selects a psychotherapeutic modality and tailors the selected psychotherapy to the patient based on an appropriate case formulation"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_pc4",
+      "number": 4,
+      "name": "Treatment Planning and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Establishes treatment goals with the patient",
+          "Recognizes the cultural factors and social determinants of health impacting the care of geriatric patients",
+          "Consistently identifies and manages patient safety issues and comorbid substance use and medical conditions while utilizing consultation for refractory cases or complicated cases"
+        ],
+        "level_2": [
+          "Recognizes geriatric patient in crises, acute, or chronic presentation of psychiatric and medical conditions",
+          "Devises and modifies, as needed, individualized patient-centered treatment plans for common presentations",
+          "Provides comprehensive management of multiple and complex conditions, while addressing social determinants of health"
+        ],
+        "level_3": [
+          "Recognizes cultural factors and social determinants of health impacting the care of all patients",
+          "Manages patients’ comorbid conditions, such as substance use and medical problems related to the psychiatric presentation, treatment, and prognosis, utilizing consultation services",
+          "Supervises treatment planning of other learners and multidisciplinary care practitioners"
+        ],
+        "level_4": [
+          "Identifies additional disciplines to address treatment goals specific to the needs of a geriatric patient",
+          "Provides sensitive and culturally aware care to socioeconomically disadvantaged patients",
+          "Creates and leads a comprehensive patient - centered management plan for the patient with highly complex conditions, safety issues, medical, and substance use comorbidities"
+        ],
+        "level_5": [
+          "Manages geriatric patient in crises, acute, or chronic presentation with supervision using appropriate interventions",
+          "Integrates multiple modalities in a comprehensive approach to provide patient-centered treatment plans for complex presentations",
+          "Creates and leads a comprehensive patient- centered management plan for multiple conditions while addressing social determinants of health"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_pc5",
+      "number": 5,
+      "name": "Telepsychiatry",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses the EHR for routine patient care activities",
+          "Adjusts interview and cognitive evaluation to address technological difficulties and patient needs and preferences"
+        ],
+        "level_2": [
+          "Describes potential benefits, challenges, and appropriate clinical usage of telehealth visits for older adults",
+          "Supports an interdisciplinary care team through the use of the EHR and asynchronous communication"
+        ],
+        "level_3": [
+          "Accesses secondary data sources for use in patient care activities",
+          "Recognizes and evaluates complex physical and mental status exam findings via video visit"
+        ],
+        "level_4": [
+          "Performs assigned telehealth visits using approved technology, including establishing therapeutic alliance and, obtaining basic history and mental status exam",
+          "Leads improvements to the EHR"
+        ],
+        "level_5": [
+          "Effectively manages therapeutic relationship through virtual environment and asynchronous communication",
+          "Develops and innovates new ways to use emerging technologies to augment telehealth visits"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_mk1",
+      "number": 6,
+      "name": "Development through Later Life",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes physiological changes associated with normal aging and developmental theories of later life",
+          "Demonstrates basic knowledge of the role of cultural context and social determinants in later life",
+          "Analyzes and discusses the influence of pathological and environmental factors on later life"
+        ],
+        "level_2": [
+          "Describes the influence of biological, psychosocial, and cultural factors on personality development",
+          "Identifies major deviations from typical later-life development",
+          "Evaluates the impact of life events, functional change, and general medical health on the expression of psychopathology in later life"
+        ],
+        "level_3": [
+          "Describes common life events, functional change, and general medical conditions occurring in later life",
+          "Describes the impact of pathological and environmental factors on later life",
+          "Incorporates new scientific knowledge into understanding of later- life development"
+        ],
+        "level_4": [
+          "Applies developmental theories to explain transitions in later life",
+          "Describes the impact of cultural context and social determinants on mental health conditions occurring in later life."
+        ],
+        "level_5": [
+          "Identifies pathological and environmental factors that commonly occur in later life and may impact later-life development",
+          "Incorporates knowledge of later-life development into the clinical formulation"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_mk2",
+      "number": 7,
+      "name": "Psychopathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates sufficient knowledge to identify and treat most psychiatric conditions throughout the life cycles",
+          "Selects relevant screening and evaluation tools to identify geriatric psychiatric conditions in the general medical patient population",
+          "Determines the appropriate level of care for functionally or neurocognitively impaired patients"
+        ],
+        "level_2": [
+          "Identifies risk and protective factors for danger to oneself and/or others across the life cycle",
+          "Demonstrates sufficient knowledge to identify and treat complex psychiatric conditions in later life",
+          "Diagnoses complex clinical conditions in geriatric psychiatric patients in collaboration with other clinical disciplines"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of screening and evaluation tools to identify psychiatric conditions in the general medical patient population",
+          "Recognizes the impact of functional and neurocognitive impairments on safety in older adults",
+          "Teaches risk assessment and determination of level of care for geriatric patients"
+        ],
+        "level_4": [
+          "Demonstrates sufficient knowledge to identify and treat common psychiatric conditions in later life",
+          "Recognizes medical conditions in geriatric psychiatry patients in collaboration with other clinical disciplines",
+          "Develops protocols for risk assessment and determination of appropriate level of care in collaboration with other clinical disciplines"
+        ],
+        "level_5": [
+          "Weighs the risk and protective factors in older adults and determines the appropriate level of care",
+          "Synthesizes knowledge to identify and treat atypical and complex psychiatric conditions in later life"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_mk3",
+      "number": 8,
+      "name": "Treatment and Management",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates an evidence-based understanding of psychotropic and somatic treatment modalities for common psychiatric disorders",
+          "Describes the applicable regulations for billing and reimbursement",
+          "Critically appraises the evidence for efficacy of non-pharmacological therapies with and without concomitant pharmacotherapy"
+        ],
+        "level_2": [
+          "Demonstrates an understanding of the basic principles, indications, and contraindications of psychotherapeutic modalities",
+          "Describes evidence- based psychotropic and somatic treatment modalities for complex psychiatric disorders",
+          "Describes how to seek out and integrate new information on the practice of geriatric psychiatry"
+        ],
+        "level_3": [
+          "Describes characteristics of various treatment settings and models of care",
+          "Describes principles of behavioral management and environmental interventions in various clinical care settings",
+          "Incorporates emerging studies and new theoretical developments of geriatric therapeutic modalities into knowledge base"
+        ],
+        "level_4": [
+          "Connects the changes in pharmacokinetics, pharmacodynamics, and physiology of aging to modifications of somatic treatments",
+          "Describes federal and state regulations regarding the care of geriatric psychiatric patients in different clinical care settings",
+          "Demonstrates sufficient knowledge of geriatric therapeutic modalities to teach others effectively"
+        ],
+        "level_5": [
+          "Describes the basic techniques of evidence- based individual psychotherapies and approaches to behavioral disturbances in geriatric patients",
+          "Synthesizes knowledge of geriatric physiology and psychopharmacology for management of somatic therapies"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_sbp1",
+      "number": 9,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes common patient safety events",
+          "Describes quality improvement initiatives (e.g., reduced restraint rates, falls risk, suicide rates)",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Describes process of patient safety event reporting",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Identifies, develops, implements, and analyzes a quality improvement project"
+        ],
+        "level_3": [
+          "Discusses basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to improve systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies factors that lead to patient safety events",
+          "Participates in quality improvement initiatives",
+          "Serve as a role model to others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Leads quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_sbp2",
+      "number": 10,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for their local population",
+          "Effectively manages and advocates for safe transitions of care/hand- offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of their interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional team members",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Effectively coordinates patient-centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_sbp3",
+      "number": 11,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system",
+          "Demonstrates use of information technology and documentation required for medical practice, billing, and coding",
+          "Advocates for patient care needs, including mobilizing community resources"
+        ],
+        "level_2": [
+          "Describes practice models and basic mental health payment systems",
+          "Discusses how individual practice affects the broader system",
+          "Identifies and evaluates practice habits and patterns in preparation for independent practice"
+        ],
+        "level_3": [
+          "Identifies basic concepts for effective transition to fellowship",
+          "Engages with patients in shared decision making and advocates for appropriate care and parity",
+          "Leads systems change that enhances high- value, efficient, and effective patient care and transition of care"
+        ],
+        "level_4": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Demonstrates knowledge of credentialing, certification, licensure, and other regulatory requirements for transition to independent practice",
+          "Participates in advocacy activities for access to care in mental health and reimbursement"
+        ],
+        "level_5": [
+          "Identifies barriers to care in different health care systems",
+          "Manages components of the complex health care system to provide high- value, efficient, and effective patient care and transition of care",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_sbp4",
+      "number": 12,
+      "name": "Elder Law",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Recognizes issues of self-determination and lists criteria for decisional capacity in a patient",
+          "Identifies the occurrence of elder abuse and/or undue influence and initiates management plan, including mandatory reporting"
+        ],
+        "level_2": [
+          "Discusses types of elder abuse, including exploitation, neglect, and physical, emotional, and financial abuse",
+          "Proactively identifies and manages complex issues of patient self- determination and decisional capacity"
+        ],
+        "level_3": [
+          "Recognizes issues of self-determination and decisional capacity in the geriatric patient and identifies the health care decision maker in a patient’s care",
+          "Advocates against elder abuse through collaboration with community programs and state agencies"
+        ],
+        "level_4": [
+          "Recognizes the potential for elder abuse and the role of the physician in addressing these issues",
+          "Conducts educational programs/modules on mental health issues related to elder law"
+        ],
+        "level_5": [
+          "Routinely identifies and manages issues of patient self- determination and decisional capacity",
+          "Conducts assessment in formal investigations of elder abuse"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_pbli1",
+      "number": 13,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and summarize available evidence for routine conditions"
+        ],
+        "level_2": [
+          "Articulates clinical questions and initiates literature searches to provide evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence to the care of patients applying a hierarchy of evidence"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_pbli2",
+      "number": 14,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges one’s own assumptions and considers alternatives in narrowing the gap(s) between their expected and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between one’s expected and actual performance",
+          "Seeks performance data episodically, with openness and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between one’s expected and actual performance",
+          "Role models consistently seeking performance data with openness and humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between one’s expected and actual performance",
+          "Intentionally seeks performance data consistently, with openness and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_prof1",
+      "number": 15,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes core professional behavior",
+          "Analyzes straightforward situations using ethical principles",
+          "Responds appropriately to professionalism lapses of colleagues"
+        ],
+        "level_2": [
+          "Recognizes that one’s behavior in professional settings affects others",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed. (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of core ethical principles",
+          "Describes when and how to appropriately report professionalism lapses in others, including strategies for addressing common barriers to reporting",
+          "Role models professional behavior and ethical principles"
+        ],
+        "level_4": [
+          "Demonstrates professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles and recognizes when help is needed",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Takes responsibility for one’s own professionalism lapses and responds appropriately",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_prof2",
+      "number": 16,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility to complete tasks and responsibilities, identifies potential contributing factors for lapses, and describes strategies for ensuring timely task completion in the future",
+          "Is recognized by oneself, the patient, the patient’s family, and medical staff members as the patient’s primary psychiatrist"
+        ],
+        "level_2": [
+          "Introduces oneself as the patient’s primary psychiatrist",
+          "Recognizes when others are unable to complete tasks and responsibilities in a timely manner and assists in problem solving"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner, with appropriate attention to detail, in routine situations",
+          "Displays increasing autonomy and leadership in taking responsibility for ensuring the patients receive the best possible care"
+        ],
+        "level_4": [
+          "Accepts the role of the patient’s physician and takes responsibility (under supervision) for ensuring the patient receives the best possible care",
+          "Serves as a role model in demonstrating responsibility for ensuring that patients receive the best possible care"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner, with appropriate attention to detail, in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_prof3",
+      "number": 17,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Identifies available resources for personal and professional well- being",
+          "Suggests potential solutions to institutional factors that affect well- being"
+        ],
+        "level_3": [
+          "Describes institutional resources designed to promote well-being",
+          "Creates institutional level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "With assistance, proposes a plan to promote personal and professional well-being",
+          "Implements institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_5": [
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_ics1",
+      "number": 18,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal communication to demonstrate empathic curiosity, respect, and to establish rapport",
+          "Organizes and initiates communication with the patient and patient’s family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Independently recognizes biases and attempts to proactively minimize their contribution to communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication; accurately communicates one’s own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters; uses non- verbal communication skills effectively",
+          "Independently, uses shared decision making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Recognizes communication strategies may need to be adjusted based on clinical context",
+          "When prompted, reflects on biases that may contribute to communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits the patient’s/patient’s family’s values, goals, and preferences; acknowledges uncertainty and conflict",
+          "Role models self- awareness practice while identifying and teaching a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication",
+          "Effectively establishes and sustains therapeutic relationships, with attention to the patient’s/patient’s family’s concerns and context, regardless of complexity",
+          "Role models shared decision making in patient/family communication including those with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_ics2",
+      "number": 19,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the health care team",
+          "Communicates concerns and provides feedback to peers and learners"
+        ],
+        "level_2": [
+          "Recognizes the need for ongoing feedback with the health care team",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Respectfully communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "geriatric_psychiatry_ics3",
+      "number": 20,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Respectfully communicates concerns about the system",
+          "Achieves written or verbal communication that serves as an example for others to follow"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information",
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_3": [
+          "Communicates about administrative issues through appropriate channels, as required by institutional policy",
+          "Appropriately selects forms of communication based on context",
+          "Contributes to departmental or organizational initiatives to improve communication systems"
+        ],
+        "level_4": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders"
+        ],
+        "level_5": [
+          "Uses documentation shortcuts accurately and appropriately to enhance efficiency of communication",
+          "Communicates clearly and concisely, in an organized written form, including anticipatory guidance"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricpsychiatrymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricpsychiatrysupplementalguide.pdf"
+  }
+}

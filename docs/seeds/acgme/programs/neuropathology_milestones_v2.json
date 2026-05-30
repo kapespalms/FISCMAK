@@ -1,0 +1,590 @@
+{
+  "framework_key": "neuropathology",
+  "specialty": "Neuropathology",
+  "version": "2.0",
+  "source": "ACGME Neuropathology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pathology",
+  "parent_name": "Pathology",
+  "subcompetencies": [
+    {
+      "id": "neuropathology_pc1",
+      "number": 1,
+      "name": "Autopsy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs simple extractions, including removal of the brain and spinal cord, with supervision",
+          "Interprets common histologic findings and chooses relevant ancillary testing, with supervision",
+          "Independently leads the brain cutting conference and selects tissue samples in complex cases"
+        ],
+        "level_2": [
+          "Participates in brain cutting conference and identifies basic gross neuroanatomy",
+          "Performs complex extractions, including eye removal, if indicated, with supervision",
+          "Independently interprets histologic findings and chooses relevant ancillary testing"
+        ],
+        "level_3": [
+          "Recognizes microscopic anatomy, as well as normal and abnormal histologic findings",
+          "Leads the brain cutting conference and selects tissue samples in complex cases, with supervision",
+          "Teaches and serves as a consultant for complex extractions"
+        ],
+        "level_4": [
+          "Independently performs simple extractions, including removal of the brain and spinal cord",
+          "Interprets uncommon histologic findings and chooses relevant ancillary testing, with supervision",
+          "Performs complex dissections, modifying techniques according to the needs of the case"
+        ],
+        "level_5": [
+          "Participates in the brain cutting conference and selects tissue samples in simple cases based on gross findings and relevant clinical and imaging data",
+          "Independently performs all aspects of gross evaluation including complex extractions"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_pc2",
+      "number": 2,
+      "name": "Surgical Neuropathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs gross examination, description, and sampling of simple neurosurgical specimens; ensures and maintains the integrity of specimens",
+          "Independently performs histologic examination, identifies confounding factors, orders ancillary testing, and makes a diagnosis for simple cases"
+        ],
+        "level_2": [
+          "Recognizes normal histology of central and peripheral nervous system and broad diagnostic categories",
+          "Independently performs gross examination, description, and sampling of complex neurosurgical specimens, and prepares nerve and muscle specimens"
+        ],
+        "level_3": [
+          "Performs gross examination, description, and sampling, of complex neurosurgical specimens and prepares nerve and muscle specimens, with supervision",
+          "Independently performs histologic examination, identifies confounding factors, orders relevant ancillary testing, and makes a diagnosis for complex or challenging cases"
+        ],
+        "level_4": [
+          "Performs histologic examination, orders ancillary testing, and makes a diagnosis for simple cases, with supervision",
+          "Designs novel approaches to complex specimens through collaboration with other members of the health care team"
+        ],
+        "level_5": [
+          "Independently performs gross examination, description, and sampling, of simple neurosurgical specimens",
+          "Serves as a consultant for complex or challenging cases"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_pc3",
+      "number": 3,
+      "name": "Intra-Operative Consultation (IOC), including Frozen Section",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies indications and identifies common neurosurgical procedures and recognizes the indications for IOC, frozen section, and cytologic preparations",
+          "Selects tissue for diagnosis and prepares quality slides on simple specimens, in a timely manner",
+          "Selects tissues for diagnosis and prepares quality slides for complex specimens, in a timely manner",
+          "Develops a plan for process improvement in the performance of IOC"
+        ],
+        "level_2": [
+          "Discusses specimen- dependent variability in the approach to IOC",
+          "Interprets and communicates routine",
+          "Independently interprets and communicates routine IOC",
+          "Serves as a consultant for interpreting and communicating IOC"
+        ],
+        "level_3": [
+          "Identifies broad diagnostic categories incorporating all available clinical and imaging data in routine",
+          "IOC, with supervision",
+          "For complex cases, independently manages, prioritizes, and addresses requests for IOC"
+        ],
+        "level_4": [
+          "IOC",
+          "For complex cases, addresses requests for",
+          "Supervises residents and advises technical staff members in the performance of IOC"
+        ],
+        "level_5": [
+          "Assesses requests for simple IOC and plans workflow, with supervision",
+          "IOC with supervision; independently assesses and manages requests for simple IOC and plans workflow",
+          "Independently interprets and communicates IOC for complex cases and uses language of uncertainty, as indicated"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_pc4",
+      "number": 4,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates a timely report for a simple case, with supervision",
+          "Generates comments that include the language of uncertainty, with supervision"
+        ],
+        "level_2": [
+          "Identifies the role of comments in a pathology report",
+          "Independently generates timely integrated reports for complex cases"
+        ],
+        "level_3": [
+          "Generates a timely report that includes synoptic templates and/or ancillary testing for a complex case, with supervision",
+          "Independently generates a nuanced comment that includes the language of uncertainty and complex recommendations"
+        ],
+        "level_4": [
+          "Generates comments and makes simple recommendations",
+          "Independently generates a report that addresses a discordant diagnosis or clinical discrepancy in complex cases"
+        ],
+        "level_5": [
+          "Independently generates timely integrated reports for simple cases"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_mk1",
+      "number": 5,
+      "name": "Diagnostic Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of neuropathology",
+          "Applies advanced knowledge of histochemistry, immunohistochemistry, and molecular techniques"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of histochemistry, immunohistochemistry, and molecular techniques",
+          "Applies advanced knowledge of the neuropathology of uncommon neoplastic and non-neoplastic diseases, with reference to literature"
+        ],
+        "level_3": [
+          "Demonstrates advanced knowledge of the neuropathology of common neoplastic and non-neoplastic diseases",
+          "Integrates advanced knowledge of histochemistry, immunohistochemistry, and molecular techniques with reference to literature, in nuanced diagnoses"
+        ],
+        "level_4": [
+          "Demonstrates advanced knowledge of histochemistry, immunohistochemistry, and molecular techniques",
+          "Demonstrates expertise in neuropathology to a multidisciplinary team"
+        ],
+        "level_5": [
+          "Applies advanced knowledge of the neuropathology of uncommon neoplastic and non-neoplastic diseases",
+          "Demonstrates expertise in histochemistry, immunohistochemistry, and molecular techniques"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_mk2",
+      "number": 6,
+      "name": "Neuropathology Instruction",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Presents at interdisciplinary conference, with supervision"
+        ],
+        "level_2": [
+          "Leads instruction of basic neuropathology concepts"
+        ],
+        "level_3": [
+          "Independently presents at interdisciplinary conference"
+        ],
+        "level_4": [
+          "Leads instruction of advanced neuropathology concepts"
+        ],
+        "level_5": [
+          "Independently designs and develops enduring instructional materials"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_mk3",
+      "number": 7,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic framework for clinical reasoning",
+          "Seeks and integrates evidence-based information to inform diagnostic decision making in complex cases, with supervision"
+        ],
+        "level_2": [
+          "Identifies resources to inform clinical reasoning",
+          "Independently synthesizes information to inform clinical reasoning in complex cases"
+        ],
+        "level_3": [
+          "Demonstrates clinical reasoning to determine relevant information",
+          "Independently seeks out, analyzes, and applies relevant original research to diagnostic decision making in complex clinical cases"
+        ],
+        "level_4": [
+          "Selects relevant resources based on scenario to inform decisions",
+          "Serves as a resource for resolving difficult differential diagnoses"
+        ],
+        "level_5": [
+          "Synthesizes information to inform clinical reasoning, with supervision"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_sbp1",
+      "number": 8,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes departmental and institutional QI initiatives",
+          "Discloses patient safety events to clinicians and/or patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a QI project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic QI methodologies and metrics",
+          "Participates in disclosure of patient safety events to clinicians and/or patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in departmental and institutional QI initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses QI initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_sbp2",
+      "number": 9,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of case coordination",
+          "Identifies pathology’s role in population and community health needs for the local population",
+          "Models and advocates for safe and effective transitions of care/hand- offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients/specimens in complex cases, effectively using interprofessional teams",
+          "Recommends and/or participates in changing and adapting practice to provide for the needs of communities and populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients/specimens in routine cases, effectively using interprofessional teams",
+          "Identifies opportunities for pathology to participate in community and population health",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine situations",
+          "Models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_sbp3",
+      "number": 10,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Engages with clinicians and/or patients in shared decision making, such as use of preauthorization for complex testing"
+        ],
+        "level_2": [
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Practices and advocates for cost effective patient care with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Documents testing detail and explains the impact of documentation on billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., test use, turnaround time)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_sbp4",
+      "number": 11,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge that laboratories must be accredited",
+          "Interprets quality data and charts and trends, including proficiency testing results, with assistance",
+          "Reviews the quality management plan to identify areas for improvement"
+        ],
+        "level_2": [
+          "Discusses the need for quality control and proficiency testing",
+          "Identifies the differences between accreditation and regulatory compliance; discusses the process for achieving accreditation and maintaining regulatory compliance",
+          "Performs analysis and review of proficiency testing failures and recommends a course of action, with oversight"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the components of laboratory accreditation and regulatory compliance (e.g., Clinical",
+          "Demonstrates knowledge of the components of a laboratory quality management plan",
+          "Serves as a resource for accreditation at the regional or national level"
+        ],
+        "level_4": [
+          "Laboratory Improvement",
+          "Discusses implications of proficiency testing failures",
+          "Creates and follows a comprehensive quality management plan"
+        ],
+        "level_5": [
+          "Amendments), either through training or experience",
+          "Participates in an internal or external laboratory inspection",
+          "Independently formulates a response for proficiency testing failures"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_sbp5",
+      "number": 12,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general neuropathology work practices and workflow (e.g., molecular diagnostic, histology, immunohistochemistry stains, chemical tests)"
+        ],
+        "level_2": [
+          "Explains rationale for utilization patterns in own practice setting"
+        ],
+        "level_3": [
+          "Identifies opportunities to optimize utilization of pathology resources"
+        ],
+        "level_4": [
+          "Initiates efforts to optimize utilization"
+        ],
+        "level_5": [
+          "Completes a utilization review and implements change"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_pbli1",
+      "number": 13,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and select applicable evidence",
+          "Identifies and applies the best available evidence to guide diagnostic work-up of complex cases",
+          "Suggests improvements to research regulations and/or substantially contributes to the primary literature through basic, translational, or clinical research"
+        ],
+        "level_2": [
+          "Is aware of the need for patient privacy, autonomy, and consent as applied to clinical research",
+          "Applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice, with supervision"
+        ],
+        "level_3": [
+          "Identifies and applies the best available evidence to guide diagnostic work-up of simple cases",
+          "Critically appraises and applies evidence to guide care, even in the face of conflicting data"
+        ],
+        "level_4": [
+          "Develops knowledge of the basic principles of research (demographics, Institutional Review",
+          "Proactively and consistently applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice"
+        ],
+        "level_5": [
+          "Board, human subjects), including how research is evaluated, explained to patients, and applied to patient care",
+          "Teaches others to critically appraise and apply evidence for complex cases and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_pbli2",
+      "number": 14,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with supervision",
+          "Critically evaluates the effectiveness of behavioral changes in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the gap(s) between expectations and actual performance",
+          "Seeks performance data and feedback with humility",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models seeking performance data and accepting feedback with humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to receiving performance data and feedback in order to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others in reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Actively and consistently seeks performance data and feedback with humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_prof1",
+      "number": 15,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Demonstrates professional behavior in complex or stressful situations"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers; identifies and describes potential triggers for professionalism lapses",
+          "Independently resolves and manages complex ethical situations"
+        ],
+        "level_3": [
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations; takes responsibility for own professionalism lapses",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Recognizes the need and uses relevant resources to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_prof2",
+      "number": 16,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to instructions, requests, or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Takes ownership and performs tasks and responsibilities in a timely manner with attention to detail"
+        ],
+        "level_3": [
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner and describes the impact on team"
+        ],
+        "level_4": [
+          "Anticipates and intervenes in situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of system outcomes, and implements new strategies when necessary"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_prof3",
+      "number": 17,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in the knowledge/skills/ behaviors of self or team, with assistance",
+          "Proposes and implements a plan to optimize personal and professional well-being, with assistance"
+        ],
+        "level_2": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "Independently develops and implements a plan to remediate or improve the knowledge/skills/ behaviors of self or team"
+        ],
+        "level_3": [
+          "Independently recognizes limitations in the knowledge/skills/ behaviors of self or team and seeks help when needed",
+          "Independently develops and implements a plan to optimize personal and professional well- being"
+        ],
+        "level_4": [
+          "Independently recognizes status of personal and professional well-being and seeks help when needed",
+          "Serves as a resource or consultant for developing a plan to remediate or improve the knowledge/ skills/behaviors"
+        ],
+        "level_5": [
+          "Proposes and implements a plan to remediate or improve the knowledge/ skills/behaviors of self or team, with assistance",
+          "Coaches others when responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_ics1",
+      "number": 18,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Independently, sensitively, and compassionately delivers medical information and acknowledges uncertainty and conflict"
+        ],
+        "level_3": [
+          "Establishes a relationship in straightforward encounters using active listening and clear language",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Mentors others in the sensitive and compassionate delivery of medical information"
+        ],
+        "level_5": [
+          "Sensitively and compassionately delivers medical information, with supervision",
+          "Models self-awareness while teaching a contextual approach to minimize communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_ics2",
+      "number": 19,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the health care team",
+          "Integrates feedback from team members to improve communication"
+        ],
+        "level_2": [
+          "Describes the utility of constructive feedback",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "neuropathology_ics3",
+      "number": 20,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient personal health information by communicating through appropriate means as required by institutional policy (e.g., patient safety reports, cell phone/pager usage)",
+          "Uses institutional structure to effectively communicate clear and constructive suggestions to improve the system"
+        ],
+        "level_2": [
+          "Identifies institutional and departmental structure for communication of issues",
+          "Independently communicates while ensuring security of personal health information"
+        ],
+        "level_3": [
+          "Selects forms of communication based on context and urgency of the situation",
+          "Initiates conversations on difficult subjects with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the system",
+          "Guides departmental or institutional communication around policies and procedures regarding the security of personal health information"
+        ],
+        "level_5": [
+          "Communicates while ensuring security of personal health information, with supervision",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuropathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuropathologysupplementalguide.pdf"
+  }
+}

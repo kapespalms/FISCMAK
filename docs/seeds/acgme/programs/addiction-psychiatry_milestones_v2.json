@@ -1,0 +1,517 @@
+{
+  "framework_key": "addiction-psychiatry",
+  "specialty": "Addiction Psychiatry",
+  "version": "2.0",
+  "source": "ACGME Addiction Psychiatry Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "psychiatry",
+  "parent_name": "Psychiatry",
+  "subcompetencies": [
+    {
+      "id": "addiction_psychiatry_pc1",
+      "number": 1,
+      "name": "Evaluation and Diagnosis of the Patient with Addiction or Co-Occurring Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs biopsychosocial history and targeted examination, including assessment for patient safety and risk of self and other harm, intoxication, and overdose",
+          "Incorporates collateral information, other assessments, subtle findings, and conflicting information into a complete differential diagnosis"
+        ],
+        "level_2": [
+          "Organizes, summarizes information, and develops a differential diagnosis",
+          "Performs comprehensive patient evaluation, including patients with complex presentations"
+        ],
+        "level_3": [
+          "Incorporates biopsychosocial history, examination, lab, and collateral data into patient evaluation",
+          "Uses all available information to generate a complete and accurate differential diagnosis; takes steps to resolve apparent inconsistencies, and continuously reassesses the diagnosis"
+        ],
+        "level_4": [
+          "Organizes and accurately summarizes information, and develops a differential diagnosis while avoiding premature closure",
+          "Provides a significant contribution in education or scholarly work in the evaluation of patients with substance use and addictive disorders (e.g., teaches a course, research, publication)"
+        ],
+        "level_5": [
+          "Performs comprehensive patient evaluation of routine patient presentation, including interpretation of toxicology testing",
+          "Provides a significant contribution in education or scholarly work in differential diagnosis and diagnostic criteria"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_pc2",
+      "number": 2,
+      "name": "Psychotherapy, Behavioral, and Psychosocial Interventions in Substance Use and Addictive Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Establishes and maintains a therapeutic alliance and provides appropriate psychotherapy",
+          "Incorporates co- occurring medical and psychiatric disorders into a comprehensive individualized treatment plan"
+        ],
+        "level_2": [
+          "Sets treatment goals in collaboration with the patient, including community resources",
+          "Delivers various types of evidence-based psychotherapy"
+        ],
+        "level_3": [
+          "Uses current practice guidelines in evaluation and psychotherapeutic treatment",
+          "Develops comprehensive, individualized treatment plans for patients with complex presentations"
+        ],
+        "level_4": [
+          "Develops comprehensive, individualized treatment plans with patients to treat uncomplicated substance use and addictive disorders",
+          "Competently teaches at least one evidence- based psychotherapy to other learners or contributes to scholarly work in psychotherapy for substance use and addictive disorders"
+        ],
+        "level_5": [
+          "Participates in the delivery of evidence- based psychotherapy"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_pc3",
+      "number": 3,
+      "name": "Pharmacological Interventions for Substance Use and Addictive Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Appropriately prescribes commonly used psychopharmacologic agents and recognizes patients with acute intoxication or withdrawal",
+          "Incorporates co- occurring medical and psychiatric disorders into a comprehensive individualized treatment plan, including psychopharmacology"
+        ],
+        "level_2": [
+          "Sets treatment goals in collaboration with the patient, including general indications, dosing parameters, and common side effects for prescribed psychopharmacologic agents",
+          "Titrates dosages; manages side effects and complex drug interactions for patients prescribed multiple medications; and manages complex intoxication, withdrawal, and long-term management"
+        ],
+        "level_3": [
+          "Appropriately prescribes pharmacologic agents for substance use and addictive disorders, including for the management of intoxication and withdrawal states",
+          "Develops comprehensive, individualized treatment plans, including psychopharmacology, for patients with complex presentations"
+        ],
+        "level_4": [
+          "Develops comprehensive, individualized treatment plans, including psychopharmacology, for patients with uncomplicated substance use and addictive disorders",
+          "Contributes significantly to education or scholarly work in psychopharmacology for substance use and addictive disorders"
+        ],
+        "level_5": [
+          "Manages pharmacokinetic and pharmacodynamic drug interactions for patients prescribed multiple medications and/or using non-prescribed substances"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_mk1",
+      "number": 4,
+      "name": "Clinical Neuroscience of Substance Use and Addictive Disorders",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes neurobiological and genetic hypotheses of common psychiatric disorders",
+          "Describes the neuropharmacology and mechanisms of action of agents used for treatment of addictive disorders",
+          "Teaches others about the neuropharmacology of addictive substances"
+        ],
+        "level_2": [
+          "Describes the categories of common and uncommon addictive substances",
+          "Describes the basic and neurophysiology related to the pathophysiology of addictive disorders",
+          "Integrates knowledge of neuropharmacology into selection of appropriate agents for patients"
+        ],
+        "level_3": [
+          "Describes the general indications and common side effects for commonly prescribed psychopharmacologic agents for addictive disorders",
+          "Describes the detailed neuropharmacology of all classes of addictive substances, including emerging addictive substances",
+          "Designs a neuroscience course focusing on substance use and addictive disorders"
+        ],
+        "level_4": [
+          "Describes the basic neuroanatomy of addictive disorders",
+          "Demonstrates understanding of the detailed mechanisms of action and side effects of pharmacologic agents for addictive disorders, including the potential for medication interactions",
+          "Participates in a scholarly activity related to the neuroscience or neuropharmacology of addiction"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of the basic principles of the neuropharmacology of common addictive substances",
+          "Incorporates the latest research findings into discussions of the neuroscience of addictive disorders"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_mk2",
+      "number": 5,
+      "name": "Psychopathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of risk factors that contribute to the development of substance use and addictive disorders",
+          "Describes the medical effects of addictive substances and psychiatric comorbidity",
+          "Applies current practice guidelines for the treatment of substance use and addictive disorders"
+        ],
+        "level_2": [
+          "Describes appropriate criteria to determine the necessary level of care for patients",
+          "Describes the developmental trajectories of substance use and addictive disorders",
+          "Demonstrates advanced knowledge sufficient to treat patients with complex medical, psychiatric, and addictive co-occurring disorders"
+        ],
+        "level_3": [
+          "Demonstrates sufficient knowledge to perform initial evaluations of patients with medical, psychiatric, and substance use and addictive disorders",
+          "Consistently applies appropriate criteria to determine necessary level of care for patients",
+          "Teaches others about or engages in research on biological, environmental, social, and psychological factors that contribute to the development of substance use and addictive disorders"
+        ],
+        "level_4": [
+          "Describes biological, social, psychological, and epidemiological factors that contribute to or protect against the development of substance use and addictive disorders",
+          "Applies knowledge of addictive and co- occurring conditions in patients with medical and psychiatric disorders",
+          "Teaches others about or engages in research related to level of care and treatment guidelines"
+        ],
+        "level_5": [
+          "Incorporates risk of morbidity and mortality from substance use in describing the appropriate level of care for patients",
+          "Applies knowledge of the biological, environmental, social, psychological, and epidemiological factors that contribute to the development of substance use and addictive disorders",
+          "Teaches others about or engages in research related to the interface of medical, psychiatric, and substance use and addictive disorders"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_mk3",
+      "number": 6,
+      "name": "Psychotherapy, Behavioral, and Psychosocial Treatments, including Individual Therapies, Group",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists the currently available non- pharmacologic treatment modalities for substance use and addictive disorders"
+        ],
+        "level_2": [
+          "Describes basic theoretical principles, components, and techniques for the use of several non- pharmacologic treatments for substance use and addictive disorders"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the evidence base for non- pharmacological treatments for substance use and addictive disorders"
+        ],
+        "level_4": [
+          "Demonstrates comprehensive knowledge of the current evidence for non- pharmacological treatments for substance use and addictive disorders"
+        ],
+        "level_5": [
+          "Teaches others or engages in research on the delivery of non- pharmacological treatments for substance use and addictive disorders"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_sbp1",
+      "number": 7,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., reduced infection rates, overdose rates, suicide rates; increased access to evidence- based treatment)",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to improve systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_sbp2",
+      "number": 8,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and serves as a patient advocate for safe and effective transitions of care/hand- offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of the interprofessional teams",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates awareness of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_sbp3",
+      "number": 9,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system",
+          "Demonstrates use of information technology and documentation required for medical practice",
+          "Advocates for patient care needs, including mobilizing community resources"
+        ],
+        "level_2": [
+          "Describes practice models and basic addiction care payment systems",
+          "Discusses how individual practice affects the broader system",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
+        ],
+        "level_3": [
+          "Identifies basic knowledge domains for effective transition to practice",
+          "Engages with patients in shared decision making and advocates for appropriate care and parity",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transitions of care"
+        ],
+        "level_4": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Describes core administrative knowledge needed for transition to practice",
+          "Participates in advocacy activities for access to care in addiction treatment and reimbursement"
+        ],
+        "level_5": [
+          "Identifies barriers to care in different health care systems",
+          "Manages various components of the complex health care system to provide high- value, efficient, and effective patient care and transitions of care",
+          "Educates others to prepare them to transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_pbli1",
+      "number": 10,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and summarize available evidence, and incorporate patient preferences and values, to the care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises conflicting evidence and applies it to guide the care of an individual patient"
+        ],
+        "level_5": [
+          "Mentors others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_pbli2",
+      "number": 11,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with supervision",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data episodically",
+          "Uses performance data to measure the effectiveness of the learning plan, and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Recognizes opportunities to improve performance",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models consistently seeking performance data"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Mentors others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data consistently",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_prof1",
+      "number": 12,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes core professional behavior",
+          "Analyzes straightforward situations using ethical principles",
+          "Responds appropriately to professionalism lapses of colleagues"
+        ],
+        "level_2": [
+          "Recognizes that one’s behavior in professional settings affects others",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of core ethical principles",
+          "Describes when and how to appropriately report professionalism lapses in others, including strategies for addressing common barriers to reporting",
+          "Models professional behavior and ethical principles"
+        ],
+        "level_4": [
+          "Demonstrates professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles and recognizes when help is needed",
+          "Seeks to address issues of lapses in professionalism on a systems level"
+        ],
+        "level_5": [
+          "Takes responsibility for one’s own professionalism lapses and responds appropriately",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_prof2",
+      "number": 13,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Completes tasks and responsibilities",
+          "Is recognized by oneself, the patient, the patient’s family, and medical staff members as the patient’s primary psychiatric addiction care physician"
+        ],
+        "level_2": [
+          "Introduces oneself as the patient’s fellow physician",
+          "Recognizes when others are unable to complete tasks and responsibilities in a timely manner and assists in problem solving"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations; identifies potential contributing factors for lapses; describes strategies for ensuring timely task completion in the future",
+          "Displays increasing autonomy and leadership in ensuring patients receive the best possible care"
+        ],
+        "level_4": [
+          "Accepts the role of the patient’s physician and takes responsibility (under supervision) for ensuring that the patient receives the best possible care",
+          "Provides innovative ideas/plans for improvements to system outcomes"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Serves as a role model in demonstrating responsibility for ensuring that patients receive the best possible care"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_prof3",
+      "number": 14,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Lists available resources for personal and professional well-being",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_3": [
+          "Describes institutional resources designed to promote well-being",
+          "Creates institutional level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "With assistance, proposes a plan to promote personal and professional well-being",
+          "Contributes to institutional programs designed to examine systemic contributors to burnout, or participates in research in this area"
+        ],
+        "level_5": [
+          "Recognizes which institutional factors positively or negatively affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_ics1",
+      "number": 15,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal communication to demonstrate empathic curiosity and respect, and establish rapport",
+          "Organizes and initiates communication with the patient/patient’s family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Independently recognizes biases and attempts to proactively minimize their contribution to communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication",
+          "Establishes a therapeutic relationship in challenging patient encounters; uses non- verbal communication skills effectively",
+          "Independently uses shared decision making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Recognizes communication strategies may need to be adjusted based on clinical context",
+          "When prompted, reflects on biases that may contribute to communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits the patient’s/patient’s family’s values, goals, and preferences; acknowledges uncertainty and conflict",
+          "Models self-awareness practice while identifying and teaching a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication",
+          "Effectively establishes and sustains therapeutic relationships, with attention to the patient’s/patient’s family’s concerns and context, regardless of complexity",
+          "Models shared decision making in communication with the patient/patient’s family, including in situations with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_ics2",
+      "number": 16,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the health care team",
+          "Communicates concerns and provides feedback to peers and learners"
+        ],
+        "level_2": [
+          "Recognizes the need for ongoing feedback with the health care team",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Respectfully communicates feedback and constructive criticism to peers and superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt one’s communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "addiction_psychiatry_ics3",
+      "number": 17,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information and communicates verbally with the rest of the health care team",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_2": [
+          "Communicates about administrative issues through appropriate channels, as required by institutional policy",
+          "Communicates clearly and concisely, in an organized written form, and through verbal communication, including providing anticipatory guidance to others"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes and verbal communication",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the system",
+          "Contributes to departmental or organizational initiatives to improve communication systems"
+        ],
+        "level_5": [
+          "Concisely and appropriately reports diagnostic and therapeutic reasoning in the patient record and through verbal communication",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrysupplementalguide.pdf"
+  }
+}

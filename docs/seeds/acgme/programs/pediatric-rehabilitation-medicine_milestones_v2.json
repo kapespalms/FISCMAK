@@ -1,0 +1,632 @@
+{
+  "framework_key": "pediatric-rehabilitation-medicine",
+  "specialty": "Pediatric Rehabilitation Medicine",
+  "version": "2.0",
+  "source": "ACGME Pediatric Rehabilitation Medicine Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "physical-medicine-and-rehabilitation",
+  "parent_name": "Physical Medicine and Rehabilitation",
+  "subcompetencies": [
+    {
+      "id": "pediatric_rehabilitation_medicine_pc1",
+      "number": 1,
+      "name": "History for Pediatric Rehabilitation Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires and presents a basic pediatric physiatric history, including medical, functional, and psychosocial elements"
+        ],
+        "level_2": [
+          "Acquires and presents a comprehensive pediatric physiatric history identifying all components of functioning, including development, impairments, activities, participation, and contextual factors"
+        ],
+        "level_3": [
+          "Acquires and presents a relevant pediatric physiatric history in a prioritized fashion, integrating components of functioning within the context of development"
+        ],
+        "level_4": [
+          "Elicits and presents key pediatric physiatric history, including subtleties, in a prioritized and efficient fashion across a spectrum of ages and impairments"
+        ],
+        "level_5": [
+          "Role models the effective gathering and presentation of subtle and salient pediatric physiatric history from patients across a spectrum of ages and impairments"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc2",
+      "number": 2,
+      "name": "Physical Examination for Pediatric Rehabilitation Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs and presents a basic pediatric physiatric examination"
+        ],
+        "level_2": [
+          "Performs and presents a comprehensive, developmentally appropriate pediatric physiatric examination"
+        ],
+        "level_3": [
+          "Performs and presents a hypothesis-driven pediatric physiatric examination, with identification of subtle or atypical findings over a spectrum of ages and impairments"
+        ],
+        "level_4": [
+          "Efficiently performs and presents a hypothesis- driven pediatric physiatric examination, with identification of subtle or atypical findings over a spectrum of ages and impairments"
+        ],
+        "level_5": [
+          "Role models a hypothesis-driven pediatric physiatric examination that identifies subtle or atypical findings over a spectrum of ages and impairments"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc3",
+      "number": 3,
+      "name": "Differential Diagnosis of Pediatric Rehabilitation Medicine Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Produces a basic differential diagnosis for common pediatric physiatric disorders and associated conditions"
+        ],
+        "level_2": [
+          "Generates a comprehensive differential diagnosis that includes pediatric physiatric disorders and associated conditions"
+        ],
+        "level_3": [
+          "Develops a focused, age- appropriate differential diagnosis, including pediatric medical conditions and less common conditions"
+        ],
+        "level_4": [
+          "Produces a prioritized differential diagnosis across a spectrum of ages and impairments"
+        ],
+        "level_5": [
+          "Efficiently produces a focused and prioritized differential diagnosis accounting for rare conditions"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc4",
+      "number": 4,
+      "name": "Diagnostic Evaluation of Pediatric Rehabilitation Medicine Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Orders appropriate diagnostic studies for conditions commonly seen in pediatric physiatry (e.g., dysplastic hip), based on established guidelines or consensus",
+          "Orders diagnostic testing and assessment tools based on cost effectiveness and likelihood that results will influence clinical management (e.g., gait analysis)"
+        ],
+        "level_2": [
+          "Orders comprehensive, hypothesis-driven diagnostic studies for conditions commonly seen in pediatric physiatry",
+          "Integrates knowledge of functional goals, results of pediatric assessment tools, and prognosis to optimize patient management"
+        ],
+        "level_3": [
+          "Identifies common pediatric assessment tools and outcome measures",
+          "Streamlines testing for cost effectiveness and minimal patient and family burden"
+        ],
+        "level_4": [
+          "Appropriately prioritizes the sequence and urgency of diagnostic testing, and begins to interpret results to guide further management",
+          "Serves as a resource to others for the implementation of assessment tools and outcome measures"
+        ],
+        "level_5": [
+          "Uses appropriate outcome measures and scales for diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc5",
+      "number": 5,
+      "name": "Medical Management of Pediatric Rehabilitation Medicine Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies and manages general medical conditions and their complications"
+        ],
+        "level_2": [
+          "Identifies and manages complications related to complex medical, neurological, and musculoskeletal disorders"
+        ],
+        "level_3": [
+          "Develops and implements a comprehensive evidence-based treatment plan that anticipates and addresses complications related to medical, neurological, and musculoskeletal disorders"
+        ],
+        "level_4": [
+          "Develops a treatment plan that anticipates and addresses complications across the spectrum of ages (e.g., complications that occur in adulthood from a childhood onset condition)"
+        ],
+        "level_5": [
+          "Role models the development and implementation of a comprehensive treatment plan, including consideration of emerging treatments"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc6",
+      "number": 6,
+      "name": "Rehabilitation/Functional Management of Pediatric Rehabilitation Medicine Patients – Assistive Devices and",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Evaluates patient need for common assistive devices and technologies based on impairment"
+        ],
+        "level_2": [
+          "Evaluates patient need for a full range of assistive devices and technologies based on impairments, accounting for barriers, contraindications, comorbidities, issues related to growth and development, and input from other professionals"
+        ],
+        "level_3": [
+          "Generates a detailed prescription, in consultation with other professionals, for a full range of assistive devices and technologies, including justification and advocacy where needed"
+        ],
+        "level_4": [
+          "Serves as a resource to other professionals for clinical problem solving and functional challenges related to assistive devices and technologies"
+        ],
+        "level_5": [
+          "Involved in research/development of novel assistive devices or technologies"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc7",
+      "number": 7,
+      "name": "Rehabilitation/Functional Management of Pediatric Rehabilitation Medicine Patients – Rehabilitation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prescribes common rehabilitation therapies for children based on impairments"
+        ],
+        "level_2": [
+          "Prescribes common rehabilitation therapies accounting for developmental needs and understanding expected goals"
+        ],
+        "level_3": [
+          "Generates specific therapy prescriptions, targeting for condition- specific goals and precautions"
+        ],
+        "level_4": [
+          "Monitors and adjusts the therapy interventions based on previous results and reassessment"
+        ],
+        "level_5": [
+          "Participates in research and development of novel therapy interventions"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pc8",
+      "number": 8,
+      "name": "Procedural Skills in Pediatric Rehabilitation Medicine",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic understanding of indications for various spasticity procedures in pediatric patients",
+          "Modifies procedures to accommodate patient’s impairments and minimize discomfort; consistently performs procedures without attending direction"
+        ],
+        "level_2": [
+          "Performs procedures with hands-on assistance",
+          "Troubleshoots spasticity interventions that are ineffective or when complications arise"
+        ],
+        "level_3": [
+          "Provides basic education to patients and families regarding procedure- specific information and treatment options and obtains informed consent",
+          "Skillfully performs a wide variety of procedures and teaches others in the safe performance of these procedures"
+        ],
+        "level_4": [
+          "Performs procedures with verbal guidance",
+          "Effectively uses spasticity procedures in complex clinical scenarios"
+        ],
+        "level_5": [
+          "Selects spasticity procedures based on individual condition; provides in-depth education to patients and families regarding procedure-specific information and treatment options",
+          "Develops a curriculum"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_mk1",
+      "number": 9,
+      "name": "Physiatric Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of complex pediatric medical conditions and basic preventive care"
+        ],
+        "level_2": [
+          "Synthesizes physiatric knowledge of common pediatric rehabilitation disorders, secondary conditions, treatment options, and complications"
+        ],
+        "level_3": [
+          "Synthesizes physiatric knowledge of complex pediatric rehabilitation disorders, secondary conditions, treatment options, and complications"
+        ],
+        "level_4": [
+          "Integrates physiatric knowledge into practice across a spectrum of ages, impairments, educational and clinical scenarios"
+        ],
+        "level_5": [
+          "Serves as a resource for others for new and emerging concepts and investigation relevant to foundational principles of physiatric practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_mk2",
+      "number": 10,
+      "name": "Growth and Development",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic growth and developmental milestones",
+          "Applies knowledge of developmental trajectory to provide a functional prognosis"
+        ],
+        "level_2": [
+          "Recognizes atypical growth or development (e.g., recognition of persistent primitive reflexes)",
+          "Synthesizes the knowledge of anatomy and physiology in the context of prevention and treatment (e.g., use of practice guidelines for osteopenia and hip dysplasia in cerebral palsy)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of anatomy and physiology related to growth (e.g., bladder volume, skeletal immaturity, pubertal maturation)",
+          "Collaborates on the development of practice guidelines or educational resources for clinicians in the area of growth and development"
+        ],
+        "level_4": [
+          "Recognizes influence of development and impairment level on current functional capabilities"
+        ],
+        "level_5": [
+          "Applies knowledge of pathophysiology to the growth and development of a child (e.g., precocious puberty in brain disorders, hip dysplasia with cerebral palsy)"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_sbp1",
+      "number": 11,
+      "name": "Patient Safety in Pediatric Rehabilitation",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_sbp2",
+      "number": 12,
+      "name": "Quality Improvement in Pediatric Rehabilitation",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes quality improvement initiatives"
+        ],
+        "level_3": [
+          "Participates in quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_sbp3",
+      "number": 13,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates understanding and knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across different levels of health care and settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively collaborating with members of the interprofessional teams",
+          "Participates in changing and adapting practice to provide accessible and quality care for specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional team members",
+          "Uses local resources effectively to meet the needs of the local population and community to minimize health care barriers",
+          "Leads quality improvement of transitions of care within and across different levels of health care and settings to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different professions and specialties",
+          "Leads innovations and advocacy in partnership with populations and communities experiencing health care barriers to make sustainable improvements"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_sbp4",
+      "number": 14,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the health care system, including the various venues for post-acute care",
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_2": [
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Analyzes individual practice patterns and professional requirements in preparation for independent practice"
+        ],
+        "level_3": [
+          "Identifies basic knowledge domains for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Engages with patients and families in shared decision making, informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient and effective patient care and transition of care"
+        ],
+        "level_4": [
+          "Describes how components of a health care system are interrelated, and how this impacts patient care",
+          "Describes core administrative knowledge needed for transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_5": [
+          "Identifies care plan that is compatible with each patient’s payment model (e.g., insurance type) and obstacles for delivery",
+          "Navigates the various components of the health care system to provide efficient and effective patient care and transition of care",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pbli1",
+      "number": 15,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access available evidence"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_pbli2",
+      "number": 16,
+      "name": "Reflective Practice and Commitment to Professional Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for professional development",
+          "Designs and implements a learning plan, with guidance",
+          "Uses data to measure the effectiveness of the learning plan to address performance gaps and modifies accordingly"
+        ],
+        "level_2": [
+          "Identifies and/or acknowledges gaps between expectations and actual performance",
+          "Seeks and incorporates verbal feedback and other performance data intermittently, in an open and reflective manner",
+          "Role models consistent incorporation of verbal feedback and other performance data"
+        ],
+        "level_3": [
+          "Identifies opportunities to improve",
+          "Institutes behavioral changes to narrow performance gaps",
+          "Mentors others on reflective practice, including the design and implementation of learning plans"
+        ],
+        "level_4": [
+          "Demonstrates openness to verbal feedback and other performance data",
+          "Independently designs and implements a learning plan"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors which contribute to performance gaps",
+          "Seeks and incorporates verbal feedback and other performance data consistently, with humility and adaptability"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_prof1",
+      "number": 17,
+      "name": "Ethical Practice",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Approaches clinical care and educational duties with actions consistent with core ethical principles"
+        ],
+        "level_2": [
+          "Demonstrates consistent application of ethical principles in routine clinical practice, such as informed consent, surrogate decision making, advance directives, confidentiality, error reporting and disclosure, and stewardship of limited resources"
+        ],
+        "level_3": [
+          "Recognizes tensions between conflicting ethical principles in complex situations and seeks appropriate guidance to help resolve ethical dilemmas"
+        ],
+        "level_4": [
+          "Manages ethical dilemmas, using appropriate resources as needed to facilitate resolution (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_5": [
+          "Serves as a resource for others to resolve complex ethical dilemmas"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_prof2",
+      "number": 18,
+      "name": "Professional Behaviors",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Describes when and how to appropriately report lapses",
+          "Takes remedial action to address lapses when applicable"
+        ],
+        "level_2": [
+          "Identifies professionalism lapses in oneself and others",
+          "Demonstrates professional behavior in all situations, including during times of stress"
+        ],
+        "level_3": [
+          "Demonstrates professional behavior in routine situations",
+          "Proactively intervenes to prevent lapses"
+        ],
+        "level_4": [
+          "Takes responsibility for one’s own professionalism lapses when applicable and identifies contributing factors",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Anticipates situations that may trigger professionalism lapses",
+          "Addresses system issues to minimize potential for professionalism lapses"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_prof3",
+      "number": 19,
+      "name": "Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete responsibilities"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ],
+        "level_4": [
+          "Proactively implements strategies to ensure that the needs of persons, teams, and systems are met in a timely manner"
+        ],
+        "level_5": [
+          "Coaches others to optimize timely task completion"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_prof4",
+      "number": 20,
+      "name": "Patient Care Etiquette with Patients of All Abilities",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the need to respect the dignity of all people regardless of impairments or disabilities"
+        ],
+        "level_2": [
+          "Demonstrates specific elements of verbal and physical communication that reflect respect for people with impairments or disabilities"
+        ],
+        "level_3": [
+          "Proactively maintains pediatric patient’s comfort and dignity during clinical encounters for those with mild impairments or disabilities"
+        ],
+        "level_4": [
+          "Proactively maintains pediatric patient’s comfort and dignity during clinical encounters for those with severe impairments or disabilities"
+        ],
+        "level_5": [
+          "Serves as a role model and resource by coaching others in behaviors and actions that optimize the comfort, dignity, and respect of people with impairments or disabilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_prof5",
+      "number": 21,
+      "name": "Well-Being and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of personal and professional well-being, with assistance"
+        ],
+        "level_2": [
+          "Independently recognizes status of personal and professional well-being and demonstrates appropriate help-seeking behaviors"
+        ],
+        "level_3": [
+          "With assistance, proposes, implements, and refines a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Independently develops, implements, and refines a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Coaches others and addresses system barriers and facilitators to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_ics1",
+      "number": 22,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with the patient/patient’s family by clarifying expectations and verifying understanding of the clinical situation",
+          "Overcomes biases while proactively minimizing communication barriers"
+        ],
+        "level_2": [
+          "Minimizes common barriers to effective communication (e.g., language, disability)",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Independently uses shared decision making to align patient/patient’s family values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Accurately communicates own role within the health care system",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in developing positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient/patient’s family values, goals, and preferences, and acknowledges uncertainty and conflict",
+          "Role models self- awareness practice while teaching a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Minimizes complex barriers to effective communication (e.g., health literacy), but has limited awareness of potential biases",
+          "Easily establishes therapeutic relationships, with attention to patient/patient’s family concerns and context, regardless of complexity",
+          "Practices skills including compassion and empathy for shared decision making in patient/patient’s family communication including those with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_ics2",
+      "number": 23,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses respectful language that values all members of the health care team"
+        ],
+        "level_2": [
+          "Communicates information effectively with all health care team members"
+        ],
+        "level_3": [
+          "Identifies the need to adapt communication style, as needed, to fit team needs"
+        ],
+        "level_4": [
+          "Implements recommendations and communication from different members of the health care team to optimize patient care"
+        ],
+        "level_5": [
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_rehabilitation_medicine_ics3",
+      "number": 24,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates organized and complete clinical, diagnostic and therapeutic reasoning through notes in the patient record",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of appropriate channels of communication within the institution (e.g., pager callback, timely response to emails)",
+          "Independently documents information in compliance with current regulatory health system requirements (e.g., Centers for Medicare and Medicaid Services, Joint Commission, institutional requirements)"
+        ],
+        "level_3": [
+          "Regularly updates the medical record, communicating clinical reasoning as care evolves (e.g., on-call evaluations, patient preferences, team/family meetings, conflict resolution, and advanced directives)",
+          "Produces written or verbal communication that serves as an example for others to follow"
+        ],
+        "level_4": [
+          "Communicates through appropriate channels as required by institutional policy (e.g., patient safety reports)",
+          "Serves as an expert resource in communication technology"
+        ],
+        "level_5": [
+          "Demonstrates effective and timely integration and dissemination of information among all available sources to facilitate patient-centered care, including anticipatory recommendations",
+          "Guides departmental or institutional communication around policies and procedures"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrehabilitationmedicinemilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrehabilitationmedicinesupplementalguide.pdf"
+  }
+}

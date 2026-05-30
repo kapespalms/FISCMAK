@@ -3,1623 +3,688 @@
   "specialty": "Plastic Surgery",
   "version": "2.0",
   "source": "ACGME Plastic Surgery Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "plastic-surgery",
+  "parent_name": "Plastic Surgery",
   "subcompetencies": [
     {
       "id": "plastic_surgery_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Fractures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Develops a treatment",
-          "plan for a simple",
-          "fracture, with assistance",
-          "Performs simple fracture",
-          "care, with assistance",
-          "Identifies patients with an",
-          "abnormal post-operative",
-          "course",
-          "Develops a treatment plan"
+          "Develops a treatment plan for a simple fracture, with assistance",
+          "Manages simple complications",
+          "Performs critical aspects of complex fracture care"
         ],
         "level_2": [
-          "for a simple fracture",
-          "Performs simple fracture",
-          "care",
-          "Manages simple",
-          "complications",
-          "Develops a treatment plan",
-          "for a moderately complex",
-          "fracture",
-          "Performs critical aspects"
+          "Performs simple fracture care, with assistance",
+          "Develops a treatment plan for a moderately complex fracture",
+          "Performs surgical management for routine complications"
         ],
         "level_3": [
-          "of moderately complex",
-          "fracture care",
-          "Identifies and formulates",
-          "a plan for complications",
-          "requiring surgical",
-          "management",
-          "Develops a treatment",
-          "plan for complex",
-          "fractures"
+          "Identifies patients with an abnormal post-operative course",
+          "Performs critical aspects of moderately complex fracture care",
+          "Develops a treatment plan for complex revision surgery"
         ],
         "level_4": [
-          "Performs critical",
-          "aspects of complex",
-          "fracture care",
-          "Performs surgical",
-          "management for routine",
-          "complications",
-          "Develops a treatment plan",
-          "for complex revision",
-          "surgery"
+          "Develops a treatment plan for a simple fracture",
+          "Identifies and formulates a plan for complications requiring surgical management",
+          "Performs complex revision surgery"
         ],
         "level_5": [
-          "Performs complex",
-          "revision surgery",
-          "Performs surgical",
-          "management for complex",
-          "complications"
+          "Performs simple fracture care",
+          "Develops a treatment plan for complex fractures",
+          "Performs surgical management for complex complications"
         ]
       }
     },
     {
       "id": "plastic_surgery_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Microsurgery",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies the need for",
-          "microsurgery and",
-          "develops a treatment",
-          "plan for a simple",
-          "microsurgical case, with",
-          "assistance",
-          "Manages care of a",
-          "straightforward",
-          "microsurgical patient,",
-          "with assistance",
-          "Identifies post-operative"
+          "Identifies the need for microsurgery and develops a treatment plan for a simple microsurgical case, with assistance",
+          "Manages routine post- operative complications",
+          "Performs critical aspects of complex microsurgery"
         ],
         "level_2": [
-          "concerns, including the",
-          "need for surgical",
-          "intervention, with",
-          "assistance",
-          "Develops a treatment plan",
-          "for a simple microsurgical",
-          "case",
-          "Performs critical aspects",
-          "of simple microsurgery",
-          "Manages routine post-",
-          "operative complications"
+          "Manages care of a straightforward microsurgical patient, with assistance",
+          "Develops a treatment plan for a microsurgical case of moderate complexity",
+          "Performs critical aspects of surgical management for routine complications"
         ],
         "level_3": [
-          "Develops a treatment plan",
-          "for a microsurgical case of",
-          "moderate complexity",
-          "Performs critical aspects",
-          "of moderately complex",
-          "microsurgery",
-          "Identifies and formulates",
-          "a plan for complications",
-          "requiring surgical",
-          "management",
-          "Develops a treatment"
+          "Identifies post-operative concerns, including the need for surgical intervention, with assistance",
+          "Performs critical aspects of moderately complex microsurgery",
+          "Develops a treatment plan for complex revision microsurgery"
         ],
         "level_4": [
-          "plan for a complex",
-          "microsurgical case",
-          "Performs critical",
-          "aspects of complex",
-          "microsurgery",
-          "Performs critical",
-          "aspects of surgical",
-          "management for routine",
-          "complications",
-          "Develops a treatment plan",
-          "for complex revision"
+          "Develops a treatment plan for a simple microsurgical case",
+          "Identifies and formulates a plan for complications requiring surgical management",
+          "Performs critical aspects of complex revision microsurgery"
         ],
         "level_5": [
-          "microsurgery",
-          "Performs critical aspects",
-          "of complex revision",
-          "microsurgery",
-          "Performs critical aspects",
-          "of the surgical",
-          "management for complex",
-          "microsurgical",
-          "complications"
+          "Performs critical aspects of simple microsurgery",
+          "Develops a treatment plan for a complex microsurgical case",
+          "Performs critical aspects of the surgical management for complex microsurgical complications"
         ]
       }
     },
     {
       "id": "plastic_surgery_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Flaps and Grafts",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Discusses the",
-          "reconstructive ladder",
-          "Harvests skin graft, with",
-          "assistance",
-          "Identifies abnormal skin",
-          "graft healing and",
-          "manages complications,",
-          "with assistance",
-          "Develops a treatment plan",
-          "that includes local flap",
-          "closures"
+          "Discusses the reconstructive ladder",
+          "Manages routine post- operative complications of local flaps",
+          "[e.g., posterior interosseous artery (PIA) flap]",
+          "Performs surgical management for complex tissue or revisional surgery complications"
         ],
         "level_2": [
-          "Performs local flaps or",
-          "bone/tendon grafts, with",
-          "assistance",
-          "Manages routine post-",
-          "operative complications of",
-          "local flaps",
-          "Develops a treatment plan",
-          "that includes regional and",
-          "pedicled flaps",
-          "Performs regional and",
-          "pedicled flaps, with"
+          "Harvests skin graft, with assistance",
+          "Develops a treatment plan that includes regional and pedicled flaps",
+          "Performs a regional and pedicled flap closure"
         ],
         "level_3": [
-          "assistance; harvests",
-          "complex tissue grafts",
-          "Formulates a plan for",
-          "complications, including",
-          "flap delay; identifies and",
-          "initiates treatment for",
-          "complications",
-          "Develops a treatment",
-          "plan involving a",
-          "complex flap closure",
-          "[e.g., posterior"
+          "Identifies abnormal skin graft healing and manages complications, with assistance",
+          "Performs regional and pedicled flaps, with assistance; harvests complex tissue grafts",
+          "Performs surgical management for routine complications"
         ],
         "level_4": [
-          "interosseous artery",
-          "(PIA) flap]",
-          "Performs a regional and",
-          "pedicled flap closure",
-          "Performs surgical",
-          "management for routine",
-          "complications",
-          "Develops a treatment plan",
-          "for complex composite",
-          "tissue flaps or revisional",
-          "surgery"
+          "Develops a treatment plan that includes local flap closures",
+          "Formulates a plan for complications, including flap delay; identifies and initiates treatment for complications",
+          "Develops a treatment plan for complex composite tissue flaps or revisional surgery"
         ],
         "level_5": [
-          "Performs complex",
-          "composite tissue flaps or",
-          "revisional surgery",
-          "Performs surgical",
-          "management for complex",
-          "tissue or revisional",
-          "surgery complications"
+          "Performs local flaps or bone/tendon grafts, with assistance",
+          "Develops a treatment plan involving a complex flap closure",
+          "Performs complex composite tissue flaps or revisional surgery"
         ]
       }
     },
     {
       "id": "plastic_surgery_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Aesthetic Surgery",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies the normal",
-          "anatomy of the breast",
-          "and trunk and changes",
-          "associated with aging",
-          "Obtains consent for a",
-          "patient undergoing",
-          "aesthetic surgery,",
-          "cognizant of the risks,",
-          "benefits, and alternatives"
+          "Identifies the normal anatomy of the breast and trunk and changes associated with aging",
+          "Performs a straightforward aesthetic procedure with minimal direction (e.g., upper blepharoplasty, breast augmentation, abdominoplasty)"
         ],
         "level_2": [
-          "Identifies the normal",
-          "anatomy of the head and",
-          "neck and changes",
-          "associated with aging",
-          "Analyzes a patient",
-          "desiring aesthetic surgery",
-          "of the breast and trunk",
-          "Analyzes a patient",
-          "desiring aesthetic surgery"
+          "Obtains consent for a patient undergoing aesthetic surgery, cognizant of the risks, benefits, and alternatives",
+          "Performs a more complex aesthetic procedure with minimal direction (e.g., rhytidectomy, lower blepharoplasty, augmentation/mastopexy)"
         ],
         "level_3": [
-          "of the head and neck and",
-          "develops a treatment",
-          "plan, including surgical",
-          "and non-surgical",
-          "interventions",
-          "Performs a",
-          "straightforward aesthetic",
-          "procedure with minimal",
-          "direction (e.g., upper"
+          "Identifies the normal anatomy of the head and neck and changes associated with aging",
+          "Manages one or more complications following an aesthetic surgery procedure"
         ],
         "level_4": [
-          "blepharoplasty, breast",
-          "augmentation,",
-          "abdominoplasty)",
-          "Performs a more complex",
-          "aesthetic procedure with",
-          "minimal direction (e.g.,",
-          "rhytidectomy, lower",
-          "blepharoplasty,",
-          "augmentation/mastopexy)"
+          "Analyzes a patient desiring aesthetic surgery of the breast and trunk",
+          "Analyzes and manages a complicated patient desiring secondary aesthetic surgery"
         ],
         "level_5": [
-          "Manages one or more",
-          "complications following",
-          "an aesthetic surgery",
-          "procedure",
-          "Analyzes and manages a",
-          "complicated",
-          "patient desiring secondary",
-          "aesthetic surgery"
+          "Analyzes a patient desiring aesthetic surgery of the head and neck and develops a treatment plan, including surgical and non-surgical interventions"
         ]
       }
     },
     {
       "id": "plastic_surgery_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Consultant",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies specific consult",
-          "question and generates",
-          "a preliminary differential",
-          "diagnosis",
-          "Effectively",
-          "communicates the",
-          "consult question and",
-          "patient findings to the",
-          "chief resident/attending",
-          "physicians",
-          "Identifies changes in",
-          "patient status and",
-          "communicates pending",
-          "issues"
+          "Identifies specific consult question and generates a preliminary differential diagnosis",
+          "Verifies that prior signed- out tasks have been completed",
+          "Coordinates timing of multiple interventions across services"
         ],
         "level_2": [
-          "Develops an appropriate",
-          "differential diagnosis and",
-          "treatment plan for routine",
-          "problems and",
-          "orders/recommends",
-          "appropriate tests",
-          "Responds to patient",
-          "acuity (e.g., emergency",
-          "department, operating",
-          "room, admit, intensive",
-          "care unit), and provides",
-          "appropriate bedside",
-          "surgical care",
-          "Verifies that prior signed-"
+          "Effectively communicates the consult question and patient findings to the chief resident/attending physicians",
+          "Develops an appropriate differential diagnosis and treatment plan for complex problems",
+          "Manages a consult service, supervising junior learners and/or advanced practice practitioners, and follows up on results"
         ],
         "level_3": [
-          "out tasks have been",
-          "completed",
-          "Develops an appropriate",
-          "differential diagnosis and",
-          "treatment plan for",
-          "complex problems",
-          "Ensures appropriate",
-          "transitions of care are",
-          "completed",
-          "Adapts the treatment plan",
-          "based on patient status,",
-          "including necessary",
-          "communication and",
-          "emergency procedures"
+          "Identifies changes in patient status and communicates pending issues",
+          "Ensures appropriate transitions of care are completed",
+          "Actively contributes to multidisciplinary activities (e.g., tumor board, family/team conferences)"
         ],
         "level_4": [
-          "Resolves conflicting",
-          "consultant",
-          "recommendations",
-          "Coordinates timing of",
-          "multiple interventions",
-          "across services",
-          "Manages a consult",
-          "service, supervising",
-          "junior learners and/or",
-          "advanced practice",
-          "practitioners, and",
-          "follows up on results",
-          "Actively contributes to",
-          "multidisciplinary activities"
+          "Develops an appropriate differential diagnosis and treatment plan for routine problems and orders/recommends appropriate tests",
+          "Adapts the treatment plan based on patient status, including necessary communication and emergency procedures",
+          "Teaches other services how to effectively make use of a plastic surgery consult"
         ],
         "level_5": [
-          "(e.g., tumor board,",
-          "family/team conferences)",
-          "Teaches other services",
-          "how to effectively make",
-          "use of a plastic surgery",
-          "consult",
-          "Recognizes consult",
-          "patterns and implications",
-          "for systems-based",
-          "practice"
+          "Responds to patient acuity (e.g., emergency department, operating room, admit, intensive care unit), and provides appropriate bedside surgical care",
+          "Resolves conflicting consultant recommendations",
+          "Recognizes consult patterns and implications for systems-based practice"
         ]
       }
     },
     {
       "id": "plastic_surgery_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Surgical Maturity/Surgical Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Prepares a patient for",
-          "the operating room, with",
-          "assistance",
-          "Responds to surgical",
-          "instructions",
-          "Prepares post-operative",
-          "orders for simple cases",
-          "Prepares a patient for the",
-          "operating room",
-          "Demonstrates surgical"
+          "Prepares a patient for the operating room, with assistance",
+          "Prepares post-operative orders for complex cases",
+          "Directs surgical cadence and process in a complex case and adapts to unforeseen circumstances"
         ],
         "level_2": [
-          "cadence and process in a",
-          "simple case",
-          "Prepares post-operative",
-          "orders for complex cases",
-          "Completes the pre-",
-          "operative work-up and",
-          "requests consultants as",
-          "needed, with oversight",
-          "Demonstrates surgical",
-          "cadence and process in a"
+          "Responds to surgical instructions",
+          "Completes the pre- operative work-up and requests consultants as needed, with oversight",
+          "Directs post-operative patients to appropriate care levels"
         ],
         "level_3": [
-          "complex case and directs",
-          "the surgical cadence and",
-          "process for a simple case",
-          "Prepares post-operative",
-          "orders for multidisciplinary",
-          "cases",
-          "Completes the pre-",
-          "operative work-up and",
-          "requests consultants as",
-          "needed"
+          "Prepares post-operative orders for simple cases",
+          "Demonstrates surgical cadence and process in a complex case and directs the surgical cadence and process for a simple case",
+          "Plans and coordinates equipment and supplies for atypical or infrequent cases"
         ],
         "level_4": [
-          "Directs surgical",
-          "cadence and process in",
-          "a complex case and",
-          "adapts to unforeseen",
-          "circumstances",
-          "Directs post-operative",
-          "patients to appropriate",
-          "care levels",
-          "Plans and coordinates",
-          "equipment and supplies"
+          "Prepares a patient for the operating room",
+          "Prepares post-operative orders for multidisciplinary cases",
+          "Directs surgical cadence and process in a complex case with multiple services"
         ],
         "level_5": [
-          "for atypical or infrequent",
-          "cases",
-          "Directs surgical cadence",
-          "and process in a complex",
-          "case with multiple",
-          "services",
-          "Develops and directs",
-          "institutional",
-          "multidisciplinary case care",
-          "pathways"
+          "Demonstrates surgical cadence and process in a simple case",
+          "Completes the pre- operative work-up and requests consultants as needed",
+          "Develops and directs institutional multidisciplinary case care pathways"
         ]
       }
     },
     {
       "id": "plastic_surgery_pc7",
       "number": 7,
-      "domain_number": 7,
       "name": "Wound, Burn, and Infection",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies normal healing;",
-          "knows pharmacological",
-          "management of burn",
-          "wounds",
-          "Assists with wound",
-          "preparation and initiates",
-          "burn resuscitation",
-          "Identifies patients with",
-          "abnormal post-operative",
-          "course or infections",
-          "Identifies abnormal"
+          "Identifies normal healing; knows pharmacological management of burn wounds",
+          "Manages simple complications; prescribes appropriate antibiotic regimen",
+          "Performs complex wound management, including multistage procedures"
         ],
         "level_2": [
-          "healing and formulates a",
-          "plan; identifies infections",
-          "requiring emergent",
-          "surgical care",
-          "Performs surgical and",
-          "non-surgical wound",
-          "management",
-          "Manages simple",
-          "complications; prescribes",
-          "appropriate antibiotic",
-          "regimen"
+          "Assists with wound preparation and initiates burn resuscitation",
+          "Develops a treatment plan for moderately complex wounds, infections, and routine burns",
+          "Performs surgical management of complications"
         ],
         "level_3": [
-          "Develops a treatment plan",
-          "for moderately complex",
-          "wounds, infections, and",
-          "routine burns",
-          "Performs surgery for",
-          "moderately complex",
-          "wounds and routine burns",
-          "Formulates a plan and",
-          "performs non-surgical",
-          "management of",
-          "complications"
+          "Identifies patients with abnormal post-operative course or infections",
+          "Performs surgery for moderately complex wounds and routine burns",
+          "Develops a treatment plan for complex secondary reconstruction patients, including post-operative rehabilitation"
         ],
         "level_4": [
-          "Develops a treatment",
-          "plan for complex",
-          "wounds, infections, and",
-          "burns in high-risk areas",
-          "Performs complex",
-          "wound management,",
-          "including multistage",
-          "procedures",
-          "Performs surgical",
-          "management of",
-          "complications"
+          "Identifies abnormal healing and formulates a plan; identifies infections requiring emergent surgical care",
+          "Formulates a plan and performs non-surgical management of complications",
+          "Performs complex secondary reconstruction surgery"
         ],
         "level_5": [
-          "Develops a treatment plan",
-          "for complex secondary",
-          "reconstruction patients,",
-          "including post-operative",
-          "rehabilitation",
-          "Performs complex",
-          "secondary reconstruction",
-          "surgery",
-          "Performs surgical",
-          "management for complex",
-          "complications"
+          "Performs surgical and non-surgical wound management",
+          "Develops a treatment plan for complex wounds, infections, and burns in high-risk areas",
+          "Performs surgical management for complex complications"
         ]
       }
     },
     {
       "id": "plastic_surgery_mk1",
       "number": 8,
-      "domain_number": 1,
       "name": "Hand",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Describes the etiology",
-          "of simple hand and",
-          "upper extremity",
-          "pathology",
-          "Describes simple hand",
-          "anatomy and",
-          "examination maneuvers",
-          "Selects appropriate",
-          "initial diagnostic tests",
-          "Discusses the treatment",
-          "of simple hand and",
-          "upper extremity",
-          "pathology",
-          "Discusses moderately"
+          "Describes the etiology of simple hand and upper extremity pathology",
+          "Identifies simple pathology on a hand and wrist radiograph and describes the appropriate treatment plan",
+          "Explains hand therapy protocols for simple hand injuries and surgeries"
         ],
         "level_2": [
-          "complex hand anatomy",
-          "and examination",
-          "maneuvers",
-          "Identifies simple",
-          "pathology on a hand and",
-          "wrist radiograph and",
-          "describes the",
-          "appropriate treatment",
-          "plan",
-          "Explains the etiology of",
-          "and treatment of",
-          "moderately complex hand",
-          "and upper extremity",
-          "pathology (e.g.,"
+          "Describes simple hand anatomy and examination maneuvers",
+          "Explains the etiology of and treatment of moderately complex hand and upper extremity pathology (e.g., Dupuytrens)",
+          "Identifies complex pathology on a hand and wrist radiograph and simple abnormal electrodiagnostics and describes the appropriate treatment and surgical plan"
         ],
         "level_3": [
-          "Dupuytrens)",
-          "Explains complex hand",
-          "anatomy and examination",
-          "maneuvers",
-          "Identifies moderately",
-          "complex pathology on a",
-          "hand and wrist radiograph",
-          "and describes appropriate",
-          "the treatment and surgical",
-          "plan",
-          "Demonstrates knowledge",
-          "of the etiology of complex",
-          "hand and upper extremity",
-          "pathology, including"
+          "Selects appropriate initial diagnostic tests",
+          "Explains complex hand anatomy and examination maneuvers",
+          "Demonstrates knowledge of the treatment of complex hand and upper extremity pathology, including congenital hand and brachial plexus"
         ],
         "level_4": [
-          "congenital hand and",
-          "brachial plexus",
-          "Explains hand therapy",
-          "protocols for simple hand",
-          "injuries and surgeries",
-          "Identifies complex",
-          "pathology on a hand and",
-          "wrist radiograph and",
-          "simple abnormal",
-          "electrodiagnostics and",
-          "describes the appropriate",
-          "treatment and surgical plan",
-          "Demonstrates knowledge of",
-          "the treatment of complex"
+          "Discusses the treatment of simple hand and upper extremity pathology",
+          "Identifies moderately complex pathology on a hand and wrist radiograph and describes appropriate the treatment and surgical plan",
+          "Explains hand therapy protocols for complex hand injuries and surgeries"
         ],
         "level_5": [
-          "hand and upper extremity",
-          "pathology, including",
-          "congenital hand and brachial",
-          "plexus",
-          "Explains hand therapy",
-          "protocols for complex hand",
-          "injuries and surgeries",
-          "Interprets the pathology on",
-          "advanced imaging of hand,",
-          "wrist, and upper extremity or",
-          "complex abnormal",
-          "electrodiagnostics and",
-          "describes the appropriate",
-          "treatment and surgical plan"
+          "Discusses moderately complex hand anatomy and examination maneuvers",
+          "Demonstrates knowledge of the etiology of complex hand and upper extremity pathology, including congenital hand and brachial plexus",
+          "Interprets the pathology on advanced imaging of hand, wrist, and upper extremity or complex abnormal electrodiagnostics and describes the appropriate treatment and surgical plan"
         ]
       }
     },
     {
       "id": "plastic_surgery_mk2",
       "number": 9,
-      "domain_number": 2,
       "name": "Breast",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Discusses how breast",
-          "cancer affects overall",
-          "patient physiologic risks",
-          "of surgery (e.g., deep",
-          "vein thrombosis risk)",
-          "Discusses breast",
-          "embryology and anatomy",
-          "Describes material",
-          "properties of tissue",
-          "expanders/implants,",
-          "acellular dermal",
-          "matrices, and",
-          "injectables, such as fat",
-          "grafting",
-          "Describes the Breast",
-          "Imaging-Reporting and"
+          "Discusses how breast cancer affects overall patient physiologic risks of surgery (e.g., deep vein thrombosis risk)",
+          "Data System (BiRADS) staging system for mammography",
+          "Describes short- and long-term complications of breast reconstruction (e.g., capsular contracture, breast implant-associated anaplastic large cell lymphoma, bottoming out)",
+          "Explains specific treatment algorithms in relation to other oncology care providers"
         ],
         "level_2": [
-          "Data System (BiRADS)",
-          "staging system for",
-          "mammography",
-          "Identifies and describes",
-          "non-cancer breast",
-          "pathology (e.g.,",
-          "hypoplastic, hyperplastic,",
-          "deformational,",
-          "gynecomastia, and",
-          "attritional breast",
-          "disorders)",
-          "Describes treatment",
-          "options and",
-          "implementation (e.g.,",
-          "tissue expander/implant",
-          "sizing)"
+          "Discusses breast embryology and anatomy",
+          "Identifies and describes non-cancer breast pathology (e.g., hypoplastic, hyperplastic, deformational, gynecomastia, and attritional breast disorders)",
+          "Explains expected patient outcomes based on tumor and reconstruction performed",
+          "Anticipates and articulates the implications of prior surgery and treatment on surgical risk and planning"
         ],
         "level_3": [
-          "Distinguishes subtypes",
-          "and staging and how this",
-          "affects adjuvant therapy",
-          "Describes indications for",
-          "and techniques of non-",
-          "cancer breast surgery",
-          "(e.g., incision patterns,",
-          "pedicles)",
-          "Describes short- and",
-          "long-term complications of",
-          "breast reconstruction",
-          "(e.g., capsular",
-          "contracture, breast",
-          "implant-associated",
-          "anaplastic large cell",
-          "lymphoma, bottoming out)"
+          "Describes material properties of tissue expanders/implants, acellular dermal matrices, and injectables, such as fat grafting",
+          "Describes treatment options and implementation (e.g., tissue expander/implant sizing)",
+          "Describes physiologic, anatomic, and hormonal implications for treatment of breast disorders",
+          "Stays current with FDA recommendations regarding devices and materials (e.g., implants, ADM)"
         ],
         "level_4": [
-          "Explains expected",
-          "patient outcomes based",
-          "on tumor and",
-          "reconstruction",
-          "performed",
-          "Describes physiologic,",
-          "anatomic, and hormonal",
-          "implications for",
-          "treatment of breast",
-          "disorders",
-          "Explains indications for",
-          "and timing of staged",
-          "surgery, including re-",
-          "operative surgery (e.g.,",
-          "tissue expanders,",
-          "Acellular Dermal Matrix"
+          "Describes the Breast",
+          "Distinguishes subtypes and staging and how this affects adjuvant therapy",
+          "Explains indications for and timing of staged surgery, including re- operative surgery (e.g., tissue expanders, Acellular Dermal Matrix"
         ],
         "level_5": [
-          "[ADM])",
-          "Explains specific",
-          "treatment algorithms in",
-          "relation to other oncology",
-          "care providers",
-          "Anticipates and articulates",
-          "the implications of prior",
-          "surgery and treatment on",
-          "surgical risk and planning",
-          "Stays current with FDA",
-          "recommendations",
-          "regarding devices and",
-          "materials (e.g., implants,",
-          "ADM)"
+          "Imaging-Reporting and",
+          "Describes indications for and techniques of non- cancer breast surgery (e.g., incision patterns, pedicles)",
+          "[ADM])"
         ]
       }
     },
     {
       "id": "plastic_surgery_mk3",
       "number": 10,
-      "domain_number": 3,
       "name": "Facial Soft Tissue Pathology",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Describes simple facial",
-          "pathology as benign or",
-          "malignant with margins",
-          "Describes pertinent facial",
-          "anatomy related to",
-          "simple facial soft tissue",
-          "trauma pathology",
-          "Discusses treatment",
-          "options for a simple facial",
-          "pathology, TNM staging",
-          "and imaging/testing, and",
-          "can draw closure options",
-          "Explains the indications"
+          "Describes simple facial pathology as benign or malignant with margins",
+          "Explains pathophysiology and treatment options for moderately complex facial tumor pathology and can draw closure options",
+          "Discusses potential complications for complex facial procedures and options for care"
         ],
         "level_2": [
-          "for imaging in a facial",
-          "trauma patient",
-          "Discusses potential",
-          "complications for simple",
-          "facial procedures",
-          "involving a key landmark",
-          "Explains pathophysiology",
-          "and treatment options for",
-          "moderately complex facial",
-          "tumor pathology and can",
-          "draw closure options",
-          "Explains the treatment for",
-          "moderately complex"
+          "Describes pertinent facial anatomy related to simple facial soft tissue trauma pathology",
+          "Explains the treatment for moderately complex traumatic plastic surgery procedures",
+          "Explains pathophysiology and treatment options for complex tumor revision surgery and can draw closure options"
         ],
         "level_3": [
-          "traumatic plastic surgery",
-          "procedures",
-          "Discusses potential",
-          "complications for",
-          "moderately complex facial",
-          "procedures and options",
-          "for care",
-          "Explains",
-          "pathophysiology and",
-          "treatment options for",
-          "complex facial tumor",
-          "pathology in",
-          "multidisciplinary"
+          "Discusses treatment options for a simple facial pathology, TNM staging and imaging/testing, and can draw closure options",
+          "Discusses potential complications for moderately complex facial procedures and options for care",
+          "Explains the management of revisional reconstructive procedures, including multidisciplinary care"
         ],
         "level_4": [
-          "conference-related",
-          "cases and can draw",
-          "closure options",
-          "Explains the treatment",
-          "for complex traumatic",
-          "plastic surgery",
-          "procedures",
-          "Discusses potential",
-          "complications for",
-          "complex facial",
-          "procedures and options",
-          "for care",
-          "Explains pathophysiology"
+          "Explains the indications for imaging in a facial trauma patient",
+          "Explains pathophysiology and treatment options for complex facial tumor pathology in multidisciplinary conference-related cases and can draw closure options",
+          "Discusses potential complications for revisional reconstructive procedures"
         ],
         "level_5": [
-          "and treatment options for",
-          "complex tumor revision",
-          "surgery and can draw",
-          "closure options",
-          "Explains the management",
-          "of revisional",
-          "reconstructive",
-          "procedures, including",
-          "multidisciplinary care",
-          "Discusses potential",
-          "complications for",
-          "revisional reconstructive",
-          "procedures"
+          "Discusses potential complications for simple facial procedures involving a key landmark",
+          "Explains the treatment for complex traumatic plastic surgery procedures"
         ]
       }
     },
     {
       "id": "plastic_surgery_mk4",
       "number": 11,
-      "domain_number": 4,
       "name": "Trunk and Lower Extremity",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Describes the anatomy",
-          "of the abdominal wall",
-          "and identifies specific",
-          "pathologic concerns of",
-          "the trunk",
-          "Describes the anatomy",
-          "of the lower extremity",
-          "and catalogues specific",
-          "pathology affecting it",
-          "Interprets imaging studies"
+          "Describes the anatomy of the abdominal wall and identifies specific pathologic concerns of the trunk",
+          "Presents multiple options for reconstruction of the lower extremity and outlines strategies for successful post-operative care and rehabilitation"
         ],
         "level_2": [
-          "of the trunk, including",
-          "computed tomography",
-          "(CT) scan and magnetic",
-          "resonance imaging",
-          "Interprets imaging studies",
-          "of the lower extremity,",
-          "including conventional",
-          "angiography and CT",
-          "angiography",
-          "Presents multiple options"
+          "Describes the anatomy of the lower extremity and catalogues specific pathology affecting it",
+          "Enumerates a plan for complex abdominal wall reconstruction, including component separation"
         ],
         "level_3": [
-          "for reconstruction of the",
-          "abdomen and trunk",
-          "Presents multiple options",
-          "for reconstruction of the",
-          "lower extremity and",
-          "outlines strategies for",
-          "successful post-operative",
-          "care and rehabilitation",
-          "Enumerates a plan for",
-          "complex abdominal wall"
+          "Interprets imaging studies of the trunk, including computed tomography (CT) scan and magnetic resonance imaging",
+          "Enumerates a plan for complex lower extremity reconstruction, including free tissue transfer and donor vessel selection/dissection"
         ],
         "level_4": [
-          "reconstruction, including",
-          "component separation",
-          "Enumerates a plan for",
-          "complex lower extremity",
-          "reconstruction, including",
-          "free tissue transfer and",
-          "donor vessel",
-          "selection/dissection",
-          "Demonstrates knowledge",
-          "of management of"
+          "Interprets imaging studies of the lower extremity, including conventional angiography and CT angiography",
+          "Demonstrates knowledge of management of patients with complicated secondary defects, either due to failure of initial management or in the setting of radiation or significant co-morbidities"
         ],
         "level_5": [
-          "patients with complicated",
-          "secondary defects, either",
-          "due to failure of initial",
-          "management or in the",
-          "setting of radiation or",
-          "significant co-morbidities"
+          "Presents multiple options for reconstruction of the abdomen and trunk"
         ]
       }
     },
     {
       "id": "plastic_surgery_mk5",
       "number": 12,
-      "domain_number": 5,
       "name": "Pediatric/Congenital",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Describes the anatomy",
-          "and embryology of",
-          "congenital facial",
-          "anomalies",
-          "Describes the anatomy",
-          "and embryology of",
-          "congenital hand",
-          "anomalies",
-          "Recognizes the",
-          "components of",
-          "multidisciplinary care for",
-          "congenital anomalies",
-          "Identifies diagnostic"
+          "Describes the anatomy and embryology of congenital facial anomalies",
+          "Describes the typical post-operative course for simple facial and hand anomalies",
+          "Explains the treatment of routine hand anomalies and can draw repair"
         ],
         "level_2": [
-          "protocol, including",
-          "imaging for facial",
-          "anomalies",
-          "Identifies diagnostic",
-          "protocol, including",
-          "imaging for hand",
-          "anomalies",
-          "Describes the typical",
-          "post-operative course for",
-          "simple facial and hand",
-          "anomalies",
-          "Identifies the genetic",
-          "pathways for congenital"
+          "Describes the anatomy and embryology of congenital hand anomalies",
+          "Identifies the genetic pathways for congenital anomalies of the face and hand",
+          "Explains timing of intervention, adjunctive treatments, and potential complications for complex problems"
         ],
         "level_3": [
-          "anomalies of the face and",
-          "hand",
-          "Explains the timing of",
-          "intervention for multiple-",
-          "step treatments of facial",
-          "and hand anomalies",
-          "Explains the",
-          "complications of facial",
-          "and hand anomaly",
-          "treatments and their",
-          "management",
-          "Explains the treatment",
-          "of routine facial"
+          "Recognizes the components of multidisciplinary care for congenital anomalies",
+          "Explains the timing of intervention for multiple- step treatments of facial and hand anomalies",
+          "Explains the treatment of unusual facial anomalies and their revisions"
         ],
         "level_4": [
-          "anomalies and can draw",
-          "repair",
-          "Explains the treatment",
-          "of routine hand",
-          "anomalies and can draw",
-          "repair",
-          "Explains timing of",
-          "intervention, adjunctive",
-          "treatments, and",
-          "potential complications",
-          "for complex problems",
-          "Explains the treatment of",
-          "unusual facial anomalies"
+          "Identifies diagnostic protocol, including imaging for facial anomalies",
+          "Explains the complications of facial and hand anomaly treatments and their management",
+          "Explains the treatment of unusual hand anomalies and their revisions"
         ],
         "level_5": [
-          "and their revisions",
-          "Explains the treatment of",
-          "unusual hand anomalies",
-          "and their revisions",
-          "Explains timing of",
-          "intervention, adjunctive",
-          "treatments, and potential",
-          "complications for complex",
-          "revision problems"
+          "Identifies diagnostic protocol, including imaging for hand anomalies",
+          "Explains the treatment of routine facial anomalies and can draw repair",
+          "Explains timing of intervention, adjunctive treatments, and potential complications for complex revision problems"
         ]
       }
     },
     {
       "id": "plastic_surgery_sbp1",
       "number": 13,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics"
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., infection rate, smoking cessation)",
+          "Discloses patient safety events to patients and their families (simulated or actual)"
         ],
         "level_2": [
-          "Identifies system factors",
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes local quality",
-          "improvement initiatives",
-          "(e.g., infection rate,",
-          "smoking cessation)"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_3": [
-          "Participates in analysis of",
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and their families",
-          "(simulated or actual)",
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Conducts analysis of",
-          "patient safety events"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "and offers error",
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "their families (simulated",
-          "or actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "Actively engages teams",
-          "and processes to modify",
-          "systems to prevent patient",
-          "safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "plastic_surgery_sbp2",
       "number": 14,
-      "domain_number": 2,
       "name": "System Navigation for Patient-Centered Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination",
-          "Identifies key elements",
-          "for safe and effective",
-          "transitions of care and",
-          "hand-offs",
-          "Coordinates care of",
-          "patients in routine clinical",
-          "situations, effectively"
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
         ],
         "level_2": [
-          "using the roles of",
-          "interprofessional team",
-          "members",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Coordinates care of",
-          "patients in complex",
-          "clinical situations,"
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties"
         ],
         "level_3": [
-          "effectively using the roles",
-          "of interprofessional team",
-          "members",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Role models effective",
-          "coordination of patient-",
-          "centered care among"
+          "Coordinates care of patients in routine clinical situations, effectively using the roles of interprofessional team members",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
         ],
         "level_4": [
-          "different disciplines and",
-          "specialties",
-          "Role models and",
-          "advocates for safe and",
-          "effective transitions of",
-          "care/hand-offs within",
-          "and across health care",
-          "delivery systems,",
-          "including outpatient",
-          "settings"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
         ],
         "level_5": [
-          "Analyzes the process of",
-          "care coordination and",
-          "leads in the design and",
-          "implementation of",
-          "improvements",
-          "Improves quality of",
-          "transitions of care within",
-          "and across health care",
-          "delivery systems to",
-          "optimize patient outcomes"
+          "Coordinates care of patients in complex clinical situations, effectively using the roles of interprofessional team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
         ]
       }
     },
     {
       "id": "plastic_surgery_sbp3",
       "number": 15,
-      "domain_number": 3,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key",
-          "components of the",
-          "complex health care",
-          "system (e.g., hospital,",
-          "skilled nursing facility)",
-          "Identifies the appropriate",
-          "hospital resources (e.g.,",
-          "case management,",
-          "social work) to aid in",
-          "understanding patient",
-          "costs",
-          "Demonstrates use of",
-          "information technology",
-          "(e.g., electronic health",
-          "record)"
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility)",
+          "Describes components of documentation for coding",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
         ],
         "level_2": [
-          "Describes how working",
-          "within the health care",
-          "system impacts patient",
-          "care",
-          "Delivers care with the",
-          "understanding that there",
-          "are different payment",
-          "models (e.g., private,",
-          "government, public)",
-          "Describes components of",
-          "documentation for coding",
-          "Discusses how individual",
-          "practice affects the",
-          "broader system (e.g.,",
-          "length of stay,"
+          "Identifies the appropriate hospital resources (e.g., case management, social work) to aid in understanding patient costs",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
         ],
         "level_3": [
-          "readmission rates, clinical",
-          "efficiency)",
-          "Engages with patients in",
-          "shared decision-making,",
-          "informed by each patient’s",
-          "payment models",
-          "Documents the key",
-          "components required for",
-          "billing and coding for",
-          "simple procedures and",
-          "inpatient status",
-          "Manages various",
-          "components of the",
-          "complex health care",
-          "system to provide"
+          "Demonstrates use of information technology (e.g., electronic health record)",
+          "Engages with patients in shared decision-making, informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high value, efficient, and effective patient care and transitions of care"
         ],
         "level_4": [
-          "efficient and effective",
-          "patient care and",
-          "transitions of care",
-          "Advocates for patient",
-          "care needs (e.g.,",
-          "community resources,",
-          "patient assistance",
-          "resources) with",
-          "consideration of the",
-          "limitations of each",
-          "patient’s payment model",
-          "Analyzes individual",
-          "practice patterns and",
-          "professional",
-          "requirements in"
+          "Describes how working within the health care system impacts patient care",
+          "Documents the key components required for billing and coding for simple procedures and inpatient status",
+          "Participates in health policy advocacy activities"
         ],
         "level_5": [
-          "preparation for practice",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high value,",
-          "efficient, and effective",
-          "patient care and",
-          "transitions of care",
-          "Participates in health",
-          "policy advocacy activities",
-          "Educates others to",
-          "prepare them for the",
-          "transition to practice"
+          "Delivers care with the understanding that there are different payment models (e.g., private, government, public)",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transitions of care",
+          "Educates others to prepare them for the transition to practice"
         ]
       }
     },
     {
       "id": "plastic_surgery_pbli1",
       "number": 16,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access and use available",
-          "evidence and incorporate",
-          "patient preferences and",
-          "values to the care of a",
-          "routine patient"
+          "Demonstrates how to access and use available evidence and incorporate patient preferences and values to the care of a routine patient"
         ],
         "level_2": [
-          "Articulates clinical",
-          "questions and elicits",
-          "patient preferences and",
-          "values to guide evidence-",
-          "based care",
-          "Locates and applies the"
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
         ],
         "level_3": [
-          "best available evidence,",
-          "integrated with patient",
-          "preference, to the care of",
-          "complex patients",
-          "Critically appraises and",
-          "applies evidence, even"
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
         ],
         "level_4": [
-          "in the face of",
-          "uncertainty and",
-          "conflicting evidence, to",
-          "guide care tailored to",
-          "the individual patient",
-          "Coaches others to"
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care tailored to the individual patient"
         ],
         "level_5": [
-          "critically appraise and",
-          "apply evidence for",
-          "complex patients, and/or",
-          "participates in the",
-          "development of guidelines"
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "plastic_surgery_pbli2",
       "number": 17,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accepts responsibility for",
-          "personal and",
-          "professional",
-          "development by",
-          "establishing goals",
-          "Identifies factors that",
-          "contribute to gap(s)",
-          "between expectations",
-          "and performance",
-          "Actively seeks",
-          "opportunities to improve",
-          "Demonstrates openness"
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges one’s own assumptions and considers alternatives in narrowing the gap(s) between expectations and performance"
         ],
         "level_2": [
-          "to performance data",
-          "(feedback and other input)",
-          "to inform goals",
-          "Analyzes the factors that",
-          "contribute to gap(s)",
-          "between expectations and",
-          "performance",
-          "Designs and implements",
-          "a learning plan, with",
-          "prompting",
-          "Continually seeks",
-          "performance data, with"
+          "Identifies factors that contribute to gap(s) between expectations and performance",
+          "Continually seeks performance data, with adaptability and receptivity",
+          "Uses performance data to measure the effectiveness of the learning plan, and, when necessary, improves it"
         ],
         "level_3": [
-          "adaptability and",
-          "receptivity",
-          "Institutes behavioral",
-          "change(s) to narrow the",
-          "gap(s) between",
-          "expectations and",
-          "performance",
-          "Independently creates",
-          "and implements a",
-          "learning plan",
-          "Continually self-",
-          "assesses and uses"
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and performance",
+          "Consistently models self- assessment and feedback incorporation"
         ],
         "level_4": [
-          "external feedback to",
-          "confirm and augment",
-          "performance data",
-          "Challenges one’s own",
-          "assumptions and",
-          "considers alternatives in",
-          "narrowing the gap(s)",
-          "between expectations",
-          "and performance",
-          "Uses performance data",
-          "to measure the",
-          "effectiveness of the"
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
         ],
         "level_5": [
-          "learning plan, and,",
-          "when necessary,",
-          "improves it",
-          "Consistently models self-",
-          "assessment and feedback",
-          "incorporation",
-          "Coaches others on",
-          "reflective practice",
-          "Facilitates the design and",
-          "implementation of",
-          "learning plans for others"
+          "Analyzes the factors that contribute to gap(s) between expectations and performance",
+          "Continually self- assesses and uses external feedback to confirm and augment performance data",
+          "Facilitates the design and implementation of learning plans for others"
         ]
       }
     },
     {
       "id": "plastic_surgery_prof1",
       "number": 18,
-      "domain_number": 1,
       "name": "Professional Behavior and Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Understands and",
-          "describes appropriate",
-          "professionalism by",
-          "oneself and others",
-          "Understands the ethical",
-          "principles underlying",
-          "informed consent,",
-          "surrogate decision-",
-          "making, advance",
-          "directives,"
+          "Understands and describes appropriate professionalism by oneself and others",
+          "Recognizes the need to seek help in managing and resolving complex ethical situations"
         ],
         "level_2": [
-          "HIPAA/confidentiality,",
-          "error disclosure,",
-          "stewardship of limited",
-          "resources, and related",
-          "topics",
-          "Demonstrates",
-          "professional behavior in",
-          "all situations",
-          "Demonstrates knowledge",
-          "of ethical principles"
+          "Understands the ethical principles underlying informed consent, surrogate decision- making, advance directives, HIPAA/confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Recognizes situations that may trigger professionalism lapses in oneself and others"
         ],
         "level_3": [
-          "Describes when and how",
-          "to appropriately report",
-          "professionalism lapses by",
-          "oneself and others",
-          "Recognizes the need to",
-          "seek help in managing",
-          "and resolving complex",
-          "ethical situations",
-          "Recognizes situations",
-          "that may trigger"
+          "Demonstrates professional behavior in all situations",
+          "Utilizes appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, literature review, risk management/legal consultation)"
         ],
         "level_4": [
-          "professionalism lapses",
-          "in oneself and others",
-          "Utilizes appropriate",
-          "resources for managing",
-          "and resolving ethical",
-          "dilemmas (e.g., ethics",
-          "consultations, literature",
-          "review, risk",
-          "management/legal",
-          "consultation)"
+          "Demonstrates knowledge of ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_5": [
-          "Coaches others when",
-          "their behavior fails to",
-          "meet professional",
-          "expectations",
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Describes when and how to appropriately report professionalism lapses by oneself and others",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ]
       }
     },
     {
       "id": "plastic_surgery_prof2",
       "number": 19,
-      "domain_number": 2,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Performs tasks and",
-          "responsibilities in a",
-          "timely manner, with",
-          "appropriate attention to",
-          "detail, in routine",
-          "situations",
-          "Responds promptly to",
-          "requests or reminders to",
-          "complete tasks and",
-          "responsibilities",
-          "Performs tasks and",
-          "responsibilities in a timely"
+          "Performs tasks and responsibilities in a timely manner, with appropriate attention to detail, in routine situations",
+          "Recognizes situations that may impact one’s own or others’ ability to complete tasks and responsibilities in a timely manner in routine situations"
         ],
         "level_2": [
-          "manner, with appropriate",
-          "attention to detail, in",
-          "complex or stressful",
-          "situations",
-          "Identifies potential",
-          "contributing factors for",
-          "failing to complete a task",
-          "and describes strategies",
-          "for ensuring timely task",
-          "completion in the future",
-          "Delegates some tasks or",
-          "responsibilities in routine"
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Delegates some tasks or responsibilities in complex or stressful situations"
         ],
         "level_3": [
-          "situations",
-          "Recognizes situations that",
-          "may impact one’s own or",
-          "others’ ability to complete",
-          "tasks and responsibilities",
-          "in a timely manner in",
-          "routine situations",
-          "Delegates some tasks",
-          "or responsibilities in",
-          "complex or stressful",
-          "situations",
-          "Recognizes situations"
+          "Performs tasks and responsibilities in a timely manner, with appropriate attention to detail, in complex or stressful situations",
+          "Recognizes situations that may impact one’s own or others’ ability to complete tasks and responsibilities in a timely manner in complex or stressful situations"
         ],
         "level_4": [
-          "that may impact one’s",
-          "own or others’ ability to",
-          "complete tasks and",
-          "responsibilities in a",
-          "timely manner in",
-          "complex or stressful",
-          "situations",
-          "Teaches concepts of or",
-          "counsels others on",
-          "accountability or",
-          "conscientiousness in the",
-          "workplace"
+          "Identifies potential contributing factors for failing to complete a task and describes strategies for ensuring timely task completion in the future",
+          "Teaches concepts of or counsels others on accountability or conscientiousness in the workplace"
         ],
         "level_5": [
-          "On a departmental or",
-          "system-wide level,",
-          "advocates to improve",
-          "systems that ensure",
-          "patients’ needs are met",
-          "within the hospital, upon",
-          "discharge, and in follow-",
-          "up"
+          "Delegates some tasks or responsibilities in routine situations",
+          "On a departmental or system-wide level, advocates to improve systems that ensure patients’ needs are met within the hospital, upon discharge, and in follow- up"
         ]
       }
     },
     {
       "id": "plastic_surgery_prof3",
       "number": 20,
-      "domain_number": 3,
       "name": "Self-Awareness and Help-Seeking Behaviors",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Is aware of the",
-          "importance of one’s",
-          "personal and",
-          "professional well-being",
-          "Is aware of the resources",
-          "available for professional",
-          "well-being",
-          "Independently recognizes"
+          "Is aware of the importance of one’s personal and professional well-being",
+          "With assistance, proposes a plan to improve co- workers’ knowledge of well-being resources"
         ],
         "level_2": [
-          "status of personal and",
-          "professional well-being",
-          "Demonstrates appropriate",
-          "help-seeking behaviors",
-          "With assistance, proposes",
-          "a plan to optimize",
-          "personal and professional",
-          "well-being"
+          "Is aware of the resources available for professional well-being",
+          "Independently develops a plan to optimize personal and professional well-being"
         ],
         "level_3": [
-          "With assistance, proposes",
-          "a plan to improve co-",
-          "workers’ knowledge of",
-          "well-being resources",
-          "Independently develops",
-          "a plan to optimize",
-          "personal and",
-          "professional well-being"
+          "Independently recognizes status of personal and professional well-being",
+          "Independently advocates for and raises awareness of resources for physician well-being"
         ],
         "level_4": [
-          "Independently",
-          "advocates for and",
-          "raises awareness of",
-          "resources for physician",
-          "well-being",
-          "Optimizes departmental",
-          "or system-wide tools",
-          "available for maximizing"
+          "Demonstrates appropriate help-seeking behaviors",
+          "Optimizes departmental or system-wide tools available for maximizing personal and professional well-being"
         ],
         "level_5": [
-          "personal and professional",
-          "well-being",
-          "Coaches others when",
-          "emotional responses or",
-          "limitations in",
-          "knowledge/skills do not",
-          "meet professional",
-          "expectations"
+          "With assistance, proposes a plan to optimize personal and professional well-being",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
         ]
       }
     },
     {
       "id": "plastic_surgery_ics1",
       "number": 21,
-      "domain_number": 1,
       "name": "Patient and Family Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language and non-",
-          "verbal behavior to",
-          "demonstrate respect and",
-          "establish rapport",
-          "Establishes a therapeutic",
-          "relationship in",
-          "straightforward",
-          "encounters using active",
-          "listening and clear",
-          "language",
-          "Identifies common",
-          "barriers to effective"
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "Establishes a therapeutic relationship in challenging patient encounters"
         ],
         "level_2": [
-          "communication (e.g.,",
-          "language, disability) and",
-          "identifies the need to",
-          "adjust communication",
-          "strategies based on",
-          "assessment of a",
-          "patient/patient’s family",
-          "Reflects on biases while",
-          "attempting to minimize",
-          "communication barriers,",
-          "with prompting",
-          "Identifies complex barriers"
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "Independently, uses shared decision-making to align a patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan"
         ],
         "level_3": [
-          "to effective",
-          "communication (e.g.,",
-          "health literacy)",
-          "Establishes a therapeutic",
-          "relationship in challenging",
-          "patient encounters",
-          "Independently, uses",
-          "shared decision-making",
-          "to align a",
-          "patient’s/patient’s",
-          "family’s values, goals,",
-          "and preferences with"
+          "Identifies common barriers to effective communication (e.g., language, disability) and identifies the need to adjust communication strategies based on assessment of a patient/patient’s family",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
         ],
         "level_4": [
-          "treatment options to",
-          "make a personalized",
-          "care plan",
-          "Independently",
-          "recognizes biases while",
-          "attempting to proactively",
-          "minimize",
-          "communication barriers",
-          "Mentors others in shared",
-          "decision-making in",
-          "communication with",
-          "patients/patients’ families,"
+          "Reflects on biases while attempting to minimize communication barriers, with prompting",
+          "Mentors others in shared decision-making in communication with patients/patients’ families, including in situations with a high degree of uncertainty/conflict"
         ],
         "level_5": [
-          "including in situations with",
-          "a high degree of",
-          "uncertainty/conflict",
-          "Mentors others in",
-          "situational awareness and",
-          "critical self-reflection to",
-          "consistently develop",
-          "positive therapeutic",
-          "relationships"
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
         ]
       }
     },
     {
       "id": "plastic_surgery_ics2",
       "number": 22,
-      "domain_number": 2,
       "name": "Interprofessional and Systems Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Communicates",
-          "information to health",
-          "care team members",
-          "Accurately records and",
-          "safeguards patient",
-          "information",
-          "Clearly, directly, and",
-          "specifically communicates",
-          "with team members in a"
+          "Communicates information to health care team members",
+          "Integrates and synthesizes all relevant data from outside systems and prior encounters into the health record"
         ],
         "level_2": [
-          "way that is respectful of",
-          "their time",
-          "Efficiently uses the",
-          "electronic health record to",
-          "communicate with the",
-          "health care team",
-          "Communicates concerns",
-          "and provides feedback to",
-          "peers and learners"
+          "Accurately records and safeguards patient information",
+          "Communicates feedback and constructive criticism to superiors"
         ],
         "level_3": [
-          "Integrates and",
-          "synthesizes all relevant",
-          "data from outside systems",
-          "and prior encounters into",
-          "the health record",
-          "Communicates",
-          "feedback and",
-          "constructive criticism to",
-          "superiors"
+          "Clearly, directly, and specifically communicates with team members in a way that is respectful of their time",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
         ],
         "level_4": [
-          "Initiates difficult",
-          "conversations with",
-          "appropriate",
-          "stakeholders to improve",
-          "the system",
-          "Facilitates regular health",
-          "care team-based",
-          "feedback in complex",
-          "situations"
+          "Efficiently uses the electronic health record to communicate with the health care team",
+          "Facilitates regular health care team-based feedback in complex situations"
         ],
         "level_5": [
-          "Facilitates dialogue",
-          "regarding systems issues",
-          "among larger community",
-          "stakeholders (health care",
-          "system)"
+          "Communicates concerns and provides feedback to peers and learners",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (health care system)"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "plastic-surgery",
-  "primary_name": "Plastic Surgery",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerysupplementalguide.pdf"

@@ -1,0 +1,651 @@
+{
+  "framework_key": "pediatric-orthopaedics",
+  "specialty": "Pediatric Orthopaedics",
+  "version": "2.0",
+  "source": "ACGME Pediatric Orthopaedics Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "orthopaedic-surgery",
+  "parent_name": "Orthopaedic Surgery",
+  "subcompetencies": [
+    {
+      "id": "pediatric_orthopaedics_pc1",
+      "number": 1,
+      "name": "Foot Pathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Performs critical steps of manipulative casting, with direct supervision",
+          "Independently performs complex procedures and manages complex complications"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills, assists with procedures, and identifies complications",
+          "Synthesizes a plan to manage patients with straightforward conditions, including non- operative options (e.g., manipulative casting, orthotic prescription)",
+          "Independently performs complex manipulative casting and manages casting complications"
+        ],
+        "level_3": [
+          "Performs routine splinting and casting and assists in manipulative casting (e.g., clubfoot casting)",
+          "Performs routine procedures and manages complications, with oversight and performs complex procedures with indirect supervision (e.g., osteotomy-calcaneal lengthening, bunion correction)",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_4": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Performs critical steps of manipulative casting, with indirect supervision",
+          "Independently performs advanced procedures (e.g., revision clubfoot release)"
+        ],
+        "level_5": [
+          "Performs routine procedures and manages complications, with indirect supervision (e.g., Achilles tenotomy, tibialis anterior transfer, simple polydactyly)",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities, including non-operative options"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pc2",
+      "number": 2,
+      "name": "Hip Pathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Performs routine procedures (e.g., pinning) and manages complications, with oversight; performs complex procedures with indirect supervision (e.g., open reduction for DDH, proximal femoral osteotomy)",
+          "[PAO], surgical hip dislocation, Modified"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills, assists with procedures, and identifies complications",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities, including non-operative options",
+          "Dunn, multiplanar corrective osteotomy –"
+        ],
+        "level_3": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Independently performs complex procedures and manages complex complications (e.g., acetabular osteotomies- Dega, Pemberton)",
+          "Imhauser)"
+        ],
+        "level_4": [
+          "Performs routine/ percutaneous procedures and manages complications, with indirect supervision (e.g., closed reduction and spica casting for developmental dysplasia of the hip [DDH], performance and interpretation of hip arthrogram, percutaneous pinning of slipped capital femoral epiphysis [SCFE])",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_5": [
+          "Synthesizes a plan to manage patients with straightforward conditions, including non- operative options (e.g., casting, bracing)",
+          "Independently performs advanced procedures (e.g., Bernese periacetabular osteotomy"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pc3",
+      "number": 3,
+      "name": "Lower Extremity Deformity",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Performs routine procedures (e.g., epiphysiodesis), with indirect supervision; manages complications, with oversight; performs complex procedures (e.g., osteotomies +/- external fixation, lengthening nails), with indirect supervision"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills and assists with procedures",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities, including non-operative options"
+        ],
+        "level_3": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Independently performs complex procedures and manages complex complications"
+        ],
+        "level_4": [
+          "Performs routine procedures and identifies complications, with indirect supervision",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_5": [
+          "Synthesizes a plan to manage healthy patients with straightforward conditions, including non- operative options (e.g., casting, bracing)",
+          "Independently performs advanced procedures, including revisions/complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pc4",
+      "number": 4,
+      "name": "Spine",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Performs routine procedures (e.g., pedicle screw insertion, vertical expandable prosthetic titanium rib [VEPTR] lengthening), with indirect supervision; manages complications, with oversight; performs complex procedures with indirect supervision"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills and assists with procedures",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities, including non-operative options"
+        ],
+        "level_3": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Independently performs complex procedures and manages complex complications"
+        ],
+        "level_4": [
+          "Performs routine procedures and identifies complications, with direct supervision",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_5": [
+          "Synthesizes a plan to manage healthy patients with straightforward conditions, including non- operative options (e.g., bracing, casting, physical therapy)",
+          "Independently performs advanced procedures, including revisions/complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pc5",
+      "number": 5,
+      "name": "Trauma",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Performs routine procedures and manages complications, with oversight; performs complex procedures, with indirect supervision (e.g., open reduction of supracondylar humerus, open reduction of articular fractures)"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills, performs reduction and casting, assists with procedures, and identifies complications",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities, including operative and non- operative options"
+        ],
+        "level_3": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Independently performs complex procedures and manages complex complications (e.g., staged treatment of open fractures, lawn mower injuries)"
+        ],
+        "level_4": [
+          "Performs routine procedures (e.g., closed reduction and percutaneous pinning), cast wedging/adjustments, and manages complications, with indirect supervision",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_5": [
+          "Synthesizes a plan to manage healthy patients with straightforward conditions, including operative and non- operative options",
+          "Independently performs advanced procedures (e.g., operative management of fracture nonunion)"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pc6",
+      "number": 6,
+      "name": "Neuromuscular",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Performs routine procedures and manages complications, with oversight; performs complex procedures, with indirect supervision"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills, assists with procedures, and identifies complications",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities, including operative and non- operative options (e.g., addresses multi-level problems simultaneously)"
+        ],
+        "level_3": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Independently performs complex procedures and manages complex complications"
+        ],
+        "level_4": [
+          "Performs routine procedures and manages complications, with indirect supervision",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_5": [
+          "Synthesizes a plan to manage patients with straightforward conditions, including operative and non- operative options (e.g., injections, casting, bracing)",
+          "Independently performs advanced procedures"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_mk1",
+      "number": 7,
+      "name": "Foot Pathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of physiologic anatomy and interprets imaging",
+          "Demonstrates knowledge of the risks and benefits for surgical and non- surgical interventions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of surgical and non-surgical interventions",
+          "Demonstrates knowledge of advanced therapeutic approaches based on foot pathology"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic therapeutic approaches based on foot pathology",
+          "Anticipates long-term sequela of surgical and non-surgical interventions"
+        ],
+        "level_4": [
+          "Discusses indications and contraindications to surgical and non-surgical interventions",
+          "Leads advanced discussion at a multidisciplinary conference and/or in operating room"
+        ],
+        "level_5": [
+          "Correlates imaging to anatomy and selects treatment"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_mk2",
+      "number": 8,
+      "name": "Hip Pathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of pathologic anatomy and interprets imaging",
+          "Demonstrates knowledge of the risks and benefits for surgical and non- surgical interventions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of surgical and non-surgical interventions",
+          "Demonstrates knowledge of advanced therapeutic approaches based on hip pathology"
+        ],
+        "level_3": [
+          "Correlates imaging to development and hip pathology",
+          "Anticipates long-term sequela of surgical and non-surgical interventions"
+        ],
+        "level_4": [
+          "Discusses indications and contraindications to surgical and non-surgical interventions",
+          "Leads advanced discussion at a multidisciplinary conference and/or in operating room"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of basic therapeutic approaches based on hip pathology"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_mk3",
+      "number": 9,
+      "name": "Lower Extremity Deformity",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of anatomy and interprets imaging (e.g., normal development lower extremity alignment – genu valgum/varum, Blounts, Ricketts)",
+          "Demonstrates knowledge of the risks and benefits for surgical and non- surgical interventions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of surgical and non-surgical interventions",
+          "Demonstrates knowledge of advanced therapeutic approaches based on lower extremity deformity (e.g., multi-planar frames, internal lengthening devices)"
+        ],
+        "level_3": [
+          "Correlates imaging to development and lower extremity deformity (e.g., interpretation of limb alignment films and determining bone age)",
+          "Anticipates long-term sequela of surgical and non-surgical interventions"
+        ],
+        "level_4": [
+          "Discusses indications and contraindications to surgical and non-surgical interventions",
+          "Leads advanced discussion at a multidisciplinary conference and/or in operating room"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of basic therapeutic approaches based on lower extremity deformity (e.g., bracing/orthotics, guided growth, osteotomies)"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_mk4",
+      "number": 10,
+      "name": "Spine",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of anatomy and interprets imaging",
+          "Demonstrates knowledge of the risks and benefits for surgical and non- surgical interventions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of surgical and non-surgical interventions",
+          "Demonstrates knowledge of advanced therapeutic techniques (e.g., tethering, growing instrumentation)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of pathoanatomy and correlates with imaging",
+          "Anticipates long-term sequela of surgical and non-surgical interventions"
+        ],
+        "level_4": [
+          "Discusses indications of surgical and non-surgical interventions",
+          "Leads advanced discussion at a multidisciplinary conference and/or in operating room"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of basic therapeutic techniques (e.g., posterior sacroiliac fusion [PSIF])"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_mk5",
+      "number": 11,
+      "name": "Trauma",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of developmental anatomy and interprets imaging",
+          "Demonstrates knowledge of the risks and benefits for surgical and non- surgical interventions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of surgical and non-surgical interventions",
+          "Demonstrates knowledge of advanced therapeutic approaches based on pathology (e.g., physeal bar excision indications)"
+        ],
+        "level_3": [
+          "Correlates imaging to development and pathology (e.g., normal physes versus fractures)",
+          "Anticipates long-term sequela of surgical and non-surgical interventions"
+        ],
+        "level_4": [
+          "Discusses indications and contraindications to surgical and non-surgical interventions",
+          "Leads advanced discussion at a multidisciplinary conference and/or in operating room"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of basic therapeutic approaches based on pathology (e.g., treatment options based on age, size, and remodeling potential)"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_mk6",
+      "number": 12,
+      "name": "Neuromuscular",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of pathologic anatomy and interprets imaging",
+          "Demonstrates knowledge of the risks and benefits for surgical and non- surgical interventions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of surgical and non-surgical interventions",
+          "Demonstrates knowledge of advanced therapeutic approaches based on multiple diagnostic modalities (e.g., gait analysis: recognizes gait deviations requiring treatment and differentiates these from compensations)"
+        ],
+        "level_3": [
+          "Correlates imaging to development and pathology (e.g., interpretation of hip radiographs)",
+          "Anticipates long-term sequela of surgical and non-surgical interventions"
+        ],
+        "level_4": [
+          "Discusses indications and contraindications to surgical and non-surgical interventions (e.g., identifies “hips at risk”)",
+          "Leads advanced discussion at a multidisciplinary conference and/or in operating room"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of basic therapeutic approaches based on pathology (e.g., describes options for hip preservation versus hip salvage)"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_sbp1",
+      "number": 13,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_sbp2",
+      "number": 14,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among multidisciplinary team members"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional team members",
+          "Role models and advocates for safe and effective transitions of care/hand-offs"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in straightforward clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_sbp3",
+      "number": 15,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health payment systems, including government, private, public, and uninsured care, as well as different practice models"
+        ],
+        "level_2": [
+          "Describes how working within the health care system impacts patient care, including billing and coding"
+        ],
+        "level_3": [
+          "Analyzes how personal practice affects the system (e.g., length of stay, readmission rates, clinical efficiency)"
+        ],
+        "level_4": [
+          "Uses shared decision- making in patient care, taking into consideration costs to the patient"
+        ],
+        "level_5": [
+          "Participates in advocacy activities for health policy"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pbli1",
+      "number": 16,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values to the care of straightforward conditions"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex conditions"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex conditions, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_pbli2",
+      "number": 17,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Creates and implements a learning plan to optimize educational and professional development"
+        ],
+        "level_2": [
+          "Identifies the strengths, deficiencies, and limitations in one’s knowledge and surgical skills",
+          "Actively seeks feedback and other input, with adaptability and humility"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and other input to inform goals",
+          "Uses ongoing reflection, feedback, and other input to measure the effectiveness of the learning plan, and, when necessary, improves it"
+        ],
+        "level_4": [
+          "Analyzes and reflects on the strengths, deficiencies, and limitations in one’s knowledge and expertise to design a learning plan, with assistance",
+          "Role models consistently seeking feedback and other input with adaptability and humility"
+        ],
+        "level_5": [
+          "Responds to feedback and other input episodically, with adaptability and humility",
+          "Coaches others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_prof1",
+      "number": 18,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes inciting events for professionalism lapses",
+          "Integrates ethical principles and recognizes the need to seek help in complex situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care (e.g., informed consent, surrogate decision making, advanced directives, confidentiality, error disclosure, stewardship of limited resources, and related topics)",
+          "Recognizes situations that may promote professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in straightforward situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Applies ethical principles in straightforward situations and takes responsibility for lapses",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex situations (e.g., patient refusing treatment, impaired physicians, patients with limited decision-making capacity)",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_prof2",
+      "number": 19,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Reliably arrives to clinical activities on time and describes strategies for ensuring timely task completion",
+          "Proactively completes tasks and responsibilities to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes barriers that may impact one’s own and others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in straightforward situations",
+          "Develops processes to enhance one’s own and other’s ability to efficiently complete patient care tasks and responsibilities"
+        ],
+        "level_4": [
+          "Completes tasks and responsibilities without reminders"
+        ],
+        "level_5": [
+          "Prioritizes tasks and responsibilities in a timely manner with appropriate attention to detail in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_prof3",
+      "number": 20,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being (e.g., physical and emotional health, burnout)",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Lists available resources for addressing personal and professional well- being",
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ],
+        "level_3": [
+          "Describes institutional resources meant to promote well-being",
+          "Creates institutional level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "Discusses a plan to promote personal and professional well-being with institutional support",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_5": [
+          "Recognizes which institutional factors affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_ics1",
+      "number": 21,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and establishes rapport with patient and caregiver(s) (e.g., situational awareness of language, disability, health literacy level, cultural differences)",
+          "Answers questions about straightforward treatment plans, with assistance",
+          "Recognizes biases and integrates the patient’s and patient’s caregiver(s)’s viewpoints and autonomy to ensure effective communication"
+        ],
+        "level_2": [
+          "Communicates with patients and patient’s caregiver(s) in an understandable and respectful manner",
+          "Establishes a therapeutic relationship in challenging encounters (e.g., shared decision making)",
+          "Counsels patient and their caregiver through decision-making process for complex conditions"
+        ],
+        "level_3": [
+          "Demonstrates basic understanding of informed consent process",
+          "When prompted, reflects on personal biases while attempting to minimize communication barriers",
+          "Coaches others in the facilitation of difficult conversations"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Counsels the patient and patient’s caregiver(s) through decision-making process for straightforward conditions",
+          "Mentors others in situational awareness and critical self-reflection"
+        ],
+        "level_5": [
+          "Identifies barriers to effective communication (e.g., health literacy, cultural differences)",
+          "Facilitates difficult discussions to patients and caregiver(s) (e.g., explaining complications, therapeutic uncertainty)",
+          "Counsels the patient and patient’s caregiver(s) through decision-making process for uncommon conditions"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_ics2",
+      "number": 22,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes the value and role of each team member and respectfully interacts with all members of the health care team"
+        ],
+        "level_2": [
+          "Communicates in a professional and productive manner to facilitate teamwork (e.g., active listening, updates in timely fashion)"
+        ],
+        "level_3": [
+          "Actively recognizes and mitigates communication barriers and biases with health care team members"
+        ],
+        "level_4": [
+          "Facilitates respectful communications and conflict resolution with multidisciplinary health care team members"
+        ],
+        "level_5": [
+          "Serves as an exemplar of effective and respectful communication strategies"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_orthopaedics_ics3",
+      "number": 23,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record while safeguarding patient personal health information",
+          "Independently communicates via written or verbal methods based on urgency and context"
+        ],
+        "level_2": [
+          "Demonstrates accurate, timely, and efficient use of electronic health record to communicate with health care team members",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Uses appropriate communication methods (e.g., face-to-face, voice, electronic)",
+          "Facilitates improved written and verbal communication of others"
+        ],
+        "level_4": [
+          "Concisely reports diagnostic and therapeutic reasoning while incorporating relevant outside data",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_5": [
+          "Respectfully initiates communications about concerns in the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicssupplementalguide.pdf"
+  }
+}

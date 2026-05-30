@@ -3,1124 +3,557 @@
   "specialty": "Pediatrics",
   "version": "2.0",
   "source": "ACGME Pediatrics Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "pediatrics",
+  "parent_name": "Pediatrics",
   "subcompetencies": [
     {
       "id": "pediatrics_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "History",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Gathers information",
-          "strictly following a",
-          "template",
-          "Adapts template to filter",
-          "and prioritize pertinent",
-          "positives and negatives"
+          "Gathers information strictly following a template"
         ],
         "level_2": [
-          "based on broad",
-          "diagnostic categories or",
-          "possible diagnoses",
-          "Filters, prioritizes, and",
-          "synthesizes the history to",
-          "develop a differential"
+          "Adapts template to filter and prioritize pertinent positives and negatives based on broad diagnostic categories or possible diagnoses"
         ],
         "level_3": [
-          "diagnosis in real-time for",
-          "uncomplicated or typical",
-          "presentations",
-          "Filters, prioritizes, and",
-          "synthesizes the history",
-          "to develop a differential"
+          "Filters, prioritizes, and synthesizes the history to develop a differential diagnosis in real-time for uncomplicated or typical presentations"
         ],
         "level_4": [
-          "diagnosis in real time",
-          "for complicated or",
-          "atypical presentations",
-          "Recognizes and probes",
-          "subtle clues from patients",
-          "and families;"
+          "Filters, prioritizes, and synthesizes the history to develop a differential diagnosis in real time for complicated or atypical presentations"
         ],
         "level_5": [
-          "distinguishes nuances",
-          "among diagnoses to",
-          "efficiently drive further",
-          "information gathering"
+          "Recognizes and probes subtle clues from patients and families; distinguishes nuances among diagnoses to efficiently drive further information gathering"
         ]
       }
     },
     {
       "id": "pediatrics_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Physical Exam",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs fundamental",
-          "physical examination",
-          "Performs a rote physical",
-          "examination using a",
-          "strict head-to-toe",
-          "approach",
-          "Performs complete",
-          "physical examination and",
-          "identifies variants and",
-          "abnormal findings"
+          "Performs fundamental physical examination",
+          "Performs a physical examination with consistent use of a developmentally appropriate approach"
         ],
         "level_2": [
-          "Performs a physical",
-          "examination considering",
-          "appropriate adaptation for",
-          "age and development",
-          "Performs complete or",
-          "focused physical",
-          "examination, as indicated,",
-          "and interprets normal",
-          "variants and abnormal",
-          "findings"
+          "Performs a rote physical examination using a strict head-to-toe approach",
+          "Performs complete or focused physical examination, as indicated, and selects advanced maneuvers to distinguish between diagnoses"
         ],
         "level_3": [
-          "Performs a physical",
-          "examination with",
-          "consistent use of a",
-          "developmentally",
-          "appropriate approach",
-          "Performs complete or",
-          "focused physical",
-          "examination, as",
-          "indicated, and selects",
-          "advanced maneuvers to"
+          "Performs complete physical examination and identifies variants and abnormal findings",
+          "Performs a physical examination using strategies to maximize patient cooperation and comfort"
         ],
         "level_4": [
-          "distinguish between",
-          "diagnoses",
-          "Performs a physical",
-          "examination using",
-          "strategies to maximize",
-          "patient cooperation and",
-          "comfort",
-          "Detects, pursues, and",
-          "integrates key physical",
-          "examination findings to"
+          "Performs a physical examination considering appropriate adaptation for age and development",
+          "Detects, pursues, and integrates key physical examination findings to distinguish nuances among competing, often similar diagnoses"
         ],
         "level_5": [
-          "distinguish nuances",
-          "among competing, often",
-          "similar diagnoses",
-          "Performs a physical",
-          "examination that",
-          "consistently and positively",
-          "engages the patient"
+          "Performs complete or focused physical examination, as indicated, and interprets normal variants and abnormal findings",
+          "Performs a physical examination that consistently and positively engages the patient"
         ]
       }
     },
     {
       "id": "pediatrics_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Organize and Prioritize Patient Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Completes tasks for an",
-          "individual patient, when",
-          "prompted",
-          "Organizes patient care",
-          "responsibilities by"
+          "Completes tasks for an individual patient, when prompted"
         ],
         "level_2": [
-          "focusing on individual",
-          "(rather than multiple)",
-          "patients",
-          "Organizes and prioritizes",
-          "the simultaneous care of"
+          "Organizes patient care responsibilities by focusing on individual (rather than multiple) patients"
         ],
         "level_3": [
-          "patients with efficiency",
-          "Organizes, prioritizes,",
-          "and delegates patient",
-          "care responsibilities",
-          "even when patient"
+          "Organizes and prioritizes the simultaneous care of patients with efficiency"
         ],
         "level_4": [
-          "volume approaches the",
-          "capacity of the",
-          "individual or facility;",
-          "anticipates and triages",
-          "urgent and emergent"
+          "Organizes, prioritizes, and delegates patient care responsibilities even when patient volume approaches the capacity of the individual or facility; anticipates and triages urgent and emergent issues"
         ],
         "level_5": [
-          "issues",
-          "Serves as a role model",
-          "and coach for patient care",
-          "responsibilities"
+          "Serves as a role model and coach for patient care responsibilities"
         ]
       }
     },
     {
       "id": "pediatrics_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Clinical Reasoning",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Presents clinical facts",
-          "(e.g., history, exam,",
-          "tests, consultations) in",
-          "the order they were",
-          "elicited",
-          "Generates an unfocused"
+          "Presents clinical facts (e.g., history, exam, tests, consultations) in the order they were elicited"
         ],
         "level_2": [
-          "differential diagnosis",
-          "based on the clinical facts",
-          "Organizes clinical facts to",
-          "compare and contrast",
-          "diagnoses being",
-          "considered, resulting in a"
+          "Generates an unfocused differential diagnosis based on the clinical facts"
         ],
         "level_3": [
-          "prioritized differential",
-          "diagnosis",
-          "Integrates clinical facts",
-          "into a unifying",
-          "diagnosis(es);",
-          "reappraises in real time"
+          "Organizes clinical facts to compare and contrast diagnoses being considered, resulting in a prioritized differential diagnosis"
         ],
         "level_4": [
-          "to avoid diagnostic error",
-          "Role models and coaches",
-          "the organization of clinical",
-          "facts to develop a",
-          "prioritized differential",
-          "diagnosis, including life"
+          "Integrates clinical facts into a unifying diagnosis(es); reappraises in real time to avoid diagnostic error"
         ],
         "level_5": [
-          "threatening diagnoses,",
-          "atypical presentations,",
-          "and complex clinical",
-          "presentations"
+          "Role models and coaches the organization of clinical facts to develop a prioritized differential diagnosis, including life threatening diagnoses, atypical presentations, and complex clinical presentations"
         ]
       }
     },
     {
       "id": "pediatrics_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Patient Management",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Reports management",
-          "plans developed by",
-          "others",
-          "Participates in the",
-          "creation of management",
-          "plans"
+          "Reports management plans developed by others"
         ],
         "level_2": [
-          "Develops an",
-          "interdisciplinary",
-          "management plan for",
-          "common and typical",
-          "diagnoses",
-          "Develops and"
+          "Participates in the creation of management plans"
         ],
         "level_3": [
-          "implements informed",
-          "management plans for",
-          "complicated and",
-          "atypical diagnoses, with",
-          "the ability to modify",
-          "plans as necessary"
+          "Develops an interdisciplinary management plan for common and typical diagnoses"
         ],
         "level_4": [
-          "Serves as a role model",
-          "and coach for",
-          "development of",
-          "management plans for",
-          "complicated and atypical",
-          "diagnoses, with the ability"
+          "Develops and implements informed management plans for complicated and atypical diagnoses, with the ability to modify plans as necessary"
         ],
         "level_5": [
-          "to modify plans as",
-          "necessary"
+          "Serves as a role model and coach for development of management plans for complicated and atypical diagnoses, with the ability to modify plans as necessary"
         ]
       }
     },
     {
       "id": "pediatrics_mk1",
       "number": 6,
-      "domain_number": 1,
       "name": "Clinical Knowledge",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "medical knowledge",
-          "Links basic medical",
-          "knowledge to clinical"
+          "Demonstrates basic medical knowledge"
         ],
         "level_2": [
-          "scenarios",
-          "Applies medical",
-          "knowledge to common",
-          "and typical scenarios to"
+          "Links basic medical knowledge to clinical scenarios"
         ],
         "level_3": [
-          "guide patient care",
-          "Integrates a breadth of",
-          "medical knowledge that",
-          "includes complicated"
+          "Applies medical knowledge to common and typical scenarios to guide patient care"
         ],
         "level_4": [
-          "and atypical conditions",
-          "to guide patient care",
-          "Teaches at multiple",
-          "levels, drawing from a"
+          "Integrates a breadth of medical knowledge that includes complicated and atypical conditions to guide patient care"
         ],
         "level_5": [
-          "breadth of medical",
-          "knowledge that spans the",
-          "continuum of simple to",
-          "complex problems"
+          "Teaches at multiple levels, drawing from a breadth of medical knowledge that spans the continuum of simple to complex problems"
         ]
       }
     },
     {
       "id": "pediatrics_mk2",
       "number": 7,
-      "domain_number": 2,
       "name": "Diagnostic Evaluation",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Lists basic evaluation",
-          "(e.g., diagnostic testing",
-          "and consultation) for",
-          "common diagnoses, with",
-          "prompting",
-          "Reports results of",
-          "diagnostic studies",
-          "Recommends broad",
-          "evaluation based on an"
+          "Lists basic evaluation (e.g., diagnostic testing and consultation) for common diagnoses, with prompting",
+          "Interprets clinical significance of diagnostic study results"
         ],
         "level_2": [
-          "unfocused differential",
-          "diagnosis",
-          "Identifies clinically",
-          "significant diagnostic",
-          "study results, with",
-          "guidance",
-          "Recommends focused",
-          "evaluation based on a",
-          "prioritized differential"
+          "Reports results of diagnostic studies",
+          "Prioritizes and optimizes evaluation based on risks, benefits, indications, and alternatives to clarify the diagnosis(es)"
         ],
         "level_3": [
-          "diagnosis",
-          "Interprets clinical",
-          "significance of diagnostic",
-          "study results",
-          "Prioritizes and",
-          "optimizes evaluation",
-          "based on risks, benefits,",
-          "indications, and",
-          "alternatives to clarify the"
+          "Recommends broad evaluation based on an unfocused differential diagnosis",
+          "Interprets clinical significance of diagnostic study results while considering study limitations"
         ],
         "level_4": [
-          "diagnosis(es)",
-          "Interprets clinical",
-          "significance of",
-          "diagnostic study results",
-          "while considering study",
-          "limitations",
-          "Educates others about",
-          "risks, benefits,",
-          "indications, and"
+          "Identifies clinically significant diagnostic study results, with guidance",
+          "Educates others about risks, benefits, indications, and alternatives to guide diagnostic decision making"
         ],
         "level_5": [
-          "alternatives to guide",
-          "diagnostic decision",
-          "making",
-          "Teaches others to",
-          "interpret clinically",
-          "significant results and",
-          "consider study limitations"
+          "Recommends focused evaluation based on a prioritized differential diagnosis",
+          "Teaches others to interpret clinically significant results and consider study limitations"
         ]
       }
     },
     {
       "id": "pediatrics_sbp1",
       "number": 8,
-      "domain_number": 1,
       "name": "Patient Safety",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Identifies system factors"
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
         ],
         "level_2": [
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Participates in analysis of"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
         ],
         "level_3": [
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and families",
-          "(simulated or actual)",
-          "Conducts analysis of",
-          "patient safety events"
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and families (simulated or actual)"
         ],
         "level_4": [
-          "and offers error",
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "families (simulated or",
-          "actual)",
-          "Actively engages teams"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_5": [
-          "and processes to modify",
-          "systems to prevent",
-          "patient safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events"
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of patient safety events"
         ]
       }
     },
     {
       "id": "pediatrics_sbp2",
       "number": 9,
-      "domain_number": 2,
       "name": "Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
         ],
         "level_2": [
-          "Describes local quality",
-          "improvement initiatives",
-          "(e.g., community",
-          "vaccination rate, infection",
-          "rate, smoking cessation)"
+          "Describes local quality improvement initiatives (e.g., community vaccination rate, infection rate, smoking cessation)"
         ],
         "level_3": [
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Demonstrates the skills",
-          "required to identify,"
+          "Participates in local quality improvement initiatives"
         ],
         "level_4": [
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project",
-          "Creates, implements, and",
-          "assesses quality"
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_5": [
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "pediatrics_sbp3",
       "number": 10,
-      "domain_number": 3,
       "name": "System Navigation for Patient Centered Care – Coordination of Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Lists the various",
-          "interprofessional",
-          "individuals involved in",
-          "the patient’s care",
-          "coordination",
-          "Coordinates care of",
-          "patients in routine clinical"
+          "Lists the various interprofessional individuals involved in the patient’s care coordination"
         ],
         "level_2": [
-          "situations, incorporating",
-          "interprofessional teams",
-          "with consideration of",
-          "patient and family needs",
-          "Coordinates care of",
-          "patients in complex",
-          "clinical situations,"
+          "Coordinates care of patients in routine clinical situations, incorporating interprofessional teams with consideration of patient and family needs"
         ],
         "level_3": [
-          "effectively utilizing the",
-          "roles of interprofessional",
-          "teams, and incorporating",
-          "patient and family needs",
-          "and goals",
-          "Coordinates",
-          "interprofessional,"
+          "Coordinates care of patients in complex clinical situations, effectively utilizing the roles of interprofessional teams, and incorporating patient and family needs and goals"
         ],
         "level_4": [
-          "patient-centered care",
-          "among different",
-          "disciplines and",
-          "specialties, actively",
-          "assisting families in",
-          "navigating the health-",
-          "care system"
+          "Coordinates interprofessional, patient-centered care among different disciplines and specialties, actively assisting families in navigating the health- care system"
         ],
         "level_5": [
-          "Coaches others in",
-          "interprofessional, patient-",
-          "centered care",
-          "coordination"
+          "Coaches others in interprofessional, patient- centered care coordination"
         ]
       }
     },
     {
       "id": "pediatrics_sbp4",
       "number": 11,
-      "domain_number": 4,
       "name": "System Navigation for Patient-Centered Care – Transitions in Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Uses a standard",
-          "template for transitions",
-          "of care/hand-offs",
-          "Adapts a standard",
-          "template, recognizing key",
-          "elements for safe and"
+          "Uses a standard template for transitions of care/hand-offs"
         ],
         "level_2": [
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex"
+          "Adapts a standard template, recognizing key elements for safe and effective transitions of care/hand-offs in routine clinical situations"
         ],
         "level_3": [
-          "clinical situations, and",
-          "ensures closed-loop",
-          "communication",
-          "Performs and",
-          "advocates for safe and",
-          "effective transitions of"
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations, and ensures closed-loop communication"
         ],
         "level_4": [
-          "care/hand-offs within",
-          "and across health care",
-          "delivery systems,",
-          "including transitions to",
-          "adult care",
-          "Coaches others in"
+          "Performs and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including transitions to adult care"
         ],
         "level_5": [
-          "improving transitions of",
-          "care within and across",
-          "health care delivery",
-          "systems to optimize",
-          "patient outcomes"
+          "Coaches others in improving transitions of care within and across health care delivery systems to optimize patient outcomes"
         ]
       }
     },
     {
       "id": "pediatrics_sbp5",
       "number": 12,
-      "domain_number": 5,
       "name": "Population and Community Health",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "awareness of population",
-          "and community health",
-          "needs",
-          "Identifies specific"
+          "Demonstrates awareness of population and community health needs"
         ],
         "level_2": [
-          "population and",
-          "community health needs;",
-          "identifies local resources",
-          "Uses local resources",
-          "effectively to meet the"
+          "Identifies specific population and community health needs; identifies local resources"
         ],
         "level_3": [
-          "needs of a patient",
-          "population and",
-          "community",
-          "Adapts practice to",
-          "provide for the needs of"
+          "Uses local resources effectively to meet the needs of a patient population and community"
         ],
         "level_4": [
-          "a specific population",
-          "Advocates at the local,",
-          "regional, or national level",
-          "for populations and",
-          "communities with health"
+          "Adapts practice to provide for the needs of a specific population"
         ],
         "level_5": [
-          "care needs"
+          "Advocates at the local, regional, or national level for populations and communities with health care needs"
         ]
       }
     },
     {
       "id": "pediatrics_sbp6",
       "number": 13,
-      "domain_number": 6,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Engages with patients",
-          "and other providers in",
-          "discussions about cost-",
-          "conscious care and key",
-          "components of the",
-          "health care delivery"
+          "Engages with patients and other providers in discussions about cost- conscious care and key components of the health care delivery system"
         ],
         "level_2": [
-          "system",
-          "Identifies the relationships",
-          "between the delivery",
-          "system and cost-",
-          "conscious care and the",
-          "impact on the patient care"
+          "Identifies the relationships between the delivery system and cost- conscious care and the impact on the patient care"
         ],
         "level_3": [
-          "Discusses the need for",
-          "changes in clinical",
-          "approaches based on",
-          "evidence, outcomes, and",
-          "cost-effectiveness to",
-          "improve care for patients"
+          "Discusses the need for changes in clinical approaches based on evidence, outcomes, and cost-effectiveness to improve care for patients and families"
         ],
         "level_4": [
-          "and families",
-          "Advocates for the",
-          "promotion of safe,",
-          "quality, and high-value",
-          "care",
-          "Coaches others to"
+          "Advocates for the promotion of safe, quality, and high-value care"
         ],
         "level_5": [
-          "promote safe, quality, and",
-          "high-value care across",
-          "health care systems"
+          "Coaches others to promote safe, quality, and high-value care across health care systems"
         ]
       }
     },
     {
       "id": "pediatrics_pbli1",
       "number": 14,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Develops an answerable",
-          "clinical question and",
-          "demonstrates how to",
-          "access available",
-          "evidence, with guidance"
+          "Develops an answerable clinical question and demonstrates how to access available evidence, with guidance"
         ],
         "level_2": [
-          "Independently articulates",
-          "clinical question and",
-          "accesses available",
-          "evidence",
-          "Locates and applies the"
+          "Independently articulates clinical question and accesses available evidence"
         ],
         "level_3": [
-          "evidence, integrated with",
-          "patient preference, to the",
-          "care of patients",
-          "Critically appraises and",
-          "applies evidence, even"
+          "Locates and applies the evidence, integrated with patient preference, to the care of patients"
         ],
         "level_4": [
-          "in the face of",
-          "uncertainty and",
-          "conflicting evidence to",
-          "guide care tailored to",
-          "the individual patient"
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence to guide care tailored to the individual patient"
         ],
         "level_5": [
-          "Coaches others to",
-          "critically appraise and",
-          "apply evidence for",
-          "complex patients"
+          "Coaches others to critically appraise and apply evidence for complex patients"
         ]
       }
     },
     {
       "id": "pediatrics_pbli2",
       "number": 15,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Participates in feedback",
-          "sessions",
-          "Develops personal and",
-          "professional goals, with",
-          "assistance",
-          "Demonstrates openness",
-          "to feedback and",
-          "performance data",
-          "Designs a learning plan"
+          "Participates in feedback sessions",
+          "Designs and implements a learning plan by analyzing and reflecting on the factors which contribute to gap(s) between performance expectations and actual performance"
         ],
         "level_2": [
-          "based on established",
-          "goals, feedback, and",
-          "performance data, with",
-          "assistance",
-          "Seeks and incorporates",
-          "feedback and",
-          "performance data",
-          "episodically",
-          "Designs and implements"
+          "Develops personal and professional goals, with assistance",
+          "Seeks and incorporates feedback and performance data consistently"
         ],
         "level_3": [
-          "a learning plan by",
-          "analyzing and reflecting",
-          "on the factors which",
-          "contribute to gap(s)",
-          "between performance",
-          "expectations and actual",
-          "performance",
-          "Seeks and incorporates",
-          "feedback and"
+          "Demonstrates openness to feedback and performance data",
+          "Adapts a learning plan using long-term professional goals, self- reflection, and performance data to measure its effectiveness"
         ],
         "level_4": [
-          "performance data",
-          "consistently",
-          "Adapts a learning plan",
-          "using long-term",
-          "professional goals, self-",
-          "reflection, and",
-          "performance data to",
-          "measure its",
-          "effectiveness"
+          "Designs a learning plan based on established goals, feedback, and performance data, with assistance",
+          "Role models and coaches others in seeking and incorporating feedback and performance data"
         ],
         "level_5": [
-          "Role models and coaches",
-          "others in seeking and",
-          "incorporating feedback",
-          "and performance data",
-          "Demonstrates continuous",
-          "self-reflection and",
-          "coaching of others on",
-          "reflective practice"
+          "Seeks and incorporates feedback and performance data episodically",
+          "Demonstrates continuous self-reflection and coaching of others on reflective practice"
         ]
       }
     },
     {
       "id": "pediatrics_prof1",
       "number": 16,
-      "domain_number": 1,
       "name": "Professional Behavior",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Identifies expected",
-          "professional behaviors",
-          "and potential triggers for",
-          "lapses",
-          "Identifies the value and",
-          "role of pediatrics as a",
-          "vocation/career",
-          "Demonstrates",
-          "professional behavior with"
+          "Identifies expected professional behaviors and potential triggers for lapses",
+          "Fully engages in patient care and holds oneself accountable"
         ],
         "level_2": [
-          "occasional lapses",
-          "Demonstrates",
-          "accountability for patient",
-          "care as a pediatrician,",
-          "with guidance",
-          "Maintains professional",
-          "behavior in increasingly",
-          "complex or stressful",
-          "situations"
+          "Identifies the value and role of pediatrics as a vocation/career",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
         ],
         "level_3": [
-          "Fully engages in patient",
-          "care and holds oneself",
-          "accountable",
-          "Recognizes situations",
-          "that may trigger",
-          "professionalism lapses",
-          "and intervenes to",
-          "prevent lapses in self",
-          "and others"
+          "Demonstrates professional behavior with occasional lapses",
+          "Exhibits a sense of duty to patient care and professional responsibilities"
         ],
         "level_4": [
-          "Exhibits a sense of duty",
-          "to patient care and",
-          "professional",
-          "responsibilities",
-          "Models professional",
-          "behavior and coaches",
-          "others when their",
-          "behavior fails to meet",
-          "professional expectations"
+          "Demonstrates accountability for patient care as a pediatrician, with guidance",
+          "Models professional behavior and coaches others when their behavior fails to meet professional expectations"
         ],
         "level_5": [
-          "Extends the role of the",
-          "pediatrician beyond the",
-          "care of patients by",
-          "engaging with the",
-          "community, specialty, and",
-          "medical profession as a",
-          "whole"
+          "Maintains professional behavior in increasingly complex or stressful situations",
+          "Extends the role of the pediatrician beyond the care of patients by engaging with the community, specialty, and medical profession as a whole"
         ]
       }
     },
     {
       "id": "pediatrics_prof2",
       "number": 17,
-      "domain_number": 2,
       "name": "Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of the ethical",
-          "principles underlying",
-          "informed consent,",
-          "surrogate decision",
-          "making, advance",
-          "directives, confidentiality,",
-          "error disclosure,"
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics"
         ],
         "level_2": [
-          "stewardship of limited",
-          "resources, and related",
-          "topics",
-          "Applies ethical principles",
-          "in common situations",
-          "Analyzes complex",
-          "situations using ethical",
-          "principles to address"
+          "Applies ethical principles in common situations"
         ],
         "level_3": [
-          "conflict/controversy;",
-          "seeks help when needed",
-          "to manage and resolve",
-          "complex ethical situations",
-          "Manages and seeks to",
-          "resolve ethical",
-          "dilemmas using",
-          "appropriate resources"
+          "Analyzes complex situations using ethical principles to address conflict/controversy; seeks help when needed to manage and resolve complex ethical situations"
         ],
         "level_4": [
-          "(e.g., ethics",
-          "consultations, literature",
-          "review, risk",
-          "management/legal",
-          "consultation)",
-          "Called upon by others to",
-          "consult in cases of",
-          "complex ethical"
+          "Manages and seeks to resolve ethical dilemmas using appropriate resources (e.g., ethics consultations, literature review, risk management/legal consultation)"
         ],
         "level_5": [
-          "dilemmas; identifies and",
-          "seeks to address system-",
-          "level factors that induce",
-          "or exacerbate"
+          "Called upon by others to consult in cases of complex ethical dilemmas; identifies and seeks to address system- level factors that induce or exacerbate"
         ]
       }
     },
     {
       "id": "pediatrics_prof3",
       "number": 18,
-      "domain_number": 3,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Performs tasks and",
-          "responsibilities, with",
-          "prompting",
-          "Performs tasks and",
-          "responsibilities in a timely"
+          "Performs tasks and responsibilities, with prompting"
         ],
         "level_2": [
-          "manner in routine",
-          "situations",
-          "Performs tasks and",
-          "responsibilities in a",
-          "thorough and timely"
+          "Performs tasks and responsibilities in a timely manner in routine situations"
         ],
         "level_3": [
-          "manner in complex or",
-          "stressful situations",
-          "Coaches others to",
-          "ensure tasks and",
-          "responsibilities are"
+          "Performs tasks and responsibilities in a thorough and timely manner in complex or stressful situations"
         ],
         "level_4": [
-          "completed in a thorough",
-          "and timely manner in",
-          "complex or stressful",
-          "situations",
-          "Creates strategies to"
+          "Coaches others to ensure tasks and responsibilities are completed in a thorough and timely manner in complex or stressful situations"
         ],
         "level_5": [
-          "enhance others’ ability to",
-          "efficiently complete tasks",
-          "and responsibilities"
+          "Creates strategies to enhance others’ ability to efficiently complete tasks and responsibilities"
         ]
       }
     },
     {
       "id": "pediatrics_prof4",
       "number": 19,
-      "domain_number": 4,
       "name": "Well-Being",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes the",
-          "importance of",
-          "addressing personal and",
-          "professional well-being"
+          "Recognizes the importance of addressing personal and professional well-being"
         ],
         "level_2": [
-          "Describes institutional",
-          "resources that are meant",
-          "to promote well-being",
-          "Recognizes institutional"
+          "Describes institutional resources that are meant to promote well-being"
         ],
         "level_3": [
-          "and personal factors that",
-          "impact well-being",
-          "Describes interactions",
-          "between institutional"
+          "Recognizes institutional and personal factors that impact well-being"
         ],
         "level_4": [
-          "and personal factors",
-          "that impact well-being",
-          "Coaches and supports",
-          "colleagues to optimize"
+          "Describes interactions between institutional and personal factors that impact well-being"
         ],
         "level_5": [
-          "well-being at the team,",
-          "program, or institutional",
-          "level"
+          "Coaches and supports colleagues to optimize well-being at the team, program, or institutional level"
         ]
       }
     },
     {
       "id": "pediatrics_ics1",
       "number": 20,
-      "domain_number": 1,
       "name": "Patient- and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Demonstrates respect",
-          "and attempts to establish",
-          "rapport",
-          "Attempts to adjust",
-          "communication",
-          "strategies based upon",
-          "patient/family",
-          "expectations",
-          "Establishes a therapeutic"
+          "Demonstrates respect and attempts to establish rapport",
+          "Communicates with sensitivity and compassion, elicits patient/family values, and acknowledges uncertainty and conflict"
         ],
         "level_2": [
-          "relationship in",
-          "straightforward",
-          "encounters",
-          "Adjusts communication",
-          "strategies as needed to",
-          "mitigate barriers and meet",
-          "patient/family",
-          "expectations",
-          "Establishes a culturally"
+          "Attempts to adjust communication strategies based upon patient/family expectations",
+          "Establishes a therapeutic relationship in straightforward and complex encounters, including those with ambiguity and/or conflict"
         ],
         "level_3": [
-          "aware and therapeutic",
-          "relationship in most",
-          "encounters",
-          "Communicates with",
-          "sensitivity and",
-          "compassion, elicits",
-          "patient/family values, and",
-          "acknowledges uncertainty",
-          "and conflict"
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Uses shared decision making with patient/family to make a personalized care plan"
         ],
         "level_4": [
-          "Establishes a",
-          "therapeutic relationship",
-          "in straightforward and",
-          "complex encounters,",
-          "including those with",
-          "ambiguity and/or conflict",
-          "Uses shared decision",
-          "making with",
-          "patient/family to make a"
+          "Adjusts communication strategies as needed to mitigate barriers and meet patient/family expectations",
+          "Mentors others to develop positive therapeutic relationships"
         ],
         "level_5": [
-          "personalized care plan",
-          "Mentors others to develop",
-          "positive therapeutic",
-          "relationships",
-          "Models and coaches",
-          "others in patient- and",
-          "family-centered",
-          "communication"
+          "Establishes a culturally aware and therapeutic relationship in most encounters",
+          "Models and coaches others in patient- and family-centered communication"
         ]
       }
     },
     {
       "id": "pediatrics_ics2",
       "number": 21,
-      "domain_number": 2,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Respectfully requests a",
-          "consultation, with",
-          "guidance",
-          "Identifies the members",
-          "of the interprofessional",
-          "team",
-          "Clearly and concisely"
+          "Respectfully requests a consultation, with guidance",
+          "Uses bi-directional communication within the interprofessional team"
         ],
         "level_2": [
-          "requests consultation by",
-          "communicating patient",
-          "information",
-          "Participates within the",
-          "interprofessional team",
-          "Formulates a specific",
-          "question for consultation"
+          "Identifies the members of the interprofessional team",
+          "Coordinates consultant recommendations to optimize patient care"
         ],
         "level_3": [
-          "and tailors communication",
-          "strategy",
-          "Uses bi-directional",
-          "communication within the",
-          "interprofessional team",
-          "Coordinates consultant",
-          "recommendations to"
+          "Clearly and concisely requests consultation by communicating patient information",
+          "Facilitates interprofessional team communication"
         ],
         "level_4": [
-          "optimize patient care",
-          "Facilitates",
-          "interprofessional team",
-          "communication",
-          "Maintains a collaborative",
-          "relationship with referring",
-          "providers that maximizes"
+          "Participates within the interprofessional team",
+          "Maintains a collaborative relationship with referring providers that maximizes adherence to practice recommendations"
         ],
         "level_5": [
-          "adherence to practice",
-          "recommendations",
-          "Coaches others in",
-          "effective communication",
-          "within the",
-          "interprofessional team"
+          "Formulates a specific question for consultation and tailors communication strategy",
+          "Coaches others in effective communication within the interprofessional team"
         ]
       }
     },
     {
       "id": "pediatrics_ics3",
       "number": 22,
-      "domain_number": 3,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Records accurate",
-          "information in the patient",
-          "record",
-          "Identifies the importance",
-          "of and responds to",
-          "multiple forms of",
-          "communication (e.g., in-",
-          "person, electronic health",
-          "record (EHR), telephone,"
+          "Records accurate information in the patient record",
+          "Aligns type of communication with message to be delivered (e.g., direct and indirect) based on urgency and complexity"
         ],
         "level_2": [
-          "email)",
-          "Records accurate and",
-          "timely information in the",
-          "patient record",
-          "Selects appropriate",
-          "method of",
-          "communication, with",
-          "prompting",
-          "Concisely documents"
+          "Identifies the importance of and responds to multiple forms of communication (e.g., in- person, electronic health record (EHR), telephone, email)",
+          "Documents diagnostic and therapeutic reasoning, including anticipatory guidance"
         ],
         "level_3": [
-          "updated, prioritized,",
-          "diagnostic and",
-          "therapeutic reasoning in",
-          "the patient record",
-          "Aligns type of",
-          "communication with",
-          "message to be delivered",
-          "(e.g., direct and indirect)",
-          "based on urgency and"
+          "Records accurate and timely information in the patient record",
+          "Demonstrates exemplary written and verbal communication"
         ],
         "level_4": [
-          "complexity",
-          "Documents diagnostic",
-          "and therapeutic",
-          "reasoning, including",
-          "anticipatory guidance",
-          "Demonstrates",
-          "exemplary written and",
-          "verbal communication",
-          "Models and coaches"
+          "Selects appropriate method of communication, with prompting",
+          "Models and coaches others in documenting diagnostic and therapeutic reasoning"
         ],
         "level_5": [
-          "others in documenting",
-          "diagnostic and",
-          "therapeutic reasoning",
-          "Coaches others in written",
-          "and verbal",
-          "communication"
+          "Concisely documents updated, prioritized, diagnostic and therapeutic reasoning in the patient record",
+          "Coaches others in written and verbal communication"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "pediatrics",
-  "primary_name": "Pediatrics",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsmilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricssupplementalguide.pdf"

@@ -3,1549 +3,704 @@
   "specialty": "Anesthesiology",
   "version": "2.0",
   "source": "ACGME Anesthesiology Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "anesthesiology",
+  "parent_name": "Anesthesiology",
   "subcompetencies": [
     {
       "id": "anesthesiology_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Pre-Anesthetic Evaluation",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs basic chart",
-          "review",
-          "Conducts patient",
-          "interview, with direct",
-          "supervision",
-          "Conducts and interprets",
-          "a physical examination,",
-          "with direct supervision",
-          "Performs focused chart",
-          "review, with indirect"
+          "Performs basic chart review",
+          "Conducts a focused physical examination, with indirect supervision",
+          "Independently identifies the need for additional evaluation and suggests therapeutic interventions"
         ],
         "level_2": [
-          "supervision",
-          "Interviews the patient and",
-          "gathers pertinent",
-          "information, with indirect",
-          "supervision",
-          "Conducts a focused",
-          "physical examination, with",
-          "indirect supervision",
-          "Interprets chart review",
-          "information to assess"
+          "Conducts patient interview, with direct supervision",
+          "Interprets chart review information to assess need for further work-up",
+          "Independently identifies concerning physical exam findings that require further evaluation"
         ],
         "level_3": [
-          "need for further work-up",
-          "Interprets information",
-          "collected during patient",
-          "interview, with assistance",
-          "Identifies comorbidities on",
-          "physical examination that",
-          "may require further",
-          "evaluation, with indirect",
-          "supervision",
-          "Evaluates diagnostic"
+          "Conducts and interprets a physical examination, with direct supervision",
+          "Interprets information collected during patient interview, with assistance",
+          "Independently identifies a previously undiagnosed condition"
         ],
         "level_4": [
-          "data and provides risk",
-          "stratification based on",
-          "comorbidities and",
-          "anesthetic implications",
-          "Independently identifies",
-          "the need for additional",
-          "evaluation and suggests",
-          "therapeutic",
-          "interventions",
-          "Independently identifies"
+          "Performs focused chart review, with indirect supervision",
+          "Identifies comorbidities on physical examination that may require further evaluation, with indirect supervision"
         ],
         "level_5": [
-          "concerning physical",
-          "exam findings that",
-          "require further",
-          "evaluation",
-          "Independently identifies a",
-          "previously undiagnosed",
-          "condition"
+          "Interviews the patient and gathers pertinent information, with indirect supervision",
+          "Evaluates diagnostic data and provides risk stratification based on comorbidities and anesthetic implications"
         ]
       }
     },
     {
       "id": "anesthesiology_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Peri-Operative Care and Management",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies the",
-          "components of an",
-          "anesthetic plan",
-          "Identifies the",
-          "components of a pain",
-          "management plan",
-          "Identifies potential",
-          "impact of anesthesia",
-          "beyond intra-operative",
-          "period",
-          "Develops an anesthetic",
-          "plan for a healthy patient",
-          "undergoing"
+          "Identifies the components of an anesthetic plan",
+          "Identifies patient specific risks factors for long-term anesthetic effects",
+          "Implements the anesthetic plan for patients with complex pain history and polypharmacy"
         ],
         "level_2": [
-          "uncomplicated",
-          "procedures",
-          "Implements simple peri-",
-          "operative pain",
-          "management plan",
-          "Identifies patient specific",
-          "risks factors for long-term",
-          "anesthetic effects",
-          "Develops an anesthetic",
-          "plan for patients with well-",
-          "controlled comorbidities",
-          "or undergoing",
-          "complicated procedures"
+          "Identifies the components of a pain management plan",
+          "Develops an anesthetic plan for patients with well- controlled comorbidities or undergoing complicated procedures",
+          "Implements the anesthetic plan to mitigate the long-term impact of anesthesia"
         ],
         "level_3": [
-          "Identifies patients with a",
-          "history of chronic pain",
-          "who require a modified",
-          "peri-operative pain",
-          "management plan",
-          "Develops the anesthetic",
-          "plan based on risk factors",
-          "to mitigate the long-term",
-          "impact of anesthesia",
-          "Develops an anesthetic",
-          "plan for patients with",
-          "multiple, uncontrolled",
-          "comorbidities, and"
+          "Identifies potential impact of anesthesia beyond intra-operative period",
+          "Identifies patients with a history of chronic pain who require a modified peri-operative pain management plan",
+          "In collaboration with other specialists, develops protocols for multimodal analgesia plan for patients with a complex pain history and substance use disorder"
         ],
         "level_4": [
-          "undergoing complicated",
-          "procedures",
-          "Implements the",
-          "anesthetic plan for",
-          "patients with complex",
-          "pain history and",
-          "polypharmacy",
-          "Implements the",
-          "anesthetic plan to",
-          "mitigate the long-term",
-          "impact of anesthesia",
-          "In collaboration with other",
-          "specialists, develops"
+          "Develops an anesthetic plan for a healthy patient undergoing uncomplicated procedures",
+          "Develops the anesthetic plan based on risk factors to mitigate the long-term impact of anesthesia",
+          "Develops departmental or institutional protocols for reduction of the long-term impact of anesthesia"
         ],
         "level_5": [
-          "protocols for multimodal",
-          "analgesia plan for",
-          "patients with a complex",
-          "pain history and",
-          "substance use disorder",
-          "Develops departmental or",
-          "institutional protocols for",
-          "reduction of the long-term",
-          "impact of anesthesia"
+          "Implements simple peri- operative pain management plan",
+          "Develops an anesthetic plan for patients with multiple, uncontrolled comorbidities, and undergoing complicated procedures"
         ]
       }
     },
     {
       "id": "anesthesiology_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Application and Interpretation of Monitors",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies standard",
-          "monitors",
-          "Applies standard",
-          "monitors to patients",
-          "Interprets standard",
-          "monitoring data",
-          "Independently selects",
-          "central and arterial",
-          "catheters based on",
-          "patient comorbidities and",
-          "procedure"
+          "Identifies standard monitors",
+          "Addresses malfunctions in standard monitors and interprets data from central and arterial lines, with supervision",
+          "Independently inserts or applies advanced invasive monitors"
         ],
         "level_2": [
-          "Inserts central and arterial",
-          "catheters, with",
-          "supervision",
-          "Addresses malfunctions",
-          "in standard monitors and",
-          "interprets data from",
-          "central and arterial lines,",
-          "with supervision",
-          "Selects advanced",
-          "monitors based on patient",
-          "comorbidities and"
+          "Applies standard monitors to patients",
+          "Selects advanced monitors based on patient comorbidities and procedure, with supervision",
+          "Independently interprets data, recognizes, and addresses malfunctions in monitors and other anesthesia equipment"
         ],
         "level_3": [
-          "procedure, with",
-          "supervision",
-          "Inserts or applies",
-          "advanced monitors, with",
-          "supervision",
-          "Recognizes and",
-          "addresses malfunctions in",
-          "advanced monitors and",
-          "interprets data, with",
-          "supervision",
-          "Independently selects"
+          "Interprets standard monitoring data",
+          "Inserts or applies advanced monitors, with supervision",
+          "Functions as a consultant for difficult advanced monitor placement"
         ],
         "level_4": [
-          "advanced monitors",
-          "based on patient",
-          "comorbidities and",
-          "procedure",
-          "Independently inserts or",
-          "applies advanced",
-          "invasive monitors",
-          "Independently interprets",
-          "data, recognizes, and",
-          "addresses malfunctions",
-          "in monitors and other"
+          "Independently selects central and arterial catheters based on patient comorbidities and procedure",
+          "Recognizes and addresses malfunctions in advanced monitors and interprets data, with supervision",
+          "Participates in the research and/or development of protocols for monitoring technology"
         ],
         "level_5": [
-          "anesthesia equipment",
-          "Functions as a consultant",
-          "for difficult advanced",
-          "monitor placement",
-          "Participates in the",
-          "research and/or",
-          "development of protocols",
-          "for monitoring technology"
+          "Inserts central and arterial catheters, with supervision",
+          "Independently selects advanced monitors based on patient comorbidities and procedure"
         ]
       }
     },
     {
       "id": "anesthesiology_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Intra-Operative Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Assists in the initiation of",
-          "the anesthetic",
-          "Assists in maintenance",
-          "of anesthetic care",
-          "Assists with emergence",
-          "from anesthesia",
-          "Plans and initiates the",
-          "anesthetic for healthy",
-          "patients undergoing",
-          "uncomplicated",
-          "procedures"
+          "Assists in the initiation of the anesthetic",
+          "Anticipates and manages expected events during emergence, with supervision",
+          "Independently manages unexpected events during anesthetic care"
         ],
         "level_2": [
-          "Manages expected",
-          "events during anesthetic",
-          "care, with supervision",
-          "Anticipates and manages",
-          "expected events during",
-          "emergence, with",
-          "supervision",
-          "Plans and initiates the",
-          "anesthetic in a patient",
-          "with well-controlled",
-          "comorbidities, or"
+          "Assists in maintenance of anesthetic care",
+          "Plans and initiates the anesthetic in a patient with well-controlled comorbidities, or undergoing complicated procedures",
+          "Independently anticipates and manages unexpected events during emergence"
         ],
         "level_3": [
-          "undergoing complicated",
-          "procedures",
-          "Independently manages",
-          "expected events during",
-          "anesthetic care",
-          "Anticipates and manages",
-          "unexpected events during",
-          "emergence, with",
-          "supervision",
-          "Independently plans",
-          "and initiates the"
+          "Assists with emergence from anesthesia",
+          "Independently manages expected events during anesthetic care",
+          "Manages rare events during anesthetic care"
         ],
         "level_4": [
-          "anesthetic in a patient",
-          "with multiple,",
-          "uncontrolled",
-          "comorbidities",
-          "undergoing complicated",
-          "procedures",
-          "Independently manages",
-          "unexpected events",
-          "during anesthetic care",
-          "Independently",
-          "anticipates and"
+          "Plans and initiates the anesthetic for healthy patients undergoing uncomplicated procedures",
+          "Anticipates and manages unexpected events during emergence, with supervision",
+          "Manages rare events during emergence"
         ],
         "level_5": [
-          "manages unexpected",
-          "events during",
-          "emergence",
-          "Manages rare events",
-          "during anesthetic care",
-          "Manages rare events",
-          "during emergence"
+          "Manages expected events during anesthetic care, with supervision",
+          "Independently plans and initiates the anesthetic in a patient with multiple, uncontrolled comorbidities undergoing complicated procedures"
         ]
       }
     },
     {
       "id": "anesthesiology_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Airway Management",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs basic airway",
-          "assessment",
-          "Performs bag-mask",
-          "ventilation in",
-          "uncomplicated airway",
-          "Uses the airway exam",
-          "and identifiable risk"
+          "Performs basic airway assessment",
+          "Prepares and incorporates advanced equipment in the management of a complicated airway, with supervision"
         ],
         "level_2": [
-          "factors to formulate a",
-          "patient-specific plan",
-          "Prepares basic equipment",
-          "and manages an",
-          "uncomplicated airway",
-          "Devises airway",
-          "management plans that"
+          "Performs bag-mask ventilation in uncomplicated airway",
+          "Independently devises airway management plans that address contingencies"
         ],
         "level_3": [
-          "address contingencies,",
-          "with supervision",
-          "Prepares and",
-          "incorporates advanced",
-          "equipment in the",
-          "management of a",
-          "complicated airway, with"
+          "Uses the airway exam and identifiable risk factors to formulate a patient-specific plan",
+          "Independently prepares and incorporates advanced equipment in the management of a complicated airway"
         ],
         "level_4": [
-          "supervision",
-          "Independently devises",
-          "airway management",
-          "plans that address",
-          "contingencies",
-          "Independently prepares",
-          "and incorporates"
+          "Prepares basic equipment and manages an uncomplicated airway",
+          "Functions as an expert in an airway crisis for complicated airways"
         ],
         "level_5": [
-          "advanced equipment in",
-          "the management of a",
-          "complicated airway",
-          "Functions as an expert in",
-          "an airway crisis for",
-          "complicated airways"
+          "Devises airway management plans that address contingencies, with supervision"
         ]
       }
     },
     {
       "id": "anesthesiology_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Point-of-Care Ultrasound",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Lists and explains the",
-          "basic science and",
-          "terminology of",
-          "ultrasound",
-          "Identifies relevant",
-          "anatomy using",
-          "ultrasound",
-          "Uses ultrasound for",
-          "vascular access in",
-          "routine situations, with"
+          "Lists and explains the basic science and terminology of ultrasound",
+          "Uses ultrasound for vascular access in routine situations",
+          "Independently conducts and interprets point-of- care ultrasound"
         ],
         "level_2": [
-          "supervision",
-          "Selects ultrasound",
-          "equipment for",
-          "procedures, with",
-          "supervision",
-          "Conducts point-of-care",
-          "ultrasound, with",
-          "supervision",
-          "Uses ultrasound for",
-          "vascular access in routine"
+          "Identifies relevant anatomy using ultrasound",
+          "Selects ultrasound equipment for a patient with difficult anatomy, with supervision",
+          "Independently uses ultrasound for vascular access in complex situations"
         ],
         "level_3": [
-          "situations",
-          "Selects ultrasound",
-          "equipment for a patient",
-          "with difficult anatomy, with",
-          "supervision",
-          "Interprets point-of-care",
-          "ultrasound, with",
-          "supervision",
-          "Uses ultrasound for",
-          "vascular access in"
+          "Uses ultrasound for vascular access in routine situations, with supervision",
+          "Interprets point-of-care ultrasound, with supervision",
+          "Participates in research of emerging ultrasound procedures"
         ],
         "level_4": [
-          "complex situations, with",
-          "supervision",
-          "Independently selects",
-          "proper ultrasound",
-          "equipment and settings",
-          "for indicated scenarios",
-          "Independently conducts",
-          "and interprets point-of-",
-          "care ultrasound",
-          "Independently uses"
+          "Selects ultrasound equipment for procedures, with supervision",
+          "Uses ultrasound for vascular access in complex situations, with supervision",
+          "Participates in the development of institutional protocols for point-of-care ultrasound"
         ],
         "level_5": [
-          "ultrasound for vascular",
-          "access in complex",
-          "situations",
-          "Participates in research",
-          "of emerging ultrasound",
-          "procedures",
-          "Participates in the",
-          "development of",
-          "institutional protocols for",
-          "point-of-care ultrasound"
+          "Conducts point-of-care ultrasound, with supervision",
+          "Independently selects proper ultrasound equipment and settings for indicated scenarios"
         ]
       }
     },
     {
       "id": "anesthesiology_pc7",
       "number": 7,
-      "domain_number": 7,
       "name": "Situational Awareness and Crisis Management",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates vigilance",
-          "during clinical care",
-          "Articulates causes of",
-          "common peri-operative",
-          "crisis situations",
-          "Responds to crisis",
-          "situations as a reliable",
-          "team member",
-          "Demonstrates awareness",
-          "of case flow and"
+          "Demonstrates vigilance during clinical care",
+          "Participates in management during crisis situations",
+          "Independently anticipates impending crisis and identifies possible etiologies"
         ],
         "level_2": [
-          "developments throughout",
-          "a procedure",
-          "Recognizes crisis",
-          "situations; calls for help",
-          "Participates in",
-          "management during crisis",
-          "situations",
-          "Demonstrates awareness",
-          "of case flow and",
-          "developments throughout"
+          "Articulates causes of common peri-operative crisis situations",
+          "Demonstrates awareness of case flow and developments throughout a procedure, including those outside of one’s own immediate control, with supervision",
+          "Independently initiates management and resolves crisis situations"
         ],
         "level_3": [
-          "a procedure, including",
-          "those outside of one’s",
-          "own immediate control,",
-          "with supervision",
-          "Anticipates impending",
-          "crisis and identifies",
-          "possible etiologies with",
-          "supervision",
-          "Initiates management and",
-          "resolves crisis situations,"
+          "Responds to crisis situations as a reliable team member",
+          "Anticipates impending crisis and identifies possible etiologies with supervision",
+          "Leads the health care team in the management of crisis situations"
         ],
         "level_4": [
-          "with supervision",
-          "Independently",
-          "demonstrates",
-          "awareness of case flow",
-          "and developments",
-          "throughout a procedure,",
-          "including those outside",
-          "of one’s own immediate",
-          "control",
-          "Independently"
+          "Demonstrates awareness of case flow and developments throughout a procedure",
+          "Initiates management and resolves crisis situations, with supervision"
         ],
         "level_5": [
-          "anticipates impending",
-          "crisis and identifies",
-          "possible etiologies",
-          "Independently initiates",
-          "management and",
-          "resolves crisis situations",
-          "Leads the health care",
-          "team in the management",
-          "of crisis situations"
+          "Recognizes crisis situations; calls for help",
+          "Independently demonstrates awareness of case flow and developments throughout a procedure, including those outside of one’s own immediate control"
         ]
       }
     },
     {
       "id": "anesthesiology_pc8",
       "number": 8,
-      "domain_number": 8,
       "name": "Post-Operative Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Outlines post-operative",
-          "disposition options for",
-          "patients",
-          "Lists complications",
-          "commonly encountered",
-          "post-operatively",
-          "Plans disposition for",
-          "uncomplicated"
+          "Outlines post-operative disposition options for patients",
+          "Diagnoses, manages, and documents uncommon complications arising from anesthetic care, with supervision"
         ],
         "level_2": [
-          "procedures",
-          "Diagnoses, manages, and",
-          "documents commonly",
-          "encountered",
-          "complications arising from",
-          "anesthetic care, with",
-          "supervision",
-          "Identifies unexpected"
+          "Lists complications commonly encountered post-operatively",
+          "Independently identifies unexpected changes in patient status meriting change in disposition"
         ],
         "level_3": [
-          "changes in patient status",
-          "meriting change in",
-          "disposition, with",
-          "supervision",
-          "Diagnoses, manages, and",
-          "documents uncommon",
-          "complications arising from",
-          "anesthetic care, with"
+          "Plans disposition for uncomplicated procedures",
+          "Independently diagnoses, manages, and documents uncommon complications arising from anesthetic care"
         ],
         "level_4": [
-          "supervision",
-          "Independently identifies",
-          "unexpected changes in",
-          "patient status meriting",
-          "change in disposition",
-          "Independently",
-          "diagnoses, manages,",
-          "and documents"
+          "Diagnoses, manages, and documents commonly encountered complications arising from anesthetic care, with supervision",
+          "Develops protocols for disposition based on procedure and patient comorbidities"
         ],
         "level_5": [
-          "uncommon",
-          "complications arising",
-          "from anesthetic care",
-          "Develops protocols for",
-          "disposition based on",
-          "procedure and patient",
-          "comorbidities"
+          "Identifies unexpected changes in patient status meriting change in disposition, with supervision"
         ]
       }
     },
     {
       "id": "anesthesiology_pc9",
       "number": 9,
-      "domain_number": 9,
       "name": "Critical Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Acquires data for the",
-          "care of the critically-ill",
-          "patient",
-          "Recognizes when a",
-          "patient is critically ill",
-          "Interprets routine",
-          "diagnostic data in the",
-          "care of critically-ill",
-          "patients"
+          "Acquires data for the care of the critically-ill patient",
+          "Interprets advanced diagnostic data in the care of critically-ill patients, with supervision",
+          "Develops and implements a comprehensive plan of care for the critically-ill patient"
         ],
         "level_2": [
-          "Prioritizes the care of the",
-          "critically-ill patient",
-          "Implements the care",
-          "team’s plan for a critically-",
-          "ill patient",
-          "Interprets advanced",
-          "diagnostic data in the",
-          "care of critically-ill",
-          "patients, with supervision"
+          "Recognizes when a patient is critically ill",
+          "Prioritizes the care of multiple critically-ill patients, with supervision",
+          "Leads and deploys resources in the care of the critically-ill patient"
         ],
         "level_3": [
-          "Prioritizes the care of",
-          "multiple critically-ill",
-          "patients, with supervision",
-          "Develops and implements",
-          "a comprehensive plan of",
-          "care for the critically-ill",
-          "patient, with supervision",
-          "Independently interprets",
-          "advanced diagnostic"
+          "Interprets routine diagnostic data in the care of critically-ill patients",
+          "Develops and implements a comprehensive plan of care for the critically-ill patient, with supervision",
+          "Functions in a supervisory role managing all patients in a unit and the unit’s resources"
         ],
         "level_4": [
-          "data in the care of",
-          "critically-ill patients",
-          "Independently",
-          "prioritizes the care of",
-          "multiple critically-ill",
-          "patients",
-          "Develops and",
-          "implements a",
-          "comprehensive plan of"
+          "Prioritizes the care of the critically-ill patient",
+          "Independently interprets advanced diagnostic data in the care of critically-ill patients"
         ],
         "level_5": [
-          "care for the critically-ill",
-          "patient",
-          "Leads and deploys",
-          "resources in the care of",
-          "the critically-ill patient",
-          "Functions in a supervisory",
-          "role managing all patients",
-          "in a unit and the unit’s",
-          "resources"
+          "Implements the care team’s plan for a critically- ill patient",
+          "Independently prioritizes the care of multiple critically-ill patients"
         ]
       }
     },
     {
       "id": "anesthesiology_pc10",
       "number": 10,
-      "domain_number": 10,
       "name": "Regional (Peripheral and Neuraxial) Anesthesia",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Describes anatomy",
-          "relevant to regional",
-          "anesthesia",
-          "Prepares the patient and",
-          "the equipment for",
-          "common regional",
-          "anesthesia techniques",
-          "Describes potential",
-          "complications of regional",
-          "anesthesia"
+          "Describes anatomy relevant to regional anesthesia",
+          "Recognizes and manages complications of regional anesthesia, with direct supervision",
+          "Independently performs regional anesthesia techniques"
         ],
         "level_2": [
-          "Describes indications and",
-          "contraindications for",
-          "regional anesthesia",
-          "Performs regional",
-          "anesthesia techniques,",
-          "with direct supervision",
-          "Recognizes and manages",
-          "complications of regional",
-          "anesthesia, with direct",
-          "supervision"
+          "Prepares the patient and the equipment for common regional anesthesia techniques",
+          "Develops a patient- and procedure-specific regional anesthesia plan, with supervision",
+          "Independently recognizes and manages complications of regional anesthesia"
         ],
         "level_3": [
-          "Develops a patient- and",
-          "procedure-specific",
-          "regional anesthesia plan,",
-          "with supervision",
-          "Performs regional",
-          "anesthesia techniques,",
-          "with indirect supervision",
-          "Recognizes and manages",
-          "complications of regional",
-          "anesthesia, with indirect"
+          "Describes potential complications of regional anesthesia",
+          "Performs regional anesthesia techniques, with indirect supervision",
+          "Serves as a consultant on advanced or difficult regional techniques"
         ],
         "level_4": [
-          "supervision",
-          "Independently develops",
-          "a patient- and",
-          "procedure-specific",
-          "regional anesthesia",
-          "plan",
-          "Independently performs",
-          "regional anesthesia",
-          "techniques",
-          "Independently"
+          "Describes indications and contraindications for regional anesthesia",
+          "Recognizes and manages complications of regional anesthesia, with indirect supervision",
+          "Develops institutional protocol for using regional anesthesia and managing complications"
         ],
         "level_5": [
-          "recognizes and",
-          "manages complications",
-          "of regional anesthesia",
-          "Serves as a consultant on",
-          "advanced or difficult",
-          "regional techniques",
-          "Develops institutional",
-          "protocol for using regional",
-          "anesthesia and managing",
-          "complications"
+          "Performs regional anesthesia techniques, with direct supervision",
+          "Independently develops a patient- and procedure-specific regional anesthesia plan"
         ]
       }
     },
     {
       "id": "anesthesiology_mk1",
       "number": 11,
-      "domain_number": 1,
       "name": "Foundational Knowledge",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of",
-          "pathophysiology and",
-          "treatment of medical and",
-          "surgical conditions",
-          "Identifies medications",
-          "used to treat common",
-          "comorbidities",
-          "Demonstrates knowledge",
-          "of common medical and",
-          "surgical disease,"
+          "Demonstrates knowledge of pathophysiology and treatment of medical and surgical conditions",
+          "Demonstrates knowledge of medications used in subspecialty areas (e.g., cardiac, obstetrics)"
         ],
         "level_2": [
-          "treatments, and",
-          "populations as it relates to",
-          "anesthetic care",
-          "Demonstrates knowledge",
-          "of pharmacology of",
-          "medications routinely",
-          "used in anesthetic care",
-          "Demonstrates knowledge",
-          "of complex medical and",
-          "surgical disease,",
-          "treatments, and"
+          "Identifies medications used to treat common comorbidities",
+          "Demonstrates comprehensive knowledge of medical and surgical disease as it relates to the full spectrum of the patient’s peri-operative care"
         ],
         "level_3": [
-          "populations as it relates to",
-          "anesthetic care",
-          "Demonstrates knowledge",
-          "of medications used in",
-          "subspecialty areas (e.g.,",
-          "cardiac, obstetrics)",
-          "Demonstrates",
-          "comprehensive",
-          "knowledge of medical",
-          "and surgical disease as",
-          "it relates to the full"
+          "Demonstrates knowledge of common medical and surgical disease, treatments, and populations as it relates to anesthetic care",
+          "Demonstrates comprehensive knowledge of pharmacology in the setting of complex comorbidities"
         ],
         "level_4": [
-          "spectrum of the",
-          "patient’s peri-operative",
-          "care",
-          "Demonstrates",
-          "comprehensive",
-          "knowledge of",
-          "pharmacology in the",
-          "setting of complex",
-          "comorbidities",
-          "Demonstrates scientific",
-          "knowledge of uncommon,"
+          "Demonstrates knowledge of pharmacology of medications routinely used in anesthetic care",
+          "Demonstrates scientific knowledge of uncommon, atypical, or complex conditions as it relates to the full spectrum of the patient’s peri-operative care"
         ],
         "level_5": [
-          "atypical, or complex",
-          "conditions as it relates to",
-          "the full spectrum of the",
-          "patient’s peri-operative",
-          "care",
-          "Participates in research",
-          "related to pharmacology"
+          "Demonstrates knowledge of complex medical and surgical disease, treatments, and populations as it relates to anesthetic care",
+          "Participates in research related to pharmacology"
         ]
       }
     },
     {
       "id": "anesthesiology_mk2",
       "number": 12,
-      "domain_number": 2,
       "name": "Clinical Reasoning",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Organizes and",
-          "accurately summarizes",
-          "information obtained",
-          "from the patient",
-          "evaluation to develop a",
-          "clinical impression",
-          "Lists types of clinical",
-          "reasoning errors",
-          "Integrates information",
-          "from all sources to"
+          "Organizes and accurately summarizes information obtained from the patient evaluation to develop a clinical impression",
+          "Retrospectively applies clinical reasoning principles to identify errors"
         ],
         "level_2": [
-          "develop a basic",
-          "differential diagnosis for",
-          "common patient",
-          "presentations",
-          "Identifies clinical",
-          "reasoning errors within",
-          "patient care, with",
-          "guidance",
-          "Develops a thorough and",
-          "prioritized differential"
+          "Lists types of clinical reasoning errors",
+          "Develops prioritized differential diagnoses in complex patient presentations and incorporates subtle, unusual, or conflicting findings"
         ],
         "level_3": [
-          "diagnosis for common",
-          "patient presentations",
-          "Retrospectively applies",
-          "clinical reasoning",
-          "principles to identify",
-          "errors",
-          "Develops prioritized",
-          "differential diagnoses in",
-          "complex patient",
-          "presentations and"
+          "Integrates information from all sources to develop a basic differential diagnosis for common patient presentations",
+          "Continually re-appraises one’s clinical reasoning to improve patient care in real time"
         ],
         "level_4": [
-          "incorporates subtle,",
-          "unusual, or conflicting",
-          "findings",
-          "Continually re-appraises",
-          "one’s clinical reasoning",
-          "to improve patient care",
-          "in real time",
-          "Coaches others to",
-          "develop prioritized",
-          "differential diagnoses in"
+          "Identifies clinical reasoning errors within patient care, with guidance",
+          "Coaches others to develop prioritized differential diagnoses in complex patient presentations"
         ],
         "level_5": [
-          "complex patient",
-          "presentations",
-          "Models how to recognize",
-          "errors and reflect upon",
-          "one’s own clinical",
-          "reasoning"
+          "Develops a thorough and prioritized differential diagnosis for common patient presentations",
+          "Models how to recognize errors and reflect upon one’s own clinical reasoning"
         ]
       }
     },
     {
       "id": "anesthesiology_sbp1",
       "number": 13,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "events that impact",
-          "patient safety",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and"
+          "Demonstrates knowledge of common events that impact patient safety",
+          "Describes departmental quality improvement initiatives",
+          "Discloses patient safety events to patients and families (simulated or actual)"
         ],
         "level_2": [
-          "metrics",
-          "Identifies system factors",
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes departmental",
-          "quality improvement",
-          "initiatives"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_3": [
-          "Participates in analysis of",
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and families",
-          "(simulated or actual)",
-          "Participates in department",
-          "quality improvement",
-          "initiatives",
-          "Conducts analysis of",
-          "patient safety events"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "and offers error",
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "families (simulated or",
-          "actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in department quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "Actively engages teams",
-          "and processes to modify",
-          "systems to prevent",
-          "patient safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional level or",
-          "above"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional level or above"
         ]
       }
     },
     {
       "id": "anesthesiology_sbp2",
       "number": 14,
-      "domain_number": 2,
       "name": "System Navigation for Patient-Centered Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination",
-          "Identifies key elements",
-          "for safe and effective",
-          "transitions of care and",
-          "hand-offs",
-          "Demonstrates",
-          "knowledge of population",
-          "and community health",
-          "needs",
-          "Coordinates care of",
-          "patients in routine clinical",
-          "situations effectively using"
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for their local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems"
         ],
         "level_2": [
-          "the roles of the",
-          "interprofessional team",
-          "members",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Identifies specific",
-          "population and",
-          "community health needs",
-          "for their local population",
-          "Coordinates care of",
-          "patients in complex",
-          "clinical situations"
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of the interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
         ],
         "level_3": [
-          "effectively using the roles",
-          "of the interprofessional",
-          "team members",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Uses institutional",
-          "resources effectively to",
-          "meet the needs of a",
-          "patient population and",
-          "community",
-          "Role models effective",
-          "coordination of patient-"
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and participates in the design and implementation of improvements"
         ],
         "level_4": [
-          "centered care among",
-          "different disciplines and",
-          "specialties",
-          "Role models and",
-          "advocates for safe and",
-          "effective transitions of",
-          "care/hand-offs within",
-          "and across health care",
-          "delivery systems",
-          "Participates in changing",
-          "and adapting practice to",
-          "provide for the needs of",
-          "specific populations",
-          "Analyzes the process of"
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional team members",
+          "Uses institutional resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
         ],
         "level_5": [
-          "care coordination and",
-          "participates in the design",
-          "and implementation of",
-          "improvements",
-          "Improves quality of",
-          "transitions of care within",
-          "and across health care",
-          "delivery systems to",
-          "optimize patient outcomes",
-          "Advocates for populations",
-          "and communities with",
-          "specific health care needs",
-          "in the peri-operative",
-          "setting"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Advocates for populations and communities with specific health care needs in the peri-operative setting"
         ]
       }
     },
     {
       "id": "anesthesiology_sbp3",
       "number": 15,
-      "domain_number": 3,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key",
-          "components of the",
-          "complex health care",
-          "system (e.g., hospital,",
-          "skilled nursing facility,",
-          "finance, personnel,",
-          "technology)",
-          "States factors impacting",
-          "the costs of anesthetic",
-          "care"
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Explains the impact of documentation on billing and reimbursement"
         ],
         "level_2": [
-          "Describes how",
-          "components of a complex",
-          "health care system are",
-          "interrelated, and how this",
-          "impacts patient care",
-          "Documents anesthetic",
-          "detail to facilitate accurate",
-          "billing and reimbursement",
-          "Discusses how individual",
-          "practice affects the"
+          "States factors impacting the costs of anesthetic care",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
         ],
         "level_3": [
-          "broader system (e.g.,",
-          "length of stay,",
-          "readmission rates, clinical",
-          "efficiency)",
-          "Explains the impact of",
-          "documentation on billing",
-          "and reimbursement",
-          "Manages various",
-          "components of the",
-          "complex health care"
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Practices and advocates for cost- effective patient care"
         ],
         "level_4": [
-          "system to provide",
-          "efficient and effective",
-          "patient care and",
-          "transition of care",
-          "Practices and",
-          "advocates for cost-",
-          "effective patient care",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high-value,"
+          "Documents anesthetic detail to facilitate accurate billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care"
         ],
         "level_5": [
-          "efficient, and effective",
-          "patient care",
-          "Engages in external",
-          "activities related to",
-          "advocacy for cost-",
-          "effective care"
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Engages in external activities related to advocacy for cost- effective care"
         ]
       }
     },
     {
       "id": "anesthesiology_pbli1",
       "number": 16,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accesses and uses",
-          "evidence in routine",
-          "patient care",
-          "Articulates clinical",
-          "questions and elicits"
+          "Accesses and uses evidence in routine patient care"
         ],
         "level_2": [
-          "patient preferences and",
-          "values to guide evidence-",
-          "based care",
-          "Locates and applies the",
-          "best available evidence,"
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
         ],
         "level_3": [
-          "integrated with patient",
-          "preference, to the care of",
-          "complex patients",
-          "Appraises and applies",
-          "evidence, even in the"
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
         ],
         "level_4": [
-          "face of uncertainty and",
-          "conflicting evidence, to",
-          "guide individualized",
-          "care",
-          "Coaches others to"
+          "Appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide individualized care"
         ],
         "level_5": [
-          "appraise and apply",
-          "evidence for complex",
-          "patients and/or",
-          "participates in the",
-          "development of guidelines"
+          "Coaches others to appraise and apply evidence for complex patients and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "anesthesiology_pbli2",
       "number": 17,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accepts responsibility for",
-          "personal and",
-          "professional",
-          "development by",
-          "establishing goals",
-          "Identifies the factors that",
-          "contribute to",
-          "performance deficits",
-          "Actively seeks",
-          "opportunities to improve"
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Considers alternatives to improve performance"
         ],
         "level_2": [
-          "Demonstrates openness",
-          "to performance data",
-          "(feedback and other",
-          "input) to form goals",
-          "Analyzes and",
-          "acknowledges the factors",
-          "that contribute to",
-          "performance deficits",
-          "Designs and implements",
-          "a learning plan, with"
+          "Identifies the factors that contribute to performance deficits",
+          "Seeks performance data episodically, with adaptability and humility",
+          "Integrates performance data to adapt the learning plan"
         ],
         "level_3": [
-          "prompting",
-          "Seeks performance data",
-          "episodically, with",
-          "adaptability and humility",
-          "Institutes behavioral",
-          "change(s) to improve",
-          "performance",
-          "Independently creates",
-          "and implements a",
-          "learning plan"
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to improve performance",
+          "Role models consistently seeking performance data, with adaptability and humility"
         ],
         "level_4": [
-          "Intentionally seeks",
-          "performance data",
-          "consistently, with",
-          "adaptability and humility",
-          "Considers alternatives",
-          "to improve performance",
-          "Integrates performance",
-          "data to adapt the",
-          "learning plan",
-          "Role models consistently"
+          "Demonstrates openness to performance data (feedback and other input) to form goals",
+          "Independently creates and implements a learning plan",
+          "Models reflective practice"
         ],
         "level_5": [
-          "seeking performance",
-          "data, with adaptability and",
-          "humility",
-          "Models reflective practice",
-          "Facilitates the design and",
-          "implementation of",
-          "learning plans for others"
+          "Analyzes and acknowledges the factors that contribute to performance deficits",
+          "Intentionally seeks performance data consistently, with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
         ]
       }
     },
     {
       "id": "anesthesiology_prof1",
       "number": 18,
-      "domain_number": 1,
       "name": "Professional Behavior and Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Identifies potential",
-          "triggers for",
-          "professionalism lapses",
-          "Describes when and how",
-          "to report lapses in",
-          "professionalism",
-          "Demonstrates",
-          "knowledge of the ethical",
-          "principles underlying",
-          "patient care",
-          "Demonstrates insight into"
+          "Identifies potential triggers for professionalism lapses",
+          "Analyzes straightforward situations using ethical principles",
+          "Actively solicits help and acts on recommendations to resolve complex interpersonal situations"
         ],
         "level_2": [
-          "professional behavior in",
-          "routine situations",
-          "Takes responsibility for",
-          "one’s own",
-          "professionalism lapses",
-          "Analyzes straightforward",
-          "situations using ethical",
-          "principles",
-          "Demonstrates",
-          "professional behavior in",
-          "complex or stressful"
+          "Describes when and how to report lapses in professionalism",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and utilizes resources for managing and resolving ethical dilemmas"
         ],
         "level_3": [
-          "situations",
-          "Recognizes need to seek",
-          "help in managing and",
-          "resolving complex",
-          "interpersonal situations",
-          "Analyzes complex",
-          "situations using ethical",
-          "principles",
-          "Recognizes situations",
-          "that may trigger",
-          "professionalism lapses"
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Recognizes need to seek help in managing and resolving complex interpersonal situations",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_4": [
-          "and intervenes to",
-          "prevent lapses in",
-          "oneself",
-          "Actively solicits help",
-          "and acts on",
-          "recommendations to",
-          "resolve complex",
-          "interpersonal situations",
-          "Recognizes and utilizes",
-          "resources for managing",
-          "and resolving ethical"
+          "Demonstrates insight into professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ],
         "level_5": [
-          "dilemmas",
-          "Coaches others when",
-          "their behavior fails to",
-          "meet professional",
-          "expectations",
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Takes responsibility for one’s own professionalism lapses",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself"
         ]
       }
     },
     {
       "id": "anesthesiology_prof2",
       "number": 19,
-      "domain_number": 2,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Responds promptly to",
-          "requests or reminders to",
-          "complete tasks",
-          "Takes responsibility for",
-          "failure to complete tasks",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner"
+          "Responds promptly to requests or reminders to complete tasks",
+          "Takes responsibility for tasks not completed in a timely manner and identifies strategies to prevent recurrence"
         ],
         "level_2": [
-          "Recognizes situations",
-          "that may impact one’s",
-          "own ability to complete",
-          "tasks and responsibilities",
-          "in a timely manner",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate"
+          "Takes responsibility for failure to complete tasks",
+          "Prioritizes tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
         ],
         "level_3": [
-          "attention to detail in",
-          "routine situations",
-          "Takes responsibility for",
-          "tasks not completed in a",
-          "timely manner and",
-          "identifies strategies to",
-          "prevent recurrence",
-          "Prioritizes tasks and"
+          "Performs tasks and responsibilities in a timely manner",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
         ],
         "level_4": [
-          "responsibilities in a",
-          "timely manner with",
-          "appropriate attention to",
-          "detail in complex or",
-          "stressful situations",
-          "Proactively implements",
-          "strategies to ensure that",
-          "the needs of patients,"
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner",
+          "Designs and implements an institutional systems approach to ensure timely task completion and shared responsibility"
         ],
         "level_5": [
-          "teams, and systems are",
-          "met",
-          "Designs and implements",
-          "an institutional systems",
-          "approach to ensure timely",
-          "task completion and",
-          "shared responsibility"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
         ]
       }
     },
     {
       "id": "anesthesiology_prof3",
       "number": 20,
-      "domain_number": 3,
       "name": "Well-Being",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes the",
-          "importance of",
-          "addressing personal and",
-          "professional well-being",
-          "Lists available resources",
-          "for personal and",
-          "professional well-being"
+          "Recognizes the importance of addressing personal and professional well-being",
+          "Independently develops a plan to promote personal and professional well-being"
         ],
         "level_2": [
-          "Describes institutional",
-          "resources that are meant",
-          "to promote well-being",
-          "With assistance,",
-          "proposes a plan to",
-          "promote personal and",
-          "professional well-being"
+          "Lists available resources for personal and professional well-being",
+          "Describes institutional factors that positively and/or negatively affect well-being"
         ],
         "level_3": [
-          "Recognizes which",
-          "institutional factors affect",
-          "well-being",
-          "Independently develops",
-          "a plan to promote",
-          "personal and",
-          "professional well-being"
+          "Describes institutional resources that are meant to promote well-being",
+          "Creates institutional-level interventions that promote colleagues’ well-being"
         ],
         "level_4": [
-          "Describes institutional",
-          "factors that positively",
-          "and/or negatively affect",
-          "well-being",
-          "Creates institutional-level",
-          "interventions that promote",
-          "colleagues’ well-being"
+          "With assistance, proposes a plan to promote personal and professional well-being",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
         ],
         "level_5": [
-          "Describes institutional",
-          "programs designed to",
-          "examine systemic",
-          "contributors to burnout"
+          "Recognizes which institutional factors affect well-being"
         ]
       }
     },
     {
       "id": "anesthesiology_ics1",
       "number": 21,
-      "domain_number": 1,
       "name": "Patient- and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Communicates with",
-          "patients and their",
-          "families in an",
-          "understandable and",
-          "respectful manner",
-          "Provides timely updates",
-          "to patients and patients’",
-          "families"
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Uses shared decision making to make a personalized care plan"
         ],
         "level_2": [
-          "Customizes",
-          "communication in the",
-          "setting of biases and",
-          "barriers with patients and",
-          "patients’ families",
-          "Actively listens to patients",
-          "and patients’ families to",
-          "elicit patient preferences"
+          "Provides timely updates to patients and patients’ families",
+          "Facilitates difficult discussions with patients and patients’ families"
         ],
         "level_3": [
-          "and expectations",
-          "Explains complex and",
-          "difficult information to",
-          "patients and patients’",
-          "families",
-          "Uses shared decision",
-          "making to make a",
-          "personalized care plan"
+          "Customizes communication in the setting of biases and barriers with patients and patients’ families",
+          "Effectively negotiates and manages conflict among patients, patients’ families, and the health care team"
         ],
         "level_4": [
-          "Facilitates difficult",
-          "discussions with",
-          "patients and patients’",
-          "families",
-          "Effectively negotiates",
-          "and manages conflict",
-          "among patients,",
-          "patients’ families, and"
+          "Actively listens to patients and patients’ families to elicit patient preferences and expectations",
+          "Mentors others in the facilitation of crucial conversations"
         ],
         "level_5": [
-          "the health care team",
-          "Mentors others in the",
-          "facilitation of crucial",
-          "conversations",
-          "Mentors others in conflict",
-          "resolution"
+          "Explains complex and difficult information to patients and patients’ families",
+          "Mentors others in conflict resolution"
         ]
       }
     },
     {
       "id": "anesthesiology_ics2",
       "number": 22,
-      "domain_number": 2,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Respectfully requests or",
-          "receives consultations",
-          "Uses language that",
-          "values all members of",
-          "the health care team",
-          "Respectfully receives",
-          "feedback from the health",
-          "care team",
-          "Clearly, concisely and",
-          "promptly requests or",
-          "responds to a"
+          "Respectfully requests or receives consultations",
+          "Solicits feedback on performance as a member of the health care team",
+          "Maintains effective communication in crisis situations"
         ],
         "level_2": [
-          "consultation",
-          "Communicates",
-          "information effectively",
-          "with all health care team",
-          "members",
-          "Solicits feedback on",
-          "performance as a",
-          "member of the health",
-          "care team",
-          "Uses closed-loop",
-          "communication to verify"
+          "Uses language that values all members of the health care team",
+          "Uses closed-loop communication to verify understanding",
+          "Communicates constructive feedback to superiors"
         ],
         "level_3": [
-          "understanding",
-          "Adapts communication",
-          "style to fit team needs",
-          "Communicates concerns",
-          "and provides feedback to",
-          "peers and learners",
-          "Coordinates",
-          "recommendations from",
-          "different members of",
-          "the health care team to",
-          "optimize patient care"
+          "Respectfully receives feedback from the health care team",
+          "Adapts communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
         ],
         "level_4": [
-          "Maintains effective",
-          "communication in crisis",
-          "situations",
-          "Communicates",
-          "constructive feedback to",
-          "superiors",
-          "Role models flexible",
-          "communication strategies",
-          "that value input from all",
-          "health care team",
-          "members, resolving"
+          "Clearly, concisely and promptly requests or responds to a consultation",
+          "Communicates concerns and provides feedback to peers and learners",
+          "Leads an after-event debrief of the health care team"
         ],
         "level_5": [
-          "conflict when needed",
-          "Leads an after-event",
-          "debrief of the health care",
-          "team",
-          "Facilitates regular health",
-          "care team-based",
-          "feedback in complex",
-          "situations"
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Facilitates regular health care team-based feedback in complex situations"
         ]
       }
     },
     {
       "id": "anesthesiology_ics3",
       "number": 23,
-      "domain_number": 3,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record; demonstrates",
-          "judicious use of",
-          "documentation shortcuts",
-          "Safeguards patient",
-          "personal health",
-          "information",
-          "Communicates through",
-          "appropriate channels as",
-          "required by institutional",
-          "policy",
-          "Accurately records"
+          "Accurately records information in the patient record; demonstrates judicious use of documentation shortcuts",
+          "Respectfully communicates concerns about the system",
+          "Models exemplary written or verbal communication"
         ],
         "level_2": [
-          "information in the",
-          "anesthetic record for",
-          "basic cases",
-          "Documents required data",
-          "in formats specified by",
-          "institutional policy",
-          "Respectfully",
-          "communicates concerns",
-          "about the system",
-          "Accurately records",
-          "information in the",
-          "anesthetic record and",
-          "communicates complex"
+          "Safeguards patient personal health information",
+          "Accurately records information in the anesthetic record and communicates complex care decisions for complex cases",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
         ],
         "level_3": [
-          "care decisions for",
-          "complex cases",
-          "Appropriately selects",
-          "direct and indirect forms",
-          "of communication based",
-          "on context",
-          "Respectfully",
-          "communicates concerns",
-          "about the system and",
-          "contributes to solutions",
-          "Uses medical record",
-          "functionality to highlight",
-          "challenges in anesthetic"
+          "Communicates through appropriate channels as required by institutional policy",
+          "Appropriately selects direct and indirect forms of communication based on context",
+          "Explores innovative uses of the medical record to facilitate peri-operative management"
         ],
         "level_4": [
-          "care to facilitate future",
-          "peri-operative",
-          "management",
-          "Models exemplary",
-          "written or verbal",
-          "communication",
-          "Uses appropriate",
-          "channels to offer clear",
-          "and constructive",
-          "suggestions to improve",
-          "the system",
-          "Explores innovative uses",
-          "of the medical record to"
+          "Accurately records information in the anesthetic record for basic cases",
+          "Respectfully communicates concerns about the system and contributes to solutions",
+          "Guides departmental or institutional policies and procedures around communication"
         ],
         "level_5": [
-          "facilitate peri-operative",
-          "management",
-          "Guides departmental or",
-          "institutional policies and",
-          "procedures around",
-          "communication",
-          "Initiates difficult",
-          "conversations with",
-          "appropriate stakeholders",
-          "to improve the system"
+          "Documents required data in formats specified by institutional policy",
+          "Uses medical record functionality to highlight challenges in anesthetic care to facilitate future peri-operative management",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "anesthesiology",
-  "primary_name": "Anesthesiology",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologysupplementalguide.pdf"

@@ -1,0 +1,677 @@
+{
+  "framework_key": "vascular-neurology",
+  "specialty": "Vascular Neurology",
+  "version": "2.0",
+  "source": "ACGME Vascular Neurology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "neurology",
+  "parent_name": "Neurology",
+  "subcompetencies": [
+    {
+      "id": "vascular_neurology_pc1",
+      "number": 1,
+      "name": "History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a complete, relevant, and organized vascular neurology history"
+        ],
+        "level_2": [
+          "Efficiently obtains a relevant and organized vascular neurology history that differentiates stroke from mimics, and that assesses baseline functioning and disability"
+        ],
+        "level_3": [
+          "Efficiently obtains a relevant and organized vascular neurology history appropriate to the patient’s acuity and the clinical setting (e.g., clinic, emergency room)"
+        ],
+        "level_4": [
+          "Consistently obtains a history sufficient to guide the subsequent vascular neurology examination, investigation, and treatment of common and uncommon causes of stroke"
+        ],
+        "level_5": [
+          "Serves as a role model for obtaining a thorough vascular neurologic history"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_pc2",
+      "number": 2,
+      "name": "Vascular Neurological Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a relevant vascular neurology examination, including administration and scoring the National",
+          "Consistently and efficiently performs a vascular neurology examination to guide and prioritize subsequent investigation and treatment of common and uncommon causes of stroke"
+        ],
+        "level_2": [
+          "Institutes of Health",
+          "Serves as a role model for performing a vascular neurology examination"
+        ],
+        "level_3": [
+          "Strokes Scale (NIHSS)"
+        ],
+        "level_4": [
+          "Performs a relevant vascular neurology examination incorporating some additional maneuvers appropriate to the patient and to identify stroke mimics"
+        ],
+        "level_5": [
+          "Performs a relevant vascular neurology examination incorporating all maneuvers appropriate to the patient’s acuity and the clinical setting"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_pc3",
+      "number": 3,
+      "name": "Acute Stroke Intervention and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Treats ischemic stroke patients with intravenous (IV) thrombolysis",
+          "Selects candidates for endovascular recanalization and identifies complications",
+          "Efficiently manages multiple patients with common and uncommon ischemic stroke"
+        ],
+        "level_2": [
+          "Identifies eligibility criteria for endovascular recanalization",
+          "Initiates medical treatment for hemorrhagic stroke and consults with surgical services as needed",
+          "Manages complications of hemorrhagic stroke and identifies candidates for invasive intervention"
+        ],
+        "level_3": [
+          "Identifies type and etiology of hemorrhagic stroke",
+          "Triages and manages multiple patients with ischemic stroke",
+          "Role models efficient triage and management of ischemic and hemorrhagic strokes"
+        ],
+        "level_4": [
+          "Treats complex patients with ischemic stroke with",
+          "Manages complications of endovascular therapies for acute ischemic stroke",
+          "Implements emerging modalities of diagnosis and treatment for ischemic and hemorrhagic stroke"
+        ],
+        "level_5": [
+          "IV thrombolysis, and manages complications",
+          "Identifies complications of hemorrhagic stroke"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_pc4",
+      "number": 4,
+      "name": "Post-Acute Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes post-acute care settings for stroke rehabilitation and resources available for each level of care",
+          "Engages in comprehensive care for stroke recovery and secondary prevention"
+        ],
+        "level_2": [
+          "Identifies ancillary services involved in post- stroke care and rehabilitation",
+          "Consistently integrates social determinants of health, community resources, and interdisciplinary medical team members into a longitudinal care plan for stroke recovery and secondary prevention"
+        ],
+        "level_3": [
+          "Accurately assesses patient’s rehabilitative needs and recommends appropriate post-acute care setting",
+          "Engages in scholarship or quality improvement initiatives with a focus on post-stroke recovery, transitions of care, or patient reintegration into their communities"
+        ],
+        "level_4": [
+          "Engages interdisciplinary team members to facilitate stroke rehabilitation"
+        ],
+        "level_5": [
+          "Identifies and initiates management of post- stroke complications"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_pc5",
+      "number": 5,
+      "name": "Telestroke/Remote Consultation/Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes approach to remote consultation by phone or using video conferencing technologies"
+        ],
+        "level_2": [
+          "Efficiently obtains a vascular neurology history to appropriately triage patients"
+        ],
+        "level_3": [
+          "Establishes rapport with patient/family, bedside provider, and/or consulting providers effectively"
+        ],
+        "level_4": [
+          "Conducts stroke consultations using remote consultation technology (emergency room, hospital, or outpatient clinic), and provides assessment, treatment, and management recommendations"
+        ],
+        "level_5": [
+          "Engages in scholarship or quality improvement related to telestroke care"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk1",
+      "number": 6,
+      "name": "Localization",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Correlates clinical presentation to specific regions of the nervous system and describes basic vascular neuroanatomy"
+        ],
+        "level_2": [
+          "Localizes vascular lesions to specific arterial territories of the nervous system and demonstrates knowledge of vascular anatomic variations and collaterals"
+        ],
+        "level_3": [
+          "Efficiently localizes vascular lesions to specific arterial and venous territories of the nervous system and demonstrates knowledge of vascular neuroanatomy of the brain, eye, and spinal cord"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of vascular neuroanatomy to localize uncommon syndromes of the brain, eye, and spinal cord"
+        ],
+        "level_5": [
+          "Consistently demonstrates advanced detailed knowledge of vascular neuroanatomy in localizing lesions of the brain, eye, and spinal cord"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk2",
+      "number": 7,
+      "name": "Formulation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Synthesizes information to develop a differential diagnosis"
+        ],
+        "level_2": [
+          "Efficiently synthesizes information to focus and prioritize the differential diagnosis"
+        ],
+        "level_3": [
+          "Correlates the clinical presentation with presumed etiology"
+        ],
+        "level_4": [
+          "Correlates the atypical presentations of common and uncommon vascular lesions of the brain, eye, and spinal cord with presumed etiology"
+        ],
+        "level_5": [
+          "Serves as a role model for complex diagnostic reasoning"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk3",
+      "number": 8,
+      "name": "Multimodal Imaging in Vascular Neurology (e.g., Computed Tomography (CT), Magnetic Resonance (MR),",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Selects imaging protocols based on patient comorbidities and/or provisional diagnosis"
+        ],
+        "level_2": [
+          "Identifies normal and critical imaging findings on vascular and brain MR and CT"
+        ],
+        "level_3": [
+          "Identifies subtle abnormalities on brain and vascular imaging"
+        ],
+        "level_4": [
+          "Selects and interprets multimodality imaging to guide treatment"
+        ],
+        "level_5": [
+          "Interprets emerging imaging modalities for use in patient management"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk4",
+      "number": 9,
+      "name": "Diagnostic Investigation in Vascular Neurology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates general knowledge of diagnostic tests in vascular neurology",
+          "Recognizes indications and implications of less common testing"
+        ],
+        "level_2": [
+          "Recognizes indications and implications of common diagnostic tests",
+          "Discusses diagnostic yield and cost- effectiveness of testing"
+        ],
+        "level_3": [
+          "Discusses general diagnostic approach appropriate to clinical presentation",
+          "Interprets results of less common diagnostic testing"
+        ],
+        "level_4": [
+          "Interprets results of common diagnostic tests",
+          "Demonstrates advanced knowledge of diagnostic testing and controversies"
+        ],
+        "level_5": [
+          "Individualizes diagnostic approach to the specific patient"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk5",
+      "number": 10,
+      "name": "Ischemic Stroke",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes common causes of stroke and typical risk factors for stroke in older adults",
+          "Demonstrates knowledge of pharmacologic stroke preventative strategies for uncommon stroke etiologies",
+          "Demonstrates sophisticated knowledge of the pharmacology and physiology of treatment options"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of thrombolytic treatment for stroke, and possible complications",
+          "Demonstrates knowledge of uncommon causes of stroke in older adults",
+          "Formulates stroke preventative strategies in complex patients or in those with rare causes of stroke"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of pharmacologic stroke preventative strategies for common stroke etiologies",
+          "Demonstrates knowledge of treating patients with stroke and complex comorbidities",
+          "Engages in scholarly activity on ischemic stroke pathophysiology"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of common causes of stroke in children and young adults",
+          "Demonstrates understanding of the indications and limitations for non-acute surgical interventions to prevent stroke",
+          "Engages in scholarly activity on acute management of stroke or secondary stroke prevention strategies"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of endovascular treatment for stroke, and possible complications",
+          "Demonstrates sophisticated knowledge of the pathophysiology of acute brain ischemia and ischemic stroke etiologies"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk6",
+      "number": 11,
+      "name": "Intracerebral Hemorrhage",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the clinical presentation and common causes, and risk factors for intracerebral hemorrhage",
+          "Demonstrates understanding of the indications, complications, and limitations of surgical interventions for intracerebral hemorrhage"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the importance of emergency intracerebral hemorrhage treatment",
+          "Demonstrates sophisticated knowledge of the pathophysiology of intracerebral hemorrhage"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of uncommon causes and acute complications of intracerebral hemorrhage",
+          "Demonstrates knowledge of the issues related to the treatment of patients with intracerebral hemorrhage and complex comorbidities, and the complexity of assigning prognosis"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of pharmacologic treatments for intracerebral hemorrhage",
+          "Engages in scholarly activity on intracerebral hemorrhage"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of causes of intracerebral hemorrhage in all patients, including children and young adults"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_mk7",
+      "number": 12,
+      "name": "Subarachnoid Hemorrhage",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the clinical presentation and common causes of, and risk factors for subarachnoid hemorrhage",
+          "Demonstrates knowledge of pharmacologic, surgical, and endovascular treatments for subarachnoid hemorrhage"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the importance of emergency treatment for subarachnoid hemorrhage and ruptured aneurysms",
+          "Demonstrates sophisticated knowledge of the pathophysiology of subarachnoid hemorrhage"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of uncommon causes and acute/subacute complications of subarachnoid hemorrhage",
+          "Demonstrates knowledge of the issues related to the treatment of patients with subarachnoid hemorrhage and complex comorbidities, and the complexity of assigning prognosis"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of the natural history and management of unruptured aneurysms",
+          "Engages in scholarly activity on subarachnoid hemorrhage"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of causes of subarachnoid hemorrhage in all patients, including children and young adults, and the long-term sequelae of subarachnoid hemorrhage"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_sbp1",
+      "number": 13,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of commonly reported patient safety events",
+          "Participates in disclosure of patient safety events to patients and families"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and families"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events",
+          "Mentors others in the disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_sbp2",
+      "number": 14,
+      "name": "Quality Improvement in Stroke System of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and stroke center metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives (e.g., door-to-needle times, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives within the stroke system of care"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_sbp3",
+      "number": 15,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population and community",
+          "Models safe and effective transitions of care/hand-offs within and across health care delivery systems including outpatient settings"
+        ],
+        "level_2": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Coordinates care of patients in complex clinical situations, effectively using the roles of their interprofessional teams",
+          "Adapts practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Supervises transitions of care by other team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams",
+          "Effectively uses local resources to meet the needs of a patient population and community",
+          "Leads innovations in adapting practice and systems for populations and communities with specific health care needs"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Models effective coordination of patient- centered care among different disciplines and specialties"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_sbp4",
+      "number": 16,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health care payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Consistently demonstrates timely and accurate documentation, including coding and billing requirements"
+        ],
+        "level_2": [
+          "Identifies basic knowledge domains for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Uses available resources to promote optimal patient care (e.g., community resources, patient assistance resources) considering each patient’s payment model"
+        ],
+        "level_3": [
+          "Delivers patient-centered care considering the patient’s economic constraints",
+          "Implements changes in individual practice patterns in response to professional requirements and in preparation for practice"
+        ],
+        "level_4": [
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Advocates for systems change that enhances high-value, efficient, and effective patient care"
+        ],
+        "level_5": [
+          "Engages with patients in shared decision making, informed by each patient’s payment models",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_pbli1",
+      "number": 17,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence and to incorporate patient preferences and values to care for a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, and interprets conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_pbli2",
+      "number": 18,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data sporadically, with adaptability and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models professionalism by seeking performance data with adaptability and humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Consistently seeks performance data",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_prof1",
+      "number": 19,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses and how to report them",
+          "Analyzes complex situations using ethical principles"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of ethical principles related to patient care",
+          "Intervenes to prevent professionalism lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations and takes responsibility",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_prof2",
+      "number": 20,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Proactively implements strategies to ensure the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations in which one’s own behavior may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Develops or implements strategies to improve system-wide problems and enable oneself and others to complete tasks and responsibilities in a timely fashion"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_prof3",
+      "number": 21,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance, recognizes sense of personal and professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes status of personal and professional well-being"
+        ],
+        "level_3": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_ics1",
+      "number": 22,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "Communicates medical information in the context of the patient’s/patient’s family’s values, uncertainty, and conflict"
+        ],
+        "level_2": [
+          "Identifies the need to individualize communication strategies based on the patient’s/patient’s family’s expectations and understanding",
+          "Easily establishes therapeutic relationships, with attention to the patient’s/patient’s family’s concerns and context, regardless of complexity of the situation"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "Uses shared decision making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options"
+        ],
+        "level_4": [
+          "Communicates compassionately with the patient/patient’s family to clarify expectations and verify understanding of the clinical situation",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_5": [
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Role models shared decision making in the context of the patient’s/patient’s family’s values, uncertainty, and conflict"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_ics2",
+      "number": 23,
+      "name": "Barrier and Bias Mitigation",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common barriers to effective patient care (e.g., language, disability)"
+        ],
+        "level_2": [
+          "Identifies complex barriers to effective patient care (e.g., health literacy)"
+        ],
+        "level_3": [
+          "Recognizes biases and mitigates barriers to optimize patient care when prompted"
+        ],
+        "level_4": [
+          "Recognizes biases and proactively mitigates barriers to optimize patient care"
+        ],
+        "level_5": [
+          "Mentors others on recognition of bias and mitigation of barriers to optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_ics3",
+      "number": 24,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a consultation",
+          "Communicates information effectively with all health care team members",
+          "Solicits and communicates feedback to other members of the health care team"
+        ],
+        "level_2": [
+          "Recognizes the role of a vascular neurology consultant",
+          "Clearly and concisely formulates a consultation request",
+          "Role models and facilitates flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_3": [
+          "Uses language that values all members of the health care team",
+          "Clearly and concisely responds to a consultation request"
+        ],
+        "level_4": [
+          "Confirms understanding of consultant recommendations",
+          "Uses active listening to adapt communication style to fit team needs"
+        ],
+        "level_5": [
+          "Respectfully accepts a consultation request",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "vascular_neurology_ics4",
+      "number": 25,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Documents accurate and up-to-date patient information",
+          "Selects optimal mode of communication based on clinical context"
+        ],
+        "level_2": [
+          "Communicates in a way that safeguards patient information",
+          "Demonstrates concise, organized written and verbal communication, including anticipatory guidance"
+        ],
+        "level_3": [
+          "Demonstrates diagnostic reasoning through organized and timely notes",
+          "Guides departmental or institutional communication policies and procedures"
+        ],
+        "level_4": [
+          "Communicates through appropriate channels as required by institutional policy"
+        ],
+        "level_5": [
+          "Communicates diagnostic and therapeutic reasoning"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularneurologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularneurologysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,554 @@
+{
+  "framework_key": "critical-care-anesthesiology",
+  "specialty": "Critical Care Anesthesiology",
+  "version": "2.0",
+  "source": "ACGME Critical Care Anesthesiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "anesthesiology",
+  "parent_name": "Anesthesiology",
+  "subcompetencies": [
+    {
+      "id": "critical_care_anesthesiology_pc1",
+      "number": 1,
+      "name": "Patient Assessment and Development of a Care Plan",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Efficiently gathers a focused history and physical examination to identify disease processes",
+          "Develops and prioritizes a care plan"
+        ],
+        "level_2": [
+          "Formulates a differential diagnosis",
+          "Continuously assesses the patient and recognizes unusual presentations"
+        ],
+        "level_3": [
+          "Orders and interprets imaging and laboratory evaluation",
+          "Adapts care plan for complex clinical situations"
+        ],
+        "level_4": [
+          "Formulates a care plan and communicates it to the team",
+          "Serves as a peer reference for unusual presentations"
+        ],
+        "level_5": [
+          "Integrates data into a comprehensive patient assessment",
+          "Participates in the development of clinical pathways"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_pc2",
+      "number": 2,
+      "name": "Crisis Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Responds to crisis situations as a team coordinator"
+        ],
+        "level_2": [
+          "Develops a differential diagnosis that includes the most likely etiologies for acute clinical deterioration"
+        ],
+        "level_3": [
+          "Determines the level of patient acuity to prioritize and implement an actionable care plan"
+        ],
+        "level_4": [
+          "Independently anticipates clinical deterioration and leads the multidisciplinary team"
+        ],
+        "level_5": [
+          "Triages available institutional resources to effectively resolve patient deterioration"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_pc3",
+      "number": 3,
+      "name": "Procedural Skills/Technical Abilities/Interpretation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Selects equipment, performs common intensive care unit (ICU) procedures (e.g., peripheral arterial or central venous catheterization), and recognizes complications, with guidance",
+          "Synthesizes data obtained from common and advanced ICU procedures to modify the care plan",
+          "Introduces new evidence- based ICU procedures"
+        ],
+        "level_2": [
+          "Interprets data obtained from common ICU procedures, with guidance",
+          "Proficiently performs common and advanced"
+        ],
+        "level_3": [
+          "Performs advanced ICU procedures (e.g., bronchoscopy, chest tube), with guidance",
+          "ICU procedures and troubleshoots complex complications"
+        ],
+        "level_4": [
+          "Interprets data obtained from advanced ICU procedures, with guidance",
+          "Proficiently synthesizes data obtained and identifies unusual findings from common and advanced ICU procedures"
+        ],
+        "level_5": [
+          "Performs common and advanced ICU procedures and troubleshoots common complications",
+          "Serves as a consultant for performing difficult procedures"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_pc4",
+      "number": 4,
+      "name": "Respiratory Failure and Ventilation Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes respiratory failure and develops a differential diagnosis and care plan, with guidance",
+          "Identifies the need for advanced intervention (e.g., extracorporeal membrane oxygenation (ECMO), inhaled vasodilators) and adjunctive therapies (e.g., proning, nitric)"
+        ],
+        "level_2": [
+          "Selects and implements basic ventilation strategies (e.g., assist control, pressure support, non-invasive strategies)",
+          "Continuously assesses a patient and recognizes unusual presentations"
+        ],
+        "level_3": [
+          "Integrates relevant data to develop a patient care plan",
+          "Independently implements and adapts evidence-based ventilation strategies and advanced interventions"
+        ],
+        "level_4": [
+          "Selects from a variety of modes of ventilation or respiratory care techniques and initiates the appropriate interventions to optimize gas exchange and minimize complications",
+          "Serves as a consultant to respiratory care service in development of policies and procedures to optimize patient care"
+        ],
+        "level_5": [
+          "Identifies more complex etiologies for respiratory failure",
+          "Directs evidenced-based protocol development and refinement of ventilator strategies"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_pc5",
+      "number": 5,
+      "name": "Management of Organ Dysfunction and Shock",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes a patient in circulatory shock and initiates indicated therapies",
+          "Incorporates data from advanced diagnostic modalities to develop treatment plans"
+        ],
+        "level_2": [
+          "Initiates a basic diagnostic work-up to delineate the etiology of circulatory shock",
+          "Anticipates and acts independently to minimize the long-term consequences of circulatory shock and associated organ dysfunction"
+        ],
+        "level_3": [
+          "Identifies the underlying etiology for a shock state, actively manages the resuscitation, and continually assesses the response to therapy",
+          "Synthesizes data from advanced diagnostic modalities to develop a comprehensive treatment plan"
+        ],
+        "level_4": [
+          "Utilizes advance diagnostic modalities, with knowledge of advantages and limitations of each, to determine the etiology of shock",
+          "Is recognized by others as a resource in the management of shock and multisystem organ failure"
+        ],
+        "level_5": [
+          "Actively manages an unstable patient in a shock state, anticipates and acts to minimize multisystem organ dysfunction, and recognizes atypical or subtle presentations of shock",
+          "Develops diagnostic algorithms for the diagnosis and management of circulatory shock"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_mk1",
+      "number": 6,
+      "name": "Pharmacology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the pharmacology, clinical indications, and application of medications used in the care of critically ill patients, including vasoactive drugs, sedatives, analgesics, immunotherapy, and antibiotics"
+        ],
+        "level_2": [
+          "Applies knowledge of the pharmacology, clinical indications, and selection of medications used in the care of critically ill patients"
+        ],
+        "level_3": [
+          "Applies knowledge of the pharmacology, clinical indications, and selection of medications used in the care of complex critically ill patients"
+        ],
+        "level_4": [
+          "Integrates knowledge of pharmacology, clinical indications, and selection of medications (including medication interactions) to care for critically ill patients"
+        ],
+        "level_5": [
+          "Serves as a consultant in pharmacotherapy for critically ill patients"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_mk2",
+      "number": 7,
+      "name": "Pathophysiology of Critical Illness",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common pathophysiology and complications related to critical illness"
+        ],
+        "level_2": [
+          "Applies knowledge of common pathophysiology and complications to treat critical illness"
+        ],
+        "level_3": [
+          "Applies knowledge of complex pathophysiology and complications to treat critical illness"
+        ],
+        "level_4": [
+          "Serves as a resource for knowledge of pathophysiology and complications related to critical illness"
+        ],
+        "level_5": [
+          "Is recognized as an expert in synthesizing and prioritizing differential diagnosis complex critical care conditions and anticipating potential complications"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_sbp1",
+      "number": 8,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common events that impact patient safety",
+          "Describes departmental quality improvement initiatives",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in department quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional level or above"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_sbp2",
+      "number": 9,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and participates in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members",
+          "Uses institutional resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Advocates for populations and communities with health care needs in the peri-operative setting"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_sbp3",
+      "number": 10,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Explains the impact of documentation on billing and reimbursement"
+        ],
+        "level_2": [
+          "States factors impacting the costs of critical care",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Practices and advocates for cost- effective patient care"
+        ],
+        "level_4": [
+          "Documents patient details to facilitate accurate billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Engages in external activities related to advocacy for cost- effective care"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_pbli1",
+      "number": 11,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accesses and uses evidence in routine patient care"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Compares and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide individualized care"
+        ],
+        "level_5": [
+          "Coaches others to appraise and apply evidence for complex patients and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_pbli2",
+      "number": 12,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Considers alternatives to improve performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to performance deficits",
+          "Seeks performance data episodically, with adaptability and humility",
+          "Integrates performance data to adapt the learning plan"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to improve performance",
+          "Role models consistently seeking performance data with adaptability and humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to form goals",
+          "Independently creates and implements a learning plan",
+          "Models reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and acknowledges the factors that contribute to performance deficits",
+          "Intentionally seeks performance data consistently, with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_prof1",
+      "number": 13,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies potential triggers for professionalism lapses",
+          "Analyzes straightforward situations using ethical principles",
+          "Actively solicits help and acts on recommendations to resolve complex interpersonal situations"
+        ],
+        "level_2": [
+          "Describes when and how to report lapses in professionalism",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and uses resources for managing and resolving ethical dilemmas"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Recognizes need to seek help in managing and resolving complex interpersonal situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Takes responsibility for one’s own professionalism lapses",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_prof2",
+      "number": 14,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete tasks",
+          "Takes responsibility for tasks not completed in a timely manner and identifies strategies to prevent recurrence"
+        ],
+        "level_2": [
+          "Takes responsibility for failure to complete tasks",
+          "Prioritizes tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner",
+          "Designs and implements an institutional systems approach to ensure timely task completion and shared responsibility"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_prof3",
+      "number": 15,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Lists available resources for personal and professional well-being",
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ],
+        "level_3": [
+          "Describes institutional resources that are meant to promote/support well- being",
+          "Creates institutional-level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "With assistance, proposes a plan to promote personal and professional well-being",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_5": [
+          "Recognizes which institutional factors affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_ics1",
+      "number": 16,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Uses shared decision- making to make a personalized care plan"
+        ],
+        "level_2": [
+          "Provides timely updates to patients and patients’ families",
+          "Facilitates difficult discussions with patients and patients’ families"
+        ],
+        "level_3": [
+          "Customizes communication in the setting of biases and barriers with patients and patients’ families",
+          "Effectively negotiates and manages conflict among patients, patients’ families, and the health care team"
+        ],
+        "level_4": [
+          "Actively listens to patients and patients’ families to elicit patient preferences and expectations",
+          "Mentors others in the facilitation of crucial conversations"
+        ],
+        "level_5": [
+          "Explains complex and difficult information to patients and patients’ families",
+          "Mentors others in conflict resolution"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_ics2",
+      "number": 17,
+      "name": "Complex Communication around Serious Illness",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies the need to assess a patient’s/patient’s family’s expectations and understanding of health status and treatment options",
+          "Sensitively and compassionately delivers medical information; elicits a patient’s/patient’s family’s values, goals, and preferences; and acknowledges uncertainty and conflict, with guidance"
+        ],
+        "level_2": [
+          "Identifies key communication elements for shared decision making",
+          "Tailors communication according to disease characteristics and trajectory, patient consent, patient’s family’s needs, and medical uncertainty, and is able to address intense emotional response"
+        ],
+        "level_3": [
+          "Assesses a patient’s family’s/caregiver’s understanding of the patient’s condition and identifies preferences for receiving information",
+          "Independently uses shared decision making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan in situations with a high degree of uncertainty and conflict"
+        ],
+        "level_4": [
+          "Facilitates communication with a patient/patient’s family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying an understanding of the clinical situation",
+          "Coaches others in the communication of prognostic information"
+        ],
+        "level_5": [
+          "Delivers difficult information and attends to emotional responses of a patient and patient’s family/caregivers",
+          "Coaches others in shared decision making in communication with a patient/patient’s family"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_ics3",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests or receives consultations",
+          "Solicits feedback on performance as a member of the health care team",
+          "Maintains effective communication in crisis situations"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Uses closed-loop communication to verify understanding",
+          "Communicates constructive feedback to superiors"
+        ],
+        "level_3": [
+          "Respectfully receives feedback from health care team members",
+          "Adapts communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_4": [
+          "Clearly, concisely, and promptly requests or responds to a consultation",
+          "Communicates concerns and provides feedback to peers and learners",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ],
+        "level_5": [
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "critical_care_anesthesiology_ics4",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record; demonstrates judicious use of documentation shortcuts",
+          "Respectfully communicates concerns about the system",
+          "Models exemplary written or verbal communication"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information",
+          "Accurately records information in the electronic health record (EHR) and communicates complex care decisions for complex cases",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Communicates through appropriate channels as required by institutional policy",
+          "Appropriately selects direct and indirect forms of communication based on context",
+          "Explores innovative uses of the EHR to facilitate effective critical care management"
+        ],
+        "level_4": [
+          "Accurately gathers all essential medical records from other institutions",
+          "Respectfully communicates concerns about the system and contributes to solutions",
+          "Guides departmental or institutional policies and procedures around communication"
+        ],
+        "level_5": [
+          "Documents required data in formats specified by institutional policy",
+          "Uses EHR functionality to highlight challenges in anesthetic care to facilitate future peri- operative management",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologysupplementalguide.pdf"
+  }
+}

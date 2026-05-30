@@ -1,0 +1,572 @@
+{
+  "framework_key": "medical-toxicology",
+  "specialty": "Medical Toxicology",
+  "version": "2.0",
+  "source": "ACGME Medical Toxicology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "preventive-medicine",
+  "parent_name": "Preventive Medicine",
+  "subcompetencies": [
+    {
+      "id": "medical_toxicology_pc1",
+      "number": 1,
+      "name": "Clinical Reasoning: Differential Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies a patient’s problem with a potential toxicologic cause"
+        ],
+        "level_2": [
+          "Synthesizes all available data, including interview, physical examination findings, and preliminary laboratory data, to define the differential diagnosis"
+        ],
+        "level_3": [
+          "Modifies and refines evidence-based differential diagnosis based upon clinical course and data, and avoids premature closure"
+        ],
+        "level_4": [
+          "Recognizes toxicological presentations and/or conflicting diagnostic results that deviate from common patterns and require more complex decision-making"
+        ],
+        "level_5": [
+          "Develops guidelines, algorithms, or protocols used for education and guidance of learners, clinicians, or poison specialists"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_pc2",
+      "number": 2,
+      "name": "Ordering and Interpreting Studies",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Orders diagnostic testing based on patient presentation"
+        ],
+        "level_2": [
+          "Interprets diagnostic testing in the evaluation of toxicologic disease"
+        ],
+        "level_3": [
+          "Orders advanced and ancillary diagnostic testing based on the pre- test probability of disease and the likelihood of test results altering management"
+        ],
+        "level_4": [
+          "Interprets advanced, ancillary, and forensic diagnostic testing"
+        ],
+        "level_5": [
+          "Develops and validates diagnostic testing processes or protocols"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_pc3",
+      "number": 3,
+      "name": "Management Plan and Treatment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Formulates initial treatment plans for patient’s with",
+          "Develops novel management strategies for poisonings"
+        ],
+        "level_2": [
+          "[straightforward toxicologic conditions"
+        ],
+        "level_3": [
+          "Formulates comprehensive treatment plans for patient’s with straightforward toxicologic conditions"
+        ],
+        "level_4": [
+          "Formulates comprehensive treatment plans for patient’s with complex toxicological conditions"
+        ],
+        "level_5": [
+          "Implements interdisciplinary team for patient’s with complex toxicological conditions"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_pc4",
+      "number": 4,
+      "name": "Substance Use and Withdrawal",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes substance use disorders (SUD) and withdrawal syndromes",
+          "Establishes a holistic treatment pathway involving institutional and community resources"
+        ],
+        "level_2": [
+          "Formulates treatment plan for patients with straightforward SUD and withdrawal syndromes"
+        ],
+        "level_3": [
+          "Initiates treatment of patients with complex"
+        ],
+        "level_4": [
+          "SUD and withdrawal syndromes"
+        ],
+        "level_5": [
+          "Selects therapies based on prior treatment response, co- morbidities, resources, and patient preference"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_mk1",
+      "number": 5,
+      "name": "Pathophysiology of Poisoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses basic concepts of biochemistry, physiology, and pharmacology"
+        ],
+        "level_2": [
+          "Describes basic toxicologic mechanisms and pathophysiology"
+        ],
+        "level_3": [
+          "Explains advanced toxicologic mechanisms and pathophysiology"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of the mechanisms of complex and rare toxicological conditions"
+        ],
+        "level_5": [
+          "Demonstrates expertise through publishing or invited lectureship about toxicologic pathophysiology, and its epidemiologic associations"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_mk2",
+      "number": 6,
+      "name": "Population Exposure",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies major routes of exposure among the human population [LN]"
+        ],
+        "level_2": [
+          "Identifies sources of environmental exposures to chemical, physical, and biological hazards for defined populations"
+        ],
+        "level_3": [
+          "Describes individual factors that impact susceptibility to adverse health effects from environmental exposures"
+        ],
+        "level_4": [
+          "Recommends methods of monitoring and reducing adverse environmental health effects for population"
+        ],
+        "level_5": [
+          "Uses data to characterize effects of exposure of a local population based on comparison with other populations"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_mk3",
+      "number": 7,
+      "name": "Laboratory and Clinical Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Selects ancillary testing needed to assess an acute exposure"
+        ],
+        "level_2": [
+          "Interprets the results of ancillary testing for an exposure incorporating the pharmacokinetics of the xenobiotic"
+        ],
+        "level_3": [
+          "Compares the analytical modalities, including appropriateness, limitations, and methodology"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of advanced analytical and clinical testing, including alternative matrices"
+        ],
+        "level_5": [
+          "Develops protocols for advanced and alternative clinical testing"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_mk4",
+      "number": 8,
+      "name": "Substance Use and Withdrawal",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the relevant terminology of substance use, addiction, and withdrawal"
+        ],
+        "level_2": [
+          "Describes the biological basis, pharmacokinetics, and toxicokinetics of psychoactive and addictive substances"
+        ],
+        "level_3": [
+          "Explains the basis of treatments, both pharmacological and non- pharmacological, for patients with SUD and withdrawal"
+        ],
+        "level_4": [
+          "Identifies the systems- related issues that interfere with identification, analysis, and treatment of substance use and withdrawal"
+        ],
+        "level_5": [
+          "Develops protocols or curriculum for the management of patients with SUD or withdrawal"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_mk5",
+      "number": 9,
+      "name": "Occupational Medicine/Occupational Toxicology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies occupational hazards"
+        ],
+        "level_2": [
+          "Identifies relevant agencies and their role in risk assessment, mitigation, and education"
+        ],
+        "level_3": [
+          "Explains the core principles of occupational safety, risk assessment and communication, and hazard controls"
+        ],
+        "level_4": [
+          "Demonstrates the principles of occupational safety, risk assessment, and hazard control to patients or populations"
+        ],
+        "level_5": [
+          "Applies core principles of risk assessment and hierarchy of controls to reduce risks from safety hazards to patients or populations"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_sbp1",
+      "number": 10,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in group disclosure of patient safety events to patients and patient families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and patient families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems for preventing patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Acts as a role model and/or mentor for others in the disclosing of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_sbp2",
+      "number": 11,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives (e.g., consultation efficiency, testing turnaround times)"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required for identifying, developing, implementing, and analyzing a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_sbp3",
+      "number": 12,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional team members",
+          "Role models and advocates for safe and effective transitions of care/hand-offs"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex clinical situations effectively using the roles of their interprofessional team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_sbp4",
+      "number": 13,
+      "name": "Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of population and community health needs"
+        ],
+        "level_2": [
+          "Identifies specific population and community health needs for their local population"
+        ],
+        "level_3": [
+          "Uses local resources effectively to meet the needs of a patient population and community"
+        ],
+        "level_4": [
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_5": [
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_sbp5",
+      "number": 14,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Engages patients in shared decision making, informed by each patient’s payment model"
+        ],
+        "level_2": [
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care), including practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and the transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Advocates for patient care needs with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type)",
+          "Advocates for or leads systems change that enhances high value, efficient, and effective patient care, and the transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_pbli1",
+      "number": 15,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence and incorporate patient preferences and values to the care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and considers patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_pbli2",
+      "number": 16,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates an openness to receiving performance data (feedback and other input)",
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Demonstrates awareness that there may be gaps between expectations and actual performance",
+          "Using performance data, continually improves and measures the effectiveness of one’s personal and professional goals"
+        ],
+        "level_3": [
+          "Demonstrates an openness to receiving performance data and uses it to develop personal and professional goals",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance"
+        ],
+        "level_4": [
+          "Identifies the factors that contribute to the gap(s) between expectations and actual performance",
+          "Acts as a role model for the development of personal and professional goals"
+        ],
+        "level_5": [
+          "Seeks and accepts performance data for developing personal and professional goals",
+          "Coaches others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_prof1",
+      "number": 17,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates professional behavior in routine situations and in reporting professionalism lapses",
+          "Analyzes complex situations using ethical principles, and recognizes the need to seek help in managing and resolving them"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Sets apart those situations that might trigger professionalism lapses and intervenes to prevent them in oneself and others"
+        ],
+        "level_3": [
+          "Identifies and describes potential triggers and takes responsibility for professionalism lapses",
+          "Uses appropriate resources for managing and resolving ethical dilemmas"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Exhibits professional behavior in complex and/or stressful situations",
+          "Identifies and addresses system-level factors that either induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_prof2",
+      "number": 18,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Proactively develops and implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_prof3",
+      "number": 19,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance, recognizes the status of one’s personal and professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes the status of one’s personal and professional well-being and engages in help-seeking behaviors"
+        ],
+        "level_3": [
+          "With assistance, proposes a plan to optimize one’s personal and professional well- being"
+        ],
+        "level_4": [
+          "Independently develops a plan to optimize one’s personal and professional well-being"
+        ],
+        "level_5": [
+          "Coaches others when their emotional responses or level of knowledge/skills fail to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_ics1",
+      "number": 20,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to reflect respect and establish rapport while accurately communicating one’s own role within the health care system",
+          "Organizes and initiates communication with a patient/patient’s family by clarifying expectations and verifying one’s understanding of the clinical situation",
+          "Independently recognizes biases of patients, while attempting to proactively minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability)",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Independently uses shared decision making with a patient/patient’s family to align their values, goals, and preferences with potential treatment options and ultimately to achieve a personalized care plan"
+        ],
+        "level_3": [
+          "With insight gained through an assessment of the patient’s/patient’s family’s expectations coupled with an understanding of their health status and treatment options, adjusts one’s communication strategies",
+          "When prompted, reflects on biases, while attempting to minimize communication barriers",
+          "Acts as a mentor to others in situational awareness and critical self-reflection with the aim of consistently developing positive therapeutic relationships and minimizing communication barriers"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters with patients using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information to patients, elicits patient’s/patient’s family’s values, learns their goals and preferences, and acknowledges uncertainty and conflict",
+          "Develops educational programs or services that address bias or communication strategies."
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication (e.g., health literacy, cultural differences, technology)",
+          "Easily establishes therapeutic relationships with patients, regardless of the complexity of cases",
+          "Acts as a role model to exemplify shared decision making in communication with patients/patients’ families that embodies various degrees of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_ics2",
+      "number": 21,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a consultation",
+          "Solicits feedback on performance as a member of the health care team",
+          "Uses effective communication to lead or manage health care teams"
+        ],
+        "level_2": [
+          "Uses language that reflects the values all members of the health care team",
+          "Integrates recommendations made by various members of the health care team to optimize patient care",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_3": [
+          "Receives feedback in a respectful manner",
+          "Engages in active listening to adapt to the communication styles of the team",
+          "Acts as a role model for communication skills necessary to lead or manage health care teams"
+        ],
+        "level_4": [
+          "Clearly and concisely requests a consultation or other resources for patient care",
+          "Communicates concerns and provides feedback to peers and learners",
+          "In complex situations, facilitates regular health care team-based feedback"
+        ],
+        "level_5": [
+          "Communicates information effectively with all health care team members",
+          "Acts as a role model for flexible communication strategies, i.e., those strategies that value input from all health care team members and that resolve conflict when needed"
+        ]
+      }
+    },
+    {
+      "id": "medical_toxicology_ics3",
+      "number": 22,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately documents information in the patient’s record and safeguards the patient’s personal health information",
+          "Uses appropriate channels to offer clear and constructive suggestions for improving the system"
+        ],
+        "level_2": [
+          "Communicates through appropriate channels as required by institutional policy (e.g., patient safety reports, cell phone/pager use)",
+          "Communicates clearly, concisely, and contemporaneously in an organized written form, including anticipatory guidance"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through the patient record in a timely manner",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the system",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_5": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (e.g., institution, the health care system, and/or the field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologysupplementalguide.pdf"
+  }
+}

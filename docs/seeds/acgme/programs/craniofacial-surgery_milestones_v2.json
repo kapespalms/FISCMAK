@@ -1,0 +1,557 @@
+{
+  "framework_key": "craniofacial-surgery",
+  "specialty": "Craniofacial Surgery",
+  "version": "2.0",
+  "source": "ACGME Craniofacial Surgery Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "plastic-surgery",
+  "parent_name": "Plastic Surgery",
+  "subcompetencies": [
+    {
+      "id": "craniofacial_surgery_pc1",
+      "number": 1,
+      "name": "Oro-Facial Clefting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a treatment plan for simple oro-facial clefting, with assistance (e.g., cleft lip)",
+          "Identifies and formulates a plan for complications requiring surgical management",
+          "Performs complex procedures for oro-facial clefting without guidance"
+        ],
+        "level_2": [
+          "Performs simple procedures for oro-facial clefting with significant guidance",
+          "Develops a treatment plan for moderately complex oro-facial clefting (e.g., secondary management of velopharyngeal insufficiency ( VPI))",
+          "Performs surgical management for complex complications"
+        ],
+        "level_3": [
+          "Manages simple complications",
+          "Performs moderately complex procedures for oro-facial clefting with minimal guidance",
+          "Develops a treatment plan for uncommon complex oro-facial clefting (e.g., Tessier clefts)"
+        ],
+        "level_4": [
+          "Develops a treatment plan for a moderate oro-facial clefting (e.g., cleft palate)",
+          "Performs surgical management for routine complications",
+          "Performs uncommon complex procedures for oro-facial clefting"
+        ],
+        "level_5": [
+          "Performs procedures for simple oro-facial clefting with guidance",
+          "Develops a treatment plan for complex oro- facial clefting (e.g., secondary management of cleft nasal deformity)",
+          "Performs reconstructive surgery following initial management of complications"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_pc2",
+      "number": 2,
+      "name": "Craniosynostosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops treatment plan for the management of deformational and synostotic skull deformities",
+          "Formulates a plan for complications requiring surgical management",
+          "Performs complex procedures for syndromic, multisystem craniosynostosis – non- life-threatening with no guidance"
+        ],
+        "level_2": [
+          "Performs simple procedures for simple non-syndromic craniosynostosis with significant guidance",
+          "Develops a treatment plan for syndromic craniosynostosis (e.g., without multisystem manifestations)",
+          "Performs surgical management for complex complications"
+        ],
+        "level_3": [
+          "Identifies simple complications",
+          "Performs moderately complex procedures for syndromic craniosynostosis with minimal guidance",
+          "Develops a treatment plan for syndromic, multisystem craniosynostosis – life- threatening (e.g., airway compromise)"
+        ],
+        "level_4": [
+          "Develops a treatment plan for non-syndromic craniosynostosis",
+          "Performs surgical management for routine complications",
+          "Performs uncommon complex procedures for syndromic, multisystem craniosynostosis – life- threatening"
+        ],
+        "level_5": [
+          "Performs procedures for simple non-syndromic craniosynostosis with guidance",
+          "Develops a treatment plan for syndromic, multisystem craniosynostosis – non- life-threatening (e.g., proptosis)",
+          "Performs reconstructive surgery following initial management of complications"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_pc3",
+      "number": 3,
+      "name": "Craniomaxillofacial (e.g., orthognathic procedures, facial distraction, facial fractures)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a treatment plan for the management of routine facial trauma (e.g., mandible fractures)",
+          "Formulates a plan for complications requiring surgical management",
+          "Performs procedures for moderate craniomaxillofacial deformities with minimal guidance",
+          "Performs reconstructive surgery following initial management of complications"
+        ],
+        "level_2": [
+          "Performs simple procedures for routine facial trauma with significant guidance",
+          "Develops a treatment plan for simple craniomaxillofacial deformities (e.g., post- palatoplasty maxillary hypoplasia)",
+          "Performs surgical management for complex complications"
+        ],
+        "level_3": [
+          "Routinely identifies complications",
+          "Performs procedures for simple craniomaxillofacial deformities with minimal guidance",
+          "Develops a treatment plan for complex craniomaxillofacial deformities (e.g., Le Fort"
+        ],
+        "level_4": [
+          "Develops a treatment plan for complex facial trauma (e.g., pan facial fractures, naso-orbitoethmoid (NOE) fractures)",
+          "Performs surgical management for routine complications",
+          "III, monobloc, facial bipartition)"
+        ],
+        "level_5": [
+          "Performs procedures for complex facial trauma with guidance",
+          "Develops a treatment plan for moderate craniomaxillofacial deformities (e.g., two jaw surgery)",
+          "Performs procedures for complex craniomaxillofacial deformities with minimal guidance"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_pc4",
+      "number": 4,
+      "name": "Soft Tissue Conditions (Hypoplastic- e.g., Parry Romberg’s disease and hemifacial microsomia and Hyperplastic-",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a treatment plan for simple soft tissue conditions (e.g., infantile hemangioma) with assistance",
+          "Identifies and formulates a plan for complications requiring surgical management",
+          "Performs complex procedures for soft tissue conditions"
+        ],
+        "level_2": [
+          "Performs simple procedures for soft tissue conditions with assistance",
+          "Develops a treatment plan for moderately complex soft tissue conditions (e.g., hemifacial microsomia)",
+          "Performs surgical management for complex complications"
+        ],
+        "level_3": [
+          "Manages simple complications",
+          "Performs moderately complex procedures for soft tissue conditions",
+          "Develops a treatment plan for complex revision surgery"
+        ],
+        "level_4": [
+          "Develops a treatment plan for simple soft tissue conditions",
+          "Performs surgical management for routine complications",
+          "Performs complex revision surgery"
+        ],
+        "level_5": [
+          "Performs procedures for simple soft tissue conditions",
+          "Develops a treatment plan for complex soft tissue conditions (e.g., Parry-Romberg’s disease)",
+          "Performs reconstructive surgery following initial management of complications"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_mk1",
+      "number": 5,
+      "name": "Oro-Facial Clefting",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the embryology and physiologic impact of simple oro-facial clefting (e.g., cleft lip)",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for moderately complex oro-facial clefting (e.g., nasendoscopy)",
+          "Tessier clefts"
+        ],
+        "level_2": [
+          "Identifies appropriate pre-operative preparation and consultation for simple oro-facial clefting (e.g., nasoalveolar molding (NAM))",
+          "Describes the etiology, physiologic impact, and treatment of complex oro- facial clefting pathology (e.g., secondary management of cleft nasal deformity)"
+        ],
+        "level_3": [
+          "Describes the treatment of simple oro-facial clefting pathology (e.g., cleft palate)",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for complex oro-facial clefting (e.g., rhinoscopy)"
+        ],
+        "level_4": [
+          "Identifies appropriate pre-operative preparation and consultation for moderate oro-facial clefting (e.g., myringotomy tubes)",
+          "Describes the etiology, physiologic impact, and treatment of complex oro- facial clefting pathology (e.g., Tessier clefts)"
+        ],
+        "level_5": [
+          "Describes the etiology, physiologic impact, and treatment of moderately complex oro-facial clefting pathology (e.g., secondary management of velopharyngeal insufficiency (VPI))",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for treatment of"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_mk2",
+      "number": 6,
+      "name": "Craniosynostosis",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the embryology and physiologic impact of single-suture craniosynostosis",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for non- syndromic, multi-suture craniosynostosis"
+        ],
+        "level_2": [
+          "Identifies appropriate diagnostic criteria for single-suture craniosynostosis",
+          "Demonstrates knowledge of the etiology of syndromic, multi-suture craniosynostosis pathology"
+        ],
+        "level_3": [
+          "Describes the treatment of single suture craniosynostosis pathology",
+          "Identifies appropriate pre-operative preparation, diagnostic tests, and consultation for syndromic, multi- suture craniosynostosis"
+        ],
+        "level_4": [
+          "Identifies appropriate pre- operative preparation and consultation for single- suture craniosynostosis",
+          "Demonstrates knowledge of the treatment of multi- suture craniosynostosis pathology and the associated conditions (e.g., intracranial, ocular, airway)"
+        ],
+        "level_5": [
+          "Describes the etiology and physiologic impact of treatment of non- syndromic, multi-suture craniosynostosis pathology",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for treatment of multi-suture craniosynostosis and the associated conditions"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_mk3",
+      "number": 7,
+      "name": "Craniomaxillofacial Conditions (e.g., orthognathic procedures, facial distraction, facial fractures)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the anatomy relevant to simple craniomaxillofacial conditions and facial trauma (e.g., mandible fracture)",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for simple craniomaxillofacial deformities",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for treatment of complex craniomaxillofacial conditions"
+        ],
+        "level_2": [
+          "Identifies appropriate pre-operative preparation and consultation for routine facial trauma",
+          "Describes the treatment of moderate craniomaxillofacial deformities (e.g., two jaw surgery)"
+        ],
+        "level_3": [
+          "Describes the treatment of complex facial trauma (e.g., pan facial fractures, NOE fractures)",
+          "Identifies appropriate pre-operative preparation, diagnostic tests, and consultation for moderate craniomaxillofacial deformities"
+        ],
+        "level_4": [
+          "Identifies appropriate pre- operative preparation and consultation for complex facial trauma",
+          "Describes the treatment of complex craniomaxillofacial conditions (e.g., Le Fort"
+        ],
+        "level_5": [
+          "Describes the treatment of simple craniomaxillofacial deformities (e.g., post- palatoplasty maxillary hypoplasia)",
+          "III, monobloc, facial bipartition)"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_mk4",
+      "number": 8,
+      "name": "Craniofacial Soft Tissue Conditions (Hypoplastic- e.g., Parry Romberg’s disease and hemifacial",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the embryology and physiologic impact of simple craniofacial soft tissue conditions (e.g., infantile hemangioma)",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for moderately complex craniofacial soft tissue conditions"
+        ],
+        "level_2": [
+          "Identifies appropriate diagnostic criteria for simple craniofacial soft tissue conditions",
+          "Describes the etiology, physiologic impact, and treatment of complex craniofacial soft tissue conditions (e.g., Parry- Romberg’s disease)"
+        ],
+        "level_3": [
+          "Describes the treatment of simple craniofacial soft tissue conditions (e.g., infantile hemangioma)",
+          "Identifies appropriate pre-operative preparation, diagnostic tests, and consultation for complex craniofacial soft tissue conditions"
+        ],
+        "level_4": [
+          "Identifies appropriate pre- operative preparation and consultation for simple craniofacial soft tissue conditions",
+          "Describes the etiology, physiologic impact, and treatment of rare or extensive craniofacial soft tissue conditions (e.g., Klippel-Trenauny malformation)"
+        ],
+        "level_5": [
+          "Describes the etiology, physiologic impact, and treatment of moderately complex craniofacial soft tissue conditions (e.g., hemifacial microsomia)",
+          "Identifies appropriate pre- operative preparation, diagnostic tests, and consultation for treatment of rare or extensive craniofacial soft tissue conditions"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_sbp1",
+      "number": 9,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., infection rate)",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_sbp2",
+      "number": 10,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations effectively utilizing the roles of the interprofessional team members",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex clinical situations effectively utilizing the roles of the interprofessional team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_sbp3",
+      "number": 11,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility)",
+          "Describes components of documentation for coding",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_2": [
+          "Identifies the appropriate hospital resources (e.g., case management, social work) to aid in understanding patient costs",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
+        ],
+        "level_3": [
+          "Demonstrates use of information technology (e.g., electronic medical record)",
+          "Engages with patients in shared decision making, informed by each patient’s payment model",
+          "Advocates for or leads systems change that enhances high value, efficient and effective patient care and transition of care"
+        ],
+        "level_4": [
+          "Describes how working within the health care system impacts patient care",
+          "Documents the key components required for billing and coding for simple procedures and inpatient status",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_5": [
+          "Delivers care with the understanding that there are different payment models (e.g., private, government, public)",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_pbli1",
+      "number": 12,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values to the care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges their own assumptions and considers alternatives in narrowing the gap(s) between expectations and performance"
+        ],
+        "level_2": [
+          "Identifies factors that contribute to gap(s) between expectations and performance",
+          "Continually seeks performance data, with adaptability and humility",
+          "Uses performance data to measure the effectiveness of the learning plan, and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and performance",
+          "Models self-assessment and feedback incorporation consistently"
+        ],
+        "level_4": [
+          "Demonstrates openness to receiving performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and the factors that contribute to gap(s) between expectations and performance",
+          "Continually self- assesses and uses external feedback to confirm and augment performance data",
+          "Facilitates the design and implementing learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_prof1",
+      "number": 14,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes appropriate professionalism by oneself and others",
+          "Recognizes the need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, HIPAA/ confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Recognizes situations that may trigger professionalism lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates professional behavior in all situations by oneself and others",
+          "Utilizes appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Describes when and how to appropriately report professionalism lapses by oneself and others",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_prof2",
+      "number": 15,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Recognizes situations that may impact one’s own or others’ ability to complete tasks and responsibilities in a timely manner in routine situations"
+        ],
+        "level_2": [
+          "Takes responsibility for failure to complete tasks and responsibilities in routine situations",
+          "Delegates some tasks or responsibilities in complex or stressful situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Recognizes situations that may impact one’s own or others’ ability to complete tasks and responsibilities in a timely manner in complex or stressful situations"
+        ],
+        "level_4": [
+          "Identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Teaches concepts of or counsels others on accountability or conscientiousness in the workplace"
+        ],
+        "level_5": [
+          "Delegates some tasks or responsibilities in routine situations",
+          "On a departmental or system-wide level, advocates to improve systems that ensure patients’ needs are met within the hospital, on discharge, and on follow- up"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_prof3",
+      "number": 16,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes of the importance of one’s personal and professional well-being",
+          "With assistance, proposes a plan to improve co- worker's knowledge of well-being resources"
+        ],
+        "level_2": [
+          "Identifies the resources available for professional well-being",
+          "Independently develops a plan to optimize one’s personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes status of one’s personal and professional well- being",
+          "Independently advocates for and raises awareness of resources for physician well-being"
+        ],
+        "level_4": [
+          "Demonstrates appropriate help-seeking behaviors",
+          "Optimizes departmental or system-wide tools available for maximizing one’s personal and professional well-being"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize one’s personal and professional well-being",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_ics1",
+      "number": 17,
+      "name": "Patient and Family Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with the patient/patient’s family by introducing stakeholders, setting the agenda, clarifying expectations and verifying understanding of the clinical situation",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Independently uses shared decision making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Identifies the need to adjust communication strategies based on assessment of the patient’s/patient’s family’s expectations and understanding of the patient’s health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits the patient’s/patient’s family’s values, goals and preferences, and acknowledges uncertainty and conflict",
+          "Role models self- awareness while identifying a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Easily establishes therapeutic relationships, with attention to the patient’s/patient’s family’s concerns and context, regardless of complexity",
+          "Role models shared decision making in communication with the patient/patient’s family, including those with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "craniofacial_surgery_ics2",
+      "number": 18,
+      "name": "Interprofessional and System Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates information effectively with all health care team members",
+          "Integrates and synthesizes all relevant data from outside systems and prior encounters into the EHR"
+        ],
+        "level_2": [
+          "Accurately records and safeguards patient health information",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_3": [
+          "Clearly, directly, and specifically communicates with team members in a way that is respectful of their time",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Efficiently uses the electronic health record (EHR) to communicate with the members of the health care team",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ],
+        "level_5": [
+          "Communicates concerns and provides feedback to peers and learners",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (health care system)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/craniofacialsurgerymilestones.pdf",
+    "supplemental_guide_url": null
+  }
+}

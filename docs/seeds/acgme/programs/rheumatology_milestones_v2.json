@@ -1,0 +1,560 @@
+{
+  "framework_key": "rheumatology",
+  "specialty": "Rheumatology",
+  "version": "2.0",
+  "source": "ACGME Rheumatology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "internal-medicine",
+  "parent_name": "Internal Medicine",
+  "subcompetencies": [
+    {
+      "id": "rheumatology_pc1",
+      "number": 1,
+      "name": "Gathers an Essential and Accurate Patient History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires a basic rheumatic history",
+          "Independently requests additional information to supplement available medical records"
+        ],
+        "level_2": [
+          "Reviews available medical records",
+          "Integrates the current patient history with the complete medical record, supplemental information, and disease activity measures"
+        ],
+        "level_3": [
+          "Integrates a rheumatic history with a comprehensive medical history, including functional aspects",
+          "Identified as a role model in interpreting subtleties and resolving ambiguities in the patient history"
+        ],
+        "level_4": [
+          "Identifies relevant findings in the medical record"
+        ],
+        "level_5": [
+          "Acquires a tailored comprehensive rheumatic history, including historical subtleties and psychosocial aspects"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pc2",
+      "number": 2,
+      "name": "Physical Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the elements of a comprehensive physical examination",
+          "Performs a tailored comprehensive musculoskeletal examination including advanced techniques, when applicable"
+        ],
+        "level_2": [
+          "Identifies the elements of a musculoskeletal examination",
+          "Performs a tailored comprehensive physical examination that elicits subtle findings"
+        ],
+        "level_3": [
+          "Performs all elements of a comprehensive physical examination",
+          "Performs a tailored comprehensive musculoskeletal examination that elicits subtle findings"
+        ],
+        "level_4": [
+          "Performs all elements of a musculoskeletal examination",
+          "Identified as a role model for performing and interpreting a comprehensive, accurate physical and musculoskeletal examination"
+        ],
+        "level_5": [
+          "Performs a tailored comprehensive physical examination including advanced techniques, when applicable"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pc3",
+      "number": 3,
+      "name": "Comprehensive Management Plan Development",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With supervision, formulates a differential diagnosis for a patient",
+          "Independently develops a management plan for a patient with common disease presentations",
+          "Independently develops and implements a prioritized management plan with consideration of acuity and complexity of disease presentation"
+        ],
+        "level_2": [
+          "Demonstrates an awareness of disease activity measures",
+          "Independently formulates a prioritized differential diagnosis for typical disease presentations",
+          "Independently formulates a prioritized differential diagnosis with consideration of newly recognized and emerging conditions"
+        ],
+        "level_3": [
+          "With supervision, develops a management plan",
+          "Incorporates and interprets the results of disease activity measures",
+          "Identified as an expert resource for management of a focused disease area"
+        ],
+        "level_4": [
+          "Independently formulates a broad differential diagnosis for typical disease presentations",
+          "Independently recognizes disease acuity, and with supervision, develops a prioritized management plan"
+        ],
+        "level_5": [
+          "Identifies applicable disease activity measures",
+          "Independently formulates a prioritized differential diagnosis with consideration of typical and atypical disease presentations"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pc4",
+      "number": 4,
+      "name": "Therapeutics, including Immunomodulatory Agents",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies indications and adverse effects of medications used to treat patients with common rheumatic conditions",
+          "Integrates best available evidence to prescribe, monitor, and assess the response to pharmacotherapy used in the management of patients with common and complex rheumatic conditions"
+        ],
+        "level_2": [
+          "Prescribes and monitors medications used in patients with common rheumatic conditions",
+          "Independently modifies treatment plans to address comorbidities"
+        ],
+        "level_3": [
+          "Evaluates for comorbidities that may alter therapeutic recommendations",
+          "Develops a clinical practice pathway for management of patients with rheumatic conditions"
+        ],
+        "level_4": [
+          "Prescribes, monitors, and assesses the response to pharmacotherapy used in the management of patients with common rheumatic conditions"
+        ],
+        "level_5": [
+          "Modifies treatment plans to address comorbidities, with supervision"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pc5",
+      "number": 5,
+      "name": "Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies indications for joint and soft tissue aspirations and injections, and discusses principles of informed consent",
+          "Independently performs common joint and soft tissue aspirations and injections"
+        ],
+        "level_2": [
+          "Performs common joint and soft tissue injections and aspirations with direct supervision, including independently discussing risks and benefits, obtaining informed consent, identifying anatomic landmarks, and demonstrating aseptic technique",
+          "Independently interprets the findings of musculoskeletal ultrasound for common conditions, and recognizes the role of ultrasound in non- musculoskeletal rheumatic conditions"
+        ],
+        "level_3": [
+          "Recognizes the role of musculoskeletal ultrasound in the diagnosis and treatment of patients with rheumatic conditions",
+          "Independently performs complex joint and soft tissue aspirations or injections, including unusual sites, anatomic abnormalities, or incorporating imaging guidance"
+        ],
+        "level_4": [
+          "Performs common joint and soft tissue aspirations and injections with indirect supervision",
+          "Independently performs and interprets point-of- care diagnostic ultrasound and uses ultrasound to guide invasive procedures"
+        ],
+        "level_5": [
+          "Interprets the findings of musculoskeletal ultrasound for common conditions with supervision"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pc6",
+      "number": 6,
+      "name": "Provides Consultative Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Recognizes disease acuity and prioritizes management steps"
+        ],
+        "level_2": [
+          "With supervision, recognizes disease acuity",
+          "Integrates recommendations from different members of the health care team and effectively conveys consultative assessment and rationale to all health care team members"
+        ],
+        "level_3": [
+          "Clearly and concisely responds to a consultation request",
+          "Mobilizes resources to provide care in high- acuity situations"
+        ],
+        "level_4": [
+          "Independently recognizes disease acuity",
+          "Identified as a role model for the provision of consultative care across the spectrum of disease complexity and acuity"
+        ],
+        "level_5": [
+          "Verifies understanding of recommendations with the primary team when providing consultation"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_mk1",
+      "number": 7,
+      "name": "Possesses Clinical Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies key features of common rheumatic conditions",
+          "Demonstrates in-depth knowledge of anatomy, genetics, immunology, metabolism, and other basic sciences pertaining to rheumatic conditions"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of anatomy, physiology, and other basic sciences",
+          "Integrates knowledge of the pathogenesis, epidemiology, clinical expression, treatments, and prognosis of a broad range of rheumatic conditions"
+        ],
+        "level_3": [
+          "Demonstrates broad knowledge of common rheumatic conditions",
+          "Integrates knowledge of anatomy, genetics, immunology, metabolism, and other basic sciences pertaining to a broad range of rheumatic conditions"
+        ],
+        "level_4": [
+          "Demonstrates basic knowledge of anatomy, genetics, immunology, metabolism, and other basic sciences pertaining to rheumatic conditions",
+          "Identified as a subject matter expert in basic and/or clinical science of rheumatic conditions"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of less common rheumatic conditions as well as common rheumatic conditions associated with higher complexity"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_mk2",
+      "number": 8,
+      "name": "Knowledge of Diagnostic Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Explains the rationale, risks, and benefits for common diagnostic testing in patients being evaluated for rheumatic conditions"
+        ],
+        "level_2": [
+          "Integrates value and test characteristics into diagnostic strategies in patients with uncomplicated rheumatic conditions"
+        ],
+        "level_3": [
+          "Integrates value and test characteristics into diagnostic strategies in patients with complex rheumatic conditions"
+        ],
+        "level_4": [
+          "Integrates and reconciles information, including non-specific and/or conflicting diagnostic test results to form a cohesive evaluation"
+        ],
+        "level_5": [
+          "Identified as an expert in testing strategies and in the selection and interpretation of complex, new, or emerging tests"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_mk3",
+      "number": 9,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy of scholarly investigation, with supervision"
+        ],
+        "level_2": [
+          "Designs a scholarly activity with a mentor(s)"
+        ],
+        "level_3": [
+          "Engages in scholarly work, incorporates feedback, and participates in critical appraisal and analysis of project data"
+        ],
+        "level_4": [
+          "Produces scholarly work suitable for dissemination as an abstract or presentation"
+        ],
+        "level_5": [
+          "Dissemination of independent scholarly work that has generated new medical knowledge, educational programs, or process improvement"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_sbp1",
+      "number": 10,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes quality improvement initiatives relevant to rheumatology practice",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in quality improvement initiatives relevant to rheumatology practice",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (actual or simulated)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_sbp2",
+      "number": 11,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for their local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of their interprofessional teams",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Leads in the design and implementation of improvements to the care coordination process"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_sbp3",
+      "number": 12,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Independently completes proper documentation and coding for a patient encounter"
+        ],
+        "level_2": [
+          "Recognizes the impact of cost and patient payment model on care decisions",
+          "Engages with patients in shared decision making and incorporates principles of high-value care into management plans",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Demonstrates knowledge of current evaluation and management billing practices",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_4": [
+          "Identify the principles of high-value care and delivers care with consideration of each patient’s payment model",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others on proper documentation, billing, and coding practices"
+        ],
+        "level_5": [
+          "Demonstrates use of information technology (e.g., electronic health record) needed for clinical practice",
+          "Advocates for individual patient care needs to provide high-value care"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pbli1",
+      "number": 13,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Formulates clinical questions and elicits patient preferences to inform care"
+        ],
+        "level_2": [
+          "Locates available evidence and incorporates patient preferences to inform patient care"
+        ],
+        "level_3": [
+          "Evaluates and applies best available evidence and incorporates patient preferences and values in order to provide care tailored to individual patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, and recognizes gaps and conflicting evidence to guide care tailored to individual patients"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_pbli2",
+      "number": 14,
+      "name": "Commitment to Reflective Practice and Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Establishes personal and professional goals, identifying gap(s) between goals and current performance",
+          "Seeks feedback consistently, and sustains behavioral change as necessary"
+        ],
+        "level_2": [
+          "Demonstrates receptiveness to feedback, analyzing and reflecting on factors contributing to gap(s) between goals and current performance",
+          "Uses data and feedback from multiple sources to measure the effectiveness of the learning plan and when necessary, improves it"
+        ],
+        "level_3": [
+          "Designs and implements a learning plan, with prompting",
+          "Role models consistently seeking performance data with adaptability and humility, and coaches others on reflective practice"
+        ],
+        "level_4": [
+          "Seeks feedback episodically, and institutes behavioral change(s) when necessary",
+          "Facilitates the design and the implementation of learning plans for others"
+        ],
+        "level_5": [
+          "Independently creates and implements an individualized learning plan"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_prof1",
+      "number": 15,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers"
+        ],
+        "level_2": [
+          "Identifies and describes triggers for professionalism lapses and takes responsibility for own professional behavior"
+        ],
+        "level_3": [
+          "Proactively recognizes situations that may trigger professionalism lapses"
+        ],
+        "level_4": [
+          "Demonstrates professional behavior in complex or stressful situations and intervenes to prevent lapses in self and others"
+        ],
+        "level_5": [
+          "Coaches others when behavior fails to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_prof3",
+      "number": 16,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and responsibilities, with prompting",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_2": [
+          "Takes responsibility for failure to complete tasks and responsibilities",
+          "Demonstrates leadership to ensure tasks and responsibilities are completed in a timely manner with attention to detail in complex or stressful situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with attention to detail in routine situations",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner",
+          "Creates strategies to enhance others’ ability to efficiently complete tasks and responsibilities"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with attention to detail in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_prof4",
+      "number": 17,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of own and others’ well- being, with assistance",
+          "With assistance, develops a plan to improve personal knowledge, skills, and attitudes"
+        ],
+        "level_2": [
+          "With assistance recognizes personal gaps in knowledge, skills, and attitudes",
+          "Independently recognizes the impact of own and others’ well- being on the patient and team, and asks for help when needed"
+        ],
+        "level_3": [
+          "Independently recognizes status of own and others’ well-being, and asks for help when needed",
+          "Independently implements a plan to improve personal knowledge, skills, and attitudes"
+        ],
+        "level_4": [
+          "Independently recognizes limits in personal knowledge, skills, and attitudes",
+          "Leads initiatives to improve wellness at the program or institutional level"
+        ],
+        "level_5": [
+          "Recognizes the impact of own and others’ well- being on the patient and team, with assistance",
+          "Coaches others when limitations in knowledge, skills, and attitudes do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_ics1",
+      "number": 18,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "Adjusts communication strategies based on identified barriers, incorporating patient and caregiver expectations and goals of care"
+        ],
+        "level_2": [
+          "Recognizes common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Consistently establishes and maintains therapeutic relationships using shared decision making"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship with the patient in uncomplicated clinical encounters using active listening and clear language",
+          "Uses self-reflection to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Recognizes complex barriers to effective communication (e.g., health literacy)",
+          "Serves as a role model in establishing respectful, culturally sensitive therapeutic relationships while mitigating communication barriers"
+        ],
+        "level_5": [
+          "Establishes a therapeutic relationship with the patient in challenging clinical encounters"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_ics2",
+      "number": 19,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that is respectful and values all members of the health care team",
+          "Provides feedback to peers and other learners on the team"
+        ],
+        "level_2": [
+          "Accepts feedback from team members",
+          "Optimizes flexible communication strategies using input from all team members to build consensus and resolve conflicts, as needed"
+        ],
+        "level_3": [
+          "Communicates basic information effectively with all health care team members",
+          "Communicates detailed and effective feedback to any member of the health care team"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Demonstrates leadership in promoting open and safe communication within and between teams"
+        ],
+        "level_5": [
+          "Communicates highly complex information effectively with all health care team members",
+          "Educates others in providing effective feedback"
+        ]
+      }
+    },
+    {
+      "id": "rheumatology_ics3",
+      "number": 20,
+      "name": "Patient-Centered Interprofessional Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Appropriately selects direct and indirect forms of communication based on context"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information in direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) communications",
+          "Communicates clearly, concisely, timely, and in an organized written form, including anticipatory guidance"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Produces written or verbal communication (e.g., patient notes, email) that could serve as an example for others to follow"
+        ],
+        "level_4": [
+          "Accurate and timely documentation with appropriate use of documentation tools",
+          "Participates in establishing communication tools or policies for the division, department, or institution"
+        ],
+        "level_5": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/rheumatologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/rheumatologysupplementalguide.pdf"
+  }
+}

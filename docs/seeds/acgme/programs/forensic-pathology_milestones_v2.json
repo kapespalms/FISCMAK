@@ -1,0 +1,563 @@
+{
+  "framework_key": "forensic-pathology",
+  "specialty": "Forensic Pathology",
+  "version": "2.0",
+  "source": "ACGME Forensic Pathology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pathology",
+  "parent_name": "Pathology",
+  "subcompetencies": [
+    {
+      "id": "forensic_pathology_pc1",
+      "number": 1,
+      "name": "Death Investigation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Explains the necessity and required aspects of a scene investigation",
+          "Explains when cases fall under the jurisdiction of the medical examiner/coroner, including laws about religious and/or other objections to autopsy",
+          "Independently identifies missing information that needs to be gathered"
+        ],
+        "level_2": [
+          "Evaluates a medical record in preparation for an autopsy",
+          "With supervision, leads a routine scene investigation",
+          "Independently determines which cases should be accepted for examination and what type of examination is most appropriate"
+        ],
+        "level_3": [
+          "Identifies types of postmortem examinations and medical examiner/coroner notification criteria",
+          "Independently synthesizes pertinent information from multiple sources",
+          "Independently leads a complex scene investigation"
+        ],
+        "level_4": [
+          "Assists with a scene investigation",
+          "With supervision, determines which cases should be accepted for examination and what type of examination is most appropriate"
+        ],
+        "level_5": [
+          "Identifies additional sources of information necessary for a death investigation",
+          "Independently leads a routine scene investigation"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_pc2",
+      "number": 2,
+      "name": "Autopsy (External and Internal Examination)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With technical assistance, performs routine evisceration and dissection",
+          "Independently documents autopsy findings for a routine case",
+          "Independently identifies, collects, and submits evidence for a complex case"
+        ],
+        "level_2": [
+          "With supervision, collects and submits evidence for a routine case",
+          "With supervision, performs complex evisceration and dissection, including special techniques",
+          "Independently documents autopsy findings for a complex case"
+        ],
+        "level_3": [
+          "With supervision, documents autopsy findings (including photography) for a routine case",
+          "With supervision, identifies, collects, and submits evidence for a complex case",
+          "Reconstructs case findings from the documentation of others to form independent opinion for a complex case"
+        ],
+        "level_4": [
+          "Independently performs routine evisceration and dissection, and identifies cases requiring special techniques",
+          "With supervision, documents autopsy findings for a complex case"
+        ],
+        "level_5": [
+          "Independently identifies, collects, and submits evidence for a routine case",
+          "Independently performs complex evisceration and dissection, including special techniques"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_mk1",
+      "number": 3,
+      "name": "Death Certification and Reporting",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the differences between cause and manner of death",
+          "Synthesizes and prioritizes findings for a complex case into a timely written report with editorial assistance"
+        ],
+        "level_2": [
+          "Drafts a timely, organized written report for a routine case",
+          "Synthesizes findings to opine in complex cases with multiple competing causes and/or manners of death"
+        ],
+        "level_3": [
+          "Synthesizes findings to opine on cause and manner of death in routine cases",
+          "Synthesizes and prioritizes findings for a complex case into a timely written report that needs minimal editing"
+        ],
+        "level_4": [
+          "Synthesizes and prioritizes findings for a routine case into a timely, written report",
+          "Independently generates a nuanced report that expresses the ambiguity and uncertainty for a complex case"
+        ],
+        "level_5": [
+          "Describes the subtleties in death certification in complex cases"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_mk2",
+      "number": 4,
+      "name": "Recognition and Interpretation of Autopsy Findings and Ancillary Studies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes common artifacts (e.g., post mortem change, medical intervention, organ/tissue procurement)",
+          "Performs proper specimen collection, preservation, and submission",
+          "Interprets multiple/variable injuries in a single case"
+        ],
+        "level_2": [
+          "Describes categories of injuries (e.g., blunt force, sharp force, penetrating)",
+          "Interprets common artifacts in the context of the case",
+          "Independently orders and interprets ancillary study results and incorporates into report"
+        ],
+        "level_3": [
+          "Describes available ancillary studies (e.g., histology, microbiology, molecular, radiology, toxicology)",
+          "Identifies details and patterns of injuries (e.g., range of gunshot wound)",
+          "Interprets multiple, complex injuries with significant artifacts"
+        ],
+        "level_4": [
+          "Identifies distinguishing features of common artifacts",
+          "Recognizes case scenarios in which ancillary studies are indicated",
+          "Independently identifies trends in ancillary study results that advance medical knowledge and public health"
+        ],
+        "level_5": [
+          "Identifies distinguishing features of injuries (e.g., undermining, bridging)",
+          "Consistently differentiates injury patterns from artifacts"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_mk3",
+      "number": 5,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic framework for clinical reasoning",
+          "Seeks and integrates evidence-based information to inform diagnostic decision making in complex cases, with assistance",
+          "Not Yet Completed Level 1",
+          "6"
+        ],
+        "level_2": [
+          "Identifies appropriate resources to inform clinical reasoning",
+          "Independently synthesizes information to inform clinical reasoning in complex cases",
+          "Not Yet Rotated"
+        ],
+        "level_3": [
+          "Demonstrates clinical reasoning to determine relevant information",
+          "Independently seeks out, analyzes, and applies relevant original research to diagnostic decision making in complex clinical cases",
+          "-- 11 of 25 -- Version 2 \tForensic Pathology Milestones, ACGME Report Worksheet"
+        ],
+        "level_4": [
+          "Selects relevant resources based on scenario to inform decisions",
+          "Demonstrates intuitive approach to clinical reasoning for complex cases",
+          "©2020 Accreditation Council for Graduate Medical Education (ACGME)"
+        ],
+        "level_5": [
+          "Synthesizes information to inform clinical reasoning, with assistance",
+          "0Comments:",
+          "All rights reserved except the copyright owners grant third parties the right to use the Forensic Pathology Milestones on a non-exclusive basis for educational purposes."
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_sbp1",
+      "number": 6,
+      "name": "Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common safety events (e.g., body or specimen misidentification/ mislabeling)",
+          "Describes departmental and institutional QI initiatives",
+          "Discloses safety events to clinicians, families, and community as appropriate (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report safety events (e.g., release of wrong body, reportable infectious disease)",
+          "Participates in analysis of safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a QI project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic QI methodologies and metrics",
+          "Participates in disclosure of safety events to clinicians, families, and community as appropriate (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to safety events",
+          "Participates in departmental and institutional QI initiatives",
+          "Role models or mentors others in the disclosure of safety events"
+        ],
+        "level_5": [
+          "Reports safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses QI initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_sbp2",
+      "number": 7,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of case coordination",
+          "Identifies pathology’s role in population and community health needs for the local population",
+          "Models and advocates for safe and effective transitions of care/hand- offs within and across health care delivery systems (e.g., organ transplantation, genetic findings to family)"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates complex cases effectively using interprofessional teams",
+          "Recommends and/or participates in changing and adapting practice to provide for the needs of communities and populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex situations (e.g., transfer of materials for outside testing or consultation)",
+          "Analyzes the process of care coordination and leads the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates routine cases effectively using interprofessional teams",
+          "Identifies opportunities for pathology to participate in community and population health",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine situations (e.g., transition from investigator to pathologist, release to funeral home)",
+          "Models effective coordination of cases among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_sbp3",
+      "number": 8,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., medical examiner, coroner, public health, laboratory)"
+        ],
+        "level_2": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care"
+        ],
+        "level_3": [
+          "Discusses how individual practice affects the broader system (e.g., test use, turnaround time)"
+        ],
+        "level_4": [
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_sbp4",
+      "number": 9,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of accrediting agencies and compliance for hospital- based laboratories",
+          "Demonstrates knowledge of the components of a laboratory quality management plan"
+        ],
+        "level_2": [
+          "Discusses the need for quality control",
+          "Participates in an internal or external laboratory inspection (mock or actual)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the accrediting agencies for death investigation offices and forensic laboratories",
+          "Reviews the quality management plan to identify areas for improvement"
+        ],
+        "level_4": [
+          "Interprets quality data and charts and trends, with assistance",
+          "Serves as a resource for accreditation at the regional or national level"
+        ],
+        "level_5": [
+          "Identifies the differences between accreditation and regulatory compliance; discusses the process for achieving accreditation and maintaining regulatory compliance",
+          "Creates and follows a comprehensive quality management plan"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_sbp5",
+      "number": 10,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general pathology work practices and workflow (e.g., histology, immunohistochemistry stains, chemical tests)"
+        ],
+        "level_2": [
+          "Explains rationale for optimizing utilization"
+        ],
+        "level_3": [
+          "Identifies opportunities to optimize utilization of pathology resources"
+        ],
+        "level_4": [
+          "Initiates efforts to optimize utilization"
+        ],
+        "level_5": [
+          "Completes a utilization review and implements change"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_pbli1",
+      "number": 11,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and select applicable evidence (e.g., literature, guidelines)",
+          "Identifies and applies the best available evidence to guide diagnostic work-up of complex cases",
+          "Suggests improvements to research regulations and/or substantially contributes to the primary literature through basic, translational, or clinical research"
+        ],
+        "level_2": [
+          "Is aware of the need for patient privacy, autonomy, and consent as applied to clinical research",
+          "Applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice, with supervision"
+        ],
+        "level_3": [
+          "Identifies and applies the best available evidence to guide diagnostic work-up of simple cases",
+          "Critically appraises and applies evidence to guide care, even in the face of conflicting data"
+        ],
+        "level_4": [
+          "Develops knowledge of the basic principles of research (demographics, Institutional Review",
+          "Proactively and consistently applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice"
+        ],
+        "level_5": [
+          "Board, human subjects), including how research is evaluated, explained to patients, and applied to patient care",
+          "Teaches others to critically appraise and apply evidence for complex cases; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_pbli2",
+      "number": 12,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with assistance",
+          "Critically evaluates the effectiveness of behavioral changes in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the gap(s) between expectations and actual performance",
+          "Seeks performance data and feedback with humility",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models seeking performance data and accepting feedback with humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to receiving performance data and feedback in order to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Actively and consistently seeks performance data and feedback with humility",
+          "Facilitates the design and implementing learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_prof1",
+      "number": 13,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying the practice of medicine",
+          "Demonstrates professional behavior in complex or stressful situations"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers; identifies and describes potential triggers for professionalism lapses",
+          "Independently resolves and manages complex ethical situations"
+        ],
+        "level_3": [
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations; takes responsibility for own professionalism lapses",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Recognizes the need and uses appropriate resources to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_prof2",
+      "number": 14,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to instructions, requests, or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Takes appropriate ownership and performs tasks and responsibilities in a timely manner with attention to detail"
+        ],
+        "level_3": [
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner and describes the impact on team"
+        ],
+        "level_4": [
+          "Anticipates and intervenes in situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Designs new strategies to ensure that the needs of patients, teams, and systems are met"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_prof3",
+      "number": 15,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in the knowledge/skills/ behaviors of self or team, with assistance",
+          "Proposes and implements a plan to optimize personal and professional well-being, with assistance"
+        ],
+        "level_2": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "Independently develops and implements a plan to remediate or improve the knowledge/skills/ behaviors of self or team"
+        ],
+        "level_3": [
+          "Independently recognizes limitations in the knowledge/skills/ behaviors of self or team and seeks help when needed",
+          "Independently develops and implements a plan to optimize personal and professional well- being"
+        ],
+        "level_4": [
+          "Independently recognizes status of personal and professional well-being and seeks help when needed",
+          "Serves as a resource or consultant for developing a plan to remediate or improve the knowledge/ skills/behaviors"
+        ],
+        "level_5": [
+          "Proposes and implements a plan to remediate or improve the knowledge/ skills/behaviors of self or team, with assistance",
+          "Coaches others when responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_ics1",
+      "number": 16,
+      "name": "Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Independently, sensitively, and compassionately delivers medical information and acknowledges uncertainty and conflict"
+        ],
+        "level_3": [
+          "Establishes a relationship in straightforward encounters using active listening and clear language",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Mentors others in the sensitive and compassionate delivery of medical information"
+        ],
+        "level_5": [
+          "Sensitively and compassionately delivers medical information, with assistance",
+          "Models self-awareness while teaching a contextual approach to minimize communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_ics2",
+      "number": 17,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the team",
+          "Integrates feedback from team members to improve communication"
+        ],
+        "level_2": [
+          "Describes the utility of constructive feedback",
+          "Coordinates recommendations from different members of the team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all team members",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the team",
+          "Models flexible communication strategies that value input from all team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular team- based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_ics3",
+      "number": 18,
+      "name": "Systems Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient personal health information by communicating through appropriate means as required by institutional policy (e.g., cell phone/pager usage)",
+          "Uses institutional structure to effectively communicate clear and constructive suggestions to improve the system"
+        ],
+        "level_2": [
+          "Identifies institutional and departmental structure for communication of issues",
+          "Independently communicates while ensuring security of personal health information"
+        ],
+        "level_3": [
+          "Appropriately selects forms of communication based on context and urgency of the situation",
+          "Initiates conversations on difficult subjects with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the system",
+          "Guides departmental or institutional communication around policies and procedures regarding the security of personal health information"
+        ],
+        "level_5": [
+          "Communicates while ensuring security of personal health information, with guidance",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    },
+    {
+      "id": "forensic_pathology_ics4",
+      "number": 19,
+      "name": "Medicolegal Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Discusses the role of the forensic pathologist in the criminal justice system",
+          "Independently reports findings related to public health or safety to appropriate agency"
+        ],
+        "level_2": [
+          "Discusses the role of the forensic pathologist in public health, safety, and disaster planning",
+          "Prepares and presents testimony for a routine case proceeding (actual or mock)"
+        ],
+        "level_3": [
+          "Observes a court proceeding after reviewing the case",
+          "Participates in a multidisciplinary team involving public health or safety (e.g., child death review, disaster planning)"
+        ],
+        "level_4": [
+          "With assistance, reports findings related to public health or safety to appropriate agency",
+          "Prepares and presents testimony for a complex case proceeding"
+        ],
+        "level_5": [
+          "Meets with attorneys and/or law enforcement to discuss the case findings",
+          "Leads a multidisciplinary team involving public health or safety"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologysupplementalguide.pdf"
+  }
+}

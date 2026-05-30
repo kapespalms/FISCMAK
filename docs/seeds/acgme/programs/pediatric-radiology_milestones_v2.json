@@ -1,0 +1,541 @@
+{
+  "framework_key": "pediatric-radiology",
+  "specialty": "Pediatric Radiology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Radiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "radiology",
+  "parent_name": "Radiology",
+  "subcompetencies": [
+    {
+      "id": "pediatric_radiology_pc1",
+      "number": 1,
+      "name": "Consultant",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses electronic health records (EHRs) to obtain relevant clinical information; contacts referring physician when reason for exam is unclear"
+        ],
+        "level_2": [
+          "With assistance, delineates the clinical question, obtains appropriate clinical information, uses evidence-based imaging guidelines, and recommends next steps for emergent and routine consultations"
+        ],
+        "level_3": [
+          "With assistance, delineates the clinical question, obtains appropriate clinical information, uses evidence-based imaging guidelines, and recommends next steps for complex consultations"
+        ],
+        "level_4": [
+          "Manages consultations independently, taking into consideration cost effectiveness and risk- benefit analysis"
+        ],
+        "level_5": [
+          "Provides comprehensive consultations at the expert level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_pc2",
+      "number": 2,
+      "name": "Competence in Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs procedures with direct supervision",
+          "Manages complications of procedures with supervision"
+        ],
+        "level_2": [
+          "Discusses potential procedural complications",
+          "Competently performs basic and advanced pediatric procedures with indirect supervision"
+        ],
+        "level_3": [
+          "Competently performs basic pediatric procedures with indirect supervision",
+          "Anticipates and independently manages complications of procedures"
+        ],
+        "level_4": [
+          "Recognizes complications of procedures and enlists help",
+          "Assists in the development of departmental procedure methodologies"
+        ],
+        "level_5": [
+          "Competently performs basic and advanced pediatric procedures with direct supervision",
+          "Assists in the development of departmental rules of management for complications of procedures"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_mk1",
+      "number": 3,
+      "name": "Protocol Selection and Optimization of Images",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "With supervision, selects appropriate protocol and contrast agent/dose for commonly performed pediatric imaging exams",
+          "With supervision, applies techniques to optimize image quality"
+        ],
+        "level_2": [
+          "Recognizes suboptimal imaging",
+          "Adjusts departmental protocols for optimal imaging of an individual patient’s needs"
+        ],
+        "level_3": [
+          "With supervision, selects appropriate protocol and contrast agent/dose for less commonly performed pediatric imaging exams",
+          "Independently applies techniques to optimize image quality"
+        ],
+        "level_4": [
+          "Describes basic techniques to optimize image quality",
+          "Modifies protocols and assists in developing new protocols and/or techniques for pediatric imaging"
+        ],
+        "level_5": [
+          "With supervision, selects appropriate protocol and contrast agent/dose for complex pediatric imaging exams"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_mk2",
+      "number": 4,
+      "name": "Interpretation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Makes primary observations and formulates differential diagnoses, including consideration of normal pediatric imaging anatomy",
+          "With supervision, recommends management options to clinical team"
+        ],
+        "level_2": [
+          "With guidance, recognizes key critical reportable findings (e.g., pneumothorax, pneumoperitoneum)",
+          "Independently differentiates pediatric normal from abnormal findings and suggests a single diagnosis when appropriate"
+        ],
+        "level_3": [
+          "Makes secondary observations, understands normal developmental variants, and formulates a more specific differential diagnosis",
+          "Independently recommends management options to clinical team"
+        ],
+        "level_4": [
+          "Identifies secondary and critical imaging findings and demonstrates knowledge of clinical management options",
+          "Demonstrates interpretative and management recommendation skills at a level expected of a specialist pediatric radiologist"
+        ],
+        "level_5": [
+          "Provides accurate, focused interpretations and, with supervision, prioritizes differential diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_mk3",
+      "number": 5,
+      "name": "Knowledge of Basic and Clinical Science",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of imaging anatomy of an infant, child, and adolescent",
+          "Applies knowledge of pathophysiology to make imaging diagnoses of less common pediatric conditions"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of pathophysiology of common pediatric disease processes",
+          "Proficiently integrates knowledge of anatomic and molecular imaging with pathophysiology to formulate a diagnosis"
+        ],
+        "level_3": [
+          "Applies knowledge of anatomy to make imaging diagnoses of common pediatric conditions",
+          "Proficiently integrates knowledge of anatomic and molecular imaging with pathophysiology to formulate a diagnosis at the expected level of a specialized pediatric radiologist"
+        ],
+        "level_4": [
+          "Applies knowledge of pathophysiology to make imaging diagnoses of common pediatric conditions"
+        ],
+        "level_5": [
+          "Applies knowledge of anatomy to make imaging diagnoses of less common pediatric conditions"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp1",
+      "number": 6,
+      "name": "Pediatric Imaging Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common pediatric patient safety events",
+          "Participates in disclosure of pediatric patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report pediatric patient safety events",
+          "Conducts analysis of pediatric patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to pediatric patient safety events",
+          "Discloses pediatric patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports pediatric patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent pediatric patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of pediatric patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of pediatric patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp2",
+      "number": 7,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp3",
+      "number": 8,
+      "name": "System Navigation for Pediatric Patient- and Family-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination in pediatric radiology imaging/procedures",
+          "Identifies specific population and community health needs for the local population",
+          "Role models safe and effective transitions of care/hand-offs"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex pediatric radiology imaging/procedures effectively using the roles of interprofessional teams",
+          "Participates in adapting the practice to provide for the needs of specific populations (actual or simulated)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine pediatric radiology imaging/procedures effectively using the roles of interprofessional teams",
+          "Identifies local resources available to meet the needs of a patient population and community",
+          "Improves quality of transitions of care to optimize pediatric patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of pediatric patient- and family- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp4",
+      "number": 9,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, finance, personnel, technology)",
+          "Describes the technical and professional components of imaging costs"
+        ],
+        "level_2": [
+          "Describes the mechanisms for reimbursement, including types of payors",
+          "Manages various components of the complex health care system to provide efficient and effective pediatric patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Describes the pediatric radiology revenue cycle and measurements of productivity (e.g., relative value units)"
+        ],
+        "level_4": [
+          "States relative cost of common procedures",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective pediatric patient care and transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp5",
+      "number": 10,
+      "name": "Contrast Agent Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of contrast reactions"
+        ],
+        "level_2": [
+          "Recognizes contrast reactions (simulated or actual)"
+        ],
+        "level_3": [
+          "With supervision, manages contrast reactions (simulated or actual)"
+        ],
+        "level_4": [
+          "Independently manages contrast reactions (simulated or actual)"
+        ],
+        "level_5": [
+          "Leads educational experience in simulation laboratory for contrast reaction"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp6",
+      "number": 11,
+      "name": "Radiation Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the mechanisms of radiation injury and the ALARA (“as low as reasonably achievable”) concept",
+          "Creates, implements, and assesses radiation safety initiatives at the institutional level"
+        ],
+        "level_2": [
+          "Accesses resources to determine exam-specific average radiation dose information"
+        ],
+        "level_3": [
+          "Communicates the relative risk of exam- specific radiation exposure to pediatric patients, patients’ families, and practitioners"
+        ],
+        "level_4": [
+          "Applies principles of"
+        ],
+        "level_5": [
+          "ALARA in daily practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_sbp7",
+      "number": 12,
+      "name": "Magnetic Resonance (MR) Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the risks of magnetic resonance imaging (MRI), including safety zones and pre-MR screening"
+        ],
+        "level_2": [
+          "Accesses resources to determine the safety of implanted devices and retained foreign bodies"
+        ],
+        "level_3": [
+          "Communicates MR safety, including implants and retained foreign bodies, to pediatric patients, patients’ families, and practitioners"
+        ],
+        "level_4": [
+          "Applies principles of MR safety to daily practice"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses MR safety initiatives at the institutional level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_pbli1",
+      "number": 13,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence to determine the best imaging examination for a routine patient/diagnosis"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient’s and patient’s family’s preferences and concerns to guide evidence-based imaging"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient’s and patient’s family’s preferences and concerns, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_pbli2",
+      "number": 14,
+      "name": "Reflective Practice and Commitment to Professional Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for professional development by establishing goals",
+          "With prompting, designs and implements a learning plan",
+          "Analyzes effectiveness of behavioral changes where appropriate, and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies factors that contribute to gap(s) between expectations and actual performance",
+          "Episodically seeks performance data and feedback, with humility and adaptability",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve performance",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Coaches other learners to consistently seek performance data and feedback"
+        ],
+        "level_4": [
+          "Is receptive to performance data and feedback to adjust goals",
+          "Independently designs and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on factors that contribute to gap(s) between expectations and actual performance",
+          "Consistently seeks performance data and feedback with humility and adaptability",
+          "Facilitates the design and implements learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_prof1",
+      "number": 15,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of expectations for professional behavior and describes how to appropriately report professional lapses",
+          "Recognizes the need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, and stewardship of limited resources",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations and takes responsibility for one’s own professionalism lapses",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_prof2",
+      "number": 16,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner to ensure the needs of patients, families, teams, and systems are met in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner to ensure the needs of patients, families, teams, and systems are met in complex or stressful situations"
+        ],
+        "level_4": [
+          "Recognizes and raises awareness of situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_prof3",
+      "number": 17,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance, recognizes status of personal and professional well-being, and is aware of available resources",
+          "With assistance, proposes a plan to remediate or improve limits in the knowledge/ skills of oneself or the team"
+        ],
+        "level_2": [
+          "With assistance, recognizes limits in the knowledge/skills of self or team",
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes status of personal and professional well-being using available resources when appropriate",
+          "Independently develops a plan to remediate or improve limits in the knowledge/skills of oneself or the team"
+        ],
+        "level_4": [
+          "Independently recognizes limits in the knowledge/skills of oneself or the team and demonstrates appropriate help-seeking behaviors",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_ics1",
+      "number": 18,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately communicates one’s own role within the health care system",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient goals and preferences, and acknowledges uncertainty and conflict"
+        ],
+        "level_2": [
+          "Identifies the need to adjust communication strategies based on assessment of the patient’s/patient’s family’s expectations and understanding of their health status and treatment options",
+          "Actively minimizes communication barriers"
+        ],
+        "level_3": [
+          "Identifies barriers to effective communication (e.g., language, health literacy) for families and children of all ages",
+          "Independently uses shared decision making to align patient goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_4": [
+          "Organizes and initiates communication with the patient/patient’s family by clarifying expectations and verifying understanding of the clinical situation; adapts to changing needs of children as they age",
+          "Coaches other learners to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies biases that hinder effective communication",
+          "Coaches other learners in shared decision making"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_ics2",
+      "number": 19,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Communicates non- emergent findings where failure to act may adversely affect patient outcome"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the institutional and national communication guidelines",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Clearly and concisely responds to a consultation request",
+          "Communicates findings and management options (as appropriate) that are tailored to the referring provider"
+        ],
+        "level_4": [
+          "Communicates emergent findings according to institutional or national guidelines",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Checks understanding of recommendations when providing consultation",
+          "Coaches other learners in tailored communications to referring providers"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_radiology_ics3",
+      "number": 20,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of institutional communications policies"
+        ],
+        "level_2": [
+          "Communicates appropriately as required by institutional policy"
+        ],
+        "level_3": [
+          "Communicates systems concerns in a respectful manner"
+        ],
+        "level_4": [
+          "Communicates clear and constructive suggestions to improve systems"
+        ],
+        "level_5": [
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricradiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricradiologysupplementalguide.pdf"
+  }
+}

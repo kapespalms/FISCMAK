@@ -1,0 +1,632 @@
+{
+  "framework_key": "diagnostic-radiology",
+  "specialty": "Diagnostic Radiology",
+  "version": "2.0",
+  "source": "ACGME Diagnostic Radiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "radiology",
+  "parent_name": "Radiology",
+  "subcompetencies": [
+    {
+      "id": "diagnostic_radiology_pc1",
+      "number": 1,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates reports with appropriate elements for coding",
+          "Uses lexicons and structured reporting which rarely require correction"
+        ],
+        "level_2": [
+          "Describes lexicons and structured reporting",
+          "Generates tailored reports meeting the needs of the care provider"
+        ],
+        "level_3": [
+          "Efficiently generates clear and concise reports which do not require substantive correction",
+          "Proficiently uses lexicons and structured reporting to provide accurate and timely reports which do not require correction"
+        ],
+        "level_4": [
+          "Uses lexicons and structured reporting that do not require substantive correction",
+          "Generates tailored reports meeting subspecialty needs"
+        ],
+        "level_5": [
+          "Efficiently generates clear and concise reports which rarely require correction"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_pc2",
+      "number": 2,
+      "name": "Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses electronic health records (EHRs) to obtain relevant clinical information"
+        ],
+        "level_2": [
+          "For emergent and routine radiology consultations, delineates the clinical question, obtains appropriate clinical information, and uses evidence-based imaging guidelines, recommends next steps, with assistance"
+        ],
+        "level_3": [
+          "For complex radiology consultations, delineates the clinical question, obtains appropriate clinical information, and uses evidence-based imaging guidelines, recommends next steps, with assistance"
+        ],
+        "level_4": [
+          "Manages radiology consultations independently, taking into consideration cost effectiveness and risk benefit analysis"
+        ],
+        "level_5": [
+          "Provides comprehensive radiology consultations at the expected level of a subspecialist"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_pc3",
+      "number": 3,
+      "name": "Image Interpretation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies primary imaging findings"
+        ],
+        "level_2": [
+          "Identifies secondary and critical imaging findings and formulates differential diagnoses"
+        ],
+        "level_3": [
+          "Prioritizes differential diagnoses and recommends management options"
+        ],
+        "level_4": [
+          "Provides a single diagnosis with integration of current guidelines to recommend management, when appropriate"
+        ],
+        "level_5": [
+          "Demonstrates expertise and efficiency at a level expected of a subspecialist"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_pc4",
+      "number": 4,
+      "name": "Competence in Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the indications for and assists with procedures",
+          "Manages complications of procedures, with supervision"
+        ],
+        "level_2": [
+          "Discusses potential procedural complications",
+          "Proficiently and independently performs procedures as expected of a general radiologist"
+        ],
+        "level_3": [
+          "Performs procedures, with direct supervision",
+          "Anticipates and independently manages complications of procedures performed by a general radiologist"
+        ],
+        "level_4": [
+          "Recognizes complications of procedures and enlists help",
+          "Proficiently and independently performs procedures expected of a subspecialist"
+        ],
+        "level_5": [
+          "Competently performs procedures, with indirect supervision",
+          "Proficiently and independently manages complications of procedures performed by a subspecialist"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_mk1",
+      "number": 5,
+      "name": "Diagnostic Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of imaging anatomy",
+          "Applies knowledge of cellular and molecular systems to make common imaging diagnoses",
+          "Proficiently integrates knowledge of anatomic and molecular imaging with pathophysiology to formulate a diagnosis at the expected level of a subspecialist"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of pathophysiology of disease processes",
+          "Applies knowledge of anatomy to make uncommon imaging diagnoses"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of cellular and molecular systems",
+          "Applies knowledge of pathophysiology to make uncommon imaging diagnoses"
+        ],
+        "level_4": [
+          "Applies knowledge of anatomy to make common imaging diagnoses",
+          "Applies knowledge of cellular and molecular systems to make uncommon imaging diagnoses"
+        ],
+        "level_5": [
+          "Applies knowledge of pathophysiology to make common imaging diagnoses",
+          "Proficiently integrates knowledge of anatomic and molecular imaging with pathophysiology to formulate a diagnosis"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_mk2",
+      "number": 6,
+      "name": "Physics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the basic physics for diagnostic radiology"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of basic medical physics and radiobiology in diagnostic radiology"
+        ],
+        "level_3": [
+          "Applies knowledge of basic medical physics and radiobiology to imaging"
+        ],
+        "level_4": [
+          "Applies physical principles to optimize image quality, including dose reduction strategies"
+        ],
+        "level_5": [
+          "Teaches physical principles to optimize image quality to other specialties"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_mk3",
+      "number": 7,
+      "name": "Protocol Selection and Contrast Agent Selection/Dosing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the protocols and contrast agent/dose for imaging"
+        ],
+        "level_2": [
+          "Selects appropriate protocols and contrast agent/dose for emergent and routine imaging"
+        ],
+        "level_3": [
+          "Selects appropriate protocols and contrast agent/dose for complex imaging"
+        ],
+        "level_4": [
+          "Modifies protocols and contrast agent/dose as determined by clinical circumstances"
+        ],
+        "level_5": [
+          "Develops imaging protocols"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_mk4",
+      "number": 8,
+      "name": "Imaging Technology and Image Acquisition",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses imaging technology and image acquisition"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of basic image acquisition and image processing, and recognizes common imaging artifacts and technical problems"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of instrument quality control and image reconstruction and troubleshoots for artifact reduction"
+        ],
+        "level_4": [
+          "Proficiently optimizes image acquisition and processing in collaboration with the technology/imaging team"
+        ],
+        "level_5": [
+          "Presents or publishes research on imaging technology"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp1",
+      "number": 9,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp2",
+      "number": 10,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp3",
+      "number": 11,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination in radiology imaging/procedures",
+          "Identifies specific population and community health needs for their local population",
+          "Role models safe and effective transitions of care/hand-offs"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex radiology imaging/procedures effectively using the roles of interprofessional teams",
+          "Participates in adapting the practice to provide for the needs of specific populations (actual or simulated)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine radiology imaging/procedures effectively using the roles of interprofessional teams",
+          "Identifies local resources available to meet the needs of a patient population and community",
+          "Improves quality of transitions of care to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp4",
+      "number": 12,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex healthcare system (e.g., hospital, finance, personnel, technology)",
+          "Describes the technical and professional components of imaging costs"
+        ],
+        "level_2": [
+          "Describes the mechanisms for reimbursement, including types of payors",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are inter-related, and how this impacts patient care",
+          "Describes the radiology revenue cycle and measurements of productivity (e.g., relative value units)"
+        ],
+        "level_4": [
+          "States relative cost of common procedures",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp5",
+      "number": 13,
+      "name": "Contrast Agent Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of contrast reactions"
+        ],
+        "level_2": [
+          "Recognizes contrast reactions (simulated or actual)"
+        ],
+        "level_3": [
+          "Manages contrast reactions, with supervision (simulated or actual)"
+        ],
+        "level_4": [
+          "Independently manages contrast reactions (simulated or actual)"
+        ],
+        "level_5": [
+          "Leads educational experience in simulation laboratory for contrast reaction"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp6",
+      "number": 14,
+      "name": "Radiation Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the mechanisms of radiation injury and the ALARA (“as low as reasonably achievable”) concept",
+          "Creates, implements, and assesses radiation safety initiatives at the institutional level"
+        ],
+        "level_2": [
+          "Accesses resources to determine exam-specific average radiation dose information"
+        ],
+        "level_3": [
+          "Communicates the relative risk of exam- specific radiation exposure to patients and practitioners"
+        ],
+        "level_4": [
+          "Applies principles of"
+        ],
+        "level_5": [
+          "ALARA in daily practice"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp7",
+      "number": 15,
+      "name": "Magnetic Resonance (MR) Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the risks of magnetic resonance imaging (MRI), including safety zones and pre-MR screening"
+        ],
+        "level_2": [
+          "Accesses resources to determine the safety of implanted devices and retained foreign bodies"
+        ],
+        "level_3": [
+          "Communicates MR safety, including implants and retained foreign bodies, to patients and practitioners"
+        ],
+        "level_4": [
+          "Applies principles of MR safety to daily practice"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses MR safety initiatives at the institutional level"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_sbp8",
+      "number": 16,
+      "name": "Informatics",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates familiarity with information systems, including EHR, radiology information system, and picture archiving system"
+        ],
+        "level_2": [
+          "Demonstrates familiarity with information standards in radiology, and describes their roles"
+        ],
+        "level_3": [
+          "Describes approaches to capture and integrate data from radiology examinations into medical decision making"
+        ],
+        "level_4": [
+          "Applies knowledge of information systems, standards, and data to support radiology initiatives, as appropriate"
+        ],
+        "level_5": [
+          "Participates in operational and strategic information systems meetings; applies informatics knowledge to help guide direction and operation of the radiology department"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_pbli1",
+      "number": 17,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence to determine the best imaging examination for a routine patient/diagnosis"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values in order to guide evidence-based imaging"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preferences and values, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_pbli2",
+      "number": 18,
+      "name": "Reflective Practice and Commitment to Professional Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Analyzes effectiveness of behavioral changes where appropriate and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies factors which contribute to gap(s) between expectations and actual performance",
+          "Episodically seeks performance data and feedback, with humility and adaptability",
+          "Uses performance data to measure the effectiveness of the learning plan and when necessary, improves it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve performance",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Coaches other learners to consistently seek performance data and feedback"
+        ],
+        "level_4": [
+          "Receptive to performance data and feedback in order to adjust goals",
+          "Designs and implements a learning plan independently",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on factors which contribute to gap(s) between expectations and actual performance",
+          "Consistently seeks performance data and feedback with humility and adaptability",
+          "Facilitates the design and implements learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_prof1",
+      "number": 19,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of expectations for professional behavior and describes how to appropriately report professional lapses",
+          "Recognizes need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, and stewardship of limited resources",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations and takes responsibility for own professionalism lapses",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_prof2",
+      "number": 20,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner to ensure that the needs of patients, teams, and systems are met in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner to ensure that the needs of patients, teams, and systems are met in complex or stressful situations"
+        ],
+        "level_4": [
+          "Recognizes and raises awareness of situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_prof3",
+      "number": 21,
+      "name": "Self-Awareness and Help Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of personal and professional well-being, with assistance, and is aware of available resources",
+          "With assistance, proposes a plan to remediate or improve limits in the knowledge/ skills of self or team"
+        ],
+        "level_2": [
+          "Recognizes limits in the knowledge/skills of self or team, with assistance",
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes status of personal and professional well-being using available resources when appropriate",
+          "Independently develops a plan to remediate or improve limits in the knowledge/skills of self or team"
+        ],
+        "level_4": [
+          "Independently recognizes limits in the knowledge/skills of self or team and demonstrates appropriate help-seeking behaviors",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_ics1",
+      "number": 22,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately communicates own role within the health care system",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient goals and preferences, and acknowledges uncertainty and conflict"
+        ],
+        "level_2": [
+          "Identifies the need to adjust communication strategies based on assessment of patient/family expectations and understanding of their health status and treatment options",
+          "Actively minimizes communication barriers"
+        ],
+        "level_3": [
+          "Identifies barriers to effective communication (e.g., language, health literacy)",
+          "Independently, uses shared decision making to align patient goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_4": [
+          "Organizes and initiates communication with patient/family by clarifying expectations and verifying understanding of the clinical situation",
+          "Coaches other learners to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies biases that hinder effective communication",
+          "Coaches other learners in shared decision making"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_ics2",
+      "number": 23,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Communicates non- emergent findings where failure to act may adversely affect patient outcome"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the institutional and national communication guidelines",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Clearly and concisely responds to a consultation request",
+          "Communicates findings and management options (as appropriate) which are tailored to the referring provider"
+        ],
+        "level_4": [
+          "Communicates emergent findings according to institutional or national guidelines",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Checks understanding of recommendations when providing consultation",
+          "Coaches other learners in tailored communications to referring providers"
+        ]
+      }
+    },
+    {
+      "id": "diagnostic_radiology_ics3",
+      "number": 24,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of institutional communications policies"
+        ],
+        "level_2": [
+          "Communicates appropriately as required by institutional policy"
+        ],
+        "level_3": [
+          "Communicates systems concerns in a respectful manner"
+        ],
+        "level_4": [
+          "Communicates clear and constructive suggestions to improve systems"
+        ],
+        "level_5": [
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/diagnosticradiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/diagnosticradiologysupplementalguide.pdf"
+  }
+}

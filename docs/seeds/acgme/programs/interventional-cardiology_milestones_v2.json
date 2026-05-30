@@ -1,0 +1,490 @@
+{
+  "framework_key": "interventional-cardiology",
+  "specialty": "Interventional Cardiology",
+  "version": "2.0",
+  "source": "ACGME Interventional Cardiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "internal-medicine",
+  "parent_name": "Internal Medicine",
+  "subcompetencies": [
+    {
+      "id": "interventional_cardiology_pc1",
+      "number": 1,
+      "name": "Pre-Procedural Care and Procedural Selection",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists indications, risks, and benefits for straightforward procedures",
+          "With guidance, evaluates diagnostic testing and optimizes medical management"
+        ],
+        "level_2": [
+          "Lists prerequisite diagnostic testing and optimal medical management strategies",
+          "Independently selects procedures based on indications, risks, and benefits to individualized patient care"
+        ],
+        "level_3": [
+          "With direct supervision, identifies the indications, risks, and benefits to individualized patient care",
+          "Independently evaluates diagnostic testing and optimizes medical management"
+        ],
+        "level_4": [
+          "With direct supervision, evaluates diagnostic testing and optimizes medical management",
+          "Demonstrates advanced decision making in complex clinical scenarios and procedural selection"
+        ],
+        "level_5": [
+          "With guidance, selects procedures based on indications, risks, and benefits to individualized patient care",
+          "Demonstrates advanced decision making in managing complex clinical scenarios"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_pc2",
+      "number": 2,
+      "name": "Technical Skills for Percutaneous Intervention",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With direct supervision, performs straightforward procedures (e.g., angioplasty, stenting)",
+          "Independently demonstrates intra- procedural decision making, composure, and clinical and complication management in straightforward situations"
+        ],
+        "level_2": [
+          "With direct supervision, performs basic clinical management in straightforward situations",
+          "Independently performs complex procedures (e.g., atherectomy, bifurcation left main intervention)"
+        ],
+        "level_3": [
+          "With guidance, performs straightforward procedures (e.g., invasive imaging, mechanical support)",
+          "Independently demonstrates intra- procedural decision making, composure, and clinical and complication management in complex situations"
+        ],
+        "level_4": [
+          "With guidance, demonstrates intra- procedural decision making, composure, and clinical and complication management in straightforward situations",
+          "Demonstrates superior technical skill in the most complex, high-risk procedures"
+        ],
+        "level_5": [
+          "Independently performs straightforward procedures (e.g., invasive imaging, mechanical support)",
+          "Demonstrates advanced leadership in the complex catheterization laboratory environment"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_pc3",
+      "number": 3,
+      "name": "Post-Procedural Management (Inpatient and Outpatient)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Evaluates for post- procedural issues",
+          "With guidance, optimizes complex care of patients in the outpatient setting"
+        ],
+        "level_2": [
+          "With direct supervision, optimizes patient care in the outpatient setting",
+          "Anticipates issues and manages complex post- procedural care"
+        ],
+        "level_3": [
+          "Manages straightforward care and issues",
+          "Independently optimizes patient care in the outpatient setting"
+        ],
+        "level_4": [
+          "With guidance, optimizes straightforward care of patients in the outpatient setting",
+          "Develops a clinical pathway or guideline for management of complex post-procedural issues"
+        ],
+        "level_5": [
+          "Manages complex care and issues",
+          "Implements strategies for advancing multidisciplinary care"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_mk1",
+      "number": 4,
+      "name": "Anatomy and Physiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies normal anatomy during procedures",
+          "Demonstrates knowledge of pathophysiology and treatment of patients with straightforward conditions"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of pathophysiology of straightforward conditions",
+          "Identifies therapeutic options targeted to complex anatomy"
+        ],
+        "level_3": [
+          "Identifies anatomic variants during procedures",
+          "Demonstrates knowledge of pathophysiology and treatment of patients with complex conditions"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of pathophysiology of complex conditions",
+          "Demonstrates a command of medical knowledge regarding rare anatomic variants"
+        ],
+        "level_5": [
+          "Identifies the implications of varying anatomy for procedural planning",
+          "Contributes to peer- reviewed literature on pathophysiology and/or treatment"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_mk2",
+      "number": 5,
+      "name": "Pharmacology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of pharmacologic agents"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of selection and dosing of commonly used pharmacologic agents"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the indications, contraindications, side effects, and complications of pharmacologic agents"
+        ],
+        "level_4": [
+          "Integrates knowledge of pharmacology into procedures and peri- procedural care"
+        ],
+        "level_5": [
+          "Develops pharmacologic protocols or departmental guidelines"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_mk3",
+      "number": 6,
+      "name": "Devices, Techniques, and Outcomes",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies commonly used devices"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of commonly used devices, techniques, and outcomes"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the indications, contraindications, side effects, and complications of commonly used devices, techniques, and outcomes"
+        ],
+        "level_4": [
+          "Integrates knowledge of devices, techniques, and outcomes into procedures and peri- procedural care"
+        ],
+        "level_5": [
+          "Achieves a superior level of knowledge to effectively teach others about devices, techniques, and outcomes"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_sbp1",
+      "number": 7,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes quality improvement initiatives at the institutional or departmental level",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in quality improvement initiatives at the institutional or departmental level",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_sbp2",
+      "number": 8,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Coordinates care of patients in complex clinical situations, effectively using the roles of the interprofessional teams",
+          "Adapts practice to address barriers to adherence of care"
+        ],
+        "level_2": [
+          "Identifies key elements for effective transitions of care",
+          "Performs effective transitions of care in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations, effectively using the roles of the interprofessional teams",
+          "Identifies barriers to adherence of care to specific populations",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_4": [
+          "Performs effective transitions of care in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations with health care barriers"
+        ],
+        "level_5": [
+          "Demonstrates general knowledge of barriers to adherence of care",
+          "Role models and advocates for effective transitions of care within and across health care delivery systems"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_sbp3",
+      "number": 9,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Applies knowledge in non-clinical topics needed for independent practice"
+        ],
+        "level_2": [
+          "Describes basic health payment systems, (e.g., government, private, public, uninsured care) and practice models",
+          "Engages with patients in shared decision making, informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Seeks knowledge in non- clinical topics needed for independent practice (e.g., malpractice insurance, government regulation, compliance)",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_4": [
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type)",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others in non- clinical topics to prepare them for independent practice"
+        ],
+        "level_5": [
+          "Demonstrates essential skills for documentation required for independent practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_pbli1",
+      "number": 10,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence to manage a patient with cardiovascular disease"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences to guide evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence to the care of patients with cardiovascular disease while integrating patient preference"
+        ],
+        "level_4": [
+          "Critically appraises and applies available, potentially conflicting evidence to guide care of an individual patient"
+        ],
+        "level_5": [
+          "Develops initiatives to educate others to critically appraise and apply evidence for complex patients and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_pbli2",
+      "number": 11,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Creates and implements a learning plan"
+        ],
+        "level_2": [
+          "Acknowledges limits and gaps between expectations and performance; demonstrates self- awareness",
+          "Systematically seeks feedback and performance data with adaptability and humility"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and performance data in order to form goals",
+          "Uses performance data to assess learning plan and improves it when necessary"
+        ],
+        "level_4": [
+          "Analyzes the factors which contribute to limits and gaps; demonstrates appropriate help-seeking behaviors",
+          "Coaches others to seek feedback and performance data"
+        ],
+        "level_5": [
+          "Occasionally seeks feedback and performance data with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_prof1",
+      "number": 12,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Recognizes need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of ethical principles (e.g., informed consent, advance directives, confidentiality, patient autonomy)",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations",
+          "Uses appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, risk management)"
+        ],
+        "level_4": [
+          "Applies knowledge of ethical principles to routine situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_prof2",
+      "number": 13,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Seeks assistance in managing personal relationships with industry and other entities to minimize bias and undue influence in practice"
+        ],
+        "level_2": [
+          "Recognizes the principles of conflict of interest in relationships with industry and other entities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Identifies, discloses, and manages relationships with industry and other entities to minimize bias and undue influence in practice"
+        ],
+        "level_4": [
+          "Recognizes personal potential conflicts with industry",
+          "Engages with the system to improve outcomes"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_prof3",
+      "number": 14,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of personal and professional well- being"
+        ],
+        "level_2": [
+          "Independently recognizes status of personal and professional well-being"
+        ],
+        "level_3": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Participates in a system change to improve well- being in self and others"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_ics1",
+      "number": 15,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and establishes rapport in patient encounters",
+          "Organizes and initiates communication with patient/family to facilitate shared decision making",
+          "Proactively minimizes communication barriers and independently manages biases"
+        ],
+        "level_2": [
+          "Knows barriers to effective communication (e.g., language, disability, health literacy)",
+          "Establishes a therapeutic relationship in challenging patient encounters, with guidance",
+          "Independently, uses shared decision making to implement a personalized care plan"
+        ],
+        "level_3": [
+          "Identifies the need to adjust communication strategies to achieve shared decision making",
+          "Attempts to minimize communication barriers, including reflection on any biases",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in routine patient encounters",
+          "Uses shared decision making to implement a personalized care plan, under guidance",
+          "Role models self- awareness to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies barriers to effective communication in patient encounters",
+          "Independently establishes a therapeutic relationship in challenging patient encounters",
+          "Role models shared decision making"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_ics2",
+      "number": 16,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Completes consultations with effective documentation and communication in common cases, with indirect supervision",
+          "Facilitates team-based discussions to optimize team performance"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Adapts communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_3": [
+          "Respectfully and thoroughly completes consultations with effective documentation and communication in common cases, with direct supervision",
+          "Initiates team-based discussions to optimize team performance",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ],
+        "level_4": [
+          "Communicates information effectively with all health care team members",
+          "Completes consultations with effective documentation and communication in complex cases"
+        ],
+        "level_5": [
+          "Participates in team- based discussions to optimize team performance",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "interventional_cardiology_ics3",
+      "number": 17,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record and safeguards patient personal health information",
+          "Independently communicates timely information in a written format and verbally when appropriate"
+        ],
+        "level_2": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Identifies appropriate communication channels (e.g., cell phone/ pager usage, medical record, email) as required by institutional policy",
+          "Models written communication to improve others’ performance"
+        ],
+        "level_4": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_5": [
+          "Respectfully communicates concerns about the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalcardiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalcardiologysupplementalguide.pdf"
+  }
+}

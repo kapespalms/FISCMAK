@@ -3,1284 +3,579 @@
   "specialty": "Ophthalmology",
   "version": "2.0",
   "source": "ACGME Ophthalmology Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "ophthalmology",
+  "parent_name": "Ophthalmology",
   "subcompetencies": [
     {
       "id": "ophthalmology_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Data Acquisition – Basic Ophthalmology Exam and Testing",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Acquires relevant",
-          "problem-focused history,",
-          "including outside medical",
-          "records",
-          "Performs and documents",
-          "a comprehensive",
-          "ophthalmic examination;",
-          "distinguishes between",
-          "normal and abnormal",
-          "findings",
-          "Performs problem-"
+          "Acquires relevant problem-focused history, including outside medical records",
+          "Identifies subtle or uncommon examination findings of common disorders and typical or common findings of rarer disorders"
         ],
         "level_2": [
-          "focused exam with",
-          "appropriate techniques",
-          "(e.g., gonioscopy and",
-          "scleral depression),",
-          "consistently identifies",
-          "common abnormalities on",
-          "examination; may identify",
-          "subtle findings",
-          "Orders, performs, and",
-          "interprets basic testing",
-          "(e.g., visual field testing,"
+          "Performs and documents a comprehensive ophthalmic examination; distinguishes between normal and abnormal findings",
+          "Interprets unusual findings on routine testing, identifies artifacts; recognizes indications for advanced diagnostic tests and imaging procedures (e.g., specular microscopy, electroretinography)"
         ],
         "level_3": [
-          "Optical Coherence",
-          "Tomography, B-scan)",
-          "Identifies subtle or",
-          "uncommon examination",
-          "findings of common",
-          "disorders and",
-          "typical or common",
-          "findings of rarer",
-          "disorders",
-          "Interprets unusual",
-          "findings on routine"
+          "Performs problem- focused exam with appropriate techniques (e.g., gonioscopy and scleral depression), consistently identifies common abnormalities on examination; may identify subtle findings",
+          "Orders and interprets advanced diagnostic tests and imaging procedures according to evidence-based medicine (i.e., when and when not to order testing)"
         ],
         "level_4": [
-          "testing, identifies artifacts;",
-          "recognizes indications for",
-          "advanced diagnostic tests",
-          "and imaging procedures",
-          "(e.g., specular",
-          "microscopy,",
-          "electroretinography)",
-          "Orders and interprets",
-          "advanced diagnostic",
-          "tests and imaging",
-          "procedures according to"
+          "Orders, performs, and interprets basic testing (e.g., visual field testing, Optical Coherence",
+          "Demonstrates expertise in advanced diagnostic tests and imaging"
         ],
         "level_5": [
-          "evidence-based",
-          "medicine (i.e., when",
-          "and when not to order",
-          "testing)",
-          "Demonstrates expertise in",
-          "advanced diagnostic tests",
-          "and imaging"
+          "Tomography, B-scan)"
         ]
       }
     },
     {
       "id": "ophthalmology_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Hospital-Based Consultation",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Acquires relevant",
-          "problem-focused history,",
-          "including outside medical",
-          "records",
-          "Performs inpatient",
-          "consultation, with direct",
-          "supervision",
-          "Triages consult requests",
-          "Performs a complete",
-          "examination"
+          "Acquires relevant problem-focused history, including outside medical records",
+          "Manages consultations (including coordination of care) requiring surgical intervention, including procedural options and timing; requests ophthalmic subspecialty advice, with indirect supervision"
         ],
         "level_2": [
-          "Recognizes ophthalmic",
-          "emergencies and initiates",
-          "non-surgical treatment",
-          "plan, with indirect",
-          "supervision",
-          "Manages consultations",
-          "(including coordination of",
-          "care) requiring surgical",
-          "intervention, including",
-          "procedural options and"
+          "Performs inpatient consultation, with direct supervision",
+          "Manages ophthalmic emergencies with non- surgical and surgical treatment, with indirect supervision"
         ],
         "level_3": [
-          "timing; requests",
-          "ophthalmic subspecialty",
-          "advice, with indirect",
-          "supervision",
-          "Manages ophthalmic",
-          "emergencies with non-",
-          "surgical and surgical",
-          "treatment, with indirect",
-          "supervision",
-          "Manages consultations"
+          "Triages consult requests",
+          "Manages consultations (including coordination of care) requiring surgical intervention, including procedural options and timing; requests ophthalmic subspecialty input, with oversight"
         ],
         "level_4": [
-          "(including coordination",
-          "of care) requiring",
-          "surgical intervention,",
-          "including procedural",
-          "options and timing;",
-          "requests ophthalmic",
-          "subspecialty input, with",
-          "oversight",
-          "Manages ophthalmic",
-          "emergencies with non-"
+          "Performs a complete examination",
+          "Manages ophthalmic emergencies with non- surgical and surgical treatment, with oversight"
         ],
         "level_5": [
-          "surgical and surgical",
-          "treatment, with",
-          "oversight",
-          "Oversees the consultation",
-          "process and manages",
-          "interdisciplinary systems",
-          "issues affecting patient",
-          "care"
+          "Recognizes ophthalmic emergencies and initiates non-surgical treatment plan, with indirect supervision",
+          "Oversees the consultation process and manages interdisciplinary systems issues affecting patient care"
         ]
       }
     },
     {
       "id": "ophthalmology_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Office-Based Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Describes essential",
-          "components of care",
-          "related to office-based",
-          "procedures (e.g.,",
-          "informed consent,",
-          "indications and",
-          "contraindications,",
-          "anesthesia, sterile"
+          "Describes essential components of care related to office-based procedures (e.g., informed consent, indications and contraindications, anesthesia, sterile procedure prep)",
+          "Administers anesthesia and performs procedure, with oversight"
         ],
         "level_2": [
-          "procedure prep)",
-          "Administers anesthesia",
-          "and performs",
-          "procedure, with direct",
-          "supervision",
-          "Recognizes and",
-          "manages intra- and",
-          "post-operative"
+          "Administers anesthesia and performs procedure, with direct supervision",
+          "Manages intra- and post-operative complications, with oversight"
         ],
         "level_3": [
-          "complications, with",
-          "direct supervision",
-          "Administers anesthesia",
-          "and performs",
-          "procedure, with indirect",
-          "supervision",
-          "Manages intra- and post-",
-          "operative complications,"
+          "Recognizes and manages intra- and post-operative complications, with direct supervision",
+          "Incorporates recent advancements in technologies or techniques"
         ],
         "level_4": [
-          "with indirect supervision",
-          "Administers",
-          "anesthesia and",
-          "performs procedure,",
-          "with oversight",
-          "Manages intra- and",
-          "post-operative",
-          "complications, with"
+          "Administers anesthesia and performs procedure, with indirect supervision"
         ],
         "level_5": [
-          "oversight",
-          "Incorporates recent",
-          "advancements in",
-          "technologies or",
-          "techniques"
+          "Manages intra- and post- operative complications, with indirect supervision"
         ]
       }
     },
     {
       "id": "ophthalmology_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Cataract Surgery – Technical Skill",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies visually",
-          "significant cataract",
-          "Demonstrates ability to",
-          "scrub, prep and drape",
-          "patient for surgery;",
-          "performs basic suturing",
-          "skills",
-          "Assesses patients for",
-          "routine cataract surgery",
-          "Performs elements of",
-          "cataract surgery in the",
-          "hands-on surgical skills",
-          "laboratory and in the"
+          "Identifies visually significant cataract",
+          "Assesses patients for complex cataract surgery",
+          "Manages complex intra- and post-operative complications (e.g., endophthalmitis)"
         ],
         "level_2": [
-          "operating room (OR)",
-          "Manages common post-",
-          "operative complications",
-          "(e.g., post-op pain, high",
-          "intraocular pressure)",
-          "Assesses patients for",
-          "complex cataract surgery",
-          "Performs routine cataract",
-          "surgery in the OR",
-          "Manages common intra-",
-          "and post-operative",
-          "complications (e.g.,",
-          "posterior capsule rupture,"
+          "Demonstrates ability to scrub, prep and drape patient for surgery; performs basic suturing skills",
+          "Performs routine cataract surgery in the OR",
+          "Assesses patients for intraocular lenses complications requiring a more complex intervention"
         ],
         "level_3": [
-          "wound leak)",
-          "Assesses patients who",
-          "are candidates for",
-          "refractive intraocular",
-          "lenses to correct",
-          "astigmatism and/or",
-          "provide near correction",
-          "Performs cataract",
-          "surgery requiring",
-          "complex technical",
-          "maneuvers (e.g., pupil",
-          "expander, capsular",
-          "tension ring)"
+          "Assesses patients for routine cataract surgery",
+          "Manages common intra- and post-operative complications (e.g., posterior capsule rupture, wound leak)",
+          "Performs lens surgery for patients with complications requiring a more complex intervention (e.g., sutured intraocular lenses)"
         ],
         "level_4": [
-          "Manages complex intra-",
-          "and post-operative",
-          "complications (e.g.,",
-          "endophthalmitis)",
-          "Assesses patients for",
-          "intraocular lenses",
-          "complications requiring a",
-          "more complex",
-          "intervention",
-          "Performs lens surgery for",
-          "patients with",
-          "complications requiring a",
-          "more complex"
+          "Performs elements of cataract surgery in the hands-on surgical skills laboratory and in the operating room (OR)",
+          "Assesses patients who are candidates for refractive intraocular lenses to correct astigmatism and/or provide near correction",
+          "Manages rare and complex intra- and post- operative complications (e.g., aqueous misdirection, suprachoroidal hemorrhage)"
         ],
         "level_5": [
-          "intervention (e.g., sutured",
-          "intraocular lenses)",
-          "Manages rare and",
-          "complex intra- and post-",
-          "operative complications",
-          "(e.g., aqueous",
-          "misdirection,",
-          "suprachoroidal",
-          "hemorrhage)"
+          "Manages common post- operative complications (e.g., post-op pain, high intraocular pressure)",
+          "Performs cataract surgery requiring complex technical maneuvers (e.g., pupil expander, capsular tension ring)"
         ]
       }
     },
     {
       "id": "ophthalmology_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Extraocular Surgery (Plastics, Strabismus)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates ability to",
-          "scrub, prep and drape",
-          "patient for surgery;",
-          "performs basic suturing",
-          "skills",
-          "Identifies common post-",
-          "operative complications",
-          "(e.g., post-op pain,",
-          "bleeding)",
-          "Identifies patients for",
-          "routine extraocular"
+          "Demonstrates ability to scrub, prep and drape patient for surgery; performs basic suturing skills",
+          "Develops a pre-operative plan for routine extraocular surgery",
+          "Manages complex intra- and post-operative complications (e.g., infection, retrobulbar hemorrhage)"
         ],
         "level_2": [
-          "surgery",
-          "Performs simple",
-          "extraocular surgery (e.g.,",
-          "simple lid laceration",
-          "repair, nasolacrimal duct",
-          "probing)",
-          "Manages common post-",
-          "operative complications",
-          "Develops a pre-operative",
-          "plan for routine",
-          "extraocular surgery"
+          "Identifies common post- operative complications (e.g., post-op pain, bleeding)",
+          "Performs routine extraocular surgery (e.g., complex lid laceration repair, horizontal strabismus, ptosis)",
+          "Assess patients and develops a pre-operative plan for complex/ multidisciplinary extraocular surgery (e.g., nerve sheath decompression, vessel sparing strabismus)"
         ],
         "level_3": [
-          "Performs routine",
-          "extraocular surgery (e.g.,",
-          "complex lid laceration",
-          "repair, horizontal",
-          "strabismus, ptosis)",
-          "Manages intra- and post-",
-          "operative complications",
-          "(e.g., bleeding,",
-          "perforation)",
-          "Develops a pre-",
-          "operative plan for"
+          "Identifies patients for routine extraocular surgery",
+          "Manages intra- and post- operative complications (e.g., bleeding, perforation)",
+          "Performs complex extraocular surgery"
         ],
         "level_4": [
-          "complex extraocular",
-          "surgery",
-          "Performs complex",
-          "extraocular surgery",
-          "(e.g., vertical",
-          "strabismus), with",
-          "assistance",
-          "Manages complex intra-",
-          "and post-operative",
-          "complications (e.g.,",
-          "infection, retrobulbar"
+          "Performs simple extraocular surgery (e.g., simple lid laceration repair, nasolacrimal duct probing)",
+          "Develops a pre- operative plan for complex extraocular surgery"
         ],
         "level_5": [
-          "hemorrhage)",
-          "Assess patients and",
-          "develops a pre-operative",
-          "plan for complex/",
-          "multidisciplinary",
-          "extraocular surgery (e.g.,",
-          "nerve sheath",
-          "decompression, vessel",
-          "sparing strabismus)",
-          "Performs complex",
-          "extraocular surgery"
+          "Manages common post- operative complications",
+          "Performs complex extraocular surgery (e.g., vertical strabismus), with assistance"
         ]
       }
     },
     {
       "id": "ophthalmology_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Intraocular Surgery (Cornea, Retina, Glaucoma)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates ability to",
-          "scrub, prep and drape",
-          "patient for surgery;",
-          "performs basic suturing",
-          "skills",
-          "Assesses patients for",
-          "routine intraocular surgery",
-          "Performs routine",
-          "intraocular surgery in the"
+          "Demonstrates ability to scrub, prep and drape patient for surgery; performs basic suturing skills",
+          "Assists in subspecialty intraocular surgery",
+          "Assess patients requiring surgery from multiple disciplines (e.g., plastic surgery, facial trauma)"
         ],
         "level_2": [
-          "hands-on surgical skills",
-          "laboratory",
-          "Manages common post-",
-          "operative complications",
-          "(e.g., post-op pain, high",
-          "intraocular pressure)",
-          "Assesses patients for",
-          "complex intraocular",
-          "surgery"
+          "Assesses patients for routine intraocular surgery",
+          "Manages common intra- operative complications (e.g., flat chamber, wound leak, hyphema)",
+          "Performs complex intraocular surgery"
         ],
         "level_3": [
-          "Assists in subspecialty",
-          "intraocular surgery",
-          "Manages common intra-",
-          "operative complications",
-          "(e.g., flat chamber, wound",
-          "leak, hyphema)",
-          "Assesses patients for",
-          "multispecialty",
-          "intraocular surgeries"
+          "Performs routine intraocular surgery in the hands-on surgical skills laboratory",
+          "Assesses patients for multispecialty intraocular surgeries",
+          "Manages rare and complex intra- and post- operative complications (e.g., tube erosion, proliferative vitreoretinopathy)"
         ],
         "level_4": [
-          "Performs routine",
-          "intraocular surgery",
-          "Manages complex intra-",
-          "and post-operative",
-          "complications (e.g., re-",
-          "bubble graft, blebitis)",
-          "Assess patients requiring",
-          "surgery from multiple",
-          "disciplines (e.g., plastic"
+          "Manages common post- operative complications (e.g., post-op pain, high intraocular pressure)",
+          "Performs routine intraocular surgery"
         ],
         "level_5": [
-          "surgery, facial trauma)",
-          "Performs complex",
-          "intraocular surgery",
-          "Manages rare and",
-          "complex intra- and post-",
-          "operative complications",
-          "(e.g., tube erosion,",
-          "proliferative",
-          "vitreoretinopathy)"
+          "Assesses patients for complex intraocular surgery",
+          "Manages complex intra- and post-operative complications (e.g., re- bubble graft, blebitis)"
         ]
       }
     },
     {
       "id": "ophthalmology_mk1",
       "number": 7,
-      "domain_number": 1,
       "name": "Pathophysiology",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Articulates knowledge of",
-          "pathophysiology and",
-          "clinical findings for",
-          "ophthalmic conditions",
-          "routinely managed by",
-          "non-ophthalmologists",
-          "Demonstrates basic",
-          "knowledge of"
+          "Articulates knowledge of pathophysiology and clinical findings for ophthalmic conditions routinely managed by non-ophthalmologists"
         ],
         "level_2": [
-          "pathophysiology and",
-          "clinical findings for",
-          "common ophthalmic",
-          "conditions routinely",
-          "managed by",
-          "ophthalmologists",
-          "Demonstrates advanced",
-          "knowledge of"
+          "Demonstrates basic knowledge of pathophysiology and clinical findings for common ophthalmic conditions routinely managed by ophthalmologists"
         ],
         "level_3": [
-          "pathophysiology and",
-          "clinical findings for",
-          "commonly encountered",
-          "ophthalmic conditions;",
-          "demonstrates basic",
-          "knowledge of",
-          "pathophysiology and",
-          "clinical findings for"
+          "Demonstrates advanced knowledge of pathophysiology and clinical findings for commonly encountered ophthalmic conditions; demonstrates basic knowledge of pathophysiology and clinical findings for uncommon conditions"
         ],
         "level_4": [
-          "uncommon conditions",
-          "Demonstrates",
-          "advanced knowledge of",
-          "pathophysiology and",
-          "clinical findings for",
-          "uncommon ophthalmic",
-          "conditions",
-          "Contributes new"
+          "Demonstrates advanced knowledge of pathophysiology and clinical findings for uncommon ophthalmic conditions"
         ],
         "level_5": [
-          "knowledge for",
-          "pathophysiology and",
-          "clinical findings for",
-          "ophthalmic conditions",
-          "(e.g., publication,",
-          "curriculum development)"
+          "Contributes new knowledge for pathophysiology and clinical findings for ophthalmic conditions (e.g., publication, curriculum development)"
         ]
       }
     },
     {
       "id": "ophthalmology_mk2",
       "number": 8,
-      "domain_number": 2,
       "name": "Differential Diagnosis",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Identifies resources to",
-          "generate a focused",
-          "differential",
-          "Generates a basic",
-          "differential diagnosis",
-          "based on patient",
-          "symptoms and history",
-          "Generates",
-          "comprehensive",
-          "differential diagnosis",
-          "based on patient"
+          "Identifies resources to generate a focused differential",
+          "Selects additional diagnostic testing to distinguish between conditions on the differential"
         ],
         "level_2": [
-          "symptoms and history;",
-          "documents and presents",
-          "differential in oral",
-          "presentation clearly and",
-          "concisely",
-          "Describes diagnostic tests",
-          "to aid in the differential",
-          "diagnosis",
-          "Generates refined",
-          "differential based on",
-          "patient symptoms, history"
+          "Generates a basic differential diagnosis based on patient symptoms and history",
+          "Generates probabilistic differential diagnosis in patients with multiple ocular and medical comorbidities; modifies likely differential with new information from additional testing"
         ],
         "level_3": [
-          "and examination findings,",
-          "distinguishing between",
-          "common and uncommon",
-          "conditions",
-          "Selects additional",
-          "diagnostic testing to",
-          "distinguish between",
-          "conditions on the",
-          "differential",
-          "Generates probabilistic",
-          "differential diagnosis in"
+          "Generates comprehensive differential diagnosis based on patient symptoms and history; documents and presents differential in oral presentation clearly and concisely",
+          "Articulates the rationale for ordering diagnostic testing in hierarchical fashion based upon probabilistic differential"
         ],
         "level_4": [
-          "patients with multiple",
-          "ocular and medical",
-          "comorbidities; modifies",
-          "likely differential with",
-          "new information from",
-          "additional testing",
-          "Articulates the rationale",
-          "for ordering diagnostic",
-          "testing in hierarchical",
-          "fashion based upon",
-          "probabilistic differential"
+          "Describes diagnostic tests to aid in the differential diagnosis",
+          "Recognizes, self-reflects, and shares experiences to educate others on factors that contributed to missed diagnosis or faulty clinical reasoning (e.g., publication, curriculum development)"
         ],
         "level_5": [
-          "Recognizes, self-reflects,",
-          "and shares experiences",
-          "to educate others on",
-          "factors that contributed to",
-          "missed diagnosis or faulty",
-          "clinical reasoning (e.g.,",
-          "publication, curriculum",
-          "development)"
+          "Generates refined differential based on patient symptoms, history and examination findings, distinguishing between common and uncommon conditions"
         ]
       }
     },
     {
       "id": "ophthalmology_mk3",
       "number": 9,
-      "domain_number": 3,
       "name": "Therapeutic Interventions",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Describes basic",
-          "concepts of ophthalmic",
-          "pathophysiology and",
-          "pharmacology",
-          "Describes basic",
-          "ophthalmic anatomy and",
-          "categories of procedural",
-          "interventions",
-          "Explains relevant"
+          "Describes basic concepts of ophthalmic pathophysiology and pharmacology",
+          "Identifies and describes causes of complications and alternatives for routine procedural interventions"
         ],
         "level_2": [
-          "pathophysiology and lists",
-          "indications and",
-          "contraindications for",
-          "planned medical therapy",
-          "Explains indications,",
-          "contraindications, and",
-          "relevant steps required for",
-          "procedural intervention",
-          "(e.g., anesthesia,"
+          "Describes basic ophthalmic anatomy and categories of procedural interventions",
+          "Describes and articulates the rationale for using emerging alternative medical therapies"
         ],
         "level_3": [
-          "technique, instruments)",
-          "Identifies and describes",
-          "side effects of medical",
-          "therapies and ways to",
-          "minimize potential",
-          "complications",
-          "Identifies and describes",
-          "causes of complications",
-          "and alternatives for"
+          "Explains relevant pathophysiology and lists indications and contraindications for planned medical therapy",
+          "Describes and articulates the rationale for using novel alternative procedural interventions"
         ],
         "level_4": [
-          "routine procedural",
-          "interventions",
-          "Describes and",
-          "articulates the rationale",
-          "for using emerging",
-          "alternative medical",
-          "therapies",
-          "Describes and",
-          "articulates the rationale"
+          "Explains indications, contraindications, and relevant steps required for procedural intervention (e.g., anesthesia, technique, instruments)",
+          "Participates in the development and dissemination of novel therapies or interventions"
         ],
         "level_5": [
-          "for using novel",
-          "alternative procedural",
-          "interventions",
-          "Participates in the",
-          "development and",
-          "dissemination of novel",
-          "therapies or interventions"
+          "Identifies and describes side effects of medical therapies and ways to minimize potential complications"
         ]
       }
     },
     {
       "id": "ophthalmology_sbp1",
       "number": 10,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics",
-          "Identifies system factors"
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., eye protection for high risk activities, diabetic eye screening)",
+          "Discloses patient safety events to patients and families (simulated or actual)"
         ],
         "level_2": [
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes local quality",
-          "improvement initiatives",
-          "(e.g., eye protection for",
-          "high risk activities,",
-          "diabetic eye screening)",
-          "Participates in analysis of"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_3": [
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and families",
-          "(simulated or actual)",
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Conducts analysis of",
-          "patient safety events",
-          "and offers error",
-          "prevention strategies"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "families (simulated or",
-          "actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project",
-          "Actively engages teams",
-          "and processes to modify",
-          "systems to prevent"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "patient safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_sbp2",
+      "number": 11,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Demonstrates knowledge of local population and community health needs for their local population",
+          "Advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of their interprofessional teams",
+          "Uses local resources effectively to meet the needs of a patient population and community"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the role of the physician in addressing community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams",
+          "Identifies specific local health needs related to ophthalmic care",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Teaches effective coordination of patient- centered care among different disciplines and specialties to junior members of the team",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
         ]
       }
     },
     {
       "id": "ophthalmology_sbp3",
-      "number": 11,
-      "domain_number": 3,
+      "number": 12,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Describes basic health",
-          "care systems and",
-          "access models (e.g.,",
-          "government, private,",
-          "public, uninsured care)",
-          "Demonstrates use of",
-          "electronic medical record",
-          "Describes how different",
-          "system types require the"
+          "Describes basic health care systems and access models (e.g., government, private, public, uninsured care)",
+          "Describes knowledge domains for effective transition to practice (e.g., information technology, legal, billing and coding)"
         ],
         "level_2": [
-          "physician to deliver care",
-          "effectively with available",
-          "resources",
-          "Identifies the",
-          "documentation required",
-          "for billing and coding",
-          "compliance",
-          "Optimizes patient care",
-          "given available resources"
+          "Demonstrates use of electronic medical record",
+          "Advocates for patient care needs beyond patients’ available resources (e.g., community resources, patient assistance resources, telehealth)"
         ],
         "level_3": [
-          "Describes knowledge",
-          "domains for effective",
-          "transition to practice (e.g.,",
-          "information technology,",
-          "legal, billing and coding)",
-          "Advocates for patient",
-          "care needs beyond",
-          "patients’ available",
-          "resources (e.g.,"
+          "Describes how different system types require the physician to deliver care effectively with available resources",
+          "Demonstrates administrative knowledge needed for transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)"
         ],
         "level_4": [
-          "community resources,",
-          "patient assistance",
-          "resources, telehealth)",
-          "Demonstrates",
-          "administrative",
-          "knowledge needed for",
-          "transition to practice",
-          "(e.g., contract",
-          "negotiations,"
+          "Identifies the documentation required for billing and coding compliance",
+          "Participates in health policy advocacy activities"
         ],
         "level_5": [
-          "malpractice insurance,",
-          "government regulation,",
-          "compliance)",
-          "Participates in health",
-          "policy advocacy activities",
-          "Analyzes individual",
-          "practice patterns and",
-          "professional requirements",
-          "in preparation for practice"
+          "Optimizes patient care given available resources",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
         ]
       }
     },
     {
       "id": "ophthalmology_pbli1",
-      "number": 12,
-      "domain_number": 1,
+      "number": 13,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access and use available",
-          "evidence, and",
-          "incorporate patient",
-          "preferences and values",
-          "in order to take care of a",
-          "routine patient"
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values in order to take care of a routine patient"
         ],
         "level_2": [
-          "Articulates clinical",
-          "questions and elicits",
-          "patient preferences and",
-          "values in order to guide",
-          "evidence-based care",
-          "Locates and applies the",
-          "best available evidence,"
+          "Articulates clinical questions and elicits patient preferences and values in order to guide evidence-based care"
         ],
         "level_3": [
-          "integrated with patient",
-          "preference, to the care of",
-          "complex patients",
-          "Critically appraises and",
-          "applies evidence even",
-          "in the face of",
-          "uncertainty and"
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
         ],
         "level_4": [
-          "conflicting evidence to",
-          "guide care, tailored to",
-          "the individual patient",
-          "Coaches others to",
-          "critically appraise and",
-          "apply evidence for",
-          "complex patients; and/or"
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
         ],
         "level_5": [
-          "participates in the",
-          "development of patient",
-          "care guidelines"
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of patient care guidelines"
         ]
       }
     },
     {
       "id": "ophthalmology_pbli2",
-      "number": 13,
-      "domain_number": 2,
+      "number": 14,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accepts responsibility for",
-          "personal and",
-          "professional",
-          "development by",
-          "establishing goals;",
-          "actively seeks",
-          "opportunities to improve",
-          "Identifies the factors",
-          "which contribute to",
-          "gap(s) between",
-          "expectations and actual"
+          "Accepts responsibility for personal and professional development by establishing goals; actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance"
         ],
         "level_2": [
-          "performance",
-          "Demonstrates openness",
-          "to performance data",
-          "(feedback and other",
-          "input) in order to inform",
-          "goals; designs and",
-          "implements a learning",
-          "plan, with guidance",
-          "Analyzes and reflects on",
-          "the factors which",
-          "contribute to gap(s)"
+          "Identifies the factors which contribute to gap(s) between expectations and actual performance",
+          "Uses performance data to measure the effectiveness of the learning plan and when necessary, improves it"
         ],
         "level_3": [
-          "between expectations and",
-          "actual performance",
-          "Seeks performance data",
-          "and accepts it with",
-          "responsibility and",
-          "equipoise; demonstrates",
-          "implementation of a",
-          "learning plan",
-          "Analyzes, reflects on, and",
-          "institutes behavioral",
-          "change(s) to narrow the"
+          "Demonstrates openness to performance data (feedback and other input) in order to inform goals; designs and implements a learning plan, with guidance",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
         ],
         "level_4": [
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Uses performance data",
-          "to measure the",
-          "effectiveness of the",
-          "learning plan and when",
-          "necessary, improves it",
-          "Challenges",
-          "assumptions and",
-          "considers alternatives in"
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Facilitates the design and implementing learning plans for others"
         ],
         "level_5": [
-          "narrowing the gap(s)",
-          "between expectations",
-          "and actual performance",
-          "Facilitates the design and",
-          "implementing learning",
-          "plans for others",
-          "Coaches others on",
-          "reflective practice"
+          "Seeks performance data and accepts it with responsibility and equipoise; demonstrates implementation of a learning plan",
+          "Coaches others on reflective practice"
         ]
       }
     },
     {
       "id": "ophthalmology_prof1",
-      "number": 14,
-      "domain_number": 1,
+      "number": 15,
       "name": "Professional Behavior and Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Identifies and describes",
-          "potential triggers for",
-          "professionalism lapses",
-          "Describes when and how",
-          "to appropriately report",
-          "professionalism lapses,",
-          "including strategies for",
-          "addressing common",
-          "barriers",
-          "Demonstrates",
-          "knowledge of the ethical",
-          "principles underlying",
-          "informed consent,",
-          "surrogate decision"
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
         ],
         "level_2": [
-          "making, advance",
-          "directives, confidentiality,",
-          "error disclosure,",
-          "stewardship of limited",
-          "resources, and related",
-          "topics",
-          "Demonstrates insight into",
-          "professional behavior in",
-          "routine situations",
-          "Takes responsibility for",
-          "own professionalism",
-          "lapses",
-          "Analyzes straightforward",
-          "situations using ethical"
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_3": [
-          "principles",
-          "Demonstrates",
-          "professional behavior in",
-          "complex or stressful",
-          "situations",
-          "Recognizes need to seek",
-          "help in managing and",
-          "resolving complex ethical",
-          "situations",
-          "Analyzes complex",
-          "situations using ethical",
-          "principles",
-          "Recognizes situations",
-          "that may trigger"
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Recognizes need to seek help in managing and resolving complex ethical situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ],
         "level_4": [
-          "professionalism lapses",
-          "and intervenes to",
-          "prevent lapses in self",
-          "and others",
-          "Recognizes and uses",
-          "appropriate resources",
-          "for managing and",
-          "resolving ethical",
-          "dilemmas as needed",
-          "(e.g., ethics",
-          "consultations, literature",
-          "review, risk",
-          "management/legal",
-          "consultation)"
+          "Demonstrates insight into professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles"
         ],
         "level_5": [
-          "Coaches others when",
-          "their behavior fails to",
-          "meet professional",
-          "expectations",
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Takes responsibility for own professionalism lapses",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
         ]
       }
     },
     {
       "id": "ophthalmology_prof2",
-      "number": 15,
-      "domain_number": 2,
+      "number": 16,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Takes responsibility for",
-          "failure to complete tasks",
-          "and responsibilities,",
-          "identifies potential",
-          "contributing factors, and",
-          "describes strategies for",
-          "ensuring timely task",
-          "completion in the future",
-          "Responds promptly to",
-          "requests or reminders to"
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Recognizes detrimental consequences when tasks and responsibilities are not completed in a timely manner (e.g., team members, compliance)"
         ],
         "level_2": [
-          "complete tasks and",
-          "responsibilities",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with attention to",
-          "detail in routine situations",
-          "Recognizes situations",
-          "that may impact own",
-          "ability to complete tasks",
-          "and responsibilities in a"
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
         ],
         "level_3": [
-          "timely manner",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with attention to",
-          "detail in complex or",
-          "stressful situations",
-          "Recognizes detrimental",
-          "consequences when",
-          "tasks and responsibilities",
-          "are not completed in a"
+          "Performs tasks and responsibilities in a timely manner with attention to detail in routine situations",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
         ],
         "level_4": [
-          "timely manner (e.g., team",
-          "members, compliance)",
-          "Recognizes situations",
-          "that may impact others’",
-          "ability to complete tasks",
-          "and responsibilities in a",
-          "timely manner",
-          "Proactively implements",
-          "strategies to ensure that",
-          "the needs of patients,"
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner",
+          "Takes ownership of system outcomes, attempts to implement changes at a systems level in order to advance the goals of professional accountability"
         ],
         "level_5": [
-          "teams, and systems are",
-          "met",
-          "Takes ownership of",
-          "system outcomes,",
-          "attempts to implement",
-          "changes at a systems",
-          "level in order to advance",
-          "the goals of professional",
-          "accountability"
+          "Performs tasks and responsibilities in a timely manner with attention to detail in complex or stressful situations"
         ]
       }
     },
     {
       "id": "ophthalmology_prof3",
-      "number": 16,
-      "domain_number": 3,
+      "number": 17,
       "name": "Self-Awareness and Help-Seeking",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes status of",
-          "personal and",
-          "professional well-being,",
-          "with assistance",
-          "Recognizes limits in the",
-          "knowledge/skills of self",
-          "and/or team, with",
-          "assistance"
+          "Recognizes status of personal and professional well-being, with assistance",
+          "With assistance, proposes a plan to improve knowledge/skills of self and/or team"
         ],
         "level_2": [
-          "Independently recognizes",
-          "status of personal and",
-          "professional well-being",
-          "Independently recognizes",
-          "limits in the knowledge/",
-          "skills of self and/or team;",
-          "demonstrates appropriate",
-          "help-seeking behaviors"
+          "Recognizes limits in the knowledge/skills of self and/or team, with assistance",
+          "Independently develops a plan to optimize personal and professional well-being"
         ],
         "level_3": [
-          "for self or others",
-          "With assistance,",
-          "proposes a plan to",
-          "optimize personal and",
-          "professional well-being",
-          "With assistance,",
-          "proposes a plan to",
-          "improve knowledge/skills"
+          "Independently recognizes status of personal and professional well-being",
+          "Independently develops a plan to improve the knowledge/skills of self and/or team"
         ],
         "level_4": [
-          "of self and/or team",
-          "Independently develops",
-          "a plan to optimize",
-          "personal and",
-          "professional well-being",
-          "Independently develops",
-          "a plan to improve the",
-          "knowledge/skills of self"
+          "Independently recognizes limits in the knowledge/ skills of self and/or team; demonstrates appropriate help-seeking behaviors for self or others",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
         ],
         "level_5": [
-          "and/or team",
-          "Coaches others when",
-          "emotional responses or",
-          "limitations in",
-          "knowledge/skills do not",
-          "meet professional",
-          "expectations"
+          "With assistance, proposes a plan to optimize personal and professional well-being"
         ]
       }
     },
     {
       "id": "ophthalmology_ics1",
-      "number": 17,
-      "domain_number": 1,
+      "number": 18,
       "name": "Patient and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language and",
-          "nonverbal behavior to",
-          "demonstrate respect and",
-          "establish rapport",
-          "Identifies barriers to",
-          "effective communication",
-          "(e.g., health literacy,",
-          "language, disability)",
-          "while accurately"
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
         ],
         "level_2": [
-          "communicating own role",
-          "within the health care",
-          "system",
-          "Establishes a therapeutic",
-          "relationship in",
-          "straightforward",
-          "encounters using active",
-          "listening and clear",
-          "language"
+          "Identifies barriers to effective communication (e.g., health literacy, language, disability) while accurately communicating own role within the health care system",
+          "Easily establishes therapeutic relationships, with attention to patient/family concerns and context, regardless of complexity"
         ],
         "level_3": [
-          "Addresses barriers to",
-          "effective communication",
-          "Establishes a therapeutic",
-          "relationship",
-          "in challenging patient",
-          "encounters (e.g., breaking",
-          "bad news)",
-          "When prompted, reflects",
-          "on biases while"
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "Role models self- awareness to minimize communication barriers"
         ],
         "level_4": [
-          "attempting to minimize",
-          "communication barriers",
-          "Easily establishes",
-          "therapeutic",
-          "relationships, with",
-          "attention to",
-          "patient/family concerns",
-          "and context, regardless",
-          "of complexity"
+          "Addresses barriers to effective communication",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
         ],
         "level_5": [
-          "Role models self-",
-          "awareness to minimize",
-          "communication barriers",
-          "Mentors others in",
-          "situational awareness and",
-          "critical self-reflection to",
-          "consistently develop",
-          "positive therapeutic",
-          "relationships"
+          "Establishes a therapeutic relationship in challenging patient encounters (e.g., breaking bad news)"
         ]
       }
     },
     {
       "id": "ophthalmology_ics2",
-      "number": 18,
-      "domain_number": 2,
+      "number": 19,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language that",
-          "values all members of",
-          "the health care team",
-          "Accepts feedback on",
-          "performance from all",
-          "members of the health",
-          "care team (e.g., nurses,",
-          "staff members, peers)"
+          "Uses language that values all members of the health care team",
+          "Provides feedback and constructive criticism to peers and learners"
         ],
         "level_2": [
-          "Communicates",
-          "information effectively and",
-          "uses active listening with",
-          "all health care team",
-          "members",
-          "Solicits feedback on",
-          "performance as a",
-          "member of the health"
+          "Accepts feedback on performance from all members of the health care team (e.g., nurses, staff members, peers)",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
         ],
         "level_3": [
-          "care team",
-          "Communicates concerns",
-          "to the team and learners",
-          "Provides feedback and",
-          "constructive criticism to",
-          "peers and learners",
-          "Role models flexible",
-          "communication"
+          "Communicates information effectively and uses active listening with all health care team members",
+          "Provides feedback and constructive criticism to superiors"
         ],
         "level_4": [
-          "strategies that value",
-          "input from all health",
-          "care team members,",
-          "resolving conflict when",
-          "needed",
-          "Provides feedback and",
-          "constructive criticism to",
-          "superiors"
+          "Solicits feedback on performance as a member of the health care team",
+          "Facilitates regular health care team-based feedback in complex situations"
         ],
         "level_5": [
-          "Facilitates regular health",
-          "care team-based",
-          "feedback in complex",
-          "situations"
+          "Communicates concerns to the team and learners"
         ]
       }
     },
     {
       "id": "ophthalmology_ics3",
-      "number": 19,
-      "domain_number": 3,
+      "number": 20,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the",
-          "medical record",
-          "Aware of the role of",
-          "communication in patient",
-          "safety and privacy;",
-          "safeguards patient",
-          "personal health",
-          "information",
-          "Aware of responsibility to",
-          "report system",
-          "deficiencies"
+          "Accurately records information in the medical record",
+          "Identifies appropriate channels to communicate system deficiencies",
+          "Provides feedback and constructive criticism regarding compliance with patient privacy and safety"
         ],
         "level_2": [
-          "Demonstrates organized",
-          "diagnostic and",
-          "therapeutic reasoning",
-          "through notes in the",
-          "medical record",
-          "Appropriately selects",
-          "forms of communication",
-          "(e.g., telephone versus",
-          "text) to promote patient",
-          "safety and privacy",
-          "Identifies appropriate",
-          "channels to communicate"
+          "Aware of the role of communication in patient safety and privacy; safeguards patient personal health information",
+          "Communicates clearly and concisely, including anticipatory guidance, in the medical record",
+          "Offers clear and constructive suggestions to address system deficiencies"
         ],
         "level_3": [
-          "system deficiencies",
-          "Communicates clearly",
-          "and concisely, including",
-          "anticipatory guidance, in",
-          "the medical record",
-          "Avoids creating or",
-          "propagating errors in the",
-          "medical record through",
-          "accurate use of",
-          "documentation tools",
-          "Uses appropriate",
-          "channels to communicate"
+          "Aware of responsibility to report system deficiencies",
+          "Avoids creating or propagating errors in the medical record through accurate use of documentation tools",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
         ],
         "level_4": [
-          "system deficiencies",
-          "Provides feedback to",
-          "improve others’ written",
-          "communication",
-          "Provides feedback and",
-          "constructive criticism",
-          "regarding compliance",
-          "with patient privacy and",
-          "safety",
-          "Offers clear and",
-          "constructive",
-          "suggestions to address"
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the medical record",
+          "Uses appropriate channels to communicate system deficiencies",
+          "Guides departmental or institutional communication around policies and procedures"
         ],
         "level_5": [
-          "system deficiencies",
-          "Facilitates dialogue",
-          "regarding systems issues",
-          "among larger community",
-          "stakeholders (institution,",
-          "health care system, field)",
-          "Guides departmental or",
-          "institutional",
-          "communication around",
-          "policies and procedures"
+          "Appropriately selects forms of communication (e.g., telephone versus text) to promote patient safety and privacy",
+          "Provides feedback to improve others’ written communication"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "ophthalmology",
-  "primary_name": "Ophthalmology",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologysupplementalguide.pdf"

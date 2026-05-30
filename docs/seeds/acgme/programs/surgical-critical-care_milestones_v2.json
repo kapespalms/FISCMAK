@@ -1,0 +1,641 @@
+{
+  "framework_key": "surgical-critical-care",
+  "specialty": "Surgical Critical Care",
+  "version": "2.0",
+  "source": "ACGME Surgical Critical Care Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "surgery",
+  "parent_name": "Surgery",
+  "subcompetencies": [
+    {
+      "id": "surgical_critical_care_pc1",
+      "number": 1,
+      "name": "Respiratory Failure",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision in basic management of patients with respiratory failure"
+        ],
+        "level_2": [
+          "Manages patients with respiratory failure"
+        ],
+        "level_3": [
+          "Recognizes the need for and initiates advanced ventilator techniques for patients with respiratory failure"
+        ],
+        "level_4": [
+          "Independently manages patients with respiratory failure, including use of advanced ventilator techniques"
+        ],
+        "level_5": [
+          "Is recognized as a resource or completes a quality improvement or research project regarding management of patients with respiratory failure"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc2",
+      "number": 2,
+      "name": "Nutritional Support",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision in assessment and initial management of nutritional support in critically ill patients"
+        ],
+        "level_2": [
+          "Recognizes the need for nutritional support in critically ill patients but still requires indirect supervision in the assessment and initial management"
+        ],
+        "level_3": [
+          "Independently performs assessment of nutritional needs and initiates nutritional support in critically ill patients"
+        ],
+        "level_4": [
+          "Independently performs nutritional assessment and manages nutritional support for special populations of critically ill patients, including traumatic brain injury, immunodeficient, extracorporeal membrane oxygenation (ECMO), complex gastrointestinal surgical patients"
+        ],
+        "level_5": [
+          "Is recognized as a resource or completes a quality improvement or research project in nutritional assessment and support of critically ill patients"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc3",
+      "number": 3,
+      "name": "Shock/Resuscitation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Independently recognizes shock and initiates indicated resuscitation in critically ill patients"
+        ],
+        "level_2": [
+          "Individualizes resuscitation based on the type of shock and assessment of the response to therapy, and employs monitoring for critically ill patients"
+        ],
+        "level_3": [
+          "Employs advanced monitoring techniques to guide resuscitation for critically ill patients, including special patient populations"
+        ],
+        "level_4": [
+          "Performs complex resuscitation, including use of advanced monitoring techniques, particularly in special patient populations"
+        ],
+        "level_5": [
+          "Is recognized as a resource or completes a quality improvement or research project or develops a protocol for shock resuscitation"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc4",
+      "number": 4,
+      "name": "Renal Disorders of Critically Ill Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes and categorizes patients with renal disorders"
+        ],
+        "level_2": [
+          "Initiates treatment of renal disorders based on stage and etiology"
+        ],
+        "level_3": [
+          "Directs management and assesses response to treatment"
+        ],
+        "level_4": [
+          "Provides comprehensive management of patients with renal disorders, including management of patients requiring renal replacement therapy"
+        ],
+        "level_5": [
+          "Recognized by peers as a resource, completes quality improvement or research project regarding management of patients with renal disorders"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc5",
+      "number": 5,
+      "name": "Trauma and Thermal Injury",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With direct supervision, initiates appropriate management of the critically injured patient"
+        ],
+        "level_2": [
+          "With indirect supervision, assesses critically injured patients and prioritizes and initiates management"
+        ],
+        "level_3": [
+          "Independently assesses and manages critically injured patients and prioritizes management in the treatment of common injuries and complications"
+        ],
+        "level_4": [
+          "Independently assesses and manages critically injured patients, including treatment of complex injuries and complications through initial evaluation and into the operating room/intensive care unit (ICU)"
+        ],
+        "level_5": [
+          "Is recognized as a resource in the assessment and management of critically injured patients or completes a quality improvement or research project regarding management of critically injured patients"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc6",
+      "number": 6,
+      "name": "Cardiovascular Disorders of Critically Ill Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision in the assessment and initial management of common cardiovascular disorders in critically ill patients"
+        ],
+        "level_2": [
+          "Requires indirect supervision in the assessment and management of common cardiovascular disorders in critically ill patients"
+        ],
+        "level_3": [
+          "Independently performs assessment and manages common cardiovascular disorders in critically ill patients"
+        ],
+        "level_4": [
+          "Independently diagnoses and provides comprehensive management of complex cardiovascular disorders in critically ill patients"
+        ],
+        "level_5": [
+          "Is recognized as a resource or completes a quality improvement or research project regarding management of critically ill patients with cardiovascular disorders"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc7",
+      "number": 7,
+      "name": "Neurologic Disorders of Critically Ill Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision to recognize the stages and treatment of coma, delirium, seizures, and other neurologic disorders"
+        ],
+        "level_2": [
+          "Requires indirect supervision to assess and treat patients with coma, delirium, seizures, and other neurologic disorders"
+        ],
+        "level_3": [
+          "Independently recognizes and manages multiple etiologies of coma, delirium, and other neurologic disorders"
+        ],
+        "level_4": [
+          "Provides comprehensive management of multiple etiologies of coma, delirium, seizures, and other neurologic disorders"
+        ],
+        "level_5": [
+          "Is recognized as a resource or completes a quality improvement or research project regarding management of patients with coma, delirium, seizures, and other neurologic disorders"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc8",
+      "number": 8,
+      "name": "Gastrointestinal (GI) Disorders of Critically Ill Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision to diagnose and manage acute GI disorders",
+          "Is recognized as a resource or completes a quality improvement or research project regarding management of patients with acute GI disorders"
+        ],
+        "level_2": [
+          "Requires indirect supervision to diagnose and manage acute GI disorders"
+        ],
+        "level_3": [
+          "Independently diagnoses and manages acute GI disorders"
+        ],
+        "level_4": [
+          "Provides comprehensive management of acute"
+        ],
+        "level_5": [
+          "GI disorders"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc9",
+      "number": 9,
+      "name": "Infectious Diseases of Critically Ill Surgical Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision to diagnose common infections and infectious complications (e.g. pneumonia, bacteremia)"
+        ],
+        "level_2": [
+          "Demonstrates the ability to diagnose and initiate management for frequently encountered infectious diseases and infectious complications"
+        ],
+        "level_3": [
+          "Diagnoses and manages atypical infectious diseases and infectious complications and demonstrates appropriate antimicrobial stewardship"
+        ],
+        "level_4": [
+          "Provides comprehensive management (prevention, diagnosis, and treatment) of infectious diseases, infectious complications, and multi-drug resistant organisms"
+        ],
+        "level_5": [
+          "Is recognized by peers as a resource or completes quality improvement or research project regarding management of an infectious complication"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pc10",
+      "number": 10,
+      "name": "Procedural Competence",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires direct supervision to perform common ICU procedures (e.g., peripheral arterial or central venous catheterization) and recognize complications",
+          "Performs specialized"
+        ],
+        "level_2": [
+          "Independently performs routine ICU procedures",
+          "ICU procedures (e.g., transvenous pacing, inferior vena cava filter placement)"
+        ],
+        "level_3": [
+          "Recognizes and manages straightforward procedural complications",
+          "Independently manages procedural complications"
+        ],
+        "level_4": [
+          "Performs routine ICU procedures in patients at high risk for procedural complications",
+          "Independently performs advanced ICU procedures (e.g., ECMO, intra-aortic balloon pump), and appropriately manages their complications"
+        ],
+        "level_5": [
+          "Assesses patients at high risk for procedural complications and describes management"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_mk1",
+      "number": 11,
+      "name": "Pathophysiology, Pharmacology, and Therapeutics in Critical Care",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of pathophysiology, pharmacology, therapeutics, and complications of common critical care conditions",
+          "Independently synthesizes and prioritizes differential diagnosis for complex critical care conditions"
+        ],
+        "level_2": [
+          "Synthesizes and prioritizes differential diagnosis for common critical care conditions, with indirect supervision",
+          "Serves as a resource for knowledge of pathophysiology, pharmacology, therapeutics, and complications of complex critical care conditions"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of pathophysiology, pharmacology, therapeutics, and complications of complex critical care conditions",
+          "Synthesizes and prioritizes differential diagnosis and anticipates potential complications for complex critical care conditions"
+        ],
+        "level_4": [
+          "Synthesizes and prioritizes differential diagnosis for common critical care conditions",
+          "Advances knowledge of pathophysiology, pharmacology, therapeutics, and complications of complex critical care conditions"
+        ],
+        "level_5": [
+          "Synthesizes and applies knowledge of pathophysiology, pharmacology, therapeutics, and complications of complex critical care conditions",
+          "Is recognized by peers as an expert in synthesizing and prioritizing differential diagnosis complex critical care conditions and anticipating potential complications"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_mk2",
+      "number": 12,
+      "name": "Prognosis in Critical Care Conditions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes clinical course, including prognosis, of common critical care conditions"
+        ],
+        "level_2": [
+          "Identifies clinical course for patients with complex critical care conditions, including prognostic uncertainty"
+        ],
+        "level_3": [
+          "Formulates anticipated clinical course for patients with complex critical care conditions by integrating prognostic factors, tools, and models"
+        ],
+        "level_4": [
+          "Facilitates consensus of prognosis for patients with complex critical care conditions in collaboration with other care providers"
+        ],
+        "level_5": [
+          "Advances knowledge of application of tools for prognostication in complex critical care conditions"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_mk3",
+      "number": 13,
+      "name": "Clinical Reasoning in Critical Care",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates sound clinical reasoning in common critical care problems"
+        ],
+        "level_2": [
+          "Identifies errors in clinical reasoning within critical care"
+        ],
+        "level_3": [
+          "Applies clinical reasoning principles to direct patient care in complex critical care problems"
+        ],
+        "level_4": [
+          "Reviews the clinical decision-making of oneself and the team to identify areas for improvement"
+        ],
+        "level_5": [
+          "Coaches and mentors others in clinical reasoning and helps them to recognize and avoid cognitive errors"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_sbp1",
+      "number": 14,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., infection rate, hand hygiene, opioid use)",
+          "Discloses patient safety events to patients and their families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_sbp2",
+      "number": 15,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of indications and resources for care coordination",
+          "Supervises safe and effective transitions of care/hand-offs of junior residents"
+        ],
+        "level_2": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Coordinates care of patients with limits to health care access or other barriers to care"
+        ],
+        "level_3": [
+          "Coordinates multidisciplinary care of patients in routine critical care situations",
+          "Resolves conflicts in transitions of care between teams"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Leads the design and implementation of improvements to care coordination"
+        ],
+        "level_5": [
+          "Coordinates and/or leads multidisciplinary care of patients in complex critical care situations",
+          "Leads in the design and implementation of improvements to transitions of care"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_sbp3",
+      "number": 16,
+      "name": "Community and Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of population and community health needs"
+        ],
+        "level_2": [
+          "Identifies specific population and community health needs for their local population"
+        ],
+        "level_3": [
+          "Uses local resources effectively to meet the needs of a patient population and community"
+        ],
+        "level_4": [
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_5": [
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_sbp4",
+      "number": 17,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health payment systems, including government, private, public, and uninsured care, as well as different practice models",
+          "Demonstrates knowledge of administrative leadership activities for the surgical critical care unit"
+        ],
+        "level_2": [
+          "Describes and identifies administrative roles in a surgical critical care unit",
+          "Uses shared decision making in patient care, taking into consideration patient risks and benefits"
+        ],
+        "level_3": [
+          "Describes how working within the health care system impacts patient care",
+          "Participates in key activities of administrative leadership for surgical critical care unit"
+        ],
+        "level_4": [
+          "Identifies the key components and responsibilities of an ICU director for administration for a surgical critical care unit",
+          "Advocates or leads change to enhance systems for high-value, efficient, and effective patient care"
+        ],
+        "level_5": [
+          "Analyzes how personal practice affects the system",
+          "Demonstrates proficiency in administrative leadership, including knowledge of regulatory requirements"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pbli1",
+      "number": 18,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values into the care of critically ill patients"
+        ],
+        "level_2": [
+          "Articulates clinical questions and uses scientific literature, guidelines, and algorithms integrated with patient preference to guide care of critically ill patients"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of critically ill patients with complex conditions"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertain and/or conflicting evidence, to guide care of critically ill patients"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence to the care of critically ill patients with complex conditions, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_pbli2",
+      "number": 19,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Establishes goals for personal and professional development"
+        ],
+        "level_2": [
+          "Identifies opportunities for performance improvement; designs a learning plan"
+        ],
+        "level_3": [
+          "Integrates performance feedback and practice data to develop and implement a learning plan"
+        ],
+        "level_4": [
+          "Revises learning plan for personal growth based on performance data"
+        ],
+        "level_5": [
+          "Coaches others in the design and implementation of learning plans"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_prof1",
+      "number": 20,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics"
+        ],
+        "level_2": [
+          "Analyzes straightforward situations using ethical principles"
+        ],
+        "level_3": [
+          "Recognizes need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_4": [
+          "Independently recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_5": [
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_prof2",
+      "number": 21,
+      "name": "Professional Behavior and Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Describes when and how to appropriately report lapses in professional behavior",
+          "Exhibits appropriate confidence and self- awareness of limits in knowledge/skills"
+        ],
+        "level_2": [
+          "Recognizes limits in one’s own knowledge/skills and seeks help",
+          "Intervenes to prevent and correct lapses in professional behavior in oneself and others"
+        ],
+        "level_3": [
+          "Takes responsibility for one’s own professional behavior",
+          "Aids junior learners in recognition of limits in knowledge/skills"
+        ],
+        "level_4": [
+          "Recognizes limits in the team’s knowledge/skills and seeks help",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations and reports lapses in professional behavior"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_prof3",
+      "number": 22,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies the institutional resources available to manage personal, physical, and emotional health",
+          "Models appropriate management of personal health issues, fatigue, and stress"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the principles of physician well-being and fatigue mitigation",
+          "Recognizes and appropriately addresses signs and symptoms of burnout, depression, suicidal ideation, potential for violence, and/or substance abuse in other members of the health care team"
+        ],
+        "level_3": [
+          "Monitors personal health and wellness and appropriately mitigates fatigue and/or stress",
+          "Proactively modifies schedules or intervenes in other ways to assure that those caregivers under one’s supervision maintain personal wellness and do not compromise patient safety"
+        ],
+        "level_4": [
+          "Manages personal time and assures fitness for duty",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ],
+        "level_5": [
+          "Promotes healthy habits and creates an emotionally healthy environment for colleagues"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_ics1",
+      "number": 23,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Uses shared decision making to make a personalized care plan"
+        ],
+        "level_2": [
+          "Provides timely updates to patients and their families",
+          "Facilitates difficult discussions specific to patient and patient’s family needs"
+        ],
+        "level_3": [
+          "Customizes communication, avoiding biases and communication barriers, with patients and families",
+          "Effectively negotiates and manages conflict among patients, their families, and the health care team"
+        ],
+        "level_4": [
+          "Actively listens to patients and their families to elicit preferences and expectations",
+          "Coaches others in the facilitation of crucial conversations"
+        ],
+        "level_5": [
+          "Delivers complex and difficult information to patients and their families",
+          "Coaches others in conflict resolution"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_ics2",
+      "number": 24,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Clearly and concisely requests and responds to a consultation",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Communicates constructive feedback to superiors"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Coaches flexible communication strategies that value input from all health care team members"
+        ],
+        "level_3": [
+          "Verifies understanding of recommendations when providing or receiving a consultation",
+          "Communicates concerns and provides feedback to peers and learners",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ],
+        "level_4": [
+          "Communicates information effectively to all health care team members",
+          "Resolves conflict within the interdisciplinary team"
+        ],
+        "level_5": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Maintains effective communication in a crisis situation"
+        ]
+      }
+    },
+    {
+      "id": "surgical_critical_care_ics3",
+      "number": 25,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Verifies and accurately records current and relevant information in the patient's chart"
+        ],
+        "level_2": [
+          "Concisely documents diagnostic and therapeutic reasoning, accurately reflecting patient course for common conditions"
+        ],
+        "level_3": [
+          "Concisely documents diagnostic and therapeutic reasoning, accurately reflecting patient course for complex conditions"
+        ],
+        "level_4": [
+          "Concisely documents diagnostic and therapeutic reasoning, accurately reflecting patient course for all conditions while satisfying institutional billing needs and compliance"
+        ],
+        "level_5": [
+          "Mentors others in documenting diagnostic and therapeutic reasoning, and accurately reflecting patient course"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgicalcriticalcaremilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgicalcriticalcaresupplementalguide.pdf"
+  }
+}

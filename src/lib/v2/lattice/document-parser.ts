@@ -38,9 +38,31 @@ interface SectionRule {
  * even if the entry text is just "Smith J et al. J Psychiatry. 2023."
  */
 const CV_SECTION_RULES: SectionRule[] = [
+  // GME training blocks (must precede generic "educat" teaching rule)
+  {
+    pattern: /\b(^education$|^training$|medical education|graduate medical|residency|fellowship|internship)\b/i,
+    hint: { domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 3 },
+  },
+  // Psychiatry subspecialty / rotation sections (ACGME psychiatry FAQ areas)
+  {
+    pattern: /\b(consultation.liaison|c-?l psych|psychosomatic|liaison psychiatry)\b/i,
+    hint: { domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 4 },
+  },
+  {
+    pattern: /\b(addiction psychiatry|addiction medicine|substance use|mat\b|medication.assisted)\b/i,
+    hint: { domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 4 },
+  },
+  {
+    pattern: /\b(child and adolescent|forensic psych|geriatric psych|sleep medicine)\b/i,
+    hint: { domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 4 },
+  },
+  {
+    pattern: /\b(psychotherapy|psychopharmacology|inpatient psychiatry|emergency psychiatry)\b/i,
+    hint: { domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 3 },
+  },
   // Scholarship / Research track
   {
-    pattern: /\b(publication|manuscript|paper|peer.reviewed|abstract|poster)\b/i,
+    pattern: /\b(publications?|manuscripts?|papers?|peer.reviewed|abstracts?|posters?)\b/i,
     hint: { domainIndex: 4, trackIndex: 2, acgmeKey: "mk", baseLevel: 4 },
   },
   {
@@ -49,7 +71,7 @@ const CV_SECTION_RULES: SectionRule[] = [
   },
   // Education / Teaching track
   {
-    pattern: /\b(teach|educat|curriculum|pedagog|didactic|clerkship director|course director)\b/i,
+    pattern: /\b(teaching|teach|educat|curriculum|pedagog|didactic|clerkship director|course director)\b/i,
     hint: { domainIndex: 4, trackIndex: 1, acgmeKey: "pbli", baseLevel: 3 },
   },
   // Mentoring track
@@ -59,7 +81,7 @@ const CV_SECTION_RULES: SectionRule[] = [
   },
   // Leadership / Administration track
   {
-    pattern: /\b(leadership|administration|administrative|committee|director|chair|officer|board|governance)\b/i,
+    pattern: /\b(leadership|administration|administrative|committees?|director|chair|officer|board|governance)\b/i,
     hint: { domainIndex: 6, trackIndex: 3, acgmeKey: "sbp", baseLevel: 4 },
   },
   // Quality Improvement / Patient Safety track
@@ -102,6 +124,11 @@ const CV_SECTION_RULES: SectionRule[] = [
 function isLikelySectionHeading(line: string): boolean {
   const t = line.trim();
   if (!t || t.length > 80) return false;
+  // Job titles, institutions, and dated lines are entries — not section headings
+  if (/\b(19|20)\d{2}\b/.test(t)) return false;
+  if (/\bat\s+[A-Z]/.test(t) || /\b(university|hospital|medical center|health system)\b/i.test(t)) {
+    return false;
+  }
   // All-caps heading, possibly with spaces, hyphens, slashes, &, colons
   if (/^[A-Z][A-Z\s\-\/&:()]+$/.test(t)) return true;
   // Short title-case line with no trailing sentence punctuation
@@ -221,39 +248,32 @@ function snippetToEvidence(
 ): LatticeEvidence | null {
   const { text: snippet, sectionHint } = annotated;
 
-  // Try ontology registry first (most specific)
   const ontology = matchTextToActivityPlacement(snippet);
-  const placement = ontology
+  const keyword = keywordPlacement(snippet);
+
+  // CV section heading → ontology activity → keyword (section beats weak "psychiatry" token hits).
+  const placement = sectionHint
     ? {
-        domainIndex: ontology.domainIndex,
-        trackIndex: ontology.trackIndex,
-        acgmeKey: ontology.acgmeKey,
-        developmentLevel: ontology.defaultDevelopmentLevel,
+        domainIndex: sectionHint.domainIndex,
+        trackIndex: sectionHint.trackIndex,
+        acgmeKey: sectionHint.acgmeKey,
+        developmentLevel: sectionHint.baseLevel,
       }
-    : (() => {
-        // Fall back to keyword matching
-        const keyword = keywordPlacement(snippet);
-        if (keyword) {
-          return {
+    : ontology
+      ? {
+          domainIndex: ontology.domainIndex,
+          trackIndex: ontology.trackIndex,
+          acgmeKey: ontology.acgmeKey,
+          developmentLevel: ontology.defaultDevelopmentLevel,
+        }
+      : keyword
+        ? {
             domainIndex: keyword.domainIndex,
             trackIndex: keyword.trackIndex,
             acgmeKey: keyword.acgmeKey,
             developmentLevel: keyword.developmentLevel,
-          };
-        }
-        // Fall back to section hint — this is the key improvement.
-        // A publication entry that says only "Smith J, et al. JAMA Psych. 2024."
-        // has no strong keywords, but its section tells us exactly where it belongs.
-        if (sectionHint) {
-          return {
-            domainIndex: sectionHint.domainIndex,
-            trackIndex: sectionHint.trackIndex,
-            acgmeKey: sectionHint.acgmeKey,
-            developmentLevel: sectionHint.baseLevel,
-          };
-        }
-        return null;
-      })();
+          }
+        : null;
 
   if (!placement) return null;
 

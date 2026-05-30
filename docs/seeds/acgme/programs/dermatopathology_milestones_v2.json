@@ -1,0 +1,527 @@
+{
+  "framework_key": "dermatopathology",
+  "specialty": "Dermatopathology",
+  "version": "2.0",
+  "source": "ACGME Dermatopathology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pathology",
+  "parent_name": "Pathology",
+  "subcompetencies": [
+    {
+      "id": "dermatopathology_pc1",
+      "number": 1,
+      "name": "Visual Recognition – Neoplastic Dermatopathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies basic categories of cutaneous neoplasms",
+          "Develops a differential diagnosis for uncommon neoplasms"
+        ],
+        "level_2": [
+          "Recognizes and differentiates normal and abnormal histology relevant to neoplastic dermatopathology",
+          "Diagnoses uncommon cutaneous neoplasms"
+        ],
+        "level_3": [
+          "Diagnoses common presentations of common cutaneous neoplasms",
+          "Identifies subtle clues in the diagnosis of cutaneous neoplasms"
+        ],
+        "level_4": [
+          "Forms a histopathologic differential diagnosis for most common cutaneous neoplasms",
+          "Serves as a role model in the practice of neoplastic dermatopathology; sought out by other health care providers as a consultant"
+        ],
+        "level_5": [
+          "Diagnoses uncommon presentations of common cutaneous neoplasms"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_pc2",
+      "number": 2,
+      "name": "Visual Recognition – Inflammatory and Non-Neoplastic Dermatopathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies basic histopathologic inflammatory patterns and non-neoplastic processes",
+          "Develops a differential diagnosis and work-up plan for uncommon inflammatory and non- neoplastic skin diseases"
+        ],
+        "level_2": [
+          "Differentiates between normal histology and abnormal histopathology relevant to inflammatory and non-neoplastic skin diseases",
+          "Diagnoses uncommon inflammatory and non- neoplastic skin diseases"
+        ],
+        "level_3": [
+          "Diagnoses common presentations of common inflammatory and non- neoplastic skin diseases",
+          "Identifies subtle clues in the diagnosis of inflammatory and non- neoplastic skin diseases"
+        ],
+        "level_4": [
+          "Forms a histopathologic differential diagnosis for most common inflammatory and non- neoplastic skin diseases",
+          "Serves as a role model in practice of inflammatory and non-neoplastic dermatopathology; sought out by other health care providers as a consultant"
+        ],
+        "level_5": [
+          "Diagnoses uncommon presentations of common inflammatory and non- neoplastic skin diseases"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_pc3",
+      "number": 3,
+      "name": "Ancillary Studies",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies types of ancillary studies (e.g., special stains, immunohistochemistry, immunofluorescence, molecular testing) used in establishing histopathologic diagnoses"
+        ],
+        "level_2": [
+          "Selects routine ancillary studies (e.g., special stains, immunohistochemistry, molecular testing) in the context of the histopathologic findings"
+        ],
+        "level_3": [
+          "Interprets routine ancillary studies (e.g., special stains, immunohistochemistry, immunofluorescence, molecular testing) in the context of the clinical and histopathologic findings"
+        ],
+        "level_4": [
+          "Selects and interprets complex ancillary studies (e.g., special stains, immunohistochemistry, immunofluorescence, molecular testing) in the context of the clinical and histopathologic findings"
+        ],
+        "level_5": [
+          "Serves as role model in the selection, interpretation, and teaching of ancillary studies, including cost- effective utilization"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_pc4",
+      "number": 4,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the key elements of a report and demonstrates understanding of timely reporting",
+          "With assistance, generates an amended/addended report that includes updated information",
+          "Serves as a role model in creating reports that express the ambiguity and uncertainty for a complex case"
+        ],
+        "level_2": [
+          "Identifies the importance of a complete pathology report for optimal patient care",
+          "With assistance, generates a report that includes the language of uncertainty, as appropriate"
+        ],
+        "level_3": [
+          "With assistance, generates a timely report for a simple case",
+          "Independently generates timely integrated reports for complex cases"
+        ],
+        "level_4": [
+          "Identifies implications of the diagnosis in the report and makes simple recommendations",
+          "Generates an amended/addended report and documents communication with the clinical team, as appropriate"
+        ],
+        "level_5": [
+          "With assistance, generates a timely report that includes synoptic templates and/or ancillary testing for a complex case; independently generates reports for a simple case",
+          "Independently generates a report that includes the language of uncertainty and complex recommendations"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_mk1",
+      "number": 5,
+      "name": "Neoplastic Dermatopathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the differences between benign and malignant skin neoplasms"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the clinical presentation and histopathologic features of common skin neoplasms"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the clinical presentation and histopathologic features of uncommon skin neoplasms"
+        ],
+        "level_4": [
+          "Demonstrates an in- depth knowledge of the pathogenesis, clinical presentation, histopathologic features, and biologic behavior of common and uncommon skin neoplasms"
+        ],
+        "level_5": [
+          "Serves as a consultant for pathogenesis, clinical presentation, histopathologic features, and biologic behavior of uncommon and rare skin neoplasms"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_mk2",
+      "number": 6,
+      "name": "Inflammatory and Non-Neoplastic Dermatopathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the basic histopathologic patterns of inflammatory skin diseases and non- neoplastic processes",
+          "Demonstrates knowledge of the clinical presentation of uncommon inflammatory and non- neoplastic skin diseases"
+        ],
+        "level_2": [
+          "Recognizes the importance of the clinical presentation in diagnosing inflammatory and non-neoplastic skin diseases",
+          "Demonstrates an in- depth knowledge of the pathogenesis, histopathologic features of common and uncommon inflammatory and non- neoplastic skin diseases"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of common skin diseases that correspond to inflammatory and non- neoplastic patterns and ability to develop a limited differential diagnosis",
+          "Correlates the clinical presentation of inflammatory and non- neoplastic skin diseases with the histopathologic patterns"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of the clinical presentation of common inflammatory and non-neoplastic skin diseases",
+          "Serves as a consultant for the pathogenesis, clinical presentation, and histopathologic features of uncommon and rare inflammatory and non- neoplastic skin diseases"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of uncommon skin diseases that correspond to inflammatory and non- neoplastic patterns and able to develop an expanded differential diagnosis"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_mk3",
+      "number": 7,
+      "name": "Ancillary Studies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Understands available ancillary studies (e.g., special histochemical stains, immunohistochemistry, immunofluorescence, molecular testing) and basics of tissue processing",
+          "Demonstrates knowledge of the interpretation and troubleshooting of complex ancillary studies"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the appropriate use for ancillary studies (e.g., special histochemical stains, immunohistochemistry, immunofluorescence, molecular testing)",
+          "Demonstrates knowledge of potentially conflicting ancillary study results"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of expected ancillary study results in common skin diseases",
+          "Teaches the principles, pitfalls, and expected disease-related results of ancillary studies (e.g., special histochemical stains, immunohistochemistry, immunofluorescence, molecular studies)"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of the fundamental techniques, pitfalls, and artifacts in routine ancillary studies"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of appropriate use and expected ancillary study results in uncommon skin diseases"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_sbp1",
+      "number": 8,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes departmental and institutional QI initiatives",
+          "Discloses patient safety events to clinicians (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events to identify problem (simulated or actual)",
+          "Identifies, develops, implements, and analyzes a QI project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic QI methodologies and metrics",
+          "Participates in disclosure of patient safety events to clinicians (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in departmental and institutional QI initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses QI initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_sbp2",
+      "number": 9,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of case coordination",
+          "Performs safe and effective transitions of care in complex situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care",
+          "Models effective coordination of patient- centered care among different disciplines and specialties"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine cases effectively using interprofessional teams",
+          "Models and advocates for safe and effective transitions of care within and across health care delivery systems"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care in routine situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex cases effectively using interprofessional teams",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_sbp3",
+      "number": 10,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system",
+          "Engages with clinicians in shared decision making, such as preauthorization for complex testing; has a working knowledge and application of appropriate use criteria within the field of dermatopathology"
+        ],
+        "level_2": [
+          "Describes basic health payment systems and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Practices and advocates for cost- effective patient care"
+        ],
+        "level_4": [
+          "Documents testing details and explains the impact of documentation on billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., test utilization, turnaround time)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_sbp4",
+      "number": 11,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Discusses various laboratory accreditation agencies",
+          "Demonstrates knowledge of the components of a laboratory quality management plan"
+        ],
+        "level_2": [
+          "Discusses the need for quality control",
+          "Identifies the process for achieving accreditation and maintaining regulatory compliance"
+        ],
+        "level_3": [
+          "Understands the importance of ongoing laboratory accreditation and regulatory compliance",
+          "Reviews the quality management plan to identify areas for improvement"
+        ],
+        "level_4": [
+          "Participates in daily quality control",
+          "Participates in an internal or external laboratory inspection"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of the components of laboratory accreditation and regulatory compliance, either through training or experience",
+          "Creates and follows a comprehensive quality management plan"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_pbli1",
+      "number": 12,
+      "name": "Evidence-Based Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to locate evidence applicable to the diagnostic work-up of routine cases"
+        ],
+        "level_2": [
+          "When prompted, locates and applies evidence to guide the diagnostic work- up of complex cases"
+        ],
+        "level_3": [
+          "Proactively locates and applies evidence to guide the diagnostic work-up of complex cases"
+        ],
+        "level_4": [
+          "Consistently locates and applies the best available evidence to guide the diagnostic work-up of complex cases"
+        ],
+        "level_5": [
+          "Consistently and critically appraises and applies evidence, even in the face of uncertainty and/or conflicting evidence, to guide the diagnostic work- up of complex cases"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates openness to receiving performance data",
+          "Implements a learning plan to narrow the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the gap(s) between expectations and actual performance",
+          "Seeks performance data regularly and adapts performance based on feedback"
+        ],
+        "level_3": [
+          "Accepts feedback with humility",
+          "Measures effectiveness of a learning plan using performance feedback data and narrows the gap(s) between expectations and actual performance"
+        ],
+        "level_4": [
+          "Designs a learning plan to address the gap(s) between expectations and actual performance",
+          "Role models seeking and adapting to feedback"
+        ],
+        "level_5": [
+          "Seeks performance data episodically",
+          "Coaches others on designing and implementing an effective learning plan"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_prof1",
+      "number": 14,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Analyzes complex situations using ethical principles"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of medical ethical principles",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates professional behavior in routine situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations; takes responsibility for own professionalism lapses",
+          "Serves as resource for colleagues who face ethical dilemmas"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_prof2",
+      "number": 15,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to instructions, requests, or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Takes appropriate ownership and performs tasks and responsibilities in a timely manner with attention to detail"
+        ],
+        "level_3": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner and describes the impact on team"
+        ],
+        "level_4": [
+          "Anticipates and intervenes in situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Designs new strategies to ensure the needs of patients, teams, and systems are met"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_prof3",
+      "number": 16,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance, recognizes status of personal and professional well-being",
+          "With assistance, proposes a plan to remediate or improve limits in one’s own knowledge/skills"
+        ],
+        "level_2": [
+          "With assistance, recognizes limits in one’s own knowledge/ skills",
+          "Independently develops a plan to optimize one’s own personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes the status of one’s own personal and professional well-being",
+          "Independently develops a plan to remediate or improve limits in one’s own knowledge/skills"
+        ],
+        "level_4": [
+          "Independently recognizes limits in one’s own knowledge/skills and seeks help when appropriate",
+          "Coaches others to optimize their personal and professional well- being"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_ics1",
+      "number": 17,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating one’s own role within the health care system",
+          "Independently, sensitively, and compassionately delivers medical information and acknowledges uncertainty and conflict"
+        ],
+        "level_3": [
+          "Establishes a relationship in straightforward encounters using active listening and clear language",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies complex barriers to effective communication (e.g., health literacy, cultural differences)",
+          "Mentors others in the sensitive and compassionate delivery of medical information"
+        ],
+        "level_5": [
+          "With supervision, sensitively and compassionately delivers medical information",
+          "Models self-awareness while teaching a contextual approach to minimize communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_ics2",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the health care team",
+          "Integrates feedback from team members to improve communication"
+        ],
+        "level_2": [
+          "Describes the utility of constructive feedback",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "dermatopathology_ics3",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Understands institutional policy(ies) about communication involving protected health information (PHI)",
+          "Uses institutional and/or departmental structures to communicate constructive suggestions to improve the health care system"
+        ],
+        "level_2": [
+          "Identifies institutional and/or departmental structures to communicate concerns about the health care system",
+          "Independently communicates relevant information while safeguarding PHI"
+        ],
+        "level_3": [
+          "Appropriately selects forms of communication based on context and urgency of the situation",
+          "Independently raises concerns with appropriate stakeholders to improve the health care system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the health care system",
+          "Guides departmental or institutional policies and procedures regarding PHI in communications"
+        ],
+        "level_5": [
+          "With guidance, communicates relevant information while safeguarding PHI",
+          "Leads discussions with community stakeholders to improve the health care system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologysupplementalguide.pdf"
+  }
+}

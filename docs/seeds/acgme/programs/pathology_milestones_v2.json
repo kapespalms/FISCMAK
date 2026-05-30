@@ -3,1452 +3,629 @@
   "specialty": "Pathology",
   "version": "2.0",
   "source": "ACGME Pathology Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "pathology",
+  "parent_name": "Pathology",
   "subcompetencies": [
     {
       "id": "pathology_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Reporting (Anatomic Pathology/Clinical Pathology [AP/CP])",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies the key",
-          "elements of a report and",
-          "demonstrates",
-          "understanding of timely",
-          "reporting",
-          "Identifies the importance",
-          "of a complete pathology",
-          "report for optimal patient",
-          "care",
-          "Generates a timely report",
-          "for a simple case, with"
+          "Identifies the key elements of a report and demonstrates understanding of timely reporting",
+          "Generates an amended/addended report that includes updated information, with assistance",
+          "Independently generates a nuanced report that expresses the ambiguity and uncertainty for a complex case"
         ],
         "level_2": [
-          "assistance",
-          "Identifies implications of",
-          "the diagnosis in the report",
-          "and makes simple",
-          "recommendations",
-          "Generates a timely report",
-          "that includes synoptic",
-          "templates and/or ancillary",
-          "testing for a complex case,",
-          "with assistance;",
-          "independently generates"
+          "Identifies the importance of a complete pathology report for optimal patient care",
+          "Generates a report that includes the language of uncertainty, as appropriate, with assistance"
         ],
         "level_3": [
-          "reports for a simple case",
-          "Generates an",
-          "amended/addended",
-          "report that includes",
-          "updated information, with",
-          "assistance",
-          "Generates a report that",
-          "includes the language of",
-          "uncertainty, as appropriate,",
-          "with assistance",
-          "Independently generates"
+          "Generates a timely report for a simple case, with assistance",
+          "Independently generates timely integrated reports for complex cases"
         ],
         "level_4": [
-          "timely integrated reports",
-          "for complex cases",
-          "Generates an",
-          "amended/addended",
-          "report and documents",
-          "communication with the",
-          "clinical team, as",
-          "appropriate",
-          "Independently",
-          "generates a report that",
-          "includes the language"
+          "Identifies implications of the diagnosis in the report and makes simple recommendations",
+          "Generates an amended/addended report and documents communication with the clinical team, as appropriate"
         ],
         "level_5": [
-          "of uncertainty and",
-          "complex",
-          "recommendations",
-          "Independently generates",
-          "a nuanced report that",
-          "expresses the ambiguity",
-          "and uncertainty for a",
-          "complex case"
+          "Generates a timely report that includes synoptic templates and/or ancillary testing for a complex case, with assistance; independently generates reports for a simple case",
+          "Independently generates a report that includes the language of uncertainty and complex recommendations"
         ]
       }
     },
     {
       "id": "pathology_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Grossing (AP)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies the importance",
-          "of grossing and uses",
-          "appropriate resources",
-          "Maintains specimen",
-          "integrity to avoid sample",
-          "misidentification",
-          "Identifies the need for",
-          "time management",
-          "Samples and documents",
-          "simple cases, with"
+          "Identifies the importance of grossing and uses appropriate resources",
+          "Needs assistance to handle workload",
+          "Independently resolves specimen integrity issues, as needed"
         ],
         "level_2": [
-          "assistance",
-          "Identifies specimen",
-          "integrity issues (e.g.,",
-          "fixation, floaters, clinical",
-          "pathologic correlation with",
-          "operating room reports)",
-          "Needs assistance to",
-          "handle workload",
-          "Triages, samples, and",
-          "documents complex cases,"
+          "Maintains specimen integrity to avoid sample misidentification",
+          "Triages, samples, and documents complex cases, with assistance; independently triages, samples, and documents simple cases",
+          "Efficiently finishes own workload and assists others as needed"
         ],
         "level_3": [
-          "with assistance;",
-          "independently triages,",
-          "samples, and documents",
-          "simple cases",
-          "Resolves specimen",
-          "integrity issues, with",
-          "assistance",
-          "Handles assigned workload",
-          "with minimal to no assistance",
-          "Independently triages,"
+          "Identifies the need for time management",
+          "Resolves specimen integrity issues, with assistance",
+          "Applies innovative approaches of grossing to demonstrate optimal pathology in unique specimens"
         ],
         "level_4": [
-          "samples, and",
-          "documents complex",
-          "cases",
-          "Independently",
-          "resolves specimen",
-          "integrity issues, as",
-          "needed",
-          "Efficiently finishes own",
-          "workload and assists",
-          "others as needed"
+          "Samples and documents simple cases, with assistance",
+          "Handles assigned workload with minimal to no assistance",
+          "Serves as an expert for gross examination"
         ],
         "level_5": [
-          "Applies innovative",
-          "approaches of grossing to",
-          "demonstrate optimal",
-          "pathology in unique",
-          "specimens",
-          "Serves as an expert for",
-          "gross examination"
+          "Identifies specimen integrity issues (e.g., fixation, floaters, clinical pathologic correlation with operating room reports)",
+          "Independently triages, samples, and documents complex cases"
         ]
       }
     },
     {
       "id": "pathology_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Clinical Consultation, including On-Call Interactions (AP/CP)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Describes the utility of a",
-          "consultation and lists",
-          "available resources useful",
-          "in consultation",
-          "For simple consultations,",
-          "delineates the clinical",
-          "question, obtains"
+          "Describes the utility of a consultation and lists available resources useful in consultation"
         ],
         "level_2": [
-          "appropriate additional",
-          "clinical information,",
-          "accesses available",
-          "resources, recommends",
-          "next steps, and documents",
-          "appropriately with",
-          "assistance"
+          "For simple consultations, delineates the clinical question, obtains appropriate additional clinical information, accesses available resources, recommends next steps, and documents appropriately with assistance"
         ],
         "level_3": [
-          "For complex",
-          "consultations, delineates",
-          "the clinical question,",
-          "obtains appropriate",
-          "additional clinical",
-          "information, applies",
-          "relevant resources, and"
+          "For complex consultations, delineates the clinical question, obtains appropriate additional clinical information, applies relevant resources, and recommends next steps with assistance; manages simple consultations independently"
         ],
         "level_4": [
-          "recommends next steps",
-          "with assistance; manages",
-          "simple consultations",
-          "independently",
-          "Manages complex",
-          "consultations",
-          "independently"
+          "Manages complex consultations independently"
         ],
         "level_5": [
-          "Recognized as an expert",
-          "in providing",
-          "comprehensive",
-          "consultations"
+          "Recognized as an expert in providing comprehensive consultations"
         ]
       }
     },
     {
       "id": "pathology_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Interpretation and Diagnosis (AP/CP)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Discusses importance of",
-          "diagnoses and test results",
-          "in patient care",
-          "Identifies normal states and",
-          "reference ranges",
-          "Describes indications for",
-          "common tests",
-          "Identifies pertinent test",
-          "results and correlates to",
-          "clinical findings to develop"
+          "Discusses importance of diagnoses and test results in patient care",
+          "Proposes appropriate initial tests",
+          "Gives consideration to confounding factors in formulating an interpretation(s) and diagnoses"
         ],
         "level_2": [
-          "a differential diagnosis",
-          "Distinguishes normal from",
-          "abnormal findings",
-          "Proposes appropriate",
-          "initial tests",
-          "Consistently integrates test",
-          "results with clinical findings",
-          "to refine differential and",
-          "propose a diagnosis",
-          "Identifies confounding"
+          "Identifies normal states and reference ranges",
+          "Consistently integrates test results with clinical findings to refine differential and propose a diagnosis",
+          "Recommends further work-up using diagnostic algorithms and recommends therapeutic options, as appropriate"
         ],
         "level_3": [
-          "factors, artifacts, and",
-          "preanalytic issues",
-          "Proposes and interprets",
-          "ancillary tests in clinical",
-          "context",
-          "Makes accurate",
-          "diagnoses and",
-          "interpretations of test",
-          "results",
-          "Gives consideration to"
+          "Describes indications for common tests",
+          "Identifies confounding factors, artifacts, and preanalytic issues",
+          "Is an expert diagnostician"
         ],
         "level_4": [
-          "confounding factors in",
-          "formulating an",
-          "interpretation(s) and",
-          "diagnoses",
-          "Recommends further",
-          "work-up using diagnostic",
-          "algorithms and",
-          "recommends",
-          "therapeutic options, as",
-          "appropriate"
+          "Identifies pertinent test results and correlates to clinical findings to develop a differential diagnosis",
+          "Proposes and interprets ancillary tests in clinical context",
+          "Proposes optimal diagnostic and therapeutic strategies based on patterns within a population"
         ],
         "level_5": [
-          "Is an expert diagnostician",
-          "Proposes optimal",
-          "diagnostic and",
-          "therapeutic strategies",
-          "based on patterns within",
-          "a population"
+          "Distinguishes normal from abnormal findings",
+          "Makes accurate diagnoses and interpretations of test results"
         ]
       }
     },
     {
       "id": "pathology_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Intra-Operative Consultation (IOC), including Frozen Section (FS) (AP)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Describes appropriate",
-          "channels for",
-          "communication regarding",
-          "IOC",
-          "Discusses specimen",
-          "dependent variability",
-          "in approach to IOC",
-          "Demonstrates",
-          "understanding of utility of",
-          "IOC",
-          "Assesses requests for",
-          "simple IOC and plans"
+          "Describes appropriate channels for communication regarding",
+          "Assesses requests for simple IOC and plans workflow, with assistance",
+          "Procures tissue for diagnosis and prepares quality slides for complex specimens with assistance and independently for simple specimens",
+          "IOC"
         ],
         "level_2": [
-          "workflow, with assistance",
-          "Procures tissue for",
-          "diagnosis and prepares",
-          "quality slides on simple",
-          "specimens, with",
-          "assistance",
-          "Identifies broad diagnostic",
-          "categories (i.e., benign",
-          "versus malignant, normal",
-          "versus abnormal) in",
-          "routine IOC",
-          "For complex cases,"
+          "IOC",
+          "Procures tissue for diagnosis and prepares quality slides on simple specimens, with assistance",
+          "Interprets and communicates routine",
+          "Independently interprets and communicates"
         ],
         "level_3": [
-          "addresses requests for",
-          "IOC with assistance;",
-          "independently assesses",
-          "and manages requests for",
-          "simple IOC and plans",
-          "workflow",
-          "Procures tissue for",
-          "diagnosis and prepares",
-          "quality slides for complex",
-          "specimens with assistance",
-          "and independently for",
-          "simple specimens"
+          "Discusses specimen dependent variability in approach to IOC",
+          "Identifies broad diagnostic categories (i.e., benign versus malignant, normal versus abnormal) in routine IOC",
+          "IOC/FS and correlates with final diagnosis, with assistance",
+          "IOC/FS and correlates with final diagnosis in routine cases and in some complex cases"
         ],
         "level_4": [
-          "Interprets and",
-          "communicates routine",
-          "IOC/FS and correlates",
-          "with final diagnosis, with",
-          "assistance",
-          "For complex cases,",
-          "independently manages",
-          "and addresses requests",
-          "for IOC",
-          "Supervises junior",
-          "residents and advises",
-          "technical staff members"
+          "Demonstrates understanding of utility of",
+          "For complex cases, addresses requests for",
+          "For complex cases, independently manages and addresses requests for IOC",
+          "Expertly manages all IOC"
         ],
         "level_5": [
-          "in the performance of",
           "IOC",
-          "Independently interprets",
-          "and communicates",
-          "IOC/FS and correlates",
-          "with final diagnosis in",
-          "routine cases and in",
-          "some complex cases",
-          "Expertly manages all IOC"
+          "IOC with assistance; independently assesses and manages requests for simple IOC and plans workflow",
+          "Supervises junior residents and advises technical staff members in the performance of"
         ]
       }
     },
     {
       "id": "pathology_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Autopsy (AP)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Describes the value of an",
-          "autopsy",
-          "Reviews clinical records",
-          "and concisely presents",
-          "clinical data and history;",
-          "communicates with",
-          "clinical team",
-          "Properly identifies the",
-          "decedent and verifies",
-          "consent and limitations to",
-          "extent of the autopsy",
-          "Plans and performs all"
+          "Describes the value of an autopsy",
+          "Adheres to regulations with guidance, such as legal jurisdiction, statutes regarding device reporting and communicable diseases",
+          "Independently generates final report with clinicopathologic correlations on routine and complex autopsies"
         ],
         "level_2": [
-          "aspects of routine",
-          "autopsies, with assistance",
-          "Generates preliminary",
-          "anatomic diagnosis within",
-          "accepted turnaround time",
-          "Adheres to regulations with",
-          "guidance, such as legal",
-          "jurisdiction, statutes",
-          "regarding device reporting",
-          "and communicable",
-          "diseases",
-          "Plans and performs all"
+          "Reviews clinical records and concisely presents clinical data and history; communicates with clinical team",
+          "Plans and performs all aspects of complex autopsies, with assistance",
+          "Instructs junior level residents about regulations"
         ],
         "level_3": [
-          "aspects of complex",
-          "autopsies, with assistance",
-          "Independently generates",
-          "final report with",
-          "clinicopathologic",
-          "correlations on routine",
-          "autopsies; with",
-          "assistance, generates final",
-          "report with",
-          "clinicopathologic",
-          "correlations on complex",
-          "autopsies"
+          "Properly identifies the decedent and verifies consent and limitations to extent of the autopsy",
+          "Independently generates final report with clinicopathologic correlations on routine autopsies; with assistance, generates final report with clinicopathologic correlations on complex autopsies",
+          "Uses advanced skills and non-routine approaches to unique autopsies"
         ],
         "level_4": [
-          "Independently adheres to",
-          "regulations",
-          "Independently plans",
-          "and performs all",
-          "aspects of complex",
-          "autopsies in a timely",
-          "manner",
-          "Independently generates",
-          "final report with",
-          "clinicopathologic",
-          "correlations on routine",
-          "and complex autopsies"
+          "Plans and performs all aspects of routine autopsies, with assistance",
+          "Independently adheres to regulations",
+          "Uses autopsy data to identify patterns that advance medical knowledge and improve patient care"
         ],
         "level_5": [
-          "Instructs junior level",
-          "residents about",
-          "regulations",
-          "Uses advanced skills and",
-          "non-routine approaches to",
-          "unique autopsies",
-          "Uses autopsy data to",
-          "identify patterns that",
-          "advance medical",
-          "knowledge and improve",
-          "patient care"
+          "Generates preliminary anatomic diagnosis within accepted turnaround time",
+          "Independently plans and performs all aspects of complex autopsies in a timely manner"
         ]
       }
     },
     {
       "id": "pathology_mk1",
       "number": 7,
-      "domain_number": 1,
       "name": "Diagnostic Knowledge (AP/CP)",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "medical knowledge of",
-          "anatomy, cellular, and",
-          "molecular systems",
-          "Demonstrates knowledge",
-          "of normal histology and"
+          "Demonstrates basic medical knowledge of anatomy, cellular, and molecular systems",
+          "Integrates advanced knowledge of anatomic, cellular, and molecular pathology to common and uncommon diagnoses"
         ],
         "level_2": [
-          "cell biology",
-          "Applies anatomic, cellular,",
-          "and molecular knowledge",
-          "to identify pathologic",
-          "processes",
-          "Identifies abnormal"
+          "Demonstrates knowledge of normal histology and cell biology",
+          "Recognized as an expert in the integration of anatomic, cellular, and molecular pathology knowledge to disease"
         ],
         "level_3": [
-          "histology and cell biology",
-          "Applies advanced",
-          "knowledge of anatomic,",
-          "cellular, and molecular",
-          "pathology to common",
-          "diagnoses"
+          "Applies anatomic, cellular, and molecular knowledge to identify pathologic processes"
         ],
         "level_4": [
-          "Integrates advanced",
-          "knowledge of anatomic,",
-          "cellular, and molecular",
-          "pathology to common",
-          "and uncommon",
-          "diagnoses"
+          "Identifies abnormal histology and cell biology"
         ],
         "level_5": [
-          "Recognized as an expert",
-          "in the integration of",
-          "anatomic, cellular, and",
-          "molecular pathology",
-          "knowledge to disease"
+          "Applies advanced knowledge of anatomic, cellular, and molecular pathology to common diagnoses"
         ]
       }
     },
     {
       "id": "pathology_mk2",
       "number": 8,
-      "domain_number": 2,
       "name": "Clinical Reasoning (AP/CP)",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates a basic",
-          "framework for clinical",
-          "reasoning",
-          "Identifies appropriate",
-          "resources to inform",
-          "clinical reasoning",
-          "Demonstrates clinical",
-          "reasoning to determine"
+          "Demonstrates a basic framework for clinical reasoning",
+          "Seeks and integrates evidence-based information to inform diagnostic decision making in complex cases, with assistance"
         ],
         "level_2": [
-          "relevant information",
-          "Selects relevant",
-          "resources based on",
-          "scenario to inform",
-          "decisions",
-          "Synthesizes information to",
-          "inform clinical reasoning,",
-          "with assistance"
+          "Identifies appropriate resources to inform clinical reasoning",
+          "Independently synthesizes information to inform clinical reasoning in complex cases"
         ],
         "level_3": [
-          "Seeks and integrates",
-          "evidence-based information",
-          "to inform diagnostic decision",
-          "making in complex cases,",
-          "with assistance",
-          "Independently",
-          "synthesizes information",
-          "to inform clinical"
+          "Demonstrates clinical reasoning to determine relevant information",
+          "Independently seeks out, analyzes, and applies relevant original research to diagnostic decision making in complex clinical cases"
         ],
         "level_4": [
-          "reasoning in complex",
-          "cases",
-          "Independently seeks",
-          "out, analyzes, and",
-          "applies relevant original",
-          "research to diagnostic",
-          "decision making in",
-          "complex clinical cases"
+          "Selects relevant resources based on scenario to inform decisions",
+          "Demonstrates intuitive approach to clinical reasoning for complex cases"
         ],
         "level_5": [
-          "Demonstrates intuitive",
-          "approach to clinical",
-          "reasoning for complex",
-          "cases"
+          "Synthesizes information to inform clinical reasoning, with assistance"
         ]
       }
     },
     {
       "id": "pathology_sbp1",
       "number": 9,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement (QI) (AP/CP)",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic QI",
-          "methodologies and",
-          "metrics",
-          "Identifies system factors"
+          "Demonstrates knowledge of common patient safety events",
+          "Describes departmental and institutional QI initiatives",
+          "Discloses patient safety events to clinicians and/or patients and families, as appropriate (simulated or actual)"
         ],
         "level_2": [
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes departmental",
-          "and institutional QI",
-          "initiatives",
-          "Participates in analysis of",
-          "patient safety events"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a QI project"
         ],
         "level_3": [
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "clinicians and/or patients",
-          "and families, as",
-          "appropriate (simulated or",
-          "actual)",
-          "Participates in",
-          "departmental and",
-          "institutional QI initiatives",
-          "Conducts analysis of",
-          "patient safety events"
+          "Demonstrates knowledge of basic QI methodologies and metrics",
+          "Participates in disclosure of patient safety events to clinicians and/or patients and families, as appropriate (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "and offers error",
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to clinicians",
-          "and/or patients and",
-          "families, as appropriate",
-          "(simulated or actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a QI project"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in departmental and institutional QI initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "Actively engages teams",
-          "and processes to modify",
-          "systems to prevent",
-          "patient safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses QI initiatives at",
-          "the institutional or",
-          "community level"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses QI initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "pathology_sbp2",
       "number": 10,
-      "domain_number": 2,
       "name": "Systems Navigation for Patient-Centered Care (AP/CP)",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates knowledge",
-          "of case coordination",
-          "Identifies key elements",
-          "for safe and effective",
-          "transitions of care and",
-          "hand-offs",
-          "Demonstrates knowledge",
-          "of population and",
-          "community health needs",
-          "Coordinates care of",
-          "patients in routine cases",
-          "effectively using",
-          "interprofessional teams"
+          "Demonstrates knowledge of case coordination",
+          "Identifies pathology’s role in population and community health needs for their local population",
+          "Models and advocates for safe and effective transitions of care/handoffs within and across health care delivery systems"
         ],
         "level_2": [
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "situations",
-          "Identifies pathology’s role",
-          "in population and",
-          "community health needs",
-          "for their local population",
-          "Coordinates care of",
-          "patients in complex cases",
-          "effectively using",
-          "interprofessional teams",
-          "Performs safe and"
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex cases effectively using interprofessional teams",
+          "Recommends and/or participates in changing and adapting practice to provide for the needs of communities and populations"
         ],
         "level_3": [
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "situations",
-          "Identifies opportunities for",
-          "pathology to participate in",
-          "community and population",
-          "health",
-          "Models effective",
-          "coordination of patient",
-          "centered care among",
-          "different disciplines and",
-          "specialties",
-          "Models and advocates"
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex situations",
+          "Analyses the process of care coordination and leads in the design and implementation of improvements"
         ],
         "level_4": [
-          "for safe and effective",
-          "transitions of",
-          "care/handoffs within and",
-          "across health care",
-          "delivery systems",
-          "Recommends and/or",
-          "participates in changing",
-          "and adapting practice to",
-          "provide for the needs of",
-          "communities and",
-          "populations",
-          "Analyses the process of",
-          "care coordination and"
+          "Coordinates care of patients in routine cases effectively using interprofessional teams",
+          "Identifies opportunities for pathology to participate in community and population health",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
         ],
         "level_5": [
-          "leads in the design and",
-          "implementation of",
-          "improvements",
-          "Improves quality of",
-          "transitions of care within",
-          "and across health care",
-          "delivery systems to",
-          "optimize patient outcomes",
-          "Leads innovations and",
-          "advocates for populations",
-          "and communities with",
-          "specific health care needs"
+          "Performs safe and effective transitions of care/hand-offs in routine situations",
+          "Models effective coordination of patient centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
         ]
       }
     },
     {
       "id": "pathology_sbp3",
       "number": 11,
-      "domain_number": 3,
       "name": "Physician Role in Health Care System (AP/CP)",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key components",
-          "of the complex health",
-          "care system (e.g.,",
-          "hospital, skilled nursing",
-          "facility, finance,",
-          "personnel, technology)",
-          "Describes basic health",
-          "payment systems (e.g.,",
-          "government, private,",
-          "public, uninsured care)"
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Engages with clinicians and/or patients in shared decision making, such as use of preauthorization for complex testing"
         ],
         "level_2": [
-          "and practice models",
-          "Describes how",
-          "components of a complex",
-          "health care system are",
-          "inter-related, and how this",
-          "impacts patient care",
-          "Documents testing detail",
-          "and explains the impact of",
-          "documentation on billing",
-          "and reimbursement"
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
         ],
         "level_3": [
-          "Discusses how individual",
-          "practice affects the",
-          "broader system (e.g., test",
-          "utilization, turnaround time)",
-          "Engages with clinicians",
-          "and/or patients in shared",
-          "decision making, such as",
-          "use of preauthorization for",
-          "complex testing",
-          "Manages various"
+          "Describes how components of a complex health care system are inter-related, and how this impacts patient care",
+          "Practices and advocates for cost effective patient care with consideration of the limitations of each patient’s payment model"
         ],
         "level_4": [
-          "components of the",
-          "complex health care",
-          "system to provide",
-          "efficient and effective",
-          "patient care and",
-          "transition of care",
-          "Practices and advocates",
-          "for cost effective patient",
-          "care with consideration of",
-          "the limitations of each"
+          "Documents testing detail and explains the impact of documentation on billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
         ],
         "level_5": [
-          "patient’s payment model",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high-value,",
-          "efficient, and effective",
-          "patient care and transition",
-          "of care",
-          "Participates in health",
-          "policy advocacy activities"
+          "Discusses how individual practice affects the broader system (e.g., test utilization, turnaround time)",
+          "Participates in health policy advocacy activities"
         ]
       }
     },
     {
       "id": "pathology_sbp4",
       "number": 12,
-      "domain_number": 4,
       "name": "Informatics (AP/CP)",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates familiarity",
-          "with basic technical",
-          "concepts of hardware,",
-          "operating systems,",
-          "databases, and software",
-          "for general purpose",
-          "applications",
-          "Understands laboratory",
-          "specific software, key"
+          "Demonstrates familiarity with basic technical concepts of hardware, operating systems, databases, and software for general purpose applications"
         ],
         "level_2": [
-          "technical concepts and",
-          "interfaces, workflow,",
-          "barcode application,",
-          "automation systems",
-          "(enterprise systems",
-          "architecture)",
-          "Discusses the role of the",
-          "pathologist in laboratory",
-          "initiatives based on"
+          "Understands laboratory specific software, key technical concepts and interfaces, workflow, barcode application, automation systems (enterprise systems architecture)"
         ],
         "level_3": [
-          "integrative pathology",
-          "informatics and bioinformatics",
-          "(e.g., laboratory information",
-          "system implementation and",
-          "configuration, QI",
-          "initiatives)",
-          "Applies knowledge of",
-          "informatics skills as",
-          "needed in laboratory"
+          "Discusses the role of the pathologist in laboratory initiatives based on integrative pathology informatics and bioinformatics (e.g., laboratory information system implementation and configuration, QI initiatives)"
         ],
         "level_4": [
-          "initiatives (e.g., data",
-          "management and",
-          "security, computational",
-          "statistics, information",
-          "governance)",
-          "Participates in operational",
-          "and strategy meetings,",
-          "troubleshooting with",
-          "information technology"
+          "Applies knowledge of informatics skills as needed in laboratory initiatives (e.g., data management and security, computational statistics, information governance)"
         ],
         "level_5": [
-          "staff members; able to",
-          "utilize medical informatics",
-          "in the direction and",
-          "operation of the",
-          "laboratory"
+          "Participates in operational and strategy meetings, troubleshooting with information technology staff members; able to utilize medical informatics in the direction and operation of the laboratory"
         ]
       }
     },
     {
       "id": "pathology_sbp5",
       "number": 13,
-      "domain_number": 5,
       "name": "Accreditation, Compliance, and Quality (AP/CP)",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates knowledge",
-          "that laboratories must be",
-          "accredited",
-          "Discusses the need for",
-          "quality control and",
-          "proficiency testing",
-          "Demonstrates knowledge",
-          "of the components of",
-          "laboratory accreditation",
-          "and regulatory compliance",
-          "(Clinical Laboratory"
+          "Demonstrates knowledge that laboratories must be accredited",
+          "Interprets quality data and charts and trends, including proficiency testing results, with assistance",
+          "Reviews the quality management plan to identify areas for improvement"
         ],
         "level_2": [
-          "Improvement",
-          "Amendments and others),",
-          "either through training or",
-          "experience",
-          "Interprets quality data and",
-          "charts and trends,",
-          "including proficiency",
-          "testing results, with",
-          "assistance",
-          "Identifies the differences",
-          "between accreditation and"
+          "Discusses the need for quality control and proficiency testing",
+          "Identifies the differences between accreditation and regulatory compliance; discusses the process for achieving accreditation and maintaining regulatory compliance",
+          "Performs analysis and review of proficiency testing failures and recommends a course of action, with oversight"
         ],
         "level_3": [
-          "regulatory compliance;",
-          "discusses the process for",
-          "achieving accreditation",
-          "and maintaining",
-          "regulatory compliance",
-          "Demonstrates knowledge",
-          "of the components of a",
-          "laboratory quality",
-          "management plan",
-          "Discusses implications of",
-          "proficiency testing failures"
+          "Demonstrates knowledge of the components of laboratory accreditation and regulatory compliance (Clinical Laboratory",
+          "Demonstrates knowledge of the components of a laboratory quality management plan",
+          "Serves as a resource for accreditation at the regional or national level"
         ],
         "level_4": [
-          "Participates in an internal",
-          "or external laboratory",
-          "inspection",
-          "Reviews the quality",
-          "management plan to",
-          "identify areas for",
-          "improvement",
-          "Performs analysis and",
-          "review of proficiency",
-          "testing failures and",
-          "recommends a course"
+          "Improvement",
+          "Discusses implications of proficiency testing failures",
+          "Creates and follows a comprehensive quality management plan"
         ],
         "level_5": [
-          "of action, with oversight",
-          "Serves as a resource for",
-          "accreditation at the",
-          "regional or national level",
-          "Creates and follows a",
-          "comprehensive quality",
-          "management plan",
-          "Formulates a response for",
-          "proficiency testing failures"
+          "Amendments and others), either through training or experience",
+          "Participates in an internal or external laboratory inspection",
+          "Formulates a response for proficiency testing failures"
         ]
       }
     },
     {
       "id": "pathology_pbli1",
       "number": 14,
-      "domain_number": 1,
       "name": "Evidence-Based Practice and Scholarship (AP/CP)",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access and select",
-          "applicable evidence",
-          "Aware of the need for",
-          "patient privacy,",
-          "autonomy, and consent",
-          "as applied to clinical",
-          "research",
-          "Identifies and applies the",
-          "best available evidence to",
-          "guide diagnostic workup",
-          "of simple cases"
+          "Demonstrates how to access and select applicable evidence",
+          "Identifies and applies the best available evidence to guide diagnostic work-up of complex cases",
+          "Suggest improvements to research regulations and/or substantially contributes to the primary literature through basic, translational, or clinical research"
         ],
         "level_2": [
-          "Develops knowledge of",
-          "the basic principles of",
-          "research (demographics,",
-          "Institutional Review",
-          "Board, human subjects),",
-          "including how research is",
-          "evaluated, explained to",
-          "patients, and applied to",
-          "patient care",
-          "Identifies and applies the",
-          "best available evidence to",
-          "guide diagnostic work-up"
+          "Aware of the need for patient privacy, autonomy, and consent as applied to clinical research",
+          "Applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice, with assistance"
         ],
         "level_3": [
-          "of complex cases",
-          "Applies knowledge of the",
-          "basic principles of",
-          "research such as informed",
-          "consent and research",
-          "protocols to clinical",
-          "practice, with assistance",
-          "Critically appraises and",
-          "applies evidence to",
-          "guide care, even in the",
-          "face of conflicting data",
-          "Proactively and"
+          "Identifies and applies the best available evidence to guide diagnostic workup of simple cases",
+          "Critically appraises and applies evidence to guide care, even in the face of conflicting data"
         ],
         "level_4": [
-          "consistently applies",
-          "knowledge of the basic",
-          "principles of research",
-          "such as informed",
-          "consent and research",
-          "protocols to clinical",
-          "practice",
-          "Teaches others to critically",
-          "appraise and apply",
-          "evidence for complex",
-          "cases; and/or participates",
-          "in the development of"
+          "Develops knowledge of the basic principles of research (demographics, Institutional Review",
+          "Proactively and consistently applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice"
         ],
         "level_5": [
-          "guidelines",
-          "Suggest improvements to",
-          "research regulations",
-          "and/or substantially",
-          "contributes to the primary",
-          "literature through basic,",
-          "translational, or clinical",
-          "research"
+          "Board, human subjects), including how research is evaluated, explained to patients, and applied to patient care",
+          "Teaches others to critically appraise and apply evidence for complex cases; and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "pathology_pbli2",
       "number": 15,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth (AP/CP)",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accepts responsibility for",
-          "personal and",
-          "professional development",
-          "by establishing goals",
-          "Identifies the gap(s)",
-          "between expectations",
-          "and actual performance",
-          "Actively seeks",
-          "opportunities to improve",
-          "Demonstrates openness",
-          "to receiving performance"
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with assistance",
+          "Critically evaluates the effectiveness of behavioral changes in narrowing the gap(s) between expectations and actual performance"
         ],
         "level_2": [
-          "data and feedback in",
-          "order to inform goals",
-          "Analyzes and reflects on",
-          "the factors which",
-          "contribute to gap(s)",
-          "between expectations and",
-          "actual performance",
-          "Designs and implements a",
-          "learning plan, with",
-          "assistance",
-          "Seeks performance data"
+          "Identifies the gap(s) between expectations and actual performance",
+          "Seeks performance data and feedback with humility",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
         ],
         "level_3": [
-          "and feedback with humility",
-          "Institutes behavioral",
-          "change(s) to narrow the",
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Independently creates",
-          "and implements a",
-          "learning plan",
-          "Actively and",
-          "consistently seeks"
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models seeking performance data with humility"
         ],
         "level_4": [
-          "performance data and",
-          "feedback with humility",
-          "Critically evaluates the",
-          "effectiveness of",
-          "behavioral changes in",
-          "narrowing the gap(s)",
-          "between expectations",
-          "and actual performance",
-          "Uses performance data",
-          "to measure the",
-          "effectiveness of the"
+          "Demonstrates openness to receiving performance data and feedback in order to inform goals",
+          "Independently creates and implements a learning plan",
+          "Teaches others reflective practice"
         ],
         "level_5": [
-          "learning plan and",
-          "improves it when",
-          "necessary",
-          "Models seeking",
-          "performance data with",
-          "humility",
-          "Teaches others reflective",
-          "practice",
-          "Facilitates the design and",
-          "implementing learning",
-          "plans for others"
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Actively and consistently seeks performance data and feedback with humility",
+          "Facilitates the design and implementing learning plans for others"
         ]
       }
     },
     {
       "id": "pathology_prof1",
       "number": 16,
-      "domain_number": 1,
       "name": "Professional Behavior and Ethical Principles (AP/CP)",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Demonstrates knowledge",
-          "of the ethical principles",
-          "underlying informed",
-          "consent, surrogate",
-          "decision making,",
-          "advance directives,",
-          "confidentiality, error",
-          "disclosure, stewardship",
-          "of limited resources, and",
-          "related topics",
-          "Describes when and how"
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Demonstrates professional behavior in complex or stressful situations"
         ],
         "level_2": [
-          "to appropriately report",
-          "professionalism lapses,",
-          "including strategies for",
-          "addressing common",
-          "barriers; identifies and",
-          "describes potential",
-          "triggers for",
-          "professionalism lapses",
-          "Analyzes straightforward",
-          "situations using ethical",
-          "principles"
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers; identifies and describes potential triggers for professionalism lapses",
+          "Independently resolves and manages complex ethical situations"
         ],
         "level_3": [
-          "Demonstrates insight into",
-          "professional behavior in",
-          "routine situations; takes",
-          "responsibility for own",
-          "professionalism lapses",
-          "Recognizes the need and",
-          "uses appropriate resources",
-          "to seek help in managing",
-          "and resolving complex",
-          "ethical situations",
-          "Demonstrates professional"
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
         ],
         "level_4": [
-          "behavior in complex or",
-          "stressful situations",
-          "Independently resolves",
-          "and manages complex",
-          "ethical situations",
-          "Recognizes situations",
-          "that may trigger",
-          "professionalism lapses",
-          "and intervenes to prevent",
-          "lapses in self and others",
-          "Identifies and seeks to"
+          "Demonstrates insight into professional behavior in routine situations; takes responsibility for own professionalism lapses",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ],
         "level_5": [
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution",
-          "Coaches others when their",
-          "behavior fails to meet",
-          "professional",
-          "expectations"
+          "Recognizes the need and uses appropriate resources to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
         ]
       }
     },
     {
       "id": "pathology_prof2",
       "number": 17,
-      "domain_number": 2,
       "name": "Accountability and Conscientiousness (AP/CP)",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Responds promptly to",
-          "instructions, requests, or",
-          "reminders to complete",
-          "tasks and responsibilities",
-          "Takes appropriate",
-          "ownership and performs"
+          "Responds promptly to instructions, requests, or reminders to complete tasks and responsibilities",
+          "Designs new strategies to ensure that the needs of patients, teams, and systems are met"
         ],
         "level_2": [
-          "tasks and responsibilities",
-          "in a timely manner with",
-          "attention to detail",
-          "Recognizes situations that",
-          "may impact own ability to",
-          "complete tasks and"
+          "Takes appropriate ownership and performs tasks and responsibilities in a timely manner with attention to detail"
         ],
         "level_3": [
-          "responsibilities in a timely",
-          "manner and describes the",
-          "impact on team",
-          "Anticipates and",
-          "intervenes in situations",
-          "that may impact others’"
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner and describes the impact on team"
         ],
         "level_4": [
-          "ability to complete tasks",
-          "and responsibilities in a",
-          "timely manner",
-          "Takes ownership of",
-          "system outcomes",
-          "Designs new strategies to"
+          "Anticipates and intervenes in situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
         ],
         "level_5": [
-          "ensure that the needs of",
-          "patients, teams, and",
-          "systems are met"
+          "Takes ownership of system outcomes"
         ]
       }
     },
     {
       "id": "pathology_prof3",
       "number": 18,
-      "domain_number": 3,
       "name": "Self-Awareness and Help-Seeking (AP/CP)",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes limitations in",
-          "the knowledge/skills/",
-          "behaviors of self or team,",
-          "with assistance",
-          "Recognizes status of",
-          "personal and",
-          "professional well-being,",
-          "with assistance",
-          "Independently recognizes",
-          "limitations in the"
+          "Recognizes limitations in the knowledge/skills/ behaviors of self or team, with assistance",
+          "Proposes and implements a plan to optimize personal and professional well- being, with assistance"
         ],
         "level_2": [
-          "knowledge/skills/",
-          "behaviors of self or team",
-          "and seeks help when",
-          "needed",
-          "Independently recognizes",
-          "status of personal and",
-          "professional well-being and",
-          "seeks help when",
-          "needed",
-          "Proposes and implements"
+          "Recognizes status of personal and professional well-being, with assistance",
+          "Independently develops and implements a plan to remediate or improve the knowledge/skills/ behaviors of self or team"
         ],
         "level_3": [
-          "a plan to remediate or",
-          "improve the knowledge/",
-          "skills/behaviors of self or",
-          "team, with assistance",
-          "Proposes and implements",
-          "a plan to optimize personal",
-          "and professional well-",
-          "being, with",
-          "assistance",
-          "Independently develops"
+          "Independently recognizes limitations in the knowledge/skills/ behaviors of self or team and seeks help when needed",
+          "Independently develops and implements a plan to optimize personal and professional wellbeing"
         ],
         "level_4": [
-          "and implements a plan",
-          "to remediate or improve",
-          "the knowledge/skills/",
-          "behaviors of self or team",
-          "Independently develops",
-          "and implements a plan",
-          "to optimize personal and",
-          "professional wellbeing",
-          "Serves as a resource or",
-          "consultant for developing"
+          "Independently recognizes status of personal and professional well-being and seeks help when needed",
+          "Serves as a resource or consultant for developing a plan to remediate or improve the knowledge/ skills/behaviors"
         ],
         "level_5": [
-          "a plan to remediate or",
-          "improve the knowledge/",
-          "skills/behaviors",
-          "Coaches others when",
-          "responses or limitations in",
-          "knowledge/skills do not",
-          "meet professional",
-          "expectations"
+          "Proposes and implements a plan to remediate or improve the knowledge/ skills/behaviors of self or team, with assistance",
+          "Coaches others when responses or limitations in knowledge/skills do not meet professional expectations"
         ]
       }
     },
     {
       "id": "pathology_ics1",
       "number": 19,
-      "domain_number": 1,
       "name": "Patient and Family-Centered Communication (AP/CP)",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language and",
-          "nonverbal behavior to",
-          "demonstrate respect and",
-          "establish rapport",
-          "Identifies common",
-          "barriers to effective",
-          "communication (e.g.,",
-          "language, disability)",
-          "while accurately",
-          "communicating own role",
-          "within the health care",
-          "system",
-          "Identifies the need to",
-          "adjust communication",
-          "strategies based on",
-          "assessment of",
-          "patient/family",
-          "expectations and"
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with patient/family by introducing stakeholders, setting the agenda, clarifying expectations and verifying understanding of the clinical situation",
+          "Independently recognizes bias while attempting to proactively minimize communication barriers"
         ],
         "level_2": [
-          "understanding of their",
-          "health status and",
-          "treatment options",
-          "Establishes a relationship",
-          "in straightforward",
-          "encounters using active",
-          "listening and clear",
-          "language",
-          "Identifies complex barriers",
-          "to effective",
-          "communication (e.g.,",
-          "health literacy)",
-          "Organizes and initiates",
-          "communication with",
-          "patient/family by",
-          "introducing stakeholders,",
-          "setting the agenda,",
-          "clarifying expectations and"
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Establishes a relationship in challenging patient encounters, as appropriate",
+          "Independently, sensitively, and compassionately delivers medical information, elicits patient/family values, goals and preferences, and acknowledges uncertainty and conflict"
         ],
         "level_3": [
-          "verifying understanding of",
-          "the clinical situation",
-          "Establishes a relationship",
-          "in challenging patient",
-          "encounters, as",
-          "appropriate",
-          "When prompted, reflects",
-          "on biases while attempting",
-          "to minimize",
-          "communication barriers",
-          "Sensitively and",
-          "compassionately delivers",
-          "medical information, elicits",
-          "patient/family values,",
-          "goals and preferences,",
-          "and acknowledges",
-          "uncertainty and conflict,",
-          "with guidance"
+          "Identifies the need to adjust communication strategies based on assessment of patient/family expectations and understanding of their health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
         ],
         "level_4": [
-          "Easily establishes",
-          "relationships, with",
-          "attention to",
-          "patient/family concerns",
-          "and context, regardless",
-          "of complexity",
-          "Independently",
-          "recognizes bias while",
-          "attempting to proactively",
-          "minimize communication",
-          "barriers",
-          "Independently,",
-          "sensitively, and",
-          "compassionately",
-          "delivers medical",
-          "information, elicits",
-          "patient/family values,",
-          "goals and preferences,"
+          "Establishes a relationship in straightforward encounters using active listening and clear language",
+          "Sensitively and compassionately delivers medical information, elicits patient/family values, goals and preferences, and acknowledges uncertainty and conflict, with guidance",
+          "Models self-awareness while teaching a contextual approach to minimize communication barriers"
         ],
         "level_5": [
-          "and acknowledges",
-          "uncertainty and conflict",
-          "Mentors others in",
-          "situational awareness and",
-          "critical self-reflection to",
-          "consistently develop",
-          "positive therapeutic",
-          "relationships",
-          "Models self-awareness",
-          "while teaching a",
-          "contextual approach to",
-          "minimize communication",
-          "barriers",
-          "Models shared decision",
-          "making in patient/family",
-          "communication including",
-          "those with a high degree",
-          "of uncertainty/conflict"
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Easily establishes relationships, with attention to patient/family concerns and context, regardless of complexity",
+          "Models shared decision making in patient/family communication including those with a high degree of uncertainty/conflict"
         ]
       }
     },
     {
       "id": "pathology_ics2",
       "number": 20,
-      "domain_number": 2,
       "name": "Interprofessional and Team Communication (AP/CP)",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language that",
-          "values all members of",
-          "the health care team",
-          "Describes the utility of",
-          "constructive feedback",
-          "Communicates",
-          "information effectively",
-          "with all health care team"
+          "Uses language that values all members of the health care team",
+          "Integrates feedback from team members to improve communication"
         ],
         "level_2": [
-          "members",
-          "Solicits feedback on",
-          "performance as a",
-          "member of the health care",
-          "team",
-          "Uses active listening to",
-          "adapt communication",
-          "style to fit team needs"
+          "Describes the utility of constructive feedback",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
         ],
         "level_3": [
-          "Integrates feedback from",
-          "team members to improve",
-          "communication",
-          "Coordinates",
-          "recommendations from",
-          "different members of the",
-          "health care team to",
-          "optimize patient care"
+          "Communicates information effectively with all health care team members",
+          "Communicates feedback and constructive criticism to superiors"
         ],
         "level_4": [
-          "Communicates feedback",
-          "and constructive",
-          "criticism to superiors",
-          "Models flexible",
-          "communication strategies",
-          "that value input from all",
-          "health care team",
-          "members, resolving"
+          "Solicits feedback on performance as a member of the health care team",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
         ],
         "level_5": [
-          "conflict when needed",
-          "Facilitates regular health",
-          "care team-based",
-          "feedback in complex",
-          "situations"
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
         ]
       }
     },
     {
       "id": "pathology_ics3",
       "number": 21,
-      "domain_number": 3,
       "name": "Communication within Health Care Systems (AP/CP)",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Safeguards patient",
-          "personal health",
-          "information by",
-          "communicating through",
-          "appropriate means as",
-          "required by institutional",
-          "policy (e.g., patient safety",
-          "reports, cell",
-          "phone/pager usage)",
-          "Identifies institutional",
-          "and departmental"
+          "Safeguards patient personal health information by communicating through appropriate means as required by institutional policy (e.g., patient safety reports, cell phone/pager usage)",
+          "Uses institutional structure to effectively communicate clear and constructive suggestions to improve the system"
         ],
         "level_2": [
-          "structure for",
-          "communication of issues",
-          "Appropriately selects forms",
-          "of communication based",
-          "on context and",
-          "urgency of the situation",
-          "Respectfully",
-          "communicates concerns",
-          "about the system",
-          "Communicates while",
-          "ensuring security of"
+          "Identifies institutional and departmental structure for communication of issues",
+          "Independently communicates while ensuring security of personal health information"
         ],
         "level_3": [
-          "personal health",
-          "information, with guidance",
-          "Uses institutional",
-          "structure to effectively",
-          "communicate clear and",
-          "constructive suggestions to",
-          "improve the system",
-          "Independently",
-          "communicates while",
-          "ensuring security of",
-          "personal health"
+          "Appropriately selects forms of communication based on context and urgency of the situation",
+          "Initiates conversations on difficult subjects with appropriate stakeholders to improve the system"
         ],
         "level_4": [
-          "information",
-          "Initiates conversations on",
-          "difficult subjects with",
-          "appropriate",
-          "stakeholders to improve",
-          "the system",
-          "Guides departmental or",
-          "institutional",
-          "communication around",
-          "policies and procedures",
-          "regarding the security of"
+          "Respectfully communicates concerns about the system",
+          "Guides departmental or institutional communication around policies and procedures regarding the security of personal health information"
         ],
         "level_5": [
-          "personal health",
-          "information",
-          "Facilitates dialogue",
-          "regarding systems",
-          "issues among larger",
-          "community stakeholders",
-          "(institution, health care",
-          "system, field)"
+          "Communicates while ensuring security of personal health information, with guidance",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "pathology",
-  "primary_name": "Pathology",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pathologymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pathologysupplementalguide.pdf"

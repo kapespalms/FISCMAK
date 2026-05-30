@@ -3,6 +3,7 @@
   "specialty": "Psychiatry",
   "version": "2.0",
   "source": "ACGME Psychiatry Milestones 2.0",
+  "program_type": "primary",
   "subcompetencies": [
     {
       "id": "psych_pc1",
@@ -152,23 +153,6 @@
       "medhub_outpatient_form": true
     }
   ],
-  "medhub_form_crosswalk": {
-    "psych_milestone_01": "psych_ics1",
-    "psych_milestone_02": "psych_ics2",
-    "psych_milestone_03": "psych_ics3",
-    "psych_milestone_04": "psych_prof1",
-    "psych_milestone_05": "psych_prof2",
-    "psych_milestone_06": "psych_pc1",
-    "psych_milestone_07": "psych_pc2",
-    "psych_milestone_08": "psych_pc3",
-    "psych_milestone_09": "psych_pc5",
-    "psych_milestone_10": "psych_mk2",
-    "psych_milestone_11": "psych_pbli1",
-    "psych_milestone_12": "psych_pbli2",
-    "psych_milestone_13": "psych_sbp2",
-    "psych_milestone_14": "psych_sbp3"
-  },
-  "program_type": "primary",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrysupplementalguide.pdf"

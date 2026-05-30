@@ -1,0 +1,586 @@
+{
+  "framework_key": "neurotology",
+  "specialty": "Neurotology",
+  "version": "2.0",
+  "source": "ACGME Neurotology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "otolaryngology---head-and-neck-surgery",
+  "parent_name": "Otolaryngology - Head and Neck Surgery",
+  "subcompetencies": [
+    {
+      "id": "neurotology_pc1",
+      "number": 1,
+      "name": "Internal Auditory Canal (IAC) and Cerebellopontine Angle (CPA) Lesions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination in patients with IAC and",
+          "Assists in approach to tumor exposure (e.g., labyrinthectomy, elevation of dura or decompression of sigmoid sinus)",
+          "Adapts standard treatment plans and techniques to atypical circumstances",
+          "Serves as a peer resource for managing uncommon/infrequent complications of surgery of the IAC/CPA"
+        ],
+        "level_2": [
+          "CPA pathology",
+          "Initiates work-up of common complications of surgery of the IAC/CPA",
+          "Performs complete tumor exposure and begins tumor dissection"
+        ],
+        "level_3": [
+          "Assists in the initial approach to the temporal bone (e.g., soft tissue dissection, patient positioning incision planning)",
+          "Explains the risks and benefits of treatment plans for IAC and CPA lesions",
+          "Manages uncommon/ infrequent complications of surgery of the"
+        ],
+        "level_4": [
+          "Recognizes common complications of surgery of the IAC/CPA",
+          "Performs surgical approach to tumor exposure and cranial nerve dissection identification of IAC lesions",
+          "IAC/CPA"
+        ],
+        "level_5": [
+          "Formulates a diagnostic and treatment plan for a patient with IAC and CPA lesions",
+          "Manages common complications and recognizes uncommon/infrequent complications of surgery of the IAC/CPA",
+          "Performs significant amount of tumor dissection including dissection along facial nerve"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_pc2",
+      "number": 2,
+      "name": "Lateral Skull Base Tumors",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination in patients with lateral skull base tumors",
+          "Initiates work-up of common complications",
+          "Performs complete tumor exposure and begins tumor dissection"
+        ],
+        "level_2": [
+          "Assists in the initial approach to the temporal bone (e.g., soft tissue dissection, patient positioning incision planning)",
+          "Explains the risks and benefits of treatment plans for lateral skull base tumors",
+          "Manages uncommon/ infrequent complications"
+        ],
+        "level_3": [
+          "Recognizes common complications",
+          "Performs surgical approach up to tumor exposure and identification of critical structures",
+          "Performs tumor dissection"
+        ],
+        "level_4": [
+          "Formulates a diagnostic and treatment plan for a patient with lateral skull base tumors",
+          "Manages common complications and recognizes uncommon/infrequent complications",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ],
+        "level_5": [
+          "Assists in approach to tumor exposure",
+          "Adapts standard treatment plans and techniques to atypical circumstances"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_pc3",
+      "number": 3,
+      "name": "Facial Nerve Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination in patients with facial nerve disorders",
+          "Initiates work-up of common complications",
+          "Performs surgery on the nerve (separates nerve from tumor, performs primary repair of sheath)"
+        ],
+        "level_2": [
+          "Provides routine peri- operative care for patients with facial nerve disorders, including planning of surgical approach and coordination of care with subspecialties",
+          "Explains the risks and benefits of treatment plans for facial nerve disorders",
+          "Manages uncommon/ infrequent complications"
+        ],
+        "level_3": [
+          "Recognizes common complications of facial nerve surgery",
+          "Performs surgical exposure of all segments of the facial nerve, including peri-geniculate, labyrinthine and intracanalicular (via middle fossa and transtemporal approaches)",
+          "Develops innovative techniques for management of facial nerve disorders; leads a multidisciplinary conference on facial nerve disorders"
+        ],
+        "level_4": [
+          "Formulates a diagnostic and treatment plan for patients with facial nerve disorders, including neurophysiologic testing",
+          "Manages common complications and recognizes uncommon/infrequent complications",
+          "Performs facial nerve graft, including harvesting graft from local and distal sight, and performs nerve anastomosis"
+        ],
+        "level_5": [
+          "Surgically identifies and/or skeletonizes the facial nerve lateral to the geniculate ganglion",
+          "Adapts standard treatment plans and techniques to atypical circumstances",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_pc4",
+      "number": 4,
+      "name": "Non-Operative Patient Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Evaluates patients; orders and interprets routine diagnostic testing"
+        ],
+        "level_2": [
+          "Orders and interprets specialty testing"
+        ],
+        "level_3": [
+          "Implements a plan to manage patients with typical presentation patterns, including medical and procedural options"
+        ],
+        "level_4": [
+          "Implements a plan to manage patients with complex presentation patterns, including medical and procedural options, and refers to the multidisciplinary team"
+        ],
+        "level_5": [
+          "Leads the multidisciplinary team for complex patients"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_pc5",
+      "number": 5,
+      "name": "Pediatric Neurotology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs an age- appropriate history and physical examination with developmental assessment",
+          "Recognizes and initiates work-up of routine complications of treatment",
+          "Performs pediatric neurotology procedures"
+        ],
+        "level_2": [
+          "Performs standard pediatric otology procedures (e.g., chronic ear, implants)",
+          "Explains the risks and benefits of pediatric procedures; adapts diagnoses to age-related variations",
+          "Manages uncommon complications of treatment"
+        ],
+        "level_3": [
+          "Provides routine peri- operative care for pediatric otology procedures",
+          "Performs advanced otology procedures and components of neurotology procedures",
+          "Actively participates in discussion at an interdisciplinary pediatric case conference or specialty clinic"
+        ],
+        "level_4": [
+          "Formulates a diagnostic and treatment plan for a pediatric patient",
+          "Manages routine complications and recognizes complex complications of treatment",
+          "Performs rare pediatric neurotology procedures"
+        ],
+        "level_5": [
+          "Assists with advanced otologic procedures and pediatric neurotology procedures",
+          "Adapts standard treatment plans to special circumstances (e.g., syndromic children and infants)",
+          "Serves as a peer resource for managing uncommon/infrequent complications associated with pediatric procedures"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_mk1",
+      "number": 6,
+      "name": "Hearing Loss",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates understanding of the anatomy and physiology of the middle and inner ear, as well as common causes of pediatric and adult hearing loss",
+          "Demonstrates comprehensive knowledge of non-surgical and surgical options for aural rehabilitation",
+          "Demonstrates understanding of the medical and surgical management of complex conductive, mixed, and sensory- neural hearing loss"
+        ],
+        "level_2": [
+          "Demonstrates basic understanding of comprehensive audiologic testing (e.g., pure tone audiometry, speech testing, immittance testing)",
+          "Demonstrates comprehensive understanding of the pathophysiology of cochlear hearing loss",
+          "Demonstrates understanding of indications, outcomes, risks, and complications of cochlear implantation in patients with temporal bone abnormalities and advanced surgical reconstruction of aural atresia"
+        ],
+        "level_3": [
+          "Demonstrates basic understanding of non- surgical and surgical options for aural rehabilitation",
+          "Demonstrates understanding of the medical and surgical management of conductive, mixed, and sensory-neural hearing loss",
+          "Conducts original research related to hearing loss"
+        ],
+        "level_4": [
+          "Demonstrates proficient knowledge of normal and abnormal temporal bone and cochleovestibular histopathology",
+          "Demonstrates understanding of indications, outcomes, risks, and complications of cochlear implants and active middle/inner ear implants",
+          "Develops a course or conference related to hearing loss for a regional or national meeting"
+        ],
+        "level_5": [
+          "Lists unusual causes for hearing loss in pediatric and adult patients, and orders/interprets appropriate advanced audiometric, laboratory, and imaging studies",
+          "Demonstrates a comprehensive understanding of the pathophysiology of retrocochlear and central auditory disorders",
+          "Demonstrates understanding of indications, outcomes, risks, and complications of auditory brainstem implants"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_mk2",
+      "number": 7,
+      "name": "Dizziness",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes normal anatomy and physiology of the peripheral vestibular system",
+          "Describes mechanisms underlying central compensation for peripheral vestibular disorders",
+          "Demonstrates understanding of a multidisciplinary approach to evaluate and manage complex cases of dizziness (e.g., vestibular rehabilitation, neurologic consultation)"
+        ],
+        "level_2": [
+          "Lists common causes of peripheral and central vertigo",
+          "Describes diagnostic criteria and treatment options for central vestibular disorders (e.g., multiple sclerosis, vestibular migraine, stroke)",
+          "Demonstrates knowledge of the indications, outcomes, risks, and complications of ablative and non- ablative vestibular interventions (e.g., for semicircular canal dehiscence, Meniere’s disease)"
+        ],
+        "level_3": [
+          "Demonstrates understanding of non- surgical management of positional vertigo, labyrinthitis, vestibular neuritis, and Meniere’s disease",
+          "Develops a complete differential diagnosis for a complicated dizzy patient and orders appropriate vestibular testing",
+          "Conducts original research related to dizziness"
+        ],
+        "level_4": [
+          "Describes the integration of the peripheral vestibular system with other sensory and motor systems (e.g., vision, proprioception)",
+          "Demonstrates knowledge of physical therapy and other rehabilitative options for peripheral and central vestibular disorders",
+          "Develops a course or conference related to dizziness for a regional or national meeting"
+        ],
+        "level_5": [
+          "Differentiates otologic from non-otologic causes of vertigo",
+          "Demonstrates comprehensive understanding and interpretation of advanced vestibular testing",
+          "Demonstrates understanding of indications, outcomes, risks, and complications of emerging technology, including vestibular implants"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_mk3",
+      "number": 8,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates sound clinical reasoning in common neurotology problems"
+        ],
+        "level_2": [
+          "Identifies errors in clinical reasoning within neurotology"
+        ],
+        "level_3": [
+          "Applies clinical reasoning principles to direct patient care in complex neurotology problems"
+        ],
+        "level_4": [
+          "Reviews the clinical decision making of oneself and the team to identify areas for improvement"
+        ],
+        "level_5": [
+          "Coaches and mentors others in clinical reasoning and helps them to recognize and avoid cognitive errors"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_sbp1",
+      "number": 9,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_sbp2",
+      "number": 10,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_sbp3",
+      "number": 11,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Engages with patients in shared decision making, informed by each patient’s payment model"
+        ],
+        "level_2": [
+          "Describes basic health payment systems, including government, private, public, uninsured care, and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transitions of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how they impact patient care",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type)",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transitions of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_pbli1",
+      "number": 12,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access available evidence, and incorporates patient preferences and values to take care of routine neurotologic conditions"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to manage complex neurotologic conditions"
+        ],
+        "level_4": [
+          "Critically appraises the current literature and presents management in either a grand rounds or journal club setting"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data episodically, with adaptability",
+          "Uses performance data to measure the effectiveness of the learning plan, and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Role models consistently seeking performance data with adaptability"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Intentionally seeks performance data consistently, with adaptability",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_prof1",
+      "number": 14,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for lapses in professionalism",
+          "Analyzes complex situations using ethical principles and recognizes the need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Recognizes situations that might trigger lapses in professionalism and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations and how to appropriately report lapses in professionalism",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_prof2",
+      "number": 15,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations that might impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Gives appropriate feedback to individuals or groups to facilitate task completion in a timely manner"
+        ],
+        "level_4": [
+          "Recognizes situations that might impact one’s own ability to complete tasks and responsibilities in a timely manner",
+          "Leads a conference on accountability and task completion"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Leads a quality improvement study on accountability"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_prof3",
+      "number": 16,
+      "name": "Knowledge of Systemic and Individual Factors of Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of getting help when needed to address personal and professional well-being",
+          "Recognizes the institutional factors affecting well-being"
+        ],
+        "level_2": [
+          "Recognizes departmental factors affecting well-being",
+          "Reflects on actions in real time to proactively respond to the inherent emotional challenges of physician work"
+        ],
+        "level_3": [
+          "Lists resources to support personal and professional well-being",
+          "Describes institutional factors that affect one’s own well-being and that of others"
+        ],
+        "level_4": [
+          "Participates in departmental well-being committee activities",
+          "Participates in institutional changes to promote personal and professional well-being"
+        ],
+        "level_5": [
+          "With prompting, reflects on how personal and professional well-being can impact one’s clinical practice",
+          "Suggests potential solutions to institutional factors that affect well- being"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_ics1",
+      "number": 17,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with a patient/patient’s family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating one’s own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Independently, uses shared decision-making to align the patient’s/patient’s family values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Identifies the need to adjust communication strategies based on assessment of a patient’s/patient’s family’s expectations and understanding of their health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information; elicits a patient’s/patient’s family’s values, goals, and preferences; and acknowledges uncertainty and conflict",
+          "Role models self- awareness while identifying a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Easily establishes therapeutic relationships, with attention to a patient’s/patient’s family’s concerns and context, regardless of complexity",
+          "Role models shared decision making in patient/family communication including those with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_ics2",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests/receives a consultation",
+          "Receives follow-up and feedback on the outcome of the consultation",
+          "Communicates concerns and provides feedback to peers, learners, and superiors"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_3": [
+          "Clearly and concisely requests/responds to a consultation",
+          "Solicits feedback on performance as a member of the health care team",
+          "Facilitates health care team-based feedback in complex situations"
+        ],
+        "level_4": [
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Facilitates teaching of team-based communication and feedback"
+        ],
+        "level_5": [
+          "Respectfully receives feedback on performance as a member of the health care team",
+          "Facilitates health care team-based feedback in routine situations"
+        ]
+      }
+    },
+    {
+      "id": "neurotology_ics3",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context"
+        ],
+        "level_2": [
+          "Safeguards patients’ personal health information",
+          "Communicates clearly, concisely, timely, and in an organized written form, including providing anticipatory guidance"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Produces written or verbal communication (e.g., patient notes, email) that serves as an example for others to follow"
+        ],
+        "level_4": [
+          "Documents required data in formats specified by institutional policy",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_5": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Guides departmental or institutional communication around policies and procedures"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurotologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurotologysupplementalguide.pdf"
+  }
+}

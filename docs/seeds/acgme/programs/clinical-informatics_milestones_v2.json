@@ -1,0 +1,616 @@
+{
+  "framework_key": "clinical-informatics",
+  "specialty": "Clinical Informatics",
+  "version": "2.0",
+  "source": "ACGME Clinical Informatics Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "preventive-medicine",
+  "parent_name": "Preventive Medicine",
+  "subcompetencies": [
+    {
+      "id": "clinical_informatics_pc1",
+      "number": 1,
+      "name": "Consumer Informatics Applications, Portals, and Telehealth",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the basis for a consumer-facing health informatics application",
+          "Evaluates applications for telehealth, portals, and health information systems"
+        ],
+        "level_2": [
+          "Describes the key components and processes of telehealth, portals, and health information systems",
+          "Designs a consumer- facing health informatics application prototype"
+        ],
+        "level_3": [
+          "Identifies a use case for a consumer-facing health informatics application and deduces required functionalities",
+          "Develops improvements to existing telehealth, portals, and health information system applications"
+        ],
+        "level_4": [
+          "Identifies a use case for telehealth, portals, and health information systems and describes workflow and functionalities",
+          "Implements or leads implementation of a consumer-facing health informatics application"
+        ],
+        "level_5": [
+          "Applies tools for a consumer-facing health informatics application",
+          "Designs and implements telehealth, portals, and health information systems"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_pc2",
+      "number": 2,
+      "name": "Existing and Emerging Data Sources",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes opportunities and challenges to the acquisition and use of emerging data sources",
+          "Extracts, stores, and analyzes data from medical devices"
+        ],
+        "level_2": [
+          "Describes medical device data formats, types, and architecture",
+          "Implements specialty- specific systems to access and incorporate emerging data sources into the electronic health record (EHR)"
+        ],
+        "level_3": [
+          "Creates a plan to analyze and develop knowledge from emerging data sources",
+          "Assesses and prioritizes the integration of data from medical devices"
+        ],
+        "level_4": [
+          "Defines and electronically accesses medical device data",
+          "Accesses and incorporates information from emerging data sources"
+        ],
+        "level_5": [
+          "Analyzes and develops knowledge from emerging data sources",
+          "Develops improvements to integration and use of medical device data"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_mk1",
+      "number": 3,
+      "name": "Project Management",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic project management principles and identifies resources and tools for projects",
+          "Sets deadlines and monitors project progress according to the project plan"
+        ],
+        "level_2": [
+          "Plans and develops a project idea",
+          "Implements a project using project management principles"
+        ],
+        "level_3": [
+          "Identifies suitable areas to apply project management tools",
+          "Addresses and solves problems"
+        ],
+        "level_4": [
+          "Creates and leads a team",
+          "Manages a project from initiation to completion, including scope, resources, and timeline"
+        ],
+        "level_5": [
+          "Designs a project, leveraging project management principles",
+          "Successfully manages customer expectations and evaluates projects"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_mk2",
+      "number": 4,
+      "name": "Health Information Technology (HIT) Knowledge of Current and New Testing, Implementation, and",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the features and functionalities of",
+          "Defines best practices for",
+          "EHR or other clinical information systems",
+          "Leads project groups in the design, implementation, and upgrade of EHRs and other clinical information systems"
+        ],
+        "level_2": [
+          "EHRs and other clinical information systems",
+          "EHR implementation and maintenance",
+          "Designs and implements solutions",
+          "Leads the evaluation a of clinical informatics project related to EHRs and other clinical information systems"
+        ],
+        "level_3": [
+          "Possesses basic knowledge of HIT systems and their integration into the enterprise",
+          "Identifies and maintains stakeholder expectations",
+          "Participates in leadership of the project group",
+          "Provides knowledge management to existing solutions"
+        ],
+        "level_4": [
+          "Demonstrates basic knowledge of HIT industry standards and ontologies",
+          "Participates in the system selection process using shared principles for the selection",
+          "Demonstrates leadership skills during implementation projects"
+        ],
+        "level_5": [
+          "Conducts requirement specifications",
+          "Collaborates with members of an interprofessional clinical informatics team to implement, integrate, monitor, or evaluate the",
+          "Evaluates projects and provides solutions"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_sbp1",
+      "number": 5,
+      "name": "HIT Knowledge of Current and New Testing, Implementation, Monitoring",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes the significance of legal and regulatory issues related to technical solutions to enterprise challenges",
+          "Analyzes HIT products, emerging technologies, and innovation for one or more specific opportunities"
+        ],
+        "level_2": [
+          "Discusses the role of vendor HIT products, emerging technologies, and innovation",
+          "Addresses legal and regulatory issues related to technical solutions to enterprise challenges and assures compliance with regulations"
+        ],
+        "level_3": [
+          "Identifies key factors associated with legal and regulatory issues related to technical solutions to enterprise challenges",
+          "Participates meaningfully in selection and implementation of HIT products, emerging technologies, and innovation"
+        ],
+        "level_4": [
+          "Identifies opportunities for the use of vendor HIT products, emerging technologies, and innovation",
+          "Leads processes addressing legal and regulatory issues related to technical solutions to enterprise challenges"
+        ],
+        "level_5": [
+          "Participates in identifying legal and regulatory issues related to technical solutions to enterprise challenges",
+          "Leads projects related to the implementation of HIT products, emerging technologies, and innovation"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_sbp2",
+      "number": 6,
+      "name": "Standards and Interoperability",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes methods and standards for data sharing across systems to support data sharing through health information exchanges, public health reporting, or other mechanisms",
+          "Analyzes key factors in fostering interoperability between disparate health information systems",
+          "Develops solutions to ensure connectivity, interfacing, and validity of content between systems and clinical areas"
+        ],
+        "level_2": [
+          "Discusses issues related to ensuring connectivity, interfacing, and validity of content between systems and clinical areas",
+          "Identifies opportunities for data sharing across systems to support data sharing through health information exchanges, public health reporting, or other mechanisms",
+          "Participates meaningfully in efforts to foster interoperability between disparate health information systems"
+        ],
+        "level_3": [
+          "Discusses sociocultural and other issues regarding fostering interoperability between disparate health information systems",
+          "Participates in efforts to ensure connectivity, interfacing, and validity of content between systems and clinical areas",
+          "Leads efforts to design and implement methods and standards for data sharing across systems to support data sharing through health information exchanges, public health reporting, or other mechanisms"
+        ],
+        "level_4": [
+          "Analyzes key factors regarding methods and standards for data sharing across systems to support data sharing through health information exchanges, public health reporting, or other mechanisms",
+          "Identifies opportunities to foster interoperability between disparate health information systems",
+          "Implements solutions to ensure connectivity, interfacing, and validity of content between systems and clinical areas"
+        ],
+        "level_5": [
+          "Identifies requirements and/or constraints related to ensuring connectivity, interfacing, and validity of content between systems and clinical areas",
+          "Participates in efforts to design and implement methods and standards for data sharing across systems to support data sharing through health information exchanges, public health reporting, or other mechanisms",
+          "Leads efforts to foster interoperability between disparate health information systems"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_sbp3",
+      "number": 7,
+      "name": "Data Integrity/Security",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Discusses data issues and processes to safeguard the availability of relevant and valid data to meet clinical, quality, research, business, and strategic objectives",
+          "Identifies areas of focus for security threat assessments, development of security policies, and training"
+        ],
+        "level_2": [
+          "Describes security threat assessments, development of security policies, and training",
+          "Meaningfully participates in the development of new processes to safeguard the availability of relevant and valid data to meet clinical, quality, research, business, and strategic objectives"
+        ],
+        "level_3": [
+          "Analyzes key factors in existing efforts to safeguard the availability of relevant and valid data to meet clinical, quality, research, business, and strategic objectives",
+          "Meaningfully engages in efforts to conduct security threat assessments, development of security policies, and training"
+        ],
+        "level_4": [
+          "Recognizes key factors and benefits related to security threat assessments, development of security policies, and training",
+          "Leads efforts to implement processes to safeguard the availability of relevant and valid data to meet clinical, quality, research, business, and strategic objectives"
+        ],
+        "level_5": [
+          "Identifies opportunities for implementing new processes to safeguard the availability of relevant and valid data to meet clinical, quality, research, business, and strategic objectives",
+          "Educates others regarding security threat assessments, development of security policies, and training"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_pbli1",
+      "number": 8,
+      "name": "Optimization, Downtime, Functional Requirements",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Discusses challenges associated with clinical information system upgrades and downtime",
+          "EHR optimization and system downtime",
+          "Develops solution for downtime problems and challenges"
+        ],
+        "level_2": [
+          "Articulates functional requirements related to",
+          "Analyzes workflows related to clinician use of the EHR and suggests techniques for optimization of both workflows and EHR use",
+          "Develops and executes"
+        ],
+        "level_3": [
+          "EHR optimization and system downtime",
+          "Analyzes downtime events and identifies areas for improvement",
+          "EHR upgrade, optimization, and downtime procedures"
+        ],
+        "level_4": [
+          "Provides direct user support during EHR upgrades, routine system maintenance cycles, and downtime",
+          "Develops and deploys specific system and process changes during"
+        ],
+        "level_5": [
+          "Supports clinicians in",
+          "EHR upgrades and for optimization-related clinical informatics projects"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_pbli2",
+      "number": 9,
+      "name": "Clinical Decision Support (CDS)",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies the elements and categories and discusses the challenges of CDS, such as alert fatigue"
+        ],
+        "level_2": [
+          "Describes the basics of the science of decision- making, including heuristics and tools to analyze decisions"
+        ],
+        "level_3": [
+          "Participates in the design and evaluation of an evidence-based CDS based on input from stakeholders"
+        ],
+        "level_4": [
+          "Assists in implementation of an evidence-based CDS, and monitors its effectiveness using key outcomes/measures/metrics"
+        ],
+        "level_5": [
+          "Leads the design and implementation of an evidence-based CDS and develops a plan to identify and monitor key outcomes/measures/metrics"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_pbli3",
+      "number": 10,
+      "name": "Analytics",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Discusses various data mining and analytics techniques"
+        ],
+        "level_2": [
+          "Identifies appropriate data analytics tools and visualizations for a specific use case"
+        ],
+        "level_3": [
+          "Constructs queries using database query languages and ancillary software and performs preliminary analysis on datasets"
+        ],
+        "level_4": [
+          "Analyzes datasets using programming tools and present summary findings to stakeholders using data visualization tools"
+        ],
+        "level_5": [
+          "Leverages analytics to improve patient care"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_pbli4",
+      "number": 11,
+      "name": "Human-Computer Interaction (HCI) and User Interfaces (UI)",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies models, theories, and practices of",
+          "UI as new functionalities or modules are implemented"
+        ],
+        "level_2": [
+          "HCI, including interface design standards and principles",
+          "Evaluates elements of usability of a new EHR module or functionality"
+        ],
+        "level_3": [
+          "Discusses the role of EHR",
+          "Designs or modifies a prototype for UI that can be used by clinical end users"
+        ],
+        "level_4": [
+          "UI in causing clinical errors"
+        ],
+        "level_5": [
+          "Participates in analysis of feedback of EHR users of"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_pbli5",
+      "number": 12,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data episodically, with adaptability and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Role models consistently seeking performance data with adaptability and humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Intentionally seeks performance data consistently, with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_prof1",
+      "number": 13,
+      "name": "Governance",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Attends and provides summaries of organizational informatics and/or management governance meetings",
+          "HIT governance activities"
+        ],
+        "level_2": [
+          "Adds meaningful contributions to ideas generated during (or in relation to) governance meetings"
+        ],
+        "level_3": [
+          "Contributes new ideas and tools to governance and leads subtasks/projects for the governance committee"
+        ],
+        "level_4": [
+          "Leads work that meaningfully contributes to new policies and strategic plans"
+        ],
+        "level_5": [
+          "Co-leads organizational"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_prof2",
+      "number": 14,
+      "name": "Mentorship",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Explains the functionality of health IT systems",
+          "Serves as a mentor to a team member or junior colleague"
+        ],
+        "level_2": [
+          "Seeks out and engages with mentors",
+          "Actively engages in individual and HIT systems training"
+        ],
+        "level_3": [
+          "Provides direct support for health IT systems",
+          "Advises mentees and supports them in development and evaluation of projects"
+        ],
+        "level_4": [
+          "Offers support and advice to team members",
+          "Develops and executes user education workshops and sessions"
+        ],
+        "level_5": [
+          "Participates in the development of learning materials for HIT",
+          "Manages large teams of mentees at various stages of development and leverages more senior mentees to mentor junior ones"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_prof3",
+      "number": 15,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes and utilizes appropriate resources for managing and resolving ethical dilemmas as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the ethical principles underlying the practice of clinical informatics",
+          "Recognizes the need to seek help in managing and resolving complex ethical situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles"
+        ],
+        "level_5": [
+          "Takes responsibility for one’s own professionalism lapses",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_prof4",
+      "number": 16,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Monitors and improves strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner",
+          "Takes ownership of system outcomes"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Takes ownership of personal and team failures"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_prof5",
+      "number": 17,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the status of personal and professional well-being, with assistance"
+        ],
+        "level_2": [
+          "Independently recognizes the status of personal and professional well-being"
+        ],
+        "level_3": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_ics1",
+      "number": 18,
+      "name": "Communicate Effectively with Multiple Constituencies",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Effectively uses an online team communication tool",
+          "Generates a respectful project proposal that is approved by the administration"
+        ],
+        "level_2": [
+          "Demonstrates respectful communications",
+          "Implements the results of a project into practice"
+        ],
+        "level_3": [
+          "Creates a logical argument to propose a new project",
+          "Implements a respectful project in clinical practice"
+        ],
+        "level_4": [
+          "Sets up respectful communication by the team, project, and subproject",
+          "Demonstrates practice improvement through team science and team medicine"
+        ],
+        "level_5": [
+          "Writes a project proposal that is approved by the administration",
+          "Demonstrates the effectiveness of a respectful practice improvement project"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_ics2",
+      "number": 19,
+      "name": "Building Consensus",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies stakeholders",
+          "Participates in governance"
+        ],
+        "level_2": [
+          "Contributes to the creation of a project vision",
+          "Coordinates discussions to resolve conflict across stakeholders"
+        ],
+        "level_3": [
+          "Creates targeted messaging for each stakeholder",
+          "Inspires and motivates others to accept change"
+        ],
+        "level_4": [
+          "Communicates vision of the project",
+          "Builds consensus that is operationalized in the health system"
+        ],
+        "level_5": [
+          "Delivers messages to stakeholders in multi- modal fashion and receives feedback",
+          "Evaluates change and pursues opportunities for improvement"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_ics3",
+      "number": 20,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a consultation",
+          "Communicates information effectively with all health care team members",
+          "Communicates concerns and provides feedback to peers and learners"
+        ],
+        "level_2": [
+          "Respectfully receives a consultation request",
+          "Solicits feedback on performance as a member of the health care team",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Uses language that values all members of the health care team",
+          "Checks one’s own understanding of consultant recommendations",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Clearly and concisely requests a consultation and explains the rationale for the request",
+          "Checks understanding of recommendations when providing consultation",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Clearly and concisely responds to a consultation request",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "clinical_informatics_ics4",
+      "number": 21,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Respectfully communicates concerns about the system",
+          "Produces written or verbal communication (patient notes, email, etc.) that serves as an example for others to follow"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information",
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_3": [
+          "Communicates through appropriate channels as required by institutional policy (e.g., patient safety reports, cell phone/pager usage)",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_4": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_5": [
+          "Documents required data in formats specified by institutional policy",
+          "Communicates clearly, concisely, in a timely manner, and in an organized written form, including providing anticipatory guidance",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf"
+  }
+}

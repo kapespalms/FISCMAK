@@ -1,0 +1,492 @@
+{
+  "framework_key": "medical-biochemical-genetics",
+  "specialty": "Medical Biochemical Genetics",
+  "version": "2.0",
+  "source": "ACGME Medical Biochemical Genetics Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "medical-genetics-and-genomics",
+  "parent_name": "Medical Genetics and Genomics",
+  "subcompetencies": [
+    {
+      "id": "medical_biochemical_genetics_pc1",
+      "number": 1,
+      "name": "Initial or Acute Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With guidance, recognizes signs and symptoms of inborn errors of metabolism and identifies when further testing is needed",
+          "Develops and implements an initial management plan for complex or rare patient presentations of inborn errors of metabolism (e.g., pyruvate dehydrogenase complex deficiency, carnitine-acylcarnitine translocase deficiency)"
+        ],
+        "level_2": [
+          "Selects and orders diagnostic tests and develops a rudimentary management plan for initial evaluation or implements the existing management plan",
+          "Synthesizes the clinical context and pattern of laboratory results to identify the likelihood of a complex or rare inborn error of metabolism"
+        ],
+        "level_3": [
+          "Independently recognizes signs and symptoms of inborn errors of metabolism and identifies when further testing is needed",
+          "Anticipates and creates contingency plan for an acute response and develops an acute secondary plan"
+        ],
+        "level_4": [
+          "Develops and implements an initial management plan for common patient presentations of inborn errors of metabolism (e.g., organic aciduria, urea cycle)",
+          "Leads development of institutional protocols for diagnosis and management of inborn errors of metabolism"
+        ],
+        "level_5": [
+          "Synthesizes the clinical context and pattern of laboratory results to identify the likelihood of a common inborn error of metabolism"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_pc2",
+      "number": 2,
+      "name": "Chronic Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Takes a comprehensive genetic history for a patient with pertinent positive and negative findings; integrates the history with other data to develop a differential diagnosis",
+          "Provides routine disease- specific surveillance",
+          "Guides a patient through shared decision making on novel or high-risk therapies; coordinates implementation of these therapies"
+        ],
+        "level_2": [
+          "Implements dietary and medical therapy for patients with a common inborn error of metabolism (e.g., carnitine uptake defect, medium-chain acyl-CoA dehydrogenase deficiency, dietary therapy for phenylketonuria (PKU))",
+          "Takes a disease-specific history for a patient with a complex inborn error of metabolism with multisystemic manifestations (e.g., Hunter syndrome)",
+          "Anticipates and creates contingency plans for highly pleotropic inborn errors of metabolism (e.g., mucopolysaccharidosis"
+        ],
+        "level_3": [
+          "Provides symptomatic and supportive care to patients",
+          "Identifies a patient who, based on natural history, is a candidate for disease modifying therapy (e.g., solid organ transplant, enzyme replacement therapy, cell-based therapy)",
+          "I)"
+        ],
+        "level_4": [
+          "Takes an inborn error of metabolism focused history for a patient with an established common inborn error of metabolism (e.g., PKU)",
+          "Provides ongoing comprehensive surveillance of disease progression and care coordination",
+          "Implements a clinical trial to improve management of patients with an inborn error of metabolism"
+        ],
+        "level_5": [
+          "Synthesizes clinical and laboratory data to optimize complex dietary and medical therapy (e.g., urea cycle disorders)",
+          "Efficiently takes a nuanced disease- specific history for a patient with an inborn error of metabolism",
+          "Implements a multi- disciplinary clinic for care of patients with an inborn error of metabolism"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_pc3",
+      "number": 3,
+      "name": "Newborn Screening",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Applies published (state or national) protocols to obtain follow-up testing based on initial newborn screen results",
+          "Makes appropriate decisions about urgency of implementation of management based on initial clinical history"
+        ],
+        "level_2": [
+          "Applies published (state or national) protocols for initial management based on the initial newborn screen result",
+          "Integrates data from multiple sources to arrive at an accurate diagnosis for the patient"
+        ],
+        "level_3": [
+          "Generates a differential diagnosis based on newborn screen results that includes diagnoses other than inherited metabolic diseases",
+          "Develops a plan for management of a patient with incidental findings or results that indicate concern for a disease that is not intended to be identified with newborn screening"
+        ],
+        "level_4": [
+          "Develops a continuing management plan when initial testing is inconclusive",
+          "Participates in state, regional, or national newborn screening program policy development or evaluation projects"
+        ],
+        "level_5": [
+          "Applies published protocols for diagnosis with modifications to account for patient specific factors"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_mk1",
+      "number": 4,
+      "name": "Molecular and Metabolic Mechanisms",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes biochemical pathways and principles underpinning diagnosis and therapy for categories of inborn errors of metabolism (e.g., protein restriction, cofactor therapy, pathway modifying medications)"
+        ],
+        "level_2": [
+          "Describes how manipulation of biochemical pathways through various therapeutic modalities (diet, medications, etc.) can be employed for management of specific inborn errors of metabolism (e.g., ornithine transcarbamylase deficiency versus argininosuccinate lyase deficiency; cystathionine beta-synthase deficiency versus cobalamin C disease)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the interconnectedness of biochemical pathways and employs these concepts in diagnosis and management"
+        ],
+        "level_4": [
+          "Integrates knowledge of the complex nature of biochemical pathways to prioritize and employ the range of therapeutic options for a patient, based upon an individual’s clinical and biochemical response to therapy"
+        ],
+        "level_5": [
+          "Expands understanding of underlying biochemical basis of inborn errors of metabolism through publication of new knowledge that impacts the diagnosis or treatment of a disease or category of inborn errors of metabolism"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_mk2",
+      "number": 5,
+      "name": "Diagnostic Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the technology and use of diagnostic testing for inborn errors of metabolism",
+          "Identifies best methods for diagnosis and subsequent laboratory monitoring for common inborn errors of metabolism",
+          "Integrates data from multiple sources to identify how likely an individual newborn screening test is a true positive"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the differences between newborn screening and diagnostic testing",
+          "Interprets complex metabolic testing (e.g., very long chain fatty acids) for inborn errors of metabolism",
+          "Develops polices or practice guidelines for diagnostic testing of inborn errors of metabolism"
+        ],
+        "level_3": [
+          "Identifies possible methods for diagnosis and subsequent laboratory monitoring for inborn errors of metabolism",
+          "Demonstrates knowledge of positive predictive values of newborn screening tests and tools for improved discrimination of positive and negative results",
+          "Participates in new assay development or gene discovery"
+        ],
+        "level_4": [
+          "Interprets common metabolic testing (e.g., plasma amino acids) for inborn errors of metabolism",
+          "Identifies best methods for diagnosis and subsequent laboratory monitoring for complex inborn errors of metabolism",
+          "Contributes to generalizable medical knowledge of newborn screening tests"
+        ],
+        "level_5": [
+          "Describes causes of false positive/negative rates and how these factors can impact newborn screening test interpretation",
+          "Integrates results of metabolic and genomic testing to arrive at a diagnosis"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_sbp1",
+      "number": 6,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local (institutional) quality improvement initiatives",
+          "Independently discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local (institutional) quality improvement initiatives",
+          "Mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community (state/federal) level"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_sbp2",
+      "number": 7,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for their local population",
+          "Models and advocates for safe and effective transitions of care/hand- offs within and across health care delivery systems including outpatient settings, referrals, and testing"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of the interprofessional teams",
+          "Participates in changing and adapting practice to provide for the needs of specific populations including advocating for a patient’s genetic testing coverage"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of quality improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams, including non-physician patient caregivers",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Models effective coordination of patient- centered care among different disciplines and specialties including referrals and testing",
+          "Leads innovations and advocates for populations and communities with specific health care needs at the state or federal level"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_sbp3",
+      "number": 8,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model, including genetic testing through research"
+        ],
+        "level_2": [
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Discusses how individual practice affects the broader system (e.g., access to genetic testing and treatments, testing advocacy)",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
+        ],
+        "level_3": [
+          "Identifies basic knowledge for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Engages with patients in shared decision making, often informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_4": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Describes core administrative knowledge needed for transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_5": [
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type) and access to genetic testing or formula",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_pbli1",
+      "number": 9,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values to take care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
+        ],
+        "level_5": [
+          "Mentors others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_pbli2",
+      "number": 10,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Mentors others on reflective practice"
+        ],
+        "level_2": [
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data consistently with adaptability and humility",
+          "Facilitates the design and implementing learning plans for others"
+        ],
+        "level_3": [
+          "Designs and implements a learning plan, with prompting",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance",
+          "Develops evaluations or education resources/tools for learners"
+        ],
+        "level_4": [
+          "Seeks performance data episodically, with adaptability and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and when necessary, improves it",
+          "Participates in the development of courses for the education of students or other physicians"
+        ],
+        "level_5": [
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models seeking performance data with adaptability and humility"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_prof1",
+      "number": 11,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates compassion, sensitivity, honesty, integrity, and identifies potential triggers for professionalism lapses",
+          "Identifies different types of conflicts of interest, knows guidelines for interactions with vendors",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Demonstrates compassion, sensitivity, honesty, and integrity in complex/stressful situations",
+          "Demonstrates consistently professional behavior regarding conflicts of interest relevant to presentations, publishing, consulting, and service"
+        ],
+        "level_3": [
+          "Demonstrates basic knowledge of conflict of interest",
+          "Recognizes need to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_4": [
+          "Demonstrates compassion, sensitivity, honesty, integrity, and takes responsibility for own professionalism lapses",
+          "Identifies resources for managing and resolving conflicts of interest",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Analyzes straightforward situations using ethical principles",
+          "Demonstrates compassion, sensitivity, honesty, integrity, and serves as a role model to others"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_prof2",
+      "number": 12,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Demonstrates a professional appearance, daily demeanor, and conduct",
+          "Promotes professional appearance, demeanor, and conduct in their peers and associates"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Volunteers to improve and takes ownership of system outcomes"
+        ],
+        "level_3": [
+          "Recognizes the role of appearance, daily demeanor and conduct in the role of a professional",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_4": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Sets a standard for appearance, daily demeanor, and conduct as a professional"
+        ],
+        "level_5": [
+          "Recognizes situations that may impact his/her own ability to complete tasks and responsibilities in a timely manner",
+          "Recognizes and addresses situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_prof3",
+      "number": 13,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "With assistance, proposes a plan to remediate or improve limits in the knowledge/ skills of self or team"
+        ],
+        "level_2": [
+          "Recognizes limits in the knowledge/skills of self or team, with assistance",
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes status of personal and professional well-being",
+          "Independently develops a plan to remediate or improve limits in the knowledge/skills of self or team"
+        ],
+        "level_4": [
+          "Independently recognizes limits in the knowledge/ skills of self or team and demonstrates appropriate help-seeking behaviors",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_ics1",
+      "number": 14,
+      "name": "Patient and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with patient/family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication while accurately communicating own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Uses shared decision making to align patient/family values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Identifies the need to adjust communication strategies based on assessment of patient/family expectations and understanding of their health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient/family values, goals, and preferences, and acknowledges uncertainty and conflict",
+          "Models self-awareness practice while identifying teaching a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication",
+          "Establishes therapeutic relationships, with attention to patient/family concerns and context, regardless of complexity",
+          "Models shared decision making in patient/family communication including those with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_ics2",
+      "number": 15,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Clearly and concisely requests a consultation",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Leads interactions between the primary care and metabolic team regarding rationale for recommendations"
+        ],
+        "level_2": [
+          "Clearly and concisely responds to a consultation request",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Provides constructive feedback on active listening to health care team members"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Provides information to the primary care team regarding rationale for recommendations",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_4": [
+          "Checks own understanding of consultant recommendations",
+          "Models active listening to other health care team members"
+        ],
+        "level_5": [
+          "Checks requestor’s understanding of recommendations when providing consultation",
+          "Leads an interprofessional metabolic team to optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "medical_biochemical_genetics_ics3",
+      "number": 16,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Achieves written or verbal communication (e.g., patient notes, email) that serves as an example for others to follow"
+        ],
+        "level_2": [
+          "Uses documentation shortcuts accurately, appropriately and in a timely manner",
+          "Provides feedback to more junior learners on reporting diagnostic and therapeutic reasoning in the patient record"
+        ],
+        "level_3": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Mentors more junior learners in written and verbal communication"
+        ],
+        "level_4": [
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_5": [
+          "Communicates clearly, concisely, timely, and in an organized written form, including anticipatory guidance",
+          "Guides departmental or institutional communication around policies and procedures"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalbiochemicalgeneticsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalbiochemicalgeneticssupplementalguide.pdf"
+  }
+}

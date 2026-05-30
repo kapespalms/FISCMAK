@@ -1,0 +1,737 @@
+{
+  "framework_key": "child-and-adolescent-psychiatry",
+  "specialty": "Child and Adolescent Psychiatry",
+  "version": "2.0",
+  "source": "ACGME Child and Adolescent Psychiatry Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "psychiatry",
+  "parent_name": "Psychiatry",
+  "subcompetencies": [
+    {
+      "id": "child_and_adolescent_psychiatry_pc1",
+      "number": 1,
+      "name": "Psychiatric Evaluation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "For adolescents, acquires accurate history and mental status examination findings, customized to the chief complaints",
+          "Engages in a basic risk assessment and basic safety planning for children and adolescents",
+          "Evaluates the structure and functioning of the patient’s family, including strengths, vulnerabilities, and cultural factors, as they pertain to the child/adolescent patient"
+        ],
+        "level_2": [
+          "Collects relevant information from collateral sources",
+          "Uses hypothesis-driven information-gathering to obtain a complete, accurate, and relevant history from child and adolescent patients and their family/caregivers",
+          "Incorporates risk and protective factors into the assessment of complex patient and patient family presentations, including eliciting information not readily offered by the patient and utilizing standard risk assessments scales"
+        ],
+        "level_3": [
+          "Screens patients for risk of harm to self, to others, or by others",
+          "Interprets collateral information, test results, and standardized assessment tools to determine necessary additional steps",
+          "Incorporates therapeutic interventions into the initial evaluation interview and collateral sources and creative use of both verbal and non-verbal evaluation techniques"
+        ],
+        "level_4": [
+          "For adolescents, obtains information that is sensitive and not readily offered by the patient",
+          "Incorporates risk and protective factors into the assessment of imminent, short-term, and long-term patient safety and the safety of others",
+          "Serves as a role model for risk assessment in all clinical settings"
+        ],
+        "level_5": [
+          "Selects appropriate laboratory and diagnostic tests, including standardized assessment tools",
+          "Efficiently acquires an accurate and relevant history and performs a targeted examination customized to the patient's developmental level, patient’s family context, and complexity of the patient’s clinical presentation"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pc2",
+      "number": 2,
+      "name": "Psychiatric Formulation and Differential Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Organizes and accurately summarizes information obtained from the patient evaluation to develop a clinical impression",
+          "Recognizes that the clinician’s emotional responses to patients may have diagnostic value",
+          "Identifies the role of psychological, cognitive, social, sexual, and moral developmental level in a patient’s presentation"
+        ],
+        "level_2": [
+          "Recognizes that biological, psychosocial, and developmental/life cycle factors play a role in a patient’s presentation",
+          "Incorporates the significance of a patient’s and patient’s family’s adverse childhood experiences; patient’s intersecting identities; and experiences into the clinical impression",
+          "Attends to and appropriately uses feelings elicited in the patient and psychiatrist to develop a diagnostic picture"
+        ],
+        "level_3": [
+          "Recognizes that clinicians have emotional responses to patients",
+          "Identifies specific psychosocial factors, including relationships, home environment, advancement opportunities, and social determinants of health that contribute to a patient’s presentation",
+          "Serves as a role model in the development of accurate and complete differential diagnoses and formulations"
+        ],
+        "level_4": [
+          "Integrates and prioritizes information obtained from the patient, patient’s caregivers, other health care practitioners; and education, welfare, and legal systems to develop a clinical impression",
+          "Differentiates emotional responses that are related to the clinician’s history and those that are induced by a patient",
+          "Serves as a role model to others for identifying how biological, psychosocial, and developmental/life cycle factors play a role in a patient’s presentation"
+        ],
+        "level_5": [
+          "Identifies specific biological factors, including heredity, genomics, nutrition, sex, race, and substances, that play a role in a patient’s presentation",
+          "Reconciles information from different collateral sources, recognizing when information varies or conflicts, and integrates information into a comprehensive formulation",
+          "Consults to others when emotional responses are impeding treatment"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pc3",
+      "number": 3,
+      "name": "Treatment Planning and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies potential biopsychosocial treatment options",
+          "Coordinates care with community resources",
+          "In complex presentations, considers family and sociocultural factors, recommends the most appropriate interventions/treatment, and adjusts as indicated"
+        ],
+        "level_2": [
+          "Recognizes that acuity and complexity affect level of care and treatment monitoring",
+          "Applies an understanding of psychiatric, substance use, neurologic, and medical co-occurring disorders in the management of common presentations",
+          "Locates and connects patients to community resources in complex and difficult situations"
+        ],
+        "level_3": [
+          "Gives examples of types of community resources",
+          "In common presentations, considers family and sociocultural factors, recommends the most appropriate interventions/treatments, and adjusts as indicated",
+          "Supervises treatment planning by other learners and multidisciplinary practitioners"
+        ],
+        "level_4": [
+          "Informs the patient/patient’s family of the available evidence- based biopsychosocial treatments, recognizing that co-occurring conditions and side effects impact treatment",
+          "Incorporates support and advocacy services/groups in treatment planning",
+          "Matches patient and family needs and preferences to specific local or virtual/online resources and advocates for the creation of resources when gaps are identified"
+        ],
+        "level_5": [
+          "Recommends the most appropriate level of care based on acuity and complexity, and monitors treatment adherence and response",
+          "Develops individualized treatment plans for complex presentations; integrates multiple biopsychosocial modalities and input from other care practitioners in a comprehensive approach"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pc4",
+      "number": 4,
+      "name": "Psychotherapy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates empathy, respect, and interest in both the identified patient and the patient’s family/caregiving system",
+          "Selects the appropriate modality for multi-person psychotherapy, including the needs, goals, culture, and resources of the patient and the patient’s family system",
+          "Provides individual psychotherapy from beginning to termination to youth at various developmental stages"
+        ],
+        "level_2": [
+          "Develops familiarity with a range of therapeutic modalities for individual psychotherapy with children and adolescents",
+          "Recognizes the value of family involvement while maintaining the ethical and legal limits on confidentiality of psychotherapy with a minor patient",
+          "Provides multi-person psychotherapy to youth at various developmental stages"
+        ],
+        "level_3": [
+          "Develops familiarity with a range of therapeutic modalities for multi- person psychotherapy, including dyadic, family, and group psychotherapies",
+          "Creatively uses techniques from play and expressive therapies to facilitate individual psychotherapy",
+          "Mentors other learners in psychotherapy and seeks additional psychotherapy education and collaboration when needed"
+        ],
+        "level_4": [
+          "Builds and maintains a therapeutic alliance with a patient and patient’s family, and identifies potential boundary violations and crossings in a psychotherapeutic relationship",
+          "With supervision, manages complex interactions and therapeutic process in multi-person psychotherapy"
+        ],
+        "level_5": [
+          "Selects appropriate modality for individual psychotherapy, including the needs, goals, culture, and resources of the patient and the patient’s family system",
+          "Maintains a dual alliance with patients of all ages and their families, and maintains appropriate and culturally-informed boundaries and professional relationships"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pc5",
+      "number": 5,
+      "name": "Psychopharmacology and Other Somatic Treatments",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Reviews general indications and common adverse effects for commonly prescribed drugs and other somatic treatments with a patient’s parent/guardian and the patient",
+          "Monitors relevant assessments and adverse effects throughout treatment and incorporates findings from the literature into treatment strategy"
+        ],
+        "level_2": [
+          "Identifies necessary key baseline assessments before initiating somatic treatments to ensure patient safety",
+          "Explains less common somatic treatment choices to patients and their families in terms of proposed mechanisms of action, impact of development, potential risks and benefits, and the evidence base"
+        ],
+        "level_3": [
+          "Uses resources to provide psychoeducation to the patient and patient’s parents/guardians to optimize their understanding and adherence, including discussion of when medication is not indicated or is unlikely to be helpful",
+          "Manages adverse effects and safety concerns in complex or treatment refractory cases, including de-prescribing medication"
+        ],
+        "level_4": [
+          "Obtains necessary baseline assessments before initiating treatment with commonly used somatic treatments",
+          "Mentors other learners by developing novel patient educational processes or materials"
+        ],
+        "level_5": [
+          "Explains mechanisms of action, risks, and benefits of commonly prescribed drugs and other somatic treatments to patients and their families",
+          "Incorporates new evidence-based developments into treatment to optimize safety, minimize adverse effects, and improve response"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pc6",
+      "number": 6,
+      "name": "Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Respectfully, clearly, and concisely requests the appropriate consultation",
+          "Applies consultant recommendations judiciously to patient care",
+          "Develops complex treatment plans in collaboration with the interprofessional team in medical and non-medical settings"
+        ],
+        "level_2": [
+          "Respectfully receives a consultation request and asks for additional information needed to respond to the request",
+          "Assists the consulting team in identifying unrecognized clinical care issues and provides relevant recommendations, checking for understanding",
+          "Contributes to identifying and improving potential deficiencies in the consultation system"
+        ],
+        "level_3": [
+          "Requests the appropriate consultation for a pediatric setting",
+          "Distinguishes models of integrated interprofessional care across medical and non- medical settings",
+          "Leads consultation liaison psychiatry teams across medical and non- medical settings"
+        ],
+        "level_4": [
+          "Respectfully, clearly, and concisely communicates recommendations to the consulting team",
+          "Critically appraises and integrates various recommendations",
+          "Serves as a leader of interprofessional care teams"
+        ],
+        "level_5": [
+          "Demonstrates understanding of the consultation model, including direct/indirect care and system/individual care",
+          "Manages complicated and challenging consultation requests"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pc7",
+      "number": 7,
+      "name": "Digital Health",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses the EHR for routine patient care activities",
+          "Evaluates the pros and cons of integrating specific digital technologies into treatment",
+          "Integrates telehealth effectively into clinical practice for evaluation and treatment of new and complex patients"
+        ],
+        "level_2": [
+          "Identifies the required components for a telehealth visit and identifies clinical situations that can be managed through a telehealth visit",
+          "Effectively uses EHR capabilities in managing acute and chronic care of patients",
+          "Integrates multiple different digital technologies to augment clinical experience appropriately"
+        ],
+        "level_3": [
+          "Describes how technology can augment face-to-face visits with patients (e.g., apps, websites, online therapies)",
+          "Integrates telehealth effectively into clinical practice for medication management, psychotherapy, and consultation and recognizes limitations of telehealth",
+          "Leads improvements to the EHR"
+        ],
+        "level_4": [
+          "Expands use of the EHR to include and reconcile secondary data sources in patient care activities",
+          "Incorporates at least one digital technology into clinical care appropriately",
+          "Leads innovation of the telehealth system"
+        ],
+        "level_5": [
+          "Performs assigned telehealth visits using approved technology",
+          "Uses the EHR to facilitate achievement of quality targets for patient panels",
+          "Develops innovative and transformative digital technologies for use in pediatric mental health"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_mk1",
+      "number": 8,
+      "name": "Development in Infancy, Childhood, and Adolescence, including the Impact of Psychopathology on the",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the basic stages of typical biological, sociocultural, sexual, moral, and cognitive development from infancy to young adulthood",
+          "Describes the effects of developmental trauma and neglect and other adverse experiences, including social determinants",
+          "Recognizes subtle deviations from typical development, including disruptions and regressions"
+        ],
+        "level_2": [
+          "Recognizes major deviations from typical development, including disruptions and regressions",
+          "Explains developmental tasks and transitions throughout the life cycle using multiple conceptual models",
+          "Describes how risk factors can be mitigated and resilience promoted"
+        ],
+        "level_3": [
+          "Gives examples of biological, psychological, sociocultural, cognitive, and sexual factors that may influence developmental processes",
+          "Describes how developmental level can influence the expression of psychopathology",
+          "Serves as a role model regarding educating patients, patients’ families, and other learners about normal and abnormal development of children and adolescents"
+        ],
+        "level_4": [
+          "Demonstrates basic knowledge of the major developmental theories across all developmental domains",
+          "Describes the potential harmful and protective influence of biological, psychological, sociocultural, cognitive, and sexual factors on atypical personality development and psychopathology",
+          "Identifies and teaches new theories of typical and atypical development"
+        ],
+        "level_5": [
+          "Describes appropriate evaluation and testing methods (genetic, psychological, neuropsychological, or other) to evaluate for specific developmental deficits and disorders",
+          "Describes developmental stages in detail and articulates an integrated understanding of typical development"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_mk2",
+      "number": 9,
+      "name": "Psychopathology, including Knowledge of Diagnostic Criteria, Epidemiology, Pathophysiology, Course",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the major psychiatric diagnostic categories across the lifespan",
+          "Identifies social determinants of health relevant to patient presentations",
+          "Integrates knowledge to identify and treat a wide range of psychiatric conditions in patients with co-occurring medical and SUDs"
+        ],
+        "level_2": [
+          "Gives examples of interactions between medical, substance use, and psychiatric symptoms and disorders",
+          "Demonstrates knowledge to treat common psychiatric conditions, incorporating developmental factors",
+          "Demonstrates knowledge to address the drivers of social determinants of health in formulating psychopathology"
+        ],
+        "level_3": [
+          "Describes relevant sociocultural factors that contribute to patient presentations",
+          "Integrates knowledge to identify and treat common psychiatric symptoms due to other medical illness, including chronic pain and SUDs",
+          "Applies knowledge to identify and manage uncommon conditions at the interface of psychiatry and the rest of medicine"
+        ],
+        "level_4": [
+          "Demonstrates knowledge to identify and assess common psychiatric conditions in childhood and adolescence",
+          "Formulates psychopathology drawing upon patients’ sociocultural context"
+        ],
+        "level_5": [
+          "Demonstrates knowledge to identify common medical conditions in patients with psychiatric illness",
+          "Demonstrates knowledge to identify and treat atypical and complex psychiatric conditions across a developmental spectrum"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_mk3",
+      "number": 10,
+      "name": "Clinical Neuroscience, including Knowledge of Neurology and Developmental Neuropsychiatry",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists commonly available neuroimaging, neurophysiologic, and neuropsychological tests",
+          "Describes the common psychiatric sequelae of neurologic and neurodevelopmental disorders",
+          "Integrates neurobiological findings into case formulation and treatment planning"
+        ],
+        "level_2": [
+          "Appreciates that neurobiological processes interact dynamically with the developing brain",
+          "Identifies the significance of findings in routine neuroimaging, neurophysiologic, and neuropsychological tests",
+          "Synthesizes knowledge of psychiatric and neurologic/neurodevelop mental co-occurring disorders for case formulation and treatment"
+        ],
+        "level_3": [
+          "Describes basic phenomenology of common neurologic and neurodevelopmental disorders",
+          "Includes atypical neurobiological findings in case formulations",
+          "Integrates new research in neuroimaging, neurophysiologic, and neuropsychological testing into understanding of psychopathology"
+        ],
+        "level_4": [
+          "Describes indications for common neuroimaging, neurophysiologic, and neuropsychological tests",
+          "Identifies common co- occurrences between psychiatric and neurologic and neurodevelopmental disorders",
+          "Engages in scholarly activity related to neuroscience and psychiatric disorders"
+        ],
+        "level_5": [
+          "Describes major neurobiological processes in child and adolescent development and in common psychiatric presentations",
+          "Correlates significant findings of neuroimaging, neurophysiological, and neuropsychological tests to case formulation and treatment planning",
+          "Integrates recent research into an understanding of the interface between neurology/neurodevelop ment and psychiatry"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_mk4",
+      "number": 11,
+      "name": "Psychotherapy",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the major evidence-based individual, dyadic, family, and group therapies in treating children and adolescents",
+          "Describes the importance of the concepts of fidelity and flexibility of manualized treatments",
+          "Integrates knowledge of child and adolescent development, resilience, and protective factors in psychotherapy with children and adolescents"
+        ],
+        "level_2": [
+          "Describes short-term, intermediate, and long- term goals of psychotherapy for patients across the developmental spectrum",
+          "Describes the adaptations of commonly used psychotherapy modalities for children and adolescents",
+          "Continuously analyzes the evidence for using psychotherapy alone or in combination with pharmacotherapy and how best to communicate this to patients and their families/caregiving systems"
+        ],
+        "level_3": [
+          "Compares the evidence base for various forms of psychotherapy from different theoretical frameworks",
+          "Identifies the contraindications of various psychotherapeutic modalities, including developmental level of the patient and cultural context",
+          "Continues to critically evaluate new forms of psychotherapy based on evidence of efficacy, cultural relevance, and developmental appropriateness"
+        ],
+        "level_4": [
+          "Describes the common elements across psychotherapeutic modalities, including the dual alliance and limits of confidentiality",
+          "Describes clinical factors, such as patient preferences and the patient-doctor relationship, that affect the clinical response to evidence-based psychotherapies",
+          "Critically evaluates new forms of psychotherapy and potential future directions as the science matures"
+        ],
+        "level_5": [
+          "Identifies the indications of various psychotherapeutic modalities, including developmental level of the patient and cultural context",
+          "Describes the theoretical mechanisms of change in various forms of psychotherapy and how they vary with developmental level"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_mk5",
+      "number": 12,
+      "name": "Somatic Therapies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Accesses practice guidelines and resources to answer questions about somatic treatments",
+          "Discusses appropriate evidence-based somatic therapies when indicated",
+          "Describes the strengths and limitations of the evidence supporting the use of medications and other somatic therapies in treatment situations in children and adolescents"
+        ],
+        "level_2": [
+          "Describes indications and side effects for commonly prescribed psychopharmacologic agents for children and adolescents",
+          "Demonstrates knowledge of developmental impacts on pharmacokinetics and pharmacodynamic agent interactions",
+          "Demonstrates knowledge of the potential risks and appropriate management for children and adolescents when using off-label somatic therapies"
+        ],
+        "level_3": [
+          "Identifies the indications of different somatic therapies for specific child/adolescent psychiatric disorders",
+          "Demonstrates knowledge of psychotropic selection based on practice guidelines or treatment algorithms for common psychiatric disorders in children and adolescents",
+          "Integrates evidence, including emerging studies, into treatment plans for complex cases"
+        ],
+        "level_4": [
+          "Describes hypothesized mechanisms of action and metabolism for commonly prescribed psychopharmacologic agents",
+          "Researches and cites the evidence base when developing treatment plans that include both",
+          "Effectively mentors other learners on the concepts and usability of evidence-based or best somatic treatment practices"
+        ],
+        "level_5": [
+          "Describes the physical findings and lab studies necessary to initiate and monitor treatment with commonly prescribed medications",
+          "FDA-approved and off- label somatic treatments"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_sbp1",
+      "number": 13,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., reduced restraint rates, suicide rates)",
+          "Discloses patient safety events to patients and their families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)",
+          "Actively engages teams and processes to improve systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_sbp2",
+      "number": 14,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and serves as a patient advocate for safe and effective transitions of care and hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Effectively coordinates complex care in individual and interprofessional care situations",
+          "Adapts practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health determinants and needs",
+          "Performs safe and effective transitions of care and hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Effectively coordinates routine clinical care in individual and interprofessional care situations",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems and non-medical settings to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care and hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different professionals and systems",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_sbp3",
+      "number": 15,
+      "name": "Physician Role in Health Care Systems and Non-Medical Settings (Schools, Legal System, and",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of health care systems and non- medical settings in which children, adolescents, and families present",
+          "Demonstrates compliant use of basic administrative systems (documentation, billing, scheduling, etc.)",
+          "Advocates for patient care needs, including mobilizing community resources"
+        ],
+        "level_2": [
+          "Describes practice models and basic mental health payment systems",
+          "Discusses how individual practice affects broader systems",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
+        ],
+        "level_3": [
+          "Identifies basic knowledge domains for effective transition to practice",
+          "Engages with patients in shared decision-making and advocates for appropriate care and parity",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transitions of care"
+        ],
+        "level_4": [
+          "Describes how components of complex health care systems and non-medical settings are interrelated, and how these impact patient care",
+          "Describes the core administrative knowledge needed for transition to practice",
+          "Participates in advocacy activities for access to care in mental health and reimbursement"
+        ],
+        "level_5": [
+          "Identifies resources and options for accessing care in different health care and non-health care systems",
+          "Manages various components of complex health care systems and other non-medical settings to provide high- value, efficient, and effective patient care and transitions of care",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pbli1",
+      "number": 16,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and summarize available evidence for routine conditions"
+        ],
+        "level_2": [
+          "Formulates clinical questions and completes literature searches to provide evidence-based care"
+        ],
+        "level_3": [
+          "Critically appraises and compares the best available evidence and applies to patient care using a hierarchy of evidence"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence to guide care tailored to the patient and patient’s family, even in the face of uncertainty and conflicting evidence"
+        ],
+        "level_5": [
+          "Coaches other learners to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_pbli2",
+      "number": 17,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing personalized goals at the beginning of the educational program",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges one’s own assumptions and considers alternatives in narrowing the gap(s) between expected and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between one’s expected and actual performance",
+          "Seeks performance data episodically, with openness and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Seeks and accepts opportunities to improve professional growth",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between one’s expected and actual performance",
+          "Role models consistently seeking performance data with openness and humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a personalized learning plan",
+          "Mentors other learners on reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between one’s expected and actual performance",
+          "Uses feedback data to promptly change practice and improve performance",
+          "Facilitates the design and implementation of learning plans for other learners"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_prof1",
+      "number": 18,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes core professional behavior, including adherence to legal requirements",
+          "Analyzes straightforward situations using ethical principles",
+          "Responds appropriately to professionalism lapses of colleagues"
+        ],
+        "level_2": [
+          "Recognizes that one’s behavior in professional settings affects others",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of core ethical principles",
+          "Describes when and how to appropriately report professionalism lapses in others, including strategies for addressing common barriers to reporting",
+          "Role-models professionalism through behavior and produces academic materials"
+        ],
+        "level_4": [
+          "Demonstrates professional behavior in routine situations",
+          "Analyzes complex situations using ethical principles and recognizes when help is needed",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Takes responsibility for one’s own professionalism lapses and responds appropriately",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others",
+          "Participates in generating codes of ethics and writing of laws involved in the practice of child and adolescent psychiatry"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_prof2",
+      "number": 19,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility to complete tasks and responsibilities, identifies potential contributing factors for lapses, and describes strategies for ensuring timely task completion in the future",
+          "Is recognized by oneself, the patient, the patient’s family, and professional staff members as the patient’s psychiatrist"
+        ],
+        "level_2": [
+          "Introduces oneself as a fellow physician",
+          "Anticipates tasks and responsibilities and proactively prepares for unmet needs"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Displays increasing autonomy and leadership in taking responsibility for ensuring patients receive the best possible care"
+        ],
+        "level_4": [
+          "Accepts one’s role as the patient’s physician and takes responsibility (under supervision) for ensuring the patient receives the best possible care",
+          "Takes ownership of system outcomes"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Serves as a role model in demonstrating responsibility for ensuring that patients receive the best possible care"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_prof3",
+      "number": 20,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limits in knowledge/skills in promoting one’s own well-being, with assistance",
+          "Monitors and raises appropriate concerns about the well-being of team members and the team as a whole",
+          "Is considered by faculty members and peers as a model of promoting one’s own well-being while maintaining professional altruism"
+        ],
+        "level_2": [
+          "Independently recognizes limitations in one’s own knowledge/skills in promoting well-being and demonstrates appropriate help-seeking behavior",
+          "Recognizes which institutional factors affect well-being",
+          "Creates systemic interventions that promote colleagues’ well-being"
+        ],
+        "level_3": [
+          "Recognizes one’s own responsibility towards the well-being of the team",
+          "Independently develops a plan to promote personal and professional well-being and improve upon limitations in one’s own knowledge and skills",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_4": [
+          "Describes institutional resources designed to promote well-being",
+          "Promotes the well-being of the whole team in an ongoing way while maintaining professional altruism"
+        ],
+        "level_5": [
+          "Proposes a plan to promote personal and professional well-being, including addressing limitations in one’s own knowledge and skills, with assistance",
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_ics1",
+      "number": 21,
+      "name": "Child/Adolescent- and Family-Centered Therapeutic Alliance",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses verbal and non- verbal communication to demonstrate empathy, curiosity, and respect",
+          "Organizes and initiates communication with child/adolescent and family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Independently takes steps to surmount communication barriers and obstacles to a therapeutic alliance"
+        ],
+        "level_2": [
+          "Identifies biases that may become barriers to therapeutic relationships",
+          "Establishes therapeutic communication and relationships using verbal and non-verbal methods in treatment with school- age and adolescent patients and their families",
+          "Independently uses shared decision-making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Recognizes communication strategies may need to be adjusted based on clinical, family, or cultural context",
+          "When prompted, takes steps to surmount communication barriers and obstacles to a therapeutic alliance",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes therapeutic communication using active listening and clear language with adolescent patients and their families",
+          "With guidance, sensitively and compassionately delivers medical information, elicits the patient’s/patient’s family’s values, goals, and preferences; acknowledges uncertainty and conflict",
+          "Role models cultural awareness and successfully forming relationships with patients and patients’ families of all identities, , lived experiences, and family configurations"
+        ],
+        "level_5": [
+          "Identifies complex barriers to forming a therapeutic alliance, including differences in power, identity, and lived experience",
+          "Establishes therapeutic communication and relationships using verbal and non-verbal methods in treatment with preschool through adolescent patients and their families",
+          "Role models shared decision-making, including in situations with a high degree of uncertainty, conflict, or even hostility from the child/adolescent and the family"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_ics2",
+      "number": 22,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that demonstrates respect and value for all members of the professional care team",
+          "Communicates concerns and provides feedback to peers and learners"
+        ],
+        "level_2": [
+          "Recognizes the need for ongoing feedback with the professional care team",
+          "Integrates recommendations from different members of the professional care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all professional care team members",
+          "Respectfully communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the professional care team",
+          "Role models flexible communication strategies that value input from all professional care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular professional care team- based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "child_and_adolescent_psychiatry_ics3",
+      "number": 23,
+      "name": "Communication within Health Care Systems and other Systems of Care",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Respectfully communicates concerns about the system",
+          "Selects the mode of communication most likely to strike the optimal balance between patient confidentiality and sharing information to facilitate effective collaboration"
+        ],
+        "level_2": [
+          "Obtains patient and family/caregiver assent/consent prior to seeking out collateral information",
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Initiates difficult conversations with appropriate stakeholders to improve the system"
+        ],
+        "level_3": [
+          "Communicates about administrative issues through appropriate channels, as required by institutional policy",
+          "Uses multiple modes of communication (in- person, telephone, email) to seek out collateral information and coordinate care",
+          "Creates documentation templates or other written content that can be used by multiple providers to educate the patient and patient’s family/caregivers, and to improve coordination of care"
+        ],
+        "level_4": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system",
+          "Contributes to departmental or organizational initiatives to improve communication systems within the health care system and between multiple systems of care"
+        ],
+        "level_5": [
+          "Respects specific confidentiality across clinical situations and settings",
+          "Communicates clearly and concisely and in an organized written form, including providing anticipatory guidance",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childandadolescentpsychiatrymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childandadolescentpsychiatrysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,603 @@
+{
+  "framework_key": "pediatric-dermatology",
+  "specialty": "Pediatric Dermatology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Dermatology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "dermatology",
+  "parent_name": "Dermatology",
+  "subcompetencies": [
+    {
+      "id": "pediatric_dermatology_pc1",
+      "number": 1,
+      "name": "Medical Dermatology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains basic pediatric dermatologic history and physical exam",
+          "Independently manages pediatric patients with common dermatologic conditions"
+        ],
+        "level_2": [
+          "Identifies management options for common dermatologic conditions in children",
+          "Independently evaluates pediatric patients with complex dermatologic conditions"
+        ],
+        "level_3": [
+          "Evaluates pediatric patients with common dermatologic conditions, with assistance",
+          "Independently manages pediatric patients with complex dermatologic conditions and/or comorbidities"
+        ],
+        "level_4": [
+          "Manages pediatric patients with common dermatologic conditions, with assistance",
+          "Independently evaluates and manages pediatric patients with rare, atypical, or refractory dermatologic conditions"
+        ],
+        "level_5": [
+          "Independently evaluates pediatric patients with common dermatologic conditions",
+          "Provides expert advice and consultation to other care practitioners on common and complex pediatric dermatologic conditions"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pc2",
+      "number": 2,
+      "name": "Dermatologic Procedures and Surgery",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs pre- and post- operative assessment for common, office-based procedures on pediatric patients, with guidance",
+          "Identifies procedural complications, with assistance",
+          "Independently performs a range of procedures on pediatric patients with complex conditions using patient comfort strategies"
+        ],
+        "level_2": [
+          "Identifies indications and contraindications for procedures in pediatric patients",
+          "Performs pre-operative assessment and counseling of risk for diagnostic and therapeutic (excisions, laser) procedures and deciding the most appropriate setting for the procedure (e.g., office versus ambulatory surgery center) based on complexity of the planned procedure, with guidance",
+          "Independently identifies and manages procedural complications"
+        ],
+        "level_3": [
+          "Demonstrates awareness of potential procedural complications",
+          "Independently performs procedures on pediatric patients with routine conditions using patient comfort strategies",
+          "Provides expert advice and consultation to other care practitioners for complex procedural management (surgical or laser) of pediatric patients with various dermatologic conditions"
+        ],
+        "level_4": [
+          "Performs pre-operative assessment for diagnostic and therapeutic (excisions, laser) procedures on pediatric patients, including alternatives and/or deferral of procedural approaches",
+          "Manages procedural complications, with guidance",
+          "Helps to develop improved procedure methodologies and management for complications of procedures"
+        ],
+        "level_5": [
+          "Performs procedures on pediatric patients using patient comfort strategies, with assistance",
+          "Independently performs pre-operative assessment and counseling of risk for diagnostic and therapeutic (excisions, laser) procedures and deciding the most appropriate setting for the procedure (e.g., office versus ambulatory surgery center) based on complexity of the planned procedures(s)"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pc3",
+      "number": 3,
+      "name": "Diagnostics",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Understands the indications, and selects and performs in-office tests, with assistance",
+          "Interprets laboratory, imaging, and other diagnostic tests for complex or rare presentations, with guidance"
+        ],
+        "level_2": [
+          "Selects laboratory, imaging, and other diagnostic tests for common presentations",
+          "Independently interprets laboratory, imaging, and other diagnostic tests for complex or rare presentations"
+        ],
+        "level_3": [
+          "Independently selects and performs in-office tests; interprets in-office diagnostic tests, with assistance",
+          "Independently seeks further assistance or expertise for interpretation of discordant diagnostic results"
+        ],
+        "level_4": [
+          "Independently interprets laboratory, imaging, and other diagnostic tests for common presentations",
+          "Evaluates the application of novel and emerging diagnostic tests"
+        ],
+        "level_5": [
+          "Independently selects, performs, and interprets a full spectrum of in-office tests",
+          "Provides expert advice on the interpretation of discordant diagnostic results"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pc4",
+      "number": 4,
+      "name": "Critical Thinking/Differential Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a differential diagnosis for common presentations of pediatric conditions, with guidance"
+        ],
+        "level_2": [
+          "Independently develops a differential diagnosis for common presentations of pediatric conditions"
+        ],
+        "level_3": [
+          "Develops a prioritized differential diagnosis for complex presentations of pediatric conditions and recognizes nuances in clinical and diagnostic features"
+        ],
+        "level_4": [
+          "Pursues and synthesizes additional information to reach high-probability diagnoses with continuous re-appraisal"
+        ],
+        "level_5": [
+          "Seeks and integrates additional data and educates others to minimize clinical reasoning errors"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pc5",
+      "number": 5,
+      "name": "Therapeutics Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patients who are candidates for topical and systemic therapy",
+          "Selects appropriate laboratory monitoring for systemic treatments for pediatric patients, with guidance",
+          "Independently selects from among all available therapeutic modalities for common and uncommon skin disorders based on patient age and underlying medical conditions"
+        ],
+        "level_2": [
+          "Identifies available treatment options for common skin disorders based on patient age and underlying medical conditions",
+          "Consistently evaluates treatment response and counsels patients on expectations of therapy",
+          "Independently orders appropriate laboratory monitoring and manages adverse effects of therapeutics"
+        ],
+        "level_3": [
+          "Identifies therapeutic agents that require laboratory monitoring",
+          "Selects therapeutic modalities for common and uncommon pediatric skin disorders while balancing risks and benefits based on patient age and underlying medical conditions, with guidance",
+          "Independently manages rare and complex diseases based on emerging evidence"
+        ],
+        "level_4": [
+          "Provides appropriate counseling regarding adverse effects and reasonable risks",
+          "Selects appropriate laboratory monitoring for pediatric patients and manages adverse effects, with guidance",
+          "Evaluates the application of novel and emerging therapeutic modalities or unique applications of existing drugs based on patient age and underlying medical conditions"
+        ],
+        "level_5": [
+          "Selects treatment options for common skin disorders, with guidance, based on patient age and underlying medical conditions",
+          "Consistently identifies refractory disease and independently escalates therapy as necessary",
+          "Develops systems for safety monitoring"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_mk1",
+      "number": 6,
+      "name": "Knowledge of Dermatologic Disease",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes fundamental cutaneous anatomy and physiology of neonatal, pediatric, and adolescent skin",
+          "Demonstrates knowledge of the clinical features, associations, treatments, and expected course of uncommon and complex pediatric dermatologic disorders"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the clinical features of common pediatric dermatologic disorders",
+          "Synthesizes knowledge of pathophysiology of pediatric skin disorders and applies this knowledge to management and counseling"
+        ],
+        "level_3": [
+          "Describes pathophysiology of common pediatric skin disorders",
+          "Demonstrates comprehensive knowledge of the clinical features, associations, treatments, and expected course of pediatric dermatologic disorders, including impact on overall physical and psychosocial well-being"
+        ],
+        "level_4": [
+          "Demonstrates knowledge of the clinical features, associations, treatments, and expected course of common pediatric dermatologic disorders",
+          "Teaches emerging concepts in cutaneous pathophysiology as it applies to the pediatric patient"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of the pathophysiology of complex pediatric skin disorders",
+          "Teaches emerging concepts in clinical features, associations, treatments, or expected course of common, uncommon, and complex pediatric dermatologic disorders"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_mk2",
+      "number": 7,
+      "name": "Visual Recognition",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies common pediatric skin diseases with characteristic findings",
+          "Integrates visual diagnostic tools (e.g., dermoscopy) for basic diagnoses"
+        ],
+        "level_2": [
+          "Describes morphology with fluency",
+          "Identifies variable presentations of uncommon and rare pediatric skin disease"
+        ],
+        "level_3": [
+          "Identifies uncommon pediatric skin diseases with characteristic findings",
+          "Integrates visual diagnostic tools for a wide range of diagnoses of the skin, hair, and nails"
+        ],
+        "level_4": [
+          "Identifies subtle morphologic features that distinguish among entities",
+          "Mentors others in recognizing pediatric skin disease, including the use of visual diagnostic tools"
+        ],
+        "level_5": [
+          "Identifies variable presentations of common pediatric skin disease"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_sbp1",
+      "number": 8,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common safety events",
+          "Describes local quality improvement initiatives (e.g., handwashing, needle stick prevention, masking, laser eye protection)",
+          "Discloses patient safety events to patients and their families (simulated or actual) with guidance from mentor"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of safety events (simulated or actual)",
+          "Demonstrates understanding of the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to safety events",
+          "Participates in local quality improvement initiatives",
+          "Independently discloses patient safety events to patients and their families (simulated or actual)"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems with guidance from fellowship mentor",
+          "Conducts analysis of safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_sbp2",
+      "number": 9,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Leads effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_sbp3",
+      "number": 10,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care delivery system",
+          "Engages with patients in shared decision-making, informed by each patient’s payment models"
+        ],
+        "level_2": [
+          "Describes basic health payment systems and practice models",
+          "Modifies individual practice to optimize the effects on the broader health care delivery system"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care delivery system are interrelated, and how this impacts patient care",
+          "Advocates for patient care needs within the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Delivers care with consideration of each patient’s payment model",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care"
+        ],
+        "level_5": [
+          "Identifies various components of the complex health care delivery system and their role in efficient and effective patient care",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pbli1",
+      "number": 11,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence and incorporate patients’ and patients’ families’ preferences and values to the care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits the patient’s and patient’s family’s preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with the patient’s and patient’s family’s preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pbli2",
+      "number": 12,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Creates a learning plan in response to feedback"
+        ],
+        "level_2": [
+          "Acknowledges limits and gaps between expectations and performance; demonstrates self- awareness",
+          "Systematically seeks feedback and performance data and responds with adaptability and self- reflection"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and performance data to inform goals",
+          "Uses performance data to assess the learning plan and modifies it when necessary"
+        ],
+        "level_4": [
+          "Analyzes the factors that contribute to limits and gaps in performance; demonstrates appropriate help-seeking behaviors",
+          "Models adaptability and self-reflection and coaches others to seek feedback and performance data"
+        ],
+        "level_5": [
+          "Occasionally seeks feedback and performance data and responds with adaptability and self-reflection",
+          "Mentors others on the design and implementation of learning plans"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_pbli3",
+      "number": 13,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy of scholarly investigation, with supervision"
+        ],
+        "level_2": [
+          "Designs a scholarly activity with a mentor(s)"
+        ],
+        "level_3": [
+          "Engages in scholarly work, incorporates feedback, and participates in critical appraisal and analysis of project data"
+        ],
+        "level_4": [
+          "Produces scholarly work suitable for dissemination as an abstract or presentation"
+        ],
+        "level_5": [
+          "Disseminates independent scholarly work that generates new medical knowledge, educational programs, or process improvement"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_prof1",
+      "number": 14,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Identifies individual and institutional barriers to professionalism"
+        ],
+        "level_2": [
+          "Describes when and how to report professionalism lapses",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_4": [
+          "Takes responsibility for one’s own professionalism lapses"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_prof2",
+      "number": 15,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of medical ethical principles",
+          "Serves as resource for colleagues who face ethical dilemmas"
+        ],
+        "level_2": [
+          "Analyzes straightforward situations using ethical principles"
+        ],
+        "level_3": [
+          "Analyzes complex situations using ethical principles"
+        ],
+        "level_4": [
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_5": [
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_prof3",
+      "number": 16,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete tasks",
+          "Proactively ensures the needs of patients are met during and after a visit"
+        ],
+        "level_2": [
+          "Takes responsibility for failure to complete tasks and responsibilities",
+          "Mitigates situations that may impact the ability of other members of the health care team to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner, with appropriate attention to detail, in routine situations",
+          "Identifies strategies to enhance accountability of team members involved in patient care"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner",
+          "Takes ownership of system outcomes and revises systems to enhance accountability"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner, with appropriate attention to detail, in complex or stressful situations",
+          "Implements strategies to enhance accountability of team members involved in patient care"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_prof4",
+      "number": 17,
+      "name": "Self-Awareness and Help-Seeking Behaviors",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the status of personal and professional well-being, when prompted",
+          "Proposes a plan to remediate or improve personal and professional well-being and set limits, with assistance"
+        ],
+        "level_2": [
+          "Recognizes personal and professional limits, when prompted",
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes the status of personal and professional well-being",
+          "Independently develops a plan to remediate or improve personal and professional well-being and set limits"
+        ],
+        "level_4": [
+          "Independently recognizes personal and professional limits and seeks help when appropriate",
+          "Coaches others to optimize personal and professional well-being and set limits"
+        ],
+        "level_5": [
+          "Proposes a plan to optimize personal and professional well-being, with assistance"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_ics1",
+      "number": 18,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers (e.g., language) to effective communication",
+          "Independently establishes a therapeutic relationship in challenging patient encounters"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies complex barriers (e.g., health literacy) to effective communication",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_5": [
+          "Establishes a therapeutic relationship in challenging patient encounters, with guidance",
+          "Independently uses shared decision-making to make a personalized care plan when there is a high degree of uncertainty"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_ics2",
+      "number": 19,
+      "name": "Patient and Family Education and Counseling",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes the link between patient outcomes and patient and patient family education",
+          "Communicates procedural expectations to patients’ families with appropriate pre-procedural counseling, guided by the age and developmental stage of the patient",
+          "Independently uses shared decision-making to make a personalized care plan"
+        ],
+        "level_2": [
+          "Identifies the importance of engaging in shared decision-making",
+          "Educates patients and their families effectively in straightforward situations, including eliciting understanding of information provided",
+          "Counsels patients and their families through the decision-making process for complex procedures, guided by the age and developmental stage of the patient"
+        ],
+        "level_3": [
+          "Identifies the process for achieving informed consent based on patient age and developmental level",
+          "Uses shared decision- making to make a personalized care plan, with guidance",
+          "Educates patients and their families in self- advocacy and community outreach"
+        ],
+        "level_4": [
+          "Describes methods for effective patient and patient family education",
+          "Counsels patients and their families through the decision-making process for straightforward procedures, guided by the age and developmental stage of the patient",
+          "Counsels patients and their families through the decision-making process for high-risk procedures, guided by the age and developmental stage of the patient as well as the long-term prognosis of the condition"
+        ],
+        "level_5": [
+          "Identifies elements of shared decision-making",
+          "Educates patients and their families effectively in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_ics3",
+      "number": 20,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests and responds to a consultation request",
+          "Communicates concerns and provides feedback to peers and learners"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Clearly and concisely requests and responds to a consultation request",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflicts when needed"
+        ],
+        "level_5": [
+          "Checks understanding of recommendations when providing consultations",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_dermatology_ics4",
+      "number": 21,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the electronic health record (EHR) in a timely manner",
+          "Appropriately selects and uses direct (e.g., telephone, in-person) and indirect (e.g., progress notes, text, inbox messages) forms of communication based on context"
+        ],
+        "level_2": [
+          "Safeguards protected health information by using appropriate communication channels",
+          "Communicates clearly, concisely, and in an organized written form, including providing anticipatory guidance"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the EHR",
+          "Produces written or verbal communication (e.g., patient notes, email) that serves as an example for others to follow"
+        ],
+        "level_4": [
+          "Uses documentation tools (e.g., EHR templates, smart phrases) accurately and appropriately, per institutional policy",
+          "Coaches others to improve their written communication"
+        ],
+        "level_5": [
+          "Concisely reports diagnostic and therapeutic reasoning in the EHR, using objective and professional language",
+          "Guides departmental or institutional communication around policies and procedures"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricdermatologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricdermatologysupplementalguide.pdf"
+  }
+}

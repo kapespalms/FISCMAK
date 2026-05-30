@@ -3,1040 +3,502 @@
   "specialty": "Urology",
   "version": "2.0",
   "source": "ACGME Urology Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "urology",
+  "parent_name": "Urology",
   "subcompetencies": [
     {
       "id": "urology_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Patient Evaluation",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Obtains history and",
-          "physical exam to form a",
-          "patient assessment",
-          "Evaluates patients; orders",
-          "and interprets diagnostic"
+          "Obtains history and physical exam to form a patient assessment"
         ],
         "level_2": [
-          "testing",
-          "Develops a plan to",
-          "manage patients with",
-          "straightforward conditions",
-          "Develops a plan to"
+          "Evaluates patients; orders and interprets diagnostic testing"
         ],
         "level_3": [
-          "manage patients with",
-          "complex conditions and",
-          "adapts plan for",
-          "changing clinical",
-          "situation"
+          "Develops a plan to manage patients with straightforward conditions"
         ],
         "level_4": [
-          "Develops a clinical",
-          "pathway for the",
-          "management of patients",
-          "with complex conditions",
-          "or identifies clinical trials"
+          "Develops a plan to manage patients with complex conditions and adapts plan for changing clinical situation"
         ],
         "level_5": [
-          "for patients"
+          "Develops a clinical pathway for the management of patients with complex conditions or identifies clinical trials for patients"
         ]
       }
     },
     {
       "id": "urology_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Peri-Procedural Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies alterations in",
-          "normal physiology",
-          "Accurately and reliably",
-          "gathers and reports",
-          "clinical information",
-          "pertaining to common",
-          "peri-procedural alterations"
+          "Identifies alterations in normal physiology"
         ],
         "level_2": [
-          "and complications",
-          "Independently identifies",
-          "and prioritizes tasks",
-          "necessary for",
-          "management of common",
-          "peri-procedural alterations",
-          "and complications"
+          "Accurately and reliably gathers and reports clinical information pertaining to common peri-procedural alterations and complications"
         ],
         "level_3": [
-          "Independently identifies",
-          "and prioritizes tasks",
-          "necessary for",
-          "management of",
-          "complex and/or less",
-          "common peri-",
-          "procedural alterations"
+          "Independently identifies and prioritizes tasks necessary for management of common peri-procedural alterations and complications"
         ],
         "level_4": [
-          "and complications",
-          "Proactively recognizes",
-          "potential risk factors for",
-          "complications, and",
-          "implements measures to",
-          "prevent or mitigate them,",
-          "applying effective team"
+          "Independently identifies and prioritizes tasks necessary for management of complex and/or less common peri- procedural alterations and complications"
         ],
         "level_5": [
-          "management skills to",
-          "manage multiple",
-          "scenarios simultaneously"
+          "Proactively recognizes potential risk factors for complications, and implements measures to prevent or mitigate them, applying effective team management skills to manage multiple scenarios simultaneously"
         ]
       }
     },
     {
       "id": "urology_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Endoscopic Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Prepares patient and",
-          "equipment for",
-          "endoscopic procedures",
-          "(e.g., lithotomy",
-          "positioning,",
-          "assemble endoscope)",
-          "Independently performs"
+          "Prepares patient and equipment for endoscopic procedures (e.g., lithotomy positioning, assemble endoscope)",
+          "Independently performs complex endoscopic procedures in altered anatomy (e.g., horseshoe kidney, urinary diversion, spinal malformation)"
         ],
         "level_2": [
-          "bedside endoscopic",
-          "procedures (e.g.,",
-          "cystoscopy with catheter",
-          "placement over a wire)",
-          "Independently performs",
-          "simple endoscopic",
-          "procedures (e.g., simple"
+          "Independently performs bedside endoscopic procedures (e.g., cystoscopy with catheter placement over a wire)"
         ],
         "level_3": [
-          "transurethral resection of",
-          "a bladder tumor (TURBT),",
-          "simple ureteroscopy",
-          "(URS), small transurethral",
-          "resection of the prostate",
-          "(TURP))",
-          "Independently performs"
+          "Independently performs simple endoscopic procedures (e.g., simple transurethral resection of a bladder tumor (TURBT), simple ureteroscopy (URS), small transurethral resection of the prostate (TURP))"
         ],
         "level_4": [
-          "complex endoscopic",
-          "procedures (e.g.,",
-          "percutaneous",
-          "nephrolithotomy",
-          "(PCNL), complex URS,",
-          "complex TURBT, large",
-          "TURP)"
+          "Independently performs complex endoscopic procedures (e.g., percutaneous nephrolithotomy (PCNL), complex URS, complex TURBT, large"
         ],
         "level_5": [
-          "Independently performs",
-          "complex endoscopic",
-          "procedures in altered",
-          "anatomy (e.g., horseshoe",
-          "kidney, urinary diversion,",
-          "spinal malformation)"
+          "TURP)"
         ]
       }
     },
     {
       "id": "urology_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Open Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "skills (e.g., positioning,",
-          "knot tying, suturing)",
-          "Independently performs",
-          "bedside open procedures",
-          "(e.g., incision and",
-          "drainage, priapism"
+          "Demonstrates basic skills (e.g., positioning, knot tying, suturing)"
         ],
         "level_2": [
-          "aspiration and irrigation,",
-          "circumcision, removal of",
-          "genital wart)",
-          "Independently performs",
-          "simple open procedures",
-          "(e.g., scrotal procedures,",
-          "vasectomy, cystorrhaphy,"
+          "Independently performs bedside open procedures (e.g., incision and drainage, priapism aspiration and irrigation, circumcision, removal of genital wart)"
         ],
         "level_3": [
-          "mid-urethral sling)",
-          "Independently performs",
-          "complex open",
-          "procedures (e.g., partial",
-          "nephrectomy, prosthetic",
-          "replacement,",
-          "cystectomy and ileal"
+          "Independently performs simple open procedures (e.g., scrotal procedures, vasectomy, cystorrhaphy, mid-urethral sling)"
         ],
         "level_4": [
-          "conduit, ureteral",
-          "reconstruction)",
-          "Independently performs",
-          "uncommon complex open",
-          "procedures (e.g.,",
-          "retroperitoneal lymph",
-          "node dissection (RPLND),"
+          "Independently performs complex open procedures (e.g., partial nephrectomy, prosthetic replacement, cystectomy and ileal conduit, ureteral reconstruction)"
         ],
         "level_5": [
-          "nephrectomy with caval",
-          "thrombus, reconstructive",
-          "genital surgery)"
+          "Independently performs uncommon complex open procedures (e.g., retroperitoneal lymph node dissection (RPLND), nephrectomy with caval thrombus, reconstructive genital surgery)"
         ]
       }
     },
     {
       "id": "urology_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Minimally Invasive Procedures (Laparoscopic and Robotic)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "skills (e.g., positioning,",
-          "draping, docking and",
-          "undocking)",
-          "Assists during minimally",
-          "invasive procedures (e.g.,"
+          "Demonstrates basic skills (e.g., positioning, draping, docking and undocking)"
         ],
         "level_2": [
-          "port placement, bedside",
-          "assistant)",
-          "Independently performs",
-          "simple portions of the",
-          "procedure (e.g., bladder",
-          "takedown, colon"
+          "Assists during minimally invasive procedures (e.g., port placement, bedside assistant)"
         ],
         "level_3": [
-          "reflection, pelvic lymph",
-          "node dissection)",
-          "Independently performs",
-          "critical (complex)",
-          "portions of the",
-          "procedure (e.g., hilar"
+          "Independently performs simple portions of the procedure (e.g., bladder takedown, colon reflection, pelvic lymph node dissection)"
         ],
         "level_4": [
-          "dissection, renorrhaphy,",
-          "anastomosis)",
-          "Independently performs",
-          "advanced minimally",
-          "invasive procedures (e.g.,",
-          "cystectomy, complex"
+          "Independently performs critical (complex) portions of the procedure (e.g., hilar dissection, renorrhaphy, anastomosis)"
         ],
         "level_5": [
-          "partial nephrectomy,",
-          "complex reconstruction)"
+          "Independently performs advanced minimally invasive procedures (e.g., cystectomy, complex partial nephrectomy, complex reconstruction)"
         ]
       }
     },
     {
       "id": "urology_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Office-Based Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "skills in office procedures",
-          "(e.g., Foley catheter",
-          "placement, drain",
-          "removal)",
-          "Performs simple office-"
+          "Demonstrates basic skills in office procedures (e.g., Foley catheter placement, drain removal)"
         ],
         "level_2": [
-          "based procedures, with",
-          "direct supervision (e.g.,",
-          "prostate biopsy,",
-          "urodynamics",
-          "interpretation, vasectomy,",
-          "urethral stricture dilation)"
+          "Performs simple office- based procedures, with direct supervision (e.g., prostate biopsy, urodynamics interpretation, vasectomy, urethral stricture dilation)"
         ],
         "level_3": [
-          "Independently performs",
-          "simple office-based",
-          "procedures, including",
-          "percutaneous suprapubic",
-          "tube placemen",
-          "Independently performs"
+          "Independently performs simple office-based procedures, including percutaneous suprapubic tube placemen"
         ],
         "level_4": [
-          "complex office-based",
-          "procedures (e.g., renal",
-          "ultrasound, bladder",
-          "biopsy, Botox injection)",
-          "Independently performs",
-          "advanced office-based"
+          "Independently performs complex office-based procedures (e.g., renal ultrasound, bladder biopsy, Botox injection)"
         ],
         "level_5": [
-          "procedures (e.g., stage 1",
-          "neuromodulation,",
-          "minimally invasive benign",
-          "prostatic hyperplasia",
-          "(BPH) procedure, penile",
-          "ultrasound)"
+          "Independently performs advanced office-based procedures (e.g., stage 1 neuromodulation, minimally invasive benign prostatic hyperplasia (BPH) procedure, penile ultrasound)"
         ]
       }
     },
     {
       "id": "urology_mk1",
       "number": 7,
-      "domain_number": 1,
       "name": "Clinical Medical Knowledge",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of anatomy",
-          "and physiology as it",
-          "pertains to surgical",
-          "conditions",
-          "Demonstrates knowledge"
+          "Demonstrates knowledge of anatomy and physiology as it pertains to surgical conditions"
         ],
         "level_2": [
-          "of pathophysiology and",
-          "treatments of simple",
-          "urologic conditions",
-          "Demonstrates knowledge",
-          "of pathophysiology and",
-          "treatments of complex"
+          "Demonstrates knowledge of pathophysiology and treatments of simple urologic conditions"
         ],
         "level_3": [
-          "urologic conditions",
-          "considering patient",
-          "factors (e.g., comorbidity,",
-          "social context)",
-          "Demonstrates",
-          "comprehensive"
+          "Demonstrates knowledge of pathophysiology and treatments of complex urologic conditions considering patient factors (e.g., comorbidity, social context)"
         ],
         "level_4": [
-          "knowledge, including",
-          "guidelines, of the full",
-          "spectrum of urologic",
-          "diseases, treatments,",
-          "and populations",
-          "Creates a curriculum for"
+          "Demonstrates comprehensive knowledge, including guidelines, of the full spectrum of urologic diseases, treatments, and populations"
         ],
         "level_5": [
-          "clinical medical",
-          "knowledge"
+          "Creates a curriculum for clinical medical knowledge"
         ]
       }
     },
     {
       "id": "urology_mk2",
       "number": 8,
-      "domain_number": 2,
       "name": "Clinical Reasoning",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Integrates patient-",
-          "specific information to",
-          "generate an appropriate",
-          "working diagnosis",
-          "Provides a prioritized"
+          "Integrates patient- specific information to generate an appropriate working diagnosis"
         ],
         "level_2": [
-          "differential diagnosis",
-          "using supporting rationale",
-          "Independently",
-          "synthesizes clinical",
-          "information to inform"
+          "Provides a prioritized differential diagnosis using supporting rationale"
         ],
         "level_3": [
-          "diagnosis and therapy in",
-          "simple cases and adapts",
-          "based on a patient’s",
-          "clinical course and",
-          "additional data"
+          "Independently synthesizes clinical information to inform diagnosis and therapy in simple cases and adapts based on a patient’s clinical course and additional data"
         ],
         "level_4": [
-          "Independently",
-          "synthesizes clinical",
-          "information to inform",
-          "diagnosis and therapy",
-          "in complex cases,"
+          "Independently synthesizes clinical information to inform diagnosis and therapy in complex cases, recognizing sources of error"
         ],
         "level_5": [
-          "recognizing sources of",
-          "error",
-          "Teaches others to",
-          "recognize sources of",
-          "diagnostic error"
+          "Teaches others to recognize sources of diagnostic error"
         ]
       }
     },
     {
       "id": "urology_sbp1",
       "number": 9,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events and",
-          "institutional reporting",
-          "system",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and"
+          "Demonstrates knowledge of common patient safety events and institutional reporting system",
+          "Participates in local quality improvement initiatives"
         ],
         "level_2": [
-          "metrics",
-          "Identifies and reports",
-          "patient safety events",
-          "Describes local quality",
-          "improvement initiatives",
-          "(e.g., multimodal",
-          "analgesics, antibiotic",
-          "stewardship, smoking",
-          "cessation, hospital"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Offers strategies (simulated or actual) to prevent patient safety events"
         ],
         "level_3": [
-          "acquired infection)",
-          "Participates in analysis of",
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Offers strategies",
-          "(simulated or actual) to"
+          "Identifies and reports patient safety events",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_4": [
-          "prevent patient safety",
-          "events",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project",
-          "Actively engages and",
-          "leads teams and"
+          "Describes local quality improvement initiatives (e.g., multimodal analgesics, antibiotic stewardship, smoking cessation, hospital acquired infection)",
+          "Actively engages and leads teams and processes to prevent patient safety events"
         ],
         "level_5": [
-          "processes to prevent",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "urology_sbp2",
       "number": 10,
-      "domain_number": 2,
       "name": "System Navigation for Patient-Centered Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination and",
-          "community health needs",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Coordinates",
-          "multidisciplinary care of"
+          "Demonstrates knowledge of care coordination and community health needs",
+          "Supervises safe and effective transitions of care/hand-offs of junior residents"
         ],
         "level_2": [
-          "patients in routine clinical",
-          "situations, considering",
-          "inequities and disparities",
-          "for their local population",
-          "(e.g., cultural barriers)",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Coordinates"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Leads care coordination of patients with barriers or other disparities in care (e.g., trauma patient with no access to care)"
         ],
         "level_3": [
-          "multidisciplinary care of",
-          "patients in complex",
-          "clinical situation and",
-          "incorporates local",
-          "resources into the plan",
-          "(e.g., home parenteral",
-          "nutrition, postoperative",
-          "intravenous feeding,",
-          "intensive care unit)",
-          "Supervises safe and"
+          "Coordinates multidisciplinary care of patients in routine clinical situations, considering inequities and disparities for their local population (e.g., cultural barriers)",
+          "Resolves conflicts in transitions of care between teams"
         ],
         "level_4": [
-          "effective transitions of",
-          "care/hand-offs of junior",
-          "residents",
-          "Leads care coordination",
-          "of patients with barriers",
-          "or other disparities in",
-          "care (e.g., trauma",
-          "patient with no access",
-          "to care)",
-          "Resolves conflicts in"
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Designs innovative care coordination strategies for populations with health care inequities"
         ],
         "level_5": [
-          "transitions of care",
-          "between teams",
-          "Designs innovative care",
-          "coordination strategies for",
-          "populations with health",
-          "care inequities",
-          "Leads in the design and",
-          "implementation of",
-          "improvements to",
-          "transitions of care"
+          "Coordinates multidisciplinary care of patients in complex clinical situation and incorporates local resources into the plan (e.g., home parenteral nutrition, postoperative intravenous feeding, intensive care unit)",
+          "Leads in the design and implementation of improvements to transitions of care"
         ]
       }
     },
     {
       "id": "urology_sbp3",
       "number": 11,
-      "domain_number": 3,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies basic needs for",
-          "effective transition to",
-          "practice (e.g.,",
-          "information technology,",
-          "legal, billing and coding,",
-          "financial, personnel)",
-          "Describes basic health",
-          "payment systems (e.g.,",
-          "government, private,",
-          "public, uninsured care)",
-          "and practice models",
-          "Demonstrates use of"
+          "Identifies basic needs for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Discusses how individual practice affects the broader system performance (e.g., length of stay, readmission rates, clinical efficiency)"
         ],
         "level_2": [
-          "information technology",
-          "required for medical",
-          "practice (e.g., electronic",
-          "health record,",
-          "documentation required",
-          "for billing and coding)",
-          "Describes how",
-          "components of a complex",
-          "health care system are",
-          "interrelated and how this",
-          "impacts patient care",
-          "Describes core"
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
         ],
         "level_3": [
-          "administrative knowledge",
-          "needed for transition to",
-          "independent practice",
-          "(e.g., contract",
-          "negotiations, malpractice",
-          "insurance, government",
-          "regulation, compliance)",
-          "Discusses how individual",
-          "practice affects the",
-          "broader system",
-          "performance (e.g., length",
-          "of stay, readmission"
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Manages various components of the complex health care system to provide efficient and effective patient care (e.g., patient payment models, insurance)"
         ],
         "level_4": [
-          "rates, clinical efficiency)",
-          "Analyzes individual",
-          "practice patterns and",
-          "professional",
-          "requirements in",
-          "preparation for practice",
-          "Manages various",
-          "components of the",
-          "complex health care",
-          "system to provide",
-          "efficient and effective",
-          "patient care (e.g.,"
+          "Describes how components of a complex health care system are interrelated and how this impacts patient care",
+          "Educates others to prepare them for transition to practice"
         ],
         "level_5": [
-          "patient payment",
-          "models, insurance)",
-          "Educates others to",
-          "prepare them for",
-          "transition to practice",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high-value,",
-          "efficient, and effective",
-          "patient care"
+          "Describes core administrative knowledge needed for transition to independent practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care"
         ]
       }
     },
     {
       "id": "urology_pbli1",
       "number": 12,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access available",
-          "evidence",
-          "Articulates clinical"
+          "Demonstrates how to access available evidence"
         ],
         "level_2": [
-          "questions to guide",
-          "evidence-based care",
-          "Integrates best available",
-          "evidence with patient"
+          "Articulates clinical questions to guide evidence-based care"
         ],
         "level_3": [
-          "preferences to guide care",
-          "Tailors patient care in",
-          "the setting of conflicting",
-          "or absent evidence"
+          "Integrates best available evidence with patient preferences to guide care"
         ],
         "level_4": [
-          "Coaches others to",
-          "critically appraise and",
-          "apply evidence for",
-          "patients with complex"
+          "Tailors patient care in the setting of conflicting or absent evidence"
         ],
         "level_5": [
-          "conditions"
+          "Coaches others to critically appraise and apply evidence for patients with complex conditions"
         ]
       }
     },
     {
       "id": "urology_pbli2",
       "number": 13,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Identifies gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Establishes goals for",
-          "personal and",
-          "professional",
-          "development",
-          "Analyzes and reflects on",
-          "the factors which"
+          "Identifies gap(s) between expectations and actual performance",
+          "Integrates practice data and feedback with humility to implement a learning plan"
         ],
         "level_2": [
-          "contribute to gap(s)",
-          "between expectations and",
-          "actual performance",
-          "Identifies opportunities for",
-          "performance",
-          "improvement; designs a",
-          "learning plan",
-          "Institutes behavioral",
-          "change(s) to narrow the"
+          "Establishes goals for personal and professional development",
+          "Continuously reflects on remaining gaps and institutes behavioral adjustments to narrow them"
         ],
         "level_3": [
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Integrates practice data",
-          "and feedback with",
-          "humility to implement a",
-          "learning plan",
-          "Continuously reflects on",
-          "remaining gaps and"
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Uses performance data to measure the effectiveness of the learning plan and adapts when necessary"
         ],
         "level_4": [
-          "institutes behavioral",
-          "adjustments to narrow",
-          "them",
-          "Uses performance data",
-          "to measure the",
-          "effectiveness of the",
-          "learning plan and",
-          "adapts when necessary",
-          "Coaches others on"
+          "Identifies opportunities for performance improvement; designs a learning plan",
+          "Coaches others on reflective practice"
         ],
         "level_5": [
-          "reflective practice",
-          "Coaches others in the",
-          "design and",
-          "implementation of",
-          "learning plans"
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Coaches others in the design and implementation of learning plans"
         ]
       }
     },
     {
       "id": "urology_prof1",
       "number": 14,
-      "domain_number": 1,
       "name": "Professional Behavior and Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "professional behavior in",
-          "routine situations and",
-          "knows how to report",
-          "professionalism lapses",
-          "Demonstrates",
-          "knowledge of ethical",
-          "principles underlying",
-          "shared decision making",
-          "and patient"
+          "Demonstrates professional behavior in routine situations and knows how to report professionalism lapses",
+          "Seeks help in managing and resolving complex ethical situations"
         ],
         "level_2": [
-          "confidentiality",
-          "Demonstrates insight into",
-          "personal triggers for",
-          "professionalism lapses,",
-          "develops mitigation",
-          "strategies",
-          "Analyzes straightforward",
-          "situations using ethical",
-          "principles",
-          "Demonstrates"
+          "Demonstrates knowledge of ethical principles underlying shared decision making and patient confidentiality",
+          "Recognizes and intervenes in situations to prevent professionalism lapses in self and others"
         ],
         "level_3": [
-          "professional behavior in",
-          "complex or stressful",
-          "situations",
-          "Seeks help in managing",
-          "and resolving complex",
-          "ethical situations",
-          "Recognizes and",
-          "intervenes in situations",
-          "to prevent",
-          "professionalism lapses"
+          "Demonstrates insight into personal triggers for professionalism lapses, develops mitigation strategies",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, literature review)"
         ],
         "level_4": [
-          "in self and others",
-          "Recognizes and uses",
-          "appropriate resources",
-          "for managing and",
-          "resolving ethical",
-          "dilemmas (e.g., ethics",
-          "consultations, literature",
-          "review)",
-          "Coaches others when",
-          "their behavior fails to"
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_5": [
-          "meet professional",
-          "expectations",
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ]
       }
     },
     {
       "id": "urology_prof2",
       "number": 15,
-      "domain_number": 2,
       "name": "Administrative Tasks",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Takes responsibility for",
-          "failure to complete tasks",
-          "and responsibilities,",
-          "identifies potential",
-          "contributing factors, and",
-          "describes strategies for"
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future"
         ],
         "level_2": [
-          "ensuring timely task",
-          "completion in the future",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
         ],
         "level_3": [
-          "routine situations",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in",
-          "complex or stressful"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
         ],
         "level_4": [
-          "situations",
-          "Recognizes situations",
-          "that may impact others’",
-          "ability to complete tasks",
-          "and responsibilities in a",
-          "timely manner and"
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner and proposes solutions"
         ],
         "level_5": [
-          "proposes solutions",
-          "Develops systems to",
-          "enhance other’s ability to",
-          "efficiently complete",
-          "administrative tasks and",
-          "responsibilities"
+          "Develops systems to enhance other’s ability to efficiently complete administrative tasks and responsibilities"
         ]
       }
     },
     {
       "id": "urology_prof3",
       "number": 16,
-      "domain_number": 3,
       "name": "Well-Being and Awareness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes status of",
-          "personal and",
-          "professional well-being,",
-          "with assistance"
+          "Recognizes status of personal and professional well-being, with assistance"
         ],
         "level_2": [
-          "Independently recognizes",
-          "status of personal and",
-          "professional well-being",
-          "With assistance,"
+          "Independently recognizes status of personal and professional well-being"
         ],
         "level_3": [
-          "proposes a plan to",
-          "optimize personal and",
-          "professional well-being",
-          "Independently develops"
+          "With assistance, proposes a plan to optimize personal and professional well-being"
         ],
         "level_4": [
-          "a plan to optimize",
-          "personal and",
-          "professional well-being",
-          "Coaches others when"
+          "Independently develops a plan to optimize personal and professional well-being"
         ],
         "level_5": [
-          "emotional responses do",
-          "not meet professional",
-          "expectations"
+          "Coaches others when emotional responses do not meet professional expectations"
         ]
       }
     },
     {
       "id": "urology_ics1",
       "number": 17,
-      "domain_number": 1,
       "name": "Patient- and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Demonstrates respect",
-          "and establishes rapport",
-          "with patient and family",
-          "(e.g., situational",
-          "awareness of language,",
-          "disability, health literacy",
-          "level, cultural)",
-          "Communicates with",
-          "patients and their",
-          "families in an"
+          "Demonstrates respect and establishes rapport with patient and family (e.g., situational awareness of language, disability, health literacy level, cultural)",
+          "When prompted, reflects on personal biases while attempting to minimize communication barriers"
         ],
         "level_2": [
-          "understandable and",
-          "respectful manner",
-          "Establishes a therapeutic",
-          "relationship in",
-          "straightforward",
-          "encounters",
-          "Identifies barriers to",
-          "effective communication",
-          "(e.g., health literacy,",
-          "cultural)"
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Facilitates difficult discussions specific to patient and family conferences, (e.g., end- of-life, explaining complications, therapeutic uncertainty)"
         ],
         "level_3": [
-          "Establishes a therapeutic",
-          "relationship in challenging",
-          "encounters (e.g., shared",
-          "decision making)",
-          "When prompted, reflects",
-          "on personal biases while",
-          "attempting to minimize",
-          "communication barriers",
-          "Facilitates difficult",
-          "discussions specific to"
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Independently recognizes personal biases while attempting to proactively minimize communication barriers"
         ],
         "level_4": [
-          "patient and family",
-          "conferences, (e.g., end-",
-          "of-life, explaining",
-          "complications,",
-          "therapeutic uncertainty)",
-          "Independently",
-          "recognizes personal",
-          "biases while attempting",
-          "to proactively minimize",
-          "communication barriers"
+          "Identifies barriers to effective communication (e.g., health literacy, cultural)",
+          "Mentors others in situational awareness and critical self-reflection"
         ],
         "level_5": [
-          "Mentors others in",
-          "situational awareness and",
-          "critical self-reflection",
-          "Coaches others in the",
-          "facilitation of crucial",
-          "conversations"
+          "Establishes a therapeutic relationship in challenging encounters (e.g., shared decision making)",
+          "Coaches others in the facilitation of crucial conversations"
         ]
       }
     },
     {
       "id": "urology_ics2",
       "number": 18,
-      "domain_number": 2,
       "name": "Patient Counseling and Shared Decision Making",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "understanding of",
-          "informed consent",
-          "process",
-          "Answers questions about"
+          "Demonstrates basic understanding of informed consent process"
         ],
         "level_2": [
-          "treatment plan and seeks",
-          "guidance when",
-          "appropriate",
-          "Counsels patient through",
-          "decision-making process,"
+          "Answers questions about treatment plan and seeks guidance when appropriate"
         ],
         "level_3": [
-          "including questions, for",
-          "simple clinical problems",
-          "Counsels patient",
-          "through decision-",
-          "making process,"
+          "Counsels patient through decision-making process, including questions, for simple clinical problems"
         ],
         "level_4": [
-          "including questions, for",
-          "complex clinical",
-          "problems",
-          "Counsels patient through",
-          "decision-making process,"
+          "Counsels patient through decision- making process, including questions, for complex clinical problems"
         ],
         "level_5": [
-          "including questions, for",
-          "uncommon clinical",
-          "problems"
+          "Counsels patient through decision-making process, including questions, for uncommon clinical problems"
         ]
       }
     },
     {
       "id": "urology_ics3",
       "number": 19,
-      "domain_number": 3,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Respectfully interacts",
-          "and actively",
-          "communicates with all",
-          "members of health care",
-          "team (e.g., politely",
-          "accepts and requests"
+          "Respectfully interacts and actively communicates with all members of health care team (e.g., politely accepts and requests consults)"
         ],
         "level_2": [
-          "consults)",
-          "Communicates in an",
-          "approachable and",
-          "productive manner to",
-          "facilitate team work (e.g.,",
-          "active listening updates in"
+          "Communicates in an approachable and productive manner to facilitate team work (e.g., active listening updates in timely fashion duality)"
         ],
         "level_3": [
-          "timely fashion duality)",
-          "Actively recognizes and",
-          "mitigates communication",
-          "barriers and biases with",
-          "members of the health",
-          "care team"
+          "Actively recognizes and mitigates communication barriers and biases with members of the health care team"
         ],
         "level_4": [
-          "Leads and coordinates",
-          "recommendations from",
-          "multidisciplinary",
-          "members of the health",
-          "care team (e.g.,",
-          "facilitates conflict"
+          "Leads and coordinates recommendations from multidisciplinary members of the health care team (e.g., facilitates conflict resolution)"
         ],
         "level_5": [
-          "resolution)",
-          "Exemplar of flexible",
-          "communication strategies"
+          "Exemplar of flexible communication strategies"
         ]
       }
     },
     {
       "id": "urology_ics4",
       "number": 20,
-      "domain_number": 4,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record in a timely",
-          "manner while",
-          "safeguarding patient"
+          "Accurately records information in the patient record in a timely manner while safeguarding patient personal health information"
         ],
         "level_2": [
-          "personal health",
-          "information",
-          "Documents diagnostic",
-          "and therapeutic reasoning",
-          "in the patient record with"
+          "Documents diagnostic and therapeutic reasoning in the patient record with appropriate use of documentation shortcuts"
         ],
         "level_3": [
-          "appropriate use of",
-          "documentation shortcuts",
-          "Concisely reports",
-          "diagnostic and",
-          "therapeutic reasoning"
+          "Concisely reports diagnostic and therapeutic reasoning"
         ],
         "level_4": [
-          "Efficiently",
-          "communicates in an",
-          "organized fashion that",
-          "includes contingency",
-          "plans"
+          "Efficiently communicates in an organized fashion that includes contingency plans"
         ],
         "level_5": [
-          "Facilitates improved",
-          "written and verbal",
-          "communication of others"
+          "Facilitates improved written and verbal communication of others"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "urology",
-  "primary_name": "Urology",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologysupplementalguide.pdf"

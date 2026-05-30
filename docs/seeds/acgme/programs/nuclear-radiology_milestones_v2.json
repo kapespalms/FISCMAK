@@ -1,0 +1,561 @@
+{
+  "framework_key": "nuclear-radiology",
+  "specialty": "Nuclear Radiology",
+  "version": "2.0",
+  "source": "ACGME Nuclear Radiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "radiology",
+  "parent_name": "Radiology",
+  "subcompetencies": [
+    {
+      "id": "nuclear_radiology_pc1",
+      "number": 1,
+      "name": "Diagnostic Non-Cardiac Examinations",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Selects protocols for common non-cardiac examinations",
+          "Makes efficient, accurate, and comprehensive interpretations of uncommon and hybrid non-cardiac examinations, including secondary findings and subtle observations"
+        ],
+        "level_2": [
+          "Makes efficient and accurate interpretations of common non-cardiac examinations",
+          "Teaches common, uncommon, and hybrid non-cardiac examinations to junior learners"
+        ],
+        "level_3": [
+          "Tailors protocols for common and hybrid non- cardiac examinations",
+          "Independently serves as a consultant to interdisciplinary clinical care teams"
+        ],
+        "level_4": [
+          "Makes efficient, accurate, and comprehensive interpretations of common and hybrid non-cardiac examinations, including secondary findings",
+          "Creates protocols for emerging non-cardiac diagnostic applications"
+        ],
+        "level_5": [
+          "Tailors protocols for uncommon and hybrid non-cardiac examinations",
+          "Leads interdisciplinary clinical care teams"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_pc2",
+      "number": 2,
+      "name": "Diagnostic Cardiac Examinations",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes and applies",
+          "PET/CT examinations, and recognizes adequacy of interpretation and reporting",
+          "PET/CT examinations"
+        ],
+        "level_2": [
+          "Appropriate Use Criteria for cardiac stress imaging, and describes protocols for cardiac examination",
+          "Independently serves as a consultant to multidisciplinary care teams to direct cardiac"
+        ],
+        "level_3": [
+          "Ensures appropriateness and quality of cardiac planar and single-photon emission computed tomography (SPECT) or",
+          "SPECT or SPECT/CT and/or PET or PET/CT examinations"
+        ],
+        "level_4": [
+          "SPECT/CT examinations and recognizes adequacy of interpretation and reporting",
+          "Evaluates new paradigms for assessing cardiac disease with SPECT or"
+        ],
+        "level_5": [
+          "Ensures appropriateness and quality of cardiac positron emission tomography (PET) or",
+          "SPECT/CT and/or PET or"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_pc3",
+      "number": 3,
+      "name": "Radiopharmaceutical Therapies: Oral 131-I Nal and Parenteral",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Knows indications and contraindications for radioiodine therapy for benign and malignant thyroid diseases",
+          "Plans and performs radioiodine therapy in complicated clinical situations (e.g., renal failure, mentally or physically challenged patients)"
+        ],
+        "level_2": [
+          "Evaluates, selects, and prepares patients for radioiodine therapy, including obtaining consent, and performs procedure",
+          "Performs routine parenteral radiopharmaceutical therapies"
+        ],
+        "level_3": [
+          "Knows the indications and contraindications for routine parenteral radiopharmaceutical therapies",
+          "Acts as an expert consultant for radioiodine therapies"
+        ],
+        "level_4": [
+          "Selects and applies appropriate patient release criteria, and follows patient after radioiodine therapy",
+          "Acts as an expert for emerging parenteral therapeutic radiopharmaceuticals"
+        ],
+        "level_5": [
+          "Evaluates, selects, and prepares patients for routine parenteral radiopharmaceutical therapies, including obtaining consent"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_mk1",
+      "number": 4,
+      "name": "Physics and Instrumentation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies instrumentation quality control requirements and recognizes potential sources of error"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of routine instrumentation, including calibration and attenuation correction"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of advanced instrumentation, including calibration, attenuation correction, and quantitation"
+        ],
+        "level_4": [
+          "Applies knowledge in use of advanced instrumentation, including calibration, attenuation correction, and quantitation"
+        ],
+        "level_5": [
+          "Teaches others about advanced instrumentation, including calibration, attenuation correction, quantitation, and dosimetry"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_mk2",
+      "number": 5,
+      "name": "Radiopharmaceuticals and Pharmaceuticals",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of diagnostic radiopharmaceuticals in routine practice",
+          "Applies knowledge of indications and contraindications of, and alternatives to common pharmaceuticals in routine practice",
+          "Applies knowledge of radiopharmaceuticals for complex radiopharmaceutical therapies"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of radiopharmaceuticals for routine radiopharmaceutical therapies",
+          "Demonstrates knowledge of diagnostic radiopharmaceuticals in advanced practice",
+          "Applies knowledge of indications and contraindications of, and alternatives to uncommon pharmaceuticals in advanced practice"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of indications and contraindications of common pharmaceuticals in routine practice",
+          "Demonstrates knowledge of radiopharmaceuticals for complex radiopharmaceutical therapies",
+          "Functions independently as an integral member of multidisciplinary clinical care team or tumor board to identify and manage patients"
+        ],
+        "level_4": [
+          "Applies knowledge of diagnostic radiopharmaceuticals in routine practice",
+          "Demonstrates knowledge of indications and contraindications of uncommon pharmaceuticals in advanced practice"
+        ],
+        "level_5": [
+          "Applies knowledge of radiopharmaceuticals for routine radiopharmaceutical therapies",
+          "Applies knowledge of diagnostic radiopharmaceuticals in advanced practice"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_mk3",
+      "number": 6,
+      "name": "Molecular Imaging and Radiotheranostics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of molecular imaging findings in common diseases"
+        ],
+        "level_2": [
+          "Applies principles of molecular imaging and radiotheranostics in common diseases"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of molecular imaging findings in complex diseases"
+        ],
+        "level_4": [
+          "Applies principles of molecular imaging and radiotheranostics in complex diseases"
+        ],
+        "level_5": [
+          "Independently integrates principles of advanced radiotheranostic concepts into clinical practice"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_sbp1",
+      "number": 7,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of mechanism for reporting patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors leading to patient safety events",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in reporting and disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_sbp2",
+      "number": 8,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates skills required to identify, develop, implement, and analyze quality improvement projects"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_sbp3",
+      "number": 9,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination in nuclear radiology imaging/procedures",
+          "Identifies specific population and community health needs for local population",
+          "Role models safe and effective transitions of care/hand-offs"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex nuclear radiology imaging/procedures effectively using interprofessional teams",
+          "Participates in adapting practice to provide for needs of specific populations (actual or simulated)"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of systematic improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine nuclear radiology imaging/procedures effectively using interprofessional teams",
+          "Identifies local resources available to meet needs of specific patient populations and community",
+          "Improves the process of quality of transitions of care/hand-offs to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care across different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_sbp4",
+      "number": 10,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of complex health care systems (e.g., hospital, finance, personnel, technology)",
+          "Describes technical and professional components of imaging costs"
+        ],
+        "level_2": [
+          "Describes mechanisms for reimbursement, including types of payors",
+          "Manages various components of complex health care systems to provide efficient and effective patient care"
+        ],
+        "level_3": [
+          "Describes how components of complex health care systems are interconnected and impact patient care",
+          "Describes the radiology revenue cycle and measurements of productivity (e.g., relative value units)"
+        ],
+        "level_4": [
+          "States relative cost of common procedures in nuclear radiology",
+          "Advocates for or leads systems change to enhance high-value, efficient, and effective patient care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects broader health care systems (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_sbp5",
+      "number": 11,
+      "name": "Radiation Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of radiation biology and the ALARA (“as low as reasonably achievable”) concept",
+          "Creates, implements, and assesses radiation safety initiatives at the institutional level"
+        ],
+        "level_2": [
+          "Accesses resources to determine exam-specific average radiation exposure (dose)"
+        ],
+        "level_3": [
+          "Communicates the relative risk of exam- specific radiation exposure (dose) to patients and practitioners"
+        ],
+        "level_4": [
+          "Applies principles of"
+        ],
+        "level_5": [
+          "ALARA consistently in daily practice"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_sbp6",
+      "number": 12,
+      "name": "Regulatory Requirements",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates awareness of the",
+          "Demonstrates knowledge of composition and function of Radiation",
+          "Demonstrates knowledge of rules and regulations required to function as medical director of nuclear radiology unit",
+          "Safety Committee)"
+        ],
+        "level_2": [
+          "Nuclear Regulatory",
+          "Safety Committee and responsibilities of",
+          "Demonstrates knowledge of radiation safety inspection processes (e.g., The",
+          "Participates in radiation safety inspection team (e.g., The Joint"
+        ],
+        "level_3": [
+          "Commission (NRC), pertinent state-specific agencies, and methods of accreditation",
+          "Radiation Safety Officer",
+          "Joint Commission, NRC, state)",
+          "Commission, NRC, state)"
+        ],
+        "level_4": [
+          "Knows the purpose and functions of radiation safety program in nuclear radiology",
+          "Applies appropriate laws and regulations to daily clinical scenarios in nuclear radiology clinic/laboratory (e.g., receives packages, performs ambient surveys)",
+          "Participates as a member of regulatory committee (e.g., Radiation Use"
+        ],
+        "level_5": [
+          "Knows basic NRC regulations and state- specific laws applying to radioactive materials use, storage and disposal, definition of authorized user, and components of written directives",
+          "Knows how to disclose reportable or recordable incidents",
+          "Committee, Radiation"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_pbli1",
+      "number": 13,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence to determine best imaging examination for routine patient/diagnosis"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based imaging"
+        ],
+        "level_3": [
+          "Locates and applies best available evidence, and integrates with patient preferences and values, to care for complex patients"
+        ],
+        "level_4": [
+          "Critically appraises conflicting evidence to guide care as tailored to individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients and/or participates in development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_pbli2",
+      "number": 14,
+      "name": "Reflective Practice and Commitment to Professional Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for professional development by establishing goals",
+          "Designs and implements learning plan with prompting",
+          "Analyzes effectiveness of behavioral changes as appropriate, and considers alternatives in narrowing gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies factors which contribute to gap(s) between expectations and actual performance",
+          "Episodically seeks performance data and feedback with humility and adaptability",
+          "Uses performance data to measure effectiveness of learning plan and, when necessary, improves it"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve performance",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow gap(s) between expectations and actual performance",
+          "Coaches other learners to consistently seek performance data and feedback"
+        ],
+        "level_4": [
+          "Is receptive to performance data and feedback in order to adjust goals",
+          "Designs and implements learning plan independently",
+          "Coaches others on reflective practices"
+        ],
+        "level_5": [
+          "Analyzes and reflects on factors which contribute to gap(s) between expectations and actual performance",
+          "Consistently seeks performance data and feedback with humility and adaptability",
+          "Facilitates design and implements learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_prof1",
+      "number": 15,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of expectations for professional behavior and describes how to appropriately report professional lapses",
+          "Recognizes need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, and stewardship of limited resources",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations and takes responsibility for own professionalism lapses",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_prof2",
+      "number": 16,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner to ensure that needs of patients, teams, and systems are met in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner to ensure that needs of patients, teams, and systems are met in complex or stressful situations"
+        ],
+        "level_4": [
+          "Recognizes and raises awareness of situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_prof3",
+      "number": 17,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of personal and professional well-being, with assistance, and is aware of available resources",
+          "With assistance, proposes a plan to remediate or improve limits in knowledge/ skills of self or team"
+        ],
+        "level_2": [
+          "Recognizes limits in knowledge/skills of self or team, with assistance",
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_3": [
+          "Independently recognizes status of personal and professional well-being using available resources, as appropriate",
+          "Independently develops a plan to remediate or improve limits in knowledge/skills of self or team"
+        ],
+        "level_4": [
+          "Independently recognizes limits in knowledge/skills of self or team and demonstrates appropriate help-seeking behaviors",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
+        ],
+        "level_5": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_ics1",
+      "number": 18,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately communicates own role within the health care system",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient goals and preferences, and acknowledges uncertainty and conflict"
+        ],
+        "level_2": [
+          "Identifies the need to adjust communication strategies based on assessment of patient/family expectations and understanding of health status and treatment options",
+          "Actively minimizes communication barriers"
+        ],
+        "level_3": [
+          "Identifies barriers to effective communication",
+          "Independently, uses shared decision making to align patient goals, and preferences with treatment options to create a personalized care plan"
+        ],
+        "level_4": [
+          "Organizes and initiates communication with patient/family by clarifying expectations and verifying understanding of the clinical situation",
+          "Coaches other learners to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies biases that hinder effective communication",
+          "Coaches other learners in shared decision making"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_ics2",
+      "number": 19,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Communicates non- emergent findings where failure to act may adversely affect patient outcome"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of institutional and national communication guidelines",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Clearly and concisely responds to a consultation request",
+          "Communicates findings and management options, as appropriate, tailored to the referring provider"
+        ],
+        "level_4": [
+          "Communicates emergent findings according to institutional or national guidelines",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Checks understanding of recommendations when providing consultation",
+          "Coaches other learners in tailored communications to referring providers"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_radiology_ics3",
+      "number": 20,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of institutional communications policies"
+        ],
+        "level_2": [
+          "Communicates appropriately as required by institutional policy"
+        ],
+        "level_3": [
+          "Communicates systems concerns in a respectful manner"
+        ],
+        "level_4": [
+          "Communicates clear and constructive suggestions to improve systems"
+        ],
+        "level_5": [
+          "Facilitates dialogue regarding systems issues among larger community stakeholders"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearradiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearradiologysupplementalguide.pdf"
+  }
+}

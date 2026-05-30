@@ -3,1313 +3,565 @@
   "specialty": "Neurological Surgery",
   "version": "2.0",
   "source": "ACGME Neurological Surgery Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "neurological-surgery",
+  "parent_name": "Neurological Surgery",
   "subcompetencies": [
     {
       "id": "neurological_surgery_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Brain Tumor",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with a brain",
-          "tumor",
-          "Places an external",
-          "ventricular drain; assists",
-          "with set-up, opening, and",
-          "closing for brain tumor",
-          "craniotomies",
-          "Provides routine peri-",
-          "operative care for brain",
-          "tumor patients",
-          "Explains the risks and"
+          "Performs a history and physical examination in patients with a brain tumor",
+          "Recognizes and initiates work-up of routine complications (e.g., air embolism, CSF fistula, hematoma)",
+          "Performs complex craniotomy for brain tumor; assists with advanced craniotomy for brain tumor"
         ],
         "level_2": [
-          "benefits of craniotomy for",
-          "brain tumor",
-          "Assists with routine",
-          "craniotomy for brain tumor",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications (e.g., air",
-          "embolism, CSF fistula,",
-          "hematoma)",
-          "Formulates a diagnostic",
-          "and treatment plan for a",
-          "patient with a brain or",
-          "spinal cord tumor"
+          "Places an external ventricular drain; assists with set-up, opening, and closing for brain tumor craniotomies",
+          "Formulates a diagnostic and treatment plan for a patient with a brain or spinal cord tumor",
+          "Manages complex complications"
         ],
         "level_3": [
-          "Performs routine",
-          "craniotomy for brain",
-          "tumor; assists with",
-          "complex craniotomy for",
-          "brain tumor",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g.,",
-          "refractory cerebral",
-          "edema, major vascular",
-          "injury)",
-          "Adapts standard"
+          "Provides routine peri- operative care for brain tumor patients",
+          "Performs routine craniotomy for brain tumor; assists with complex craniotomy for brain tumor",
+          "Leads discussion at an interdisciplinary tumor board"
         ],
         "level_4": [
-          "treatment plans and",
-          "techniques to special",
-          "circumstances (e.g.,",
-          "recurrence, bone",
-          "marrow suppression)",
-          "Performs complex",
-          "craniotomy for brain",
-          "tumor; assists with",
-          "advanced craniotomy",
-          "for brain tumor",
-          "Manages complex",
-          "complications",
-          "Leads discussion at an"
+          "Explains the risks and benefits of craniotomy for brain tumor",
+          "Manages routine complications and recognizes complex complications (e.g., refractory cerebral edema, major vascular injury)",
+          "Performs advanced craniotomy for brain tumor"
         ],
         "level_5": [
-          "interdisciplinary tumor",
-          "board",
-          "Performs advanced",
-          "craniotomy for brain tumor",
-          "Utilizes patient outcome",
-          "data for quality",
-          "improvement or the",
-          "development of adjunctive",
-          "therapy protocols"
+          "Assists with routine craniotomy for brain tumor",
+          "Adapts standard treatment plans and techniques to special circumstances (e.g., recurrence, bone marrow suppression)",
+          "Utilizes patient outcome data for quality improvement or the development of adjunctive therapy protocols"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Surgical Treatment of Epilepsy and Movement Disorders",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with epilepsy or",
-          "movement disorders",
-          "Performs stereotactic",
-          "frame placement or",
-          "frameless navigation",
-          "registration; assists with",
-          "set-up, opening, and",
-          "closing for functional",
-          "neurosurgical",
-          "procedures",
-          "Provides routine peri-",
-          "operative care for"
+          "Performs a history and physical examination in patients with epilepsy or movement disorders",
+          "Recognizes and initiates work-up of routine complications (e.g., seizures, device infection)",
+          "Performs complex functional neurosurgical procedures; assists with advanced functional neurosurgical procedures"
         ],
         "level_2": [
-          "movement disorder and",
-          "epilepsy patients",
-          "Explains the risks and",
-          "benefits of functional",
-          "neurosurgical procedures",
-          "Assists with routine",
-          "functional neurosurgical",
-          "procedures",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications (e.g.,",
-          "seizures, device infection)",
-          "Formulates a diagnostic",
-          "and treatment plan for a"
+          "Performs stereotactic frame placement or frameless navigation registration; assists with set-up, opening, and closing for functional neurosurgical procedures",
+          "Formulates a diagnostic and treatment plan for a patient with epilepsy or a movement disorder",
+          "Manages complex complications"
         ],
         "level_3": [
-          "patient with epilepsy or a",
-          "movement disorder",
-          "Performs routine",
-          "functional neurosurgical",
-          "procedures; assists with",
-          "complex functional",
-          "neurosurgical procedures",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g., status",
-          "epilepticus, dystonia)",
-          "Adapts standard",
-          "treatment plans and"
+          "Provides routine peri- operative care for movement disorder and epilepsy patients",
+          "Performs routine functional neurosurgical procedures; assists with complex functional neurosurgical procedures",
+          "Leads discussion at an interdisciplinary epilepsy center patient management conference"
         ],
         "level_4": [
-          "techniques to special",
-          "circumstances (e.g.,",
-          "Parkinson’s plus,",
-          "multifocal epilepsy)",
-          "Performs complex",
-          "functional neurosurgical",
-          "procedures; assists with",
-          "advanced functional",
-          "neurosurgical",
-          "procedures",
-          "Manages complex",
-          "complications",
-          "Leads discussion at an",
-          "interdisciplinary epilepsy"
+          "Explains the risks and benefits of functional neurosurgical procedures",
+          "Manages routine complications and recognizes complex complications (e.g., status epilepticus, dystonia)",
+          "Performs advanced functional neurosurgical procedures, including interpretation of electrophysiological data"
         ],
         "level_5": [
-          "center patient",
-          "management conference",
-          "Performs advanced",
-          "functional neurosurgical",
-          "procedures, including",
-          "interpretation of",
-          "electrophysiological data",
-          "Utilizes patient outcome",
-          "data for quality",
-          "improvement; designs",
-          "care pathways for",
-          "epilepsy or movement",
-          "disorder patients"
+          "Assists with routine functional neurosurgical procedures",
+          "Adapts standard treatment plans and techniques to special circumstances (e.g., Parkinson’s plus, multifocal epilepsy)",
+          "Utilizes patient outcome data for quality improvement; designs care pathways for epilepsy or movement disorder patients"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Pain and Peripheral Nerve Disorders",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with chronic pain",
-          "or a peripheral nerve",
-          "disorder",
-          "Interrogates and",
-          "programs implanted",
-          "devices; assists with set-",
-          "up, opening, and closing",
-          "for chronic pain and",
-          "peripheral nerve",
-          "procedures",
-          "Provides routine peri-",
-          "operative care for",
-          "chronic pain or",
-          "peripheral nerve disorder"
+          "Performs a history and physical examination in patients with chronic pain or a peripheral nerve disorder",
+          "Recognizes and initiates work-up of routine complications (e.g., implanted device failure or infection)",
+          "Performs complex chronic pain and peripheral nerve procedures; assists with advanced chronic pain and peripheral nerve procedures"
         ],
         "level_2": [
-          "patients",
-          "Explains the risks and",
-          "benefits of chronic pain",
-          "and peripheral nerve",
-          "procedures",
-          "Assists with routine",
-          "chronic pain and",
-          "peripheral nerve",
-          "procedures",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications (e.g.,",
-          "implanted device failure or",
-          "infection)",
-          "Formulates a diagnostic",
-          "and treatment plan for"
+          "Interrogates and programs implanted devices; assists with set- up, opening, and closing for chronic pain and peripheral nerve procedures",
+          "Formulates a diagnostic and treatment plan for patients with chronic pain or peripheral nerve disorders",
+          "Manages complex complications"
         ],
         "level_3": [
-          "patients with chronic pain",
-          "or peripheral nerve",
-          "disorders",
-          "Performs routine chronic",
-          "pain and peripheral nerve",
-          "procedures; assists with",
-          "complex chronic pain and",
-          "peripheral nerve",
-          "procedures",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g.,",
-          "intrathecal drug overdose",
-          "or withdrawal)",
-          "Adapts standard"
+          "Provides routine peri- operative care for chronic pain or peripheral nerve disorder patients",
+          "Performs routine chronic pain and peripheral nerve procedures; assists with complex chronic pain and peripheral nerve procedures",
+          "Leads discussion at an interdisciplinary case conference or specialty clinic for chronic pain or peripheral nerve disorder patients"
         ],
         "level_4": [
-          "treatment plans and",
-          "techniques to special",
-          "circumstances (e.g.,",
-          "cancer pain,",
-          "deafferentation pain)",
-          "Performs complex",
-          "chronic pain and",
-          "peripheral nerve",
-          "procedures; assists with",
-          "advanced chronic pain",
-          "and peripheral nerve",
-          "procedures",
-          "Manages complex",
-          "complications",
-          "Leads discussion at an",
-          "interdisciplinary case"
+          "Explains the risks and benefits of chronic pain and peripheral nerve procedures",
+          "Manages routine complications and recognizes complex complications (e.g., intrathecal drug overdose or withdrawal)",
+          "Performs advanced chronic pain and peripheral nerve procedures"
         ],
         "level_5": [
-          "conference or specialty",
-          "clinic for chronic pain or",
-          "peripheral nerve disorder",
-          "patients",
-          "Performs advanced",
-          "chronic pain and",
-          "peripheral nerve",
-          "procedures",
-          "Utilizes patient outcome",
-          "data for quality",
-          "improvement; designs",
-          "care pathways for chronic",
-          "pain or peripheral nerve",
-          "disorder patients"
+          "Assists with routine chronic pain and peripheral nerve procedures",
+          "Adapts standard treatment plans and techniques to special circumstances (e.g., cancer pain, deafferentation pain)",
+          "Utilizes patient outcome data for quality improvement; designs care pathways for chronic pain or peripheral nerve disorder patients"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Spinal Neurological Surgery",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with",
-          "degenerative, traumatic,",
-          "or neoplastic spinal",
-          "disorders",
-          "Implements spinal",
-          "bracing or traction;",
-          "assists with set-up,",
-          "opening, and closing for",
-          "spinal surgery",
-          "procedures",
-          "Provides routine peri-",
-          "operative care for spinal"
+          "Performs a history and physical examination in patients with degenerative, traumatic, or neoplastic spinal disorders",
+          "Recognizes and initiates work-up of routine complications (e.g., pain, surgical site infection)",
+          "Performs complex spinal surgery procedures; assists with advanced spinal surgery and reconstructive procedures"
         ],
         "level_2": [
-          "surgery patients",
-          "Explains the risks and",
-          "benefits of spinal surgery",
-          "Assists with routine spinal",
-          "surgery procedures",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications (e.g., pain,",
-          "surgical site infection)",
-          "Formulates a diagnostic",
-          "and treatment plan for a",
-          "patient with degenerative,",
-          "traumatic, or neoplastic",
-          "spinal disorders"
+          "Implements spinal bracing or traction; assists with set-up, opening, and closing for spinal surgery procedures",
+          "Formulates a diagnostic and treatment plan for a patient with degenerative, traumatic, or neoplastic spinal disorders",
+          "Manages complex complications"
         ],
         "level_3": [
-          "Performs routine spinal",
-          "surgery procedures;",
-          "assists with complex",
-          "spinal surgery procedures",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g.,",
-          "myelopathy, cerebrospinal",
-          "fluid (CSF) leak,",
-          "instrument",
-          "failure/malposition)",
-          "Adapts standard",
-          "treatment plans and"
+          "Provides routine peri- operative care for spinal surgery patients",
+          "Performs routine spinal surgery procedures; assists with complex spinal surgery procedures",
+          "Leads discussion at an interdisciplinary spine case conference or specialty clinic"
         ],
         "level_4": [
-          "techniques to special",
-          "circumstances (e.g.,",
-          "spinal deformity, post-",
-          "irradiated spine, or",
-          "infection)",
-          "Performs complex",
-          "spinal surgery",
-          "procedures; assists with",
-          "advanced spinal surgery",
-          "and reconstructive",
-          "procedures",
-          "Manages complex",
-          "complications",
-          "Leads discussion at an"
+          "Explains the risks and benefits of spinal surgery",
+          "Manages routine complications and recognizes complex complications (e.g., myelopathy, cerebrospinal fluid (CSF) leak, instrument failure/malposition)",
+          "Performs advanced spinal surgery and reconstructive procedures"
         ],
         "level_5": [
-          "interdisciplinary spine",
-          "case conference or",
-          "specialty clinic",
-          "Performs advanced spinal",
-          "surgery and",
-          "reconstructive procedures",
-          "Utilizes patient outcome",
-          "and registry data for",
-          "quality improvement and",
-          "treatment selection"
+          "Assists with routine spinal surgery procedures",
+          "Adapts standard treatment plans and techniques to special circumstances (e.g., spinal deformity, post- irradiated spine, or infection)",
+          "Utilizes patient outcome and registry data for quality improvement and treatment selection"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Vascular Neurological Surgery",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with ischemic or",
-          "hemorrhagic stroke or",
-          "vascular neurosurgical",
-          "disorders",
-          "Manages and obtains",
-          "CSF samples from",
-          "external ventricular",
-          "drains; assists with set-",
-          "up, opening, and closing",
-          "for vascular",
-          "neurosurgical and",
-          "endovascular procedures",
-          "Provides routine peri-",
-          "operative care for",
-          "vascular neurosurgical"
+          "Performs a history and physical examination in patients with ischemic or hemorrhagic stroke or vascular neurosurgical disorders",
+          "Assists with routine vascular neurosurgical and endovascular procedures",
+          "Adapts standard treatment plans and techniques to special circumstances (e.g., vasculitis, ischemic heart disease)",
+          "Utilizes patient outcome data for quality improvement; designs care pathways for vascular neurosurgical and endovascular patients"
         ],
         "level_2": [
-          "and endovascular",
-          "patients",
-          "Explains the risks and",
-          "benefits of vascular",
-          "neurosurgical and",
-          "endovascular procedures",
-          "Assists with routine",
-          "vascular neurosurgical",
-          "and endovascular",
-          "procedures",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications (e.g.,",
-          "seizure, hydrocephalus)",
-          "Formulates a diagnostic",
-          "and treatment plan for a",
-          "patient with ischemic or"
+          "Manages and obtains",
+          "Recognizes and initiates work-up of routine complications (e.g., seizure, hydrocephalus)",
+          "Performs complex vascular neurosurgical and endovascular procedures; assists with advanced vascular neurosurgical and endovascular procedures"
         ],
         "level_3": [
-          "hemorrhagic stroke or",
-          "vascular neurosurgical",
-          "disorders",
-          "Performs routine vascular",
-          "neurosurgical and",
-          "endovascular procedures;",
-          "assists with complex",
-          "vascular neurosurgical",
-          "and endovascular",
-          "procedures",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g.,",
-          "cerebral vasospasm,",
-          "herniation syndrome,",
-          "intra-operative aneurysm"
+          "CSF samples from external ventricular drains; assists with set- up, opening, and closing for vascular neurosurgical and endovascular procedures",
+          "Formulates a diagnostic and treatment plan for a patient with ischemic or hemorrhagic stroke or vascular neurosurgical disorders",
+          "Manages complex complications"
         ],
         "level_4": [
-          "rupture)",
-          "Adapts standard",
-          "treatment plans and",
-          "techniques to special",
-          "circumstances (e.g.,",
-          "vasculitis, ischemic",
-          "heart disease)",
-          "Performs complex",
-          "vascular neurosurgical",
-          "and endovascular",
-          "procedures; assists with",
-          "advanced vascular",
-          "neurosurgical and",
-          "endovascular",
-          "procedures",
-          "Manages complex",
-          "complications"
+          "Provides routine peri- operative care for vascular neurosurgical and endovascular patients",
+          "Performs routine vascular neurosurgical and endovascular procedures; assists with complex vascular neurosurgical and endovascular procedures",
+          "Leads discussion at an interdisciplinary vascular neurosurgical and endovascular surgery case conference or specialty clinic"
         ],
         "level_5": [
-          "Leads discussion at an",
-          "interdisciplinary vascular",
-          "neurosurgical and",
-          "endovascular surgery",
-          "case conference or",
-          "specialty clinic",
-          "Performs advanced",
-          "vascular neurosurgical",
-          "and endovascular",
-          "procedures",
-          "Utilizes patient outcome",
-          "data for quality",
-          "improvement; designs",
-          "care pathways for",
-          "vascular neurosurgical",
-          "and endovascular patients"
+          "Explains the risks and benefits of vascular neurosurgical and endovascular procedures",
+          "Manages routine complications and recognizes complex complications (e.g., cerebral vasospasm, herniation syndrome, intra-operative aneurysm rupture)",
+          "Performs advanced vascular neurosurgical and endovascular procedures"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Pediatric Neurological Surgery",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs an age-",
-          "appropriate history and",
-          "physical examination",
-          "with developmental",
-          "assessment, including",
-          "for non-accidental",
-          "trauma",
-          "Performs CSF shunt tap",
-          "and valve programming;",
-          "assists with set-up,",
-          "opening, and closing for",
-          "pediatric neurosurgical",
-          "procedures",
-          "Provides routine peri-",
-          "operative care for",
-          "pediatric neurosurgical"
+          "Performs an age- appropriate history and physical examination with developmental assessment, including for non-accidental trauma",
+          "Recognizes and initiates work-up of routine complications, including in pre-verbal children (e.g., CSF shunt failure, seizure)",
+          "Performs complex pediatric neurosurgical procedures; assists with advanced pediatric neurosurgical procedures"
         ],
         "level_2": [
-          "patients",
-          "Explains the risks and",
-          "benefits of pediatric",
-          "neurosurgical procedures;",
-          "adapts diagnoses to age-",
-          "related variations",
-          "Assists with routine",
-          "pediatric neurosurgical",
-          "procedures",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications, including in",
-          "pre-verbal children (e.g.,",
-          "CSF shunt failure,",
-          "seizure)",
-          "Formulates a diagnostic"
+          "Performs CSF shunt tap and valve programming; assists with set-up, opening, and closing for pediatric neurosurgical procedures",
+          "Formulates a diagnostic and treatment plan for a pediatric patient; determines prognosis in severe brain injury and/or diagnoses brain death in infants and children",
+          "Manages complex complications"
         ],
         "level_3": [
-          "and treatment plan for a",
-          "pediatric patient;",
-          "determines prognosis in",
-          "severe brain injury and/or",
-          "diagnoses brain death in",
-          "infants and children",
-          "Performs routine pediatric",
-          "neurosurgical procedures;",
-          "assists with complex",
-          "pediatric neurosurgical",
-          "procedures",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g.,",
-          "hematoma, CSF leak)"
+          "Provides routine peri- operative care for pediatric neurosurgical patients",
+          "Performs routine pediatric neurosurgical procedures; assists with complex pediatric neurosurgical procedures",
+          "Leads discussion at an interdisciplinary pediatric case conference or specialty clinic; counsels expectant parents regarding fetal anomalies"
         ],
         "level_4": [
-          "Adapts standard",
-          "treatment plans and",
-          "techniques to special",
-          "circumstances (e.g.,",
-          "very young children and",
-          "infants)",
-          "Performs complex",
-          "pediatric neurosurgical",
-          "procedures; assists with",
-          "advanced pediatric",
-          "neurosurgical",
-          "procedures",
-          "Manages complex",
-          "complications",
-          "Leads discussion at an",
-          "interdisciplinary pediatric"
+          "Explains the risks and benefits of pediatric neurosurgical procedures; adapts diagnoses to age- related variations",
+          "Manages routine complications and recognizes complex complications (e.g., hematoma, CSF leak)",
+          "Performs advanced pediatric neurosurgical procedures"
         ],
         "level_5": [
-          "case conference or",
-          "specialty clinic; counsels",
-          "expectant parents",
-          "regarding fetal anomalies",
-          "Performs advanced",
-          "pediatric neurosurgical",
-          "procedures",
-          "Utilizes patient outcome",
-          "data for quality",
-          "improvement; designs",
-          "care pathways for",
-          "pediatric neurosurgical",
-          "patients"
+          "Assists with routine pediatric neurosurgical procedures",
+          "Adapts standard treatment plans and techniques to special circumstances (e.g., very young children and infants)",
+          "Utilizes patient outcome data for quality improvement; designs care pathways for pediatric neurosurgical patients"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc7",
       "number": 7,
-      "domain_number": 7,
       "name": "Traumatic Brain Injury (TBI)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with severe TBI",
-          "and assigns a Glasgow",
-          "Coma Scale score",
-          "Places an intracranial",
-          "pressure (ICP) monitor;",
-          "assists with set-up,",
-          "opening, and closing for",
-          "neurotrauma procedures",
-          "Provides routine peri-",
-          "operative care for",
-          "patients with TBI",
-          "Explains risks and"
+          "Performs a history and physical examination in patients with severe TBI and assigns a Glasgow",
+          "Assists with routine procedures for patients with TBI",
+          "Adapts standard treatment plans to special circumstances (e.g., medical co- morbidity, coagulopathy)",
+          "Utilizes patient outcome data for quality improvement; designs care pathways for neurotrauma patients"
         ],
         "level_2": [
-          "benefits of trauma",
-          "neurosurgical procedures;",
-          "evaluates patients with",
-          "multiple trauma",
-          "Assists with routine",
-          "procedures for patients",
-          "with TBI",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications (e.g., sinus",
-          "injury, air embolus)",
-          "Selects patients for",
-          "operative intervention;",
-          "prioritizes the"
+          "Coma Scale score",
+          "Recognizes and initiates work-up of routine complications (e.g., sinus injury, air embolus)",
+          "Performs complex procedures for patients with TBI; assists with advanced procedures for patients with TBI"
         ],
         "level_3": [
-          "management of injuries in",
-          "patients with multiple",
-          "trauma",
-          "Performs routine",
-          "procedures for patients",
-          "with TBI; assists with",
-          "complex procedures for",
-          "patients with TBI",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications (e.g.,",
-          "cerebral herniation",
-          "syndrome, persistent CSF"
+          "Places an intracranial pressure (ICP) monitor; assists with set-up, opening, and closing for neurotrauma procedures",
+          "Selects patients for operative intervention; prioritizes the management of injuries in patients with multiple trauma",
+          "Manages complex complications"
         ],
         "level_4": [
-          "fistula)",
-          "Adapts standard",
-          "treatment plans to",
-          "special circumstances",
-          "(e.g., medical co-",
-          "morbidity,",
-          "coagulopathy)",
-          "Performs complex",
-          "procedures for patients",
-          "with TBI; assists with",
-          "advanced procedures",
-          "for patients with TBI",
-          "Manages complex",
-          "complications"
+          "Provides routine peri- operative care for patients with TBI",
+          "Performs routine procedures for patients with TBI; assists with complex procedures for patients with TBI",
+          "Leads discussion at interdisciplinary trauma unit rounds and/or conference"
         ],
         "level_5": [
-          "Leads discussion at",
-          "interdisciplinary trauma",
-          "unit rounds and/or",
-          "conference",
-          "Performs advanced",
-          "procedures for patients",
-          "with TBI",
-          "Utilizes patient outcome",
-          "data for quality",
-          "improvement; designs",
-          "care pathways for",
-          "neurotrauma patients"
+          "Explains risks and benefits of trauma neurosurgical procedures; evaluates patients with multiple trauma",
+          "Manages routine complications and recognizes complex complications (e.g., cerebral herniation syndrome, persistent CSF fistula)",
+          "Performs advanced procedures for patients with TBI"
         ]
       }
     },
     {
       "id": "neurological_surgery_pc8",
       "number": 8,
-      "domain_number": 8,
       "name": "Critical Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "critically-ill patients",
-          "Inserts arterial and",
-          "central venous catheters",
-          "Manages neurocritical",
-          "care unit admissions and",
-          "discharges",
-          "Manages transient",
-          "intracranial hypertension",
-          "(e.g., hyperosmolar",
-          "agents, CSF drainage)",
-          "Assists with routine",
-          "neurocritical care unit"
+          "Performs a history and physical examination in critically-ill patients",
+          "Recognizes and initiates work-up of routine systemic complications (e.g., pneumonia, infection, pulmonary embolus, cardiac dysrhythmia, myocardial infarction)",
+          "Performs complex and assists with advanced neurocritical care unit procedures; manages or initiates management of surgical airways"
         ],
         "level_2": [
-          "procedures; manages",
-          "airway and performs",
-          "endotracheal intubation",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "systemic complications",
-          "(e.g., pneumonia,",
-          "infection, pulmonary",
-          "embolus, cardiac",
-          "dysrhythmia, myocardial",
-          "infarction)",
-          "Manages refractory",
-          "intracranial hypertension",
-          "(e.g., cerebral perfusion"
+          "Inserts arterial and central venous catheters",
+          "Manages refractory intracranial hypertension (e.g., cerebral perfusion pressure directed therapy, advanced monitoring, decompressive craniectomy)",
+          "Manages metabolic and nutritional support for critically-ill patients"
         ],
         "level_3": [
-          "pressure directed therapy,",
-          "advanced monitoring,",
-          "decompressive",
-          "craniectomy)",
-          "Performs routine and",
-          "assists with complex",
-          "neurocritical care unit",
-          "procedures; manages",
-          "difficult and emergency",
-          "airways",
-          "Manages routine systemic",
-          "complications and",
-          "prioritizes simultaneous",
-          "critical clinical events"
+          "Manages neurocritical care unit admissions and discharges",
+          "Performs routine and assists with complex neurocritical care unit procedures; manages difficult and emergency airways",
+          "Leads a multidisciplinary neurocritical care team"
         ],
         "level_4": [
-          "Diagnoses and initiates",
-          "management of acute",
-          "respiratory distress",
-          "syndrome",
-          "Performs complex and",
-          "assists with advanced",
-          "neurocritical care unit",
-          "procedures; manages or",
-          "initiates management of",
-          "surgical airways",
-          "Manages metabolic and",
-          "nutritional support for",
-          "critically-ill patients",
-          "Leads a multidisciplinary"
+          "Manages transient intracranial hypertension (e.g., hyperosmolar agents, CSF drainage)",
+          "Manages routine systemic complications and prioritizes simultaneous critical clinical events",
+          "Performs advanced neurocritical care unit procedures; performs bronchoscopy"
         ],
         "level_5": [
-          "neurocritical care team",
-          "Performs advanced",
-          "neurocritical care unit",
-          "procedures; performs",
-          "bronchoscopy",
-          "Manages complex",
-          "critically-ill patients (e.g.,",
-          "septic shock, organ",
-          "failure); designs care",
-          "pathways for critically-ill",
-          "patients"
+          "Assists with routine neurocritical care unit procedures; manages airway and performs endotracheal intubation",
+          "Diagnoses and initiates management of acute respiratory distress syndrome",
+          "Manages complex critically-ill patients (e.g., septic shock, organ failure); designs care pathways for critically-ill patients"
         ]
       }
     },
     {
       "id": "neurological_surgery_mk1",
       "number": 9,
-      "domain_number": 1,
       "name": "Information Gathering and Interpretation",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Correlates normal",
-          "neuroanatomy and",
-          "physiology with function",
-          "Gathers, interprets, and",
-          "reports basic diagnostic",
-          "test results (e.g.,",
-          "serology, chest",
-          "radiograph, brain and"
+          "Correlates normal neuroanatomy and physiology with function",
+          "Prioritizes, orders, and interprets diagnostic tests appropriate to clinical urgency and complexity"
         ],
         "level_2": [
-          "spine CT)",
-          "Correlates pathological",
-          "neuroanatomy and",
-          "physiology with function",
-          "Describes indications for",
-          "standard diagnostic",
-          "testing",
-          "Identifies anatomical and"
+          "Gathers, interprets, and reports basic diagnostic test results (e.g., serology, chest radiograph, brain and spine CT)",
+          "Interprets unusual variations in patterns of disease occurrence"
         ],
         "level_3": [
-          "temporal patterns of",
-          "disease occurrence",
-          "Prioritizes, orders, and",
-          "interprets diagnostic tests",
-          "appropriate to clinical",
-          "urgency and complexity",
-          "Interprets unusual",
-          "variations in patterns of"
+          "Correlates pathological neuroanatomy and physiology with function",
+          "Prioritizes, orders, and interprets complex diagnostic studies (e.g., SPECT, cerebral perfusion, MR tractography)"
         ],
         "level_4": [
-          "disease occurrence",
-          "Prioritizes, orders, and",
-          "interprets complex",
-          "diagnostic studies (e.g.,",
-          "SPECT, cerebral",
-          "perfusion, MR",
-          "tractography)",
-          "Effectively teaches"
+          "Describes indications for standard diagnostic testing",
+          "Effectively teaches anatomic-pathological correlation"
         ],
         "level_5": [
-          "anatomic-pathological",
-          "correlation",
-          "Utilizes complex",
-          "diagnostic approaches in",
-          "novel situations"
+          "Identifies anatomical and temporal patterns of disease occurrence",
+          "Utilizes complex diagnostic approaches in novel situations"
         ]
       }
     },
     {
       "id": "neurological_surgery_mk2",
       "number": 10,
-      "domain_number": 2,
       "name": "Critical Thinking for Diagnosis and Therapy",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Lists a differential",
-          "diagnosis for common",
-          "clinical presentations",
-          "Lists therapeutic options",
-          "for common clinical",
-          "presentations",
-          "Provides a"
+          "Lists a differential diagnosis for common clinical presentations",
+          "Justifies optimal therapeutic option based on individual patient presentation"
         ],
         "level_2": [
-          "comprehensive differential",
-          "diagnosis for a wide range",
-          "of clinical presentations",
-          "Explains advantages and",
-          "drawbacks of standard",
-          "therapeutic options",
-          "Provides a focused"
+          "Lists therapeutic options for common clinical presentations",
+          "Interprets anomalous presentations and rare disorders"
         ],
         "level_3": [
-          "differential diagnosis",
-          "based on individual",
-          "patient presentation",
-          "Justifies optimal",
-          "therapeutic option based",
-          "on individual patient",
-          "presentation"
+          "Provides a comprehensive differential diagnosis for a wide range of clinical presentations",
+          "Adapts therapeutic choice to anomalous or rare patient presentations"
         ],
         "level_4": [
-          "Interprets anomalous",
-          "presentations and rare",
-          "disorders",
-          "Adapts therapeutic",
-          "choice to anomalous or",
-          "rare patient",
-          "presentations"
+          "Explains advantages and drawbacks of standard therapeutic options",
+          "Studies and reports challenging diagnostic presentations"
         ],
         "level_5": [
-          "Studies and reports",
-          "challenging diagnostic",
-          "presentations",
-          "Creates new or modifies",
-          "existing therapeutic",
-          "options"
+          "Provides a focused differential diagnosis based on individual patient presentation",
+          "Creates new or modifies existing therapeutic options"
         ]
       }
     },
     {
       "id": "neurological_surgery_sbp1",
       "number": 11,
-      "domain_number": 1,
       "name": "Patient Safety",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Describes principles of",
-          "patient safety; performs",
-          "safe and effective hand-",
-          "offs and transitions of",
-          "care in routine clinical",
-          "situations",
-          "Recognizes and reports"
+          "Describes principles of patient safety; performs safe and effective hand- offs and transitions of care in routine clinical situations"
         ],
         "level_2": [
-          "patient safety events;",
-          "performs safe and",
-          "effective hand-offs and",
-          "transitions of care in",
-          "complex clinical situations",
-          "Discloses patient safety",
-          "events; supervises hand-"
+          "Recognizes and reports patient safety events; performs safe and effective hand-offs and transitions of care in complex clinical situations"
         ],
         "level_3": [
-          "offs and transitions of",
-          "care",
-          "Analyzes patient safety",
-          "events and offers error",
-          "prevention strategies;",
-          "advocates for safe and",
-          "effective transitions of"
+          "Discloses patient safety events; supervises hand- offs and transitions of care"
         ],
         "level_4": [
-          "care within and across",
-          "health care systems",
-          "Actively engages teams in",
-          "process and system",
-          "modification to prevent",
-          "patient safety events;",
-          "improves care transition"
+          "Analyzes patient safety events and offers error prevention strategies; advocates for safe and effective transitions of care within and across health care systems"
         ],
         "level_5": [
-          "practices within and",
-          "across health care",
-          "systems"
+          "Actively engages teams in process and system modification to prevent patient safety events; improves care transition practices within and across health care systems"
         ]
       }
     },
     {
       "id": "neurological_surgery_sbp2",
       "number": 12,
-      "domain_number": 2,
       "name": "Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Describes basic quality",
-          "improvement methods",
-          "and metrics",
-          "Participates in local",
-          "quality improvement"
+          "Describes basic quality improvement methods and metrics"
         ],
         "level_2": [
-          "initiatives (e.g., surgical",
-          "site infection (SSI)",
-          "reduction, care pathway",
-          "implementation)",
-          "Identifies quality"
+          "Participates in local quality improvement initiatives (e.g., surgical site infection (SSI) reduction, care pathway implementation)"
         ],
         "level_3": [
-          "improvement",
-          "opportunities and assists",
-          "in the development,",
-          "implementation, and",
-          "analysis of a quality"
+          "Identifies quality improvement opportunities and assists in the development, implementation, and analysis of a quality improvement project"
         ],
         "level_4": [
-          "improvement project",
-          "Advances multiple",
-          "quality improvement",
-          "initiatives through",
-          "participation in a quality"
+          "Advances multiple quality improvement initiatives through participation in a quality improvement working group or committee"
         ],
         "level_5": [
-          "improvement working",
-          "group or committee",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives"
+          "Creates, implements, and assesses quality improvement initiatives"
         ]
       }
     },
     {
       "id": "neurological_surgery_sbp3",
       "number": 13,
-      "domain_number": 3,
       "name": "Health Care Systems Awareness",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
           "Describes principles of",
-          "US health payment",
-          "systems",
-          "Analyzes how personal",
-          "practice affects the health"
+          "Collaborates with nursing and administrative teams to promote high value, quality care within a health care system"
         ],
         "level_2": [
-          "care system (e.g. test",
-          "ordering, length of stay,",
-          "readmissions)",
-          "Seeks information about",
-          "neurosurgical career"
+          "US health payment systems"
         ],
         "level_3": [
-          "options and identifies",
-          "professional mentor(s)",
-          "Prepares for transition",
-          "to practice (e.g.",
-          "information technology,"
+          "Analyzes how personal practice affects the health care system (e.g. test ordering, length of stay, readmissions)"
         ],
         "level_4": [
-          "risk management, billing",
-          "and coding, financial,",
-          "personnel)",
-          "Collaborates with nursing",
-          "and administrative teams"
+          "Seeks information about neurosurgical career options and identifies professional mentor(s)"
         ],
         "level_5": [
-          "to promote high value,",
-          "quality care within a",
-          "health care system"
+          "Prepares for transition to practice (e.g. information technology, risk management, billing and coding, financial, personnel)"
         ]
       }
     },
     {
       "id": "neurological_surgery_pbli1",
       "number": 14,
-      "domain_number": 1,
       "name": "Evidence-Based Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Applies institutional",
-          "treatment guidelines in",
-          "basic patient care;",
-          "identifies and reports",
-          "complications",
-          "Applies published",
-          "treatment guidelines in"
+          "Applies institutional treatment guidelines in basic patient care; identifies and reports complications"
         ],
         "level_2": [
-          "standard patient care;",
-          "tracks personal clinical",
-          "care outcomes",
-          "Critically adapts guideline",
-          "recommendations to",
-          "individual patient specifics",
-          "and preferences;"
+          "Applies published treatment guidelines in standard patient care; tracks personal clinical care outcomes"
         ],
         "level_3": [
-          "evaluates and applies",
-          "available outcomes data",
-          "to improve patient care",
-          "Participates in the",
-          "creation and",
-          "implementation of",
-          "institutional guidelines"
+          "Critically adapts guideline recommendations to individual patient specifics and preferences; evaluates and applies available outcomes data to improve patient care"
         ],
         "level_4": [
-          "or evidence-based",
-          "practice protocols;",
-          "analyzes and reports",
-          "outcomes data",
-          "Promotes evidence-based",
-          "practice by publishing",
-          "clinical guidelines and"
+          "Participates in the creation and implementation of institutional guidelines or evidence-based practice protocols; analyzes and reports outcomes data"
         ],
         "level_5": [
-          "teaching at local or",
-          "national conferences;",
-          "participates in clinical",
-          "outcomes registry design",
-          "or administration"
+          "Promotes evidence-based practice by publishing clinical guidelines and teaching at local or national conferences; participates in clinical outcomes registry design or administration"
         ]
       }
     },
     {
       "id": "neurological_surgery_pbli2",
       "number": 15,
-      "domain_number": 2,
       "name": "Research",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Formulates hypotheses",
-          "and investigative",
-          "approaches to clinical or",
-          "basic scientific problems"
+          "Formulates hypotheses and investigative approaches to clinical or basic scientific problems"
         ],
         "level_2": [
-          "Participates effectively in",
-          "clinical or basic scientific",
-          "research",
-          "Contributes to peer-"
+          "Participates effectively in clinical or basic scientific research"
         ],
         "level_3": [
-          "reviewed clinical or basic",
-          "scientific literature",
-          "Leads a clinical or basic",
-          "scientific research effort,"
+          "Contributes to peer- reviewed clinical or basic scientific literature"
         ],
         "level_4": [
-          "including application for",
-          "funding",
-          "Receives grant funding for",
-          "clinical or basic scientific"
+          "Leads a clinical or basic scientific research effort, including application for funding"
         ],
         "level_5": [
-          "work and makes novel",
-          "scientific contribution(s)"
+          "Receives grant funding for clinical or basic scientific work and makes novel scientific contribution(s)"
         ]
       }
     },
     {
       "id": "neurological_surgery_pbli3",
       "number": 16,
-      "domain_number": 3,
       "name": "Mentorship and Teaching",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates self-",
-          "awareness and identifies",
-          "gaps in knowledge,",
-          "skills, and experience;",
-          "incorporates feedback",
-          "Teaches medical"
+          "Demonstrates self- awareness and identifies gaps in knowledge, skills, and experience; incorporates feedback"
         ],
         "level_2": [
-          "students, other residents,",
-          "and patients in informal",
-          "settings; develops faculty",
-          "mentorship of self",
-          "Teaches health",
-          "professionals in formal"
+          "Teaches medical students, other residents, and patients in informal settings; develops faculty mentorship of self"
         ],
         "level_3": [
-          "settings (e.g., nursing in-",
-          "service training, residency",
-          "teaching conference);",
-          "mentors medical students",
-          "Organizes educational",
-          "activities at the program"
+          "Teaches health professionals in formal settings (e.g., nursing in- service training, residency teaching conference); mentors medical students"
         ],
         "level_4": [
-          "level; mentors residents",
-          "and other health care",
-          "professionals",
-          "Designs and implements",
-          "clinical rotations,",
-          "curricula, or learning and"
+          "Organizes educational activities at the program level; mentors residents and other health care professionals"
         ],
         "level_5": [
-          "assessment tools; models",
-          "and teaches mentoring to",
-          "others"
+          "Designs and implements clinical rotations, curricula, or learning and assessment tools; models and teaches mentoring to others"
         ]
       }
     },
     {
       "id": "neurological_surgery_prof1",
       "number": 17,
-      "domain_number": 1,
       "name": "Ethical Behavior",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Behaves ethically and",
-          "professionally and takes",
-          "responsibility for",
-          "personal conduct",
-          "Employs ethical and legal",
-          "principles (e.g., informed",
-          "consent, advance"
+          "Behaves ethically and professionally and takes responsibility for personal conduct",
+          "Board"
         ],
         "level_2": [
-          "directives, confidentiality,",
-          "error disclosure, resource",
-          "stewardship) and",
-          "appropriately seeks",
-          "advice",
-          "Performs tasks in a",
-          "thorough, timely, and"
+          "Employs ethical and legal principles (e.g., informed consent, advance directives, confidentiality, error disclosure, resource stewardship) and appropriately seeks advice"
         ],
         "level_3": [
-          "respectful manner in",
-          "complex or stressful",
-          "situations and takes",
-          "ownership of team",
-          "outcomes",
-          "Recognizes, reports,",
-          "and helps rectify lapses"
+          "Performs tasks in a thorough, timely, and respectful manner in complex or stressful situations and takes ownership of team outcomes"
         ],
         "level_4": [
-          "in ethics or",
-          "professionalism,",
-          "including coaching",
-          "others",
-          "Promotes ethical and",
-          "professional behavior by",
-          "creating a teaching"
+          "Recognizes, reports, and helps rectify lapses in ethics or professionalism, including coaching others"
         ],
         "level_5": [
-          "resource, addressing",
-          "system-level problems, or",
-          "serving on an ethics panel",
-          "or Institutional Review",
-          "Board"
+          "Promotes ethical and professional behavior by creating a teaching resource, addressing system-level problems, or serving on an ethics panel or Institutional Review"
         ]
       }
     },
     {
       "id": "neurological_surgery_prof2",
       "number": 18,
-      "domain_number": 2,
       "name": "Well-Being",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Describes the",
-          "importance of personal",
-          "and professional well-",
-          "being; manages sleep",
-          "deprivation and fatigue",
-          "Evaluates personal and",
-          "professional well-being;"
+          "Describes the importance of personal and professional well- being; manages sleep deprivation and fatigue"
         ],
         "level_2": [
-          "seeks appropriate",
-          "personal help and fatigue",
-          "mitigation when needed",
-          "Monitors and attempts to",
-          "optimize professional",
-          "well-being of the team;",
-          "adjusts team assignments"
+          "Evaluates personal and professional well-being; seeks appropriate personal help and fatigue mitigation when needed"
         ],
         "level_3": [
-          "to mitigate fatigue and",
-          "promote wellness",
-          "Coaches and assists",
-          "others in meeting",
-          "professional",
-          "expectations;",
-          "recognizes and"
+          "Monitors and attempts to optimize professional well-being of the team; adjusts team assignments to mitigate fatigue and promote wellness"
         ],
         "level_4": [
-          "responds to physical",
-          "impairment in self and",
-          "others",
-          "Develops a structured",
-          "plan or team activity to",
-          "optimize personal and",
-          "professional well-being,"
+          "Coaches and assists others in meeting professional expectations; recognizes and responds to physical impairment in self and others"
         ],
         "level_5": [
-          "resilience, and success;",
-          "participates in a peer",
-          "support program"
+          "Develops a structured plan or team activity to optimize personal and professional well-being, resilience, and success; participates in a peer support program"
         ]
       }
     },
     {
       "id": "neurological_surgery_ics1",
       "number": 19,
-      "domain_number": 1,
       "name": "Patient and Family Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language and non-",
-          "verbal behavior to exhibit",
-          "respect, establish",
-          "rapport, and demonstrate",
-          "cultural competency"
+          "Uses language and non- verbal behavior to exhibit respect, establish rapport, and demonstrate cultural competency"
         ],
         "level_2": [
-          "Establishes therapeutic",
-          "relationships in",
-          "straightforward",
-          "encounters using active",
-          "listening and clear"
+          "Establishes therapeutic relationships in straightforward encounters using active listening and clear language"
         ],
         "level_3": [
-          "language",
-          "Establishes therapeutic",
-          "relationships, thoughtfully",
-          "delivers information, and",
-          "strives for consensus in"
+          "Establishes therapeutic relationships, thoughtfully delivers information, and strives for consensus in challenging patient encounters"
         ],
         "level_4": [
-          "challenging patient",
-          "encounters",
-          "Consistently models",
-          "and mentors others in",
-          "optimal patient and"
+          "Consistently models and mentors others in optimal patient and family communications"
         ],
         "level_5": [
-          "family communications",
-          "Formally teaches",
-          "communication skills to",
-          "health care professionals"
+          "Formally teaches communication skills to health care professionals"
         ]
       }
     },
     {
       "id": "neurological_surgery_ics2",
       "number": 20,
-      "domain_number": 2,
       "name": "Communication in Coordination of Care",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record and safeguards",
-          "protected health",
-          "information; coordinates",
-          "care within the",
-          "neurosurgical service",
-          "Communicates orally and"
+          "Accurately records information in the patient record and safeguards protected health information; coordinates care within the neurosurgical service"
         ],
         "level_2": [
-          "in writing in a respectful,",
-          "organized, clear, concise",
-          "and timely manner with all",
-          "members of the",
-          "interprofessional health",
-          "care team; coordinates",
-          "care with consulting",
-          "services"
+          "Communicates orally and in writing in a respectful, organized, clear, concise and timely manner with all members of the interprofessional health care team; coordinates care with consulting services"
         ],
         "level_3": [
-          "Effectively manages",
-          "complex, team-based",
-          "clinical care; coordinates",
-          "care within a hospital",
-          "system",
-          "Models and mentors",
-          "others in effective",
-          "communication,"
+          "Effectively manages complex, team-based clinical care; coordinates care within a hospital system"
         ],
         "level_4": [
-          "including bidirectional",
-          "feedback and conflict",
-          "resolution; coordinates",
-          "long-term care,",
-          "including rehabilitation",
-          "Develops or implements",
-          "strategies for improving",
-          "communication and"
+          "Models and mentors others in effective communication, including bidirectional feedback and conflict resolution; coordinates long-term care, including rehabilitation"
         ],
         "level_5": [
-          "teamwork within a health",
-          "care system; creates care",
-          "pathways at the health",
-          "care system level"
+          "Develops or implements strategies for improving communication and teamwork within a health care system; creates care pathways at the health care system level"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "neurological-surgery",
-  "primary_name": "Neurological Surgery",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologicalsurgerymilestones.pdf",
     "supplemental_guide_url": null

@@ -1,0 +1,636 @@
+{
+  "framework_key": "hematopathology",
+  "specialty": "Hematopathology",
+  "version": "2.0",
+  "source": "ACGME Hematopathology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pathology",
+  "parent_name": "Pathology",
+  "subcompetencies": [
+    {
+      "id": "hematopathology_pc1",
+      "number": 1,
+      "name": "Interdisciplinary Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "For simple consultations, outlines next steps in basic hematology and hematopathology work- up and lists available resources useful in consultation"
+        ],
+        "level_2": [
+          "Manages consultations (e.g., obtains appropriate additional clinical information, accesses available resources, recommends next steps, documents appropriately), with assistance"
+        ],
+        "level_3": [
+          "Manages complex consultations, with assistance; manages simple consultations independently"
+        ],
+        "level_4": [
+          "Manages complex consultations independently"
+        ],
+        "level_5": [
+          "Recognized as an expert in providing comprehensive consultations"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_pc2",
+      "number": 2,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the importance of key elements of a report and timely reporting for optimal patient care",
+          "Independently generates an amended/addended report that includes updated information"
+        ],
+        "level_2": [
+          "Identifies the need for amended/addended reports when appropriate",
+          "Independently generates a timely, well- organized, integrated report for complex cases"
+        ],
+        "level_3": [
+          "Generates a timely report including key elements for a simple case, with assistance",
+          "Generates an amended/addended report that includes updated information, and integrates findings into a final diagnosis"
+        ],
+        "level_4": [
+          "Generates an amended/addended report that includes updated information, with assistance",
+          "Independently generates a nuanced, integrated report that expresses the ambiguity and uncertainty for a complex case"
+        ],
+        "level_5": [
+          "Generates a timely report for a complex case, with assistance; independently generates well-organized reports for simple cases"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_pc3",
+      "number": 3,
+      "name": "Procedure: Bone Marrow Aspiration and Biopsy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the indications and contraindications of bone marrow aspiration and biopsy"
+        ],
+        "level_2": [
+          "Assists in the performance of bone marrow aspiration and biopsy"
+        ],
+        "level_3": [
+          "Performs bone marrow aspiration and biopsy, with supervision"
+        ],
+        "level_4": [
+          "Independently performs bone marrows aspiration and biopsy"
+        ],
+        "level_5": [
+          "Teaches others to perform bone marrow aspiration and biopsy"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_pc4",
+      "number": 4,
+      "name": "Specimen Handling and Triaging",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes specimen handling and processing requirements for blood, bone marrow, and body fluid samples",
+          "Prioritizes lymphoid tissue for required ancillary testing given indication for procedure, including limited samples, under supervision"
+        ],
+        "level_2": [
+          "Describes specimen handling and processing requirements for lymphoid tissue samples",
+          "Independently prioritizes blood, bone marrow, and body fluid for required ancillary testing given indication for procedure, including limited samples"
+        ],
+        "level_3": [
+          "Designates blood, bone marrow, and body fluid for required ancillary testing given indication for procedure",
+          "Independently prioritizes lymphoid tissue for required ancillary testing given indication for procedure, including limited samples"
+        ],
+        "level_4": [
+          "Designates lymphoid tissue for required ancillary testing given indication for procedure",
+          "Serves as a resource for specimen handling and triaging"
+        ],
+        "level_5": [
+          "Prioritizes blood, bone marrow, and body fluid for required ancillary testing given indication for procedure, including limited samples, under supervision"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_mk1",
+      "number": 5,
+      "name": "Interpretation of Hematology Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic methodology and pathophysiology of hematology disorders"
+        ],
+        "level_2": [
+          "Interprets testing results for common hematology disorders, with assistance"
+        ],
+        "level_3": [
+          "Independently interprets testing results for common hematology disorders and recognizes limitations of testing"
+        ],
+        "level_4": [
+          "Interprets testing results for complex hematology disorders and recognizes limitations of testing"
+        ],
+        "level_5": [
+          "Serves as an expert resource in hematology testing"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_mk2",
+      "number": 6,
+      "name": "Interpretation of Coagulation Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic methodology and pathophysiology of coagulation disorders"
+        ],
+        "level_2": [
+          "Interprets testing results for common coagulation disorders, with assistance"
+        ],
+        "level_3": [
+          "Independently interprets testing results for common coagulation disorders and recognizes limitations of testing"
+        ],
+        "level_4": [
+          "Interprets testing results for complex coagulation disorders and recognizes limitations of testing"
+        ],
+        "level_5": [
+          "Serves as an expert resource in coagulation testing"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_mk3",
+      "number": 7,
+      "name": "Interpretation of Flow Cytometry",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic methodology of flow cytometry and patterns of antigen expression of hematopoietic cells"
+        ],
+        "level_2": [
+          "Interprets flow cytometry results for common disorders, with assistance"
+        ],
+        "level_3": [
+          "Independently interprets flow cytometry results for common disorders and recognizes pitfalls and limitations of testing"
+        ],
+        "level_4": [
+          "Interprets flow cytometry results for complex disorders and recognizes pitfalls and limitations of testing"
+        ],
+        "level_5": [
+          "Serves as an expert resource in interpretation of flow cytometry"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_mk4",
+      "number": 8,
+      "name": "Morphologic Interpretation and Diagnosis",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of peripheral blood, bone marrow, and body fluid morphology to identify simple pathologic diagnoses, with guidance",
+          "Applies knowledge of lymphoid tissue morphology to identify complex pathologic diagnoses, with guidance"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of lymphoid tissue morphology to identify simple pathologic diagnoses, with guidance",
+          "Independently applies knowledge of peripheral blood, bone marrow, and body fluid morphology to identify complex pathologic diagnoses"
+        ],
+        "level_3": [
+          "Independently applies knowledge of peripheral blood, bone marrow, and body fluid morphology to identify simple pathologic diagnoses",
+          "Independently applies knowledge of lymphoid tissue morphology to identify complex pathologic diagnoses"
+        ],
+        "level_4": [
+          "Independently applies knowledge of lymphoid tissue morphology to identify simple pathologic diagnoses",
+          "Recognized as an expert in the integration of hematolymphoid morphologic knowledge to pathologic diagnoses"
+        ],
+        "level_5": [
+          "Applies knowledge of peripheral blood, bone marrow, and body fluid morphology to identify complex pathologic diagnoses, with guidance"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_mk5",
+      "number": 9,
+      "name": "Selection of Molecular and Cytogenetics Testing and Interpretation of Reports",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes available ancillary tests, including cytogenetics and molecular testing, based on morphologic findings"
+        ],
+        "level_2": [
+          "Proposes appropriate ancillary tests for morphologic findings"
+        ],
+        "level_3": [
+          "Interprets simple ancillary test reports, considering technical limitations"
+        ],
+        "level_4": [
+          "Interprets complex ancillary test reports including diagnostic uncertainty and clinical ramifications"
+        ],
+        "level_5": [
+          "Serves as an expert resource for the interpretation of ancillary test reports"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_mk6",
+      "number": 10,
+      "name": "Clinical Reasoning in Hematopathology and Hematology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic framework for clinical reasoning",
+          "Seeks and integrates evidence-based information to inform diagnostic decision making in complex cases, with assistance"
+        ],
+        "level_2": [
+          "Identifies resources to inform clinical reasoning",
+          "Independently synthesizes information to inform clinical reasoning in complex cases"
+        ],
+        "level_3": [
+          "Demonstrates clinical reasoning to determine relevant information",
+          "Independently seeks out, analyzes, and applies relevant original research to diagnostic decision making in complex clinical cases"
+        ],
+        "level_4": [
+          "Selects relevant resources based on scenario to inform decisions",
+          "Demonstrates intuitive approach to clinical reasoning for complex cases"
+        ],
+        "level_5": [
+          "Synthesizes information to inform clinical reasoning, with assistance"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_sbp1",
+      "number": 11,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes departmental and institutional QI initiatives",
+          "Discloses patient safety events to clinicians and/or patients and families, as appropriate (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a QI project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic QI methodologies and metrics",
+          "Participates in disclosure of patient safety events to clinicians and/or patients and families, as appropriate (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in departmental and institutional QI initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses QI initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_sbp2",
+      "number": 12,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of case coordination",
+          "Identifies pathology’s role in population and community health needs for their local population",
+          "Models and advocates for safe and effective transitions of care/hand- offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients/specimens in complex cases effectively using interprofessional teams",
+          "Recommends and/or participates in changing and adapting practice to provide for the needs of communities and populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients/specimens in routine cases effectively using interprofessional teams",
+          "Identifies opportunities for pathology to participate in community and population health",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine situations",
+          "Models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_sbp3",
+      "number": 13,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, finance, personnel, technology)",
+          "Engages with clinicians and/or patients in shared decision making, such as use of preauthorization for complex testing"
+        ],
+        "level_2": [
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Practices and advocates for cost effective patient care with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Documents testing detail and explains the impact of documentation on billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., test use, turnaround time)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_sbp4",
+      "number": 14,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge that laboratories must be accredited",
+          "Interprets quality data and charts and trends, including proficiency testing results, with supervision",
+          "Reviews the quality management plan to identify areas for improvement"
+        ],
+        "level_2": [
+          "Discusses the need for quality control and proficiency testing",
+          "Identifies the differences between accreditation and regulatory compliance; discusses the process for achieving accreditation and maintaining regulatory compliance",
+          "Performs analysis and review of proficiency testing failures and recommends a course of action, with oversight"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the components of laboratory accreditation and regulatory compliance (Clinical",
+          "Demonstrates knowledge of the components of a laboratory quality management plan",
+          "Serves as a resource for accreditation at the regional or national level"
+        ],
+        "level_4": [
+          "Laboratory Improvement",
+          "Discusses implications of proficiency testing failures",
+          "Creates and follows a comprehensive quality management plan"
+        ],
+        "level_5": [
+          "Amendments and others), either through training or experience",
+          "Participates in an internal or external laboratory inspection",
+          "Independently formulates a response for proficiency testing failures"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_sbp5",
+      "number": 15,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general hematopathology work practices and workflow (e.g., molecular diagnostic, immunohistochemistry, chemical tests)"
+        ],
+        "level_2": [
+          "Explains rationale for utilization patterns in own practice setting"
+        ],
+        "level_3": [
+          "Identifies opportunities to optimize utilization of pathology resources"
+        ],
+        "level_4": [
+          "Initiates efforts to optimize utilization"
+        ],
+        "level_5": [
+          "Completes a utilization review and implements change"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_pbli1",
+      "number": 16,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and select applicable evidence",
+          "Identifies and applies the best available evidence to guide diagnostic work-up of complex cases",
+          "Suggests improvements to research regulations and/or substantially contributes to the primary literature through basic, translational, or clinical research"
+        ],
+        "level_2": [
+          "Is aware of the need for patient privacy, autonomy, and consent as applied to clinical research",
+          "Applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice, with supervision"
+        ],
+        "level_3": [
+          "Identifies and applies the best available evidence to guide diagnostic work-up of simple cases",
+          "Critically appraises and applies evidence to guide care, even in the face of conflicting data"
+        ],
+        "level_4": [
+          "Develops knowledge of the basic principles of research (demographics, Institutional Review",
+          "Proactively and consistently applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice"
+        ],
+        "level_5": [
+          "Board, human subjects), including how research is evaluated, explained to patients, and applied to patient care",
+          "Teaches others to critically appraise and apply evidence for complex cases; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_pbli2",
+      "number": 17,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with assistance",
+          "Critically evaluates the effectiveness of behavioral changes in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the gap(s) between expectations and actual performance",
+          "Seeks performance data and feedback with humility",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models seeking performance data and accepting feedback with humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to receiving performance data and feedback in order to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others in reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Actively and consistently seeks performance data and feedback with humility",
+          "Facilitates the design and implementing learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_prof1",
+      "number": 18,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Demonstrates professional behavior in complex or stressful situations"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers; identifies and describes potential triggers for professionalism lapses",
+          "Independently resolves and manages complex ethical situations"
+        ],
+        "level_3": [
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations; takes responsibility for one’s own professionalism lapses",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Recognizes the need and uses relevant resources to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_prof2",
+      "number": 19,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to instructions, requests, or reminders to complete tasks and responsibilities"
+        ],
+        "level_2": [
+          "Takes appropriate ownership and performs tasks and responsibilities in a timely manner with attention to detail"
+        ],
+        "level_3": [
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner and describes the impact on team"
+        ],
+        "level_4": [
+          "Anticipates and intervenes in situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of system outcomes, and implements new strategies when necessary"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_prof3",
+      "number": 20,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in the knowledge/skills/ behaviors of self or team, with assistance",
+          "Proposes and implements a plan to optimize personal and professional well-being, with assistance"
+        ],
+        "level_2": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "Independently develops and implements a plan to remediate or improve the knowledge/skills/ behaviors of self or team"
+        ],
+        "level_3": [
+          "Independently recognizes limitations in the knowledge/skills/ behaviors of self or team and seeks help when needed",
+          "Independently develops and implements a plan to optimize personal and professional well- being"
+        ],
+        "level_4": [
+          "Independently recognizes status of personal and professional well-being and seeks help when needed",
+          "Serves as a resource or consultant for developing a plan to remediate or improve the knowledge/ skills/behaviors"
+        ],
+        "level_5": [
+          "Proposes and implements a plan to remediate or improve the knowledge/ skills/behaviors of self or team, with assistance",
+          "Coaches others when responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_ics1",
+      "number": 21,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Independently, sensitively, and compassionately delivers medical information and acknowledges uncertainty and conflict"
+        ],
+        "level_3": [
+          "Establishes a relationship in straightforward encounters using active listening and clear language",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies complex barriers to effective communication (e.g., health literacy, cultural)",
+          "Mentors others in the sensitive and compassionate delivery of medical information"
+        ],
+        "level_5": [
+          "Sensitively and compassionately delivers medical information, with supervision",
+          "Models self-awareness while teaching a contextual approach to minimize communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_ics2",
+      "number": 22,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the health care team",
+          "Integrates feedback from team members to improve communication"
+        ],
+        "level_2": [
+          "Describes the utility of constructive feedback",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "hematopathology_ics3",
+      "number": 23,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient personal health information by communicating through appropriate means as required by institutional policy (e.g., patient safety reports, cell phone/pager usage)",
+          "Uses institutional structure to effectively communicate clear and constructive suggestions to improve the system"
+        ],
+        "level_2": [
+          "Identifies institutional and departmental structure for communication of issues",
+          "Independently communicates while ensuring security of personal health information"
+        ],
+        "level_3": [
+          "Selects forms of communication based on context and urgency of the situation",
+          "Initiates conversations on difficult subjects with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the system",
+          "Guides departmental or institutional communication around policies and procedures regarding the security of personal health information"
+        ],
+        "level_5": [
+          "Communicates while ensuring security of personal health information, with supervision",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematopathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematopathologysupplementalguide.pdf"
+  }
+}

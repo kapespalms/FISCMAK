@@ -3,1962 +3,800 @@
   "specialty": "Colon and Rectal Surgery",
   "version": "2.0",
   "source": "ACGME Colon and Rectal Surgery Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "colon-and-rectal-surgery",
+  "parent_name": "Colon and Rectal Surgery",
   "subcompetencies": [
     {
       "id": "colon_and_rectal_surgery_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Rectal Cancer",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in a",
-          "multidisciplinary",
-          "approach to peri-",
-          "operative diagnosis and",
-          "management",
-          "Assists in component",
-          "steps for transanal",
-          "excision, total",
-          "mesorectal excision,",
-          "restorative proctectomy,",
-          "and abdominoperineal",
-          "resection",
-          "Assists in management",
-          "of complications",
-          "With direct supervision,"
+          "Participates in a multidisciplinary approach to peri- operative diagnosis and management",
+          "With direct supervision, anticipates, diagnoses, and proficiently manages complications",
+          "Independently selects and completes component steps for transanal excision, total mesorectal excision, restorative proctectomy, and abdominoperineal resection"
         ],
         "level_2": [
-          "interprets and integrates",
-          "relevant staging and a",
-          "multidisciplinary approach",
-          "to peri-operative",
-          "diagnosis and",
-          "management",
-          "With direct supervision,",
-          "selects and completes the",
-          "component steps for",
-          "transanal excision, total",
-          "mesorectal excision,",
-          "restorative proctectomy,",
-          "and abdominoperineal",
-          "resection",
-          "With direct supervision,"
+          "Assists in component steps for transanal excision, total mesorectal excision, restorative proctectomy, and abdominoperineal resection",
+          "Independently interprets and integrates relevant staging and a multidisciplinary approach to peri-operative diagnosis and management",
+          "Independently anticipates, diagnoses, and proficiently manages complications"
         ],
         "level_3": [
-          "anticipates, diagnoses,",
-          "and proficiently manages",
-          "complications",
-          "Independently interprets",
-          "and integrates relevant",
-          "staging and a",
-          "multidisciplinary approach",
-          "to peri-operative",
-          "diagnosis and",
-          "management",
-          "With minimal guidance,",
-          "selects and completes the",
-          "component steps for",
-          "transanal excision, total",
-          "mesorectal excision,"
+          "Assists in management of complications",
+          "With minimal guidance, selects and completes the component steps for transanal excision, total mesorectal excision, restorative proctectomy, and abdominoperineal resection",
+          "Demonstrates proficiency as a teaching assistant for transanal excision, total mesorectal excision, restorative proctectomy, and abdominoperineal resection"
         ],
         "level_4": [
-          "restorative proctectomy,",
-          "and abdominoperineal",
-          "resection",
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and proficiently manages",
-          "complications",
-          "Leads the",
-          "multidisciplinary team in",
-          "peri-operative diagnosis",
-          "and management",
-          "Independently selects",
-          "and completes",
-          "component steps for",
-          "transanal excision, total"
+          "With direct supervision, interprets and integrates relevant staging and a multidisciplinary approach to peri-operative diagnosis and management",
+          "With minimal guidance, anticipates, diagnoses, and proficiently manages complications"
         ],
         "level_5": [
-          "mesorectal excision,",
-          "restorative proctectomy,",
-          "and abdominoperineal",
-          "resection",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and proficiently",
-          "manages complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "transanal excision, total",
-          "mesorectal excision,",
-          "restorative proctectomy,",
-          "and abdominoperineal",
-          "resection"
+          "With direct supervision, selects and completes the component steps for transanal excision, total mesorectal excision, restorative proctectomy, and abdominoperineal resection",
+          "Leads the multidisciplinary team in peri-operative diagnosis and management"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Colonic Neoplasia (Polyps, Colon Cancer, Polyposis)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in a",
-          "multidisciplinary",
-          "approach to peri-",
-          "operative diagnosis and",
-          "management",
-          "Assists in component",
-          "steps for partial",
-          "colectomy, total",
-          "abdominal colectomy,",
-          "total proctocolectomy,",
-          "including minimally",
-          "invasive and open",
-          "techniques",
-          "Assists in management",
-          "of complications",
-          "With direct supervision,",
-          "interprets and integrates"
+          "Participates in a multidisciplinary approach to peri- operative diagnosis and management",
+          "With direct supervision, anticipates, diagnoses, and proficiently manages complications",
+          "Independently selects and completes component steps for partial colectomy, total abdominal colectomy, total proctocolectomy, restorative proctectomy, including minimally invasive and open technique"
         ],
         "level_2": [
-          "relevant staging and a",
-          "multidisciplinary approach",
-          "to peri-operative",
-          "diagnosis and",
-          "management",
-          "With direct supervision,",
-          "selects and completes the",
-          "component steps for",
-          "partial colectomy, total",
-          "abdominal colectomy,",
-          "total proctocolectomy,",
-          "restorative proctectomy,",
-          "including minimally",
-          "invasive and open",
-          "techniques",
-          "With direct supervision,",
-          "anticipates, diagnoses,"
+          "Assists in component steps for partial colectomy, total abdominal colectomy, total proctocolectomy, including minimally invasive and open techniques",
+          "With minimal guidance, interprets and integrates relevant staging and a multidisciplinary approach to peri-operative diagnosis and management",
+          "Independently anticipates, diagnoses, and proficiently manages complications"
         ],
         "level_3": [
-          "and proficiently manages",
-          "complications",
-          "With minimal guidance,",
-          "interprets and integrates",
-          "relevant staging and a",
-          "multidisciplinary approach",
-          "to peri-operative",
-          "diagnosis and",
-          "management",
-          "With minimal guidance,",
-          "selects and completes the",
-          "component steps for",
-          "partial colectomy, total",
-          "abdominal colectomy,",
-          "total proctocolectomy,",
-          "restorative proctectomy,",
-          "including minimally"
+          "Assists in management of complications",
+          "With minimal guidance, selects and completes the component steps for partial colectomy, total abdominal colectomy, total proctocolectomy, restorative proctectomy, including minimally invasive and open techniques",
+          "Demonstrates proficiency as a teaching assistant for partial colectomy, total abdominal colectomy, total proctocolectomy, and restorative proctectomy, including minimally invasive and open techniques"
         ],
         "level_4": [
-          "invasive and open",
-          "techniques",
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and proficiently manages",
-          "complications",
-          "Leads the",
-          "multidisciplinary team in",
-          "peri-operative diagnosis",
-          "and management",
-          "Independently selects",
-          "and completes",
-          "component steps for",
-          "partial colectomy, total",
-          "abdominal colectomy,",
-          "total proctocolectomy,",
-          "restorative proctectomy,"
+          "With direct supervision, interprets and integrates relevant staging and a multidisciplinary approach to peri-operative diagnosis and management",
+          "With minimal guidance, anticipates, diagnoses, and proficiently manages complications"
         ],
         "level_5": [
-          "including minimally",
-          "invasive and open",
-          "technique",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and proficiently",
-          "manages complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "partial colectomy, total",
-          "abdominal colectomy,",
-          "total proctocolectomy,",
-          "and restorative",
-          "proctectomy, including",
-          "minimally invasive and",
-          "open techniques"
+          "With direct supervision, selects and completes the component steps for partial colectomy, total abdominal colectomy, total proctocolectomy, restorative proctectomy, including minimally invasive and open techniques",
+          "Leads the multidisciplinary team in peri-operative diagnosis and management"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Anal Cancer",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in a",
-          "multidisciplinary",
-          "approach to peri-",
-          "operative diagnosis,",
-          "management, and",
-          "surveillance",
-          "Assists in component",
-          "steps for management of",
-          "anal cancer",
-          "Assists in management",
-          "of complications",
-          "With direct supervision,",
-          "interprets and integrates"
+          "Participates in a multidisciplinary approach to peri- operative diagnosis, management, and surveillance",
+          "With direct supervision, anticipates, diagnoses, and manages complications",
+          "Independently selects and completes component steps for management of anal cancer"
         ],
         "level_2": [
-          "relevant staging and a",
-          "multidisciplinary approach",
-          "to peri-operative",
-          "diagnosis, management,",
-          "and surveillance",
-          "With direct supervision,",
-          "selects and completes the",
-          "component steps for",
-          "treatment of anal cancer",
-          "With direct supervision,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications"
+          "Assists in component steps for management of anal cancer",
+          "With minimal guidance, interprets and integrates relevant staging and a multidisciplinary approach to peri-operative diagnosis, management, and surveillance",
+          "Independently anticipates, diagnoses, and manages complications"
         ],
         "level_3": [
-          "With minimal guidance,",
-          "interprets and integrates",
-          "relevant staging and a",
-          "multidisciplinary approach",
-          "to peri-operative",
-          "diagnosis, management,",
-          "and surveillance",
-          "With minimal guidance,",
-          "selects and completes the",
-          "component steps for",
-          "management of anal",
-          "cancer",
-          "With minimal guidance,"
+          "Assists in management of complications",
+          "With minimal guidance, selects and completes the component steps for management of anal cancer",
+          "Demonstrates proficiency as a teaching assistant for surgical management of anal cancer"
         ],
         "level_4": [
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Leads the",
-          "multidisciplinary team in",
-          "peri-operative",
-          "diagnosis,",
-          "management, and",
-          "surveillance",
-          "Independently selects",
-          "and completes",
-          "component steps for",
-          "management of anal"
+          "With direct supervision, interprets and integrates relevant staging and a multidisciplinary approach to peri-operative diagnosis, management, and surveillance",
+          "With minimal guidance, anticipates, diagnoses, and manages complications"
         ],
         "level_5": [
-          "cancer",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "surgical management of",
-          "anal cancer"
+          "With direct supervision, selects and completes the component steps for treatment of anal cancer",
+          "Leads the multidisciplinary team in peri-operative diagnosis, management, and surveillance"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Anal Fistula",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "examination and",
-          "assessment of anal",
-          "fistula",
-          "Assists in component",
-          "steps for surgical",
-          "management of anal",
-          "fistula",
-          "Assists in the",
-          "management of",
-          "complications and"
+          "Participates in examination and assessment of anal fistula",
+          "With direct supervision, anticipates, diagnoses, and manages complications and recurrence",
+          "Independently selects and completes component steps of surgical management of anal fistula"
         ],
         "level_2": [
-          "recurrence",
-          "With direct supervision,",
-          "performs examination and",
-          "assessment of anal fistula",
-          "With direct supervision,",
-          "selects and completes the",
-          "component steps for",
-          "surgical management of",
-          "anal fistula",
-          "With direct supervision,",
-          "anticipates, diagnoses,"
+          "Assists in component steps for surgical management of anal fistula",
+          "With minimal guidance, formulates assessment of anal fistula",
+          "Independently anticipates, diagnoses, and manages complication"
         ],
         "level_3": [
-          "and manages",
-          "complications and",
-          "recurrence",
-          "With minimal guidance,",
-          "formulates assessment of",
-          "anal fistula",
-          "With minimal guidance,",
-          "selects and completes",
-          "component steps of",
-          "surgical management of",
-          "anal fistula"
+          "Assists in the management of complications and recurrence",
+          "With minimal guidance, selects and completes component steps of surgical management of anal fistula",
+          "Demonstrates proficiency as a teaching assistant for surgical management of anal fistula"
         ],
         "level_4": [
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Independently",
-          "formulates assessment",
-          "of anal fistula",
-          "Independently selects",
-          "and completes",
-          "component steps of",
-          "surgical management of"
+          "With direct supervision, performs examination and assessment of anal fistula",
+          "With minimal guidance, anticipates, diagnoses, and manages complications"
         ],
         "level_5": [
-          "anal fistula",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complication",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "surgical management of",
-          "anal fistula"
+          "With direct supervision, selects and completes the component steps for surgical management of anal fistula",
+          "Independently formulates assessment of anal fistula"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Benign Anorectal (Hemorrhoids, Fissures, Abscess, Pilonidal Disease, and Dermatologic Conditions)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "formulating a differential",
-          "diagnosis and medical or",
-          "surgical management",
-          "plan",
-          "Assists with component",
-          "steps for interventions",
-          "Assists with the",
-          "management of",
-          "complications",
-          "With direct supervision,"
+          "Participates in formulating a differential diagnosis and medical or surgical management plan",
+          "With direct supervision anticipates, makes diagnosis, and manages complications",
+          "Independently performs and completes component steps for interventions"
         ],
         "level_2": [
-          "formulates a differential",
-          "diagnosis and medical or",
-          "surgical management",
-          "plan",
-          "With direct supervision",
-          "performs and completes",
-          "component steps for",
-          "interventions",
-          "With direct supervision",
-          "anticipates, makes",
-          "diagnosis, and manages"
+          "Assists with component steps for interventions",
+          "With minimal guidance, formulates a differential diagnosis and medical or surgical management plan",
+          "Independently anticipates, makes diagnosis, and manages complications"
         ],
         "level_3": [
-          "complications",
-          "With minimal guidance,",
-          "formulates a differential",
-          "diagnosis and medical or",
-          "surgical management",
-          "plan",
-          "With minimal guidance",
-          "performs and completes",
-          "component steps for",
-          "interventions",
-          "With minimal guidance"
+          "Assists with the management of complications",
+          "With minimal guidance performs and completes component steps for interventions",
+          "Demonstrates proficiency as a teaching assistant for component steps for interventions"
         ],
         "level_4": [
-          "anticipates, makes",
-          "diagnosis, and manages",
-          "complications",
-          "Independently",
-          "formulates a differential",
-          "diagnosis and medical",
-          "or surgical management",
-          "plan",
-          "Independently performs",
-          "and completes",
-          "component steps for"
+          "With direct supervision, formulates a differential diagnosis and medical or surgical management plan",
+          "With minimal guidance anticipates, makes diagnosis, and manages complications"
         ],
         "level_5": [
-          "interventions",
-          "Independently",
-          "anticipates, makes",
-          "diagnosis, and",
-          "manages complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "component steps for",
-          "interventions"
+          "With direct supervision performs and completes component steps for interventions",
+          "Independently formulates a differential diagnosis and medical or surgical management plan"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Ulcerative Colitis",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates with",
-          "development of a",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan, including",
-          "surveillance",
-          "Assists with selection",
-          "and completion of",
-          "component steps of",
-          "operations, including",
-          "restorative",
-          "proctocolectomy",
-          "Assists with diagnosis",
-          "and management of",
-          "complications"
+          "Participates with development of a multidisciplinary medical or surgical management plan, including surveillance",
+          "With direct supervision, anticipates, makes diagnosis, and manages complications",
+          "Independently selects and completes component steps of operations, including restorative proctocolectomy"
         ],
         "level_2": [
-          "With direct supervision",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan, including",
-          "surveillance",
-          "With direct supervision,",
-          "selects and completes",
-          "component steps of",
-          "operations, including",
-          "restorative",
-          "proctocolectomy",
-          "With direct supervision,",
-          "anticipates, makes"
+          "Assists with selection and completion of component steps of operations, including restorative proctocolectomy",
+          "With minimal guidance, formulates a differential diagnosis and multidisciplinary medical or surgical management plan, including surveillance",
+          "Independently anticipates, makes diagnosis, and manages complications"
         ],
         "level_3": [
-          "diagnosis, and manages",
-          "complications",
-          "With minimal guidance,",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan, including",
-          "surveillance",
-          "With minimal guidance,",
-          "selects and completes",
-          "component steps of",
-          "operations, including",
-          "restorative",
-          "proctocolectomy"
+          "Assists with diagnosis and management of complications",
+          "With minimal guidance, selects and completes component steps of operations, including restorative proctocolectomy",
+          "Guides discussion of patient care in the multidisciplinary team"
         ],
         "level_4": [
-          "With minimal guidance,",
-          "anticipates, makes",
-          "diagnosis, and manages",
-          "complications",
-          "Independently",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan, including",
-          "surveillance",
-          "Independently selects",
-          "and completes",
-          "component steps of",
-          "operations, including"
+          "With direct supervision formulates a differential diagnosis and multidisciplinary medical or surgical management plan, including surveillance",
+          "With minimal guidance, anticipates, makes diagnosis, and manages complications",
+          "Demonstrates proficiency as a teaching assistant for operations, including restorative proctocolectomy"
         ],
         "level_5": [
-          "restorative",
-          "proctocolectomy",
-          "Independently",
-          "anticipates, makes",
-          "diagnosis, and manages",
-          "complications",
-          "Guides discussion of",
-          "patient care in the",
-          "multidisciplinary team",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "operations, including",
-          "restorative",
-          "proctocolectomy"
+          "With direct supervision, selects and completes component steps of operations, including restorative proctocolectomy",
+          "Independently formulates a differential diagnosis and multidisciplinary medical or surgical management plan, including surveillance"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc7",
       "number": 7,
-      "domain_number": 7,
       "name": "Diverticular Disease",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "examination and",
-          "assessment and medical",
-          "or surgical management",
-          "Assists in component",
-          "steps for surgical",
-          "management",
-          "Assists in the",
-          "management of",
-          "complications and",
-          "recurrences"
+          "Participates in examination and assessment and medical or surgical management",
+          "With direct supervision, anticipates, diagnoses, and manages complications and recurrences",
+          "Independently selects and completes component steps of surgical management"
         ],
         "level_2": [
-          "With direct supervision,",
-          "performs examination,",
-          "assessment and medical",
-          "or surgical management",
-          "With direct supervision,",
-          "selects and completes the",
-          "component steps for",
-          "surgical management",
-          "With direct supervision,",
-          "anticipates, diagnoses,",
-          "and manages"
+          "Assists in component steps for surgical management",
+          "With minimal guidance, formulates assessment and medical or surgical management",
+          "Independently anticipates, diagnoses, and manages complications and recurrences"
         ],
         "level_3": [
-          "complications and",
-          "recurrences",
-          "With minimal guidance,",
-          "formulates assessment",
-          "and medical or surgical",
-          "management",
-          "With minimal guidance,",
-          "selects and completes",
-          "component steps of",
-          "surgical management",
-          "With minimal guidance,"
+          "Assists in the management of complications and recurrences",
+          "With minimal guidance, selects and completes component steps of surgical management",
+          "Demonstrates proficiency as a teaching assistant for surgical management"
         ],
         "level_4": [
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications and",
-          "recurrences",
-          "Independently assesses",
-          "and formulates a plan",
-          "for medical or surgical",
-          "management",
-          "Independently selects",
-          "and completes",
-          "component steps of"
+          "With direct supervision, performs examination, assessment and medical or surgical management",
+          "With minimal guidance, anticipates, diagnoses, and manages complications and recurrences"
         ],
         "level_5": [
-          "surgical management",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications and",
-          "recurrences",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "surgical management"
+          "With direct supervision, selects and completes the component steps for surgical management",
+          "Independently assesses and formulates a plan for medical or surgical management"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc8",
       "number": 8,
-      "domain_number": 8,
       "name": "Benign Colon Disease (Lower Gastrointestinal (GI) Bleeding, Volvulus, Trauma, Foreign Body and Large Bowel",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Assists in assessing and",
-          "formulating a plan for",
-          "medical or surgical",
-          "management",
-          "Assists in selecting and",
-          "completing component",
-          "steps for surgical or",
-          "procedural management",
-          "Assists in establishing",
-          "diagnoses, and",
-          "managing treatment",
-          "failure or surgical and",
-          "procedural complications",
-          "With direct supervision,",
-          "assesses and formulates",
-          "a plan for medical or"
+          "Assists in assessing and formulating a plan for medical or surgical management",
+          "With direct supervision, anticipates, diagnoses, and manages treatment failure or surgical and procedural complications",
+          "Independently selects and completes component steps for surgical or procedural management"
         ],
         "level_2": [
-          "surgical management",
-          "With direct supervision,",
-          "selects and completes",
-          "component steps for",
-          "surgical or procedural",
-          "management",
-          "With direct supervision,",
-          "anticipates, diagnoses,",
-          "and manages treatment",
-          "failure or surgical and",
-          "procedural complications",
-          "With minimal guidance,",
-          "assesses and formulates",
-          "a plan for medical or",
-          "surgical management",
-          "With minimal guidance,"
+          "Assists in selecting and completing component steps for surgical or procedural management",
+          "With minimal guidance, assesses and formulates a plan for medical or surgical management",
+          "Independently anticipates, diagnoses, and manages treatment failure or surgical and procedural complications"
         ],
         "level_3": [
-          "selects and completes",
-          "component steps for",
-          "surgical or procedural",
-          "management",
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and manages treatment",
-          "failure or surgical and",
-          "procedural complications",
-          "Independently assesses",
-          "and formulates a plan",
-          "for medical or surgical",
-          "management",
-          "Independently selects",
-          "and completes",
-          "component steps for"
+          "Assists in establishing diagnoses, and managing treatment failure or surgical and procedural complications",
+          "With minimal guidance, selects and completes component steps for surgical or procedural management",
+          "Demonstrates proficiency as a teaching assistant in guiding learners in assesses and formulates a plan for medical or surgical management"
         ],
         "level_4": [
-          "surgical or procedural",
-          "management",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages treatment",
-          "failure or surgical and",
-          "procedural",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding learners in",
-          "assesses and formulates",
-          "a plan for medical or",
-          "surgical management",
-          "Demonstrates proficiency",
-          "as a teaching assistant to"
+          "With direct supervision, assesses and formulates a plan for medical or surgical management",
+          "With minimal guidance, anticipates, diagnoses, and manages treatment failure or surgical and procedural complications",
+          "Demonstrates proficiency as a teaching assistant to guide learners in selecting and completing component steps for surgical or procedural management"
         ],
         "level_5": [
-          "guide learners in selecting",
-          "and completing",
-          "component steps for",
-          "surgical or procedural",
-          "management",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding learners in",
-          "anticipating, diagnosing,",
-          "and managing treatment",
-          "failure or surgical and",
-          "procedural complications"
+          "With direct supervision, selects and completes component steps for surgical or procedural management",
+          "Independently assesses and formulates a plan for medical or surgical management",
+          "Demonstrates proficiency as a teaching assistant in guiding learners in anticipating, diagnosing, and managing treatment failure or surgical and procedural complications"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc9",
       "number": 9,
-      "domain_number": 9,
       "name": "Pelvic Floor Disorders",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "formulating a differential",
-          "diagnosis and",
-          "development of",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Assists in performing",
-          "various surgical",
-          "procedures and",
-          "interventions",
-          "Assists in the process of",
-          "diagnosing, and",
-          "managing complications",
-          "With direct supervision,"
+          "Participates in formulating a differential diagnosis and development of multidisciplinary medical or surgical management plan",
+          "With direct supervision, anticipates, diagnoses, and manages complications",
+          "Independently performs various surgical procedures and interventions"
         ],
         "level_2": [
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With direct supervision,",
-          "performs various surgical",
-          "procedures and",
-          "interventions",
-          "With direct supervision,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "With minimal guidance,",
-          "formulates a differential"
+          "Assists in performing various surgical procedures and interventions",
+          "With minimal guidance, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Independently anticipates, diagnoses, and manages complications"
         ],
         "level_3": [
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With minimal guidance,",
-          "performs various surgical",
-          "procedures and",
-          "interventions",
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Independently",
-          "formulates a differential",
-          "diagnosis and"
+          "Assists in the process of diagnosing, and managing complications",
+          "With minimal guidance, performs various surgical procedures and interventions",
+          "Demonstrates proficiency as a teaching assistant in formulating a differential diagnosis and development of multidisciplinary medical or surgical management plan"
         ],
         "level_4": [
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Independently performs",
-          "various surgical",
-          "procedures and",
-          "interventions",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "formulating a differential",
-          "diagnosis and"
+          "With direct supervision, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "With minimal guidance, anticipates, diagnoses, and manages complications",
+          "Demonstrates proficiency as a teaching assistant in performing various surgical procedures and interventions"
         ],
         "level_5": [
-          "development of",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "performing various",
-          "surgical procedures and",
-          "interventions",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding trainee in",
-          "diagnosing, and",
-          "managing complications"
+          "With direct supervision, performs various surgical procedures and interventions",
+          "Independently formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Demonstrates proficiency as a teaching assistant in guiding trainee in diagnosing, and managing complications"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc10",
       "number": 10,
-      "domain_number": 10,
       "name": "Rectal Prolapse",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "formulating a differential",
-          "diagnosis and",
-          "development of",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Assists in performing",
-          "various surgical",
-          "procedures and",
-          "interventions",
-          "Assists in the process of",
-          "diagnosing, and",
-          "managing complications",
-          "With direct supervision,"
+          "Participates in formulating a differential diagnosis and development of multidisciplinary medical or surgical management plan",
+          "With direct supervision anticipates, diagnoses, and manages complications",
+          "Independently performs various surgical procedures and interventions"
         ],
         "level_2": [
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With direct supervision,",
-          "performs various surgical",
-          "procedures and",
-          "interventions",
-          "With direct supervision",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "With minimal guidance,",
-          "formulates a differential"
+          "Assists in performing various surgical procedures and interventions",
+          "With minimal guidance, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Independently anticipates, diagnoses, and manages complications"
         ],
         "level_3": [
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With minimal guidance,",
-          "performs various surgical",
-          "procedures and",
-          "interventions",
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Independently",
-          "formulates a differential",
-          "diagnosis and"
+          "Assists in the process of diagnosing, and managing complications",
+          "With minimal guidance, performs various surgical procedures and interventions",
+          "Demonstrates proficiency as a teaching assistant in formulating a differential diagnosis and development of multidisciplinary medical or surgical management plan"
         ],
         "level_4": [
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Independently performs",
-          "various surgical",
-          "procedures and",
-          "interventions",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "formulating a differential",
-          "diagnosis and"
+          "With direct supervision, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "With minimal guidance, anticipates, diagnoses, and manages complications",
+          "Demonstrates proficiency as a teaching assistant in performing various surgical procedures and interventions"
         ],
         "level_5": [
-          "development of",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "performing various",
-          "surgical procedures and",
-          "interventions",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding learners in",
-          "diagnosing and managing",
-          "complications"
+          "With direct supervision, performs various surgical procedures and interventions",
+          "Independently formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Demonstrates proficiency as a teaching assistant in guiding learners in diagnosing and managing complications"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc11",
       "number": 11,
-      "domain_number": 11,
       "name": "Fecal Incontinence",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "formulating a differential",
-          "diagnosis and",
-          "development of",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Assists in performing",
-          "surgical procedures and",
-          "interventions",
-          "Assists in the process of",
-          "diagnosing, and",
-          "managing complications",
-          "With direct supervision,",
-          "formulates a differential"
+          "Participates in formulating a differential diagnosis and development of multidisciplinary medical or surgical management plan",
+          "With direct supervision, anticipates, diagnoses, and manages complications",
+          "Independently performs surgical procedures and interventions"
         ],
         "level_2": [
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With direct supervision,",
-          "performs surgical",
-          "procedures and",
-          "interventions",
-          "With direct supervision,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "With minimal guidance,",
-          "formulates a differential",
-          "diagnosis and"
+          "Assists in performing surgical procedures and interventions",
+          "With minimal guidance, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Independently anticipates, diagnoses, and manages complications"
         ],
         "level_3": [
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With minimal guidance,",
-          "performs surgical",
-          "procedures and",
-          "interventions",
-          "With minimal guidance,",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Independently",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical"
+          "Assists in the process of diagnosing, and managing complications",
+          "With minimal guidance, performs surgical procedures and interventions",
+          "Demonstrates proficiency as a teaching assistant in guiding learners in formulating a differential diagnosis and development of multidisciplinary medical or surgical management plan"
         ],
         "level_4": [
-          "or surgical management",
-          "plan",
-          "Independently performs",
-          "surgical procedures and",
-          "interventions",
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding learners in",
-          "formulating a differential",
-          "diagnosis and",
-          "development of"
+          "With direct supervision, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "With minimal guidance, anticipates, diagnoses, and manages complications",
+          "Demonstrates proficiency as a teaching assistant in performing surgical procedures and interventions"
         ],
         "level_5": [
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "performing surgical",
-          "procedures and",
-          "interventions",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding learners in",
-          "diagnosing and managing",
-          "complications"
+          "With direct supervision, performs surgical procedures and interventions",
+          "Independently formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Demonstrates proficiency as a teaching assistant in guiding learners in diagnosing and managing complications"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc12",
       "number": 12,
-      "domain_number": 12,
       "name": "Endoscopy (Flexible Sigmoidoscopy and Colonoscopy)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in",
-          "formulating indications",
-          "and performs risk",
-          "stratification",
-          "Participates in diagnostic",
-          "and therapeutic lower",
-          "endoscopy",
-          "Participates in",
-          "diagnosing, and",
-          "managing complications"
+          "Participates in formulating indications and performs risk stratification",
+          "With direct assistance anticipates, diagnoses, and manages complications",
+          "Independently completes diagnostic and therapeutic lower endoscopy"
         ],
         "level_2": [
-          "With direct supervision,",
-          "identifies indications and",
-          "performs risk stratification",
-          "With direct assistance,",
-          "completes diagnostic and",
-          "therapeutic lower",
-          "endoscopy",
-          "With direct assistance",
-          "anticipates, diagnoses,",
-          "and manages"
+          "Participates in diagnostic and therapeutic lower endoscopy",
+          "With minimal guidance, identifies indications and performs risk stratification",
+          "Independently anticipates, diagnoses, and manages complications"
         ],
         "level_3": [
-          "complications",
-          "With minimal guidance,",
-          "identifies indications and",
-          "performs risk stratification",
-          "With minimal assistance,",
-          "completes diagnostic and",
-          "therapeutic lower",
-          "endoscopy",
-          "With minimal assistance,",
-          "anticipates, diagnoses,"
+          "Participates in diagnosing, and managing complications",
+          "With minimal assistance, completes diagnostic and therapeutic lower endoscopy",
+          "Demonstrates proficiency as a teaching assistant in guiding learners in completing diagnostic and therapeutic lower endoscopy"
         ],
         "level_4": [
-          "and manages",
-          "complications",
-          "Independently identifies",
-          "indications and",
-          "performs risk",
-          "stratification",
-          "Independently",
-          "completes diagnostic",
-          "and therapeutic lower",
-          "endoscopy"
+          "With direct supervision, identifies indications and performs risk stratification",
+          "With minimal assistance, anticipates, diagnoses, and manages complications"
         ],
         "level_5": [
-          "Independently",
-          "anticipates, diagnoses,",
-          "and manages",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant in",
-          "guiding learners in",
-          "completing diagnostic and",
-          "therapeutic lower",
-          "endoscopy"
+          "With direct assistance, completes diagnostic and therapeutic lower endoscopy",
+          "Independently identifies indications and performs risk stratification"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pc13",
       "number": 13,
-      "domain_number": 13,
       "name": "Crohn’s Disease",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates with",
-          "development of a",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "Assists with selection",
-          "and completion of",
-          "component steps of",
-          "operations",
-          "Assists with diagnoses",
-          "and management of",
-          "complications"
+          "Participates with development of a multidisciplinary medical or surgical management plan",
+          "With direct supervision, anticipates, makes diagnoses, and proficiently manages complications",
+          "Independently selects and completes component steps of operations"
         ],
         "level_2": [
-          "With direct supervision,",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With direct supervision,",
-          "selects and completes",
-          "component steps of",
-          "operations",
-          "With direct supervision,",
-          "anticipates, makes"
+          "Assists with selection and completion of component steps of operations",
+          "With minimal guidance, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "Independently anticipates, makes diagnoses, and proficiently manages complications"
         ],
         "level_3": [
-          "diagnoses, and",
-          "proficiently manages",
-          "complications",
-          "With minimal guidance,",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan",
-          "With minimal guidance,",
-          "selects and completes",
-          "component steps of"
+          "Assists with diagnoses and management of complications",
+          "With minimal guidance, selects and completes component steps of operations",
+          "Demonstrates proficiency as a teaching assistant for operations"
         ],
         "level_4": [
-          "operations",
-          "With minimal guidance,",
-          "anticipates, makes",
-          "diagnoses, and",
-          "proficiently manages",
-          "complications",
-          "Independently",
-          "formulates a differential",
-          "diagnosis and",
-          "multidisciplinary medical",
-          "or surgical management",
-          "plan"
+          "With direct supervision, formulates a differential diagnosis and multidisciplinary medical or surgical management plan",
+          "With minimal guidance, anticipates, makes diagnoses, and proficiently manages complications"
         ],
         "level_5": [
-          "Independently selects",
-          "and completes",
-          "component steps of",
-          "operations",
-          "Independently",
-          "anticipates, makes",
-          "diagnoses, and",
-          "proficiently manages",
-          "complications",
-          "Demonstrates proficiency",
-          "as a teaching assistant for",
-          "operations"
+          "With direct supervision, selects and completes component steps of operations",
+          "Independently formulates a differential diagnosis and multidisciplinary medical or surgical management plan"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_mk1",
       "number": 14,
-      "domain_number": 1,
       "name": "Anatomy, Pathophysiology and Treatment",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of",
-          "pathophysiology and",
-          "treatments of patients",
-          "with common colorectal",
-          "conditions",
-          "Identifies normal",
-          "colorectal anatomy",
-          "Demonstrates"
+          "Demonstrates knowledge of pathophysiology and treatments of patients with common colorectal conditions",
+          "Identifies variations in colorectal anatomy"
         ],
         "level_2": [
-          "knowledge of",
-          "pathophysiology and",
-          "treatments of patients",
-          "with complex colorectal",
-          "conditions",
-          "Identifies normal",
-          "anatomy during routine",
-          "colorectal operations",
-          "Demonstrates knowledge"
+          "Identifies normal colorectal anatomy",
+          "Demonstrates comprehensive knowledge of the varying patterns of disease presentation and alternative and adjuvant treatments of patients with colorectal conditions"
         ],
         "level_3": [
-          "of the impact of patient",
-          "factors on",
-          "pathophysiology and the",
-          "treatment of patients with",
-          "colorectal conditions",
-          "Identifies variations in",
-          "colorectal anatomy",
-          "Demonstrates",
-          "comprehensive"
+          "Demonstrates knowledge of pathophysiology and treatments of patients with complex colorectal conditions",
+          "Identifies variations in anatomy during complex colorectal operations"
         ],
         "level_4": [
-          "knowledge of the",
-          "varying patterns of",
-          "disease presentation",
-          "and alternative and",
-          "adjuvant treatments of",
-          "patients with colorectal",
-          "conditions",
-          "Identifies variations in",
-          "anatomy during"
+          "Identifies normal anatomy during routine colorectal operations",
+          "Teaches varying patterns of disease presentation, and alternative and adjuvant treatments of patients with colorectal conditions"
         ],
         "level_5": [
-          "complex colorectal",
-          "operations",
-          "Teaches varying patterns",
-          "of disease presentation,",
-          "and alternative and",
-          "adjuvant treatments of",
-          "patients with colorectal",
-          "conditions"
+          "Demonstrates knowledge of the impact of patient factors on pathophysiology and the treatment of patients with colorectal conditions"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_mk2",
       "number": 15,
-      "domain_number": 2,
       "name": "Critical Thinking for Diagnosis and Therapy",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Lists a differential",
-          "diagnosis for common",
-          "clinical presentations",
-          "Lists therapeutic options",
-          "for common clinical",
-          "presentations",
-          "Provides a",
-          "comprehensive"
+          "Lists a differential diagnosis for common clinical presentations",
+          "Justifies optimal therapeutic option based on individual patient presentation"
         ],
         "level_2": [
-          "differential diagnosis for",
-          "a wide range of clinical",
-          "presentations",
-          "Explains advantages",
-          "and drawbacks of",
-          "standard therapeutic",
-          "options",
-          "Provides a focused"
+          "Lists therapeutic options for common clinical presentations",
+          "Interprets anomalous presentations and rare disorders"
         ],
         "level_3": [
-          "differential diagnosis",
-          "based on individual",
-          "patient presentation",
-          "Justifies optimal",
-          "therapeutic option based",
-          "on individual patient",
-          "presentation",
-          "Interprets anomalous"
+          "Provides a comprehensive differential diagnosis for a wide range of clinical presentations",
+          "Adapts therapeutic choice to anomalous or rare patient presentations"
         ],
         "level_4": [
-          "presentations and rare",
-          "disorders",
-          "Adapts therapeutic",
-          "choice to anomalous or",
-          "rare patient",
-          "presentations",
-          "Studies and reports",
-          "challenging diagnostic"
+          "Explains advantages and drawbacks of standard therapeutic options",
+          "Studies and reports challenging diagnostic presentations"
         ],
         "level_5": [
-          "presentations",
-          "Creates new or modifies",
-          "existing therapeutic",
-          "options"
+          "Provides a focused differential diagnosis based on individual patient presentation",
+          "Creates new or modifies existing therapeutic options"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_sbp1",
       "number": 16,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics"
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives (e.g., infection rate, hand hygiene, opioid use)",
+          "Discloses patient safety events to patients and families (simulated or actual)"
         ],
         "level_2": [
-          "Identifies system factors",
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes local quality",
-          "improvement initiatives",
-          "(e.g., infection rate, hand",
-          "hygiene, opioid use)"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_3": [
-          "Participates in analysis of",
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and families",
-          "(simulated or actual)",
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Conducts analysis of",
-          "patient safety events"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "and offers error",
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "families (simulated or",
-          "actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "Actively engages teams",
-          "and processes to modify",
-          "systems to prevent",
-          "patient safety events",
-          "Mentors others in the",
-          "disclosure of patient",
-          "safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_sbp2",
       "number": 17,
-      "domain_number": 2,
       "name": "System Navigation for Patient-Centered Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Coordinates",
-          "multidisciplinary care of"
+          "Demonstrates knowledge of care coordination",
+          "Supervises safe and effective transitions of care/hand-offs"
         ],
         "level_2": [
-          "patients in routine clinical",
-          "situations (e.g., dressing",
-          "change)",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Coordinates and/or leads",
-          "multidisciplinary care of"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Coordinates care of patients with barriers to health care access (e.g., trauma patient with no access to care) or other disparities in care"
         ],
         "level_3": [
-          "patients in complex",
-          "clinical situations (e.g.,",
-          "home parenteral nutrition,",
-          "postoperative intravenous",
-          "feeding, intensive care",
-          "unit)",
-          "Supervises safe and",
-          "effective transitions of",
-          "care/hand-offs"
+          "Coordinates multidisciplinary care of patients in routine clinical situations (e.g., dressing change)",
+          "Resolves conflicts in transitions of care between teams"
         ],
         "level_4": [
-          "Coordinates care of",
-          "patients with barriers to",
-          "health care access",
-          "(e.g., trauma patient",
-          "with no access to care)",
-          "or other disparities in",
-          "care",
-          "Resolves conflicts in",
-          "transitions of care"
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Leads in the design and implementation of improvements to care coordination"
         ],
         "level_5": [
-          "between teams",
-          "Leads in the design and",
-          "implementation of",
-          "improvements to care",
-          "coordination",
-          "Leads in the design and",
-          "implementation of",
-          "improvements to",
-          "transitions of care"
+          "Coordinates and/or leads multidisciplinary care of patients in complex clinical situations (e.g., home parenteral nutrition, postoperative intravenous feeding, intensive care unit)",
+          "Leads in the design and implementation of improvements to transitions of care"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_sbp3",
       "number": 18,
-      "domain_number": 3,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Describes basic health",
-          "payment systems,",
-          "including government,",
-          "private, public, and",
-          "uninsured care, as well",
-          "as different practice",
-          "models",
-          "Describes the key",
-          "components of",
-          "documentation for billing"
+          "Describes basic health payment systems, including government, private, public, and uninsured care, as well as different practice models",
+          "Describes basic elements needed to transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)"
         ],
         "level_2": [
-          "and coding",
-          "Describes how working",
-          "within the health care",
-          "system impacts patient",
-          "care",
-          "Documents the key",
-          "components required for",
-          "billing and coding",
-          "Analyzes how personal",
-          "practice affects the"
+          "Describes the key components of documentation for billing and coding",
+          "Uses shared decision- making in patient care, taking into consideration costs to the patient"
         ],
         "level_3": [
-          "system (e.g., length of",
-          "stay, readmission rates,",
-          "clinical efficiency)",
-          "Describes basic elements",
-          "needed to transition to",
-          "practice (e.g., contract",
-          "negotiations, malpractice",
-          "insurance, government",
-          "regulation, compliance)",
-          "Uses shared decision-"
+          "Describes how working within the health care system impacts patient care",
+          "Identifies resources and effectively plans for transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)"
         ],
         "level_4": [
-          "making in patient care,",
-          "taking into consideration",
-          "costs to the patient",
-          "Identifies resources and",
-          "effectively plans for",
-          "transition to practice",
-          "(e.g., information",
-          "technology, legal, billing",
-          "and coding, financial,",
-          "personnel)"
+          "Documents the key components required for billing and coding",
+          "Advocates or leads change to enhance systems for high-value, efficient, and effective patient care"
         ],
         "level_5": [
-          "Advocates or leads",
-          "change to enhance",
-          "systems for high-value,",
-          "efficient, and effective",
-          "patient care",
-          "Participates in advocacy",
-          "activities for health policy"
+          "Analyzes how personal practice affects the system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Participates in advocacy activities for health policy"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pbli1",
       "number": 19,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access and use available",
-          "evidence, and",
-          "incorporate patient",
-          "preferences and values",
-          "into the care of patients",
-          "with routine conditions"
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values into the care of patients with routine conditions"
         ],
         "level_2": [
-          "Articulates clinical",
-          "questions and elicits",
-          "patient preferences and",
-          "values in order to guide",
-          "evidence-based care",
-          "Locates and applies the",
-          "best available evidence,"
+          "Articulates clinical questions and elicits patient preferences and values in order to guide evidence-based care"
         ],
         "level_3": [
-          "integrated with patient",
-          "preference, to the care of",
-          "patients with complex",
-          "conditions",
-          "Critically appraises and",
-          "applies evidence, even",
-          "in the face of uncertain"
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of patients with complex conditions"
         ],
         "level_4": [
-          "and/or conflicting",
-          "evidence, to guide care,",
-          "tailored to the individual",
-          "patient",
-          "Coaches others to",
-          "critically appraise and",
-          "apply evidence for"
+          "Critically appraises and applies evidence, even in the face of uncertain and/or conflicting evidence, to guide care, tailored to the individual patient"
         ],
         "level_5": [
-          "patients with complex",
-          "conditions; and/or",
-          "participates in the",
-          "development of guidelines"
+          "Coaches others to critically appraise and apply evidence for patients with complex conditions; and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_pbli2",
       "number": 20,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Establishes goals for",
-          "personal and",
-          "professional",
-          "development"
+          "Establishes goals for personal and professional development"
         ],
         "level_2": [
-          "Identifies opportunities for",
-          "performance",
-          "improvement; designs a",
-          "learning plan"
+          "Identifies opportunities for performance improvement; designs a learning plan"
         ],
         "level_3": [
-          "Integrates performance",
-          "feedback and practice",
-          "data to develop and",
-          "implement a learning plan"
+          "Integrates performance feedback and practice data to develop and implement a learning plan"
         ],
         "level_4": [
-          "Revises learning plan",
-          "based on performance",
-          "data",
-          "Coaches others in the"
+          "Revises learning plan based on performance data"
         ],
         "level_5": [
-          "design and",
-          "implementation of",
-          "learning plans"
+          "Coaches others in the design and implementation of learning plans"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_prof1",
       "number": 21,
-      "domain_number": 1,
       "name": "Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of the ethical",
-          "principles underlying",
-          "informed consent,",
-          "surrogate decision",
-          "making, advance",
-          "directives, confidentiality,"
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics"
         ],
         "level_2": [
-          "error disclosure,",
-          "stewardship of limited",
-          "resources, and related",
-          "topics",
-          "Analyzes straightforward",
-          "situations using ethical",
-          "principles"
+          "Analyzes straightforward situations using ethical principles"
         ],
         "level_3": [
-          "Recognizes need to seek",
-          "help in managing and",
-          "resolving complex ethical",
-          "situations",
-          "Recognizes and uses",
-          "appropriate resources",
-          "for managing and"
+          "Recognizes need to seek help in managing and resolving complex ethical situations"
         ],
         "level_4": [
-          "resolving ethical",
-          "dilemmas, as needed",
-          "(e.g., ethics",
-          "consultations, literature",
-          "review, risk",
-          "management/legal",
-          "consultation)"
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas, as needed (e.g., ethics consultations, literature review, risk management/legal consultation)"
         ],
         "level_5": [
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_prof2",
       "number": 22,
-      "domain_number": 2,
       "name": "Professional Behavior and Accountability",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Completes patient care",
-          "tasks and",
-          "responsibilities, identifies",
-          "potential barriers, and",
-          "describes strategies for",
-          "ensuring timely task",
-          "completion",
-          "Describes when and how",
-          "to appropriately report",
-          "lapses in professional",
-          "behavior",
-          "Recognizes limits in the",
-          "knowledge/skills of self"
+          "Completes patient care tasks and responsibilities, identifies potential barriers, and describes strategies for ensuring timely task completion",
+          "Recognizes limits in the knowledge/skills of team and seeks help",
+          "Intervenes to prevent and correct lapses in professional behavior in self and others"
         ],
         "level_2": [
-          "and seeks help",
-          "Performs patient care",
-          "tasks and responsibilities",
-          "in a timely manner with",
-          "appropriate attention to",
-          "detail in routine situations",
-          "Takes responsibility for",
-          "his or her own",
-          "professional behavior",
-          "Recognizes limits in the",
-          "knowledge/skills of team",
-          "and seeks help",
-          "Performs patient care"
+          "Describes when and how to appropriately report lapses in professional behavior",
+          "Performs patient care tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Aids junior learners in recognition of limits in knowledge/skills"
         ],
         "level_3": [
-          "tasks and responsibilities",
-          "in a timely manner with",
-          "appropriate attention to",
-          "detail in complex or",
-          "stressful situations",
-          "Demonstrates",
-          "professional behavior in",
-          "complex or stressful",
-          "situations",
-          "Exhibits appropriate",
-          "confidence and self-",
-          "awareness of limits in",
-          "knowledge/skills"
+          "Recognizes limits in the knowledge/skills of self and seeks help",
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Develops systems to enhance other’s ability to efficiently complete patient-care tasks and responsibilities"
         ],
         "level_4": [
-          "Recognizes situations",
-          "that may impact others’",
-          "ability to complete",
-          "patient-care tasks and",
-          "responsibilities in a",
-          "timely manner",
-          "Intervenes to prevent",
-          "and correct lapses in",
-          "professional behavior in",
-          "self and others",
-          "Aids junior learners in",
-          "recognition of limits in",
-          "knowledge/skills"
+          "Performs patient care tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Exhibits appropriate confidence and self- awareness of limits in knowledge/skills",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_5": [
-          "Develops systems to",
-          "enhance other’s ability to",
-          "efficiently complete",
-          "patient-care tasks and",
-          "responsibilities",
-          "Coaches others when",
-          "their behavior fails to",
-          "meet professional",
-          "expectations"
+          "Takes responsibility for his or her own professional behavior",
+          "Recognizes situations that may impact others’ ability to complete patient-care tasks and responsibilities in a timely manner"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_prof3",
       "number": 23,
-      "domain_number": 3,
       "name": "Administrative Tasks",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Takes responsibility for",
-          "failure to complete",
-          "administrative tasks and",
-          "responsibilities, identifies",
-          "potential contributing",
-          "factors, and describes",
-          "strategies for ensuring"
+          "Takes responsibility for failure to complete administrative tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future"
         ],
         "level_2": [
-          "timely task completion in",
-          "the future",
-          "Performs administrative",
-          "tasks and responsibilities",
-          "in a timely manner with",
-          "appropriate attention to",
-          "detail in routine situations"
+          "Performs administrative tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations"
         ],
         "level_3": [
-          "Performs administrative",
-          "tasks and responsibilities",
-          "in a timely manner with",
-          "appropriate attention to",
-          "detail in complex or",
-          "stressful situations",
-          "Recognizes situations"
+          "Performs administrative tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
         ],
         "level_4": [
-          "that may impact others’",
-          "ability to complete",
-          "administrative tasks and",
-          "responsibilities in a",
-          "timely manner",
-          "Develops systems to",
-          "enhance other’s ability to"
+          "Recognizes situations that may impact others’ ability to complete administrative tasks and responsibilities in a timely manner"
         ],
         "level_5": [
-          "efficiently complete",
-          "administrative tasks and",
-          "responsibilities"
+          "Develops systems to enhance other’s ability to efficiently complete administrative tasks and responsibilities"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_prof4",
       "number": 24,
-      "domain_number": 4,
       "name": "Self-Awareness and Help-Seeking",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Identifies the institutional",
-          "resources available to",
-          "manage personal,",
-          "physical, and emotional",
-          "health (e.g., acute and",
-          "chronic disease,",
-          "substance abuse, and",
-          "mental health problems)",
-          "Demonstrates",
-          "knowledge of the",
-          "principles of physician",
-          "well-being and fatigue"
+          "Identifies the institutional resources available to manage personal, physical, and emotional health (e.g., acute and chronic disease, substance abuse, and mental health problems)",
+          "Models appropriate management of personal health issues, fatigue, and stress"
         ],
         "level_2": [
-          "mitigation",
-          "Monitors own personal",
-          "health and wellness and",
-          "appropriately mitigates",
-          "fatigue and/or stress",
-          "Manages own time and",
-          "assures fitness for duty",
-          "Promotes healthy habits",
-          "and creates an",
-          "emotionally healthy",
-          "environment for self and",
-          "colleagues"
+          "Demonstrates knowledge of the principles of physician well-being and fatigue mitigation",
+          "Recognizes and appropriately addresses signs and symptoms of burnout, depression, suicidal ideation, potential for violence, and/or substance abuse in self and other members of the health care team"
         ],
         "level_3": [
-          "Models appropriate",
-          "management of personal",
-          "health issues, fatigue, and",
-          "stress",
-          "Recognizes and",
-          "appropriately addresses",
-          "signs and symptoms of",
-          "burnout, depression,",
-          "suicidal ideation,",
-          "potential for violence,",
-          "and/or substance abuse",
-          "in self and other"
+          "Monitors own personal health and wellness and appropriately mitigates fatigue and/or stress",
+          "Proactively modifies schedules or intervenes in other ways to assure that those caregivers under his or her supervision maintain personal wellness and do not compromise patient safety (e.g., requires naps, counsels, refers to services, reports to program director)"
         ],
         "level_4": [
-          "members of the health",
-          "care team",
-          "Proactively modifies",
-          "schedules or intervenes",
-          "in other ways to assure",
-          "that those caregivers",
-          "under his or her",
-          "supervision maintain",
-          "personal wellness and",
-          "do not compromise",
-          "patient safety (e.g.,",
-          "requires naps,"
+          "Manages own time and assures fitness for duty",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
         ],
         "level_5": [
-          "counsels, refers to",
-          "services, reports to",
-          "program director)",
-          "Coaches others when",
-          "emotional responses or",
-          "limitations in",
-          "knowledge/skills do not",
-          "meet professional",
-          "expectations"
+          "Promotes healthy habits and creates an emotionally healthy environment for self and colleagues"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_ics1",
       "number": 25,
-      "domain_number": 1,
       "name": "Patient- and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Communicates with",
-          "patients and their",
-          "families in an",
-          "understandable and",
-          "respectful manner",
-          "Provides timely updates",
-          "to patients and families",
-          "Customizes"
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Uses shared decision making to make a personalized care plan"
         ],
         "level_2": [
-          "communication, in the",
-          "setting of biases and",
-          "barriers with patients and",
-          "families",
-          "Actively listens to patients",
-          "and families to elicit",
-          "patient preferences and",
-          "expectations"
+          "Provides timely updates to patients and families",
+          "Facilitates difficult discussions specific to patient and family conferences, (e.g., end- of-life, explaining complications, therapeutic uncertainty)"
         ],
         "level_3": [
-          "Delivers complex and",
-          "difficult information to",
-          "patients and families",
-          "Uses shared decision",
-          "making to make a",
-          "personalized care plan",
-          "Facilitates difficult",
-          "discussions specific to"
+          "Customizes communication, in the setting of biases and barriers with patients and families",
+          "Effectively negotiates and manages conflict among patients, families, and the health care team"
         ],
         "level_4": [
-          "patient and family",
-          "conferences, (e.g., end-",
-          "of-life, explaining",
-          "complications,",
-          "therapeutic uncertainty)",
-          "Effectively negotiates",
-          "and manages conflict",
-          "among patients,"
+          "Actively listens to patients and families to elicit patient preferences and expectations",
+          "Coaches others in the facilitation of crucial conversations"
         ],
         "level_5": [
-          "families, and the health",
-          "care team",
-          "Coaches others in the",
-          "facilitation of crucial",
-          "conversations",
-          "Coaches others in conflict",
-          "resolution"
+          "Delivers complex and difficult information to patients and families",
+          "Coaches others in conflict resolution"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_ics2",
       "number": 26,
-      "domain_number": 2,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Respectfully requests",
-          "and receives a",
-          "consultation",
-          "Uses language that",
-          "values all members of",
-          "the health care team",
-          "Clearly and concisely",
-          "requests and responds to",
-          "a consultation",
-          "Communicates"
+          "Respectfully requests and receives a consultation",
+          "Verifies understanding of recommendations when providing or receiving a consultation",
+          "Communicates constructive feedback to superiors"
         ],
         "level_2": [
-          "information effectively",
-          "with all health care team",
-          "members",
-          "Solicits feedback on",
-          "performance as a",
-          "member of the health",
-          "care team",
-          "Verifies understanding of",
-          "recommendations when",
-          "providing or receiving a"
+          "Uses language that values all members of the health care team",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Coaches flexible communication strategies that value input from all health care team members"
         ],
         "level_3": [
-          "consultation",
-          "Uses active listening to",
-          "adapt communication",
-          "style to fit team needs",
-          "Communicates concerns",
-          "and provides constructive",
-          "feedback to peers and",
-          "learners",
-          "Coordinates",
-          "recommendations from"
+          "Clearly and concisely requests and responds to a consultation",
+          "Communicates concerns and provides constructive feedback to peers and learners",
+          "Facilitates regular health care team-based feedback in complex situations"
         ],
         "level_4": [
-          "different members of",
-          "the health care team to",
-          "optimize patient care,",
-          "resolving conflict when",
-          "needed",
-          "Maintains effective",
-          "communication in crisis",
-          "situation",
-          "Communicates",
-          "constructive feedback to"
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care, resolving conflict when needed"
         ],
         "level_5": [
-          "superiors",
-          "Coaches flexible",
-          "communication strategies",
-          "that value input from all",
-          "health care team",
-          "members",
-          "Facilitates regular health",
-          "care team-based",
-          "feedback in complex",
-          "situations"
+          "Solicits feedback on performance as a member of the health care team",
+          "Maintains effective communication in crisis situation"
         ]
       }
     },
     {
       "id": "colon_and_rectal_surgery_ics3",
       "number": 27,
-      "domain_number": 3,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record, including",
-          "appropriate use of",
-          "documentation templates"
+          "Accurately records information in the patient record, including appropriate use of documentation templates"
         ],
         "level_2": [
-          "Demonstrates efficient",
-          "use of electronic medical",
-          "record to communicate",
-          "with the health care team",
-          "Integrates and"
+          "Demonstrates efficient use of electronic medical record to communicate with the health care team"
         ],
         "level_3": [
-          "synthesizes all relevant",
-          "data from outside",
-          "systems and prior",
-          "encounters into the health",
-          "record"
+          "Integrates and synthesizes all relevant data from outside systems and prior encounters into the health record"
         ],
         "level_4": [
-          "Appropriately selects",
-          "method and urgency of",
-          "communication based",
-          "on context",
-          "Guides departmental or"
+          "Appropriately selects method and urgency of communication based on context"
         ],
         "level_5": [
-          "institutional",
-          "communication around",
-          "policies and procedures"
+          "Guides departmental or institutional communication around policies and procedures"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "colon-and-rectal-surgery",
-  "primary_name": "Colon and Rectal Surgery",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerymilestones2.0.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerysupplementalguide.pdf"

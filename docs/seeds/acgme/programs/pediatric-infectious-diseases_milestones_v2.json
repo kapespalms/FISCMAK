@@ -1,0 +1,648 @@
+{
+  "framework_key": "pediatric-infectious-diseases",
+  "specialty": "Pediatric Infectious Diseases",
+  "version": "2.0",
+  "source": "ACGME Pediatric Infectious Diseases Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pediatrics",
+  "parent_name": "Pediatrics",
+  "subcompetencies": [
+    {
+      "id": "pediatric_infectious_diseases_pc1",
+      "number": 1,
+      "name": "History and Physical Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires a foundational history for common infectious diseases and syndromes",
+          "Performs an examination that elicits uncommon or complicated infectious diseases and syndromes"
+        ],
+        "level_2": [
+          "Performs a foundational, developmentally appropriate physical examination",
+          "Acquires history that incorporates epidemiology, past clinical data, and nuances specific for age, immune status, and exposures"
+        ],
+        "level_3": [
+          "Acquires a complete history, including specific host and environmental factors",
+          "Performs a tailored examination that elicits subtle findings of infectious diseases and syndromes"
+        ],
+        "level_4": [
+          "Performs an examination that elicits common or straightforward infectious diseases and syndromes",
+          "Serves as a role model in obtaining a history that identifies subtle details and resolves ambiguity in the patient history"
+        ],
+        "level_5": [
+          "Acquires a detailed history, incorporating pertinent supplemental information",
+          "Serves as a role model who has mastered the art of examination that helps in making a definitive diagnosis"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_pc2",
+      "number": 2,
+      "name": "Organization and Prioritization of Patient Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Organizes patient care tasks, with assistance"
+        ],
+        "level_2": [
+          "Organizes routine patient care tasks but needs assistance for patients with complex disease; recognizes urgent or emergent issues"
+        ],
+        "level_3": [
+          "Prioritizes and triages patient care tasks with efficiency; anticipates and responds to urgent and emergent issues"
+        ],
+        "level_4": [
+          "Prioritizes and delegates patient care responsibilities, including contingency planning, even when patient volume and complexity approach the capacity of the individual or facility"
+        ],
+        "level_5": [
+          "Serves as a role model and coach for organizing, prioritizing, and managing patient care tasks"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_pc3",
+      "number": 3,
+      "name": "Diagnostic Reasoning",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Integrates limited patient data to generate a narrow differential diagnosis"
+        ],
+        "level_2": [
+          "Formulates a differential diagnosis using detailed patient-specific data"
+        ],
+        "level_3": [
+          "Formulates a prioritized differential diagnosis and demonstrates the ability to modify a diagnosis based on a patient’s clinical course and additional data"
+        ],
+        "level_4": [
+          "Formulates a tailored differential diagnosis to include atypical presentations and uncommon or newly emerging disorders; recognizes and avoids sources of diagnostic error"
+        ],
+        "level_5": [
+          "Role models and coaches diagnostic reasoning and navigating diagnostic uncertainty"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_pc4",
+      "number": 4,
+      "name": "Consultative Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the clinical questions, with assistance"
+        ],
+        "level_2": [
+          "Clarifies the clinical questions; provides recommendations to the primary team, with assistance"
+        ],
+        "level_3": [
+          "Seeks and integrates input from different members of the health care team and provides recommendations to the primary team in a clear and timely manner"
+        ],
+        "level_4": [
+          "Provides comprehensive and prioritized recommendations, including assessment, rationale, and anticipatory guidance to all relevant health care team members"
+        ],
+        "level_5": [
+          "Leads the health care team in the provision of effective consultative services across the spectrum of disease complexity and acuity"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_pc5",
+      "number": 5,
+      "name": "Management of Patients with Possible and Proven Infectious Diseases",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops an initial management plan for patients with low- complexity conditions, with assistance"
+        ],
+        "level_2": [
+          "Develops initial and follow-up management plans for patients with low-complexity conditions"
+        ],
+        "level_3": [
+          "Develops an initial and follow-up plan for patients with moderate-complexity conditions and adjusts the plan over the course of clinical care"
+        ],
+        "level_4": [
+          "Develops a comprehensive management plan, including contingency plans for patients with complex conditions"
+        ],
+        "level_5": [
+          "Develops tailored management plans for all patients, regardless of the complexity of the condition, and incorporates diagnostic uncertainty"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_mk1",
+      "number": 6,
+      "name": "Pathophysiology and Foundational Science",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of pathophysiology and foundational science of common infectious diseases"
+        ],
+        "level_2": [
+          "Demonstrates advanced knowledge of pathophysiology and foundational science of common infectious diseases and host response"
+        ],
+        "level_3": [
+          "Applies advanced knowledge of pathophysiology and foundational science to common infectious diseases and host response"
+        ],
+        "level_4": [
+          "Applies advanced knowledge of pathophysiology and foundational science to uncommon, new, and emerging infectious diseases and host response"
+        ],
+        "level_5": [
+          "Serves as a peer expert for the application of advanced knowledge of pathophysiology and foundational science to infectious diseases and host response"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_mk2",
+      "number": 7,
+      "name": "Diagnostic Evaluation and Stewardship (consideration of priorities, risks, benefits, costs, and",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates foundational knowledge of diagnostic evaluation for pathogens and clinical syndromes"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of diagnostic evaluation and stewardship, and interpretation of results to common pathogens and clinical syndromes"
+        ],
+        "level_3": [
+          "Applies knowledge of diagnostic evaluation and stewardship, and interpretation of results to uncommon pathogens and clinical syndromes"
+        ],
+        "level_4": [
+          "Applies advanced knowledge of diagnostic evaluation and stewardship, including performance characteristics and limitations, and interpretation of results to a broad spectrum of clinical scenarios"
+        ],
+        "level_5": [
+          "Serves as a peer expert for diagnostic evaluations and stewardship"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_mk3",
+      "number": 8,
+      "name": "Treatments Including Source Control, Anti-Infectives, Immunoprophylaxis, and Adjunctive Therapies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of common anti-infectives, including dosing, spectrum of activity, contraindications, and clinical indications"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of common treatments, including consideration of pharmacokinetics and pharmacodynamics"
+        ],
+        "level_3": [
+          "Applies knowledge of treatments to straightforward patient scenarios"
+        ],
+        "level_4": [
+          "Applies knowledge of treatments to complex patient scenarios"
+        ],
+        "level_5": [
+          "Serves as a peer expert for application of treatments to all patient scenarios"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_mk4",
+      "number": 9,
+      "name": "Infection Control/Prevention and Epidemiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of the principles of infection prevention and epidemiology"
+        ],
+        "level_2": [
+          "Applies concepts of infection prevention measures and epidemiology to common clinical scenarios"
+        ],
+        "level_3": [
+          "Applies knowledge of infection prevention measures and epidemiology to uncommon clinical scenarios"
+        ],
+        "level_4": [
+          "Serves as a resource to other health care practitioners and patients regarding infection prevention practices and epidemiology"
+        ],
+        "level_5": [
+          "Demonstrates leadership in infection prevention practices and/or responding to epidemiological events"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_mk5",
+      "number": 10,
+      "name": "Public Health",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies examples of public health agencies"
+        ],
+        "level_2": [
+          "Recognizes the public health impact of infectious disease and identifies resources"
+        ],
+        "level_3": [
+          "Applies public health guidance to individual patients"
+        ],
+        "level_4": [
+          "Applies public health guidance to specific situations in institutions or community settings"
+        ],
+        "level_5": [
+          "Serves as a resource for public health guidance in institutions or communities"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_mk6",
+      "number": 11,
+      "name": "Antimicrobial Stewardship",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of the principles of antimicrobial stewardship and local antibiograms"
+        ],
+        "level_2": [
+          "Implements antimicrobial stewardship recommendations for routine situations"
+        ],
+        "level_3": [
+          "Implements antimicrobial stewardship recommendations for complex situations"
+        ],
+        "level_4": [
+          "Serves as a resource to health care practitioners, patients, and the community for antimicrobial stewardship concepts"
+        ],
+        "level_5": [
+          "Demonstrates leadership in antimicrobial stewardship initiatives"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_sbp1",
+      "number": 12,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_sbp2",
+      "number": 13,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives (e.g., community vaccination rate, infection rate)"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_sbp3",
+      "number": 14,
+      "name": "System Navigation for Patient Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists the various interprofessional individuals involved in the patient’s care coordination"
+        ],
+        "level_2": [
+          "Coordinates care of patients in routine clinical situations, incorporating interprofessional teams with consideration of patient and family needs"
+        ],
+        "level_3": [
+          "Coordinates care of patients in complex clinical situations, effectively utilizing the roles of interprofessional teams, and incorporating patient and family needs and goals"
+        ],
+        "level_4": [
+          "Coordinates interprofessional, patient-centered care among different disciplines and specialties, actively assisting families in navigating the health care system"
+        ],
+        "level_5": [
+          "Coaches others in interprofessional, patient- centered care coordination"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_sbp4",
+      "number": 15,
+      "name": "System Navigation for Patient-Centered Care – Transitions in Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Uses a standard template for transitions of care/hand-offs"
+        ],
+        "level_2": [
+          "Adapts a standard template, recognizing key elements for safe and effective transitions of care/hand-offs in routine clinical situations"
+        ],
+        "level_3": [
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations, and ensures closed-loop communication"
+        ],
+        "level_4": [
+          "Performs and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including transitions to adult care"
+        ],
+        "level_5": [
+          "Coaches others in improving transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_sbp5",
+      "number": 16,
+      "name": "Population and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates awareness of population and community health needs"
+        ],
+        "level_2": [
+          "Identifies specific population and community health needs and local resources"
+        ],
+        "level_3": [
+          "Uses local resources effectively to meet the needs of a patient population and community"
+        ],
+        "level_4": [
+          "Adapts practice to provide for the needs of a specific population"
+        ],
+        "level_5": [
+          "Advocates at the local, regional, or national level for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_sbp6",
+      "number": 17,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Engages with patients and other providers in discussions about cost- conscious care and key components of the health care delivery system"
+        ],
+        "level_2": [
+          "Identifies the relationships between the delivery system and cost- conscious care and the impact on the patient care"
+        ],
+        "level_3": [
+          "Discusses the need for changes in clinical approaches based on evidence, outcomes, and cost-effectiveness to improve care for patients and families"
+        ],
+        "level_4": [
+          "Advocates for the promotion of safe, quality, and high-value care"
+        ],
+        "level_5": [
+          "Coaches others to promote safe, quality, and high-value care across health care systems"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_pbli1",
+      "number": 18,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Develops an answerable clinical question and demonstrates how to access available evidence, with guidance"
+        ],
+        "level_2": [
+          "Independently articulates clinical question and accesses available evidence"
+        ],
+        "level_3": [
+          "Locates and applies the evidence, integrated with patient preference, to the care of patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence to guide care tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_pbli2",
+      "number": 19,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Participates in feedback sessions",
+          "Designs and implements a learning plan by analyzing and reflecting on the factors which contribute to gap(s) between performance expectations and actual performance"
+        ],
+        "level_2": [
+          "Develops personal and professional goals, with assistance",
+          "Seeks and incorporates feedback and performance data consistently"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and performance data",
+          "Adapts a learning plan using long-term professional goals, self- reflection, and performance data to measure its effectiveness"
+        ],
+        "level_4": [
+          "Designs a learning plan based on established goals, feedback, and performance data, with assistance",
+          "Role models and coaches others in seeking and incorporating feedback and performance data"
+        ],
+        "level_5": [
+          "Seeks and incorporates feedback and performance data episodically",
+          "Demonstrates continuous self-reflection and coaching of others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_prof1",
+      "number": 20,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies expected professional behaviors and potential triggers for lapses",
+          "Fully engages in patient care and holds oneself accountable"
+        ],
+        "level_2": [
+          "Identifies the value and role of pediatric infectious disease specialist as a vocation/career",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates professional behavior with occasional lapses",
+          "Exhibits a sense of duty to patient care and professional responsibilities"
+        ],
+        "level_4": [
+          "Demonstrates accountability for patient care as a pediatric infectious disease specialist, with guidance",
+          "Models professional behavior and coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Maintains professional behavior in increasingly complex or stressful situations",
+          "Extends the role of the pediatric infectious disease specialist beyond the care of patients by engaging with the community, specialty, and medical profession as a whole"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_prof2",
+      "number": 21,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics"
+        ],
+        "level_2": [
+          "Applies ethical principles in common situations"
+        ],
+        "level_3": [
+          "Analyzes complex situations using ethical principles to address conflict/controversy; seeks help when needed to manage and resolve complex ethical situations"
+        ],
+        "level_4": [
+          "Manages and seeks to resolve ethical dilemmas using appropriate resources (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_5": [
+          "Called upon by others to consult in cases of complex ethical dilemmas; identifies and seeks to address system- level factors that induce or exacerbate"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_prof3",
+      "number": 22,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and responsibilities, with prompting"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a thorough and timely manner in complex or stressful situations"
+        ],
+        "level_4": [
+          "Coaches others to ensure tasks and responsibilities are completed in a thorough and timely manner in complex or stressful situations"
+        ],
+        "level_5": [
+          "Creates strategies to enhance others’ ability to efficiently complete tasks and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_prof4",
+      "number": 23,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional resources that are meant to promote well-being"
+        ],
+        "level_3": [
+          "Recognizes institutional and personal factors that impact well-being"
+        ],
+        "level_4": [
+          "Describes interactions between institutional and personal factors that impact well-being"
+        ],
+        "level_5": [
+          "Coaches and supports colleagues to optimize well-being at the team, program, or institutional level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_ics1",
+      "number": 24,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and attempts to establish rapport",
+          "Communicates with sensitivity and compassion, elicits patient/family values, and acknowledges uncertainty and conflict"
+        ],
+        "level_2": [
+          "Attempts to adjust communication strategies based upon patient/family expectations",
+          "Establishes a therapeutic relationship in straightforward and complex encounters, including those with ambiguity and/or conflict"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Uses shared decision making with patient/family to make a personalized care plan"
+        ],
+        "level_4": [
+          "Adjusts communication strategies as needed to mitigate barriers and meet patient/family expectations",
+          "Mentors others to develop positive therapeutic relationships"
+        ],
+        "level_5": [
+          "Establishes a culturally aware and therapeutic relationship in most encounters",
+          "Models and coaches others in patient- and family-centered communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_ics2",
+      "number": 25,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a consultation, with guidance",
+          "Uses bi-directional communication within the interprofessional team"
+        ],
+        "level_2": [
+          "Identifies the members of the interprofessional team",
+          "Coordinates consultant recommendations to optimize patient care"
+        ],
+        "level_3": [
+          "Clearly and concisely requests consultation by communicating patient information",
+          "Facilitates interprofessional team communication"
+        ],
+        "level_4": [
+          "Participates within the interprofessional team",
+          "Maintains a collaborative relationship with referring providers that maximizes adherence to practice recommendations"
+        ],
+        "level_5": [
+          "Formulates a specific question for consultation and tailors communication strategy",
+          "Coaches others in effective communication within the interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_infectious_diseases_ics3",
+      "number": 26,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Records accurate information in the patient record",
+          "Aligns type of communication with message to be delivered (e.g., direct and indirect) based on urgency and complexity"
+        ],
+        "level_2": [
+          "Identifies the importance of and responds to multiple forms of communication (e.g., in- person, electronic health record (EHR), telephone, email)",
+          "Documents diagnostic and therapeutic reasoning, including anticipatory guidance"
+        ],
+        "level_3": [
+          "Records accurate and timely information in the patient record",
+          "Demonstrates exemplary written and verbal communication"
+        ],
+        "level_4": [
+          "Selects appropriate method of communication, with prompting",
+          "Models and coaches others in documenting diagnostic and therapeutic reasoning"
+        ],
+        "level_5": [
+          "Concisely documents updated, prioritized, diagnostic and therapeutic reasoning in the patient record",
+          "Coaches others in written and verbal communication"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricinfectiousdiseasesmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricinfectiousdiseasessupplementalguide.pdf"
+  }
+}

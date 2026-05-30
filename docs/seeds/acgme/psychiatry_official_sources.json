@@ -1,0 +1,35 @@
+{
+  "description": "Official ACGME psychiatry program requirements, subspecialty FAQs, and Milestones 2.0 references. Use for GME content seeding — not loaded at runtime yet.",
+  "psychiatry_residency": {
+    "program_requirements_2026": "https://www.acgme.org/globalassets/pfassets/programrequirements/2026-prs/cprresidency_2026_feb_revision.pdf"
+  },
+  "subspecialty_faqs": {
+    "psychiatry": "https://www.acgme.org/globalassets/pdfs/faq/400_psychiatry_faqs.pdf",
+    "addiction_medicine": "https://www.acgme.org/globalassets/pdfs/faq/404_addictionmedicine_faqs.pdf",
+    "addiction_psychiatry": "https://www.acgme.org/globalassets/pdfs/faq/401_addictionpsychiatry_faqs.pdf",
+    "child_adolescent_psychiatry": "https://www.acgme.org/globalassets/pdfs/faq/405_childadolescentpsychiatry_faqs.pdf",
+    "consultation_liaison_psychiatry": "https://www.acgme.org/globalassets/pdfs/faq/409_consultationliaisonpsychiatry_faqs.pdf",
+    "forensic_psychiatry": "https://www.acgme.org/globalassets/pdfs/faq/406_forensicpsychiatry_faqs.pdf",
+    "geriatric_psychiatry": "https://www.acgme.org/globalassets/pdfs/faq/407_geriatricpsychiatry_faqs.pdf",
+    "sleep_medicine": "https://www.acgme.org/globalassets/pdfs/faq/520_sleepmedicine_faqs.pdf"
+  },
+  "milestones_and_pbl": [
+    "https://www.acgme.org/globalassets/pdfs/milestones/milestones2.0astepforward.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/harmonizingpbli.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/usingmilestonestoguidecurriculum2022.pdf",
+    "https://www.acgme.org/globalassets/milestonesguidebook.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/milestonesguidebookforresidentsfellows.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf"
+  ],
+  "appendix_b_alignment": {
+    "psychiatry_subspecialties": [
+      "Addiction medicine (multidisciplinary)",
+      "Addiction psychiatry",
+      "Child and adolescent psychiatry",
+      "Forensic psychiatry",
+      "Geriatric psychiatry",
+      "Consultation-liaison psychiatry"
+    ],
+    "note": "Sleep medicine is multidisciplinary; Appendix B sponsors via Internal medicine — psychiatry FAQ 520 still applies for psych fellows."
+  }
+}

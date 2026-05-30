@@ -1,6 +1,2978 @@
 {
   "generated_at": "2026-05-30",
   "source": "docs/seeds/acgme/acgme_specialties_complete.json",
-  "total_programs": 0,
-  "programs": []
+  "total_programs": 191,
+  "programs": [
+    {
+      "slug": "allergy-and-immunology",
+      "name": "Allergy and Immunology",
+      "program_type": "primary",
+      "parent_slug": "allergy-and-immunology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandfimmunologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandimmunologysupplementalguide.pdf",
+      "parse_status": "cached",
+      "subcompetency_count": 19,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandfimmunologymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/allergyandfimmunologymilestones.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "anesthesiology",
+      "name": "Anesthesiology",
+      "program_type": "primary",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "addiction-medicine",
+      "name": "Addiction Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 16,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "adult-cardiothoracic-anesthesiology",
+      "name": "Adult Cardiothoracic Anesthesiology",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultcardiothoracicanesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultcardiothoracicanesthesiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "critical-care-anesthesiology",
+      "name": "Critical Care Anesthesiology",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "clinical-informatics",
+      "name": "Clinical Informatics",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "obstetric-anesthesiology",
+      "name": "Obstetric Anesthesiology",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricanesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricanesthesiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pain-medicine",
+      "name": "Pain Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-anesthesiology",
+      "name": "Pediatric Anesthesiology",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricanesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricanesthesiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-cardiac-anesthesiology",
+      "name": "Pediatric Cardiac Anesthesiology",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiacanesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiacanesthesiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "regional-anesthesiology-and-acute-pain-medicine",
+      "name": "Regional Anesthesiology and Acute Pain Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "anesthesiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologyandacutepainmedicinemilestonesanesthesiology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologyandacutepainmedicinemilestonesanesthesiology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologyandacutepainmedicinemilestonesanesthesiology.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "colon-and-rectal-surgery",
+      "name": "Colon and Rectal Surgery",
+      "program_type": "primary",
+      "parent_slug": "colon-and-rectal-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerymilestones2.0.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 27,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "dermatology",
+      "name": "Dermatology",
+      "program_type": "primary",
+      "parent_slug": "dermatology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "dermatopathology",
+      "name": "Dermatopathology",
+      "program_type": "subspecialty",
+      "parent_slug": "dermatology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "micrographic-surgery-and-dermatologic-oncology",
+      "name": "Micrographic Surgery and Dermatologic Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "dermatology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgeryanddermatologiconcologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 18,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgerysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgerysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-dermatology",
+      "name": "Pediatric Dermatology",
+      "program_type": "subspecialty",
+      "parent_slug": "dermatology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricdermatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricdermatologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "emergency-medicine",
+      "name": "Emergency Medicine",
+      "program_type": "primary",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinesupplementalguide.pdf",
+      "parse_status": "cached",
+      "subcompetency_count": 22,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "anesthesiology-critical-care-medicine",
+      "name": "Anesthesiology Critical Care Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "emergency-medical-services",
+      "name": "Emergency Medical Services",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicalservicesmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicalservicessupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-toxicology",
+      "name": "Medical Toxicology",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pain-medicine",
+      "name": "Pain Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-emergency-medicine",
+      "name": "Pediatric Emergency Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonesem.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonesem.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonesem.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "undersea-and-hyperbaric-medicine",
+      "name": "Undersea and Hyperbaric Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "emergency-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonesem.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonesem.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonesem.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "family-medicine",
+      "name": "Family Medicine",
+      "program_type": "primary",
+      "parent_slug": "family-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinesupplementalguide.pdf",
+      "parse_status": "cached",
+      "subcompetency_count": 19,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/familymedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "addiction-medicine",
+      "name": "Addiction Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "family-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 16,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "geriatric-medicine",
+      "name": "Geriatric Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "family-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "family-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sleep-medicine",
+      "name": "Sleep Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "family-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sports-medicine",
+      "name": "Sports Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "family-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "internal-medicine",
+      "name": "Internal Medicine",
+      "program_type": "primary",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "addiction-medicine",
+      "name": "Addiction Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 16,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "cardiovascular-disease",
+      "name": "Cardiovascular Disease",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/cardiovasculardiseasemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/cardiovasculardiseasesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "clinical-cardiac-electrophysiology",
+      "name": "Clinical Cardiac Electrophysiology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalcardiacelectrophysiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalcardiacelectrophysiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "clinical-informatics",
+      "name": "Clinical Informatics",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "critical-care-medicine",
+      "name": "Critical Care Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinemilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinemilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinesupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinesupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "endocrinology-diabetes-and-metabolism",
+      "name": "Endocrinology, Diabetes and Metabolism",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endocrinologydiabetesandmetabolismmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endocrinologydiabetesandmetabolismsupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "gastroenterology",
+      "name": "Gastroenterology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/gastroenterologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/gastroenterologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "geriatric-medicine",
+      "name": "Geriatric Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "hematology",
+      "name": "Hematology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hematology-and-medical-oncology",
+      "name": "Hematology and Medical Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologyandmedicaloncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologyandmedicaloncologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "infectious-disease",
+      "name": "Infectious Disease",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/infectiousdiseasemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/infectiousdiseasesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "internal-medicine-pediatrics",
+      "name": "Internal Medicine-Pediatrics",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "interventional-cardiology",
+      "name": "Interventional Cardiology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalcardiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalcardiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-oncology",
+      "name": "Medical Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaloncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaloncologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "nephrology",
+      "name": "Nephrology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nephrologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nephrologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pulmonary-disease",
+      "name": "Pulmonary Disease",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarydiseasemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarydiseasesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pulmonary-disease-and-critical-care-medicine",
+      "name": "Pulmonary Disease and Critical Care Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarycriticalcaremilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarycriticalcaresupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "rheumatology",
+      "name": "Rheumatology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/rheumatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/rheumatologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "sleep-medicine",
+      "name": "Sleep Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sports-medicine",
+      "name": "Sports Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "transplant-hepatology",
+      "name": "Transplant Hepatology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "advanced-heart-failure-and-transplant-cardiology",
+      "name": "Advanced Heart Failure and Transplant Cardiology",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/advancedheartfailureandtransplantcardiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/advancedheartfailureandtransplantcardiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "addiction-psychiatry",
+      "name": "Addiction Psychiatry",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "obesity-medicine",
+      "name": "Obesity Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "internal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinemilestonesim.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinemilestonesim.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinemilestonesim.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinesupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinesupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-genetics-and-genomics",
+      "name": "Medical Genetics and Genomics",
+      "program_type": "primary",
+      "parent_slug": "medical-genetics-and-genomics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "biochemical-genetics",
+      "name": "Biochemical Genetics",
+      "program_type": "subspecialty",
+      "parent_slug": "medical-genetics-and-genomics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticssupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticsmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticsmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticssupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticssupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "laboratory-genetics-and-genomics",
+      "name": "Laboratory Genetics and Genomics",
+      "program_type": "subspecialty",
+      "parent_slug": "medical-genetics-and-genomics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/laboratorygeneticsandgenomicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/laboratorygeneticsandgenomicssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "molecular-genetic-pathology",
+      "name": "Molecular Genetic Pathology",
+      "program_type": "subspecialty",
+      "parent_slug": "medical-genetics-and-genomics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-biochemical-genetics",
+      "name": "Medical Biochemical Genetics",
+      "program_type": "subspecialty",
+      "parent_slug": "medical-genetics-and-genomics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalbiochemicalgeneticsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalbiochemicalgeneticssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 16,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-genetics-and-genomics-residency",
+      "name": "Medical Genetics and Genomics (Residency)",
+      "program_type": "subspecialty",
+      "parent_slug": "medical-genetics-and-genomics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurological-surgery",
+      "name": "Neurological Surgery",
+      "program_type": "primary",
+      "parent_slug": "neurological-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologicalsurgerymilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "endovascular-surgical-neuroradiology",
+      "name": "Endovascular Surgical Neuroradiology",
+      "program_type": "subspecialty",
+      "parent_slug": "neurological-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-neurological-surgery",
+      "name": "Pediatric Neurological Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "neurological-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurology",
+      "name": "Neurology",
+      "program_type": "primary",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 27,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "brain-injury-medicine",
+      "name": "Brain Injury Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinemilestonesneurology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinemilestonesneurology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinemilestonesneurology.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "child-neurology",
+      "name": "Child Neurology",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childneurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childneurologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 26,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "clinical-neurophysiology",
+      "name": "Clinical Neurophysiology",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalneurophysiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalneurophysiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 28,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "endovascular-surgical-neuroradiology",
+      "name": "Endovascular Surgical Neuroradiology",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurocritical-care",
+      "name": "Neurocritical Care",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurocriticalcaremilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurocriticalcaresupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurodevelopmental-disabilities",
+      "name": "Neurodevelopmental Disabilities",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiesmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 32,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neuromuscular-medicine",
+      "name": "Neuromuscular Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinemilestonesneurology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinemilestonesneurology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinemilestonesneurology.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pain-medicine",
+      "name": "Pain Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sleep-medicine",
+      "name": "Sleep Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "vascular-neurology",
+      "name": "Vascular Neurology",
+      "program_type": "subspecialty",
+      "parent_slug": "neurology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularneurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularneurologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 25,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "nuclear-medicine",
+      "name": "Nuclear Medicine",
+      "program_type": "primary",
+      "parent_slug": "nuclear-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinesupplementalguide.pdf",
+      "parse_status": "cached",
+      "subcompetency_count": 22,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "obstetrics-and-gynecology",
+      "name": "Obstetrics and Gynecology",
+      "program_type": "primary",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 32,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "female-pelvic-medicine-and-reconstructive-surgery",
+      "name": "Female Pelvic Medicine and Reconstructive Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 28,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "gynecologic-oncology",
+      "name": "Gynecologic Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/gynecologiconcologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/gynecologiconcologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 27,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "maternal-fetal-medicine",
+      "name": "Maternal-Fetal Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "reproductive-endocrinology-and-infertility",
+      "name": "Reproductive Endocrinology and Infertility",
+      "program_type": "subspecialty",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/reproductiveendocrinologyandinfertilitymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/reproductiveendocrinologyandinfertilitysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "urogynecology-and-reconstructive-pelvic-surgery",
+      "name": "Urogynecology and Reconstructive Pelvic Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/urogynecologyandreconstructivepelvicsurgerymilestones2-1.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urogynecologyandreconstructivepelvicsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 28,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "obstetrics-and-gynecology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "ophthalmology",
+      "name": "Ophthalmology",
+      "program_type": "primary",
+      "parent_slug": "ophthalmology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "ophthalmic-plastic-and-reconstructive-surgery",
+      "name": "Ophthalmic Plastic and Reconstructive Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "ophthalmology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmicplasticandreconstructivesurgerymilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "orthopaedic-surgery",
+      "name": "Orthopaedic Surgery",
+      "program_type": "primary",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "adult-reconstructive-orthopaedics",
+      "name": "Adult Reconstructive Orthopaedics",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicssupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicsmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicsmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicssupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicssupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "foot-and-ankle-orthopaedics",
+      "name": "Foot and Ankle Orthopaedics",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicssupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicsmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicsmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicssupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicssupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "musculoskeletal-oncology",
+      "name": "Musculoskeletal Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/musculoskeletaloncologymilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "parsed",
+      "subcompetency_count": 18,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "orthopaedic-sports-medicine",
+      "name": "Orthopaedic Sports Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "orthopaedic-surgery-of-the-spine",
+      "name": "Orthopaedic Surgery of the Spine",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinesupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinesupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "orthopaedic-trauma",
+      "name": "Orthopaedic Trauma",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedictraumamilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-orthopaedics",
+      "name": "Pediatric Orthopaedics",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicssupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicssupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "surgery-of-the-hand",
+      "name": "Surgery of the Hand",
+      "program_type": "subspecialty",
+      "parent_slug": "orthopaedic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesorthopaedic.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesorthopaedic.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesorthopaedic.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "osteopathic-neuromusculoskeletal-medicine",
+      "name": "Osteopathic Neuromusculoskeletal Medicine",
+      "program_type": "primary",
+      "parent_slug": "osteopathic-neuromusculoskeletal-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/osteopathicneuromusculoskeletalmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/onmmsupplementalguide.pdf",
+      "parse_status": "cached",
+      "subcompetency_count": 18,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/osteopathicneuromusculoskeletalmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/osteopathicneuromusculoskeletalmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "otolaryngology---head-and-neck-surgery",
+      "name": "Otolaryngology - Head and Neck Surgery",
+      "program_type": "primary",
+      "parent_slug": "otolaryngology---head-and-neck-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/otolaryngologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/otolaryngologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurotology",
+      "name": "Neurotology",
+      "program_type": "subspecialty",
+      "parent_slug": "otolaryngology---head-and-neck-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurotologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurotologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-otolaryngology",
+      "name": "Pediatric Otolaryngology",
+      "program_type": "subspecialty",
+      "parent_slug": "otolaryngology---head-and-neck-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricotolaryngologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricotolaryngologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pathology",
+      "name": "Pathology",
+      "program_type": "primary",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "blood-banking-and-transfusion-medicine",
+      "name": "Blood Banking and Transfusion Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "chemical-pathology",
+      "name": "Chemical Pathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/chemicalpathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/chemicalpathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "clinical-informatics",
+      "name": "Clinical Informatics",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "cytopathology",
+      "name": "Cytopathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/cytopathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/cytopathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "dermatopathology",
+      "name": "Dermatopathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "forensic-pathology",
+      "name": "Forensic Pathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hematopathology",
+      "name": "Hematopathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematopathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematopathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-microbiology",
+      "name": "Medical Microbiology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalmicrobiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalmicrobiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "molecular-genetic-pathology",
+      "name": "Molecular Genetic Pathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "neuropathology",
+      "name": "Neuropathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuropathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuropathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-pathology",
+      "name": "Pediatric Pathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "selective-pathology",
+      "name": "Selective Pathology",
+      "program_type": "subspecialty",
+      "parent_slug": "pathology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/selectivepathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/selectivepathologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatrics",
+      "name": "Pediatrics",
+      "program_type": "primary",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "adolescent-medicine",
+      "name": "Adolescent Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adolescentmedicinemilestonespediatrics.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adolescentmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/adolescentmedicinemilestonespediatrics.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/adolescentmedicinemilestonespediatrics.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "child-abuse-pediatrics",
+      "name": "Child Abuse Pediatrics",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childabusepediatricsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childabusepediatricssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 27,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "developmental-behavioral-pediatrics",
+      "name": "Developmental-Behavioral Pediatrics",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/developmentalbehavioralpediatricsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/developmentalbehavioralpediatricssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "internal-medicine-pediatrics",
+      "name": "Internal Medicine-Pediatrics",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neonatal-perinatal-medicine",
+      "name": "Neonatal-Perinatal Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinatalmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinalmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 26,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinalmedicinesupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinalmedicinesupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurodevelopmental-disabilities",
+      "name": "Neurodevelopmental Disabilities",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiesmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 32,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-cardiology",
+      "name": "Pediatric Cardiology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-critical-care",
+      "name": "Pediatric Critical Care",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccriticalcaremilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccriticalcaresupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-emergency-medicine",
+      "name": "Pediatric Emergency Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonespeds.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonespeds.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonespeds.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-endocrinology",
+      "name": "Pediatric Endocrinology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricendocrinologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricendocrinologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-gastroenterology",
+      "name": "Pediatric Gastroenterology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricgastroenterologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricgastroenterologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-hematology-oncology",
+      "name": "Pediatric Hematology-Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichematologyoncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichematologyoncologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 25,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-hospital-medicine",
+      "name": "Pediatric Hospital Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichospitalmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichospitalmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichospitalmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatrichospitalmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-infectious-diseases",
+      "name": "Pediatric Infectious Diseases",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricinfectiousdiseasesmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricinfectiousdiseasessupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 26,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-nephrology",
+      "name": "Pediatric Nephrology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricnephrologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricnephrologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 26,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-pulmonology",
+      "name": "Pediatric Pulmonology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpulmonologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpulmonologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-rheumatology",
+      "name": "Pediatric Rheumatology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrheumatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrheumatologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 25,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-transplant-hepatology",
+      "name": "Pediatric Transplant Hepatology",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sleep-medicine",
+      "name": "Sleep Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sports-medicine",
+      "name": "Sports Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "pediatrics",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "physical-medicine-and-rehabilitation",
+      "name": "Physical Medicine and Rehabilitation",
+      "program_type": "primary",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicinanrehabilitationmilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicineandrehabilitationsupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicinanrehabilitationmilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicinanrehabilitationmilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "brain-injury-medicine",
+      "name": "Brain Injury Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinepmrmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinepmrmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinepmrmilestones.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neuromuscular-medicine",
+      "name": "Neuromuscular Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinepmrmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinepmrmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinepmrmilestones.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pain-medicine",
+      "name": "Pain Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonespmr.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonespmr.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonespmr.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-rehabilitation-medicine",
+      "name": "Pediatric Rehabilitation Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrehabilitationmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrehabilitationmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "spinal-cord-injury-medicine",
+      "name": "Spinal Cord Injury Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "physical-medicine-and-rehabilitation",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "plastic-surgery",
+      "name": "Plastic Surgery",
+      "program_type": "primary",
+      "parent_slug": "plastic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "craniofacial-surgery",
+      "name": "Craniofacial Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "plastic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/craniofacialsurgerymilestones.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "parsed",
+      "subcompetency_count": 18,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "surgery-of-the-hand",
+      "name": "Surgery of the Hand",
+      "program_type": "subspecialty",
+      "parent_slug": "plastic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesplastic.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandsupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesplastic.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesplastic.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandsupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandsupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "preventive-medicine",
+      "name": "Preventive Medicine",
+      "program_type": "primary",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": null,
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "addiction-medicine",
+      "name": "Addiction Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 16,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "aerospace-medicine",
+      "name": "Aerospace Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/aerospacemedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/aerospacemedicinesupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "clinical-informatics",
+      "name": "Clinical Informatics",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-toxicology",
+      "name": "Medical Toxicology",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 22,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "occupational-medicine",
+      "name": "Occupational Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinemilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinemilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinesupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinesupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "public-health-and-general-preventive-medicine",
+      "name": "Public Health and General Preventive Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "undersea-and-hyperbaric-medicine",
+      "name": "Undersea and Hyperbaric Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "preventive-medicine",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonespm.pdf",
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonespm.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonespm.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "psychiatry",
+      "name": "Psychiatry",
+      "program_type": "primary",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrysupplementalguide.pdf",
+      "parse_status": "hand_seed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "addiction-psychiatry",
+      "name": "Addiction Psychiatry",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "child-and-adolescent-psychiatry",
+      "name": "Child and Adolescent Psychiatry",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childandadolescentpsychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childandadolescentpsychiatrysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 23,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "forensic-psychiatry",
+      "name": "Forensic Psychiatry",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpsychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpsychiatrysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "geriatric-psychiatry",
+      "name": "Geriatric Psychiatry",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricpsychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricpsychiatrysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neurology",
+      "name": "Neurology",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 27,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pain-medicine",
+      "name": "Pain Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "sleep-medicine",
+      "name": "Sleep Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "psychosomatic-medicine",
+      "name": "Psychosomatic Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "psychiatry",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinemilestonesannotated.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinemilestonesannotated.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinesupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinesupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "radiation-oncology",
+      "name": "Radiation Oncology",
+      "program_type": "primary",
+      "parent_slug": "radiation-oncology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "radiation-oncology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "radiology",
+      "name": "Radiology",
+      "program_type": "primary",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": null,
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "diagnostic-radiology",
+      "name": "Diagnostic Radiology",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/diagnosticradiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/diagnosticradiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "interventional-radiology-independent",
+      "name": "Interventional Radiology (Independent)",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologysupplementalguide.pdf",
+      "parse_status": "parse_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": [
+        "No subcompetencies extracted from milestone PDF"
+      ]
+    },
+    {
+      "slug": "interventional-radiology-integrated",
+      "name": "Interventional Radiology (Integrated)",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologyintegratedmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologyintegratedsupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologyintegratedmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologyintegratedmilestones.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "medical-physics",
+      "name": "Medical Physics",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicssupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicsmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicsmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicssupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicssupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "neuroradiology",
+      "name": "Neuroradiology",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuroradiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuroradiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "nuclear-radiology",
+      "name": "Nuclear Radiology",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearradiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearradiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-radiology",
+      "name": "Pediatric Radiology",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricradiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricradiologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "radiation-oncology",
+      "name": "Radiation Oncology",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "endovascular-surgical-neuroradiology",
+      "name": "Endovascular Surgical Neuroradiology",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologysupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologymilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologymilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "radiology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "surgery",
+      "name": "Surgery",
+      "program_type": "primary",
+      "parent_slug": "surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerysupplementalguide.pdf",
+      "parse_status": "parse_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": [
+        "No subcompetencies extracted from milestone PDF"
+      ]
+    },
+    {
+      "slug": "hospice-and-palliative-medicine",
+      "name": "Hospice and Palliative Medicine",
+      "program_type": "subspecialty",
+      "parent_slug": "surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-surgery",
+      "name": "Pediatric Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 25,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "surgical-critical-care",
+      "name": "Surgical Critical Care",
+      "program_type": "subspecialty",
+      "parent_slug": "surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgicalcriticalcaremilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgicalcriticalcaresupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 25,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "vascular-surgery-independent",
+      "name": "Vascular Surgery (Independent)",
+      "program_type": "subspecialty",
+      "parent_slug": "surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 28,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "vascular-surgery-integrated",
+      "name": "Vascular Surgery (Integrated)",
+      "program_type": "subspecialty",
+      "parent_slug": "surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedsupplementalguide.pdf",
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedmilestones.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedmilestones.pdf"
+        },
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedsupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedsupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "thoracic-surgery",
+      "name": "Thoracic Surgery",
+      "program_type": "primary",
+      "parent_slug": "thoracic-surgery",
+      "milestone_pdf_url": null,
+      "supplemental_guide_url": null,
+      "parse_status": "download_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "milestone",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        },
+        {
+          "type": "supplemental",
+          "url": null,
+          "error": "Failed to parse URL from null"
+        }
+      ],
+      "parse_errors": []
+    },
+    {
+      "slug": "thoracic-surgery-independent",
+      "name": "Thoracic Surgery (Independent)",
+      "program_type": "subspecialty",
+      "parent_slug": "thoracic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgerysupplementalguide.pdf",
+      "parse_status": "parse_failed",
+      "subcompetency_count": 0,
+      "download_errors": [
+        {
+          "type": "supplemental",
+          "url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgerysupplementalguide.pdf",
+          "error": "HTTP 404 for https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgerysupplementalguide.pdf"
+        }
+      ],
+      "parse_errors": [
+        "No subcompetencies extracted from milestone PDF"
+      ]
+    },
+    {
+      "slug": "thoracic-surgery-integrated",
+      "name": "Thoracic Surgery (Integrated)",
+      "program_type": "subspecialty",
+      "parent_slug": "thoracic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgeryintegratedmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgeryintegratedsupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 24,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "congenital-cardiac-surgery",
+      "name": "Congenital Cardiac Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "thoracic-surgery",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 17,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "transitional-year",
+      "name": "Transitional Year",
+      "program_type": "primary",
+      "parent_slug": "transitional-year",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearsupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 19,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "urology",
+      "name": "Urology",
+      "program_type": "primary",
+      "parent_slug": "urology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 20,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "pediatric-urology",
+      "name": "Pediatric Urology",
+      "program_type": "subspecialty",
+      "parent_slug": "urology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricurologysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 21,
+      "download_errors": [],
+      "parse_errors": []
+    },
+    {
+      "slug": "female-pelvic-medicine-and-reconstructive-surgery",
+      "name": "Female Pelvic Medicine and Reconstructive Surgery",
+      "program_type": "subspecialty",
+      "parent_slug": "urology",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerysupplementalguide.pdf",
+      "parse_status": "parsed",
+      "subcompetency_count": 28,
+      "download_errors": [],
+      "parse_errors": []
+    }
+  ]
 }

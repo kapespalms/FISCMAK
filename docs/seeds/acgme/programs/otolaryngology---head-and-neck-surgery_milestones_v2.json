@@ -3,1702 +3,715 @@
   "specialty": "Otolaryngology - Head and Neck Surgery",
   "version": "2.0",
   "source": "ACGME Otolaryngology - Head and Neck Surgery Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "otolaryngology---head-and-neck-surgery",
+  "parent_name": "Otolaryngology - Head and Neck Surgery",
   "subcompetencies": [
     {
       "id": "otolaryngology___head_and_neck_surgery_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Airway Emergency and Management",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies potential airway",
-          "emergencies as part of",
-          "an evaluation team",
-          "Escalates care of",
-          "emergency airway (e.g.,",
-          "alerts airway team)"
+          "Identifies potential airway emergencies as part of an evaluation team",
+          "Initiates the airway management algorithm from least to most invasive"
         ],
         "level_2": [
-          "Performs airway",
-          "assessment and focused",
-          "history and physical",
-          "Describes the airway",
-          "management algorithm",
-          "from least to most"
+          "Escalates care of emergency airway (e.g., alerts airway team)",
+          "Performs straightforward airway emergency procedures"
         ],
         "level_3": [
-          "invasive",
-          "Assists in straightforward",
-          "airway emergency",
-          "procedures",
-          "Initiates the airway",
-          "management algorithm"
+          "Performs airway assessment and focused history and physical",
+          "Implements airway management plan"
         ],
         "level_4": [
-          "from least to most",
-          "invasive",
-          "Performs",
-          "straightforward airway",
-          "emergency procedures",
-          "Implements airway"
+          "Describes the airway management algorithm from least to most invasive",
+          "Performs complex airway emergency procedures"
         ],
         "level_5": [
-          "management plan",
-          "Performs complex airway",
-          "emergency procedures",
-          "Develops anticipatory",
-          "airway management plan"
+          "Assists in straightforward airway emergency procedures",
+          "Develops anticipatory airway management plan"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Facial Trauma",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with a facial",
-          "trauma",
-          "Assists with routine peri-",
-          "operative care for facial",
-          "trauma patients",
-          "Recognizes common",
-          "complications",
-          "Formulates a diagnostic"
+          "Performs a history and physical examination in patients with a facial trauma",
+          "Initiates work-up of common complications",
+          "Performs routine surgical management for facial trauma, assists with complex facial trauma"
         ],
         "level_2": [
-          "and treatment plan for a",
-          "patient with facial trauma",
-          "Provides routine peri-",
-          "operative care for facial",
-          "trauma patients",
-          "Initiates work-up of",
-          "common complications",
-          "Explains the risks and",
-          "benefits of treatment",
-          "plans for facial trauma"
+          "Assists with routine peri- operative care for facial trauma patients",
+          "Explains the risks and benefits of treatment plans for facial trauma",
+          "Manages uncommon/infrequent complications"
         ],
         "level_3": [
-          "Assists with routine",
-          "surgical management for",
-          "facial trauma",
-          "Manages common",
-          "complications and",
-          "recognizes",
-          "uncommon/infrequent",
-          "complications",
-          "Describes typical",
-          "treatment plan"
+          "Recognizes common complications",
+          "Assists with routine surgical management for facial trauma",
+          "Adapts standard treatment plans and techniques to special circumstances"
         ],
         "level_4": [
-          "Performs routine",
-          "surgical management",
-          "for facial trauma, assists",
-          "with complex facial",
-          "trauma",
-          "Manages",
-          "uncommon/infrequent",
-          "complications",
-          "Adapts standard",
-          "treatment plans and"
+          "Formulates a diagnostic and treatment plan for a patient with facial trauma",
+          "Manages common complications and recognizes uncommon/infrequent complications",
+          "Performs operative management of complex facial trauma"
         ],
         "level_5": [
-          "techniques to special",
-          "circumstances",
-          "Performs operative",
-          "management of complex",
-          "facial trauma",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications"
+          "Provides routine peri- operative care for facial trauma patients",
+          "Describes typical treatment plan",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Head and Neck Neoplasm",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with head and",
-          "neck neoplasm",
-          "Assists with routine peri-",
-          "operative care for",
-          "patients with head and",
-          "neck neoplasm",
-          "Recognizes common",
-          "complications",
-          "Formulates a diagnostic"
+          "Performs a history and physical examination in patients with head and neck neoplasm",
+          "Initiates work-up of common complications",
+          "Performs routine surgical management for head and neck disease, assists with complex head and neck neoplasm"
         ],
         "level_2": [
-          "plan for a patient with",
-          "head and neck neoplasm",
-          "Provides routine peri-",
-          "operative care for patients",
-          "with head and neck",
-          "neoplasm",
-          "Initiates work-up of",
-          "common complications",
-          "Explains the risks and",
-          "benefits of treatment",
-          "plans for head and neck"
+          "Assists with routine peri- operative care for patients with head and neck neoplasm",
+          "Explains the risks and benefits of treatment plans for head and neck neoplasm",
+          "Manages uncommon/infrequent complications"
         ],
         "level_3": [
-          "neoplasm",
-          "Assists with routine",
-          "surgical management for",
-          "head and neck neoplasm",
-          "Manages common",
-          "complications and",
-          "recognizes",
-          "uncommon/infrequent",
-          "complications",
-          "Describes typical",
-          "treatment plan"
+          "Recognizes common complications",
+          "Assists with routine surgical management for head and neck neoplasm",
+          "Adapts standard treatment plans and techniques to special circumstances"
         ],
         "level_4": [
-          "Performs routine",
-          "surgical management",
-          "for head and neck",
-          "disease, assists with",
-          "complex head and neck",
-          "neoplasm",
-          "Manages",
-          "uncommon/infrequent",
-          "complications",
-          "Adapts standard",
-          "treatment plans and"
+          "Formulates a diagnostic plan for a patient with head and neck neoplasm",
+          "Manages common complications and recognizes uncommon/infrequent complications",
+          "Performs operative management of complex head and neck neoplasm"
         ],
         "level_5": [
-          "techniques to special",
-          "circumstances",
-          "Performs operative",
-          "management of complex",
-          "head and neck neoplasm",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications"
+          "Provides routine peri- operative care for patients with head and neck neoplasm",
+          "Describes typical treatment plan",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Otologic Disease",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with ear disease",
-          "and/or hearing loss",
-          "Assists with set-up,",
-          "performs placement of",
-          "ventilation tubes, and",
-          "opens and closes",
-          "postauricular incisions",
-          "Interprets routine",
-          "audiograms",
-          "Formulates a diagnostic"
+          "Performs a history and physical examination in patients with ear disease and/or hearing loss",
+          "Identifies surgical and disease-relevant anatomy on a computerized tomography (CT) scan",
+          "Dissects middle ear structures, performs a facial recess approach, and performs an ossicular reconstruction and cholesteatoma dissection"
         ],
         "level_2": [
-          "and treatment plan for a",
-          "patient with ear disease",
-          "and/or hearing loss",
-          "Elevates tympanomeatal",
-          "flap, performs cortical",
-          "mastoidectomy",
-          "Identifies surgical and",
-          "disease-relevant anatomy",
-          "on a computerized",
-          "tomography (CT) scan",
-          "Orders routine diagnostic",
-          "studies for ear disease"
+          "Assists with set-up, performs placement of ventilation tubes, and opens and closes postauricular incisions",
+          "Orders routine diagnostic studies for ear disease and/or hearing loss",
+          "Interprets specialized audiometric and vestibular testing"
         ],
         "level_3": [
-          "and/or hearing loss",
-          "Begins to perform middle",
-          "ear dissection",
-          "Identifies normal and",
-          "disease-relevant anatomy",
-          "on a magnetic resonance",
-          "imaging (MRI)",
-          "Explains the risks,",
-          "benefits, and",
-          "alternatives of medical",
-          "and surgical",
-          "interventions for ear"
+          "Interprets routine audiograms",
+          "Begins to perform middle ear dissection",
+          "Adapts standard treatment plans and interventions to special circumstances"
         ],
         "level_4": [
-          "disease and/or hearing",
-          "loss",
-          "Dissects middle ear",
-          "structures, performs a",
-          "facial recess approach,",
-          "and performs an",
-          "ossicular reconstruction",
-          "and cholesteatoma",
-          "dissection",
-          "Interprets specialized",
-          "audiometric and",
-          "vestibular testing"
+          "Formulates a diagnostic and treatment plan for a patient with ear disease and/or hearing loss",
+          "Identifies normal and disease-relevant anatomy on a magnetic resonance imaging (MRI)",
+          "Skeletonizes facial nerve, sigmoid sinus, and dura, and begins to perform lateral temporal bone resection"
         ],
         "level_5": [
-          "Adapts standard",
-          "treatment plans and",
-          "interventions to special",
-          "circumstances",
-          "Skeletonizes facial nerve,",
-          "sigmoid sinus, and dura,",
-          "and begins to perform",
-          "lateral temporal bone",
-          "resection",
-          "Leads an otology patient",
-          "care conference"
+          "Elevates tympanomeatal flap, performs cortical mastoidectomy",
+          "Explains the risks, benefits, and alternatives of medical and surgical interventions for ear disease and/or hearing loss",
+          "Leads an otology patient care conference"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Rhinologic Disease",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in a",
-          "patient with rhinologic",
-          "disease",
-          "Assists with routine",
-          "perioperative care for",
-          "patients with rhinologic",
-          "disease",
-          "Recognizes common",
-          "complications associated",
-          "with rhinologic disease",
-          "Formulates a diagnostic",
-          "and treatment plan for a"
+          "Performs a history and physical examination in a patient with rhinologic disease",
+          "Initiates work-up of common complications associated with rhinologic disease",
+          "Performs routine surgical management and assists with complex surgical management for patients with rhinologic disease"
         ],
         "level_2": [
-          "patient with rhinologic",
-          "disease",
-          "Provides routine",
-          "perioperative care for",
-          "patients with rhinologic",
-          "disease",
-          "Initiates work-up of",
-          "common complications",
-          "associated with rhinologic",
-          "disease",
-          "Explains the risks and",
-          "benefits of treatment",
-          "plans for rhinologic"
+          "Assists with routine perioperative care for patients with rhinologic disease",
+          "Explains the risks and benefits of treatment plans for rhinologic disease",
+          "Manages uncommon/infrequent complications associated with rhinologic disease"
         ],
         "level_3": [
-          "disease",
-          "Assists with routine",
-          "surgical management for",
-          "patients with rhinologic",
-          "disease",
-          "Manages common",
-          "complications and",
-          "recognizes",
-          "uncommon/infrequent",
-          "complications associated",
-          "with rhinologic disease",
-          "Identifies when typical",
-          "treatment plans should"
+          "Recognizes common complications associated with rhinologic disease",
+          "Assists with routine surgical management for patients with rhinologic disease",
+          "Adapts standard treatment plans and techniques to special circumstances"
         ],
         "level_4": [
-          "be modified",
-          "Performs routine",
-          "surgical management",
-          "and assists with",
-          "complex surgical",
-          "management for",
-          "patients with rhinologic",
-          "disease",
-          "Manages",
-          "uncommon/infrequent",
-          "complications",
-          "associated with",
-          "rhinologic disease"
+          "Formulates a diagnostic and treatment plan for a patient with rhinologic disease",
+          "Manages common complications and recognizes uncommon/infrequent complications associated with rhinologic disease",
+          "Performs complex surgical management for patients with rhinologic disease"
         ],
         "level_5": [
-          "Adapts standard",
-          "treatment plans and",
-          "techniques to special",
-          "circumstances",
-          "Performs complex",
-          "surgical management for",
-          "patients with rhinologic",
-          "disease",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications associated",
-          "with rhinologic disease"
+          "Provides routine perioperative care for patients with rhinologic disease",
+          "Identifies when typical treatment plans should be modified",
+          "Serves as a peer resource for managing uncommon/infrequent complications associated with rhinologic disease"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Laryngologic Disease",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with laryngologic",
-          "disease",
-          "Assists with routine",
-          "perioperative care for",
-          "patients with laryngologic",
-          "disease",
-          "Recognizes common",
-          "complications associated",
-          "with laryngologic disease",
-          "Formulates a diagnostic",
-          "and treatment plan for a",
-          "patient with laryngologic",
-          "disease"
+          "Performs a history and physical examination in patients with laryngologic disease",
+          "Initiates work-up of common complications associated with laryngologic disease",
+          "Performs routine surgical management and assists with complex surgical management for patients with laryngologic disease"
         ],
         "level_2": [
-          "Provides routine",
-          "perioperative care for",
-          "patients with laryngologic",
-          "disease, including both",
-          "direct and indirect",
-          "laryngoscopy",
-          "Initiates work-up of",
-          "common complications",
-          "associated with",
-          "laryngologic disease",
-          "Explains the risks and",
-          "benefits of treatment",
-          "plans for laryngologic",
-          "disease",
-          "Assists with routine"
+          "Assists with routine perioperative care for patients with laryngologic disease",
+          "Explains the risks and benefits of treatment plans for laryngologic disease",
+          "Manages uncommon/infrequent complications associated with laryngologic disease"
         ],
         "level_3": [
-          "surgical management for",
-          "patients with laryngologic",
-          "disease, including direct",
-          "laryngoscopy,",
-          "microlaryngeal",
-          "techniques, and vocal fold",
-          "injections",
-          "Manages common",
-          "complications and",
-          "recognizes",
-          "uncommon/infrequent",
-          "complications associated",
-          "with laryngologic disease",
-          "Identifies when typical",
-          "treatment plans should"
+          "Recognizes common complications associated with laryngologic disease",
+          "Assists with routine surgical management for patients with laryngologic disease, including direct laryngoscopy, microlaryngeal techniques, and vocal fold injections",
+          "Adapts standard treatment plans and techniques to special circumstances"
         ],
         "level_4": [
-          "be modified",
-          "Performs routine",
-          "surgical management",
-          "and assists with",
-          "complex surgical",
-          "management for",
-          "patients with",
-          "laryngologic disease",
-          "Manages",
-          "uncommon/infrequent",
-          "complications",
-          "associated with",
-          "laryngologic disease",
-          "Adapts standard",
-          "treatment plans and"
+          "Formulates a diagnostic and treatment plan for a patient with laryngologic disease",
+          "Manages common complications and recognizes uncommon/infrequent complications associated with laryngologic disease",
+          "Performs complex surgical management for patients with laryngologic disease, including laryngotracheal reconstruction and arytenoid procedures"
         ],
         "level_5": [
-          "techniques to special",
-          "circumstances",
-          "Performs complex",
-          "surgical management for",
-          "patients with laryngologic",
-          "disease, including",
-          "laryngotracheal",
-          "reconstruction and",
-          "arytenoid procedures",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications associated",
-          "with laryngologic disease"
+          "Provides routine perioperative care for patients with laryngologic disease, including both direct and indirect laryngoscopy",
+          "Identifies when typical treatment plans should be modified",
+          "Serves as a peer resource for managing uncommon/infrequent complications associated with laryngologic disease"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc7",
       "number": 7,
-      "domain_number": 7,
       "name": "Pediatric Otolaryngology",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs an age-",
-          "appropriate history and",
-          "physical examination",
-          "with developmental",
-          "assessment",
-          "Assists with pediatric",
-          "otolaryngology",
-          "procedures",
-          "Provides routine peri-",
-          "operative care for",
-          "pediatric otolaryngology",
-          "procedures",
-          "Formulates a diagnostic",
-          "and treatment plan for a"
+          "Performs an age- appropriate history and physical examination with developmental assessment",
+          "Recognizes and initiates work-up of routine complications of treatment",
+          "Performs airway and soft tissue pediatric procedures; assists with complex pediatric procedures"
         ],
         "level_2": [
-          "pediatric patient",
-          "Performs routine pediatric",
-          "procedures on typical",
-          "patients (e.g., ear tube",
-          "placement, tonsillectomy,",
-          "adenoidectomy)",
-          "Recognizes and initiates",
-          "work-up of routine",
-          "complications of treatment",
-          "Explains the risks and",
-          "benefits of pediatric",
-          "procedures; adapts",
-          "diagnoses to age-related",
-          "variations"
+          "Assists with pediatric otolaryngology procedures",
+          "Explains the risks and benefits of pediatric procedures; adapts diagnoses to age-related variations",
+          "Manages uncommon complications of treatment"
         ],
         "level_3": [
-          "Performs routine pediatric",
-          "procedures on atypical",
-          "patients (e.g., syndromic),",
-          "and airway and soft tissue",
-          "pediatric otolaryngology",
-          "procedures (e.g.,",
-          "bronchoscopy, branchial",
-          "cleft excision)",
-          "Manages routine",
-          "complications and",
-          "recognizes complex",
-          "complications of treatment",
-          "Adapts standard",
-          "treatment plans to"
+          "Provides routine peri- operative care for pediatric otolaryngology procedures",
+          "Performs routine pediatric procedures on atypical patients (e.g., syndromic), and airway and soft tissue pediatric otolaryngology procedures (e.g., bronchoscopy, branchial cleft excision)",
+          "Actively participates in discussion at an interdisciplinary pediatric case conference or specialty clinic"
         ],
         "level_4": [
-          "special circumstances",
-          "(e.g., syndromic",
-          "children and infants)",
-          "Performs airway and",
-          "soft tissue pediatric",
-          "procedures; assists with",
-          "complex pediatric",
-          "procedures",
-          "Manages uncommon",
-          "complications of",
-          "treatment",
-          "Actively participates in",
-          "discussion at an",
-          "interdisciplinary pediatric"
+          "Formulates a diagnostic and treatment plan for a pediatric patient",
+          "Manages routine complications and recognizes complex complications of treatment",
+          "Performs complex pediatric otolaryngology procedures"
         ],
         "level_5": [
-          "case conference or",
-          "specialty clinic",
-          "Performs complex",
-          "pediatric otolaryngology",
-          "procedures",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications associated",
-          "with pediatric procedures"
+          "Performs routine pediatric procedures on typical patients (e.g., ear tube placement, tonsillectomy, adenoidectomy)",
+          "Adapts standard treatment plans to special circumstances (e.g., syndromic children and infants)",
+          "Serves as a peer resource for managing uncommon/infrequent complications associated with pediatric procedures"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc8",
       "number": 8,
-      "domain_number": 8,
       "name": "Facial Plastic and Reconstructive Surgery",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in",
-          "patients with",
-          "aesthetic/functional",
-          "concerns",
-          "Assists with routine peri-",
-          "operative care for",
-          "patients receiving head",
-          "and neck",
-          "aesthetic/functional",
-          "surgery",
-          "Recognizes common",
-          "complications"
+          "Performs a history and physical examination in patients with aesthetic/functional concerns",
+          "Initiates work-up of common complications",
+          "Performs routine surgical management for patients requiring head and neck aesthetic/functional surgery"
         ],
         "level_2": [
-          "Formulates a diagnostic",
-          "and treatment plan for a",
-          "patient with",
-          "aesthetic/functional",
-          "concerns",
-          "Provides routine peri-",
-          "operative care for patients",
-          "receiving head and neck",
-          "aesthetic/functional",
-          "surgery",
-          "Initiates work-up of",
-          "common complications",
-          "Explains the risks and"
+          "Assists with routine peri- operative care for patients receiving head and neck aesthetic/functional surgery",
+          "Explains the risks and benefits of treatment plans for aesthetic/functional surgery",
+          "Manages uncommon/infrequent complications"
         ],
         "level_3": [
-          "benefits of treatment",
-          "plans for",
-          "aesthetic/functional",
-          "surgery",
-          "Assists with routine",
-          "surgical management for",
-          "head and neck",
-          "aesthetic/functional",
-          "surgery",
-          "Manages common",
-          "complications and",
-          "recognizes",
-          "uncommon/infrequent"
+          "Recognizes common complications",
+          "Assists with routine surgical management for head and neck aesthetic/functional surgery",
+          "Adapts standard treatment plans and techniques to special circumstances"
         ],
         "level_4": [
-          "complications",
-          "Identifies best treatment",
-          "plan to address patient",
-          "concerns",
-          "Performs routine",
-          "surgical management",
-          "for patients requiring",
-          "head and neck",
-          "aesthetic/functional",
-          "surgery",
-          "Manages",
-          "uncommon/infrequent",
-          "complications"
+          "Formulates a diagnostic and treatment plan for a patient with aesthetic/functional concerns",
+          "Manages common complications and recognizes uncommon/infrequent complications",
+          "Performs operative management of complex head and neck aesthetic/functional surgery"
         ],
         "level_5": [
-          "Adapts standard",
-          "treatment plans and",
-          "techniques to special",
-          "circumstances",
-          "Performs operative",
-          "management of complex",
-          "head and neck",
-          "aesthetic/functional",
-          "surgery",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications"
+          "Provides routine peri- operative care for patients receiving head and neck aesthetic/functional surgery",
+          "Identifies best treatment plan to address patient concerns",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pc9",
       "number": 9,
-      "domain_number": 9,
       "name": "Sleep",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs a history and",
-          "physical examination in a",
-          "patient with sleep",
-          "concerns",
-          "Assists with routine peri-",
-          "operative care for sleep",
-          "surgery patients",
-          "Recognizes common",
-          "complications of sleep",
-          "surgery and sleep",
-          "disorders",
-          "Formulates a diagnostic"
+          "Performs a history and physical examination in a patient with sleep concerns",
+          "Initiates work-up of common complications associated with sleep surgery and sleep disorders",
+          "Performs common surgical management of sleep disorders"
         ],
         "level_2": [
-          "and treatment plan for a",
-          "patient with sleep",
-          "concerns",
-          "Provides routine peri-",
-          "operative care for sleep",
-          "surgery patients",
-          "Initiates work-up of",
-          "common complications",
-          "associated with sleep",
-          "surgery and sleep",
-          "disorders",
-          "Explains the risks and"
+          "Assists with routine peri- operative care for sleep surgery patients",
+          "Explains the risks and benefits of treatment plans for sleep disorders",
+          "Manages uncommon/infrequent complications associated with sleep surgery and sleep disorders"
         ],
         "level_3": [
-          "benefits of treatment",
-          "plans for sleep disorders",
-          "Assists with routine",
-          "surgical management of",
-          "sleep disorders",
-          "Manages common",
-          "complications and",
-          "recognizes",
-          "uncommon/infrequent",
-          "complications associated",
-          "with sleep surgery and",
-          "sleep disorders"
+          "Recognizes common complications of sleep surgery and sleep disorders",
+          "Assists with routine surgical management of sleep disorders",
+          "Adapts standard treatment plans for sleep disorders to individual circumstances"
         ],
         "level_4": [
-          "Identifies when standard",
-          "sleep interventions",
-          "should be modified",
-          "Performs common",
-          "surgical management of",
-          "sleep disorders",
-          "Manages",
-          "uncommon/infrequent",
-          "complications",
-          "associated with sleep",
-          "surgery and sleep",
-          "disorders"
+          "Formulates a diagnostic and treatment plan for a patient with sleep concerns",
+          "Manages common complications and recognizes uncommon/infrequent complications associated with sleep surgery and sleep disorders",
+          "Performs complex surgical management of sleep disorders"
         ],
         "level_5": [
-          "Adapts standard",
-          "treatment plans for sleep",
-          "disorders to individual",
-          "circumstances",
-          "Performs complex",
-          "surgical management of",
-          "sleep disorders",
-          "Serves as a peer",
-          "resource for managing",
-          "uncommon/infrequent",
-          "complications"
+          "Provides routine peri- operative care for sleep surgery patients",
+          "Identifies when standard sleep interventions should be modified",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_mk1",
       "number": 10,
-      "domain_number": 1,
       "name": "Anatomy",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Identifies normal",
-          "anatomy during common",
-          "operations",
-          "Articulates the steps of",
-          "common operations",
-          "Identifies variations in",
-          "anatomy during common"
+          "Identifies normal anatomy during common operations",
+          "Articulates the steps of complex operations"
         ],
         "level_2": [
-          "operations",
-          "Articulates the",
-          "implications of varying",
-          "anatomy on the steps of",
-          "common operations",
-          "Identifies normal anatomy",
-          "during complex"
+          "Articulates the steps of common operations",
+          "Identifies variations in anatomy during complex operations"
         ],
         "level_3": [
-          "operations",
-          "Articulates the steps of",
-          "complex operations",
-          "Identifies variations in",
-          "anatomy during",
-          "complex operations",
-          "Articulates the"
+          "Identifies variations in anatomy during common operations",
+          "Articulates the implications of varying anatomy on the steps of complex operations"
         ],
         "level_4": [
-          "implications of varying",
-          "anatomy on the steps of",
-          "complex operations",
-          "Leads anatomy instruction",
-          "for students and co-",
-          "residents",
-          "Teaches complex"
+          "Articulates the implications of varying anatomy on the steps of common operations",
+          "Leads anatomy instruction for students and co- residents"
         ],
         "level_5": [
-          "variations of anatomy and",
-          "implications for surgical",
-          "approaches"
+          "Identifies normal anatomy during complex operations",
+          "Teaches complex variations of anatomy and implications for surgical approaches"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_mk2",
       "number": 11,
-      "domain_number": 2,
       "name": "Allergy",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of allergic",
-          "hypersensitivity and",
-          "resulting clinical",
-          "manifestations",
-          "Explains common clinical",
-          "manifestations of",
-          "hypersensitivity and",
-          "allergic disease",
-          "Describes the potential",
-          "severity of severe",
-          "allergic responses",
-          "Discusses"
+          "Demonstrates knowledge of allergic hypersensitivity and resulting clinical manifestations",
+          "Demonstrates knowledge of risk factors associated with systemic reaction to allergen exposure",
+          "Determines appropriateness of antigen-specific immunotherapy"
         ],
         "level_2": [
-          "pathophysiology of",
-          "immunoglobulin E (IgE) –",
-          "mediated hypersensitivity",
-          "and roles of exposure and",
-          "sensitization",
-          "Explains common",
-          "complications and",
-          "comorbid conditions",
-          "associated with allergic",
-          "disease",
-          "Demonstrates knowledge",
-          "of risk factors associated",
-          "with systemic reaction to"
+          "Explains common clinical manifestations of hypersensitivity and allergic disease",
+          "Demonstrates knowledge of interventions, including avoidance, pharmacotherapy, and antigen-specific immunotherapy",
+          "Describes the basic intervention and treatment of anaphylaxis"
         ],
         "level_3": [
-          "allergen exposure",
-          "Demonstrates knowledge",
-          "of interventions, including",
-          "avoidance,",
-          "pharmacotherapy, and",
-          "antigen-specific",
-          "immunotherapy",
-          "Articulates a treatment",
-          "plan for clinical",
-          "manifestations of allergic",
-          "rhinitis",
-          "Describes the early signs",
-          "of anaphylaxis and/or"
+          "Describes the potential severity of severe allergic responses",
+          "Articulates a treatment plan for clinical manifestations of allergic rhinitis",
+          "Reliably resolves discrepancies between testing results and clinical findings"
         ],
         "level_4": [
-          "systemic reaction",
-          "Interprets data from",
-          "allergy in-vitro or skin",
-          "testing",
-          "Determines",
-          "appropriateness of",
-          "antigen-specific",
-          "immunotherapy",
-          "Describes the basic",
-          "intervention and",
-          "treatment of",
-          "anaphylaxis",
-          "Reliably resolves"
+          "Discusses pathophysiology of immunoglobulin E (IgE) – mediated hypersensitivity and roles of exposure and sensitization",
+          "Describes the early signs of anaphylaxis and/or systemic reaction",
+          "Synthesizes data to modify testing strategies and treatment for difficult/high-risk patients"
         ],
         "level_5": [
-          "discrepancies between",
-          "testing results and clinical",
-          "findings",
-          "Synthesizes data to",
-          "modify testing strategies",
-          "and treatment for",
-          "difficult/high-risk patients",
-          "Describes advanced",
-          "treatment of anaphylaxis"
+          "Explains common complications and comorbid conditions associated with allergic disease",
+          "Interprets data from allergy in-vitro or skin testing",
+          "Describes advanced treatment of anaphylaxis"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_mk3",
       "number": 12,
-      "domain_number": 3,
       "name": "Pathophysiology",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of normal",
-          "physiology,",
-          "pathophysiology, and",
-          "clinical findings for",
-          "otolaryngologic",
-          "conditions routinely"
+          "Demonstrates knowledge of normal physiology, pathophysiology, and clinical findings for otolaryngologic conditions routinely managed by non- otolaryngologists"
         ],
         "level_2": [
-          "managed by non-",
-          "otolaryngologists",
-          "Demonstrates basic",
-          "knowledge of",
-          "pathophysiology and",
-          "clinical findings for",
-          "common otolaryngologic"
+          "Demonstrates basic knowledge of pathophysiology and clinical findings for common otolaryngologic conditions"
         ],
         "level_3": [
-          "conditions",
-          "Demonstrates advanced",
-          "knowledge of",
-          "pathophysiology and",
-          "clinical findings for",
-          "commonly encountered",
-          "otolaryngologic conditions"
+          "Demonstrates advanced knowledge of pathophysiology and clinical findings for commonly encountered otolaryngologic conditions"
         ],
         "level_4": [
-          "Demonstrates",
-          "knowledge of",
-          "pathophysiology and",
-          "clinical findings for",
-          "uncommon",
-          "otolaryngologic",
-          "conditions"
+          "Demonstrates knowledge of pathophysiology and clinical findings for uncommon otolaryngologic conditions"
         ],
         "level_5": [
-          "Contributes new",
-          "knowledge for",
-          "pathophysiology and",
-          "clinical findings for",
-          "otolaryngologic conditions",
-          "(e.g., publication,",
-          "curriculum development)"
+          "Contributes new knowledge for pathophysiology and clinical findings for otolaryngologic conditions (e.g., publication, curriculum development)"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_sbp1",
       "number": 13,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics"
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and families (simulated or actual)"
         ],
         "level_2": [
-          "Identifies system factors",
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes local quality",
-          "improvement initiatives",
-          "Participates in analysis of",
-          "patient safety events"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_3": [
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and families",
-          "(simulated or actual)",
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Conducts analysis of",
-          "patient safety events",
-          "and offers error",
-          "prevention strategies"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "families (simulated or",
-          "actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project",
-          "Actively engages teams",
-          "and processes to modify"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "systems to prevent patient",
-          "safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_sbp2",
       "number": 14,
-      "domain_number": 2,
       "name": "System Navigation for Patient-Centered Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination",
-          "Identifies key elements",
-          "for safe and effective",
-          "transitions of care and",
-          "hand-offs",
-          "Demonstrates",
-          "knowledge of population",
-          "and community health",
-          "needs",
-          "Coordinates care of",
-          "patients in routine clinical",
-          "situations effectively using"
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for their local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems including outpatient settings"
         ],
         "level_2": [
-          "the roles of the",
-          "interprofessional teams",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Identifies specific",
-          "population and community",
-          "health needs for their",
-          "local population",
-          "Coordinates care of",
-          "patients in complex",
-          "clinical situations",
-          "effectively using the roles"
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of their interprofessional teams",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
         ],
         "level_3": [
-          "of their interprofessional",
-          "teams",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Uses local resources",
-          "effectively to meet the",
-          "needs of a patient",
-          "population and community",
-          "Role models effective",
-          "coordination of patient-",
-          "centered care among",
-          "different disciplines and"
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
         ],
         "level_4": [
-          "specialties",
-          "Role models and",
-          "advocates for safe and",
-          "effective transitions of",
-          "care/hand-offs within",
-          "and across health care",
-          "delivery systems",
-          "including outpatient",
-          "settings",
-          "Participates in changing",
-          "and adapting practice to",
-          "provide for the needs of",
-          "specific populations",
-          "Analyzes the process of"
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
         ],
         "level_5": [
-          "care coordination and",
-          "leads in the design and",
-          "implementation of",
-          "improvements",
-          "Improves quality of",
-          "transitions of care within",
-          "and across health care",
-          "delivery systems to",
-          "optimize patient outcomes",
-          "Leads innovations and",
-          "advocates for populations",
-          "and communities with",
-          "specific health care needs"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_sbp3",
       "number": 15,
-      "domain_number": 3,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key",
-          "components of the",
-          "complex health care",
-          "system (e.g., hospital,",
-          "skilled nursing facility,",
-          "finance, personnel,",
-          "technology)",
-          "Describes basic health",
-          "payment systems,",
-          "including government,",
-          "private, public, uninsured",
-          "care, and practice",
-          "models",
-          "Identifies basic",
-          "knowledge domains for",
-          "effective transition to",
-          "practice (e.g.,"
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Describes core administrative knowledge needed for transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
         ],
         "level_2": [
-          "information technology,",
-          "legal, billing and coding,",
-          "financial, personnel)",
-          "Describes how",
-          "components of a complex",
-          "health care system are",
-          "interrelated, and how this",
-          "impacts patient care",
-          "Delivers care with",
-          "consideration of each",
-          "patient’s payment model",
-          "(e.g., insurance type)",
-          "Describes core",
-          "administrative knowledge",
-          "needed for transition to",
-          "practice (e.g., contract",
-          "negotiations, malpractice"
+          "Describes basic health payment systems, including government, private, public, uninsured care, and practice models",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
         ],
         "level_3": [
-          "insurance, government",
-          "regulation, compliance)",
-          "Discusses how individual",
-          "practice affects the",
-          "broader system (e.g.,",
-          "length of stay,",
-          "readmission rates, clinical",
-          "efficiency)",
-          "Engages with patients in",
-          "shared decision making,",
-          "informed by each patient’s",
-          "payment models",
-          "Demonstrates use of",
-          "information technology",
-          "required for medical",
-          "practice (e.g., electronic",
-          "health record,"
+          "Identifies basic knowledge domains for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Engages with patients in shared decision making, informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
         ],
         "level_4": [
-          "documentation required",
-          "for billing and coding)",
-          "Manages various",
-          "components of the",
-          "complex health care",
-          "system to provide",
-          "efficient and effective",
-          "patient care and",
-          "transition of care",
-          "Advocates for patient",
-          "care needs (e.g.,",
-          "community resources,",
-          "patient assistance",
-          "resources) with",
-          "consideration of the",
-          "limitations of each",
-          "patient’s payment model"
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Participates in health policy advocacy activities"
         ],
         "level_5": [
-          "Analyzes individual",
-          "practice patterns and",
-          "professional",
-          "requirements in",
-          "preparation for practice",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high-value,",
-          "efficient, and effective",
-          "patient care and transition",
-          "of care",
-          "Participates in health",
-          "policy advocacy activities",
-          "Educates others to",
-          "prepare them for",
-          "transition to practice"
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type)",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others to prepare them for transition to practice"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pbli1",
       "number": 16,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access available",
-          "evidence, and",
-          "incorporate patient",
-          "preferences and values",
-          "to take care of a routine"
+          "Demonstrates how to access available evidence, and incorporate patient preferences and values to take care of a routine patient"
         ],
         "level_2": [
-          "patient",
-          "Articulates clinical",
-          "questions and elicits",
-          "patient preferences and",
-          "values to guide evidence-",
-          "based care"
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
         ],
         "level_3": [
-          "Locates and applies the",
-          "best available evidence,",
-          "integrated with patient",
-          "preference, to the care of",
-          "complex patients",
-          "Critically appraises and"
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
         ],
         "level_4": [
-          "applies evidence even",
-          "in the face of",
-          "uncertainty and",
-          "conflicting evidence to",
-          "guide care to the",
-          "individual patient"
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care to the individual patient"
         ],
         "level_5": [
-          "Coaches others to",
-          "critically appraise and",
-          "apply evidence for",
-          "complex patients; and/or",
-          "participates in the",
-          "development of guidelines"
+          "Coaches others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_pbli2",
       "number": 17,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accepts responsibility for",
-          "personal and",
-          "professional",
-          "development by",
-          "establishing goals",
-          "Identifies the factors",
-          "which contribute to",
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Actively seeks",
-          "opportunities to improve"
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
         ],
         "level_2": [
-          "Demonstrates openness",
-          "to performance data",
-          "(feedback and other input)",
-          "to inform goals",
-          "Analyzes and reflects on",
-          "the factors which",
-          "contribute to gap(s)",
-          "between expectations and",
-          "actual performance",
-          "Designs and implements",
-          "a learning plan, with",
-          "prompting"
+          "Identifies the factors which contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data episodically, with adaptability",
+          "Uses performance data to measure the effectiveness of the learning plan and when necessary, improves it"
         ],
         "level_3": [
-          "Seeks performance data",
-          "episodically, with",
-          "adaptability",
-          "Analyzes, reflects on, and",
-          "institutes behavioral",
-          "change(s) to narrow the",
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Independently creates",
-          "and implements a",
-          "learning plan"
+          "Actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Role models consistently seeking performance data with adaptability"
         ],
         "level_4": [
-          "Intentionally seeks",
-          "performance data",
-          "consistently with",
-          "adaptability",
-          "Challenges",
-          "assumptions and",
-          "considers alternatives in",
-          "narrowing the gap(s)",
-          "between expectations",
-          "and actual performance",
-          "Uses performance data",
-          "to measure the"
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others on reflective practice"
         ],
         "level_5": [
-          "effectiveness of the",
-          "learning plan and when",
-          "necessary, improves it",
-          "Role models consistently",
-          "seeking performance data",
-          "with adaptability",
-          "Coaches others on",
-          "reflective practice",
-          "Facilitates the design and",
-          "implementing learning",
-          "plans for others"
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Intentionally seeks performance data consistently with adaptability",
+          "Facilitates the design and implementing learning plans for others"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_prof1",
       "number": 18,
-      "domain_number": 1,
       "name": "Professional Behavior and Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Identifies and describes",
-          "potential triggers for",
-          "professionalism lapses",
-          "Demonstrates",
-          "knowledge of the ethical",
-          "principles underlying",
-          "patient care, including",
-          "informed consent,",
-          "surrogate decision",
-          "making, advance",
-          "directives, confidentiality,"
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Analyzes complex situations using ethical principles and recognizes need to seek help in managing and resolving complex ethical situations"
         ],
         "level_2": [
-          "error disclosure,",
-          "stewardship of limited",
-          "resources, and related",
-          "topics",
-          "Demonstrates insight into",
-          "professional behavior in",
-          "routine situations and",
-          "how to appropriately",
-          "report professionalism",
-          "lapses",
-          "Analyzes straightforward"
+          "Demonstrates knowledge of the ethical principles underlying patient care, including informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
         ],
         "level_3": [
-          "situations using ethical",
-          "principles",
-          "Demonstrates",
-          "professional behavior in",
-          "complex or stressful",
-          "situations",
-          "Analyzes complex",
-          "situations using ethical",
-          "principles and recognizes",
-          "need to seek help in",
-          "managing and resolving"
+          "Demonstrates insight into professional behavior in routine situations and how to appropriately report professionalism lapses",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
         ],
         "level_4": [
-          "complex ethical situations",
-          "Recognizes situations",
-          "that may trigger",
-          "professionalism lapses",
-          "and intervenes to",
-          "prevent lapses in self",
-          "and others",
-          "Recognizes and uses",
-          "appropriate resources",
-          "for managing and",
-          "resolving ethical"
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_5": [
-          "dilemmas as needed",
-          "Coaches others when",
-          "their behavior fails to",
-          "meet professional",
-          "expectations",
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_prof2",
       "number": 19,
-      "domain_number": 2,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Takes responsibility for",
-          "failure to complete tasks",
-          "and responsibilities,",
-          "identifies potential",
-          "contributing factors, and",
-          "describes strategies for",
-          "ensuring timely task",
-          "completion in the future"
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
         ],
         "level_2": [
-          "Responds promptly to",
-          "requests or reminders to",
-          "complete tasks and",
-          "responsibilities",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in"
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
         ],
         "level_3": [
-          "routine situations",
-          "Recognizes situations that",
-          "may impact own ability to",
-          "complete tasks and",
-          "responsibilities in a timely",
-          "manner",
-          "Performs tasks and",
-          "responsibilities in a timely"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Leads system outcomes"
         ],
         "level_4": [
-          "manner with appropriate",
-          "attention to detail in",
-          "complex or stressful",
-          "situations",
-          "Proactively implements",
-          "strategies to ensure that",
-          "the needs of patients,",
-          "teams, and systems are"
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner"
         ],
         "level_5": [
-          "met",
-          "Recognizes situations",
-          "that may impact others’",
-          "ability to complete tasks",
-          "and responsibilities in a",
-          "timely manner",
-          "Leads system outcomes"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_prof3",
       "number": 20,
-      "domain_number": 3,
       "name": "Knowledge of Systemic and Individual Factors of Well-Being",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes the",
-          "importance of getting",
-          "help when needed to",
-          "address personal and",
-          "professional well-being",
-          "Lists resources to support",
-          "personal and professional"
+          "Recognizes the importance of getting help when needed to address personal and professional well-being",
+          "Reflects on actions in real time to proactively respond to the inherent emotional challenges of physician work"
         ],
         "level_2": [
-          "well-being",
-          "Recognizes that",
-          "institutional factors affect",
-          "well-being",
-          "With prompting, reflects",
-          "on how personal and",
-          "professional well-being"
+          "Lists resources to support personal and professional well-being",
+          "Suggests potential solutions to institutional factors that affect well- being"
         ],
         "level_3": [
-          "may impact one’s clinical",
-          "practice",
-          "Describes institutional",
-          "factors that affect well-",
-          "being",
-          "Reflects on actions in",
-          "real time to proactively"
+          "Recognizes that institutional factors affect well-being",
+          "Participates in institutional changes to promote personal and professional well-being"
         ],
         "level_4": [
-          "respond to the inherent",
-          "emotional challenges of",
-          "physician work",
-          "Suggests potential",
-          "solutions to institutional",
-          "factors that affect well-",
-          "being"
+          "With prompting, reflects on how personal and professional well-being may impact one’s clinical practice"
         ],
         "level_5": [
-          "Participates in institutional",
-          "changes to promote",
-          "personal and professional",
-          "well-being"
+          "Describes institutional factors that affect well- being"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_ics1",
       "number": 21,
-      "domain_number": 1,
       "name": "Patient- and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language and",
-          "nonverbal behavior to",
-          "demonstrate respect and",
-          "establish rapport",
-          "Identifies common barriers",
-          "to effective",
-          "communication (e.g.,",
-          "language, disability) while",
-          "accurately communicating",
-          "own role within the health",
-          "care system",
-          "Identifies the need to",
-          "adjust communication",
-          "strategies based on",
-          "assessment of",
-          "patient/family expectations",
-          "and understanding of their",
-          "health status and"
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with patient/family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
         ],
         "level_2": [
-          "treatment options",
-          "Establishes a therapeutic",
-          "relationship in",
-          "straightforward encounters",
-          "using active listening and",
-          "clear language",
-          "Identifies complex barriers",
-          "to effective communication",
-          "(e.g., health literacy)",
-          "Organizes and initiates",
-          "communication with",
-          "patient/family by",
-          "introducing stakeholders,",
-          "setting the agenda,",
-          "clarifying expectations, and",
-          "verifying understanding of",
-          "the clinical situation",
-          "Establishes a therapeutic"
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Independently, uses shared decision making to align patient/family values, goals, and preferences with treatment options to make a personalized care plan"
         ],
         "level_3": [
-          "relationship",
-          "in challenging patient",
-          "encounters",
-          "When prompted, reflects",
-          "on biases while attempting",
-          "to minimize communication",
-          "barriers",
-          "With guidance, sensitively",
-          "and compassionately",
-          "delivers medical",
-          "information, elicits",
-          "patient/family values,",
-          "goals, and preferences,",
-          "and acknowledges",
-          "uncertainty and conflict",
-          "Easily establishes",
-          "therapeutic relationships,",
-          "with attention to"
+          "Identifies the need to adjust communication strategies based on assessment of patient/family expectations and understanding of their health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
         ],
         "level_4": [
-          "patient/family concerns",
-          "and context, regardless",
-          "of complexity",
-          "Independently",
-          "recognizes biases while",
-          "attempting to proactively",
-          "minimize communication",
-          "barriers",
-          "Independently, uses",
-          "shared decision making",
-          "to align patient/family",
-          "values, goals, and",
-          "preferences with",
-          "treatment options to",
-          "make a personalized",
-          "care plan",
-          "Mentors others in",
-          "situational awareness and"
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient/family values, goals, and preferences, and acknowledges uncertainty and conflict",
+          "Role models self- awareness while identifying a contextual approach to minimize communication barriers"
         ],
         "level_5": [
-          "critical self-reflection to",
-          "consistently develop",
-          "positive therapeutic",
-          "relationships",
-          "Role models self-",
-          "awareness while identifying",
-          "a contextual approach to",
-          "minimize communication",
-          "barriers",
-          "Role models shared",
-          "decision making in",
-          "patient/family",
-          "communication including",
-          "those with a high degree of",
-          "uncertainty/conflict"
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Easily establishes therapeutic relationships, with attention to patient/family concerns and context, regardless of complexity",
+          "Role models shared decision making in patient/family communication including those with a high degree of uncertainty/conflict"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_ics2",
       "number": 22,
-      "domain_number": 2,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Respectfully",
-          "requests/receives a",
-          "consultation",
-          "Uses language that",
-          "values all members of",
-          "the health care team",
-          "Clearly and concisely",
-          "requests/responds to a",
-          "consultation",
-          "Communicates",
-          "information effectively"
+          "Respectfully requests/receives a consultation",
+          "Receives follow-up and feedback on the outcome of the consultation",
+          "Communicates concerns and provides feedback to peers and learners"
         ],
         "level_2": [
-          "with all health care team",
-          "members",
-          "Respectfully receives",
-          "feedback on performance",
-          "as a member of the health",
-          "care team",
-          "Receives follow-up and",
-          "feedback on the outcome",
-          "of the consultation",
-          "Uses active listening to",
-          "adapt communication"
+          "Uses language that values all members of the health care team",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
         ],
         "level_3": [
-          "style to fit team needs",
-          "Solicits feedback on",
-          "performance as a",
-          "member of the health care",
-          "team",
-          "Coordinates",
-          "recommendations from",
-          "different members of the",
-          "health care team to",
-          "optimize patient care",
-          "Communicates"
+          "Clearly and concisely requests/responds to a consultation",
+          "Solicits feedback on performance as a member of the health care team",
+          "Facilitates health care team-based feedback in complex situations"
         ],
         "level_4": [
-          "feedback and",
-          "constructive criticism to",
-          "superiors",
-          "Communicates",
-          "concerns and provides",
-          "feedback to peers and",
-          "learners",
-          "Role models flexible",
-          "communication strategies",
-          "that value input from all",
-          "health care team"
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Facilitates teaching of team-based communication and feedback"
         ],
         "level_5": [
-          "members, resolving",
-          "conflict when needed",
-          "Facilitates health care",
-          "team-based feedback in",
-          "complex situations",
-          "Facilitates teaching of",
-          "team-based",
-          "communication and",
-          "feedback"
+          "Respectfully receives feedback on performance as a member of the health care team",
+          "Communicates feedback and constructive criticism to superiors"
         ]
       }
     },
     {
       "id": "otolaryngology___head_and_neck_surgery_ics3",
       "number": 23,
-      "domain_number": 3,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record",
-          "Safeguards patient",
-          "personal health",
-          "information",
-          "Demonstrates organized",
-          "diagnostic and therapeutic",
-          "reasoning through notes"
+          "Accurately records information in the patient record",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context"
         ],
         "level_2": [
-          "in the patient record",
-          "Documents required data",
-          "in formats specified by",
-          "institutional policy",
-          "Concisely reports",
-          "diagnostic and therapeutic",
-          "reasoning in the patient",
-          "record",
-          "Appropriately selects"
+          "Safeguards patient personal health information",
+          "Communicates clearly, concisely, timely, and in an organized written form, including anticipatory guidance"
         ],
         "level_3": [
-          "direct (e.g., telephone, in-",
-          "person) and indirect (e.g.,",
-          "progress notes, text",
-          "messages) forms of",
-          "communication based on",
-          "context",
-          "Communicates clearly,",
-          "concisely, timely, and in",
-          "an organized written"
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Achieves written or verbal communication (e.g., patient notes, email) that serves as an example for others to follow"
         ],
         "level_4": [
-          "form, including",
-          "anticipatory guidance",
-          "Achieves written or",
-          "verbal communication",
-          "(e.g., patient notes,",
-          "email) that serves as an",
-          "example for others to",
-          "follow",
-          "Models feedback to"
+          "Documents required data in formats specified by institutional policy",
+          "Models feedback to improve others’ written communication"
         ],
         "level_5": [
-          "improve others’ written",
-          "communication",
-          "Guides departmental or",
-          "institutional",
-          "communication around",
-          "policies and procedures"
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Guides departmental or institutional communication around policies and procedures"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "otolaryngology---head-and-neck-surgery",
-  "primary_name": "Otolaryngology - Head and Neck Surgery",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/otolaryngologymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/otolaryngologysupplementalguide.pdf"

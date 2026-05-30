@@ -1,0 +1,541 @@
+{
+  "framework_key": "chemical-pathology",
+  "specialty": "Chemical Pathology",
+  "version": "2.0",
+  "source": "ACGME Chemical Pathology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pathology",
+  "parent_name": "Pathology",
+  "subcompetencies": [
+    {
+      "id": "chemical_pathology_pc1",
+      "number": 1,
+      "name": "Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes the role of the consultant in chemical pathology"
+        ],
+        "level_2": [
+          "Identifies relevant information from the electronic health record (EHR) and other sources needed for consultation of routine clinical scenarios"
+        ],
+        "level_3": [
+          "Prepares consultative reports, recommendations, and action plans for routine clinical scenarios"
+        ],
+        "level_4": [
+          "Provides consultative reports, recommendations, and action plans for complex clinical scenarios"
+        ],
+        "level_5": [
+          "Teaches others how to approach consultation for simple and complex clinical scenarios"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_pc2",
+      "number": 2,
+      "name": "Test Interpretation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes differences in methodologies and performance characteristics of chemistry tests"
+        ],
+        "level_2": [
+          "Recognizes aberrant and/or discrepant results of chemistry tests"
+        ],
+        "level_3": [
+          "Interprets routine chemistry tests with understanding of patient context and with regards to test methodology"
+        ],
+        "level_4": [
+          "Demonstrates expertise of test interpretation for the diagnosis and/or monitoring of complex clinical scenarios"
+        ],
+        "level_5": [
+          "Teaches others a strategy to approach the interpretation of chemistry tests for complex clinical scenarios"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_pc3",
+      "number": 3,
+      "name": "Test Development and Validation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the need for a new test or modification of an existing test",
+          "Evaluates outside resources for accreditation and Clinical",
+          "Creates a new laboratory developed test that can be accredited"
+        ],
+        "level_2": [
+          "Recognizes outside resources for referred testing",
+          "Laboratory Improvement",
+          "Optimizes a test menu based on trends of referred testing"
+        ],
+        "level_3": [
+          "Selects the methodology for a new test or modification of an existing test",
+          "Amendments (CLIA) licensure"
+        ],
+        "level_4": [
+          "Evaluates the need for referred testing",
+          "Identifies requirements for test validation of a laboratory developed test"
+        ],
+        "level_5": [
+          "Identifies requirements for test verification of a Food and Drug Administration (FDA)-approved test",
+          "Demonstrates expertise in the selection of referred tests"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_pc4",
+      "number": 4,
+      "name": "Laboratory-Related User Interface",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the laboratory test order user interface",
+          "Predicts gaps, problems, and impediments for optimized test report display in the laboratory user interface"
+        ],
+        "level_2": [
+          "Identifies the laboratory test reporting structure",
+          "Implements a best practice alert or hard stop for test ordering"
+        ],
+        "level_3": [
+          "Describes best practices in test ordering",
+          "Troubleshoots the test report format and structure in the laboratory user interface"
+        ],
+        "level_4": [
+          "Describes clinical laboratory rationale for test reporting structure",
+          "Optimizes the pre-analytic laboratory user interface and structure"
+        ],
+        "level_5": [
+          "Prepares a best practice alert or guidance for test ordering",
+          "Optimizes the post- analytic laboratory user interface and structure"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_mk1",
+      "number": 5,
+      "name": "Test Results in Normal and Abnormal Physiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of normal physiology and biochemistry"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how tests evaluate normal biological processes"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of how pathophysiology alters test results"
+        ],
+        "level_4": [
+          "Integrates test findings and other clinical information to identify pathophysiology"
+        ],
+        "level_5": [
+          "Demonstrates knowledge of how test findings are affected by the interaction of multiple conditions"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_mk2",
+      "number": 6,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Use baseline level of medical knowledge to inform decision-making process"
+        ],
+        "level_2": [
+          "Discriminates relevance of information"
+        ],
+        "level_3": [
+          "Independently synthesizes information to inform clinical decision making for routine clinical scenarios"
+        ],
+        "level_4": [
+          "Independently synthesizes information to inform clinical decision making for complex clinical scenarios"
+        ],
+        "level_5": [
+          "Creates a strategy to approach clinical reasoning for complex and ambiguous cases"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_sbp1",
+      "number": 7,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes departmental and institutional QI initiatives",
+          "Discloses patient safety events to clinicians and/or patients and families, as appropriate (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a QI project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic QI methodologies and metrics",
+          "Participates in disclosure of patient safety events to clinicians and/or patients and families, as appropriate (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in departmental and institutional QI initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses QI initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_sbp2",
+      "number": 8,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of case coordination",
+          "Identifies pathology’s role in population and community health needs for the local population",
+          "Models and advocates for safe and effective transitions of care/hand- offs within and across health care delivery systems"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients/specimens in complex cases effectively using interprofessional teams",
+          "Recommends and/or participates in changing and adapting practice to provide for the needs of communities and populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients/specimens in routine cases effectively using interprofessional teams",
+          "Identifies opportunities for pathology to participate in community and population health",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine situations",
+          "Models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_sbp3",
+      "number": 9,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Engages with clinicians and/or patients in shared decision making, such as use of preauthorization for complex testing"
+        ],
+        "level_2": [
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Practices and advocates for cost effective patient care with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_4": [
+          "Documents testing detail and explains the impact of documentation on billing and reimbursement",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_5": [
+          "Discusses how individual practice affects the broader system (e.g., test use, turnaround time)",
+          "Participates in health policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_sbp4",
+      "number": 10,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge that laboratories must be accredited",
+          "Interprets quality data and charts and trends, including proficiency testing results, with supervision",
+          "Reviews the quality management plan to identify areas for improvement"
+        ],
+        "level_2": [
+          "Discusses the need for quality control and proficiency testing",
+          "Identifies the differences between accreditation and regulatory compliance; discusses the process for achieving accreditation and maintaining regulatory compliance",
+          "Analyzes proficiency testing failures and recommends a course of action, with oversight"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of the components of laboratory accreditation and regulatory compliance (Clinical",
+          "Demonstrates knowledge of the components of a laboratory quality management plan",
+          "Serves as a resource for accreditation at the regional or national level"
+        ],
+        "level_4": [
+          "Laboratory Improvement",
+          "Discusses implications of proficiency testing failures",
+          "Creates and follows a comprehensive quality management plan"
+        ],
+        "level_5": [
+          "Amendments and others), either through training or experience",
+          "Participates in an internal or external laboratory inspection",
+          "Independently formulates a response for proficiency testing failures"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_sbp5",
+      "number": 11,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general chemical pathology work practices and workflow"
+        ],
+        "level_2": [
+          "Explains rationale for optimizing utilization"
+        ],
+        "level_3": [
+          "Identifies opportunities to optimize utilization of pathology resources"
+        ],
+        "level_4": [
+          "Initiates efforts to optimize utilization"
+        ],
+        "level_5": [
+          "Completes a utilization review and implements change"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_pbli1",
+      "number": 12,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and select applicable evidence",
+          "Identifies and applies the best available evidence to guide diagnostic work-up of complex cases",
+          "Suggests improvements to research regulations and/or substantially contributes to the primary literature through basic, translational, or clinical research"
+        ],
+        "level_2": [
+          "Is aware of the need for patient privacy, autonomy, and consent as applied to clinical research",
+          "Applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice, with supervision"
+        ],
+        "level_3": [
+          "Identifies and applies the best available evidence to guide diagnostic work-up of simple cases",
+          "Critically appraises and applies evidence to guide care, even in the face of conflicting data"
+        ],
+        "level_4": [
+          "Develops knowledge of the basic principles of research (demographics, Institutional Review",
+          "Proactively and consistently applies knowledge of the basic principles of research such as informed consent and research protocols to clinical practice"
+        ],
+        "level_5": [
+          "Board, human subjects), including how research is evaluated, explained to patients, and applied to patient care",
+          "Teaches others to critically appraise and apply evidence for complex cases; and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with assistance",
+          "Critically evaluates the effectiveness of behavioral changes in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the gap(s) between expectations and actual performance",
+          "Seeks performance data and feedback with humility",
+          "Uses performance data to measure the effectiveness of the learning plan and improves it when necessary"
+        ],
+        "level_3": [
+          "Actively seeks opportunities to improve",
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Models seeking performance data and accepting feedback with humility"
+        ],
+        "level_4": [
+          "Demonstrates openness to receiving performance data and feedback in order to inform goals",
+          "Independently creates and implements a learning plan",
+          "Coaches others in reflective practice"
+        ],
+        "level_5": [
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Actively and consistently seeks performance data and feedback with humility",
+          "Facilitates the design and implementing learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_prof1",
+      "number": 14,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Demonstrates professional behavior in complex or stressful situations"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report professionalism lapses, including strategies for addressing common barriers; identifies and describes potential triggers for professionalism lapses",
+          "Independently resolves and manages complex ethical situations"
+        ],
+        "level_3": [
+          "Analyzes straightforward situations using ethical principles",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_4": [
+          "Demonstrates insight into professional behavior in routine situations; takes responsibility for own professionalism lapses",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ],
+        "level_5": [
+          "Recognizes the need and uses relevant resources to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_prof2",
+      "number": 15,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to instructions, requests, or reminders to complete tasks and responsibilities",
+          "Designs new strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Takes ownership and performs tasks and responsibilities in a timely manner with attention to detail"
+        ],
+        "level_3": [
+          "Recognizes situations that may impact own ability to complete tasks and responsibilities in a timely manner and describes the impact on team"
+        ],
+        "level_4": [
+          "Anticipates and intervenes in situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_prof3",
+      "number": 16,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in the knowledge/skills/ behaviors of self or team, with assistance",
+          "Proposes and implements a plan to optimize personal and professional well-being, with assistance"
+        ],
+        "level_2": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "Independently develops and implements a plan to remediate or improve the knowledge/skills/ behaviors of self or team"
+        ],
+        "level_3": [
+          "Independently recognizes limitations in the knowledge/skills/ behaviors of self or team and seeks help when needed",
+          "Independently develops and implements a plan to optimize personal and professional well- being"
+        ],
+        "level_4": [
+          "Independently recognizes status of personal and professional well-being and seeks help when needed",
+          "Serves as a resource or consultant for developing a plan to remediate or improve the knowledge/ skills/behaviors"
+        ],
+        "level_5": [
+          "Proposes and implements a plan to remediate or improve the knowledge/ skills/behaviors of self or team, with assistance",
+          "Coaches others when responses or limitations in knowledge/skills do not meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_ics1",
+      "number": 17,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating own role within the health care system",
+          "Independently, sensitively, and compassionately delivers medical information and acknowledges uncertainty and conflict"
+        ],
+        "level_3": [
+          "Establishes a relationship in straightforward encounters using active listening and clear language",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_4": [
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Mentors others in the sensitive and compassionate delivery of medical information"
+        ],
+        "level_5": [
+          "Sensitively and compassionately delivers medical information, with supervision",
+          "Models self-awareness while teaching a contextual approach to minimize communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_ics2",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that values all members of the health care team",
+          "Integrates feedback from team members to improve communication"
+        ],
+        "level_2": [
+          "Describes the use of constructive feedback",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates information effectively with all health care team members",
+          "Communicates feedback and constructive criticism to superiors"
+        ],
+        "level_4": [
+          "Solicits feedback on performance as a member of the health care team",
+          "Models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Uses active listening to adapt communication style to fit team needs",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "chemical_pathology_ics3",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient personal health information by communicating through appropriate means as required by institutional policy (e.g., patient safety reports, cell phone/pager usage)",
+          "Uses institutional structure to effectively communicate clear and constructive suggestions to improve the system"
+        ],
+        "level_2": [
+          "Identifies institutional and departmental structure for communication of issues",
+          "Independently communicates while ensuring security of personal health information"
+        ],
+        "level_3": [
+          "Selects forms of communication based on context and urgency of the situation",
+          "Initiates conversations on difficult subjects with appropriate stakeholders to improve the system"
+        ],
+        "level_4": [
+          "Respectfully communicates concerns about the system",
+          "Guides departmental or institutional communication around policies and procedures regarding the security of personal health information"
+        ],
+        "level_5": [
+          "Communicates while ensuring security of personal health information, with supervision",
+          "Facilitates dialogue regarding systems issues among larger community stakeholders (e.g., institution, health care system, field)"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/chemicalpathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/chemicalpathologysupplementalguide.pdf"
+  }
+}

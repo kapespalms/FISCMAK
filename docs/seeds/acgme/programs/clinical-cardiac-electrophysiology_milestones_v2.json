@@ -1,0 +1,714 @@
+{
+  "framework_key": "clinical-cardiac-electrophysiology",
+  "specialty": "Clinical Cardiac Electrophysiology",
+  "version": "2.0",
+  "source": "ACGME Clinical Cardiac Electrophysiology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "internal-medicine",
+  "parent_name": "Internal Medicine",
+  "subcompetencies": [
+    {
+      "id": "clinical_cardiac_electrophysiology_pc1",
+      "number": 1,
+      "name": "Atrial Fibrillation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a disease specific history and physical exam and develops a diagnostic plan for patients with suspected or known atrial fibrillation; identifies reversible causes of atrial fibrillation",
+          "Performs components of ablation procedure for atrial fibrillation, with assistance",
+          "Independently individualizes pharmacologic and procedural therapeutic options for stroke prevention and rate and rhythm control"
+        ],
+        "level_2": [
+          "Identifies indications for stroke prevention and rate and rhythm control and modifiable risk factors for atrial fibrillation",
+          "Develops a comprehensive treatment plan for a patient with refractory atrial fibrillation and multiple comorbidities",
+          "Independently implements strategies and performs ablation for atrial fibrillation, repeat ablation, and related arrhythmias"
+        ],
+        "level_3": [
+          "Obtains vascular access, positions catheters, and performs basic electrophysiology evaluation",
+          "Individualizes pharmacologic and considers procedural therapeutic options for stroke prevention and rate and rhythm control, with assistance",
+          "Leads interdisciplinary care efforts for patients with atrial fibrillation"
+        ],
+        "level_4": [
+          "Selects and interprets monitoring and additional diagnostic testing for a patient with atrial fibrillation",
+          "Formulates strategies and performs ablation for atrial fibrillation, with assistance; independently performs atrioventricular node ablation for rate control",
+          "Independently selects and applies innovative treatment protocols for atrial fibrillation"
+        ],
+        "level_5": [
+          "Identifies patient comorbidities that impact choice of therapies",
+          "Independently develops and adapts a treatment plan for a patient with refractory atrial fibrillation and multiple comorbidities",
+          "Independently adopts novel strategies and technology in procedural treatment of atrial fibrillation"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc2",
+      "number": 2,
+      "name": "Supraventricular Tachycardia",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a disease specific history and physical exam and develops a diagnostic plan for patients with suspected or known supraventricular tachycardia",
+          "Diagnoses arrhythmia mechanisms and performs ablation for supraventricular tachycardias, with assistance"
+        ],
+        "level_2": [
+          "Obtains vascular access, positions catheters, and performs basic electrophysiology evaluation",
+          "Independently develops and executes a treatment plan for a patient with supraventricular tachycardia including pharmacologic and/or ablative strategies"
+        ],
+        "level_3": [
+          "Selects and interprets results of monitoring and additional diagnostic testing for a patient with supraventricular tachycardia",
+          "Independently diagnoses arrhythmia mechanisms and performs catheter ablation for supraventricular tachycardias"
+        ],
+        "level_4": [
+          "Performs induction and diagnostic maneuvers for differentiation of supraventricular tachycardia mechanisms, with assistance",
+          "Independently evaluates and treats complex supraventricular tachycardia including complex substrates and specialized populations"
+        ],
+        "level_5": [
+          "Develops a comprehensive treatment plan for a patient with supraventricular tachycardia including pharmacologic and/or ablative strategies",
+          "Independently adopts novel technology in ablation and performs ablation in high-risk or complex arrhythmias"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc3",
+      "number": 3,
+      "name": "Bradycardia",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies symptoms and causes of bradycardia and treatment of reversible causes",
+          "Implants a pacemaker, evaluates and interprets interrogation data and performs programming, with assistance"
+        ],
+        "level_2": [
+          "Identifies the steps to implant a pacemaker and can create an incision/pocket, obtain vascular access, and close the incision",
+          "Independently develops and adapts a treatment plan including consideration of cardiovascular implantable electronic device type and location and long-term implications"
+        ],
+        "level_3": [
+          "Selects and interprets monitoring and additional diagnostic testing for a patient with bradycardia and/or chronotropic incompetence",
+          "Independently implants a pacemaker in patients with complex comorbidities, interprets data and performs programming"
+        ],
+        "level_4": [
+          "Performs elements of pacemaker implant including effective manipulation of pacing leads/and or leadless device",
+          "Independently selects and applies innovative diagnostic and treatment protocols"
+        ],
+        "level_5": [
+          "Develops a comprehensive treatment plan including identifying pacing indications and device selection for a patient with bradycardia and multiple comorbidities",
+          "Independently adopts novel technology in pacing"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc4",
+      "number": 4,
+      "name": "Syncope and Palpitations",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a symptom- specific history and physical exam, and develops a differential diagnosis for patients with syncope and/or palpitations and identifies patients, with high-risk features",
+          "Independently implants loop recorder"
+        ],
+        "level_2": [
+          "Identifies steps to perform indicated diagnostic testing",
+          "Independently develops and adapts a testing, treatment, and surveillance plan for patient specific diagnosis"
+        ],
+        "level_3": [
+          "Selects and interprets monitoring and additional diagnostic testing to establish a symptom rhythm correlation for a patient with syncope and/or palpitations",
+          "Independently performs appropriate testing, including electrophysiology study, or drug challenge"
+        ],
+        "level_4": [
+          "Performs indicated testing, including diagnostic electrophysiology study and drug challenge; implants loop recorder, with assistance",
+          "Leads an interdisciplinary team for patients with syncope and/or palpitations"
+        ],
+        "level_5": [
+          "Identifies diagnosis/etiology of syncope and initiates therapeutic plan for mechanism underlying symptom profile, with assistance"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc5",
+      "number": 5,
+      "name": "Ventricular Arrhythmias",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a disease specific history and physical exam and develops a diagnostic plan for patients with suspected or known ventricular arrhythmia",
+          "Performs diagnostic maneuvers and components of ablation for ventricular arrhythmia, with assistance",
+          "Independently individualizes pharmacologic and",
+          "Independently performs ablation for ventricular arrhythmia in the setting of complex and high-risk substrate"
+        ],
+        "level_2": [
+          "Identifies arrhythmogenic substrate (includes anatomic, functional, and genetic) and potentially reversible factors for ventricular arrhythmia; determines indications for intervention",
+          "Develops a comprehensive treatment plan including identifying indications for medical, catheter, and/or device- based therapy incorporating shared decision making",
+          "CIED therapies; escalates choice of therapy options as needed"
+        ],
+        "level_3": [
+          "Obtains vascular access, positions catheters, and performs basic electrophysiology evaluation",
+          "Individualizes pharmacologic choice for acute or chronic therapy; optimizes cardiac implantable electronic device (CIED) programming with assistance",
+          "Independently performs ablation for ventricular arrhythmia in patients with or without structural heart disease"
+        ],
+        "level_4": [
+          "Selects and interprets monitoring and additional diagnostic testing for a patient with ventricular arrhythmia",
+          "Formulates strategies and performs ablation for ventricular arrhythmia in normal hearts, with assistance",
+          "Leads an interdisciplinary team for the management of a patient with ventricular arrhythmia"
+        ],
+        "level_5": [
+          "Initiates antiarrhythmic drugs and therapies to modify underlying arrhythmogenic substrate; assesses device programming",
+          "Independently develops and implements a treatment plan for a patient with recurrent ventricular arrhythmia; identifies and manages those at high risk of complication",
+          "Independently selects and applies innovative treatment protocols and leads the interdisciplinary care team"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc6",
+      "number": 6,
+      "name": "Sudden Cardiac Death",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patient populations at risk for sudden cardiac death including familial syndromes and cardiac substrate-based conditions",
+          "Implants a defibrillator system, interprets device parameters, programs device, and applies indications for defibrillation testing, with assistance"
+        ],
+        "level_2": [
+          "Identifies the steps to implant a defibrillator and can create an incision/pocket, obtain vascular access, and close the incision",
+          "Independently develops a comprehensive treatment plan including identifying indications for medical, catheter, and/or device-based therapy including consideration of defibrillator type and location and long-term implications"
+        ],
+        "level_3": [
+          "Selects and interprets monitoring and additional diagnostic testing, including electrophysiologic, genetic, and imaging, for risk stratification for sudden cardiac death",
+          "Independently implants, assesses, and individualizes programming of the defibrillator system"
+        ],
+        "level_4": [
+          "Performs elements of defibrillator placement and replacement including implantation of defibrillator system via transvenous and alternative approaches",
+          "Leads interdisciplinary efforts in the prevention and management of sudden cardiac death"
+        ],
+        "level_5": [
+          "Develops a comprehensive treatment plan including identifying indications for medical, catheter, and/or device- based therapy incorporating shared decision making",
+          "Independently selects and applies innovative treatment protocols and technology in defibrillator therapy"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc7",
+      "number": 7,
+      "name": "Heart Failure",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the relationship between arrhythmia and heart failure",
+          "Performs cannulation and venogram of coronary venous system or other cardiac resynchronization therapy targets",
+          "Independently individualizes pharmacologic and ablation/device therapy for arrhythmia suppression and cardiac resynchronization therapy optimization"
+        ],
+        "level_2": [
+          "Identifies indications for arrhythmia control and/or need for cardiac resynchronization therapy",
+          "Develops a comprehensive treatment plan for a patient with arrhythmia and heart failure",
+          "Independently implants cardiac resynchronization therapy device, including in patients with complex anatomy including device upgrades"
+        ],
+        "level_3": [
+          "Interprets intra- procedural anatomy for cardiac resynchronization therapy",
+          "Individualizes pharmacologic and ablation/device therapy for arrhythmia suppression and cardiac resynchronization therapy optimization",
+          "Leads interdisciplinary efforts for patients with arrhythmia and heart failure"
+        ],
+        "level_4": [
+          "Selects and interprets monitoring and additional diagnostic testing for a patient with arrhythmia and heart failure",
+          "Implants cardiac resynchronization therapy device, with assistance",
+          "Independently selects and applies innovative treatment protocols"
+        ],
+        "level_5": [
+          "Identifies patient comorbidities that impact choice of therapies",
+          "Independently develops and adapts a treatment plan for a patient with arrhythmia and heart failure",
+          "Applies advanced techniques to overcome challenging anatomy"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc8",
+      "number": 8,
+      "name": "Procedural Complications",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes clinical symptoms and signs of common peri-procedural complications from ablation or CIED implantation",
+          "Manages pericardiocentesis, with assistance"
+        ],
+        "level_2": [
+          "Identifies symptoms of pericardial tamponade",
+          "Anticipates, mitigates, and manages peri- procedural problems in patients with complex conditions"
+        ],
+        "level_3": [
+          "Evaluates routine peri- procedural complications and conditions",
+          "Independently manages pericardiocentesis and/or escalates to multidisciplinary rescue interventions, as indicated"
+        ],
+        "level_4": [
+          "Identifies therapeutic options for hemodynamic compromise",
+          "Develops a clinical pathway for prevention and management of peri- procedural problems"
+        ],
+        "level_5": [
+          "Manages complex peri- procedural complications and conditions"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pc9",
+      "number": 9,
+      "name": "Ambulatory Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies requirements for follow-up of patients with arrhythmic conditions, including those with modifiable risk factors, antiarrhythmic drug therapy, anticoagulation, and ambulatory monitoring",
+          "Manages complex ambulatory care and incorporates multidisciplinary care, with oversight",
+          "Advances quality of clinical practice by developing protocols for improved management of patients with arrhythmias and other comorbidities"
+        ],
+        "level_2": [
+          "Describes important elements of ambulatory",
+          "Manages complex CIED follow-up, including remote monitoring and surveillance for arrhythmias, identification and management of CIED complications, and optimization of cardiac resynchronization therapy, with oversight",
+          "Leads interdisciplinary efforts in management of outpatient care of patients with a CIED"
+        ],
+        "level_3": [
+          "CIED device management",
+          "Independently manages ambulatory care of patients with arrhythmia disorders, including those with multiple comorbidities"
+        ],
+        "level_4": [
+          "Manages routine ambulatory care and incorporates multidisciplinary care, with oversight",
+          "Independently manages complex CIED follow- up, including remote monitoring, optimizing cardiac resynchronization therapy, developing treatment plan for arrhythmias, and identification and mitigation for long-term"
+        ],
+        "level_5": [
+          "Manages routine CIED follow-up, including remote monitoring and surveillance for arrhythmias, identification of CIED complications, and optimization of cardiac resynchronization therapy, with oversight",
+          "CIED complications"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_mk1",
+      "number": 10,
+      "name": "Arrhythmia Diagnosis and Interpretation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Correlates normal cardiac electrophysiology and anatomy with arrhythmia mechanisms",
+          "CIED/arrhythmia management",
+          "Advances knowledge of new and emerging diagnostic tests and interpretation"
+        ],
+        "level_2": [
+          "Interprets results of common diagnostic testing relevant to",
+          "Identifies electrophysiologic mechanisms and integrates with diagnostic testing"
+        ],
+        "level_3": [
+          "CIED/arrhythmia management",
+          "Synthesizes complex diagnostic information accurately to reach high- probability diagnoses"
+        ],
+        "level_4": [
+          "Correlates both normal and pathological cardiac electrophysiology and anatomy with arrhythmia mechanisms",
+          "Applies new scientific advancements to knowledge base"
+        ],
+        "level_5": [
+          "Interprets complex diagnostic information relevant to",
+          "Anticipates and accounts for errors and biases when interpreting diagnostic tests"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_mk2",
+      "number": 11,
+      "name": "Critical Thinking and Decision Making",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Incorporates key elements of patient history and clinical data into an accurate patient assessment",
+          "Justifies optimal therapeutic option based on individual patient presentation and patient preferences"
+        ],
+        "level_2": [
+          "Lists therapeutic options for common clinical presentations",
+          "Synthesizes information to reach high probability diagnoses with re- appraisal as needed"
+        ],
+        "level_3": [
+          "Develops an analytic, prioritized differential diagnosis for common presentations",
+          "Develops therapeutic plan for patients with complex presentations and uncommon disorders"
+        ],
+        "level_4": [
+          "Explains risks, benefits, and alternatives of standard therapeutic options",
+          "Mentors peers and leads clinical team in critical thinking and decision making"
+        ],
+        "level_5": [
+          "Develops a prioritized differential diagnosis for complex presentations",
+          "Mentors peers and leads clinical team in optimal therapeutic approaches to patient care"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_mk3",
+      "number": 12,
+      "name": "Electrophysiology (Cellular Physiology, Pharmacology, Mechanisms)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies key clinical electrophysiology and pathophysiology concepts (e.g., refractory periods, autonomic control, repolarization, arrhythmia mechanism, remodeling)",
+          "Explains key biophysical principles in ablation and devices or other arrhythmia therapies",
+          "Integrates key basic science concepts applicable to electrophysiology into care"
+        ],
+        "level_2": [
+          "Identifies key basic science concepts (e.g., cellular electrophysiology, ion channels, anatomy, pharmacology, genetics)",
+          "Applies key clinical electrophysiology and pathophysiology concepts",
+          "Integrates key biophysical principles in ablation and devices or other arrhythmia therapies into care"
+        ],
+        "level_3": [
+          "Identifies key biophysical principles in ablation and devices (e.g., ablation, pacing, defibrillation, electromagnetic interference)",
+          "Applies key basic science concepts applicable to electrophysiology",
+          "Develops or researches new electrophysiology concepts"
+        ],
+        "level_4": [
+          "Explains key clinical electrophysiology and pathophysiology concepts",
+          "Applies key biophysical principles in ablation and devices or other arrhythmia therapies",
+          "Develops or researches key basic science concepts applicable to electrophysiology"
+        ],
+        "level_5": [
+          "Explains key basic science concepts applicable to electrophysiology",
+          "Integrates key clinical electrophysiology and pathophysiology concepts into care",
+          "Develops or researches key biophysical principles in ablation and devices or other arrhythmia therapies"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_mk4",
+      "number": 13,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies knowledge gaps open to scholarly investigation"
+        ],
+        "level_2": [
+          "Designs a scholarly activity, with assistance"
+        ],
+        "level_3": [
+          "Implements scholarly work, including critical appraisal and analysis of project data"
+        ],
+        "level_4": [
+          "Produces scholarly work for dissemination as an abstract or presentation"
+        ],
+        "level_5": [
+          "Dissemination or implementation of independent scholarly work that has generated new medical knowledge, educational programs, or process improvement"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_sbp1",
+      "number": 14,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes quality improvement initiatives at the institutional or departmental level",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in quality improvement initiatives at the institutional or departmental level",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_sbp2",
+      "number": 15,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Coordinates care of patients in complex clinical situations, effectively using the roles of their interprofessional teams",
+          "Adapts practice to address barriers to adherence of care"
+        ],
+        "level_2": [
+          "Identifies key elements for effective transitions of care",
+          "Performs effective transitions of care in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations, effectively using the roles of the interprofessional teams",
+          "Identifies barriers to adherence of care to specific populations",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_4": [
+          "Performs effective transitions of care in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations with health care barriers"
+        ],
+        "level_5": [
+          "Demonstrates general knowledge of barriers to adherence of care",
+          "Role models and advocates for effective transitions of care within and across health care delivery systems"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_sbp3",
+      "number": 16,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Applies knowledge in non-clinical topics needed for independent practice"
+        ],
+        "level_2": [
+          "Describes basic health payment models, (e.g., government, private, public, uninsured care) and practice models",
+          "Engages with patients in shared decision making, informed by various health care payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
+        ],
+        "level_3": [
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Seeks knowledge in non- clinical topics needed for independent practice (e.g., malpractice insurance, government regulation, compliance)",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_4": [
+          "Delivers care with consideration of various health care payment models",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others in non- clinical topics to prepare them for independent practice"
+        ],
+        "level_5": [
+          "Demonstrates essential skills for documentation required for independent practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the benefits and limitations of various health care payment models"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pbli1",
+      "number": 17,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence to manage a patient with an arrhythmia disorder"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences to guide evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence to the care of patients with an arrhythmia while integrating patient preference"
+        ],
+        "level_4": [
+          "Critically appraises and applies available, potentially conflicting evidence to guide care of an individual patient"
+        ],
+        "level_5": [
+          "Develops initiatives to educate others to critically appraise and apply evidence for complex patients and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_pbli2",
+      "number": 18,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Creates and implements a learning plan"
+        ],
+        "level_2": [
+          "Acknowledges limits and gaps between expectations and performance; demonstrates self- awareness",
+          "Systematically seeks feedback and performance data with adaptability and humility"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and performance data in order to form goals",
+          "Uses performance data to assess learning plan and improves it when necessary"
+        ],
+        "level_4": [
+          "Analyzes the factors which contribute to limits and gaps; demonstrates appropriate help-seeking behaviors",
+          "Mentors others to seek feedback and performance data"
+        ],
+        "level_5": [
+          "Occasionally seeks feedback and performance data with adaptability and humility",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_prof1",
+      "number": 19,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Recognizes need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of ethical principles (e.g., informed consent, advance directives, confidentiality, patient autonomy)",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations",
+          "Uses appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, risk management)"
+        ],
+        "level_4": [
+          "Applies knowledge of ethical principles to routine situations",
+          "Role models exceptional professional behavior"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_prof2",
+      "number": 20,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Seeks assistance in managing personal relationships with industry and other entities to minimize bias and undue influence in practice"
+        ],
+        "level_2": [
+          "Recognizes the principles of conflict of interest in relationships with industry and other entities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Identifies, discloses, and manages relationships with industry and other entities to minimize bias and undue influence in practice"
+        ],
+        "level_4": [
+          "Recognizes personal potential conflicts with industry",
+          "Mentors others to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_prof3",
+      "number": 21,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of personal and professional well- being"
+        ],
+        "level_2": [
+          "Independently recognizes status of personal and professional well-being"
+        ],
+        "level_3": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Participates in a system change to improve well- being in self and others"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_ics1",
+      "number": 22,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and establishes rapport in patient encounters",
+          "Organizes and initiates communication with patient/family to facilitate shared decision making",
+          "Proactively minimizes communication barriers and independently manages biases"
+        ],
+        "level_2": [
+          "Knows barriers to effective communication (e.g., language, disability, health literacy)",
+          "Establishes a therapeutic relationship in challenging patient encounters, with assistance",
+          "Independently, uses shared decision making to implement a personalized care plan"
+        ],
+        "level_3": [
+          "Identifies the need to adjust communication strategies to achieve shared decision making",
+          "Attempts to minimize communication barriers, including reflection on any biases",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in routine patient encounters",
+          "Uses shared decision making to implement a personalized care plan, with assistance",
+          "Role models self- awareness to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies barriers to effective communication in patient encounters",
+          "Independently establishes a therapeutic relationship in challenging patient encounters",
+          "Role models shared decision making"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_ics2",
+      "number": 23,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a consultation request",
+          "Completes consultations with effective documentation and communication in common cases, with assistance",
+          "Facilitates team-based discussions to optimize team performance"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Adapts communication style to fit team needs",
+          "Uses consultations as educational opportunities to improve clinical care"
+        ],
+        "level_3": [
+          "Respectfully and thoroughly completes consultations with effective documentation and communication in common cases, with assistance",
+          "Initiates team-based discussions to optimize team performance",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_4": [
+          "Communicates information effectively with all health care team members",
+          "Completes consultations with effective documentation and communication in complex cases",
+          "Facilitates regular health care team-based feedback in complex situations"
+        ],
+        "level_5": [
+          "Participates in team- based discussions to optimize team performance",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "clinical_cardiac_electrophysiology_ics3",
+      "number": 24,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record and safeguards patient personal health information",
+          "Independently communicates timely information in a written format and verbally when appropriate"
+        ],
+        "level_2": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Identifies appropriate communication channels (e.g., cell phone/ pager usage, medical record, email) as required by institutional policy",
+          "Models written communication to improve others’ performance"
+        ],
+        "level_4": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_5": [
+          "Respectfully communicates concerns about the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalcardiacelectrophysiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalcardiacelectrophysiologysupplementalguide.pdf"
+  }
+}

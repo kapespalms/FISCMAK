@@ -1,0 +1,550 @@
+{
+  "framework_key": "orthopaedic-surgery-of-the-spine",
+  "specialty": "Orthopaedic Surgery of the Spine",
+  "version": "2.0",
+  "source": "ACGME Orthopaedic Surgery of the Spine Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "orthopaedic-surgery",
+  "parent_name": "Orthopaedic Surgery",
+  "subcompetencies": [
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pc1",
+      "number": 1,
+      "name": "History and Physical Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains an appropriate medical history and performs a basic orthopaedic examination, with guidance",
+          "Develops a basic differential diagnosis pertinent to spinal conditions, with guidance",
+          "Independently interprets diagnostic testing for complex spinal conditions"
+        ],
+        "level_2": [
+          "Identifies diagnostic testing for common spinal conditions",
+          "Obtains a history of the condition or injury, performs an orthopaedic examination, and recognizes complex or high-risk spinal conditions",
+          "Independently develops a comprehensive differential diagnosis based on the history and physical examination finding"
+        ],
+        "level_3": [
+          "Develops a basic differential diagnosis pertinent to common orthopaedic conditions, with guidance",
+          "Orders and interprets diagnostic testing for complex spinal conditions, with guidance",
+          "Develops and publishes on new physical examination maneuver"
+        ],
+        "level_4": [
+          "Obtains a history of the condition or injury and performs an orthopaedic examination for common spinal conditions",
+          "Develops a comprehensive differential diagnosis based on the history and physical examination finding, with guidance",
+          "Develops a novel diagnostic technique or tool"
+        ],
+        "level_5": [
+          "Interprets diagnostic testing for spinal conditions, with guidance",
+          "Independently obtains a history of conditions or injuries and consistently performs complex examinations of spinal conditions"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pc2",
+      "number": 2,
+      "name": "Evaluation and Management of the Adult Orthopaedic Patient",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a patient history, performs a physical examination, and develops a differential diagnosis for patients across clinical settings",
+          "Formulates and executes a stabilization plan for emergent conditions",
+          "Leads an orthopaedic team in the management of patients with complex conditions (e.g., unstable fractures in the setting of medical comorbidities)"
+        ],
+        "level_2": [
+          "Manages patients with straightforward conditions (e.g., stable compression fracture), with indirect supervision",
+          "Synthesizes a plan to manage healthy patients with straightforward conditions, including operative and non- operative options",
+          "Leads an orthopaedic team in the management of emergent conditions (e.g., polytrauma)"
+        ],
+        "level_3": [
+          "Recognizes and initiates work-up of emergent conditions (e.g., cauda equina syndrome)",
+          "Independently manages patients and adapts the management plan for a changing clinical situation (e.g., development of neurologic deficit)",
+          "Develops a clinical pathway or guideline for the management of patients based on demonstrated clinical expertise"
+        ],
+        "level_4": [
+          "Orders and interprets diagnostic testing and consultations based on patient evaluation",
+          "Triages management of multiple emergent conditions",
+          "Leads a multidisciplinary team in the management of patients with complex conditions"
+        ],
+        "level_5": [
+          "Manages patients with straightforward conditions (e.g., radiculopathy)",
+          "Synthesizes a comprehensive plan to manage patients with complex conditions and comorbidities"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pc3",
+      "number": 3,
+      "name": "Lumbar Degenerative",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prepares patients for procedures, including patient positioning and post-operative planning, and performs a posterior approach",
+          "Develops a plan for managing complex complications"
+        ],
+        "level_2": [
+          "Manages simple complications",
+          "Performs uncommon complex and revision procedures (e.g., revision TLIF) and common lateral approaches"
+        ],
+        "level_3": [
+          "Performs uncomplicated procedures (e.g., discectomy, simple laminectomy) and assists with anterior procedures",
+          "Develops a plan and implements treatment for complex complications"
+        ],
+        "level_4": [
+          "Identifies complex complications",
+          "Performs rare or high-risk procedures (e.g., 360- degree fusion)"
+        ],
+        "level_5": [
+          "Performs common complex procedures (e.g., multilevel degenerative spondyloses) and assists with a lateral approach",
+          "Adapts surgical techniques for complex situations"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pc4",
+      "number": 4,
+      "name": "Cervical Degenerative (radicular, myelopathy)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prepares patients for lower cervical procedures, including patient positioning and post-operative planning, and performs a posterior approach",
+          "Performs common complex procedures (e.g., multilevel degenerative spondyloses, foraminotomy) and a primary anterior approach; prepares patients for upper cervical procedures",
+          "Adapts surgical techniques for complex situations"
+        ],
+        "level_2": [
+          "Manages simple complications",
+          "Develops a plan for managing complex complications"
+        ],
+        "level_3": [
+          "Performs uncomplicated procedures (e.g., simple anterior cervical discectomy and fusion",
+          "Performs upper cervical and revision procedures (e.g., revision ACDF) and an anterior revision approach"
+        ],
+        "level_4": [
+          "[ACDF], simple laminectomy) and assists with an anterior approach",
+          "Develops a plan and implements treatment for complex complications"
+        ],
+        "level_5": [
+          "Identifies complex complications",
+          "Performs rare or high-risk procedures (e.g., 360- degree fusion)"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pc5",
+      "number": 5,
+      "name": "Operative Management of Traumatic, Infectious, and Neoplastic Conditions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Characterizes or classifies a disorder and discusses indications/ application of reduction techniques, positions the patient, and performs posterior approaches",
+          "Develops a plan for managing complex complications and initiates complex coordinated care"
+        ],
+        "level_2": [
+          "Manages simple complications",
+          "Performs uncommon complex or revision procedures (transpedicular decompression, corpectomy and reconstruction)"
+        ],
+        "level_3": [
+          "Assists with common complex procedures (simple osteotomies, laminectomy, positional reduction, closed cervical reductions) and assists with anterior approaches",
+          "Develops a plan and implements treatment for complex complications"
+        ],
+        "level_4": [
+          "Identifies complex complications and coordinates effectively in the multidisciplinary team",
+          "Performs rare or high-risk procedures (circumferential fusion, three-column osteotomies)"
+        ],
+        "level_5": [
+          "Performs common complex procedures (laminectomy, open posterior reduction/ stabilization of an unstable spine)",
+          "Adapts surgical techniques for complex situations"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pc6",
+      "number": 6,
+      "name": "Deformity (scoliosis, coronal/sagittal deformity, isthmic spondylosis, proximal junctional kyphosis)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prepares patients for procedures, including assessment of skeletal age and bone quality, patient positioning, and post-operative planning; performs a posterior approach",
+          "Develops a plan for managing complex complications"
+        ],
+        "level_2": [
+          "Manages simple complications",
+          "Performs pelvic fixation and uncommon complex procedures (e.g., pedicle osteotomies, revision transforaminal lumbar interbody fusion [TLIF], low grade spondylolistheses)"
+        ],
+        "level_3": [
+          "Assists with common complex procedures (e.g., simple osteotomies, laminectomies)",
+          "Develops a plan and implements treatment for complex complications"
+        ],
+        "level_4": [
+          "Identifies complex complications",
+          "Performs rare or high-risk procedures (e.g., vertebral column resections, high-grade isthmic spondylolistheses)"
+        ],
+        "level_5": [
+          "Performs common complex procedures (e.g., simple osteotomies), assists with uncommon complex procedures",
+          "Adapts surgical techniques for complex situations"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_mk1",
+      "number": 7,
+      "name": "Anatomy, Indications, and Diagnostics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic spinal anatomy, including surgical approaches",
+          "Independently evaluates plain films, magnetic resonance imaging (MRI) sequences, and computed tomography (CT) scans and discusses indications for other forms of imaging",
+          "Independently plans accommodative post- operative care, including bracing, post-operative therapy needs, and mobilization of social resources"
+        ],
+        "level_2": [
+          "Obtains and documents an appropriate social and medical history, including a standard neurologic exam, signs or symptoms of spinal cord dysfunction, and coexisting medical or social risks",
+          "Anticipates complications and presents a management plans based on review of complex or unusual patient anatomy",
+          "Appropriately requests advanced imaging and neurologic studies"
+        ],
+        "level_3": [
+          "Obtains and provides a basic interpretation of relevant imaging studies",
+          "Adapts the peri-operative plan for an existing patient risks (e.g., poor bone quality, opioid addiction, lack of social support)",
+          "Independently manages patients with complex or unusual anatomy or bone quality (e.g., osteogenesis imperfecta, ankylosing spondylitis)"
+        ],
+        "level_4": [
+          "Identifies applied surgical approach, including nerve root variations and upper cervical vascular structures",
+          "Identifies the role of post- operative imaging to assess healing, complications, and instrumentation failure",
+          "Independently analyzes advanced imaging and neurologic studies"
+        ],
+        "level_5": [
+          "Synthesizes and prioritizes a differential diagnosis and anticipates potential complications for complex spinal conditions",
+          "Routinely leads residents through surgical anatomy (e.g., anatomy course, operating room teaching)"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_mk2",
+      "number": 8,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Articulates a methodology for clinical reasoning",
+          "Integrates evidence- based information to inform diagnostic decision making for straightforward conditions"
+        ],
+        "level_2": [
+          "Identifies resources to direct clinical decisions",
+          "Efficiently synthesizes information and integrates reflection to make clinical decisions for complex conditions"
+        ],
+        "level_3": [
+          "Demonstrates clinical reasoning to determine treatment goals",
+          "Integrates evidence- based information to inform diagnostic decision making for complex conditions"
+        ],
+        "level_4": [
+          "Selects and prioritizes relevant resources based on the scenario to inform decisions",
+          "Incorporates clinical reasoning to improve care pathways"
+        ],
+        "level_5": [
+          "Synthesizes information to make clinical decisions for straightforward conditions"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_sbp1",
+      "number": 9,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and their families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of w to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or guides others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_sbp2",
+      "number": 10,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among multidisciplinary teams"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members",
+          "Role models and advocates for safe and effective transitions of care/hand-offs"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in straightforward clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_sbp3",
+      "number": 11,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health payment systems, including government, private, public, and uninsured care, as well as different practice models"
+        ],
+        "level_2": [
+          "Describes how working within the health care system impacts patient care, including billing and coding"
+        ],
+        "level_3": [
+          "Analyzes how personal practice affects the system (e.g., length of stay, readmission rates, clinical efficiency)"
+        ],
+        "level_4": [
+          "Uses shared decision- making in patient care, taking into consideration costs for the patient"
+        ],
+        "level_5": [
+          "Participates in advocacy activities for health policy"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pbli1",
+      "number": 12,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values to the care of a straightforward condition"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex conditions"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex conditions and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Creates and implements a learning plan to optimize educational and professional development"
+        ],
+        "level_2": [
+          "Identifies the strengths, deficiencies, and limitations in one’s knowledge and expertise",
+          "Actively seeks feedback and other input with adaptability and humility"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and other input to inform goals",
+          "Uses ongoing reflection, feedback, and other input to measure the effectiveness of the learning plan and, when necessary, improves it"
+        ],
+        "level_4": [
+          "Analyzes and reflects on the strengths, deficiencies, and limitations in one’s knowledge and expertise to design a learning plan, with assistance",
+          "Role models consistently seeking feedback and other input with adaptability and humility"
+        ],
+        "level_5": [
+          "Responds to feedback and other input episodically, with adaptability and humility",
+          "Coaches others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_prof1",
+      "number": 14,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes inciting events for professionalism lapses",
+          "Integrates ethical principles and recognizes the need to seek help in complex situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care (e.g., informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics)",
+          "Recognizes situations that may promote professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in straightforward situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Applies ethical principles in straightforward situations and takes responsibility for lapses",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_prof2",
+      "number": 15,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Reliably arrives to clinical activities on time and describes strategies for ensuring timely task completion",
+          "Proactively completes tasks and responsibilities to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes barriers that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in straightforward situations",
+          "Develops processes to enhance others’ ability to efficiently complete patient care tasks and responsibilities"
+        ],
+        "level_4": [
+          "Completes tasks and responsibilities without reminders"
+        ],
+        "level_5": [
+          "Prioritizes tasks and responsibilities in a timely manner with appropriate attention to detail in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_prof3",
+      "number": 16,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being (e.g., physical and emotional health)",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Lists available resources for personal and professional well-being",
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ],
+        "level_3": [
+          "Describes institutional resources that are meant to promote well-being",
+          "Creates institutional-level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "Discusses a plan to promote personal and professional well-being with institutional support",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_5": [
+          "Recognizes which institutional factors affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_ics1",
+      "number": 17,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and establishes rapport with patients and patients’ families (e.g., situational awareness of language, disability, health literacy level, cultural differences)",
+          "Answers questions about straightforward treatment plans, with assistance",
+          "Recognizes biases and integrates the patient’s viewpoint and autonomy to ensure effective communication"
+        ],
+        "level_2": [
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Establishes a therapeutic relationship in challenging encounters (e.g., shared decision making)",
+          "Counsels patients through the decision- making process for complex conditions"
+        ],
+        "level_3": [
+          "Demonstrates basic understanding of the informed consent process",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Coaches others in the facilitation of difficult conversations"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Counsels patients through the decision-making process for straightforward conditions",
+          "Guides others in situational awareness and critical self-reflection"
+        ],
+        "level_5": [
+          "Identifies barriers to effective communication (e.g., health literacy, cultural differences)",
+          "Facilitates difficult discussions with patients and their families, (e.g., explaining complications, therapeutic uncertainty)",
+          "Counsels patients through the decision-making process for uncommon conditions"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_ics2",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes the value and role of each team member and respectfully interacts with all members of health care team"
+        ],
+        "level_2": [
+          "Communicates in a professional and productive manner to facilitate teamwork (e.g., active listening, updates in timely fashion)"
+        ],
+        "level_3": [
+          "Actively recognizes and mitigates communication barriers and biases with health care team members"
+        ],
+        "level_4": [
+          "Facilitates respectful communications and conflict resolution with the multidisciplinary health care team"
+        ],
+        "level_5": [
+          "Is an exemplar of effective and respectful communication strategies"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery_of_the_spine_ics3",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record while safeguarding patient personal health information",
+          "Independently communicates via written or verbal methods based on urgency and context"
+        ],
+        "level_2": [
+          "Demonstrates accurate, timely, and efficient use of the electronic health record to communicate with the health care team",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Uses appropriate communication methods (e.g., face-to-face, voice, electronic)",
+          "Facilitates improved written and verbal communication of others"
+        ],
+        "level_4": [
+          "Concisely reports diagnostic and therapeutic reasoning while incorporating relevant outside data",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_5": [
+          "Respectfully initiates communications about concerns in the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinemilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinesupplementalguide.pdf"
+  }
+}

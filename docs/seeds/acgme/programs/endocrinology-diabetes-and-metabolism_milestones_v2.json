@@ -1,0 +1,475 @@
+{
+  "framework_key": "endocrinology-diabetes-and-metabolism",
+  "specialty": "Endocrinology, Diabetes and Metabolism",
+  "version": "2.0",
+  "source": "ACGME Endocrinology, Diabetes and Metabolism Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "internal-medicine",
+  "parent_name": "Internal Medicine",
+  "subcompetencies": [
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pc1",
+      "number": 1,
+      "name": "History and Physical Exam",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Elicits and reports the basic elements of an endocrine-specific history for common presentations",
+          "Performs and concisely reports an endocrine- specific physical exam for complex presentations"
+        ],
+        "level_2": [
+          "Performs and reports the basic elements of an endocrine-specific physical exam for common presentations",
+          "Efficiently elicits and concisely reports an endocrine-specific history for rare endocrine presentations"
+        ],
+        "level_3": [
+          "Elicits and concisely reports a thorough endocrine-specific history for common presentations",
+          "Performs and concisely reports an endocrine- specific exam for rare endocrine presentations"
+        ],
+        "level_4": [
+          "Performs and concisely reports an endocrine- specific physical exam for common presentations",
+          "Elicits and reports atypical history or physical exam findings which deviate from usual presentations of common, complex, and rare endocrine disorders"
+        ],
+        "level_5": [
+          "Efficiently elicits and concisely reports an endocrine-specific history for complex presentations"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pc2",
+      "number": 2,
+      "name": "Diagnostic Testing, including Labs, Imaging, and Dynamic Testing",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Orders basic tests for patients with common endocrine conditions",
+          "Interprets targeted tests for patients with complex endocrine conditions, with assistance, and identifies incongruencies"
+        ],
+        "level_2": [
+          "Interprets basic endocrine test results",
+          "Develops individualized cost-effective testing strategies to evaluate patients with complex endocrine conditions and avoids unnecessary testing"
+        ],
+        "level_3": [
+          "Orders targeted tests for patients with common endocrine conditions using medical evidence",
+          "Independently interprets targeted tests for patients with complex endocrine conditions and resolves incongruencies"
+        ],
+        "level_4": [
+          "Independently interprets targeted tests for common endocrine conditions",
+          "Identifies, critically evaluates, and selectively uses emerging and investigational tests or procedures; questions and reports unknown and unexplained discrepancies"
+        ],
+        "level_5": [
+          "Orders targeted tests for patients with complex endocrine conditions"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pc3",
+      "number": 3,
+      "name": "Therapeutics (Behavioral, Medications, Technology, Radiopharmaceuticals)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prescribes basic endocrine therapeutics and describes their indications and adverse effects or reactions"
+        ],
+        "level_2": [
+          "Prescribes and monitors therapeutics used in patients with common endocrine conditions, based on patient factors"
+        ],
+        "level_3": [
+          "Prescribes and monitors the response to pharmacotherapy used in the management of patients with complex endocrine conditions"
+        ],
+        "level_4": [
+          "Integrates the best available evidence to prescribe, monitor, and assess the response to pharmacotherapy used in the management of patients with common, complex, and rare endocrine conditions"
+        ],
+        "level_5": [
+          "Identifies targeted or experimental therapies for complex and rare clinical scenarios"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pc4",
+      "number": 4,
+      "name": "Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Observes and describes endocrine procedures"
+        ],
+        "level_2": [
+          "Performs procedures, with significant supervision"
+        ],
+        "level_3": [
+          "Performs more complex procedures, with moderate supervision"
+        ],
+        "level_4": [
+          "Independently performs procedures"
+        ],
+        "level_5": [
+          "Independently performs complex procedures"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pc5",
+      "number": 5,
+      "name": "Provides Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Respectfully receives consultation requests and responds with assistance",
+          "Recognizes disease acuity and prioritizes management steps"
+        ],
+        "level_2": [
+          "Recognizes disease acuity, with supervision",
+          "Effectively conveys consultative assessment, rationale, and contingency plans to all health care team members"
+        ],
+        "level_3": [
+          "Clearly and concisely provides consultation",
+          "Mobilizes resources to provide care in high- acuity situations"
+        ],
+        "level_4": [
+          "Independently recognizes disease acuity",
+          "Is identified as a role model for the provision of consultative care across the spectrum of disease complexity and acuity"
+        ],
+        "level_5": [
+          "Verifies understanding of recommendations with the primary team when providing consultation"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pc6",
+      "number": 6,
+      "name": "Requests Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the need to request a consultation"
+        ],
+        "level_2": [
+          "Clearly articulates the reason for requesting a consultation"
+        ],
+        "level_3": [
+          "Checks one’s own understanding of recommendations when receiving consultation"
+        ],
+        "level_4": [
+          "Coordinates recommendations from different consultants to optimize patient care"
+        ],
+        "level_5": [
+          "Facilitates conflict resolution between and among consultants when disagreement exists"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_mk1",
+      "number": 7,
+      "name": "Integration of Pathophysiology and Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of pathophysiology of common endocrine conditions and develops a differential diagnosis"
+        ],
+        "level_2": [
+          "Applies knowledge of pathophysiology to explain common presentations and prioritizes the differential diagnoses and therapeutic options"
+        ],
+        "level_3": [
+          "Applies knowledge of pathophysiology to explain complex presentations and critically assesses diagnostic assumptions and therapeutic options"
+        ],
+        "level_4": [
+          "Integrates advanced knowledge of pathophysiology to recognize and explain the clinical presentations of and therapeutic options for a rare condition"
+        ],
+        "level_5": [
+          "Integrates knowledge of nuanced aspects of pathophysiology toward individualized diagnostic and therapeutic approaches, while challenging conventional ideas"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_mk2",
+      "number": 8,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy of scholarly investigation, with supervision"
+        ],
+        "level_2": [
+          "Designs a scholarly project, with supervision"
+        ],
+        "level_3": [
+          "Implements a scholarly project, with supervision"
+        ],
+        "level_4": [
+          "Produces scholarly work suitable for dissemination"
+        ],
+        "level_5": [
+          "Publishes original scholarly work that has generated new medical knowledge, enduring educational materials, or process improvement"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_sbp1",
+      "number": 9,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies and reports patient safety events using the institutional reporting system and discloses them to leadership, patients, and patients’ family members",
+          "Participates in quality improvement projects"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of quality improvement methodologies and metrics",
+          "Participates in efforts to modify systems to prevent patient safety events"
+        ],
+        "level_3": [
+          "Analyzes the factors that contributed to a patient safety event",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_4": [
+          "Identifies opportunities for quality improvement projects",
+          "Leads efforts to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Offers prevention strategies to mitigate patient safety events",
+          "Leads quality improvement projects"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_sbp2",
+      "number": 10,
+      "name": "Coordination and Transitions of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies the important elements of transitions and coordination of care"
+        ],
+        "level_2": [
+          "Safely and effectively transitions and coordinates care of patients in routine clinical situations"
+        ],
+        "level_3": [
+          "Effectively transitions and coordinates care of patients utilizing interprofessional teams in complex clinical situations"
+        ],
+        "level_4": [
+          "Role models effective coordination and transition of care"
+        ],
+        "level_5": [
+          "Leads in the design and implementation of improvements to the care coordination process"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_sbp3",
+      "number": 11,
+      "name": "Physician Role in Health Care Systems and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the health care and payment systems; identifies health care needs in the community",
+          "Advocates for health policy changes"
+        ],
+        "level_2": [
+          "Describes how complex health care and payment systems impact patient care and contribute to health care barriers"
+        ],
+        "level_3": [
+          "Advocates within the health care system and payor to provide cost- effective, patient-centered care and reduce barriers"
+        ],
+        "level_4": [
+          "Advocates for adapting local practices to provide for the needs of specific populations and communities with health care needs"
+        ],
+        "level_5": [
+          "Adapts local practices to provide for the needs of specific populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pbli1",
+      "number": 12,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Articulates clinical questions to guide evidence-based care"
+        ],
+        "level_2": [
+          "Locates and applies the best available evidence, integrated with patient values and preferences, to the care of patients with common conditions"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient values and preference, to the care of patients with complex and rare conditions"
+        ],
+        "level_4": [
+          "Critically appraises conflicting or ambiguous evidence to guide individualized patient care"
+        ],
+        "level_5": [
+          "Mentors others to critically appraise and apply evidence"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates receptiveness to feedback"
+        ],
+        "level_2": [
+          "Modifies behavior based on feedback and establishes personal and professional goals based on gaps in knowledge and skills"
+        ],
+        "level_3": [
+          "Seeks feedback; creates and implements an individualized learning plan"
+        ],
+        "level_4": [
+          "Uses performance data to assess the effectiveness of the learning plan, and improves it when necessary"
+        ],
+        "level_5": [
+          "Role models consistently seeking performance data with adaptability, and mentors others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_prof1",
+      "number": 14,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates professional/ethical behavior in routine situations"
+        ],
+        "level_2": [
+          "Demonstrates a pattern of professional/ethical behavior in routine situations and takes responsibility when there are lapses"
+        ],
+        "level_3": [
+          "Demonstrates a pattern of professional/ethical behavior in complex or stressful situations"
+        ],
+        "level_4": [
+          "Recognizes situations that may cause professional/ethical lapses in others and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_5": [
+          "Mentors others when their behavior fails to meet professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_prof2",
+      "number": 15,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and responsibilities with prompting"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner with attention to detail in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with attention to detail in complex or stressful situations"
+        ],
+        "level_4": [
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_5": [
+          "Creates strategies to enhance others’ ability to efficiently complete tasks and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_prof3",
+      "number": 16,
+      "name": "Personal and Professional Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies elements of well-being"
+        ],
+        "level_2": [
+          "Describes resources that are meant to promote well-being"
+        ],
+        "level_3": [
+          "Recognizes status of well- being in oneself or peers and knows how to report concerns to appropriate personnel"
+        ],
+        "level_4": [
+          "Develops a plan to improve well-being of oneself or peers, including use of institutional or external resources"
+        ],
+        "level_5": [
+          "Creates institutional-level interventions that promote colleagues’ well-being"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_ics1",
+      "number": 17,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses clear language and non-verbal behavior to demonstrate respect and establish rapport",
+          "Adjusts communication strategies based on identified barriers, incorporating patient and caregiver expectations and goals of care"
+        ],
+        "level_2": [
+          "Recognizes common barriers to effective communication (e.g., language, disability)",
+          "Independently uses shared decision making to make a personalized care plan"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship with patients using active listening and clear language in straightforward encounters",
+          "Proactively improves communication by addressing barriers and biases"
+        ],
+        "level_4": [
+          "Recognizes complex barriers to effective communication (e.g., health literacy)",
+          "Serves as a role model in establishing respectful, culturally sensitive, therapeutic relationships while mitigating communication barriers"
+        ],
+        "level_5": [
+          "Establishes a therapeutic relationship with patients’ and their families in challenging patient encounters"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_ics2",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that is respectful and values all members of the health care team"
+        ],
+        "level_2": [
+          "Communicates basic information and provides feedback to all health care team members"
+        ],
+        "level_3": [
+          "Communicates complex information and provides difficult feedback to all health care team members"
+        ],
+        "level_4": [
+          "Optimizes communication strategies using input from all team members to build consensus and resolve conflicts as needed"
+        ],
+        "level_5": [
+          "Demonstrates leadership in promoting open and safe communication within and between teams"
+        ]
+      }
+    },
+    {
+      "id": "endocrinology_diabetes_and_metabolism_ics3",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Verifies and accurately records current and relevant information in the patient's chart",
+          "Guides departmental or institutional documentation policy and procedures"
+        ],
+        "level_2": [
+          "Concisely documents diagnostic and therapeutic reasoning, accurately reflecting patient course for common conditions"
+        ],
+        "level_3": [
+          "Concisely documents diagnostic and therapeutic reasoning, accurately reflecting patient course for complex conditions"
+        ],
+        "level_4": [
+          "Concisely documents diagnostic and therapeutic reasoning, accurately reflecting patient course for all conditions while satisfying institutional billing needs and compliance"
+        ],
+        "level_5": [
+          "Mentors others in in documenting diagnostic and therapeutic reasoning, accurately reflecting patient course"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endocrinologydiabetesandmetabolismmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endocrinologydiabetesandmetabolismsupplementalguide.pdf"
+  }
+}

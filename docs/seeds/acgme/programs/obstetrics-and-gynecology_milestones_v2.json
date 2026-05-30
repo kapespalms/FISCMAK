@@ -3,1584 +3,792 @@
   "specialty": "Obstetrics and Gynecology",
   "version": "2.0",
   "source": "ACGME Obstetrics and Gynecology Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "obstetrics-and-gynecology",
+  "parent_name": "Obstetrics and Gynecology",
   "subcompetencies": [
     {
       "id": "obstetrics_and_gynecology_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "Antepartum Care and Complications of Pregnancy",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "knowledge of normal",
-          "obstetrical care and",
-          "common medical",
-          "complications seen in",
-          "pregnancy",
-          "Provides complete",
-          "antepartum care for",
-          "women with"
+          "Demonstrates basic knowledge of normal obstetrical care and common medical complications seen in pregnancy",
+          "Effectively supervises and educates lower- level residents in antepartum care"
         ],
         "level_2": [
-          "uncomplicated",
-          "pregnancies",
-          "Recognizes basic risk",
-          "factors, symptoms, and",
-          "signs of common",
-          "medical and obstetrical",
-          "complications",
-          "Provides complete",
-          "antepartum care for"
+          "Provides complete antepartum care for women with uncomplicated pregnancies",
+          "Recognizes atypical presentations of medical and obstetrical complications; identifies indications for referral and/or transfer of care for patients with medical and obstetrical complications"
         ],
         "level_3": [
-          "women with complicated",
-          "pregnancies",
-          "Manages common",
-          "medical and obstetrical",
-          "complications",
-          "Effectively supervises",
-          "and educates lower-",
-          "level residents in",
-          "antepartum care"
+          "Recognizes basic risk factors, symptoms, and signs of common medical and obstetrical complications",
+          "Manages patients with complex and atypical medical and obstetrical complications and implements treatment plans based on emerging evidence"
         ],
         "level_4": [
-          "Recognizes atypical",
-          "presentations of medical",
-          "and obstetrical",
-          "complications; identifies",
-          "indications for referral",
-          "and/or transfer of care",
-          "for patients with medical",
-          "and obstetrical",
-          "complications"
+          "Provides complete antepartum care for women with complicated pregnancies"
         ],
         "level_5": [
-          "Manages patients with",
-          "complex and atypical",
-          "medical and obstetrical",
-          "complications and",
-          "implements treatment",
-          "plans based on emerging",
-          "evidence"
+          "Manages common medical and obstetrical complications"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "First-Trimester Bleeding",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Formulates a differential",
-          "diagnosis for patients",
-          "with first-trimester",
-          "bleeding"
+          "Formulates a differential diagnosis for patients with first-trimester bleeding"
         ],
         "level_2": [
-          "Counsels patients",
-          "regarding natural history,",
-          "and diagnostic and",
-          "treatment options"
+          "Counsels patients regarding natural history, and diagnostic and treatment options"
         ],
         "level_3": [
-          "Uses non-surgical and",
-          "surgical methods to",
-          "manage patients with",
-          "first-trimester bleeding"
+          "Uses non-surgical and surgical methods to manage patients with first-trimester bleeding"
         ],
         "level_4": [
-          "Manages patients with",
-          "complications of first-",
-          "trimester bleeding",
-          "Implements treatment"
+          "Manages patients with complications of first- trimester bleeding"
         ],
         "level_5": [
-          "plans for complex or",
-          "atypical first-trimester",
-          "bleeding"
+          "Implements treatment plans for complex or atypical first-trimester bleeding"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Care of Patients in the Intrapartum Period",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "knowledge of",
-          "routine/uncomplicated",
-          "intrapartum obstetrical",
-          "care, including conduct",
-          "of normal labor",
-          "Performs basic obstetric",
-          "skills (e.g., identification",
-          "of fetal lie, interpretation"
+          "Demonstrates basic knowledge of routine/uncomplicated intrapartum obstetrical care, including conduct of normal labor",
+          "Manages common labor and intrapartum complications"
         ],
         "level_2": [
-          "of fetal heart rate",
-          "monitoring, and",
-          "tocodynamometry)",
-          "Manages normal labor",
-          "Recognizes common",
-          "intrapartum complications",
-          "Effectively supervises and",
-          "educates lower-level",
-          "residents in intrapartum"
+          "Performs basic obstetric skills (e.g., identification of fetal lie, interpretation of fetal heart rate monitoring, and tocodynamometry)",
+          "Provides care for women with complex intrapartum complications and conditions"
         ],
         "level_3": [
-          "care for women with",
-          "uncomplicated",
-          "pregnancies",
-          "Manages common labor",
-          "and intrapartum",
-          "complications",
-          "Provides care for",
-          "women with complex",
-          "intrapartum"
+          "Manages normal labor",
+          "Identifies indications for referral and/or transfer of care for patients with intrapartum complications"
         ],
         "level_4": [
-          "complications and",
-          "conditions",
-          "Identifies indications for",
-          "referral and/or transfer",
-          "of care for patients with",
-          "intrapartum",
-          "complications",
-          "Applies innovative",
-          "approaches to complex"
+          "Recognizes common intrapartum complications",
+          "Applies innovative approaches to complex and atypical intrapartum conditions and implements treatment plans based on emerging evidence"
         ],
         "level_5": [
-          "and atypical intrapartum",
-          "conditions and",
-          "implements treatment",
-          "plans based on emerging",
-          "evidence"
+          "Effectively supervises and educates lower-level residents in intrapartum care for women with uncomplicated pregnancies"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc4",
       "number": 4,
-      "domain_number": 4,
       "name": "Care of Patients in the Postpartum and Interconception Period",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Provides postpartum",
-          "and interconception",
-          "care for women with",
-          "uncomplicated",
-          "pregnancies",
-          "Recognizes basic risk",
-          "factors, symptoms, and"
+          "Provides postpartum and interconception care for women with uncomplicated pregnancies"
         ],
         "level_2": [
-          "signs of common",
-          "postpartum and",
-          "interconception",
-          "complications",
-          "Manages common",
-          "postpartum complications",
-          "and counsels patients"
+          "Recognizes basic risk factors, symptoms, and signs of common postpartum and interconception complications"
         ],
         "level_3": [
-          "about associated risk in",
-          "future pregnancies",
-          "Manages patients with",
-          "complex postpartum",
-          "complications and",
-          "identifies indications for",
-          "referral and/or transfer"
+          "Manages common postpartum complications and counsels patients about associated risk in future pregnancies"
         ],
         "level_4": [
-          "of care in the",
-          "postpartum or",
-          "interconception period",
-          "Applies innovative",
-          "approaches to complex",
-          "and atypical postpartum",
-          "and interconception"
+          "Manages patients with complex postpartum complications and identifies indications for referral and/or transfer of care in the postpartum or interconception period"
         ],
         "level_5": [
-          "conditions and",
-          "implements treatment",
-          "plans based on emerging",
-          "evidence"
+          "Applies innovative approaches to complex and atypical postpartum and interconception conditions and implements treatment plans based on emerging evidence"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc5",
       "number": 5,
-      "domain_number": 5,
       "name": "Obstetric Technical Skills",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "surgical principles,",
-          "including use of",
-          "universal precautions"
+          "Demonstrates basic surgical principles, including use of universal precautions and aseptic technique"
         ],
         "level_2": [
-          "and aseptic technique",
-          "Demonstrates basic",
-          "obstetrical skills",
-          "Performs advanced"
+          "Demonstrates basic obstetrical skills"
         ],
         "level_3": [
-          "obstetrical procedures",
-          "Performs complex",
-          "obstetrical procedures",
-          "Applies innovative and"
+          "Performs advanced obstetrical procedures"
         ],
         "level_4": [
-          "complex approaches",
-          "obstetrical care and",
-          "implements treatment",
-          "plans based on"
+          "Performs complex obstetrical procedures"
         ],
         "level_5": [
-          "emerging evidence"
+          "Applies innovative and complex approaches obstetrical care and implements treatment plans based on emerging evidence"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc6",
       "number": 6,
-      "domain_number": 6,
       "name": "Critically Ill Obstetric Patients and Obstetric Emergencies",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Recognizes risk factors",
-          "that can lead to critical",
-          "illness in an obstetric",
-          "patient",
-          "Recognizes risk factors",
-          "for obstetric emergencies",
-          "Formulates an initial",
-          "differential diagnosis,",
-          "recognizes initial",
-          "signs/symptoms of a",
-          "critically ill patient (vital"
+          "Recognizes risk factors that can lead to critical illness in an obstetric patient",
+          "Manages and treats obstetric emergencies"
         ],
         "level_2": [
-          "signs, lab abnormalities,",
-          "etc.) and asks for",
-          "assistance in a timely",
-          "fashion",
-          "Recognizes obstetric",
-          "emergencies and asks for",
-          "assistance in a timely",
-          "fashion",
-          "Manages and initiates",
-          "treatment for a critically",
-          "ill obstetric patient,"
+          "Recognizes risk factors for obstetric emergencies",
+          "Collaborates with other health care teams to facilitate care for critically ill obstetric patients"
         ],
         "level_3": [
-          "including recognizing",
-          "when a transfer to the",
-          "intensive care unit (ICU)",
-          "or another service is",
-          "most appropriate",
-          "Manages and treats",
-          "obstetric emergencies",
-          "Collaborates with other",
-          "health care teams to",
-          "facilitate care for",
-          "critically ill obstetric"
+          "Formulates an initial differential diagnosis, recognizes initial signs/symptoms of a critically ill patient (vital signs, lab abnormalities, etc.) and asks for assistance in a timely fashion",
+          "Leads the multidisciplinary health care team in caring for patients with obstetric emergencies"
         ],
         "level_4": [
-          "patients",
-          "Leads the",
-          "multidisciplinary health",
-          "care team in caring for",
-          "patients with obstetric",
-          "emergencies",
-          "Debriefs with the",
-          "members of the health",
-          "care team, the patient,",
-          "and the family members of",
-          "a critically ill obstetric"
+          "Recognizes obstetric emergencies and asks for assistance in a timely fashion",
+          "Debriefs with the members of the health care team, the patient, and the family members of a critically ill obstetric patient"
         ],
         "level_5": [
-          "patient",
-          "Debriefs with the",
-          "members of the health",
-          "care team, the patient,",
-          "and the patient’s family",
-          "members after an",
-          "obstetric emergency"
+          "Manages and initiates treatment for a critically ill obstetric patient, including recognizing when a transfer to the intensive care unit (ICU) or another service is most appropriate",
+          "Debriefs with the members of the health care team, the patient, and the patient’s family members after an obstetric emergency"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc7",
       "number": 7,
-      "domain_number": 7,
       "name": "Peri-Procedural Care",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies alterations in",
-          "normal physiology and",
-          "anatomy",
-          "Accurately and reliably",
-          "gathers and reports"
+          "Identifies alterations in normal physiology and anatomy"
         ],
         "level_2": [
-          "clinical information",
-          "pertaining to common",
-          "peri-procedural risks and",
-          "complications",
-          "Independently identifies"
+          "Accurately and reliably gathers and reports clinical information pertaining to common peri-procedural risks and complications"
         ],
         "level_3": [
-          "and manages common",
-          "peri-procedural risks and",
-          "complications",
-          "Independently identifies",
-          "and manages complex"
+          "Independently identifies and manages common peri-procedural risks and complications"
         ],
         "level_4": [
-          "peri-procedural risks",
-          "and complications",
-          "Implements measures to",
-          "prevent or mitigate",
-          "complications, applying"
+          "Independently identifies and manages complex peri-procedural risks and complications"
         ],
         "level_5": [
-          "effective interdisciplinary",
-          "team management skills",
-          "to manage multiple",
-          "scenarios simultaneously"
+          "Implements measures to prevent or mitigate complications, applying effective interdisciplinary team management skills to manage multiple scenarios simultaneously"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc8",
       "number": 8,
-      "domain_number": 8,
       "name": "Endoscopic Procedures (Hysteroscopy and Cystoscopy)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Prepares patient and",
-          "equipment for",
-          "endoscopic procedures",
-          "(e.g., lithotomy"
+          "Prepares patient and equipment for endoscopic procedures (e.g., lithotomy positioning, assemble endoscope)"
         ],
         "level_2": [
-          "positioning, assemble",
-          "endoscope)",
-          "Performs diagnostic",
-          "hysteroscopy and"
+          "Performs diagnostic hysteroscopy and cystoscopy"
         ],
         "level_3": [
-          "cystoscopy",
-          "Independently performs",
-          "simple operative",
-          "hysteroscopic procedures"
+          "Independently performs simple operative hysteroscopic procedures"
         ],
         "level_4": [
-          "Independently performs",
-          "complex operative",
-          "hysteroscopic",
-          "procedures"
+          "Independently performs complex operative hysteroscopic procedures"
         ],
         "level_5": [
-          "Independently performs",
-          "complex hysteroscopic",
-          "procedures in altered",
-          "anatomy"
+          "Independently performs complex hysteroscopic procedures in altered anatomy"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc9",
       "number": 9,
-      "domain_number": 9,
       "name": "Laparoscopic Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "skills (e.g., positioning,",
-          "draping, docking,",
-          "undocking)"
+          "Demonstrates basic skills (e.g., positioning, draping, docking, undocking)"
         ],
         "level_2": [
-          "Assists during",
-          "laparoscopic procedures",
-          "(e.g., port placement,",
-          "bedside assistant)"
+          "Assists during laparoscopic procedures (e.g., port placement, bedside assistant)"
         ],
         "level_3": [
-          "Independently performs",
-          "simple laparoscopic",
-          "procedures",
-          "Independently performs"
+          "Independently performs simple laparoscopic procedures"
         ],
         "level_4": [
-          "advanced laparoscopic",
-          "procedures",
-          "Independently performs",
-          "uncommon complex"
+          "Independently performs advanced laparoscopic procedures"
         ],
         "level_5": [
-          "laparoscopic procedures"
+          "Independently performs uncommon complex laparoscopic procedures"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc10",
       "number": 10,
-      "domain_number": 10,
       "name": "Vulvar-Vaginal Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "skills (e.g., positioning,",
-          "knot tying, suturing)",
-          "Performs simple vulvar-"
+          "Demonstrates basic skills (e.g., positioning, knot tying, suturing)"
         ],
         "level_2": [
-          "vaginal procedures",
-          "Performs pelvic entry for",
-          "vaginal procedures and",
-          "simple procedures for"
+          "Performs simple vulvar- vaginal procedures"
         ],
         "level_3": [
-          "incontinence and prolapse",
-          "Independently performs",
-          "vaginal hysterectomy",
-          "and complex vulvar-"
+          "Performs pelvic entry for vaginal procedures and simple procedures for incontinence and prolapse"
         ],
         "level_4": [
-          "vaginal procedures",
-          "Independently performs",
-          "uncommon complex",
-          "vulvar-vaginal procedures"
+          "Independently performs vaginal hysterectomy and complex vulvar- vaginal procedures"
         ],
-        "level_5": []
+        "level_5": [
+          "Independently performs uncommon complex vulvar-vaginal procedures"
+        ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc11",
       "number": 11,
-      "domain_number": 11,
       "name": "Open Surgical Procedures (excludes Cesarean section)",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "skills (e.g., positioning,",
-          "knot tying, suturing)"
+          "Demonstrates basic skills (e.g., positioning, knot tying, suturing)"
         ],
         "level_2": [
-          "Opens and closes",
-          "abdominal incisions",
-          "Independently performs"
+          "Opens and closes abdominal incisions"
         ],
         "level_3": [
-          "simple open surgical",
-          "procedures",
-          "Independently performs"
+          "Independently performs simple open surgical procedures"
         ],
         "level_4": [
-          "complex open surgical",
-          "procedures",
-          "Independently performs"
+          "Independently performs complex open surgical procedures"
         ],
         "level_5": [
-          "uncommon complex open",
-          "surgical procedures"
+          "Independently performs uncommon complex open surgical procedures"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc12",
       "number": 12,
-      "domain_number": 12,
       "name": "Family Planning",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Demonstrates ability to",
-          "find reputable, evidence-",
-          "based information on",
-          "contraception choices",
-          "Counsels patients on the",
-          "effectiveness, risks,",
-          "benefits, and",
-          "contraindications of"
+          "Demonstrates ability to find reputable, evidence- based information on contraception choices",
+          "Implements comprehensive management plans for patients with medical conditions complicating their use of contraceptive methods"
         ],
         "level_2": [
-          "available forms of family",
-          "planning",
-          "Performs medical uterine",
-          "evacuation",
-          "Implements",
-          "comprehensive",
-          "contraception",
-          "management plans for"
+          "Counsels patients on the effectiveness, risks, benefits, and contraindications of available forms of family planning",
+          "Performs surgical uterine evacuation on patients with complex comorbidities and manages complications"
         ],
         "level_3": [
-          "patients and manages",
-          "common side effects",
-          "Performs routine surgical",
-          "uterine evacuation and",
-          "manages complications",
-          "Implements",
-          "comprehensive",
-          "management plans for"
+          "Performs medical uterine evacuation",
+          "Applies innovative and complex approaches to medical contraception and pregnancy termination, and implements treatment plans based on emerging evidence"
         ],
         "level_4": [
-          "patients with medical",
-          "conditions complicating",
-          "their use of",
-          "contraceptive methods",
-          "Performs surgical",
-          "uterine evacuation on",
-          "patients with complex",
-          "comorbidities and"
+          "Implements comprehensive contraception management plans for patients and manages common side effects"
         ],
         "level_5": [
-          "manages complications",
-          "Applies innovative and",
-          "complex approaches to",
-          "medical contraception and",
-          "pregnancy termination,",
-          "and implements treatment",
-          "plans based on emerging",
-          "evidence"
+          "Performs routine surgical uterine evacuation and manages complications"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc13",
       "number": 13,
-      "domain_number": 13,
       "name": "Ambulatory Gynecology and Office-Based Procedures",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Takes a focused patient",
-          "history for common",
-          "ambulatory gynecologic",
-          "problems",
-          "Performs the initial",
-          "assessment, formulates a",
-          "differential diagnosis, and"
+          "Takes a focused patient history for common ambulatory gynecologic problems"
         ],
         "level_2": [
-          "initiates treatment,",
-          "including performance of",
-          "basic procedures for",
-          "common ambulatory",
-          "gynecologic problems",
-          "Formulates management",
-          "plans and initiates"
+          "Performs the initial assessment, formulates a differential diagnosis, and initiates treatment, including performance of basic procedures for common ambulatory gynecologic problems"
         ],
         "level_3": [
-          "treatment, including",
-          "relevant procedures for",
-          "complex ambulatory",
-          "gynecologic problems",
-          "Effectively cares for",
-          "patients with complex",
-          "presentations and uses"
+          "Formulates management plans and initiates treatment, including relevant procedures for complex ambulatory gynecologic problems"
         ],
         "level_4": [
-          "a multidisciplinary",
-          "approach when caring",
-          "for patients with",
-          "complex problems",
-          "Applies innovative",
-          "approaches to complex",
-          "and atypical ambulatory"
+          "Effectively cares for patients with complex presentations and uses a multidisciplinary approach when caring for patients with complex problems"
         ],
         "level_5": [
-          "gynecology and",
-          "implements treatment",
-          "plans based on emerging",
-          "evidence"
+          "Applies innovative approaches to complex and atypical ambulatory gynecology and implements treatment plans based on emerging evidence"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pc14",
       "number": 14,
-      "domain_number": 14,
       "name": "Consultations",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Performs consultation,",
-          "with guidance",
-          "Triages consult requests Manages consultations",
-          "(including coordination of"
+          "Performs consultation, with guidance"
         ],
         "level_2": [
-          "care) requiring",
-          "intervention, including",
-          "procedural options",
-          "Supervises lower-level"
+          "Triages consult requests \tManages consultations (including coordination of care) requiring intervention, including procedural options"
         ],
         "level_3": [
-          "residents in managing",
-          "consultations (including",
-          "coordination of care)",
-          "requiring intervention,"
+          "Supervises lower-level residents in managing consultations (including coordination of care) requiring intervention, including procedural options"
         ],
         "level_4": [
-          "including procedural",
-          "options",
-          "Oversees the consultation",
-          "process and manages"
+          "Oversees the consultation process and manages interdisciplinary systems issues affecting patient care"
         ],
-        "level_5": [
-          "interdisciplinary systems",
-          "issues affecting patient",
-          "care"
-        ]
+        "level_5": []
       }
     },
     {
       "id": "obstetrics_and_gynecology_mk1",
       "number": 15,
-      "domain_number": 1,
       "name": "Anatomy and Pathophysiology of Female Reproduction",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Identifies normal anatomy",
-          "relevant to physical",
-          "examination, imaging, and",
-          "surgery",
-          "Demonstrates knowledge",
-          "of physiology of",
-          "reproduction",
-          "Identifies pathologic",
-          "anatomic variants as"
+          "Identifies normal anatomy relevant to physical examination, imaging, and surgery",
+          "Demonstrates advanced knowledge of pathophysiology and clinical findings for common diseases of the reproductive system"
         ],
         "level_2": [
-          "applied to physical",
-          "examination and imaging",
-          "Demonstrates basic",
-          "knowledge of",
-          "pathophysiology and",
-          "clinical findings for common",
-          "diseases of the",
-          "reproductive system",
-          "Identifies common"
+          "Demonstrates knowledge of physiology of reproduction",
+          "Identifies complex pathologic anatomic variants during surgery"
         ],
         "level_3": [
-          "pathologic anatomic",
-          "variants during surgery",
-          "Demonstrates advanced",
-          "knowledge of",
-          "pathophysiology and",
-          "clinical findings for common",
-          "diseases of the",
-          "reproductive system",
-          "Identifies complex"
+          "Identifies pathologic anatomic variants as applied to physical examination and imaging",
+          "Demonstrates comprehensive knowledge of the varying patterns of disease presentation, natural history, and patient outcomes"
         ],
         "level_4": [
-          "pathologic anatomic",
-          "variants during surgery",
-          "Demonstrates",
-          "comprehensive",
-          "knowledge of the varying",
-          "patterns of disease",
-          "presentation, natural",
-          "history, and patient",
-          "outcomes"
+          "Demonstrates basic knowledge of pathophysiology and clinical findings for common diseases of the reproductive system",
+          "Contributes to peer- reviewed literature on the varying patterns of disease presentation, and natural history"
         ],
         "level_5": [
-          "Contributes to peer-",
-          "reviewed literature on the",
-          "varying patterns of disease",
-          "presentation, and natural",
-          "history"
+          "Identifies common pathologic anatomic variants during surgery"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_mk2",
       "number": 16,
-      "domain_number": 2,
       "name": "Differential Diagnosis",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Generates a basic",
-          "differential diagnosis",
-          "based on patient",
-          "symptoms and history",
-          "Generates a",
-          "comprehensive differential"
+          "Generates a basic differential diagnosis based on patient symptoms and history"
         ],
         "level_2": [
-          "diagnosis based on patient",
-          "symptoms and history and",
-          "interpretation of results of",
-          "common diagnostic tests",
-          "Generates a prioritized",
-          "differential diagnosis and"
+          "Generates a comprehensive differential diagnosis based on patient symptoms and history and interpretation of results of common diagnostic tests"
         ],
         "level_3": [
-          "selects additional testing for",
-          "confirmation",
-          "Independently and",
-          "efficiently synthesizes",
-          "information to develop",
-          "prioritized differential"
+          "Generates a prioritized differential diagnosis and selects additional testing for confirmation"
         ],
         "level_4": [
-          "diagnoses in complex",
-          "patient presentations and",
-          "incorporates subtle,",
-          "unusual, or conflicting",
-          "findings",
-          "Coaches peers to develop"
+          "Independently and efficiently synthesizes information to develop prioritized differential diagnoses in complex patient presentations and incorporates subtle, unusual, or conflicting findings"
         ],
         "level_5": [
-          "prioritized differential",
-          "diagnoses in atypical",
-          "patient presentations"
+          "Coaches peers to develop prioritized differential diagnoses in atypical patient presentations"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_sbp1",
       "number": 17,
-      "domain_number": 1,
       "name": "Patient Safety",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Identifies system factors"
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)"
         ],
         "level_2": [
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Participates in analysis of"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
         ],
         "level_3": [
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and their families",
-          "(simulated or actual)",
-          "Conducts analysis of",
-          "patient safety events"
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and their families (simulated or actual)"
         ],
         "level_4": [
-          "and offers error",
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "their families (simulated",
-          "or actual)",
-          "Actively engages teams"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_5": [
-          "and processes to modify",
-          "systems to prevent patient",
-          "safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events"
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of patient safety events"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_sbp2",
       "number": 18,
-      "domain_number": 2,
       "name": "Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
         ],
         "level_2": [
-          "Describes local quality",
-          "improvement initiatives",
-          "(e.g., cancer screening",
-          "rate, surgical site",
-          "infection, smoking"
+          "Describes local quality improvement initiatives (e.g., cancer screening rate, surgical site infection, smoking cessation)"
         ],
         "level_3": [
-          "cessation)",
-          "Participates in local",
-          "quality improvement",
-          "initiatives",
-          "Demonstrates the skills"
+          "Participates in local quality improvement initiatives"
         ],
         "level_4": [
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project",
-          "Creates, implements, and"
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_5": [
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community level"
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_sbp3",
       "number": 19,
-      "domain_number": 3,
       "name": "System Navigation for Patient-Centered Care - Coordination of Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination",
-          "Coordinates care of",
-          "patients in routine clinical"
+          "Demonstrates knowledge of care coordination"
         ],
         "level_2": [
-          "situations effectively using",
-          "the roles of",
-          "interprofessional team",
-          "members",
-          "Coordinates care of"
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members"
         ],
         "level_3": [
-          "patients in complex",
-          "clinical situations",
-          "effectively using the roles",
-          "of interprofessional team",
-          "members"
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members"
         ],
         "level_4": [
-          "Identifies concerns with",
-          "current systems and",
-          "identifies opportunities",
-          "for improvement",
-          "Analyzes the process of"
+          "Identifies concerns with current systems and identifies opportunities for improvement"
         ],
         "level_5": [
-          "care coordination and",
-          "leads in the design and",
-          "implementation of",
-          "improvements"
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_sbp4",
       "number": 20,
-      "domain_number": 4,
       "name": "System Navigation for Patient-Centered Care – Transitions of Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key elements",
-          "for safe and effective",
-          "transitions of care and",
-          "hand-offs",
-          "Performs safe and"
+          "Identifies key elements for safe and effective transitions of care and hand-offs"
         ],
         "level_2": [
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Performs safe and",
-          "effective transitions of"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations"
         ],
         "level_3": [
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Role models and",
-          "advocates for safe and",
-          "effective transitions of"
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
         ],
         "level_4": [
-          "care/hand-offs within",
-          "and across health care",
-          "delivery systems,",
-          "including in outpatient",
-          "settings"
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including in outpatient settings"
         ],
         "level_5": [
-          "Improves quality of",
-          "transitions of care within",
-          "and across health care",
-          "delivery systems to",
-          "optimize patient outcomes"
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_sbp5",
       "number": 21,
-      "domain_number": 5,
       "name": "Community and Population Health",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of population",
-          "and community health",
-          "needs"
+          "Demonstrates knowledge of population and community health needs"
         ],
         "level_2": [
-          "Identifies specific",
-          "population and community",
-          "health needs for their",
-          "local population"
+          "Identifies specific population and community health needs for their local population"
         ],
         "level_3": [
-          "Uses local resources",
-          "effectively to meet the",
-          "needs of a patient",
-          "population and community"
+          "Uses local resources effectively to meet the needs of a patient population and community"
         ],
         "level_4": [
-          "Participates in changing",
-          "and adapting practice to",
-          "provide for the needs of",
-          "specific populations"
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
         ],
         "level_5": [
-          "Leads innovations and",
-          "advocates for populations",
-          "and communities with",
-          "specific health care needs"
+          "Leads innovations and advocates for populations and communities with specific health care needs"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_sbp6",
       "number": 22,
-      "domain_number": 6,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key",
-          "components of the",
-          "complex health care",
-          "system (e.g., hospital,",
-          "skilled nursing facility,",
-          "finance, personnel,",
-          "technology)"
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)"
         ],
         "level_2": [
-          "Describes how",
-          "components of a complex",
-          "health care system are",
-          "interrelated and how this",
-          "impacts patient care",
-          "Discusses how individual",
-          "practice affects the"
+          "Describes how components of a complex health care system are interrelated and how this impacts patient care"
         ],
         "level_3": [
-          "broader system (e.g.,",
-          "length of stay,",
-          "readmission rates, clinical",
-          "efficiency)",
-          "Manages various",
-          "components of the",
-          "complex health care"
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)"
         ],
         "level_4": [
-          "system to provide",
-          "efficient and effective",
-          "patient care and",
-          "transitions of care",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high-value,"
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transitions of care"
         ],
         "level_5": [
-          "efficient, and effective",
-          "patient care and",
-          "transitions of care"
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transitions of care"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pbli1",
       "number": 23,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access and use available",
-          "evidence and incorporate",
-          "patient preferences and",
-          "values to the care of a",
-          "routine patient",
-          "Articulates clinical"
+          "Demonstrates how to access and use available evidence and incorporate patient preferences and values to the care of a routine patient"
         ],
         "level_2": [
-          "questions and elicits",
-          "patient preferences and",
-          "values to guide evidence-",
-          "based care, with guidance",
-          "from other health care",
-          "team members",
-          "Locates and applies the"
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care, with guidance from other health care team members"
         ],
         "level_3": [
-          "best available evidence,",
-          "integrated with patient",
-          "preferences, to the care of",
-          "complex patients, with",
-          "minimal guidance",
-          "Critically appraises and",
-          "applies evidence, even"
+          "Locates and applies the best available evidence, integrated with patient preferences, to the care of complex patients, with minimal guidance"
         ],
         "level_4": [
-          "in the face of",
-          "uncertainty and",
-          "conflicting evidence, to",
-          "guide care tailored to",
-          "the individual patient",
-          "Coaches others to",
-          "critically appraise and"
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care tailored to the individual patient"
         ],
         "level_5": [
-          "apply evidence for",
-          "complex patients and/or",
-          "participates in the",
-          "development of guidelines"
+          "Coaches others to critically appraise and apply evidence for complex patients and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_pbli2",
       "number": 24,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Identifies gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Establishes goals for",
-          "personal and",
-          "professional",
-          "development",
-          "Analyzes and reflects on",
-          "the factors that contribute"
+          "Identifies gap(s) between expectations and actual performance",
+          "Integrates practice data and feedback with humility to implement a learning plan"
         ],
         "level_2": [
-          "to gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Identifies opportunities for",
-          "performance",
-          "improvement; designs a",
-          "learning plan",
-          "Institutes behavioral",
-          "change(s) to narrow the"
+          "Establishes goals for personal and professional development",
+          "Continuously reflects on remaining gaps and institutes behavioral adjustments to narrow them"
         ],
         "level_3": [
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Integrates practice data",
-          "and feedback with",
-          "humility to implement a",
-          "learning plan",
-          "Continuously reflects on",
-          "remaining gaps and"
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Uses performance data to measure the effectiveness of the learning plan and adapts when necessary"
         ],
         "level_4": [
-          "institutes behavioral",
-          "adjustments to narrow",
-          "them",
-          "Uses performance data",
-          "to measure the",
-          "effectiveness of the",
-          "learning plan and",
-          "adapts when necessary",
-          "Coaches others on"
+          "Identifies opportunities for performance improvement; designs a learning plan",
+          "Coaches others on reflective practice"
         ],
         "level_5": [
-          "reflective practice",
-          "Coaches others in the",
-          "design and",
-          "implementation of",
-          "learning plans"
+          "Institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Coaches others in the design and implementation of learning plans"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_prof1",
       "number": 25,
-      "domain_number": 1,
       "name": "Professional Behavior",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Identifies and describes",
-          "potential triggers for",
-          "professionalism lapses",
-          "and how to appropriately",
-          "report professionalism",
-          "lapses"
+          "Identifies and describes potential triggers for professionalism lapses and how to appropriately report professionalism lapses"
         ],
         "level_2": [
-          "Demonstrates insight into",
-          "professional behavior in",
-          "routine situations and",
-          "takes responsibility for",
-          "one’s own",
-          "professionalism lapses"
+          "Demonstrates insight into professional behavior in routine situations and takes responsibility for one’s own professionalism lapses"
         ],
         "level_3": [
-          "Demonstrates",
-          "professional behavior in",
-          "complex or stressful",
-          "situations",
-          "Recognizes situations",
-          "that may trigger"
+          "Demonstrates professional behavior in complex or stressful situations"
         ],
         "level_4": [
-          "professionalism lapses",
-          "and intervenes to",
-          "prevent lapses in",
-          "oneself and others",
-          "Coaches others when",
-          "their behavior fails to"
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
         ],
         "level_5": [
-          "meet professional",
-          "expectations"
+          "Coaches others when their behavior fails to meet professional expectations"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_prof2",
       "number": 26,
-      "domain_number": 2,
       "name": "Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of ethical",
-          "principles",
-          "Analyzes straightforward",
-          "situations using ethical"
+          "Demonstrates knowledge of ethical principles"
         ],
         "level_2": [
-          "principles",
-          "Recognizes the need to",
-          "seek help in managing",
-          "and resolving complex",
-          "ethical situations"
+          "Analyzes straightforward situations using ethical principles"
         ],
         "level_3": [
-          "Recognizes and uses",
-          "appropriate resources",
-          "for managing and",
-          "resolving ethical",
-          "dilemmas as needed"
+          "Recognizes the need to seek help in managing and resolving complex ethical situations"
         ],
         "level_4": [
-          "and identifies system-",
-          "level issues that induce",
-          "or exacerbate ethical",
-          "problems",
-          "Seeks to address system-"
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed and identifies system- level issues that induce or exacerbate ethical problems"
         ],
         "level_5": [
-          "level factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Seeks to address system- level factors that induce or exacerbate ethical problems or impede their resolution"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_prof3",
       "number": 27,
-      "domain_number": 3,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Takes responsibility for",
-          "failure to complete tasks",
-          "and responsibilities,",
-          "identifies potential",
-          "contributing factors, and",
-          "describes strategies for",
-          "ensuring timely task",
-          "completion in the future",
-          "Responds promptly to",
-          "requests or reminders to"
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
         ],
         "level_2": [
-          "complete tasks and",
-          "responsibilities",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in",
-          "routine situations",
-          "Recognizes situations that",
-          "may impact one’s own",
-          "ability to complete tasks"
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
         ],
         "level_3": [
-          "and responsibilities in a",
-          "timely manner",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in",
-          "complex or stressful",
-          "situations",
-          "Proactively implements",
-          "strategies to ensure that"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Recognizes one’s own role in leading the care of all patients on the service while mentoring/coaching other team members to ensure the best possible care of patients, including prioritizing tasks and mitigating burnout"
         ],
         "level_4": [
-          "the needs of patients,",
-          "teams, and systems are",
-          "met",
-          "Recognizes situations",
-          "that may impact others’",
-          "ability to complete tasks",
-          "and responsibilities in a",
-          "timely manner",
-          "Recognizes one’s own",
-          "role in leading the care of"
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner"
         ],
         "level_5": [
-          "all patients on the service",
-          "while mentoring/coaching",
-          "other team members to",
-          "ensure the best possible",
-          "care of patients, including",
-          "prioritizing tasks and",
-          "mitigating burnout"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_prof4",
       "number": 28,
-      "domain_number": 4,
       "name": "Well-Being",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes status of",
-          "personal and",
-          "professional well-being,",
-          "with assistance",
-          "Independently recognizes"
+          "Recognizes status of personal and professional well-being, with assistance"
         ],
         "level_2": [
-          "status of personal and",
-          "professional well-being",
-          "With assistance, proposes",
-          "a plan to optimize",
-          "personal and professional"
+          "Independently recognizes status of personal and professional well-being"
         ],
         "level_3": [
-          "well-being",
-          "Independently develops",
-          "a plan to optimize",
-          "personal and",
-          "professional well-being"
+          "With assistance, proposes a plan to optimize personal and professional well-being"
         ],
         "level_4": [
-          "Coaches others when",
-          "emotional responses or",
-          "limitations in",
-          "knowledge/skills do not",
-          "meet professional"
+          "Independently develops a plan to optimize personal and professional well-being"
         ],
         "level_5": [
-          "expectations"
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_ics1",
       "number": 29,
-      "domain_number": 1,
       "name": "Patient- and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Demonstrates respect",
-          "and establishes rapport",
-          "with patients and",
-          "patients’ families (e.g.,",
-          "situational awareness of",
-          "language, disability,",
-          "health literacy level,",
-          "cultural differences)",
-          "Communicates with",
-          "patients and their"
+          "Demonstrates respect and establishes rapport with patients and patients’ families (e.g., situational awareness of language, disability, health literacy level, cultural differences)",
+          "When prompted, reflects on biases while attempting to minimize communication barriers"
         ],
         "level_2": [
-          "families in an",
-          "understandable and",
-          "respectful manner",
-          "Establishes a therapeutic",
-          "relationship in",
-          "straightforward",
-          "encounters",
-          "Identifies barriers to",
-          "effective communication",
-          "(e.g., health literacy,"
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Facilitates difficult discussions specific to conferences with patients and patients’ families (e.g., end-of- life, explaining complications, therapeutic uncertainty)"
         ],
         "level_3": [
-          "cultural differences)",
-          "Establishes a therapeutic",
-          "relationship in challenging",
-          "encounters (e.g., shared",
-          "decision-making)",
-          "When prompted, reflects",
-          "on biases while",
-          "attempting to minimize",
-          "communication barriers",
-          "Facilitates difficult"
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
         ],
         "level_4": [
-          "discussions specific to",
-          "conferences with",
-          "patients and patients’",
-          "families (e.g., end-of-",
-          "life, explaining",
-          "complications,",
-          "therapeutic uncertainty)",
-          "Independently",
-          "recognizes biases while",
-          "attempting to proactively"
+          "Identifies barriers to effective communication (e.g., health literacy, cultural differences)",
+          "Mentors others in situational awareness and critical self-reflection"
         ],
         "level_5": [
-          "minimize",
-          "communication barriers",
-          "Mentors others in",
-          "situational awareness and",
-          "critical self-reflection",
-          "Coaches others in the",
-          "facilitation of crucial",
-          "conversations"
+          "Establishes a therapeutic relationship in challenging encounters (e.g., shared decision-making)",
+          "Coaches others in the facilitation of crucial conversations"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_ics2",
       "number": 30,
-      "domain_number": 2,
       "name": "Patient Counseling and Shared Decision-Making",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "understanding of the",
-          "informed consent",
-          "process",
-          "Answers questions about",
-          "the treatment plan and"
+          "Demonstrates basic understanding of the informed consent process"
         ],
         "level_2": [
-          "seeks guidance when",
-          "appropriate",
-          "Counsels patients through",
-          "the decision-making",
-          "process, including",
-          "responding to questions,"
+          "Answers questions about the treatment plan and seeks guidance when appropriate"
         ],
         "level_3": [
-          "for simple clinical",
-          "problems",
-          "Counsels patients",
-          "through the decision-",
-          "making process,",
-          "including responding to"
+          "Counsels patients through the decision-making process, including responding to questions, for simple clinical problems"
         ],
         "level_4": [
-          "questions, for complex",
-          "clinical problems",
-          "Counsels patients through",
-          "the decision-making",
-          "process, including",
-          "responding to questions,"
+          "Counsels patients through the decision- making process, including responding to questions, for complex clinical problems"
         ],
         "level_5": [
-          "for uncommon clinical",
-          "problems"
+          "Counsels patients through the decision-making process, including responding to questions, for uncommon clinical problems"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_ics3",
       "number": 31,
-      "domain_number": 3,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Understands and",
-          "respects the role and",
-          "function of",
-          "interprofessional team",
-          "members",
-          "Understands and",
-          "respects the role and",
-          "function of other health",
-          "care team members"
+          "Understands and respects the role and function of interprofessional team members",
+          "Integrates contributions from other health care team members into the care plan"
         ],
         "level_2": [
-          "Solicits insights from and",
-          "uses language that values",
-          "all interprofessional team",
-          "members",
-          "Solicits insights from",
-          "other health care team",
-          "members using language",
-          "that values all members",
-          "Integrates contributions"
+          "Understands and respects the role and function of other health care team members",
+          "Prevents and mediates conflict and distress among interprofessional team members"
         ],
         "level_3": [
-          "from interprofessional",
-          "team members into the",
-          "care plan",
-          "Integrates contributions",
-          "from other health care",
-          "team members into the",
-          "care plan",
-          "Prevents and mediates",
-          "conflict and distress"
+          "Solicits insights from and uses language that values all interprofessional team members",
+          "Addresses conflict and distress among other health care team members in complex patient situations"
         ],
         "level_4": [
-          "among interprofessional",
-          "team members",
-          "Addresses conflict and",
-          "distress among other",
-          "health care team",
-          "members in complex",
-          "patient situations",
-          "Fosters a culture of open",
-          "communication and"
+          "Solicits insights from other health care team members using language that values all members",
+          "Fosters a culture of open communication and effective teamwork within the interprofessional team"
         ],
         "level_5": [
-          "effective teamwork within",
-          "the interprofessional team",
-          "Attends to individual and",
-          "team distress and",
-          "promotes resilience",
-          "among other health care",
-          "teams"
+          "Integrates contributions from interprofessional team members into the care plan",
+          "Attends to individual and team distress and promotes resilience among other health care teams"
         ]
       }
     },
     {
       "id": "obstetrics_and_gynecology_ics4",
       "number": 32,
-      "domain_number": 4,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record",
-          "Safeguards patient",
-          "personal health",
-          "information",
-          "Demonstrates organized",
-          "diagnostic and therapeutic",
-          "reasoning through notes"
+          "Accurately records information in the patient record",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context"
         ],
         "level_2": [
-          "in the patient record",
-          "Documents required data",
-          "in formats specified by",
-          "institutional policy",
-          "Concisely reports",
-          "diagnostic and therapeutic",
-          "reasoning in the patient",
-          "record in an efficient",
-          "manner"
+          "Safeguards patient personal health information",
+          "Communicates clearly, concisely, on time, and in an organized written form, including providing anticipatory guidance"
         ],
         "level_3": [
-          "Appropriately selects",
-          "direct (e.g., telephone, in-",
-          "person) and indirect (e.g.,",
-          "progress notes, text",
-          "messages) forms of",
-          "communication based on",
-          "context",
-          "Communicates clearly,",
-          "concisely, on time, and"
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Produces written or verbal communication (e.g., patient notes, emails) that serves as an example for others to follow"
         ],
         "level_4": [
-          "in an organized written",
-          "form, including providing",
-          "anticipatory guidance",
-          "Produces written or",
-          "verbal communication",
-          "(e.g., patient notes,",
-          "emails) that serves as",
-          "an example for others to",
-          "follow"
+          "Documents required data in formats specified by institutional policy",
+          "Models feedback to improve others’ written communication"
         ],
         "level_5": [
-          "Models feedback to",
-          "improve others’ written",
-          "communication",
-          "Guides departmental or",
-          "institutional",
-          "communication around",
-          "policies and procedures"
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record in an efficient manner",
+          "Guides departmental or institutional communication around policies and procedures"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "obstetrics-and-gynecology",
-  "primary_name": "Obstetrics and Gynecology",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologymilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologysupplementalguide.pdf"

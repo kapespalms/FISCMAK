@@ -1,0 +1,547 @@
+{
+  "framework_key": "hematology",
+  "specialty": "Hematology",
+  "version": "2.0",
+  "source": "ACGME Hematology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "internal-medicine",
+  "parent_name": "Internal Medicine",
+  "subcompetencies": [
+    {
+      "id": "hematology_pc1",
+      "number": 1,
+      "name": "Accesses Data Sources to Synthesize Patient and Disease Specific Information Necessary for Clinical",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Accesses data and gathers a history standard for general internal medicine",
+          "Completes a disease- specific physical examination"
+        ],
+        "level_2": [
+          "Performs a physical examination standard for general internal medicine",
+          "Consistently synthesizes data from multiple sources and collects a disease- specific history from the patient and family members"
+        ],
+        "level_3": [
+          "Gathers a disease- specific history, with assistance",
+          "Consistently completes a disease-specific physical examination"
+        ],
+        "level_4": [
+          "Performs a disease- specific physical examination, with assistance",
+          "Role models gathering and synthesis of clinical information"
+        ],
+        "level_5": [
+          "Accesses data from multiple sources and collects disease-specific history, including psychosocial issues, from the patient and family members"
+        ]
+      }
+    },
+    {
+      "id": "hematology_pc2",
+      "number": 2,
+      "name": "Diagnoses and Assigns Stage and Severity of Hematology Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates a differential diagnosis expected of a graduating internal medicine resident",
+          "Determines clinical comorbidities"
+        ],
+        "level_2": [
+          "Orders testing without specialty-specific differential diagnosis",
+          "Diagnoses uncommon disorders and determines disease severity using evidence- based studies"
+        ],
+        "level_3": [
+          "Interprets initial diagnostic studies to generate a specialty-specific differential diagnosis",
+          "Role models the assignments of stage and disease severity, informed by evidence-based studies and guidelines for specialty disorders"
+        ],
+        "level_4": [
+          "Determines stage of disorder"
+        ],
+        "level_5": [
+          "Orders advanced diagnostic studies for common disorders when appropriate"
+        ]
+      }
+    },
+    {
+      "id": "hematology_pc3",
+      "number": 3,
+      "name": "Formulates the Management Plan",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Formulates a management plan for patients without comorbidities, with assistance"
+        ],
+        "level_2": [
+          "Formulates a management plan using decision-support tools for patients without comorbidities"
+        ],
+        "level_3": [
+          "Formulates a management plan with consideration of disease and patient factors and enrollment in clinical trials"
+        ],
+        "level_4": [
+          "Consistently formulates management plans that include consideration of clinical trial enrollment and conforms to patient preferences and goals of care"
+        ],
+        "level_5": [
+          "Serves as an expert in formulating management plans"
+        ]
+      }
+    },
+    {
+      "id": "hematology_pc4",
+      "number": 4,
+      "name": "Adjusts Management Plans for Acute and Chronic Issues",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Adjusts management plans according to standard guidelines and toxicities, with assistance"
+        ],
+        "level_2": [
+          "Adjusts management plans according to standard guidelines and toxicities"
+        ],
+        "level_3": [
+          "Adjusts management plans based on response to treatment, side effects of the treatment, and comorbidities"
+        ],
+        "level_4": [
+          "Adjusts management plans based on anticipation and recognition of subtle toxicities and long-term sequelae and/or changes in patient preferences and goals"
+        ],
+        "level_5": [
+          "Serves as an expert in developing and implementing pathways that influence management plans"
+        ]
+      }
+    },
+    {
+      "id": "hematology_pc5",
+      "number": 5,
+      "name": "Competence in Procedures:",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the indications for and assists with all required procedures",
+          "Manages complications of procedures, with supervision"
+        ],
+        "level_2": [
+          "Discusses potential procedural complications",
+          "Proficiently and independently performs all required procedures"
+        ],
+        "level_3": [
+          "Performs all required procedures, with direct supervision",
+          "Anticipates and independently manages complications of procedures"
+        ],
+        "level_4": [
+          "Recognizes complications of procedures and enlists help",
+          "Serves as an expert for all required procedures and their complications"
+        ],
+        "level_5": [
+          "Competently performs all required procedures, with indirect supervision"
+        ]
+      }
+    },
+    {
+      "id": "hematology_mk1",
+      "number": 6,
+      "name": "Non-Malignant Hematology (includes Pathophysiology, Diagnostics, Prognostic Information, and",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of specialty disorders"
+        ],
+        "level_2": [
+          "Demonstrates expanding knowledge of specialty disorders and development of clinical reasoning"
+        ],
+        "level_3": [
+          "Demonstrates sufficient knowledge of specialty disorders and clinical reasoning skills to determine evidence- based interventions"
+        ],
+        "level_4": [
+          "Synthesizes advanced knowledge of specialty disorders and uses clinical reasoning skills to develop personalized interventions"
+        ],
+        "level_5": [
+          "Serves as a subject matter expert"
+        ]
+      }
+    },
+    {
+      "id": "hematology_mk2",
+      "number": 7,
+      "name": "Malignant Hematology (includes Pathophysiology, Diagnostics, Prognostic Information, and Treatment)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of specialty disorders"
+        ],
+        "level_2": [
+          "Demonstrates expanding knowledge of specialty disorders and development of clinical reasoning"
+        ],
+        "level_3": [
+          "Demonstrates sufficient knowledge of specialty disorders and clinical reasoning skills to determine evidence- based interventions"
+        ],
+        "level_4": [
+          "Synthesizes advanced knowledge of specialty disorders and uses clinical reasoning skills to develop personalized interventions"
+        ],
+        "level_5": [
+          "Serves as a subject matter expert"
+        ]
+      }
+    },
+    {
+      "id": "hematology_mk3",
+      "number": 8,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy of scholarly investigation"
+        ],
+        "level_2": [
+          "Formulates a scholarly plan under supervision of a mentor"
+        ],
+        "level_3": [
+          "Presents products of scholarly activity at local meetings"
+        ],
+        "level_4": [
+          "Disseminates products of scholarly activity at regional or national meetings, and/or submits an abstract to regional, state, or national meetings"
+        ],
+        "level_5": [
+          "Publication of independent research that has generated new medical knowledge, educational programs, or process improvement"
+        ]
+      }
+    },
+    {
+      "id": "hematology_sbp1",
+      "number": 9,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Leads disclosure of patient safety events to patients and families with documentation (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in the analysis of patient safety events",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "hematology_sbp2",
+      "number": 10,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "hematology_sbp3",
+      "number": 11,
+      "name": "System Navigation for Patient-Centered Care: Coordination and Transitions of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of their interprofessional teams",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex clinical situations effectively using the roles of their interprofessional teams",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "hematology_sbp4",
+      "number": 12,
+      "name": "System Navigation for Patient-Centered Care: Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of population and community health care needs"
+        ],
+        "level_2": [
+          "Identifies specific population and community health care needs"
+        ],
+        "level_3": [
+          "Identifies local resources to meet community health care needs"
+        ],
+        "level_4": [
+          "Adapts practice to provide for the needs of specific populations"
+        ],
+        "level_5": [
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "hematology_sbp5",
+      "number": 13,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies basic financial barriers for individual patients and basic financial components of the health care system",
+          "Discusses how individual practice and the broader system affect each other"
+        ],
+        "level_2": [
+          "Identifies key components of the complex health care system",
+          "Manages financial factors that affect a patient's access to care and decision making"
+        ],
+        "level_3": [
+          "Considers financial barriers and quality of care when ordering diagnostic or therapeutic interventions",
+          "Manages various components of the complex health care system to provide efficient and effective patient care"
+        ],
+        "level_4": [
+          "Describes how components of a complex health care system are inter-related, and how this impacts ordering therapeutic interventions",
+          "Role models and teaches patients and interprofessional team members to consider value when making diagnostic and therapeutic recommendations"
+        ],
+        "level_5": [
+          "Incorporates value (quality/costs) into shared decision making, with interprofessional team input",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care"
+        ]
+      }
+    },
+    {
+      "id": "hematology_pbli1",
+      "number": 14,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "With assistance, accesses available evidence and practice guidelines for patient care"
+        ],
+        "level_2": [
+          "Independently identifies available evidence and practice guidelines for patient care"
+        ],
+        "level_3": [
+          "Critically appraises evidence and applies to patient care"
+        ],
+        "level_4": [
+          "Applies best available evidence, even in the face of insufficient and/or conflicting information"
+        ],
+        "level_5": [
+          "Serves as a role model to critically appraise and apply evidence to patient care"
+        ]
+      }
+    },
+    {
+      "id": "hematology_pbli2",
+      "number": 15,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gaps in knowledge and performance",
+          "Independently creates and implements a learning plan"
+        ],
+        "level_2": [
+          "Actively seeks opportunities to improve",
+          "Intentionally seeks performance data to narrow the gaps between expectations and actual performance"
+        ],
+        "level_3": [
+          "Reflects on the factors which contribute to gaps between expectations and actual performance",
+          "Measures the effectiveness of the learning plan and makes appropriate changes"
+        ],
+        "level_4": [
+          "Designs and implements a learning plan, with assistance",
+          "Role models reflective practice"
+        ],
+        "level_5": [
+          "Institutes changes to narrow the gaps between expectations and actual performance",
+          "Facilitates the design and implementation of learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "hematology_prof1",
+      "number": 16,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common ethical principles and potential triggers for professionalism lapses",
+          "Intervenes and uses appropriate resources to prevent and manage professionalism lapses and dilemmas in self and others"
+        ],
+        "level_2": [
+          "Describes when and how to appropriately report professionalism lapses",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_3": [
+          "Analyzes straightforward situations using ethical principles"
+        ],
+        "level_4": [
+          "Recognizes and takes responsibility for own professionalism lapses"
+        ],
+        "level_5": [
+          "Manages and resolves complex ethical situations, including personal lapses, with assistance"
+        ]
+      }
+    },
+    {
+      "id": "hematology_prof2",
+      "number": 17,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks"
+        ],
+        "level_2": [
+          "Performs tasks in a timely manner or provides notification when unable to complete tasks"
+        ],
+        "level_3": [
+          "Performs tasks in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ],
+        "level_4": [
+          "Takes responsibility in situations that impact the ability of team members to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Exceeds expectations for supporting team responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "hematology_prof3",
+      "number": 18,
+      "name": "Fellow Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of personal and professional well-being, with assistance",
+          "Advocates for institutional changes to support well- being"
+        ],
+        "level_2": [
+          "Independently recognizes status of personal and professional well-being"
+        ],
+        "level_3": [
+          "With assistance, proposes a plan to optimize personal and professional well-being"
+        ],
+        "level_4": [
+          "Independently develops a plan to optimize personal and professional well-being"
+        ],
+        "level_5": [
+          "Role models the continual ability to monitor and address personal and professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "hematology_ics1",
+      "number": 19,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common barriers to effective communication",
+          "With guidance, uses shared decision making to align patient/family values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_2": [
+          "Recognizes the need to adjust communication strategies based on context",
+          "Proactively improves communication by addressing barriers and biases"
+        ],
+        "level_3": [
+          "Identifies complex barriers to effective communication",
+          "Independently, uses shared decision making to make a personalized care plan"
+        ],
+        "level_4": [
+          "Verifies patient/family understanding of the clinical situation to optimize effective communication",
+          "Role models communication that addresses barriers"
+        ],
+        "level_5": [
+          "Reflects on biases while attempting to minimize communication barriers",
+          "Role models shared decision making in patient/family communication, including those with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "hematology_ics2",
+      "number": 20,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses respectful communication (verbal, non-verbal) with all members of the health care team",
+          "Seeks and provides performance feedback"
+        ],
+        "level_2": [
+          "Demonstrates openness to feedback",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
+        ],
+        "level_3": [
+          "Communicates effectively within and across all health care teams",
+          "Uses feedback to improve own performance and provides actionable feedback to team members"
+        ],
+        "level_4": [
+          "Responsive to feedback",
+          "Role models flexible communication strategies that solicits and values input from all health care team members, resolving conflict when needed"
+        ],
+        "level_5": [
+          "Adapts communication style within and across all health care teams to ensure mutual understanding",
+          "Role models giving and receiving of feedback"
+        ]
+      }
+    },
+    {
+      "id": "hematology_ics3",
+      "number": 21,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Communication includes key stakeholders"
+        ],
+        "level_2": [
+          "Safeguards patient personal health information in communications",
+          "Documentation reflects medical reasoning, patient preferences, and management recommendations and plans"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and medical reasoning through notes in the patient record",
+          "Achieves written or verbal communication that is exemplary"
+        ],
+        "level_4": [
+          "Appropriately selects forms of communication based on context",
+          "Role models optimal documentation"
+        ],
+        "level_5": [
+          "Documentation reflects level of complexity and severity of disease",
+          "Guides departmental or institutional communication policies"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologysupplementalguide.pdf"
+  }
+}

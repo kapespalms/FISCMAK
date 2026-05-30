@@ -1,0 +1,597 @@
+{
+  "framework_key": "developmental-behavioral-pediatrics",
+  "specialty": "Developmental-Behavioral Pediatrics",
+  "version": "2.0",
+  "source": "ACGME Developmental-Behavioral Pediatrics Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "pediatrics",
+  "parent_name": "Pediatrics",
+  "subcompetencies": [
+    {
+      "id": "developmental_behavioral_pediatrics_pc1",
+      "number": 1,
+      "name": "Developmental-Behavioral History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses a template to obtain, communicate, and document a history, including perinatal, developmental, and family components"
+        ],
+        "level_2": [
+          "Obtains, communicates, and documents a relevant history, eliciting patient’s and patient’s family’s contributions based on cognitive level and cultural norms"
+        ],
+        "level_3": [
+          "Incorporates supplemental data from external sources into the history to filter, prioritize, and synthesize a differential diagnosis for straightforward presentations"
+        ],
+        "level_4": [
+          "Reconciles information from conflicting sources or sources that are difficult to access into the history, and uses the history to develop a differential diagnosis for complex presentations"
+        ],
+        "level_5": [
+          "Recognizes and probes subtle clues from patients and their families; efficiently distinguishes nuances among diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_pc2",
+      "number": 2,
+      "name": "Developmental-Behavioral Physical Exam",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs general pediatric physical examination"
+        ],
+        "level_2": [
+          "Performs physical exam, including assessment of developmental status and behavioral characteristics"
+        ],
+        "level_3": [
+          "Performs developmentally appropriate physical examination and interprets normal variants and abnormal findings for straightforward presentations"
+        ],
+        "level_4": [
+          "Consistently performs developmentally appropriate physical examination and interprets normal variants and abnormal findings for complex presentations"
+        ],
+        "level_5": [
+          "Detects, pursues, and integrates key physical examination findings to distinguish nuances among competing, often similar diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_pc3",
+      "number": 3,
+      "name": "Screening and Assessment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Interprets caregiver and/or self-reported developmental- behavioral screening and assessment tools"
+        ],
+        "level_2": [
+          "Reviews previous testing results and administers and interprets developmental-behavioral assessment tools, with support"
+        ],
+        "level_3": [
+          "Evaluates previous testing results and administers and interprets developmental-behavioral assessment tools for straightforward presentations"
+        ],
+        "level_4": [
+          "Evaluates previous testing results and effectively selects, administers, and interprets developmental- behavioral assessment tools for complex presentations"
+        ],
+        "level_5": [
+          "Demonstrates flexibility and efficiency in selection, prioritization, administration, and interpretation of developmental-behavioral assessment tools for complex presentations"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_pc4",
+      "number": 4,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates an unfocused differential diagnosis based on the clinical facts"
+        ],
+        "level_2": [
+          "Organizes clinical facts to compare and contrast diagnoses being considered, resulting in a prioritized differential diagnosis"
+        ],
+        "level_3": [
+          "Integrates clinical facts into diagnostic conclusions; reappraises in real time to avoid diagnostic error in straightforward cases"
+        ],
+        "level_4": [
+          "Efficiently integrates clinical facts into diagnostic conclusions; reappraises in real time to avoid diagnostic error in complex cases"
+        ],
+        "level_5": [
+          "Role models the organization of clinical facts to develop a prioritized differential diagnosis for complex clinical presentations"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_pc5",
+      "number": 5,
+      "name": "Patient Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Participates in the creation of management plans"
+        ],
+        "level_2": [
+          "Develops management plan for common diagnoses"
+        ],
+        "level_3": [
+          "Develops prioritized management plans for common diagnoses"
+        ],
+        "level_4": [
+          "Develops prioritized management plans for complex diagnoses, with the ability to modify plans as necessary"
+        ],
+        "level_5": [
+          "Serves as a role model for development and prioritization of management plans for complex diagnoses, with the ability to modify plans as necessary"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_mk1",
+      "number": 6,
+      "name": "Development and Behavior",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists developmental and behavioral norms across domains"
+        ],
+        "level_2": [
+          "Identifies and interprets patterns of abnormalities across domains of development and/or behavior"
+        ],
+        "level_3": [
+          "Analyzes developmental and/or behavioral disorders based on common patterns of abnormalities"
+        ],
+        "level_4": [
+          "Analyzes developmental and/or behavioral disorders based on common and uncommon patterns of abnormalities"
+        ],
+        "level_5": [
+          "Investigates new influences on common and uncommon disorders of development and/or behavior"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_mk2",
+      "number": 7,
+      "name": "Etiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic knowledge of physiology, genetics, and environmental influences pertaining to general pediatrics"
+        ],
+        "level_2": [
+          "Demonstrates basic knowledge of physiologic, genetic, and environmental influences related to developmental- behavioral disorders"
+        ],
+        "level_3": [
+          "Demonstrates in-depth knowledge of physiologic, genetic, and environmental influences on developmental- behavioral disorders"
+        ],
+        "level_4": [
+          "Correlates knowledge of physiology, genetics, and environmental influences underlying developmental- behavioral disorders into evidence-based treatment planning"
+        ],
+        "level_5": [
+          "Investigates and disseminates knowledge of physiologic, genetic, and environmental influences on developmental- behavioral disorders"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_mk3",
+      "number": 8,
+      "name": "Diagnostic Investigation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses general diagnostic approach appropriate to clinical presentation"
+        ],
+        "level_2": [
+          "Lists indications, contraindications, risks, and benefits of diagnostic testing"
+        ],
+        "level_3": [
+          "Prioritizes and interprets diagnostic tests appropriate to clinical urgency and complexity"
+        ],
+        "level_4": [
+          "Uses complex diagnostic approaches that have the highest diagnostic yield and cost effectiveness"
+        ],
+        "level_5": [
+          "Demonstrates sophisticated knowledge of diagnostic testing and controversies"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_mk4",
+      "number": 9,
+      "name": "Pharmacologic and Developmental and/or Behavioral Interventions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common pharmacologic and developmental and/or behavioral interventions"
+        ],
+        "level_2": [
+          "Identifies the risks and benefits of common pharmacologic and developmental and/or behavioral interventions"
+        ],
+        "level_3": [
+          "Monitors and adjusts the choice and dosing of common pharmacologic and developmental and/or behavioral interventions"
+        ],
+        "level_4": [
+          "Monitors and adjusts pharmacologic and developmental and/or behavioral interventions in complex situations"
+        ],
+        "level_5": [
+          "Investigates and disseminates knowledge of novel pharmacologic and developmental and/or behavioral intervention options"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_sbp1",
+      "number": 10,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)"
+        ],
+        "level_3": [
+          "Identifies system factors that lead to patient safety events",
+          "Discloses patient safety events to patients and families (simulated or actual)"
+        ],
+        "level_4": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_5": [
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_sbp2",
+      "number": 11,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics"
+        ],
+        "level_2": [
+          "Describes local quality improvement initiatives"
+        ],
+        "level_3": [
+          "Participates in local quality improvement initiatives"
+        ],
+        "level_4": [
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_5": [
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_sbp3",
+      "number": 12,
+      "name": "System Navigation for Patient Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists the various interprofessional individuals involved in the patient’s care coordination"
+        ],
+        "level_2": [
+          "Coordinates care of patients in routine clinical situations, incorporating interprofessional teams with consideration of patient and family needs"
+        ],
+        "level_3": [
+          "Coordinates care of patients in complex clinical situations, effectively utilizing the roles of interprofessional teams, and incorporating patient and family needs and goals"
+        ],
+        "level_4": [
+          "Coordinates interprofessional, patient-centered care among different disciplines and specialties, actively assisting families in navigating the health care system"
+        ],
+        "level_5": [
+          "Coaches others in interprofessional, patient- centered care coordination"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_sbp4",
+      "number": 13,
+      "name": "System Navigation for Patient-Centered Care – Transitions in Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Uses a standard template for transitions of care/hand-offs"
+        ],
+        "level_2": [
+          "Adapts a standard template, recognizing key elements for safe and effective transitions of care/hand-offs in routine clinical situations"
+        ],
+        "level_3": [
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations, and ensures closed-loop communication"
+        ],
+        "level_4": [
+          "Performs and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including transitions to adult care"
+        ],
+        "level_5": [
+          "Coaches others in improving transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_sbp5",
+      "number": 14,
+      "name": "Population and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates awareness of population and community health needs"
+        ],
+        "level_2": [
+          "Identifies specific population and community health needs; identifies local resources"
+        ],
+        "level_3": [
+          "Uses local resources effectively to meet the needs of a patient population and community"
+        ],
+        "level_4": [
+          "Adapts practice to provide for the needs of of a specific population"
+        ],
+        "level_5": [
+          "Advocates at the local, regional, or national level for populations and communities with health care needs"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_sbp6",
+      "number": 15,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Engages with patients and other providers in discussions about cost- conscious care and key components of the health care delivery system"
+        ],
+        "level_2": [
+          "Identifies the relationships between the delivery system and cost- conscious care and the impact on the patient care"
+        ],
+        "level_3": [
+          "Discusses the need for changes in clinical approaches based on evidence, outcomes, and cost-effectiveness to improve care for patients and families"
+        ],
+        "level_4": [
+          "Advocates for the promotion of safe, quality, and high-value care"
+        ],
+        "level_5": [
+          "Coaches others to promote safe, quality, and high-value care across health care systems"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_pbli1",
+      "number": 16,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Develops an answerable clinical question and demonstrates how to access available evidence, with guidance"
+        ],
+        "level_2": [
+          "Independently articulates clinical question and accesses available evidence"
+        ],
+        "level_3": [
+          "Locates and applies the evidence, integrated with patient preference, to the care of patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence to guide care tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_pbli2",
+      "number": 17,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Participates in feedback sessions",
+          "Designs and implements a learning plan by analyzing and reflecting on the factors which contribute to gap(s) between performance expectations and actual performance"
+        ],
+        "level_2": [
+          "Develops personal and professional goals, with assistance",
+          "Seeks and incorporates feedback and performance data consistently"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and performance data",
+          "Adapts a learning plan using long-term professional goals, self- reflection, and performance data to measure its effectiveness"
+        ],
+        "level_4": [
+          "Designs a learning plan based on established goals, feedback, and performance data, with assistance",
+          "Role models and coaches others in seeking and incorporating feedback and performance data"
+        ],
+        "level_5": [
+          "Seeks and incorporates feedback and performance data episodically",
+          "Demonstrates continuous self-reflection and coaching of others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_prof1",
+      "number": 18,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies expected professional behaviors and potential triggers for lapses",
+          "Fully engages in patient care and holds oneself accountable"
+        ],
+        "level_2": [
+          "Identifies the value and role of developmental- behavioral pediatrics as a vocation/career",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in self and others"
+        ],
+        "level_3": [
+          "Demonstrates professional behavior with occasional lapses",
+          "Exhibits a sense of duty to patient care and professional responsibilities"
+        ],
+        "level_4": [
+          "Demonstrates accountability for patient care as a developmental- behavioral pediatrician, with guidance",
+          "Models professional behavior and coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Maintains professional behavior in increasingly complex or stressful situations",
+          "Extends the role of the developmental-behavioral pediatrician beyond the care of patients by engaging with the community, specialty, and medical profession as a whole"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_prof2",
+      "number": 19,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of the ethical principles underlying informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics"
+        ],
+        "level_2": [
+          "Applies ethical principles in common situations"
+        ],
+        "level_3": [
+          "Analyzes complex situations using ethical principles to address conflict/controversy; seeks help when needed to manage and resolve complex ethical situations"
+        ],
+        "level_4": [
+          "Manages and seeks to resolve ethical dilemmas using appropriate resources (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_5": [
+          "Called upon by others to consult in cases of complex ethical dilemmas; identifies and seeks to address system- level factors that induce or exacerbate"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_prof3",
+      "number": 20,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and responsibilities, with prompting"
+        ],
+        "level_2": [
+          "Performs tasks and responsibilities in a timely manner in routine situations"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a thorough and timely manner in complex or stressful situations"
+        ],
+        "level_4": [
+          "Coaches others to ensure tasks and responsibilities are completed in a thorough and timely manner in complex or stressful situations"
+        ],
+        "level_5": [
+          "Creates strategies to enhance others’ ability to efficiently complete tasks and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_prof4",
+      "number": 21,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional resources that are meant to promote well-being"
+        ],
+        "level_3": [
+          "Recognizes institutional and personal factors that impact well-being"
+        ],
+        "level_4": [
+          "Describes interactions between institutional and personal factors that impact well-being"
+        ],
+        "level_5": [
+          "Coaches and supports colleagues to optimize well-being at the team, program, or institutional level"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_ics1",
+      "number": 22,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and attempts to establish rapport",
+          "Communicates with sensitivity and compassion, elicits patient/family values, and acknowledges uncertainty and conflict"
+        ],
+        "level_2": [
+          "Attempts to adjust communication strategies based upon patient/family expectations",
+          "Establishes a therapeutic relationship in straightforward and complex encounters, including those with ambiguity and/or conflict"
+        ],
+        "level_3": [
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Uses shared decision making with patient/family to make a personalized care plan"
+        ],
+        "level_4": [
+          "Adjusts communication strategies as needed to mitigate barriers and meet patient/family expectations",
+          "Mentors others to develop positive therapeutic relationships"
+        ],
+        "level_5": [
+          "Establishes a culturally aware and therapeutic relationship in most encounters",
+          "Models and coaches others in patient- and family-centered communication"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_ics2",
+      "number": 23,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a consultation, with guidance",
+          "Uses bi-directional communication within the interprofessional team"
+        ],
+        "level_2": [
+          "Identifies the members of the interprofessional team",
+          "Coordinates consultant recommendations to optimize patient care"
+        ],
+        "level_3": [
+          "Clearly and concisely requests consultation by communicating patient information",
+          "Facilitates interprofessional team communication"
+        ],
+        "level_4": [
+          "Participates within the interprofessional team",
+          "Maintains a collaborative relationship with referring providers that maximizes adherence to practice recommendations"
+        ],
+        "level_5": [
+          "Formulates a specific question for consultation and tailors communication strategy",
+          "Coaches others in effective communication within the interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "developmental_behavioral_pediatrics_ics3",
+      "number": 24,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Records accurate information in the patient record",
+          "Aligns type of communication with message to be delivered (e.g., direct and indirect) based on urgency and complexity"
+        ],
+        "level_2": [
+          "Identifies the importance of and responds to multiple forms of communication (e.g., in- person, electronic health record (EHR), telephone, email)",
+          "Documents diagnostic and therapeutic reasoning, including anticipatory guidance"
+        ],
+        "level_3": [
+          "Records accurate and timely information in the patient record",
+          "Demonstrates exemplary written and verbal communication"
+        ],
+        "level_4": [
+          "Selects appropriate method of communication, with prompting",
+          "Models and coaches others in documenting diagnostic and therapeutic reasoning"
+        ],
+        "level_5": [
+          "Concisely documents updated, prioritized, diagnostic and therapeutic reasoning in the patient record",
+          "Coaches others in written and verbal communication"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/developmentalbehavioralpediatricsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/developmentalbehavioralpediatricssupplementalguide.pdf"
+  }
+}

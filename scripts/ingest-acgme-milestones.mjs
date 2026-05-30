@@ -107,8 +107,9 @@ function buildProgramList(specialtiesData) {
       milestones_page_url: primary.milestones_page_url ?? null,
     });
     for (const sub of primary.subspecialties) {
+      const subSlug = slugify(sub.name);
       programs.push({
-        slug: slugify(sub.name),
+        slug: `${primary.slug}--${subSlug}`,
         name: sub.name,
         program_type: "subspecialty",
         parent_slug: primary.slug,
@@ -333,14 +334,19 @@ async function processProgram(program, flags, PDFParse, report) {
   };
 
   const cacheDir = path.join(CACHE_DIR, program.slug);
-  const milestonePdfPath = path.join(
-    cacheDir,
-    pdfFilenameFromUrl(program.milestone_pdf_url),
-  );
+  const milestoneFilename = pdfFilenameFromUrl(program.milestone_pdf_url);
+  const milestonePdfPath = path.join(cacheDir, milestoneFilename);
   const supplementalPdfPath = path.join(
     cacheDir,
     pdfFilenameFromUrl(program.supplemental_guide_url),
   );
+  const legacyCacheDir =
+    program.program_type === "subspecialty"
+      ? path.join(CACHE_DIR, slugify(program.name))
+      : null;
+  const legacyMilestonePdfPath = legacyCacheDir
+    ? path.join(legacyCacheDir, milestoneFilename)
+    : null;
   const programSeedPath = path.join(PROGRAMS_DIR, `${program.slug}_milestones_v2.json`);
 
   if (program.slug === PSYCHIATRY_PRIMARY_SLUG && program.program_type === "primary") {
@@ -388,6 +394,8 @@ async function processProgram(program, flags, PDFParse, report) {
 
   if (fs.existsSync(milestonePdfPath)) {
     milestoneBuffer = fs.readFileSync(milestonePdfPath);
+  } else if (legacyMilestonePdfPath && fs.existsSync(legacyMilestonePdfPath)) {
+    milestoneBuffer = fs.readFileSync(legacyMilestonePdfPath);
   }
 
   if (flags.parse && milestoneBuffer) {
@@ -484,22 +492,25 @@ function generateProgramIndex(report) {
   writeJson("program_milestones_index.json", index);
 }
 
-function generateAllProgramMilestonesBundle() {
+function generateAllProgramMilestonesBundle(catalog) {
   const bundle = { generated_at: new Date().toISOString().slice(0, 10), programs: {} };
-  if (!fs.existsSync(PROGRAMS_DIR)) return bundle;
+  const catalogSlugs = new Set(catalog.programs.map((p) => p.slug));
 
-  for (const file of fs.readdirSync(PROGRAMS_DIR).sort()) {
-    if (!file.endsWith("_milestones_v2.json")) continue;
-    const slug = file.replace(/_milestones_v2\.json$/, "");
-    const data = JSON.parse(fs.readFileSync(path.join(PROGRAMS_DIR, file), "utf8"));
-    bundle.programs[slug] = {
-      subcompetencies: data.subcompetencies ?? [],
-      sources: data.sources ?? {},
-      program_type: data.program_type ?? "primary",
-      parent_slug: data.parent_slug ?? slug,
-      specialty: data.specialty ?? slug,
-      version: data.version ?? "2.0",
-    };
+  if (fs.existsSync(PROGRAMS_DIR)) {
+    for (const file of fs.readdirSync(PROGRAMS_DIR).sort()) {
+      if (!file.endsWith("_milestones_v2.json")) continue;
+      const slug = file.replace(/_milestones_v2\.json$/, "");
+      if (!catalogSlugs.has(slug)) continue;
+      const data = JSON.parse(fs.readFileSync(path.join(PROGRAMS_DIR, file), "utf8"));
+      bundle.programs[slug] = {
+        subcompetencies: data.subcompetencies ?? [],
+        sources: data.sources ?? {},
+        program_type: data.program_type ?? "primary",
+        parent_slug: data.parent_slug ?? slug,
+        specialty: data.specialty ?? slug,
+        version: data.version ?? "2.0",
+      };
+    }
   }
 
   writeJson("all_program_milestones.json", bundle);
@@ -603,7 +614,7 @@ async function main() {
   if (flags.index) {
     const catalog = generateCatalog(programs, report);
     generateProgramIndex(report);
-    const bundle = generateAllProgramMilestonesBundle();
+    const bundle = generateAllProgramMilestonesBundle(catalog);
     generateMilestoneFrameworks(catalog, appendixB, officialSources);
 
     report.finished_at = new Date().toISOString();

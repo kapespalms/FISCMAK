@@ -1,0 +1,604 @@
+{
+  "framework_key": "orthopaedic-trauma",
+  "specialty": "Orthopaedic Trauma",
+  "version": "2.0",
+  "source": "ACGME Orthopaedic Trauma Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "orthopaedic-surgery",
+  "parent_name": "Orthopaedic Surgery",
+  "subcompetencies": [
+    {
+      "id": "orthopaedic_trauma_pc1",
+      "number": 1,
+      "name": "Polytrauma (Care of Multiply Injured Patient)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies when a patient needs damage control during initial resuscitation, with direct supervision",
+          "Counsels patients on acute diagnosis and expectations, with indirect supervision",
+          "Independently prioritizes and manages complex polytrauma patients through interdisciplinary team care"
+        ],
+        "level_2": [
+          "Prioritizes management of polytrauma patients, with direct supervision",
+          "Performs damage control procedures, with indirect supervision",
+          "Independently counsels patients regarding long- term prognosis, potential complications, and need for additional procedure(s)"
+        ],
+        "level_3": [
+          "Counsels patients on acute diagnosis, with direct supervision",
+          "Determines timing for definitive management, with oversight",
+          "Independently anticipates changes in patient condition and plans and implements contingencies"
+        ],
+        "level_4": [
+          "Identifies when a patient needs damage control during initial resuscitation, with indirect supervision",
+          "Counsels patients on short-term prognosis, complications, and expectations, with oversight",
+          "Independently counsels patients regarding long- term prognosis, potential complications, and need for additional procedure(s); cites the evidence for each"
+        ],
+        "level_5": [
+          "Prioritizes management of polytrauma patients, with indirect supervision",
+          "Independently performs damage control procedures"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_pc2",
+      "number": 2,
+      "name": "Complex Diaphyseal Fracture (e.g., peri-prosthetic, open, bone loss, proximal/distal thirds)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a surgical plan, with direct supervision",
+          "Manages peri-procedural complications with oversight",
+          "Independently performs procedures"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills (e.g., reduction and placement of nail) and assists with procedures",
+          "Develops a surgical plan for procedures, including identification of potential challenges and technical complexities, with oversight",
+          "Independently manages complex intra-operative complications"
+        ],
+        "level_3": [
+          "Manages peri-procedural complications, with indirect supervision",
+          "Performs critical steps of procedures with indirect supervision",
+          "Independently plans complex procedures, including management of peri-operative complications"
+        ],
+        "level_4": [
+          "Develops a surgical plan, with indirect supervision",
+          "Manages complex intra- operative complications with indirect supervision",
+          "Independently performs complex revision procedures"
+        ],
+        "level_5": [
+          "Performs critical steps of procedures, with direct supervision",
+          "Independently develops a surgical plan for procedures, including contingencies for complications",
+          "Manages long-term complications in the outpatient setting"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_pc3",
+      "number": 3,
+      "name": "Periarticular Fractures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a surgical plan, with direct supervision",
+          "Manages peri-procedural complications, with oversight",
+          "Independently performs procedures for complex periarticular fractures"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills for simple periarticular fractures and assists with procedures",
+          "Develops a surgical plan for procedures, including identification of potential challenges and technical complexities, with indirect supervision",
+          "Independently manages complex intra-operative complications"
+        ],
+        "level_3": [
+          "Manages peri-procedural complications, with indirect supervision",
+          "Performs critical steps of procedures for complex periarticular fractures with indirect supervision",
+          "Independently plans complex procedures, including management of peri-operative complications"
+        ],
+        "level_4": [
+          "Develops a surgical plan, with indirect supervision",
+          "Manages complex intra- operative complications with indirect supervision",
+          "Independently performs complex revision procedures"
+        ],
+        "level_5": [
+          "Independently performs procedures for simple periarticular fractures",
+          "Independently develops a surgical plan for procedures, including contingencies for complications",
+          "Manages long-term complications in the outpatient setting"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_pc4",
+      "number": 4,
+      "name": "Pelvic and Acetabular Fractures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a surgical plan, with direct supervision",
+          "Manages peri-procedural complications, with oversight",
+          "Independently performs procedures for complex pelvic and acetabular fractures"
+        ],
+        "level_2": [
+          "Demonstrates surgical skills for simple pelvic and acetabular fractures, and assists with procedures",
+          "Develops a surgical plan for procedures, including identification of potential challenges and technical complexities, with oversight",
+          "Independently manages complex intra-operative complications"
+        ],
+        "level_3": [
+          "Manages peri-procedural complications, with indirect supervision",
+          "Demonstrates surgical skills of complex pelvic and acetabular fractures, and assists with procedures",
+          "Independently plans complex procedures, including management of peri-operative complications"
+        ],
+        "level_4": [
+          "Develops a surgical plan, with indirect supervision",
+          "Manages complex intra- operative complications with indirect supervision",
+          "Independently performs complex revision procedures"
+        ],
+        "level_5": [
+          "Performs procedures for simple pelvic and acetabular fractures, with indirect supervision",
+          "Independently develops a surgical plan for procedures, including contingencies for complications",
+          "Manages long-term complications in the outpatient setting"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_pc5",
+      "number": 5,
+      "name": "Soft Tissue",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs standard surgical approaches with compromised soft tissue, and adjusts as needed",
+          "Recognizes chronic soft tissue concerns, with oversight"
+        ],
+        "level_2": [
+          "Recognizes urgent/emergent soft tissue concerns (e.g., acute compartment syndrome, vascular injury, mangled extremity) and acts/consults appropriately, with oversight",
+          "Independently obtains adequate soft tissue coverage for complex injuries (e.g., through plastic surgery consultation)"
+        ],
+        "level_3": [
+          "Performs comprehensive debridement of an open fracture and incorporates soft tissue status in fracture management, with indirect supervision",
+          "Independently designs procedures and acquires consultation for patients with chronic soft tissue concerns"
+        ],
+        "level_4": [
+          "Performs procedures for urgent/emergent soft tissue concerns (e.g., fasciotomy) or impending soft tissue compromise and acquires appropriate consultations, with oversight",
+          "Independently performs skin graft and local flap procedures"
+        ],
+        "level_5": [
+          "Performs comprehensive debridement of an open fracture and incorporates soft tissue status in fracture management, with oversight",
+          "Independently performs and coordinates for procedures in patients with chronic soft tissue concerns"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_mk1",
+      "number": 6,
+      "name": "Polytrauma (Care of Multiply Injured Patient)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the basic pathophysiology of the multiply injured patient and identifies appropriate endpoints of resuscitation",
+          "Adapts absolute and relative surgical indications to a patient’s condition and types of fixation"
+        ],
+        "level_2": [
+          "Discusses absolute surgical indications and types of fixation",
+          "Triages order of injuries to be treated and titrates care based on patient resuscitation and surgical burden"
+        ],
+        "level_3": [
+          "Discusses the spectrum of instability of the multiply injured patient and recognizes indications for damage control orthopaedics (DCO) versus early appropriate care (EAC)",
+          "Anticipates long term sequela of surgical interventions and types of fixation"
+        ],
+        "level_4": [
+          "Discusses relative surgical indications and types of fixation",
+          "Leads discussion about the nuances of polytrauma and functions in the \"grey area\""
+        ],
+        "level_5": [
+          "Demonstrates knowledge of complex pathophysiology of the multiply injured patient and discusses intra- operative markers of patient resuscitation"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_mk2",
+      "number": 7,
+      "name": "Complex Diaphyseal Fracture (e.g., peri-prosthetic, open, bone loss, proximal/distal thirds)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of surgically relevant normal anatomy and interprets imaging",
+          "Adapts absolute and relative surgical indications to a patient’s condition and types of fixation"
+        ],
+        "level_2": [
+          "Discusses absolute surgical indications and types of fixation",
+          "Demonstrates knowledge of advanced surgical approaches based on fracture pattern needs"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic surgical approaches based on fracture pattern needs",
+          "Anticipates long-term sequela of surgical interventions and types of fixation"
+        ],
+        "level_4": [
+          "Discusses relative surgical indications and types of fixation",
+          "Leads advanced discussion around treatment nuances and controversies in management and techniques"
+        ],
+        "level_5": [
+          "Correlates imaging to surgical anatomy and selects surgical approach"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_mk3",
+      "number": 8,
+      "name": "Periarticular Fractures",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of surgically relevant normal anatomy and interprets imaging",
+          "Adapts absolute and relative surgical indications to a patient’s condition and types of fixation"
+        ],
+        "level_2": [
+          "Discusses absolute surgical indications and types of fixation",
+          "Demonstrates knowledge of advanced surgical approaches based on fracture pattern needs"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic surgical approaches based on fracture pattern needs",
+          "Anticipates long-term sequela of surgical interventions and types of fixation"
+        ],
+        "level_4": [
+          "Discusses relative surgical indications and types of fixation",
+          "Leads advanced discussion around treatment nuances and controversies in management and techniques"
+        ],
+        "level_5": [
+          "Correlates imaging to surgical anatomy and selects surgical approach"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_mk4",
+      "number": 9,
+      "name": "Pelvic and Acetabular Fractures",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of surgically relevant normal anatomy and interprets imaging",
+          "Adapts absolute and relative surgical indications to a patient’s condition and types of fixation"
+        ],
+        "level_2": [
+          "Discusses absolute surgical indications and types of fixation",
+          "Demonstrates knowledge of advanced surgical approaches based on fracture pattern needs"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic surgical approaches based on fracture pattern needs",
+          "Anticipates long-term sequela of surgical interventions and types of fixation"
+        ],
+        "level_4": [
+          "Discusses relative surgical indications and types of fixation",
+          "Leads advanced discussion around treatment nuances and controversies in management and techniques"
+        ],
+        "level_5": [
+          "Correlates imaging to surgical anatomy and selects surgical approach"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_mk5",
+      "number": 10,
+      "name": "Decision Making for Complex Problems [e.g., fracture-related infection (FRI), malunion/non-union, peri-",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies deviation from normal clinical course"
+        ],
+        "level_2": [
+          "Orders and interprets laboratory and imaging findings"
+        ],
+        "level_3": [
+          "Synthesizes information to arrive at diagnosis and treatment plan"
+        ],
+        "level_4": [
+          "Applies best available evidence to diagnosis and treatment"
+        ],
+        "level_5": [
+          "Adjusts plan based on treatment outcomes"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_sbp1",
+      "number": 11,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and their families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and their families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_sbp2",
+      "number": 12,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Role models effective coordination of patient- centered care among multidisciplinary teams"
+        ],
+        "level_3": [
+          "Coordinates care of patients in routine clinical situations, effectively using the roles of interprofessional team members",
+          "Role models and advocates for safe and effective transitions of care/hand-offs"
+        ],
+        "level_4": [
+          "Performs safe and effective transitions of care/hand-offs in straightforward clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_5": [
+          "Coordinates care of patients in complex clinical situations, effectively using the roles of interprofessional team members",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_sbp3",
+      "number": 13,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health payment systems, including government, private, public, and uninsured care, as well as different practice models"
+        ],
+        "level_2": [
+          "Describes how working within the health care system impacts patient care, including billing and coding"
+        ],
+        "level_3": [
+          "Analyzes how personal practice affects the system (e.g., length of stay, readmission rates, clinical efficiency)"
+        ],
+        "level_4": [
+          "Uses shared decision- making in patient care, considering costs to the patient"
+        ],
+        "level_5": [
+          "Participates in advocacy activities for health policy"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_pbli1",
+      "number": 14,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values to the care of a straightforward condition"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits patient preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex conditions"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care tailored to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex conditions, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_pbli2",
+      "number": 15,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Creates and implements a learning plan to optimize educational and professional development"
+        ],
+        "level_2": [
+          "Identifies the strengths, deficiencies, and limitations in one’s knowledge and expertise",
+          "Actively seeks feedback and other input, with adaptability and humility"
+        ],
+        "level_3": [
+          "Demonstrates openness to feedback and other input to inform goals",
+          "Uses ongoing reflection, feedback, and other input to measure the effectiveness of the learning plan and, when necessary, improves it"
+        ],
+        "level_4": [
+          "Analyzes and reflects on the strengths, deficiencies, and limitations in one’s knowledge and expertise to design a learning plan, with assistance",
+          "Role models consistently seeking feedback and other input with adaptability and humility"
+        ],
+        "level_5": [
+          "Responds to feedback and other input episodically, with adaptability and humility",
+          "Coaches others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_prof1",
+      "number": 16,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes inciting events for professionalism lapses",
+          "Integrates ethical principles and recognizes the need to seek help in complex situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care (e.g., informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics)",
+          "Recognizes situations that may promote professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in straightforward situations",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas (e.g., ethics consultations, literature review, risk management/legal consultation)"
+        ],
+        "level_4": [
+          "Applies ethical principles in straightforward situations and takes responsibility for lapses",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_prof2",
+      "number": 17,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Reliably arrives to clinical activities on time and describes strategies for ensuring timely task completion",
+          "Proactively completes tasks and responsibilities to ensure the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes barriers that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in straightforward situations",
+          "Develops processes to enhance others’ ability to efficiently complete patient care tasks and responsibilities"
+        ],
+        "level_4": [
+          "Completes tasks and responsibilities without reminders"
+        ],
+        "level_5": [
+          "Prioritizes tasks and responsibilities in a timely manner with appropriate attention to detail in complex situations"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_prof3",
+      "number": 18,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of addressing personal and professional well-being (e.g., physical and emotional health)",
+          "Independently develops a plan to promote personal and professional well-being"
+        ],
+        "level_2": [
+          "Lists available resources for personal and professional well-being",
+          "Describes institutional factors that positively and/or negatively affect well-being"
+        ],
+        "level_3": [
+          "Describes institutional resources that are meant to promote well-being",
+          "Creates institutional-level interventions that promote colleagues’ well-being"
+        ],
+        "level_4": [
+          "Discusses a plan to promote personal and professional well-being with institutional support",
+          "Describes institutional programs designed to examine systemic contributors to burnout"
+        ],
+        "level_5": [
+          "Recognizes which institutional factors affect well-being"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_ics1",
+      "number": 19,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect and establishes rapport with patients and their families (e.g., situational awareness of language, disability, health literacy level, cultural differences)",
+          "Answers questions about straightforward treatment plans, with assistance",
+          "Recognizes biases and integrates a patient’s viewpoint and autonomy to ensure effective communication"
+        ],
+        "level_2": [
+          "Communicates with patients and their families in an understandable and respectful manner",
+          "Establishes a therapeutic relationship in challenging encounters (e.g., shared decision-making)",
+          "Counsels patients through the decision- making process for complex conditions"
+        ],
+        "level_3": [
+          "Demonstrates basic understanding of the informed consent process",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Coaches others in the facilitation of difficult conversations"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters",
+          "Counsels patients through the decision-making process for straightforward conditions",
+          "Mentors others in situational awareness and critical self-reflection"
+        ],
+        "level_5": [
+          "Identifies barriers to effective communication (e.g., health literacy)",
+          "Facilitates difficult discussions with patients and their families, (e.g., explaining complications, therapeutic uncertainty)",
+          "Counsels patients through the decision-making process for uncommon conditions"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_ics2",
+      "number": 20,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes the value and role of each team member and respectfully interacts with all members of the health care team"
+        ],
+        "level_2": [
+          "Communicates in a professional and productive manner to facilitate teamwork (e.g., active listening, updates in timely fashion)"
+        ],
+        "level_3": [
+          "Actively recognizes and mitigates communication barriers and biases with the health care team"
+        ],
+        "level_4": [
+          "Facilitates respectful communications and conflict resolution with the multidisciplinary health care team"
+        ],
+        "level_5": [
+          "Exemplar of effective and respectful communication strategies"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_trauma_ics3",
+      "number": 21,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record while safeguarding patients’ personal health information",
+          "Independently communicates via written or verbal methods based on urgency and context"
+        ],
+        "level_2": [
+          "Demonstrates accurate, timely, and efficient use of the electronic health record to communicate with the health care team",
+          "Uses appropriate channels to offer clear and constructive suggestions to improve the system"
+        ],
+        "level_3": [
+          "Uses appropriate communication methods (e.g., face-to-face, voice, electronic)",
+          "Facilitates improved written and verbal communication of others"
+        ],
+        "level_4": [
+          "Concisely reports diagnostic and therapeutic reasoning while incorporating relevant outside data",
+          "Guides departmental or institutional communication around policies and procedures"
+        ],
+        "level_5": [
+          "Respectfully initiates communications about concerns in the system"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedictraumamilestones.pdf",
+    "supplemental_guide_url": null
+  }
+}

@@ -1,0 +1,587 @@
+{
+  "framework_key": "pediatric-otolaryngology",
+  "specialty": "Pediatric Otolaryngology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Otolaryngology Milestones 2.0",
+  "program_type": "subspecialty",
+  "parent_slug": "otolaryngology---head-and-neck-surgery",
+  "parent_name": "Otolaryngology - Head and Neck Surgery",
+  "subcompetencies": [
+    {
+      "id": "pediatric_otolaryngology_pc1",
+      "number": 1,
+      "name": "Pediatric Chronic Airway Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs an age- appropriate history and physical examination in patients with airway conditions",
+          "Initiates work-up of common complications",
+          "Performs advanced operative airway procedures"
+        ],
+        "level_2": [
+          "Provides routine peri- operative care for pediatric patients with airway conditions",
+          "Explains the risks, benefits, and alternatives of medical and surgical interventions for airway conditions",
+          "Manages uncommon/infrequent complications"
+        ],
+        "level_3": [
+          "Recognizes common complications",
+          "Performs routine operative airway procedures in patients with complex conditions",
+          "Adapts standard treatment plans and interventions to special circumstances"
+        ],
+        "level_4": [
+          "Formulates developmentally appropriate diagnostic and treatment plans for patients with airway conditions",
+          "Manages common complications; recognizes uncommon/infrequent complications",
+          "Performs advanced operative airway procedures in patients with complex conditions, including revision"
+        ],
+        "level_5": [
+          "Performs routine operative airway procedures",
+          "Implements a standard treatment plan that includes the interdisciplinary team",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pc2",
+      "number": 2,
+      "name": "Pediatric Acute Airway Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies potential airway emergencies in neonates and children with risk factors for difficult airway",
+          "Implements an age- appropriate airway management algorithm from least to most invasive"
+        ],
+        "level_2": [
+          "Escalates care of emergency airway (e.g., alerts operating room)",
+          "Performs advanced airway emergency procedures"
+        ],
+        "level_3": [
+          "Performs airway assessment and age- appropriate focused history and physical",
+          "Implements an age- appropriate airway management plan in complex patients"
+        ],
+        "level_4": [
+          "Describes the age- appropriate airway management algorithm from least to most invasive",
+          "Performs complex airway emergency procedures in complex patients"
+        ],
+        "level_5": [
+          "Performs straightforward age-appropriate airway emergency procedures",
+          "Develops age-appropriate and patient-specific anticipatory airway management plans"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pc3",
+      "number": 3,
+      "name": "Pediatric Head and Neck Mass/Lesion",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination in patients with head and neck mass/lesion",
+          "Initiates work-up of common complications",
+          "Performs advanced operative procedures for head and neck mass/lesion"
+        ],
+        "level_2": [
+          "Provides routine peri- operative care for patients with head and neck mass/lesion, with guidance",
+          "Explains the risks and benefits of treatment plans for head and neck mass/lesion",
+          "Manages uncommon/infrequent complications"
+        ],
+        "level_3": [
+          "Recognizes common complications",
+          "Performs routine operative procedures for head and neck mass/lesion in patients with complex conditions",
+          "Adapts typical treatment plans and techniques to special circumstances"
+        ],
+        "level_4": [
+          "Formulates a diagnostic plan for patients with head and neck mass/lesion",
+          "Manages common complications; recognizes uncommon/infrequent complications",
+          "Performs advanced operative procedures for complex or recurrent head and neck mass/lesion"
+        ],
+        "level_5": [
+          "Performs routine operative procedures for head and neck mass/lesion",
+          "Implements a treatment plan that includes the interdisciplinary team",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pc4",
+      "number": 4,
+      "name": "Pediatric Otologic Disease",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination; interprets routine behavioral audiograms in patients",
+          "Initiates work-up of common complications",
+          "Performs advanced otologic operative procedures"
+        ],
+        "level_2": [
+          "Provides routine peri- operative care for patients with ear disease and/or hearing loss",
+          "Explains the risks, benefits, and alternatives of interventions for ear disease, hearing loss, or vestibular disorders",
+          "Manages uncommon/infrequent complications"
+        ],
+        "level_3": [
+          "Recognizes common complications",
+          "Performs routine otologic operative procedures in patients with complex conditions",
+          "Adapts standard treatment plans and interventions to special circumstances; promotes family-centered care"
+        ],
+        "level_4": [
+          "Provides age-appropriate diagnostic and treatment plans for patients with ear disease and/or hearing loss",
+          "Manages common complications; recognizes uncommon/infrequent complications",
+          "Performs advanced otologic operative procedures in patients with complex conditions; performs revision procedures; teaches otologic surgery"
+        ],
+        "level_5": [
+          "Performs routine otologic operative procedures",
+          "Implements standard treatment plans for otologic and vestibular conditions; centralizes multidisciplinary care for treatment plans",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pc5",
+      "number": 5,
+      "name": "Pediatric Rhinologic Diseases",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination in patients with rhinologic disease",
+          "Initiates work-up of common complications associated with rhinologic disease",
+          "Performs advanced endoscopic rhinologic operative procedures in patients with complex conditions"
+        ],
+        "level_2": [
+          "Provides routine peri- operative care for patients with rhinologic disease",
+          "Explains the risks, benefits, and alternatives of medical and surgical interventions for rhinologic disease",
+          "Manages uncommon/infrequent complications associated with rhinologic disease"
+        ],
+        "level_3": [
+          "Recognizes common complications",
+          "Performs routine rhinologic operative procedures in patients with complex conditions",
+          "Adapts standard treatment plans and interventions to special circumstances"
+        ],
+        "level_4": [
+          "Formulates developmentally appropriate diagnostic and treatment plans for patients with rhinologic disease",
+          "Manages common complications; recognizes uncommon/infrequent complications",
+          "Performs advanced endoscopic rhinologic and skull base surgical care in patients with complex conditions, including revision"
+        ],
+        "level_5": [
+          "Performs routine rhinologic operative procedures",
+          "Implements a standard treatment plan that includes the multidisciplinary team",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pc6",
+      "number": 6,
+      "name": "Pediatric Craniofacial, Plastic, and Reconstructive Surgery",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and physical examination in patients with craniofacial conditions and trauma",
+          "Initiates work-up of common complications",
+          "Performs advanced craniofacial and trauma operative procedures"
+        ],
+        "level_2": [
+          "Provides routine peri- operative care for patients with craniofacial conditions and trauma",
+          "Explains the risks, benefits, and alternatives of medical and surgical interventions for craniofacial conditions and trauma",
+          "Manages uncommon/infrequent complications"
+        ],
+        "level_3": [
+          "Recognizes common complications",
+          "Performs routine craniofacial and trauma operative procedures in patients with complex conditions",
+          "Adapts standard treatment plans and interventions to special circumstances (rare cases)"
+        ],
+        "level_4": [
+          "Formulates developmentally appropriate diagnostic and treatment plans for patients with craniofacial conditions and trauma",
+          "Manages common complications; recognizes uncommon/infrequent complications",
+          "Performs advanced craniofacial and trauma operative procedures in patients with complex condition, including revision"
+        ],
+        "level_5": [
+          "Performs routine craniofacial and trauma operative procedures",
+          "Implements a standard treatment plan that includes the multidisciplinary team",
+          "Serves as a peer resource for managing uncommon/infrequent complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_mk1",
+      "number": 7,
+      "name": "Head and Neck Developmental Anatomy and Embryology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of normal growth and developmental milestones",
+          "Describes detailed embryology of all head and neck structures"
+        ],
+        "level_2": [
+          "Describes normal embryologic development of face and neck",
+          "Incorporates growth and development outcomes into complex treatment plans"
+        ],
+        "level_3": [
+          "Recognizes atypical growth or development",
+          "Applies knowledge of congenital anomalies to treatment planning"
+        ],
+        "level_4": [
+          "Diagnoses common patterns of abnormal embryology and resultant diseases",
+          "Serves as a peer resource for growth and developmental outcomes"
+        ],
+        "level_5": [
+          "Describes treatment for otolaryngological disease impacting growth or development",
+          "Participates in multidisciplinary treatment planning for fetal anomalies"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_mk2",
+      "number": 8,
+      "name": "Syndromes and Complex Comorbidities Impacting Otolaryngologic Care, including Genetics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes features of common craniofacial syndromes",
+          "Develops comprehensive knowledge of complex comorbidities"
+        ],
+        "level_2": [
+          "Identifies comorbid conditions that impact management",
+          "Diagnoses craniofacial syndromes and conditions"
+        ],
+        "level_3": [
+          "Discusses developmental implications of common craniofacial syndromes",
+          "Applies knowledge of complex comorbidities to treatment planning"
+        ],
+        "level_4": [
+          "Discusses implications of comorbidities on management",
+          "Recognizes uncommon or newly defined syndromes"
+        ],
+        "level_5": [
+          "Recognizes less-common features and nuances of craniofacial syndromes",
+          "Develops recommendations or guidelines for management of patients with complex comorbidities"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_sbp1",
+      "number": 9,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local quality improvement initiatives",
+          "Discloses patient safety events to patients and patients’ families (simulated or actual)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and patients’ families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
+        ],
+        "level_4": [
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
+        ],
+        "level_5": [
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_sbp2",
+      "number": 10,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems, including outpatient settings"
+        ],
+        "level_2": [
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of interprofessional team members",
+          "Participates in changing and adapting practice to provide for the needs of specific populations"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
+        ],
+        "level_4": [
+          "Coordinates care of patients in routine clinical situations effectively using the roles of interprofessional team members",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
+        ],
+        "level_5": [
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties",
+          "Leads innovations and advocates for populations and communities with specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_sbp3",
+      "number": 11,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Describes core administrative knowledge needed for transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model"
+        ],
+        "level_2": [
+          "Describes basic health payment systems, including government, private, public, uninsured care, and practice models",
+          "Discusses how individual practice affects the broader system (e.g., length of stay, readmission rates, clinical efficiency)",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
+        ],
+        "level_3": [
+          "Identifies basic knowledge domains for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Engages with patients in shared decision-making, informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transitions of care"
+        ],
+        "level_4": [
+          "Describes how components of a complex health care system are interrelated, and how they impact patient care",
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Participates in health policy advocacy activities"
+        ],
+        "level_5": [
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type)",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transitions of care",
+          "Educates others to prepare them for transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pbli1",
+      "number": 12,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to access available evidence, and incorporate the patient’s and patient’s family’s preferences and values to the care of a routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical questions and elicits the patient’s and patient’s family’s preferences and values to guide evidence- based care"
+        ],
+        "level_3": [
+          "Locates and applies the best available evidence, integrated with the patient’s and patient’s family’s preference, to the care of complex patients"
+        ],
+        "level_4": [
+          "Critically appraises and applies evidence, even in the face of uncertainty and conflicting evidence, to guide care to the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to critically appraise and apply evidence for complex patients, and/or participates in the development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_pbli2",
+      "number": 13,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance"
+        ],
+        "level_2": [
+          "Identifies the factors that contribute to gap(s) between expectations and actual performance",
+          "Intentionally seeks performance data consistently, with adaptability"
+        ],
+        "level_3": [
+          "Demonstrates openness to performance data (feedback and other input) to inform goals",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
+        ],
+        "level_4": [
+          "Analyzes and reflects on the factors that contribute to gap(s) between expectations and actual performance",
+          "Role models consistently seeking performance data with adaptability"
+        ],
+        "level_5": [
+          "Seeks performance data episodically, with adaptability",
+          "Coaches others on reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_prof1",
+      "number": 14,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes potential triggers for professionalism lapses",
+          "Analyzes complex situations using ethical principles and recognizes the need to seek help in managing and resolving complex ethical situations"
+        ],
+        "level_2": [
+          "Demonstrates knowledge of the ethical principles underlying patient care, including informed consent, surrogate decision making, advance directives, confidentiality, error disclosure, stewardship of limited resources, and related topics",
+          "Recognizes situations that may trigger professionalism lapses and intervenes to prevent lapses in oneself and others"
+        ],
+        "level_3": [
+          "Demonstrates insight into professional behavior in routine situations and how to appropriately report professionalism lapses",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
+        ],
+        "level_4": [
+          "Analyzes straightforward situations using ethical principles",
+          "Coaches others when their behavior fails to meet professional expectations"
+        ],
+        "level_5": [
+          "Demonstrates professional behavior in complex or stressful situations",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_prof2",
+      "number": 15,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
+        ],
+        "level_2": [
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Recognizes situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_3": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Leads system change"
+        ],
+        "level_4": [
+          "Recognizes situations that may impact one’s own ability to complete tasks and responsibilities in a timely manner"
+        ],
+        "level_5": [
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_prof3",
+      "number": 16,
+      "name": "Knowledge of Systemic and Individual Factors of Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the importance of getting help when needed to address personal and professional well-being",
+          "Reflects on actions in real time to proactively respond to the inherent emotional challenges of physician work"
+        ],
+        "level_2": [
+          "Lists resources to support personal and professional well-being",
+          "Suggests potential solutions to institutional factors that affect well- being"
+        ],
+        "level_3": [
+          "Recognizes institutional factors that affect well- being",
+          "Participates in institutional changes to promote personal and professional well-being"
+        ],
+        "level_4": [
+          "With prompting, reflects on how personal and professional well-being may impact one’s clinical practice"
+        ],
+        "level_5": [
+          "Describes institutional factors that affect well- being"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_ics1",
+      "number": 17,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non- verbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with a patient/patient’s family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Independently recognizes biases while attempting to proactively minimize communication barriers"
+        ],
+        "level_2": [
+          "Identifies common barriers to effective communication (e.g., language, disability) while accurately communicating one’s own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Independently, uses shared decision making to align the patient’s/patient’s family’s values, goals, and preferences with treatment options to make a personalized care plan"
+        ],
+        "level_3": [
+          "Identifies the need to adjust communication strategies based on assessment of a patient’s/patient’s family’s expectations and understanding of their health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
+        ],
+        "level_4": [
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information; elicits a patient’s/patient’s family’s values, goals, and preferences; and acknowledges uncertainty and conflict",
+          "Role models self- awareness while identifying a contextual approach to minimize communication barriers"
+        ],
+        "level_5": [
+          "Identifies complex barriers to effective communication (e.g., health literacy)",
+          "Easily establishes therapeutic relationships, with attention to a patient’s/patient’s family’s concerns and context, regardless of complexity",
+          "Role models shared decision making in communication with patients/patients’ families, including those situations with a high degree of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_ics2",
+      "number": 18,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests/receives a consultation",
+          "Receives follow-up and feedback on the outcome of the consultation",
+          "Communicates concerns and provides feedback to peers and learners"
+        ],
+        "level_2": [
+          "Uses language that values all members of the health care team",
+          "Uses active listening to adapt communication style to fit team needs",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
+        ],
+        "level_3": [
+          "Clearly and concisely requests/responds to a request for consultation",
+          "Solicits feedback on performance as a member of the health care team",
+          "Facilitates health care team-based feedback in complex situations"
+        ],
+        "level_4": [
+          "Communicates information effectively with all health care team members",
+          "Coordinates recommendations from different members of the health care team to optimize patient care",
+          "Facilitates teaching of team-based communication and feedback"
+        ],
+        "level_5": [
+          "Respectfully receives feedback on performance as a member of the health care team",
+          "Communicates feedback and constructive criticism to superiors"
+        ]
+      }
+    },
+    {
+      "id": "pediatric_otolaryngology_ics3",
+      "number": 19,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records information in the patient record",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context"
+        ],
+        "level_2": [
+          "Safeguards patients’ personal health information",
+          "Communicates clearly, concisely, timely, and in an organized written form, including anticipatory guidance"
+        ],
+        "level_3": [
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Produces written or verbal communication (e.g., patient notes, email) that serves as an example for others to follow"
+        ],
+        "level_4": [
+          "Documents required data in formats specified by institutional policy",
+          "Models feedback to improve others’ written communication"
+        ],
+        "level_5": [
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Guides departmental or institutional communication around policies and procedures"
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricotolaryngologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricotolaryngologysupplementalguide.pdf"
+  }
+}

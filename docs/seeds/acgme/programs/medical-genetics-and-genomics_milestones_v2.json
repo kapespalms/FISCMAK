@@ -3,1265 +3,517 @@
   "specialty": "Medical Genetics and Genomics",
   "version": "2.0",
   "source": "ACGME Medical Genetics and Genomics Milestones 2.0",
+  "program_type": "primary",
+  "parent_slug": "medical-genetics-and-genomics",
+  "parent_name": "Medical Genetics and Genomics",
   "subcompetencies": [
     {
       "id": "medical_genetics_and_genomics_pc1",
       "number": 1,
-      "domain_number": 1,
       "name": "History and Physical Examination",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Takes a general medical",
-          "and family history",
-          "Completes a general",
-          "physical examination",
-          "Takes a basic genetics-",
-          "focused history and",
-          "completes a basic",
-          "pedigree",
-          "Completes a basic",
-          "genetics-focused physical",
-          "examination; identifies"
+          "Takes a general medical and family history",
+          "Completes a genetics- focused physical examination; identifies and accurately describes common phenotypic features and/or anomalies; recognizes common syndromes or disorders"
         ],
         "level_2": [
-          "normal and abnormal",
-          "phenotypic features",
-          "and/or anomalies",
-          "Takes a genetics-focused",
-          "history with some",
-          "pertinent positive and",
-          "negative findings;",
-          "completes an accurate",
-          "pedigree",
-          "Completes a genetics-",
-          "focused physical"
+          "Completes a general physical examination",
+          "Takes a comprehensive genetic history with pertinent positive and negative findings; integrates the history with other data to develop a differential diagnosis"
         ],
         "level_3": [
-          "examination; identifies",
-          "and accurately describes",
-          "common phenotypic",
-          "features and/or",
-          "anomalies; recognizes",
-          "common syndromes or",
-          "disorders",
-          "Takes a comprehensive",
-          "genetic history with",
-          "pertinent positive and",
-          "negative findings;"
+          "Takes a basic genetics- focused history and completes a basic pedigree",
+          "Identifies and accurately describes phenotypic features and/or anomalies using standardized nomenclature; recognizes complex syndromes or disorders"
         ],
         "level_4": [
-          "integrates the history",
-          "with other data to",
-          "develop a differential",
-          "diagnosis",
-          "Identifies and accurately",
-          "describes phenotypic",
-          "features and/or",
-          "anomalies using",
-          "standardized",
-          "nomenclature;",
-          "recognizes complex"
+          "Completes a basic genetics-focused physical examination; identifies normal and abnormal phenotypic features and/or anomalies",
+          "Makes a nationally recognized contribution by describing a new genetic disorder or expanding the phenotype of a known syndrome or disorder"
         ],
         "level_5": [
-          "syndromes or disorders",
-          "Makes a nationally",
-          "recognized contribution",
-          "by describing a new",
-          "genetic disorder or",
-          "expanding the phenotype",
-          "of a known syndrome or",
-          "disorder"
+          "Takes a genetics-focused history with some pertinent positive and negative findings; completes an accurate pedigree"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_pc2",
       "number": 2,
-      "domain_number": 2,
       "name": "Selecting Tests, Interpreting Results, and Management of Genetic Conditions",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Identifies the variety of",
-          "testing modalities for",
-          "genetic conditions",
-          "Identifies the",
-          "components of the",
-          "genetics test result",
-          "Recognizes the",
-          "availability of intervention",
-          "for some genetic",
-          "conditions",
-          "Identifies basic testing"
+          "Identifies the variety of testing modalities for genetic conditions",
+          "Identifies resources and guidelines for treatment and management of common genetic conditions",
+          "Uses resources to interpret ambiguous test results in the context of the phenotype"
         ],
         "level_2": [
-          "options for common",
-          "genetic disorders",
-          "Identifies resources to",
-          "facilitate interpretation of",
-          "positive, negative, and",
-          "uncertain test results",
-          "Identifies resources and",
-          "guidelines for treatment",
-          "and management of",
-          "common genetic",
-          "conditions"
+          "Identifies the components of the genetics test result",
+          "Identifies strengths and limitations of testing methodologies in order to select first tier tests",
+          "Implements treatment and/or surveillance plans for complex genetic conditions"
         ],
         "level_3": [
-          "Identifies strengths and",
-          "limitations of testing",
-          "methodologies in order to",
-          "select first tier tests",
-          "Uses resources to",
-          "interpret diagnostic test",
-          "results in the context of",
-          "the phenotype",
-          "Implements treatment",
-          "and/or surveillance plans",
-          "for common genetic"
+          "Recognizes the availability of intervention for some genetic conditions",
+          "Uses resources to interpret diagnostic test results in the context of the phenotype",
+          "Contributes to the knowledge base for the refinement of ambiguous test results"
         ],
         "level_4": [
-          "conditions",
-          "Selects and prioritizes",
-          "testing options across a",
-          "broad spectrum of",
-          "complex disorders and",
-          "inheritance patterns/",
-          "mechanisms",
-          "Uses resources to",
-          "interpret ambiguous test",
-          "results in the context of",
-          "the phenotype"
+          "Identifies basic testing options for common genetic disorders",
+          "Implements treatment and/or surveillance plans for common genetic conditions",
+          "Creates evidence-based guidelines for management"
         ],
         "level_5": [
-          "Implements treatment",
-          "and/or surveillance",
-          "plans for complex",
-          "genetic conditions",
-          "Contributes to the",
-          "knowledge base for the",
-          "refinement of ambiguous",
-          "test results",
-          "Creates evidence-based",
-          "guidelines for",
-          "management"
+          "Identifies resources to facilitate interpretation of positive, negative, and uncertain test results",
+          "Selects and prioritizes testing options across a broad spectrum of complex disorders and inheritance patterns/ mechanisms"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_pc3",
       "number": 3,
-      "domain_number": 3,
       "name": "Pre- and Post-Test Genetic Counseling",
       "acgme_competency_key": "pc",
       "levels": {
         "level_1": [
-          "Participates in pre-test",
-          "counseling",
-          "Participates in post-test",
-          "counseling",
-          "Explains the rationale for",
-          "the recommended testing",
-          "Explains the results of the"
+          "Participates in pre-test counseling",
+          "Conveys the impact and limitations of diagnostic and non-diagnostic results"
         ],
         "level_2": [
-          "test",
-          "Conveys the impact and",
-          "limitations of disorder-",
-          "specific targeted testing",
-          "while obtaining informed",
-          "consent",
-          "Conveys the impact and"
+          "Participates in post-test counseling",
+          "Clearly conveys the impact and limitations of complex untargeted testing while obtaining informed consent"
         ],
         "level_3": [
-          "limitations of diagnostic",
-          "and non-diagnostic",
-          "results",
-          "Clearly conveys the",
-          "impact and limitations of",
-          "complex untargeted",
-          "testing while obtaining"
+          "Explains the rationale for the recommended testing",
+          "Conveys the impact and limitations of unexpected and ambiguous results"
         ],
         "level_4": [
-          "informed consent",
-          "Conveys the impact and",
-          "limitations of",
-          "unexpected and",
-          "ambiguous results",
-          "Participates in the",
-          "development of"
+          "Explains the results of the test",
+          "Participates in the development of professional practice guidelines regarding testing and return of results"
         ],
         "level_5": [
-          "professional practice",
-          "guidelines regarding",
-          "testing and return of",
-          "results"
+          "Conveys the impact and limitations of disorder- specific targeted testing while obtaining informed consent"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_mk1",
       "number": 4,
-      "domain_number": 1,
       "name": "Foundations of Genetics and Genomics",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates basic",
-          "medical knowledge of",
-          "embryology, inheritance,",
-          "and genetic mechanism",
-          "of disease",
-          "Demonstrates basic",
-          "medical knowledge of",
-          "gene and genome",
-          "structure and function",
-          "Applies knowledge of",
-          "embryology, inheritance,"
+          "Demonstrates basic medical knowledge of embryology, inheritance, and genetic mechanism of disease",
+          "Applies advanced knowledge of gene and genome structure and function to make a diagnosis"
         ],
         "level_2": [
-          "and genetic mechanism",
-          "of disease to identify a",
-          "differential diagnosis",
-          "Applies knowledge of",
-          "gene and genome",
-          "structure and function to",
-          "identify a differential",
-          "diagnosis",
-          "Applies advanced",
-          "knowledge of embryology,",
-          "inheritance, and genetic"
+          "Demonstrates basic medical knowledge of gene and genome structure and function",
+          "Applies advanced knowledge of embryology, inheritance, and genetic mechanism of disease to diagnostic and therapeutic interventions"
         ],
         "level_3": [
-          "mechanism of disease",
-          "to make a diagnosis",
-          "Applies advanced",
-          "knowledge of gene and",
-          "genome structure and",
-          "function to make a",
-          "diagnosis",
-          "Applies advanced",
-          "knowledge of",
-          "embryology,",
-          "inheritance, and genetic"
+          "Applies knowledge of embryology, inheritance, and genetic mechanism of disease to identify a differential diagnosis",
+          "Applies advanced knowledge of gene and genome structure and function to diagnostic and therapeutic interventions"
         ],
         "level_4": [
-          "mechanism of disease",
-          "to diagnostic and",
-          "therapeutic",
-          "interventions",
-          "Applies advanced",
-          "knowledge of gene and",
-          "genome structure and",
-          "function to diagnostic",
-          "and therapeutic",
-          "interventions",
-          "Contributes to peer-"
+          "Applies knowledge of gene and genome structure and function to identify a differential diagnosis",
+          "Contributes to peer- reviewed resources addressing genetic mechanism of disease"
         ],
         "level_5": [
-          "reviewed resources",
-          "addressing genetic",
-          "mechanism of disease",
-          "Recognized as a national",
-          "expert in diagnosis and",
-          "management of genetic",
-          "disease"
+          "Applies advanced knowledge of embryology, inheritance, and genetic mechanism of disease to make a diagnosis",
+          "Recognized as a national expert in diagnosis and management of genetic disease"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_mk2",
       "number": 5,
-      "domain_number": 2,
       "name": "Clinical Genetics and Genomics",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Recognizes syndromic",
-          "and non-syndromic",
-          "etiologies",
-          "Recognizes that",
-          "phenotypes evolve",
-          "across the lifespan",
-          "Identifies syndromic and",
-          "non-syndromic etiologies",
-          "Identifies the changes of"
+          "Recognizes syndromic and non-syndromic etiologies",
+          "Demonstrates knowledge of the changes in phenotypes across the lifespan and how it impacts diagnosis and management"
         ],
         "level_2": [
-          "phenotypes across the",
-          "lifespan",
-          "Demonstrates knowledge",
-          "of syndromic and non-",
-          "syndromic etiologies and",
-          "the impact on diagnosis",
-          "and management",
-          "Demonstrates knowledge",
-          "of the changes in"
+          "Recognizes that phenotypes evolve across the lifespan",
+          "Applies knowledge of syndromic and non- syndromic etiologies to diagnosis and management"
         ],
         "level_3": [
-          "phenotypes across the",
-          "lifespan and how it",
-          "impacts diagnosis and",
-          "management",
-          "Applies knowledge of",
-          "syndromic and non-",
-          "syndromic etiologies to",
-          "diagnosis and",
-          "management"
+          "Identifies syndromic and non-syndromic etiologies",
+          "Applies knowledge of the changes in phenotypes across the lifespan and how it impacts diagnosis and management"
         ],
         "level_4": [
-          "Applies knowledge of",
-          "the changes in",
-          "phenotypes across the",
-          "lifespan and how it",
-          "impacts diagnosis and",
-          "management",
-          "Serves as an expert",
-          "resource for syndromic",
-          "and/or non-syndromic"
+          "Identifies the changes of phenotypes across the lifespan",
+          "Serves as an expert resource for syndromic and/or non-syndromic etiologies"
         ],
         "level_5": [
-          "etiologies",
-          "Contributes to peer-",
-          "reviewed resources",
-          "addressing natural history",
-          "of genetic disease"
+          "Demonstrates knowledge of syndromic and non- syndromic etiologies and the impact on diagnosis and management",
+          "Contributes to peer- reviewed resources addressing natural history of genetic disease"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_mk3",
       "number": 6,
-      "domain_number": 3,
       "name": "Clinical Reasoning",
       "acgme_competency_key": "mk",
       "levels": {
         "level_1": [
-          "Demonstrates a basic",
-          "framework for clinical",
-          "reasoning",
-          "Identifies appropriate",
-          "resources to inform",
-          "clinical reasoning",
-          "Demonstrates clinical",
-          "reasoning to determine"
+          "Demonstrates a basic framework for clinical reasoning",
+          "Seeks and integrates evidence-based information to inform diagnostic decision making in complex cases, with assistance"
         ],
         "level_2": [
-          "relevant information",
-          "Selects relevant",
-          "resources based on",
-          "scenario to inform",
-          "decisions",
-          "Synthesizes information",
-          "to inform clinical",
-          "reasoning, with"
+          "Identifies appropriate resources to inform clinical reasoning",
+          "Independently synthesizes information to inform clinical reasoning in complex cases"
         ],
         "level_3": [
-          "assistance",
-          "Seeks and integrates",
-          "evidence-based",
-          "information to inform",
-          "diagnostic decision",
-          "making in complex",
-          "cases, with assistance",
-          "Independently"
+          "Demonstrates clinical reasoning to determine relevant information",
+          "Independently seeks out, analyzes and applies relevant original research to diagnostic decision making in complex clinical cases"
         ],
         "level_4": [
-          "synthesizes",
-          "information to inform",
-          "clinical reasoning in",
-          "complex cases",
-          "Independently seeks",
-          "out, analyzes and",
-          "applies relevant",
-          "original research to"
+          "Selects relevant resources based on scenario to inform decisions",
+          "Develops a novel approach for the assessment of complex cases"
         ],
         "level_5": [
-          "diagnostic decision",
-          "making in complex",
-          "clinical cases",
-          "Develops a novel",
-          "approach for the",
-          "assessment of complex",
-          "cases"
+          "Synthesizes information to inform clinical reasoning, with assistance"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_sbp1",
       "number": 7,
-      "domain_number": 1,
       "name": "Patient Safety and Quality Improvement",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of common",
-          "patient safety events",
-          "Demonstrates",
-          "knowledge of how to",
-          "report patient safety",
-          "events",
-          "Demonstrates",
-          "knowledge of basic",
-          "quality improvement",
-          "methodologies and",
-          "metrics"
+          "Demonstrates knowledge of common patient safety events",
+          "Describes local (institutional) quality improvement initiatives",
+          "Discloses patient safety events to patients and families (simulated or actual)"
         ],
         "level_2": [
-          "Identifies system factors",
-          "that lead to patient safety",
-          "events",
-          "Reports patient safety",
-          "events through",
-          "institutional reporting",
-          "systems (simulated or",
-          "actual)",
-          "Describes local",
-          "(institutional) quality",
-          "improvement initiatives",
-          "Participates in analysis of"
+          "Demonstrates knowledge of how to report patient safety events",
+          "Participates in analysis of patient safety events (simulated or actual)",
+          "Demonstrates the skills required to identify, develop, implement, and analyze a quality improvement project"
         ],
         "level_3": [
-          "patient safety events",
-          "(simulated or actual)",
-          "Participates in disclosure",
-          "of patient safety events to",
-          "patients and families",
-          "(simulated or actual)",
-          "Participates in local",
-          "(institutional) quality",
-          "improvement initiatives",
-          "Conducts analysis of",
-          "patient safety events",
-          "and offers error"
+          "Demonstrates knowledge of basic quality improvement methodologies and metrics",
+          "Participates in disclosure of patient safety events to patients and families (simulated or actual)",
+          "Actively engages teams and processes to modify systems to prevent patient safety events"
         ],
         "level_4": [
-          "prevention strategies",
-          "(simulated or actual)",
-          "Discloses patient safety",
-          "events to patients and",
-          "families (simulated or",
-          "actual)",
-          "Demonstrates the skills",
-          "required to identify,",
-          "develop, implement,",
-          "and analyze a quality",
-          "improvement project",
-          "Actively engages teams"
+          "Identifies system factors that lead to patient safety events",
+          "Participates in local (institutional) quality improvement initiatives",
+          "Role models or mentors others in the disclosure of patient safety events"
         ],
         "level_5": [
-          "and processes to modify",
-          "systems to prevent",
-          "patient safety events",
-          "Role models or mentors",
-          "others in the disclosure of",
-          "patient safety events",
-          "Creates, implements, and",
-          "assesses quality",
-          "improvement initiatives at",
-          "the institutional or",
-          "community (state/federal)",
-          "level"
+          "Reports patient safety events through institutional reporting systems (simulated or actual)",
+          "Conducts analysis of patient safety events and offers error prevention strategies (simulated or actual)",
+          "Creates, implements, and assesses quality improvement initiatives at the institutional or community (state/federal) level"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_sbp2",
       "number": 8,
-      "domain_number": 2,
       "name": "System Navigation for Patient-Centered Care",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "knowledge of care",
-          "coordination",
-          "Identifies key elements",
-          "for safe and effective",
-          "transitions of care and",
-          "hand-offs",
-          "Demonstrates",
-          "knowledge of population",
-          "and community health",
-          "needs",
-          "Coordinates care of",
-          "patients in routine clinical",
-          "situations effectively using",
-          "the roles of the",
-          "interprofessional teams,"
+          "Demonstrates knowledge of care coordination",
+          "Identifies specific population and community health needs for the local population",
+          "Role models and advocates for safe and effective transitions of care/hand-offs within and across health care delivery systems including outpatient settings, referrals, and testing"
         ],
         "level_2": [
-          "including non-physician",
-          "patient caregivers",
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in routine",
-          "clinical situations",
-          "Identifies specific",
-          "population and",
-          "community health needs",
-          "for the local population",
-          "Coordinates care of",
-          "patients in complex",
-          "clinical situations",
-          "effectively using the roles",
-          "of the interprofessional",
-          "teams"
+          "Identifies key elements for safe and effective transitions of care and hand-offs",
+          "Coordinates care of patients in complex clinical situations effectively using the roles of the interprofessional teams",
+          "Participates in changing and adapting practice to provide for the needs of specific populations including advocating for a patient’s genetic testing coverage"
         ],
         "level_3": [
-          "Performs safe and",
-          "effective transitions of",
-          "care/hand-offs in complex",
-          "clinical situations",
-          "Uses local resources",
-          "effectively to meet the",
-          "needs of a patient",
-          "population and",
-          "community",
-          "Role models effective",
-          "coordination of patient-",
-          "centered care among",
-          "different disciplines and",
-          "specialties including",
-          "referrals and testing",
-          "Role models and"
+          "Demonstrates knowledge of population and community health needs",
+          "Performs safe and effective transitions of care/hand-offs in complex clinical situations",
+          "Analyzes the process of care coordination and leads in the design and implementation of improvements"
         ],
         "level_4": [
-          "advocates for safe and",
-          "effective transitions of",
-          "care/hand-offs within",
-          "and across health care",
-          "delivery systems",
-          "including outpatient",
-          "settings, referrals, and",
-          "testing",
-          "Participates in changing",
-          "and adapting practice to",
-          "provide for the needs of",
-          "specific populations",
-          "including advocating for",
-          "a patient’s genetic",
-          "testing coverage",
-          "Analyzes the process of"
+          "Coordinates care of patients in routine clinical situations effectively using the roles of the interprofessional teams, including non-physician patient caregivers",
+          "Uses local resources effectively to meet the needs of a patient population and community",
+          "Improves quality of transitions of care within and across health care delivery systems to optimize patient outcomes"
         ],
         "level_5": [
-          "care coordination and",
-          "leads in the design and",
-          "implementation of",
-          "improvements",
-          "Improves quality of",
-          "transitions of care within",
-          "and across health care",
-          "delivery systems to",
-          "optimize patient outcomes",
-          "Leads innovations and",
-          "advocates for populations",
-          "and communities with",
-          "specific health care needs",
-          "at the state or federal",
-          "level"
+          "Performs safe and effective transitions of care/hand-offs in routine clinical situations",
+          "Role models effective coordination of patient- centered care among different disciplines and specialties including referrals and testing",
+          "Leads innovations and advocates for populations and communities with specific health care needs at the state or federal level"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_sbp3",
       "number": 9,
-      "domain_number": 3,
       "name": "Physician Role in Health Care Systems",
       "acgme_competency_key": "sbp",
       "levels": {
         "level_1": [
-          "Identifies key",
-          "components of the",
-          "complex health care",
-          "system (e.g., hospital,",
-          "skilled nursing facility,",
-          "finance, personnel,",
-          "technology)",
-          "Describes basic health",
-          "payment systems (e.g.,",
-          "government, private,",
-          "public, uninsured care)",
-          "and practice models",
-          "Identifies basic",
-          "knowledge for effective",
-          "transition to practice",
-          "(e.g., information",
-          "technology, legal, billing",
-          "and coding, financial,"
+          "Identifies key components of the complex health care system (e.g., hospital, skilled nursing facility, finance, personnel, technology)",
+          "Demonstrates use of information technology required for medical practice (e.g., electronic health record, documentation required for billing and coding)",
+          "Advocates for patient care needs (e.g., community resources, patient assistance resources) with consideration of the limitations of each patient’s payment model, including genetic testing through research"
         ],
         "level_2": [
-          "personnel)",
-          "Describes how",
-          "components of a complex",
-          "health care system are",
-          "interrelated, and how this",
-          "impacts patient care",
-          "Delivers care with",
-          "consideration of each",
-          "patient’s payment model",
-          "(e.g., insurance type) and",
-          "access to genetic testing",
-          "or formula",
-          "Demonstrates use of",
-          "information technology",
-          "required for medical",
-          "practice (e.g., electronic",
-          "health record,",
-          "documentation required"
+          "Describes basic health payment systems (e.g., government, private, public, uninsured care) and practice models",
+          "Discusses how individual practice affects the broader system (e.g., access to genetic testing and treatments, testing advocacy)",
+          "Analyzes individual practice patterns and professional requirements in preparation for practice"
         ],
         "level_3": [
-          "for billing and coding)",
-          "Discusses how individual",
-          "practice affects the",
-          "broader system (e.g.,",
-          "access to genetic testing",
-          "and treatments, testing",
-          "advocacy)",
-          "Engages with patients in",
-          "shared decision making,",
-          "often informed by each",
-          "patient’s payment models",
-          "Describes core",
-          "administrative knowledge",
-          "needed for transition to",
-          "practice (e.g., contract",
-          "negotiations, malpractice",
-          "insurance, government",
-          "regulation, compliance)"
+          "Identifies basic knowledge for effective transition to practice (e.g., information technology, legal, billing and coding, financial, personnel)",
+          "Engages with patients in shared decision making, often informed by each patient’s payment models",
+          "Advocates for or leads systems change that enhances high-value, efficient, and effective patient care and transition of care"
         ],
         "level_4": [
-          "Manages various",
-          "components of the",
-          "complex health care",
-          "system to provide",
-          "efficient and effective",
-          "patient care and",
-          "transition of care",
-          "Advocates for patient",
-          "care needs (e.g.,",
-          "community resources,",
-          "patient assistance",
-          "resources) with",
-          "consideration of the",
-          "limitations of each",
-          "patient’s payment",
-          "model, including genetic",
-          "testing through research",
-          "Analyzes individual"
+          "Describes how components of a complex health care system are interrelated, and how this impacts patient care",
+          "Describes core administrative knowledge needed for transition to practice (e.g., contract negotiations, malpractice insurance, government regulation, compliance)",
+          "Participates in health policy advocacy activities"
         ],
         "level_5": [
-          "practice patterns and",
-          "professional",
-          "requirements in",
-          "preparation for practice",
-          "Advocates for or leads",
-          "systems change that",
-          "enhances high-value,",
-          "efficient, and effective",
-          "patient care and transition",
-          "of care",
-          "Participates in health",
-          "policy advocacy activities",
-          "Educates others to",
-          "prepare them for",
-          "transition to practice"
+          "Delivers care with consideration of each patient’s payment model (e.g., insurance type) and access to genetic testing or formula",
+          "Manages various components of the complex health care system to provide efficient and effective patient care and transition of care",
+          "Educates others to prepare them for transition to practice"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_pbli1",
       "number": 10,
-      "domain_number": 1,
       "name": "Evidence-Based and Informed Practice",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Demonstrates how to",
-          "access and use available",
-          "evidence, and",
-          "incorporate patient",
-          "preferences and values",
-          "in order to take care of a"
+          "Demonstrates how to access and use available evidence, and incorporate patient preferences and values in order to take care of a routine patient"
         ],
         "level_2": [
-          "routine patient",
-          "Articulates clinical",
-          "questions and elicits",
-          "patient preferences and",
-          "values in order to guide",
-          "evidence-based care"
+          "Articulates clinical questions and elicits patient preferences and values in order to guide evidence-based care"
         ],
         "level_3": [
-          "Locates and applies the",
-          "best available evidence,",
-          "integrated with patient",
-          "preference, to the care of",
-          "complex patients",
-          "Critically appraises and"
+          "Locates and applies the best available evidence, integrated with patient preference, to the care of complex patients"
         ],
         "level_4": [
-          "applies evidence even",
-          "in the face of",
-          "uncertainty and",
-          "conflicting evidence to",
-          "guide care, tailored to",
-          "the individual patient"
+          "Critically appraises and applies evidence even in the face of uncertainty and conflicting evidence to guide care, tailored to the individual patient"
         ],
         "level_5": [
-          "Mentors others to critically",
-          "appraise and apply",
-          "evidence for complex",
-          "patients; and/or",
-          "participates in the",
-          "development of guidelines"
+          "Mentors others to critically appraise and apply evidence for complex patients; and/or participates in the development of guidelines"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_pbli2",
       "number": 11,
-      "domain_number": 2,
       "name": "Reflective Practice and Commitment to Personal Growth",
       "acgme_competency_key": "pbli",
       "levels": {
         "level_1": [
-          "Accepts responsibility for",
-          "personal and",
-          "professional",
-          "development by",
-          "establishing goals",
-          "Identifies the factors",
-          "which contribute to",
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Actively seeks",
-          "opportunities to improve"
+          "Accepts responsibility for personal and professional development by establishing goals",
+          "Designs and implements a learning plan, with prompting",
+          "Challenges assumptions and considers alternatives in narrowing the gap(s) between expectations and actual performance"
         ],
         "level_2": [
-          "Demonstrates openness",
-          "to performance data",
-          "(feedback and other",
-          "input) in order to inform",
-          "goals",
-          "Analyzes and reflects on",
-          "the factors which",
-          "contribute to gap(s)",
-          "between expectations and",
-          "actual performance",
-          "Designs and implements",
-          "a learning plan, with"
+          "Identifies the factors which contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data episodically, with adaptability and humility",
+          "Uses performance data to measure the effectiveness of the learning plan and when necessary, improves it"
         ],
         "level_3": [
-          "prompting",
-          "Seeks performance data",
-          "episodically, with",
-          "adaptability and humility",
-          "Analyzes, reflects on, and",
-          "institutes behavioral",
-          "change(s) to narrow the",
-          "gap(s) between",
-          "expectations and actual",
-          "performance",
-          "Independently creates",
-          "and implements a"
+          "Actively seeks opportunities to improve",
+          "Analyzes, reflects on, and institutes behavioral change(s) to narrow the gap(s) between expectations and actual performance",
+          "Serves as a role model in seeking performance data with adaptability and humility"
         ],
         "level_4": [
-          "learning plan",
-          "Seeks performance",
-          "data consistently with",
-          "adaptability and humility",
-          "Challenges",
-          "assumptions and",
-          "considers alternatives in",
-          "narrowing the gap(s)",
-          "between expectations",
-          "and actual performance",
-          "Uses performance data",
-          "to measure the"
+          "Demonstrates openness to performance data (feedback and other input) in order to inform goals",
+          "Independently creates and implements a learning plan",
+          "Mentors others on reflective practice"
         ],
         "level_5": [
-          "effectiveness of the",
-          "learning plan and when",
-          "necessary, improves it",
-          "Serves as a role model in",
-          "seeking performance data",
-          "with adaptability and",
-          "humility",
-          "Mentors others on",
-          "reflective practice",
-          "Facilitates the design and",
-          "implementing learning",
-          "plans for others"
+          "Analyzes and reflects on the factors which contribute to gap(s) between expectations and actual performance",
+          "Seeks performance data consistently with adaptability and humility",
+          "Facilitates the design and implementing learning plans for others"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_prof1",
       "number": 12,
-      "domain_number": 1,
       "name": "Professional Behavior and Ethical Principles",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Demonstrates",
-          "compassion, sensitivity,",
-          "honesty and integrity,",
-          "and identifies potential",
-          "triggers for",
-          "professionalism lapses",
-          "Demonstrates",
-          "knowledge of the ethical",
-          "principles underlying",
-          "patient care",
-          "Demonstrates basic",
-          "knowledge of conflict of",
-          "interest",
-          "Demonstrates"
+          "Demonstrates compassion, sensitivity, honesty and integrity, and identifies potential triggers for professionalism lapses",
+          "Identifies different types of conflicts of interest, knows guidelines for interactions with vendors",
+          "Recognizes and uses appropriate resources for managing and resolving ethical dilemmas as needed"
         ],
         "level_2": [
-          "compassion, sensitivity,",
-          "honesty and integrity, and",
-          "takes responsibility for",
-          "own professionalism",
-          "lapses",
-          "Analyzes straightforward",
-          "situations using ethical",
-          "principles",
-          "Identifies different types",
-          "of conflicts of interest,",
-          "knows guidelines for",
-          "interactions with vendors",
-          "Demonstrates",
-          "compassion, sensitivity,"
+          "Demonstrates knowledge of the ethical principles underlying patient care",
+          "Demonstrates compassion, sensitivity, honesty, and integrity in complex/stressful situations",
+          "Demonstrates consistently professional behavior with regard to conflicts of interest relevant to presentations, publishing, consulting, and service"
         ],
         "level_3": [
-          "honesty, and integrity in",
-          "complex/stressful",
-          "situations",
-          "Recognizes need to seek",
-          "help in managing and",
-          "resolving complex ethical",
-          "situations",
-          "Identifies resources for",
-          "managing and resolving",
-          "conflicts of interest",
-          "Demonstrates",
-          "compassion, sensitivity,",
-          "honesty, and integrity",
-          "and serves as a role"
+          "Demonstrates basic knowledge of conflict of interest",
+          "Recognizes need to seek help in managing and resolving complex ethical situations",
+          "Coaches others when their behavior fails to meet professional expectations"
         ],
         "level_4": [
-          "model to others",
-          "Recognizes and uses",
-          "appropriate resources",
-          "for managing and",
-          "resolving ethical",
-          "dilemmas as needed",
-          "Demonstrates",
-          "consistently",
-          "professional behavior",
-          "with regard to conflicts",
-          "of interest relevant to",
-          "presentations,",
-          "publishing, consulting,",
-          "and service"
+          "Demonstrates compassion, sensitivity, honesty and integrity, and takes responsibility for own professionalism lapses",
+          "Identifies resources for managing and resolving conflicts of interest",
+          "Identifies and seeks to address system-level factors that induce or exacerbate ethical problems or impede their resolution"
         ],
         "level_5": [
-          "Coaches others when",
-          "their behavior fails to",
-          "meet professional",
-          "expectations",
-          "Identifies and seeks to",
-          "address system-level",
-          "factors that induce or",
-          "exacerbate ethical",
-          "problems or impede their",
-          "resolution"
+          "Analyzes straightforward situations using ethical principles",
+          "Demonstrates compassion, sensitivity, honesty, and integrity and serves as a role model to others"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_prof2",
       "number": 13,
-      "domain_number": 2,
       "name": "Accountability/Conscientiousness",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Takes responsibility for",
-          "failure to complete tasks",
-          "and responsibilities,",
-          "identifies potential",
-          "contributing factors, and",
-          "describes strategies for",
-          "ensuring timely task",
-          "completion in the future",
-          "Responds promptly to",
-          "requests or reminders to",
-          "complete tasks and",
-          "responsibilities"
+          "Takes responsibility for failure to complete tasks and responsibilities, identifies potential contributing factors, and describes strategies for ensuring timely task completion in the future",
+          "Demonstrates a professional appearance, daily demeanor, and conduct",
+          "Promotes professional appearance, demeanor, and conduct in their peers and associates"
         ],
         "level_2": [
-          "Recognizes the role of",
-          "appearance, daily",
-          "demeanor and conduct",
-          "in the role of a",
-          "professional",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in",
-          "routine situations",
-          "Recognizes situations",
-          "that may impact his/her"
+          "Responds promptly to requests or reminders to complete tasks and responsibilities",
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in complex or stressful situations",
+          "Volunteers to improve and takes ownership of system outcomes"
         ],
         "level_3": [
-          "own ability to complete",
-          "tasks and responsibilities",
-          "in a timely manner",
-          "Demonstrates a",
-          "professional appearance,",
-          "daily demeanor, and",
-          "conduct",
-          "Performs tasks and",
-          "responsibilities in a timely",
-          "manner with appropriate",
-          "attention to detail in",
-          "complex or stressful"
+          "Recognizes the role of appearance, daily demeanor and conduct in the role of a professional",
+          "Proactively implements strategies to ensure that the needs of patients, teams, and systems are met"
         ],
         "level_4": [
-          "situations",
-          "Proactively implements",
-          "strategies to ensure that",
-          "the needs of patients,",
-          "teams, and systems are",
-          "met",
-          "Sets a standard for",
-          "appearance, daily",
-          "demeanor, and conduct",
-          "as a professional",
-          "Recognizes and",
-          "addresses situations"
+          "Performs tasks and responsibilities in a timely manner with appropriate attention to detail in routine situations",
+          "Sets a standard for appearance, daily demeanor, and conduct as a professional"
         ],
         "level_5": [
-          "that may impact others’",
-          "ability to complete tasks",
-          "and responsibilities in a",
-          "timely manner",
-          "Promotes professional",
-          "appearance, demeanor,",
-          "and conduct in their",
-          "peers and associates",
-          "Volunteers to improve",
-          "and takes ownership of",
-          "system outcomes"
+          "Recognizes situations that may impact his/her own ability to complete tasks and responsibilities in a timely manner",
+          "Recognizes and addresses situations that may impact others’ ability to complete tasks and responsibilities in a timely manner"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_prof3",
       "number": 14,
-      "domain_number": 3,
       "name": "Self-Awareness and Help-Seeking",
       "acgme_competency_key": "prof",
       "levels": {
         "level_1": [
-          "Recognizes status of",
-          "personal and",
-          "professional well-being,",
-          "with assistance",
-          "Recognizes limits in the",
-          "knowledge/skills of self",
-          "or team, with assistance",
-          "Independently recognizes"
+          "Recognizes status of personal and professional well-being, with assistance",
+          "With assistance, proposes a plan to remediate or improve limits in the knowledge/ skills of self or team"
         ],
         "level_2": [
-          "status of personal and",
-          "professional well-being",
-          "Independently recognizes",
-          "limits in the knowledge/",
-          "skills of self or team and",
-          "demonstrates appropriate",
-          "help-seeking behaviors",
-          "With assistance,"
+          "Recognizes limits in the knowledge/skills of self or team, with assistance",
+          "Independently develops a plan to optimize personal and professional well-being"
         ],
         "level_3": [
-          "proposes a plan to",
-          "optimize personal and",
-          "professional well-being",
-          "With assistance,",
-          "proposes a plan to",
-          "remediate or improve",
-          "limits in the knowledge/",
-          "skills of self or team"
+          "Independently recognizes status of personal and professional well-being",
+          "Independently develops a plan to remediate or improve limits in the knowledge/skills of self or team"
         ],
         "level_4": [
-          "Independently develops",
-          "a plan to optimize",
-          "personal and",
-          "professional well-being",
-          "Independently develops",
-          "a plan to remediate or",
-          "improve limits in the",
-          "knowledge/skills of self"
+          "Independently recognizes limits in the knowledge/ skills of self or team and demonstrates appropriate help-seeking behaviors",
+          "Coaches others when emotional responses or limitations in knowledge/skills do not meet professional expectations"
         ],
         "level_5": [
-          "or team",
-          "Coaches others when",
-          "emotional responses or",
-          "limitations in",
-          "knowledge/skills do not",
-          "meet professional",
-          "expectations"
+          "With assistance, proposes a plan to optimize personal and professional well-being"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_ics1",
       "number": 15,
-      "domain_number": 1,
       "name": "Patient and Family-Centered Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Uses language and",
-          "nonverbal behavior to",
-          "demonstrate respect and",
-          "establish rapport",
-          "Identifies common",
-          "barriers to effective",
-          "communication while",
-          "accurately",
-          "communicating own role",
-          "within the health care",
-          "system",
-          "Identifies the need to",
-          "adjust communication",
-          "strategies based on",
-          "assessment of",
-          "patient/family",
-          "expectations and",
-          "understanding of their"
+          "Uses language and nonverbal behavior to demonstrate respect and establish rapport",
+          "Organizes and initiates communication with patient/family by introducing stakeholders, setting the agenda, clarifying expectations, and verifying understanding of the clinical situation",
+          "Recognizes biases while attempting to proactively minimize communication barriers"
         ],
         "level_2": [
-          "health status and",
-          "treatment options",
-          "Establishes a therapeutic",
-          "relationship in",
-          "straightforward",
-          "encounters using active",
-          "listening and clear",
-          "language",
-          "Identifies complex",
-          "barriers to effective",
-          "communication",
-          "Organizes and initiates",
-          "communication with",
-          "patient/family by",
-          "introducing stakeholders,",
-          "setting the agenda,",
-          "clarifying expectations,",
-          "and verifying"
+          "Identifies common barriers to effective communication while accurately communicating own role within the health care system",
+          "Establishes a therapeutic relationship in challenging patient encounters",
+          "Uses shared decision making to align patient/family values, goals, and preferences with treatment options to make a personalized care plan"
         ],
         "level_3": [
-          "understanding of the",
-          "clinical situation",
-          "Establishes a therapeutic",
-          "relationship",
-          "in challenging patient",
-          "encounters",
-          "When prompted, reflects",
-          "on biases while",
-          "attempting to minimize",
-          "communication barriers",
-          "With guidance, sensitively",
-          "and compassionately",
-          "delivers medical",
-          "information, elicits",
-          "patient/family values,",
-          "goals and preferences,",
-          "and acknowledges",
-          "uncertainty and conflict"
+          "Identifies the need to adjust communication strategies based on assessment of patient/family expectations and understanding of their health status and treatment options",
+          "When prompted, reflects on biases while attempting to minimize communication barriers",
+          "Mentors others in situational awareness and critical self-reflection to consistently develop positive therapeutic relationships"
         ],
         "level_4": [
-          "Establishes therapeutic",
-          "relationships, with",
-          "attention to",
-          "patient/family concerns",
-          "and context, regardless",
-          "of complexity",
-          "Recognizes biases",
-          "while attempting to",
-          "proactively minimize",
-          "communication barriers",
-          "Uses shared decision",
-          "making to align",
-          "patient/family values,",
-          "goals, and preferences",
-          "with treatment options",
-          "to make a personalized",
-          "care plan",
-          "Mentors others in"
+          "Establishes a therapeutic relationship in straightforward encounters using active listening and clear language",
+          "With guidance, sensitively and compassionately delivers medical information, elicits patient/family values, goals and preferences, and acknowledges uncertainty and conflict",
+          "Role models self- awareness practice while identifying teaching a contextual approach to minimize communication barriers"
         ],
         "level_5": [
-          "situational awareness and",
-          "critical self-reflection to",
-          "consistently develop",
-          "positive therapeutic",
-          "relationships",
-          "Role models self-",
-          "awareness practice while",
-          "identifying teaching a",
-          "contextual approach to",
-          "minimize communication",
-          "barriers",
-          "Role models shared",
-          "decision making in",
-          "patient/family",
-          "communication including",
-          "those with a high degree",
-          "of uncertainty/conflict"
+          "Identifies complex barriers to effective communication",
+          "Establishes therapeutic relationships, with attention to patient/family concerns and context, regardless of complexity",
+          "Role models shared decision making in patient/family communication including those with a high degree of uncertainty/conflict"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_ics2",
       "number": 16,
-      "domain_number": 2,
       "name": "Interprofessional and Team Communication",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Respectfully requests a",
-          "consultation",
-          "Respectfully receives a",
-          "consultation request",
-          "Uses language that",
-          "values all members of",
-          "the health care team",
-          "Clearly and concisely",
-          "requests a consultation"
+          "Respectfully requests a consultation",
+          "Communicates information effectively with all health care team members",
+          "Provides information to the primary care team regarding rationale for recommendations"
         ],
         "level_2": [
-          "Clearly and concisely",
-          "responds to a",
-          "consultation request",
-          "Communicates",
-          "information effectively",
-          "with all health care team",
-          "members",
-          "Checks own",
-          "understanding of"
+          "Respectfully receives a consultation request",
+          "Checks own understanding of consultant recommendations",
+          "Models active listening to other health care team members"
         ],
         "level_3": [
-          "consultant",
-          "recommendations",
-          "Checks requestor’s",
-          "understanding of",
-          "recommendations when",
-          "providing consultation",
-          "Uses active listening to",
-          "adapt communication",
-          "style to fit team needs"
+          "Uses language that values all members of the health care team",
+          "Checks requestor’s understanding of recommendations when providing consultation",
+          "Role models flexible communication strategies that value input from all health care team members, resolving conflict when needed"
         ],
         "level_4": [
-          "Coordinates",
-          "recommendations from",
-          "different members of",
-          "the health care team to",
-          "optimize patient care",
-          "Provides information to",
-          "the primary care team",
-          "regarding rationale for",
-          "recommendations"
+          "Clearly and concisely requests a consultation",
+          "Uses active listening to adapt communication style to fit team needs"
         ],
         "level_5": [
-          "Models active listening",
-          "to other health care",
-          "team members",
-          "Role models flexible",
-          "communication strategies",
-          "that value input from all",
-          "health care team",
-          "members, resolving",
-          "conflict when needed"
+          "Clearly and concisely responds to a consultation request",
+          "Coordinates recommendations from different members of the health care team to optimize patient care"
         ]
       }
     },
     {
       "id": "medical_genetics_and_genomics_ics3",
       "number": 17,
-      "domain_number": 3,
       "name": "Communication within Health Care Systems",
       "acgme_competency_key": "ics",
       "levels": {
         "level_1": [
-          "Accurately records",
-          "information in the patient",
-          "record",
-          "Safeguards patient",
-          "personal health",
-          "information",
-          "Demonstrates organized",
-          "diagnostic and",
-          "therapeutic reasoning",
-          "through notes in the"
+          "Accurately records information in the patient record",
+          "Concisely reports diagnostic and therapeutic reasoning in the patient record",
+          "Guides departmental or institutional communication around policies and procedures"
         ],
         "level_2": [
-          "patient record",
-          "Uses documentation",
-          "shortcuts accurately,",
-          "appropriately and in a",
-          "timely manner",
-          "Documents required data",
-          "in formats specified by",
-          "institutional policy",
-          "Concisely reports",
-          "diagnostic and"
+          "Safeguards patient personal health information",
+          "Appropriately selects direct (e.g., telephone, in- person) and indirect (e.g., progress notes, text messages) forms of communication based on context"
         ],
         "level_3": [
-          "therapeutic reasoning in",
-          "the patient record",
-          "Appropriately selects",
-          "direct (e.g., telephone, in-",
-          "person) and indirect (e.g.,",
-          "progress notes, text",
-          "messages) forms of",
-          "communication based on",
-          "context",
-          "Communicates clearly,"
+          "Demonstrates organized diagnostic and therapeutic reasoning through notes in the patient record",
+          "Communicates clearly, concisely, timely, and in an organized written form, including anticipatory guidance"
         ],
         "level_4": [
-          "concisely, timely, and in",
-          "an organized written",
-          "form, including",
-          "anticipatory guidance",
-          "Achieves written or",
-          "verbal communication",
-          "(e.g., patient notes, e-",
-          "mail) that serves as an",
-          "example for others to",
-          "follow"
+          "Uses documentation shortcuts accurately, appropriately and in a timely manner",
+          "Achieves written or verbal communication (e.g., patient notes, e- mail) that serves as an example for others to follow"
         ],
         "level_5": [
-          "Models feedback to",
-          "improve others’ written",
-          "communication",
-          "Guides departmental or",
-          "institutional",
-          "communication around",
-          "policies and procedures"
+          "Documents required data in formats specified by institutional policy",
+          "Models feedback to improve others’ written communication"
         ]
       }
     }
   ],
-  "program_type": "primary",
-  "primary_slug": "medical-genetics-and-genomics",
-  "primary_name": "Medical Genetics and Genomics",
   "sources": {
     "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicsmilestones.pdf",
     "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicssupplementalguide.pdf"
