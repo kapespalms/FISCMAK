@@ -818,20 +818,20 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-mak-panel {
-  background: #ffffff;
-  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
-  color: var(--cx-forest-dark);
+  background: #0a0c10;
+  border-color: rgb(255 255 255 / 0.1);
+  color: #ffffff;
   box-shadow: none;
 }
 
 .cx-mak-panel-header {
-  background: #ffffff;
-  color: var(--cx-forest-dark);
-  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
+  background: #141722;
+  color: #ffffff;
+  border-color: rgb(255 255 255 / 0.1);
 }
 
 .cx-mak-panel-chat {
-  background: #fafbfa;
+  background: #0a0c10;
 }
 
 @keyframes mak-convo-fade-in {
@@ -850,27 +850,27 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-mak-panel-footer {
-  background: #ffffff;
-  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
+  background: #141722;
+  border-color: rgb(255 255 255 / 0.1);
 }
 
 .cx-mak-panel-icon-btn {
-  color: color-mix(in srgb, var(--cx-forest-dark) 70%, #6b7280);
+  color: rgb(156 163 175);
   border-radius: var(--radius-button);
 }
 
 .cx-mak-panel-icon-btn:hover {
-  background: color-mix(in srgb, var(--cx-forest-dark) 6%, #ffffff);
-  color: var(--cx-forest-dark);
+  background: rgb(255 255 255 / 0.05);
+  color: #ffffff;
 }
 
 .cx-mak-panel-input {
   font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
-  color: var(--cx-forest-dark);
+  color: #ffffff;
 }
 
 .cx-mak-panel-input::placeholder {
-  color: color-mix(in srgb, var(--cx-forest-dark) 45%, #9ca3af);
+  color: rgb(107 114 128);
 }
 
 .cx-forest-pill {

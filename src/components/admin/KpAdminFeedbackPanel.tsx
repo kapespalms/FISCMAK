@@ -25,7 +25,7 @@ export function KpAdminFeedbackPanel() {
       <p className="text-cx-label uppercase">Internal · Mak feedback</p>
       <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">Chat feedback analytics</h3>
       <p className="mt-2 text-sm text-cx-forest-dark/75">
-        Platform-wide thumbs up/down on Coach Mak messages (last 500 ratings).
+        Platform-wide thumbs up/down on Mak messages (last 500 ratings).
       </p>
 
       {error && <p className="mt-3 text-sm text-red-700">{error}</p>}

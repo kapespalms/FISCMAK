@@ -5,7 +5,7 @@ type CoachMakMarkProps = {
   className?: string;
 };
 
-/** Hex Coach Mak mark — Loveable palette (navy + accent blue). */
+/** Hex Mak mark — Loveable palette (navy + accent blue). */
 export function CoachMakMark({ size = 32, className }: CoachMakMarkProps) {
   return (
     <svg

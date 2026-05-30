@@ -12,7 +12,7 @@ export function MarketingAuthShell({ children }: { children: React.ReactNode }) 
         Skip to content
       </a>
       <MarketingHeader />
-      <main id="main-content" className="flex flex-1 flex-col bg-black">
+      <main id="main-content" className="flex flex-1 flex-col bg-[#0A0C10]">
         {children}
       </main>
       <MarketingFooter />

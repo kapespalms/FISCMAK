@@ -32,6 +32,7 @@ import { buildGoalSettingIntro, goalSettingSuggestedActions, planMakQuickActions
 import { PLAN_MAK } from "@/lib/card-mak-prompts";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
+import { MAK_DISPLAY_NAME } from "@/lib/brand-assets";
 import { MakAssistantBubble, MakUserBubble } from "@/components/mak/MakMessageBubble";
 import { MakLikertChips } from "@/components/mak/MakLikertChips";
 import type { MakLikertScalePayload } from "@/lib/v2/mak-likert-scale";
@@ -326,7 +327,7 @@ export function MakPanel({
       setLikertScale(data.likert_scale ?? null);
         })
         .catch(() => {
-          setMessages([{ role: "assistant", content: "Welcome — I'm Coach Mak." }]);
+          setMessages([{ role: "assistant", content: `Welcome — I'm ${MAK_DISPLAY_NAME}.` }]);
         })
         .finally(() => {
           setLoading(false);
@@ -756,6 +757,45 @@ export function MakPanel({
     return [...base, ...extras].slice(0, 8);
   }, [quickActionItems, router]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  async function attachDocument(file: File) {
+    const form = new FormData();
+    form.append("file", file);
+    form.append("document_type", "CV");
+    form.append("document_subtype", "CV");
+    form.append("document_label", "CV / Resume");
+    try {
+      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
+      const data = (await res.json()) as { message?: string };
+      if (!res.ok) {
+        void sendMessage(
+          `I tried to upload ${file.name} but it failed: ${data.message ?? "upload error"}.`,
+        );
+        return;
+      }
+      void sendMessage(`I uploaded ${file.name} to my career vault.`);
+    } catch {
+      void sendMessage(`I tried to upload ${file.name} but the connection failed.`);
+    }
+  }
+
+  async function attachImage(file: File) {
+    const form = new FormData();
+    form.append("file", file);
+    try {
+      const res = await fetch("/api/v1/profile/avatar", { method: "POST", body: form });
+      const data = (await res.json()) as { message?: string };
+      if (!res.ok) {
+        void sendMessage(
+          `I tried to attach ${file.name} but it failed: ${data.message ?? "upload error"}.`,
+        );
+        return;
+      }
+      void sendMessage(`I attached a photo: ${file.name}.`);
+    } catch {
+      void sendMessage(`I tried to attach ${file.name} but the connection failed.`);
+    }
+  }
+
   const panelWidthClass = "w-[372px] min-w-[372px]";
 
   return (
@@ -765,7 +805,7 @@ export function MakPanel({
           type="button"
           className="fixed inset-y-0 right-0 z-40 bg-black/40 md:hidden"
           style={{ left: "min(calc(3.5rem + 372px), 100vw)" }}
-          aria-label="Close Coach Mak"
+          aria-label={`Close ${MAK_DISPLAY_NAME}`}
           onClick={handleClose}
         />
       )}
@@ -773,7 +813,7 @@ export function MakPanel({
         <button
           type="button"
           className="fixed inset-0 z-40 bg-black/40"
-          aria-label="Close Coach Mak"
+          aria-label={`Close ${MAK_DISPLAY_NAME}`}
           onClick={handleClose}
         />
       )}
@@ -792,21 +832,21 @@ export function MakPanel({
                   open ? "translate-x-0" : "pointer-events-none -translate-x-full",
                 )
               : cn(
-                  "relative z-20 -ml-3 h-full border-l border-cx-forest-dark/10 shadow-[4px_0_24px_rgba(0,0,0,0.08)]",
+                  "relative z-20 -ml-3 h-full border-l border-white/10 shadow-[4px_0_24px_rgba(0,0,0,0.35)]",
                   open ? panelWidthClass : "pointer-events-none w-0 min-w-0 border-l-0",
                 ),
         )}
         aria-hidden={!open}
       >
-        <div className={cn("flex h-full flex-col bg-white", expanded && "min-w-0")}>
-          <header className="cx-mak-panel-header shrink-0 border-b border-cx-forest-dark/10 bg-white/95">
+        <div className={cn("flex h-full flex-col bg-[#0A0C10]", expanded && "min-w-0")}>
+          <header className="cx-mak-panel-header shrink-0 border-b border-white/10 bg-[#141722]">
             <div className="flex h-12 items-center justify-between gap-2 px-4">
               <div className="flex min-w-0 items-center gap-2.5">
                 <CoachMakAvatar size={36} />
                 <div className="min-w-0">
-                  <p className="truncate text-[14px] font-semibold text-cx-forest-dark">Coach Mak</p>
+                  <p className="truncate font-futura-bold text-[14px] text-white">{MAK_DISPLAY_NAME}</p>
                   {userTier === "free" && messageBalance != null && (
-                    <p className="truncate text-[10px] text-cx-forest-dark/50">
+                    <p className="truncate text-[10px] text-gray-500">
                       {messageBalance} free AI {messageBalance === 1 ? "message" : "messages"} left
                     </p>
                   )}
@@ -816,16 +856,16 @@ export function MakPanel({
                 <button
                   type="button"
                   onClick={handleClose}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#67E151] text-cx-forest-dark transition-colors hover:bg-[#7aed68]"
-                  aria-label="Collapse Coach Mak"
-                  title="Collapse Coach Mak"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#A3E635] text-[#0A0C10] transition-colors hover:bg-[#b8f04a]"
+                  aria-label={`Collapse ${MAK_DISPLAY_NAME}`}
+                  title={`Collapse ${MAK_DISPLAY_NAME}`}
                 >
                   <ChevronLeft size={18} strokeWidth={2.5} />
                 </button>
                 <button
                   type="button"
                   onClick={() => setExpanded((v) => !v)}
-                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-lg transition-colors"
+                  className="cx-mak-panel-icon-btn flex h-9 w-9 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
                   aria-label={expanded ? "Exit full screen" : "Full screen"}
                   title={expanded ? "Exit full screen" : "Full screen"}
                 >
@@ -833,14 +873,14 @@ export function MakPanel({
                 </button>
               </div>
             </div>
-            <div className="border-t border-cx-forest-dark/8 py-1.5 text-center text-[11px] text-cx-forest-dark/55">
+            <div className="border-t border-white/5 py-1.5 text-center font-futura-book text-[11px] uppercase tracking-wider text-gray-500">
               {config.mode}
             </div>
           </header>
 
         <div
           ref={scrollRef}
-          className="cx-mak-panel-chat flex-1 space-y-4 overflow-y-auto bg-[#fafbfa] px-4 py-4"
+          className="cx-mak-panel-chat flex-1 space-y-4 overflow-y-auto bg-[#0A0C10] px-4 py-4"
         >
         {activeEscalation && (
           <EscalationResourcesPanel
@@ -856,10 +896,10 @@ export function MakPanel({
               <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex gap-3">
                 <CoachMakAvatar size={32} className="mt-0.5 shrink-0" />
                 <div className="min-w-0 flex-1 space-y-1.5">
-                  <MakAssistantBubble className="max-w-[95%]">{msg.content}</MakAssistantBubble>
+                  <MakAssistantBubble variant="dark" className="max-w-[95%]">{msg.content}</MakAssistantBubble>
                   {showTimestamp && (
                     <div className="flex items-center justify-between gap-2">
-                      <p className="font-futura-book text-[11px] tracking-wide text-cx-forest-dark/45">
+                      <p className="font-futura-book text-[11px] tracking-wide text-gray-500">
                         {formatMessageTime(msg.at)}
                       </p>
                       <MakMessageActions content={msg.content} section={section} />
@@ -872,24 +912,24 @@ export function MakPanel({
 
           return (
             <div key={`${i}-${msg.content.slice(0, 12)}`} className="flex justify-end">
-              <MakUserBubble className="max-w-[88%]">{msg.content}</MakUserBubble>
+              <MakUserBubble variant="dark" className="max-w-[88%]">{msg.content}</MakUserBubble>
             </div>
           );
         })}
         {loading && (
           <div className="flex gap-3">
             <CoachMakAvatar size={32} className="mt-0.5 shrink-0 opacity-80" />
-            <MakAssistantBubble className="max-w-[95%] text-cx-forest-dark/70">
+            <MakAssistantBubble variant="dark" className="max-w-[95%] text-gray-400">
               Mak is thinking…
             </MakAssistantBubble>
           </div>
         )}
         </div>
 
-        <div className="cx-mak-panel-footer shrink-0 border-t border-cx-forest-dark/10 bg-white px-3 py-3">
+        <div className="cx-mak-panel-footer shrink-0 border-t border-white/10 bg-[#141722] px-3 py-3">
         {likertScale && !loading && (
-          <div className="mb-3 rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-3 py-2">
-            <p className="text-xs font-medium text-cx-forest-dark/70">Tap your rating</p>
+          <div className="mb-3 rounded-xl border border-white/10 bg-[#0A0C10] px-3 py-2">
+            <p className="text-xs font-medium text-gray-400">Tap your rating</p>
             <MakLikertChips
               scale={likertScale}
               disabled={loading}
@@ -897,12 +937,14 @@ export function MakPanel({
             />
           </div>
         )}
-        <div className="flex items-end gap-2">
+        <div className="flex items-end gap-2 rounded-2xl border border-white/10 bg-[#1C2030] p-2">
           <MakPlusActionMenu
             open={actionMenuOpen}
             onOpenChange={setActionMenuOpen}
             items={actionMenuItems}
             disabled={loading}
+            onAttachDocument={(file) => void attachDocument(file)}
+            onAttachImage={(file) => void attachImage(file)}
           />
           <input
             ref={makInputRef}
@@ -916,12 +958,14 @@ export function MakPanel({
             }}
             placeholder={MAK_INPUT_PLACEHOLDER}
             disabled={loading || recording}
-            className="cx-mak-panel-input h-11 min-h-11 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-4 text-sm text-cx-forest-dark shadow-sm focus:border-[#67E151]/40 focus:outline-none focus:ring-2 focus:ring-[#67E151]/15"
-            aria-label="Message to Coach Mak"
+            className="cx-mak-panel-input h-10 min-h-10 flex-1 rounded-xl border-0 bg-transparent px-2 text-sm text-white placeholder:text-gray-500 focus:outline-none"
+            aria-label={`Message to ${MAK_DISPLAY_NAME}`}
           />
           <MakHexMicButton
             recording={recording}
             disabled={loading}
+            iconVariant="dark-accent"
+            className="!h-10 !w-10 [&_svg]:h-10 [&_svg]:w-10"
             onClick={() => {
               if (input.trim()) {
                 void sendMessage(input);

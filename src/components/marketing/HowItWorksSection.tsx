@@ -5,7 +5,7 @@ const FLOW_STEPS = [
   {
     n: "01",
     title: "Capture what counts",
-    body: "Talk to Coach Mak after a hard case, a teaching moment, or a leadership win. Voice, chat, or structured entry — your invisible work becomes a living record.",
+    body: "Talk to Mak after a hard case, a teaching moment, or a leadership win. Voice, chat, or structured entry — your invisible work becomes a living record.",
   },
   {
     n: "02",

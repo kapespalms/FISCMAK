@@ -153,7 +153,7 @@ export function SubjectiveWorkspace() {
           summary={
             profile.career_objective
               ? `Primary career track: ${profile.career_track ?? "Not set"}. Stated 3-year objective: ${profile.career_objective}`
-              : `Primary career track: ${profile.career_track ?? "Set with Coach Mak"}. Stated objective: pending quarterly check-in`
+              : `Primary career track: ${profile.career_track ?? "Set with Mak"}. Stated objective: pending quarterly check-in`
           }
           status="developing"
           mak={SUBJECTIVE_MAK.career_direction}
@@ -163,7 +163,7 @@ export function SubjectiveWorkspace() {
           label="Professional fulfillment"
           summary={
             fulfillment?.summary ??
-            "Complete your Perspective assessment with Coach Mak to populate this metric."
+            "Complete your Perspective assessment with Mak to populate this metric."
           }
           status={fulfillment?.status}
           trend={fulfillment ? "Updated from validated professional fulfillment instrument" : undefined}
@@ -192,7 +192,7 @@ export function SubjectiveWorkspace() {
 
         <MetricRow
           label="Work engagement"
-          summary="Work engagement is measured annually using validated instruments. Complete the full Perspective assessment with Coach Mak."
+          summary="Work engagement is measured annually using validated instruments. Complete the full Perspective assessment with Mak."
           status="stable"
           mak={SUBJECTIVE_MAK.work_engagement}
         />

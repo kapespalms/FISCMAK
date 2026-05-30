@@ -3,8 +3,11 @@
 /** Default user profile — physician silhouette (not Coach Mak). */
 export const DEFAULT_PROFILE_AVATAR_SRC = "/brands/default-profile.png";
 
-/** Coach Mak — green M inside the silent-C ring (chat + marketing). */
-export const MAK_AVATAR_SRC = "/brands/logo-cm.png";
+/** Mak — chat avatar and display name. */
+export const MAK_DISPLAY_NAME = "Mak";
+
+/** Mak wordmark avatar (lime on black). */
+export const MAK_AVATAR_SRC = "/brands/mak-logo.png";
 
 export const HERO_CHESS_SRC = "/brands/hero-chess.png";
 /** @deprecated Use MAK_AVATAR_SRC */

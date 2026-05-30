@@ -50,7 +50,6 @@ function AcceptanceCheckbox({
   );
 }
 
-/** Inner acceptance content — carousel header and LuxuryWorkspace shell live in the parent. */
 export function OnboardingTermsAcceptanceCard({
   chatConfidential,
   summativeReports,
@@ -73,10 +72,7 @@ export function OnboardingTermsAcceptanceCard({
           checked={chatConfidential}
           onChange={onChatConfidentialChange}
         >
-          I acknowledge that my Direct Chat text and conversations are{" "}
-          <strong className="font-bold text-white">100% confidential</strong> and{" "}
-          <strong className="font-semibold text-[#D4AF37]">NEVER shared</strong> with my
-          institution, Program Director, or CCC.
+          {ACCEPTANCE_CARD_COPY.checkbox1}
         </AcceptanceCheckbox>
 
         <AcceptanceCheckbox
@@ -84,10 +80,7 @@ export function OnboardingTermsAcceptanceCard({
           checked={summativeReports}
           onChange={onSummativeReportsChange}
         >
-          I understand that my institution only receives high-level, aggregated summative reports
-          for milestone tracking, which are{" "}
-          <strong className="font-bold text-white">completely masked</strong> if my track has
-          fewer than 5 peers.
+          {ACCEPTANCE_CARD_COPY.checkbox2}
         </AcceptanceCheckbox>
 
         <AcceptanceCheckbox
@@ -95,13 +88,11 @@ export function OnboardingTermsAcceptanceCard({
           checked={documentOwnership}
           onChange={onDocumentOwnershipChange}
         >
-          I understand that{" "}
-          <strong className="font-semibold text-[#A3E635]">I own 100%</strong> of all generated
-          CVs, portfolios, and academic documents permanently.
+          {ACCEPTANCE_CARD_COPY.checkbox3}
         </AcceptanceCheckbox>
       </div>
 
-      <p className="text-xs font-medium text-gray-500">
+      <p className="text-sm font-medium text-gray-400">
         {ACCEPTANCE_CARD_COPY.legalPrefix}{" "}
         <Link
           href="/legal/terms-of-service"

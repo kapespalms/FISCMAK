@@ -6,7 +6,7 @@ type CoachMakVoiceIconProps = {
   variant?: "default" | "dark-accent";
 };
 
-/** Coach Mak voice capture — waveform + mic mark (50×50). */
+/** Mak voice capture — waveform + mic mark (50×50). */
 export function CoachMakVoiceIcon({
   className,
   recording,

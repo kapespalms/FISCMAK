@@ -40,7 +40,7 @@ export function SemiAnnualReviewSection() {
 
       <p className="mt-3 flex items-start gap-2 text-xs text-cx-forest-dark/60">
         <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden />
-        Use Coach Mak to draft talking points before your semi-annual — CV updates, goal progress, and
+        Use Mak to draft talking points before your semi-annual — CV updates, goal progress, and
         eval themes.
       </p>
     </section>

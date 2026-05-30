@@ -57,7 +57,7 @@ export function ScheduleCalendarWorkspace({ embedded = false }: { embedded?: boo
             </p>
             <h1 className="text-page-title">Your calendar</h1>
             <p className="font-futura-book mt-1 text-base text-black">
-              Month, week, and day views. Add events with Coach Mak, customize colors, and export to
+              Month, week, and day views. Add events with Mak, customize colors, and export to
               iCal, Google, or Outlook.
             </p>
           </div>

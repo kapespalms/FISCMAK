@@ -58,7 +58,6 @@ import {
   primaryTrackFromRankings,
   type CareerTrackRanking,
 } from "@/components/onboarding/CareerTrackRankingFields";
-import { OnboardingBeyondPhysicianFields } from "@/components/onboarding/OnboardingBeyondPhysicianFields";
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
 import { AdditionalDegreesFields } from "@/components/onboarding/AdditionalDegreesFields";
 import {
@@ -69,6 +68,7 @@ import { OnboardingTermsAcceptanceCard } from "@/components/onboarding/Onboardin
 import { ACCEPTANCE_CARD_COPY } from "@/lib/onboarding/acceptance-card-copy";
 import {
   LuxuryWorkspace,
+  LuxuryCardHeader,
   LuxuryBlock,
   LuxuryChoiceButton,
   LuxuryTextInput,
@@ -78,6 +78,7 @@ import {
   LuxuryDivider,
 } from "@/components/onboarding/OnboardingLuxuryUi";
 import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
+import { MAK_DISPLAY_NAME } from "@/lib/brand-assets";
 import { milestoneIndexForStep } from "@/lib/v2/onboarding-milestones";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
 import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
@@ -231,47 +232,33 @@ export function Touchpoint1Onboarding() {
     const cards: ProfileCarouselCard[] = [
       {
         id: "about",
-        label: "About you",
-        sectionLabel: "Core Profile",
-        title: "About You",
-        description: "How your name appears across FISCMAK.",
+        label: "Name",
+        sectionLabel: "",
+        title: "Name",
       },
       {
         id: "specialty",
-        label: "Specialty & placement",
-        sectionLabel: isInstitutional ? "Program Identity" : "Clinical Profile",
-        title: "Specialty & Placement",
-        description: isInstitutional
-          ? "Your program, training year, and specialty pathway."
-          : "Career stage drives which fields appear below.",
+        label: "Clinical profile",
+        sectionLabel: "",
+        title: "Clinical Profile",
       },
       {
         id: "career",
         label: "Career direction",
-        sectionLabel: "Career Architecture",
+        sectionLabel: "",
         title: "Career Direction",
         description:
           "Rank the career tracks from most energizing to least energizing. Estimate the number of hours you spend in each every week.",
       },
+      {
+        id: "acceptance",
+        label: "Account initialization",
+        sectionLabel: "",
+        title: ACCEPTANCE_CARD_COPY.title,
+      },
     ];
-    if (!isInstitutional) {
-      cards.push({
-        id: "beyond",
-        label: "Beyond the physician",
-        sectionLabel: "Personal Lens",
-        title: "Beyond The Physician",
-        description: "Industries and interests outside clinical medicine.",
-      });
-    }
-    cards.push({
-      id: "acceptance",
-      label: "Account initialization",
-      sectionLabel: "Governance",
-      title: "Account Initialization",
-      description: ACCEPTANCE_CARD_COPY.intro,
-    });
     return cards;
-  }, [isInstitutional]);
+  }, []);
 
   const activeProfileCardId = profileCarouselCards[profileCardIndex]?.id ?? "about";
   const showGmeFields = requiresGmePlacementFields(careerLevel);
@@ -1107,13 +1094,17 @@ export function Touchpoint1Onboarding() {
   }
 
   const showProgressStepper = pathChosen && step !== "path";
-  const timelineDark = step === "profile";
+  const timelineDark =
+    step === "profile" ||
+    step === "documents" ||
+    step === "reconcile" ||
+    step === "instruments";
 
   return (
     <>
       {!bootstrapped ? (
         <div className="flex flex-1 items-center justify-center p-8">
-          <p className="text-cx-forest-dark/70">Loading onboarding…</p>
+          <p className="font-futura-book text-gray-400">Loading onboarding…</p>
         </div>
       ) : showProgressStepper ? (
         <div
@@ -1265,7 +1256,7 @@ export function Touchpoint1Onboarding() {
             <LuxuryWorkspace>
               {activeProfileCardId === "about" && (
                 <>
-                  <LuxuryBlock label="Legal Name">
+                  <LuxuryBlock label="Name">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <LuxuryTextInput
                         id="onboarding-first-name"
@@ -1273,7 +1264,6 @@ export function Touchpoint1Onboarding() {
                         onChange={setFirstName}
                         onBlur={() => void saveProfileDraft()}
                         placeholder="Jane"
-                        readOnly={namePrefilled}
                       />
                       <LuxuryTextInput
                         id="onboarding-last-name"
@@ -1281,14 +1271,8 @@ export function Touchpoint1Onboarding() {
                         onChange={setLastName}
                         onBlur={() => void saveProfileDraft()}
                         placeholder="Smith"
-                        readOnly={namePrefilled}
                       />
                     </div>
-                    <LuxuryHint>
-                      {namePrefilled
-                        ? "Pre-filled from your sign-in or program invite. Contact your program admin to change."
-                        : "Enter your name as you would like it displayed."}
-                    </LuxuryHint>
                   </LuxuryBlock>
 
                   {!isInstitutional && (
@@ -1565,16 +1549,6 @@ export function Touchpoint1Onboarding() {
                 </>
               )}
 
-              {activeProfileCardId === "beyond" && !isInstitutional && (
-                <OnboardingBeyondPhysicianFields
-                  otherIndustries={otherIndustries}
-                  onOtherIndustriesChange={setOtherIndustries}
-                  extracurricularInterests={extracurricularInterests}
-                  onExtracurricularInterestsChange={setExtracurricularInterests}
-                  variant="luxury"
-                />
-              )}
-
               {activeProfileCardId === "acceptance" && (
                 <OnboardingTermsAcceptanceCard
                   chatConfidential={termsChatConfidential}
@@ -1594,7 +1568,7 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "documents" && (
-        <>
+        <div className="space-y-8 font-futura-book text-white">
           {resumeDocumentsStep ? (
             <OnboardingResumeBanner
               message={
@@ -1609,69 +1583,73 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <OnboardingDocumentsStep onContinue={goToReconcile} continueDisabled={loading} />
-        </>
+          <OnboardingDocumentsStep variant="luxury" onContinue={goToReconcile} continueDisabled={loading} />
+        </div>
       )}
 
       {step === "reconcile" && (
-        <Card>
+        <div className="space-y-8 font-futura-book text-white">
           {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <h1 className="text-page-title">Evidence Vault</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Confirm parsed data from your uploaded artifacts.
-          </p>
+          <LuxuryWorkspace>
+            <LuxuryCardHeader
+              title="Evidence Vault"
+              description="Confirm parsed data from your uploaded artifacts."
+            />
 
-          <ul className="mt-6 space-y-4">
-            {reconcileItems.map((item) => (
-              <ReconciliationItemCard
-                key={item.id}
-                item={item}
-                initialNpi={savedNpi}
-                npiStatus={isNpiReconcileItem(item) ? npiStatus : null}
-                onToggle={toggleReconcile}
-                onNpiVerified={handleNpiVerified}
-                onNpiSkipped={handleNpiSkipped}
-              />
-            ))}
-          </ul>
+            <ul className="space-y-4">
+              {reconcileItems.map((item) => (
+                <ReconciliationItemCard
+                  key={item.id}
+                  item={item}
+                  variant="luxury"
+                  initialNpi={savedNpi}
+                  npiStatus={isNpiReconcileItem(item) ? npiStatus : null}
+                  onToggle={toggleReconcile}
+                  onNpiVerified={handleNpiVerified}
+                  onNpiSkipped={handleNpiSkipped}
+                />
+              ))}
+            </ul>
 
-          <div className="mt-6">
-            <Button
-              className="w-full"
-              onClick={submitReconciliation}
-              disabled={loading || !canContinueReconcile()}
-            >
-              {loading ? "Saving…" : "Continue to Career Chat"}
-            </Button>
-          </div>
-          {error && (
-            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
-              {error}
-            </p>
-          )}
-        </Card>
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={submitReconciliation}
+                disabled={loading || !canContinueReconcile()}
+                className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+              >
+                {loading ? "Saving…" : "Continue to Career Chat"}
+              </button>
+            </div>
+            {error && (
+              <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                {error}
+              </p>
+            )}
+          </LuxuryWorkspace>
+        </div>
       )}
 
       {step === "instruments" && (
-        <Card>
+        <div className="space-y-8 font-futura-book text-white">
           {resumeInstrumentsStep && coachMakConversationId ? (
             <OnboardingResumeBanner
-              message="Welcome back. Resume your Career Chat with Coach Mak."
+              message={`Welcome back. Resume your Career Chat with ${MAK_DISPLAY_NAME}.`}
               storageKey="fiscmak_onboarding_resume_instruments"
             />
           ) : null}
@@ -1679,36 +1657,43 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <h1 className="text-page-title">Career Chat</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Initiate an intake chat for career exploration and empowerment with Coach Mak.
-          </p>
+          <LuxuryWorkspace>
+            <LuxuryCardHeader
+              title="Career Chat"
+              description={`Initiate an intake chat for career exploration and empowerment with ${MAK_DISPLAY_NAME}.`}
+            />
 
-          <ul className="mt-4 space-y-2">
-            {instruments.map((inst) => (
-              <li
-                key={inst.id}
-                className="rounded-md border border-cx-forest-dark/15 px-3 py-2 text-sm"
-              >
-                <span className="font-semibold">{inst.name}</span>
-                <span className="text-cx-forest-dark/70">
-                  {" "}
-                  · {inst.items} items · ~{inst.minutes} min — {inst.description}
-                </span>
-              </li>
-            ))}
-          </ul>
+            <ul className="space-y-2">
+              {instruments.map((inst) => (
+                <li
+                  key={inst.id}
+                  className="rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-gray-300"
+                >
+                  <span className="font-futura-bold text-white">{inst.name}</span>
+                  <span className="text-gray-500">
+                    {" "}
+                    · {inst.items} items · ~{inst.minutes} min — {inst.description}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-          <Button className="mt-6 w-full" onClick={startMakConversation} disabled={loading}>
-            {loading ? "Finishing…" : "Go to dashboard"}
-          </Button>
-        </Card>
+            <button
+              type="button"
+              onClick={startMakConversation}
+              disabled={loading}
+              className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+            >
+              {loading ? "Finishing…" : "Go to dashboard"}
+            </button>
+          </LuxuryWorkspace>
+        </div>
       )}
       </>
     );

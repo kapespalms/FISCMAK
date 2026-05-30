@@ -124,7 +124,7 @@ export function CoachingCadencePanel() {
               </p>
               <p className="mt-0.5 text-sm font-semibold text-cx-forest-dark">
                 Review {data.schedule_review.events.length} event
-                {data.schedule_review.events.length === 1 ? "" : "s"} with Coach Mak
+                {data.schedule_review.events.length === 1 ? "" : "s"} with Mak
               </p>
               <p className="mt-0.5 text-xs text-cx-forest-dark/70">
                 {data.schedule_review.period_start} – {data.schedule_review.period_end}

@@ -10,36 +10,22 @@ export const LUXURY = {
 } as const;
 
 export function LuxuryCardHeader({
-  cardIndex,
-  cardCount,
-  sectionLabel,
   title,
   description,
 }: {
-  cardIndex: number;
-  cardCount: number;
-  sectionLabel: string;
+  cardIndex?: number;
+  cardCount?: number;
+  sectionLabel?: string;
   title: string;
   description?: string;
 }) {
   return (
-    <header className="space-y-4 font-futura-book">
-      <div className="flex items-center justify-between border-b border-white/5 pb-4">
-        <span className="font-futura-bold text-xs uppercase tracking-[0.25em] text-[#A3E635]">
-          FISCMAK // STEP 01
-        </span>
-        <span className="rounded-lg border border-white/5 bg-[#141722] px-3 py-1.5 font-futura-medium text-xs uppercase tracking-wider text-gray-500">
-          Card {String(cardIndex + 1).padStart(2, "0")} of {String(cardCount).padStart(2, "0")}
-        </span>
-      </div>
-      <span className="font-futura-bold text-xs uppercase tracking-[0.2em] text-gray-400">
-        {sectionLabel}
-      </span>
+    <header className="space-y-3 font-futura-book">
       <h1 className="font-futura-bold text-3xl uppercase leading-tight tracking-[0.12em] text-white md:text-4xl">
         {title}
       </h1>
       {description ? (
-        <p className="max-w-xl text-sm leading-relaxed text-gray-400">{description}</p>
+        <p className="max-w-xl text-base leading-relaxed text-gray-400">{description}</p>
       ) : null}
     </header>
   );
@@ -77,7 +63,7 @@ export function LuxuryBlock({
 }) {
   return (
     <div className={cn("space-y-4", className)}>
-      <h3 className="font-futura-bold text-xs uppercase tracking-[0.15em] text-[#D4AF37]">{label}</h3>
+      <h3 className="font-futura-bold text-sm uppercase tracking-[0.15em] text-[#D4AF37]">{label}</h3>
       {children}
     </div>
   );
@@ -121,6 +107,7 @@ export function LuxuryTextarea({
   placeholder,
   rows = 3,
   className,
+  onBlur,
 }: {
   id?: string;
   value: string;
@@ -128,6 +115,7 @@ export function LuxuryTextarea({
   placeholder?: string;
   rows?: number;
   className?: string;
+  onBlur?: () => void;
 }) {
   return (
     <textarea
@@ -135,6 +123,7 @@ export function LuxuryTextarea({
       value={value}
       rows={rows}
       onChange={onChange ? (e) => onChange(e.target.value) : undefined}
+      onBlur={onBlur}
       placeholder={placeholder}
       className={cn(
         "w-full resize-y rounded-xl border border-white/5 bg-[#0A0C10] px-5 py-4 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none",
@@ -187,7 +176,7 @@ export function LuxuryHint({
   className?: string;
 }) {
   return (
-    <p className={cn("font-futura-book text-sm leading-relaxed text-gray-500", className)}>
+    <p className={cn("font-futura-book text-base leading-relaxed text-gray-400", className)}>
       {children}
     </p>
   );

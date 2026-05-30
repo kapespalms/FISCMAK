@@ -83,7 +83,7 @@ export function ContactFormCard({ className, id }: { className?: string; id?: st
               type="text"
               required
               autoComplete="name"
-              placeholder="Coach Mak"
+              placeholder="Mak"
               className="w-full rounded-lg border border-white/20 bg-[#0f1410] px-2.5 py-1.5 text-[10px] text-white placeholder:text-white/35 focus:border-marketing-accent focus:outline-none sm:text-[11px]"
             />
           </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
+import { MAK_DISPLAY_NAME } from "@/lib/brand-assets";
 import { MakHexMicButton } from "@/components/brand/MakHexMicButton";
 import { MakAssistantBubble, MakUserBubble } from "@/components/mak/MakMessageBubble";
 import { MakMiniChatPreview } from "@/components/marketing/MakMiniChatPreview";
@@ -242,7 +243,7 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
           <div className="flex min-w-0 items-center gap-2.5">
             <CoachMakAvatar size={36} />
             <div className="min-w-0">
-              <p className="truncate text-[14px] font-semibold text-white">Coach Mak</p>
+              <p className="truncate text-[14px] font-semibold text-white">{MAK_DISPLAY_NAME}</p>
               <p className="truncate text-[10px] text-white/50">Your co-pilot on the journey</p>
             </div>
           </div>
@@ -351,7 +352,7 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
             value=""
             placeholder={MAK_INPUT_PLACEHOLDER}
             className="cx-mak-panel-input h-9 min-h-9 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-3 text-xs text-cx-forest-dark shadow-sm opacity-70 sm:h-10 sm:min-h-10 sm:px-4 sm:text-sm"
-            aria-label="Message to Coach Mak"
+            aria-label={`Message to ${MAK_DISPLAY_NAME}`}
           />
           <MakHexMicButton
             disabled

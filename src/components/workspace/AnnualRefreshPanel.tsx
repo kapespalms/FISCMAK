@@ -169,7 +169,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
       accent="amber"
       eyebrow="Annual refresh"
       title={`${status.year} annual career refresh`}
-      description="Coach Mak guides seven modules — career direction, engagement, well-being, task burden, unrecognized work, Career Data refresh, and goal reset. Your summary saves after you confirm."
+      description="Mak guides seven modules — career direction, engagement, well-being, task burden, unrecognized work, Career Data refresh, and goal reset. Your summary saves after you confirm."
       icon={CalendarClock}
       footer={
         status.days_since_last != null ? (
@@ -184,7 +184,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
       {!showFallback ? (
         <div className="flex flex-wrap gap-2">
           {onBeginWithMak && (
-            <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
+            <Button onClick={onBeginWithMak}>Begin with Mak</Button>
           )}
           <Button variant="secondary" onClick={() => setShowFallback(true)}>
             Use form instead

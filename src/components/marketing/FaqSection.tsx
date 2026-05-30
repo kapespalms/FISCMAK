@@ -31,7 +31,7 @@ export const FISCMAK_FAQ = [
     id: "q5",
     question: "What's the onboarding process?",
     answer:
-      "Onboarding takes about two minutes: profile, career stage, goals — then start logging activities. Coach Mak provides real-time feedback. No training required.",
+      "Onboarding takes about two minutes: profile, career stage, goals — then start logging activities. Mak provides real-time feedback. No training required.",
   },
   {
     id: "q6",

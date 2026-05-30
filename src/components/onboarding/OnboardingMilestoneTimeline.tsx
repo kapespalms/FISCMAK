@@ -51,11 +51,6 @@ export function OnboardingMilestoneTimeline({
   const dark = variant === "dark";
   const activeMilestone = milestoneIndexForStep(currentStep);
   const fillPercent = computeMilestoneTimelineProgress(currentStep, cardIndex, cardCount);
-  const showCardBadge =
-    activeMilestone === 0 &&
-    cardCount &&
-    cardCount > 0 &&
-    typeof cardIndex === "number";
 
   return (
     <nav
@@ -65,24 +60,11 @@ export function OnboardingMilestoneTimeline({
         dark ? "text-white" : "text-cx-forest-dark",
       )}
     >
-      {/* Top row: wordmark + card badge */}
       <div className="flex w-full items-center justify-between gap-4">
-        <p className="font-futura-bold text-base tracking-[0.18em] md:text-lg">
+        <p className="font-futura-bold text-lg tracking-[0.18em] md:text-xl">
           <span className={dark ? "text-white" : "text-cx-forest-dark"}>FISC</span>
           <span className="text-[#A3E635]">MAK</span>
         </p>
-        {showCardBadge ? (
-          <span
-            className={cn(
-              "rounded-lg border px-3 py-1 font-futura-medium text-xs uppercase tracking-wider md:text-sm",
-              dark
-                ? "border-white/10 bg-[#141722] text-gray-500"
-                : "border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] text-cx-forest-dark/60",
-            )}
-          >
-            Card {cardIndex + 1} of {cardCount}
-          </span>
-        ) : null}
       </div>
 
       {/* Horizontal progress track — aligned with cards below */}
@@ -136,25 +118,16 @@ export function OnboardingMilestoneTimeline({
                     milestone.id
                   )}
                 </div>
-                <div className="mt-2 min-w-0 max-w-[7rem] md:max-w-[9rem]">
+                <div className="mt-2 min-w-0 max-w-[8rem] md:max-w-[10rem]">
                   <p
                     className={cn(
-                      "font-futura-bold text-[10px] uppercase leading-tight tracking-wide md:text-xs",
+                      "font-futura-bold text-xs uppercase leading-tight tracking-wide md:text-sm",
                       isActive && (dark ? "text-white" : "text-cx-forest-dark"),
                       isCompleted && (dark ? "text-gray-300" : "text-cx-forest-dark/80"),
                       !isActive && !isCompleted && (dark ? "text-white/40" : "text-cx-forest-dark/40"),
                     )}
                   >
-                    Step {milestone.id}: {milestone.label}
-                  </p>
-                  <p
-                    className={cn(
-                      "font-futura-book mt-0.5 hidden text-[10px] leading-tight md:block",
-                      isActive && (dark ? "text-[#A3E635]" : "text-cx-forest-dark/65"),
-                      !isActive && (dark ? "text-white/30" : "text-cx-forest-dark/45"),
-                    )}
-                  >
-                    {milestone.subtitle}
+                    {milestone.label}
                   </p>
                 </div>
               </div>

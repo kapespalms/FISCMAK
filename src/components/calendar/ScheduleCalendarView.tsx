@@ -252,8 +252,8 @@ export function ScheduleCalendarView({
             {hasProgramBlocks
               ? "Program rotations and your saved events — never includes patient information."
               : hasCalendarContent
-                ? "Your saved events — add more with + Events or Coach Mak."
-                : "Add events with Coach Mak, or your program schedule will appear here when linked."}
+                ? "Your saved events — add more with + Events or Mak."
+                : "Add events with Mak, or your program schedule will appear here when linked."}
           </p>
         </div>
         {variant === "dashboard" && (

@@ -47,7 +47,7 @@ export function MakMessageActions({ content, section }: MakMessageActionsProps) 
       <button
         type="button"
         onClick={() => void copyMessage()}
-        className="cx-mak-panel-icon-btn flex h-7 w-7 items-center justify-center rounded-md text-cx-forest-dark/45 transition-colors hover:text-cx-forest-dark/70"
+        className="cx-mak-panel-icon-btn flex h-7 w-7 items-center justify-center rounded-md text-gray-500 transition-colors hover:text-gray-300"
         aria-label="Copy message"
         title="Copy"
       >
@@ -60,8 +60,8 @@ export function MakMessageActions({ content, section }: MakMessageActionsProps) 
         className={cn(
           "cx-mak-panel-icon-btn flex h-7 w-7 items-center justify-center rounded-md transition-colors",
           feedback === "up"
-            ? "text-cx-forest-dark"
-            : "text-cx-forest-dark/45 hover:text-cx-forest-dark/70",
+            ? "text-[#A3E635]"
+            : "text-gray-500 hover:text-gray-300",
         )}
         aria-label="Helpful"
         title="Helpful"
@@ -75,8 +75,8 @@ export function MakMessageActions({ content, section }: MakMessageActionsProps) 
         className={cn(
           "cx-mak-panel-icon-btn flex h-7 w-7 items-center justify-center rounded-md transition-colors",
           feedback === "down"
-            ? "text-cx-forest-dark"
-            : "text-cx-forest-dark/45 hover:text-cx-forest-dark/70",
+            ? "text-[#A3E635]"
+            : "text-gray-500 hover:text-gray-300",
         )}
         aria-label="Not helpful"
         title="Not helpful"

@@ -23,7 +23,7 @@ const INSTITUTIONAL_OVERVIEW = [
     detail: "Track domains across inpatient, CL, emergency, addiction, and off-service blocks.",
   },
   {
-    title: "Coach Mak",
+    title: "Mak",
     detail: "Block-aware debriefs and specialty origin threading from day one.",
   },
 ];

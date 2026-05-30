@@ -221,10 +221,12 @@ function LoginPageContent() {
     <MarketingAuthShell>
       <MarketingAuthPanel>
         <MarketingAuthCard>
-          <h1 className="font-futura-bold text-3xl text-white md:text-4xl">Sign in</h1>
-          <p className="auth-muted font-futura-medium mt-2 text-sm">
+          <h1 className="font-futura-bold text-3xl uppercase tracking-[0.12em] text-white md:text-4xl">
+            Sign in
+          </h1>
+          <p className="auth-muted font-futura-book mt-2 text-sm leading-relaxed">
             {!isSupabaseConfigured() && (
-              <span className="text-marketing-accent">
+              <span className="text-[#A3E635]">
                 Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
               </span>
             )}
@@ -293,7 +295,7 @@ function LoginPageContent() {
             ) : null}
 
             {error && (
-              <p className="rounded-lg bg-[#f5d4c4] px-4 py-3 text-sm leading-relaxed text-[#1a2419]">
+              <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm leading-relaxed text-red-200">
                 {error}
               </p>
             )}
@@ -301,7 +303,7 @@ function LoginPageContent() {
             <button
               type="submit"
               disabled={loading || checkingEmail}
-              className="font-futura-bold w-full cx-btn bg-marketing-accent px-4 py-3 text-sm text-black transition hover:bg-white disabled:opacity-60"
+              className="font-futura-bold w-full rounded-xl bg-white px-4 py-3.5 text-sm uppercase tracking-[0.15em] text-[#0A0C10] transition hover:bg-gray-200 disabled:opacity-60"
             >
               {submitLabel}
             </button>
@@ -309,7 +311,7 @@ function LoginPageContent() {
             <p className="text-center">
               <Link
                 href="/forgot-password"
-                className="font-futura-medium text-sm transition hover:text-marketing-accent"
+                className="font-futura-medium text-sm text-gray-400 transition hover:text-[#A3E635]"
               >
                 Reset password
               </Link>
@@ -329,7 +331,7 @@ function LoginPageContent() {
           <p className="mt-6 text-center">
             <Link
               href="/"
-              className="font-futura-medium inline-flex items-center gap-1 text-sm transition hover:text-marketing-accent"
+              className="font-futura-medium inline-flex items-center gap-1 text-sm text-gray-400 transition hover:text-[#A3E635]"
             >
               <ChevronLeft size={16} />
               Back to home

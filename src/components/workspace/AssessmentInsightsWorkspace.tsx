@@ -59,11 +59,11 @@ export function AssessmentInsightsWorkspace() {
         <CardSection
           eyebrow={SOAP_TAB.assessment.nav}
           title="Insights from conversation"
-          description="Insights appear as you talk with Coach Mak. No forms — just conversation."
+          description="Insights appear as you talk with Mak. No forms — just conversation."
           icon={Target}
           mak={ASSESSMENT_MAK.overview}
           footer={
-            <Button onClick={discussWithMak}>Talk with Coach Mak</Button>
+            <Button onClick={discussWithMak}>Talk with Mak</Button>
           }
         />
       </PageShell>
@@ -76,7 +76,7 @@ export function AssessmentInsightsWorkspace() {
       title={SOAP_TAB.assessment.title}
       subtitle={SOAP_TAB.assessment.description}
       maxWidth="lg"
-      action={<Button onClick={discussWithMak}>Discuss with Coach Mak</Button>}
+      action={<Button onClick={discussWithMak}>Discuss with Mak</Button>}
     >
       <AcademicSoapSectionGate intent="assess" />
 

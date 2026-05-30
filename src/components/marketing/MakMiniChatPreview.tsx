@@ -81,7 +81,7 @@ export function MakMiniChatPreview({
         isFeatured ? "min-h-[260px] w-full max-w-md" : "min-h-[168px]",
         className,
       )}
-      aria-label="Coach Mak conversation preview"
+      aria-label="Mak conversation preview"
     >
       <div
         ref={chatRef}

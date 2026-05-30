@@ -153,7 +153,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       accent="amber"
       eyebrow="Quarterly pulse"
       title={`${status.quarter_label} check-in`}
-      description="Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your dashboard and Career Data vault after you confirm the summary."
+      description="Mak walks you through four quick modules (~5–8 min). Your answers save to your dashboard and Career Data vault after you confirm the summary."
       icon={HeartPulse}
       footer={
         status.days_since_last != null ? (
@@ -166,7 +166,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       {!showFallback ? (
         <div className="flex flex-wrap gap-2">
           {onBeginWithMak && (
-            <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
+            <Button onClick={onBeginWithMak}>Begin with Mak</Button>
           )}
           <Button variant="secondary" onClick={() => setShowFallback(true)}>
             Use form instead
