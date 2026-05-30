@@ -15,7 +15,7 @@ import {
   ACCEPTED_CV_ACCEPT,
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
-} from "@/lib/v2/document-upload";
+} from "@/lib/v2/document-upload-constants";
 import { themeKeyFromMetadata, type WorkspaceBucket, type DocumentBucketCounts } from "@/lib/v2/documents-workspace";
 import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
 import { DOCUMENTS_MAK_CHIPS } from "@/lib/v2/documents-mak-context";

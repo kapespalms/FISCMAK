@@ -7,7 +7,7 @@ import {
   ACCEPTED_CV_ACCEPT,
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
-} from "@/lib/v2/document-upload";
+} from "@/lib/v2/document-upload-constants";
 import {
   ONBOARDING_DOCUMENT_TYPE_OPTIONS,
   getOnboardingUploadOption,

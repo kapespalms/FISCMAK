@@ -10,7 +10,7 @@ import {
   ACCEPTED_CV_ACCEPT,
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
-} from "@/lib/v2/document-upload";
+} from "@/lib/v2/document-upload-constants";
 
 export function Tier2Onboarding() {
   const router = useRouter();
