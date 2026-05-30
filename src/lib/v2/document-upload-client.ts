@@ -1,6 +1,7 @@
 "use client";
 
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { extractTextFromPdfFile } from "@/lib/v2/document-pdf-client";
 import {
   ACCEPTED_CV_LABEL,
   INLINE_UPLOAD_MAX_BYTES,
@@ -32,6 +33,15 @@ function shouldUploadInline(file: File): boolean {
   if (lower.endsWith(".txt") || lower.endsWith(".md")) return true;
   if (file.type.startsWith("text/")) return true;
   return file.size <= INLINE_UPLOAD_MAX_BYTES;
+}
+
+async function extractClientPdfText(file: File): Promise<string | undefined> {
+  if (!file.name.toLowerCase().endsWith(".pdf")) return undefined;
+  try {
+    return await extractTextFromPdfFile(file);
+  } catch {
+    return undefined;
+  }
 }
 
 function uploadFormDataWithProgress(
@@ -69,6 +79,7 @@ async function uploadViaStorage(
   file: File,
   meta: DocumentUploadMeta,
   onProgress?: (progress: number) => void,
+  clientExtractedText?: string,
 ): Promise<DocumentUploadResult> {
   onProgress?.(5);
 
@@ -129,6 +140,10 @@ async function uploadViaStorage(
 
   const processRes = await fetch(`/api/v1/documents/${documentId}/process`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client_extracted_text: clientExtractedText,
+    }),
   });
   const processData = await processRes.json();
   if (!processRes.ok) {
@@ -150,6 +165,9 @@ export async function uploadUserDocument(
     throw new Error(`Upload ${ACCEPTED_CV_LABEL}, or paste text below.`);
   }
 
+  onProgress?.(2);
+  const clientExtractedText = await extractClientPdfText(file);
+
   if (!isSupabaseConfigured() || shouldUploadInline(file)) {
     const form = new FormData();
     form.append("file", file);
@@ -157,10 +175,13 @@ export async function uploadUserDocument(
     form.append("document_subtype", meta.document_subtype);
     form.append("document_label", meta.document_label);
     if (meta.custom_label?.trim()) form.append("custom_label", meta.custom_label.trim());
+    if (clientExtractedText) {
+      form.append("client_extracted_text", clientExtractedText);
+    }
     return uploadFormDataWithProgress(form, onProgress);
   }
 
-  return uploadViaStorage(file, meta, onProgress);
+  return uploadViaStorage(file, meta, onProgress, clientExtractedText);
 }
 
 export async function syncMempalaceAfterCvUpload() {

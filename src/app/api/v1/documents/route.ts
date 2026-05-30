@@ -5,6 +5,7 @@ import { isErrorResponse, jsonError, jsonOk, requireApiUser, getAppUser, upsertA
 import { DocumentExtractError } from "@/lib/v2/document-upload";
 import {
   buildProcessedDocumentPayload,
+  buildProcessedDocumentPayloadFromClientText,
   documentUploadResponse,
   markCvUploadedFlag,
   resolveDocumentUploadFields,
@@ -72,6 +73,7 @@ export async function POST(request: Request) {
   const documentSubtype = (form.get("document_subtype") as string) || requestedType;
   const documentLabel = (form.get("document_label") as string) || "";
   const customLabel = (form.get("custom_label") as string) || documentLabel;
+  const clientExtractedText = (form.get("client_extracted_text") as string) || "";
 
   if (!file) {
     return jsonError("validation_error", "File required", 400);
@@ -97,21 +99,31 @@ export async function POST(request: Request) {
 
   let processed;
   try {
-    const buffer = Buffer.from(await file.arrayBuffer());
-    processed = await buildProcessedDocumentPayload(
-      buffer,
-      file.name,
-      file.type,
-      resolved,
-    );
+    const isPdf = file.name.toLowerCase().endsWith(".pdf");
+    if (isPdf && clientExtractedText.trim()) {
+      processed = buildProcessedDocumentPayloadFromClientText(
+        clientExtractedText,
+        file.name,
+        resolved,
+      );
+    } else {
+      const buffer = Buffer.from(await file.arrayBuffer());
+      processed = await buildProcessedDocumentPayload(
+        buffer,
+        file.name,
+        file.type,
+        resolved,
+      );
+    }
   } catch (e) {
     if (e instanceof DocumentExtractError) {
       return jsonError("extraction_error", e.message, 400, { code: e.code });
     }
     console.error("Document extraction failed:", e);
+    const detail = e instanceof Error ? e.message : null;
     return jsonError(
       "extraction_failed",
-      "Could not read this file. Try .txt, .md, .pdf, or .docx.",
+      detail ?? "Could not read this file. Try .txt, .md, .pdf, or .docx.",
       400,
     );
   }

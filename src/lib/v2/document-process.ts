@@ -6,6 +6,7 @@ import { extractCvMetadata } from "@/lib/v2/db";
 import { getAppUser, upsertAppUser } from "@/lib/v2/api-helpers";
 import {
   DocumentExtractError,
+  buildDocumentTextFromClientExtraction,
   extractDocumentText,
 } from "@/lib/v2/document-upload";
 import { resolveOnboardingDocumentUpload } from "@/lib/v2/onboarding-document-types";
@@ -75,6 +76,32 @@ export async function buildProcessedDocumentPayload(
     document_subtype: resolved.document_subtype,
     document_label: resolved.document_label,
     workspace_bucket: "sources",
+    extraction_source: "server",
+  } as Record<string, unknown>;
+
+  return {
+    text: extracted.text,
+    sourceFormat: extracted.format,
+    wordCount: extracted.wordCount,
+    metadata,
+  };
+}
+
+export function buildProcessedDocumentPayloadFromClientText(
+  clientText: string,
+  fileName: string,
+  resolved: ResolvedDocumentUpload,
+): ProcessedDocumentPayload {
+  const extracted = buildDocumentTextFromClientExtraction(clientText, fileName);
+  const metadata = {
+    ...extractCvMetadata(extracted.text),
+    file_name: fileName,
+    source_format: extracted.format,
+    word_count: extracted.wordCount,
+    document_subtype: resolved.document_subtype,
+    document_label: resolved.document_label,
+    workspace_bucket: "sources",
+    extraction_source: "client_pdfjs",
   } as Record<string, unknown>;
 
   return {
@@ -171,6 +198,7 @@ export async function processDocumentFromStorage(input: {
   email: string;
   demo: boolean;
   document: DocumentRecord;
+  clientExtractedText?: string | null;
 }): Promise<
   | { ok: true; response: ReturnType<typeof documentUploadResponse> }
   | { ok: false; message: string; code?: string; status: number }
@@ -218,37 +246,85 @@ export async function processDocumentFromStorage(input: {
     .eq("document_id", input.document.document_id)
     .eq("user_id", input.userId);
 
-  const { data: blob, error: downloadError } = await supabase.storage
-    .from(USER_DOCUMENTS_BUCKET)
-    .download(storagePath);
+  const clientText = input.clientExtractedText?.trim();
+  let processed: ProcessedDocumentPayload | null = null;
 
-  if (downloadError || !blob) {
-    const failedMeta = {
-      ...metadata,
-      extraction_error: downloadError?.message ?? "Could not download file from storage.",
-    };
-    await supabase
-      .from("documents")
-      .update({ extraction_status: "failed", metadata: failedMeta })
-      .eq("document_id", input.document.document_id)
-      .eq("user_id", input.userId);
-    return {
-      ok: false,
-      status: 500,
-      message: "Could not read uploaded file. Try uploading again.",
-      code: "storage_download_failed",
-    };
+  if (clientText) {
+    try {
+      processed = buildProcessedDocumentPayloadFromClientText(
+        clientText,
+        fileName,
+        resolved,
+      );
+    } catch (e) {
+      if (e instanceof DocumentExtractError) {
+        const failedMeta = {
+          ...metadata,
+          extraction_error: e.message,
+          extraction_code: e.code,
+        };
+        await supabase
+          .from("documents")
+          .update({ extraction_status: "failed", metadata: failedMeta })
+          .eq("document_id", input.document.document_id)
+          .eq("user_id", input.userId);
+        return { ok: false, status: 400, message: e.message, code: e.code };
+      }
+      console.error("Client PDF text processing failed:", e);
+    }
   }
 
-  const buffer = Buffer.from(await blob.arrayBuffer());
+  if (!processed) {
+    const { data: blob, error: downloadError } = await supabase.storage
+      .from(USER_DOCUMENTS_BUCKET)
+      .download(storagePath);
+
+    if (downloadError || !blob) {
+      const failedMeta = {
+        ...metadata,
+        extraction_error: downloadError?.message ?? "Could not download file from storage.",
+      };
+      await supabase
+        .from("documents")
+        .update({ extraction_status: "failed", metadata: failedMeta })
+        .eq("document_id", input.document.document_id)
+        .eq("user_id", input.userId);
+      return {
+        ok: false,
+        status: 500,
+        message: "Could not read uploaded file. Try uploading again.",
+        code: "storage_download_failed",
+      };
+    }
+
+    const buffer = Buffer.from(await blob.arrayBuffer());
+
+    try {
+      processed = await buildProcessedDocumentPayload(
+        buffer,
+        fileName,
+        mimeType,
+        resolved,
+      );
+    } catch (e) {
+      const message =
+        e instanceof DocumentExtractError
+          ? e.message
+          : e instanceof Error
+            ? e.message
+            : "Could not read this file. Try .txt, .md, .pdf, or .docx.";
+      const code = e instanceof DocumentExtractError ? e.code : "extraction_failed";
+      const failedMeta = { ...metadata, extraction_error: message, extraction_code: code };
+      await supabase
+        .from("documents")
+        .update({ extraction_status: "failed", metadata: failedMeta })
+        .eq("document_id", input.document.document_id)
+        .eq("user_id", input.userId);
+      return { ok: false, status: 400, message, code };
+    }
+  }
 
   try {
-    const processed = await buildProcessedDocumentPayload(
-      buffer,
-      fileName,
-      mimeType,
-      resolved,
-    );
     const nextMetadata = {
       ...processed.metadata,
       storage_path: storagePath,
@@ -303,7 +379,9 @@ export async function processDocumentFromStorage(input: {
     const message =
       e instanceof DocumentExtractError
         ? e.message
-        : "Could not read this file. Try .txt, .md, .pdf, or .docx.";
+        : e instanceof Error
+          ? e.message
+          : "Could not read this file. Try .txt, .md, .pdf, or .docx.";
     const code = e instanceof DocumentExtractError ? e.code : "extraction_failed";
     const failedMeta = { ...metadata, extraction_error: message, extraction_code: code };
     await supabase

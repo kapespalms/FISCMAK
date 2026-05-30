@@ -28,7 +28,7 @@ async function clearLatticeDocumentCache(userId: string, email: string, demo: bo
   );
 }
 
-export async function POST(_request: Request, context: RouteContext) {
+export async function POST(request: Request, context: RouteContext) {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
 
@@ -55,11 +55,22 @@ export async function POST(_request: Request, context: RouteContext) {
     });
   }
 
+  let clientExtractedText: string | null = null;
+  try {
+    const body = (await request.json()) as { client_extracted_text?: unknown };
+    if (typeof body.client_extracted_text === "string") {
+      clientExtractedText = body.client_extracted_text;
+    }
+  } catch {
+    // Empty body — server-side extraction fallback.
+  }
+
   const result = await processDocumentFromStorage({
     userId: auth.userId,
     email: auth.email,
     demo: auth.demo,
     document,
+    clientExtractedText,
   });
 
   if (!result.ok) {

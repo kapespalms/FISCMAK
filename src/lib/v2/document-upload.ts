@@ -7,6 +7,7 @@ import {
   detectDocumentFormat,
   type DocumentFormat,
 } from "@/lib/v2/document-upload-types";
+import { normalizeExtractedText, validateExtractedText } from "@/lib/v2/document-extract-validation";
 
 // NOTE: pdf-parse v2 / pdfjs-dist v5 require DOMMatrix, Path2D, and ImageData
 // globals that exist in browsers but are absent in Node.js / Vercel Lambdas.
@@ -207,21 +208,33 @@ export async function extractDocumentText(
     text = buffer.toString("utf8");
   }
 
-  const normalized = text.replace(/\r\n/g, "\n").replace(/\u0000/g, "").trim();
-  if (!normalized) {
-    throw new DocumentExtractError(
-      "Could not extract readable text from this file. Try another format or paste your CV text.",
-      "empty_extraction",
-    );
+  const validated = validateExtractedText(text);
+  if (!validated.ok) {
+    throw new DocumentExtractError(validated.message, validated.code);
   }
 
-  const wordCount = normalized.split(/\s+/).filter(Boolean).length;
-  if (wordCount < 20) {
-    throw new DocumentExtractError(
-      "Extracted very little text — the file may be scanned or image-only. Paste your CV text instead.",
-      "insufficient_text",
-    );
-  }
-
-  return { text: normalized, format, wordCount };
+  return { text: validated.text, format, wordCount: validated.wordCount };
 }
+
+/** Use text extracted in the browser (pdf.js) when server PDF parsing is skipped. */
+export function buildDocumentTextFromClientExtraction(
+  raw: string,
+  fileName: string,
+): { text: string; format: DocumentFormat; wordCount: number } {
+  const format = detectDocumentFormat(fileName, "application/pdf");
+  if (format !== "pdf") {
+    throw new DocumentExtractError(
+      "Client text extraction is only supported for PDF uploads.",
+      "unsupported_format",
+    );
+  }
+
+  const validated = validateExtractedText(raw);
+  if (!validated.ok) {
+    throw new DocumentExtractError(validated.message, validated.code);
+  }
+
+  return { text: validated.text, format, wordCount: validated.wordCount };
+}
+
+export { normalizeExtractedText, validateExtractedText };
