@@ -25,6 +25,8 @@ import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
 import { getUserOutputTemplates } from "@/lib/v2/output-user-templates";
 import { onboardingProgressPatch, markDocumentsUploadProgress } from "@/lib/v2/onboarding-progress";
 
+export const runtime = "nodejs";
+
 async function clearLatticeDocumentCache(userId: string, email: string, demo: boolean) {
   const user = await getAppUser(userId, demo);
   if (!user) return;

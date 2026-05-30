@@ -68,16 +68,37 @@ let pdfWorkerReady = false;
 async function ensurePdfWorker(): Promise<void> {
   if (pdfWorkerReady) return;
 
-  const { createRequire } = await import("node:module");
+  const path = await import("node:path");
   const { pathToFileURL } = await import("node:url");
-  const require = createRequire(import.meta.url);
+  const { createRequire } = await import("node:module");
+  let require: NodeRequire;
+  try {
+    require = createRequire(import.meta.url);
+  } catch {
+    require = createRequire(`${process.cwd()}/package.json`);
+  }
   const { PDFParse } = await import("pdf-parse");
 
+  const workerCandidates: string[] = [];
   try {
-    const workerPath = require.resolve("pdfjs-dist/legacy/build/pdf.worker.mjs");
-    PDFParse.setWorker(pathToFileURL(workerPath).href);
+    const pdfParseDir = path.dirname(require.resolve("pdf-parse"));
+    workerCandidates.push(path.join(pdfParseDir, "pdf.worker.mjs"));
   } catch {
-    // Fall back to pdf-parse defaults when the worker bundle is unavailable.
+    /* pdf-parse entry not resolvable */
+  }
+  try {
+    workerCandidates.push(require.resolve("pdfjs-dist/legacy/build/pdf.worker.mjs"));
+  } catch {
+    /* pdfjs-dist worker not resolvable */
+  }
+
+  for (const workerPath of workerCandidates) {
+    try {
+      PDFParse.setWorker(pathToFileURL(workerPath).href);
+      break;
+    } catch {
+      /* try next candidate */
+    }
   }
 
   pdfWorkerReady = true;
