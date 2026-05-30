@@ -82,16 +82,23 @@ export async function upsertAppUser(
     return state.user;
   }
   const supabase = await createClient();
-  const { data, error } = await supabase
+  const row = {
+    user_id: userId,
+    email,
+    ...patch,
+    last_active: new Date().toISOString(),
+  };
+
+  const { data: existing } = await supabase
     .from("app_users")
-    .upsert({
-      user_id: userId,
-      email,
-      ...patch,
-      last_active: new Date().toISOString(),
-    })
-    .select("*")
-    .single();
+    .select("user_id")
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  const { data, error } = existing
+    ? await supabase.from("app_users").update(row).eq("user_id", userId).select("*").single()
+    : await supabase.from("app_users").insert(row).select("*").single();
+
   if (error) throw error;
   return withSpecialtyDefaults(data as AppUser);
 }
