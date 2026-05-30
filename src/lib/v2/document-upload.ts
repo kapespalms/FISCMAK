@@ -1,13 +1,16 @@
 import "server-only";
 
 import * as mammoth from "mammoth";
-import { CanvasFactory, getData } from "pdf-parse/worker";
 import { PDFParse } from "pdf-parse";
 import {
   ACCEPTED_CV_LABEL,
   detectDocumentFormat,
   type DocumentFormat,
 } from "@/lib/v2/document-upload-types";
+
+// NOTE: Do NOT import from "pdf-parse/worker". That submodule pulls in
+// @napi-rs/canvas (native .node binaries) which are only needed for page
+// rendering (screenshots). Text extraction works fine with just PDFParse.
 
 export class DocumentExtractError extends Error {
   code: string;
@@ -17,14 +20,6 @@ export class DocumentExtractError extends Error {
     this.name = "DocumentExtractError";
     this.code = code;
   }
-}
-
-let pdfParseReady = false;
-
-function ensurePdfParse(): void {
-  if (pdfParseReady) return;
-  PDFParse.setWorker(getData());
-  pdfParseReady = true;
 }
 
 function detectDocumentFormatFromBuffer(
@@ -52,11 +47,8 @@ function detectDocumentFormatFromBuffer(
 }
 
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  ensurePdfParse();
-  const parser = new PDFParse({
-    data: buffer,
-    CanvasFactory,
-  });
+  // PDFParse handles text extraction without canvas — no setWorker() needed.
+  const parser = new PDFParse({ data: buffer });
   try {
     const result = await parser.getText();
     return result.text ?? "";
