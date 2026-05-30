@@ -1,7 +1,10 @@
 import { MarketingFontShell } from "@/components/marketing/MarketingFontShell";
 import { MarketingCanvas } from "@/components/marketing/MarketingGlass";
 import { MarketingHeader } from "@/components/marketing/MarketingHeader";
-import { MarketingLandingExperience } from "@/components/marketing/MarketingLandingExperience";
+import { MarketingHeroSection } from "@/components/marketing/MarketingHeroSection";
+import { FiscmakFlowSection } from "@/components/marketing/FiscmakFlowSection";
+import { MeetMakLandingSection } from "@/components/marketing/MeetMakLandingSection";
+import { FiscmakMeaningGlassSection } from "@/components/marketing/FiscmakMeaningGlassSection";
 import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 
 export function MarketingHomePage() {
@@ -16,12 +19,13 @@ export function MarketingHomePage() {
         </a>
 
         <div className="relative z-[1]">
-          <div className="marketing-dark-zone">
-            <MarketingHeader overlay />
-            <main id="main-content">
-              <MarketingLandingExperience />
-            </main>
-          </div>
+          <MarketingHeader overlay />
+          <main id="main-content">
+            <MarketingHeroSection />
+            <FiscmakFlowSection />
+            <MeetMakLandingSection />
+            <FiscmakMeaningGlassSection />
+          </main>
           <MarketingFooter />
         </div>
       </MarketingCanvas>

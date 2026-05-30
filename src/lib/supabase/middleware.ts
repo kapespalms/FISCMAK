@@ -4,6 +4,35 @@ import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/supabase/env";
 
 const APP_PREFIX = "/app";
 
+const PUBLIC_PATH_PREFIXES = [
+  "/login",
+  "/signup",
+  "/forgot-password",
+  "/reset-password",
+  "/auth/callback",
+  "/join",
+];
+
+const PUBLIC_MARKETING_PREFIXES = [
+  "/how-it-works",
+  "/meet-mak",
+  "/our-narrative",
+  "/institutions",
+  "/faq",
+  "/security",
+  "/about",
+];
+
+function isPublicPath(pathname: string) {
+  if (pathname === "/") return true;
+  if (PUBLIC_MARKETING_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))) {
+    return true;
+  }
+  return PUBLIC_PATH_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
+}
+
 /** Refresh Supabase session cookies and protect authenticated app routes. */
 export async function updateSession(request: NextRequest) {
   const host = request.headers.get("host") ?? "";
@@ -12,6 +41,11 @@ export async function updateSession(request: NextRequest) {
     canonical.host = "www.fiscmak.com";
     canonical.protocol = "https:";
     return NextResponse.redirect(canonical, 308);
+  }
+
+  const pathname = request.nextUrl.pathname;
+  if (isPublicPath(pathname)) {
+    return NextResponse.next({ request });
   }
 
   let supabaseResponse = NextResponse.next({ request });
@@ -29,7 +63,6 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll();
         },
         setAll(cookiesToSet) {
-          // Only mutate the response — request cookies are read-only on Edge.
           supabaseResponse = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) => {
             supabaseResponse.cookies.set(name, value, options);
@@ -49,7 +82,6 @@ export async function updateSession(request: NextRequest) {
       user = getUserResult.data.user;
     }
 
-    const pathname = request.nextUrl.pathname;
     if (!user && pathname.startsWith(APP_PREFIX)) {
       const loginUrl = request.nextUrl.clone();
       loginUrl.pathname = "/login";

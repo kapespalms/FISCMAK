@@ -16,54 +16,52 @@ export function MarketingHeader({ overlay = false }: MarketingHeaderProps) {
     <header
       className={
         overlay
-          ? "absolute left-0 right-0 top-0 z-20 bg-transparent"
-          : "sticky top-0 z-50 bg-[#030303]/95 backdrop-blur-xl"
+          ? "absolute left-0 right-0 top-0 z-20"
+          : "sticky top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur-xl"
       }
     >
-      <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 sm:gap-3 sm:px-6 sm:py-4 md:gap-4 md:px-10">
+      <nav
+        aria-label="Primary navigation"
+        className="pointer-events-none absolute inset-x-0 top-0 hidden h-full items-center justify-center lg:flex"
+      >
+        <div className="marketing-glass pointer-events-auto flex items-center gap-1 rounded-full px-2 py-1.5">
+          {navigationItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="font-futura-medium rounded-full px-4 py-2 text-sm text-white/85 transition hover:bg-white/10 hover:text-marketing-accent"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </nav>
+
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
         <Link
           href="/"
           aria-label="FISCMAK home"
-          className="shrink-0 font-futura-bold text-2xl tracking-wide sm:text-3xl md:text-4xl"
+          className="relative z-10 shrink-0 font-futura-bold text-3xl tracking-wide md:text-4xl"
         >
           <span className="text-white">FISC</span>
           <span className="text-marketing-accent">MAK</span>
         </Link>
 
-        <nav
-          aria-label="Primary navigation"
-          className="flex min-w-0 flex-1 justify-center overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          <div className="marketing-glass flex shrink-0 items-center gap-0.5 rounded-full px-1 py-0.5">
-            {navigationItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="font-futura-bold shrink-0 whitespace-nowrap rounded-full px-2.5 py-1.5 text-[11px] tracking-wide text-white transition hover:bg-white/10 hover:text-marketing-accent sm:px-3 sm:text-xs md:text-[13px]"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="relative z-10 ml-auto flex shrink-0 items-center gap-3">
           <Link
             href="/login"
-            className="font-futura-bold cx-btn hidden shrink-0 whitespace-nowrap border border-white/20 bg-white/5 px-3 py-2 text-xs text-white backdrop-blur-sm transition hover:border-marketing-accent/40 hover:bg-white/10 sm:inline-block sm:px-5 sm:py-2.5 sm:text-sm"
+            className="font-futura-bold cx-btn hidden border border-white/20 bg-white/5 px-5 py-2.5 text-sm text-white backdrop-blur-sm transition hover:border-marketing-accent/40 hover:bg-white/10 sm:inline-block"
           >
             Sign In
           </Link>
           <Link
-            href="/login?next=%2Fapp%2Fonboarding"
-            className="font-futura-bold cx-btn shrink-0 whitespace-nowrap bg-marketing-accent px-3 py-2 text-xs text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none sm:px-5 sm:py-2.5 sm:text-sm"
+            href="/app/onboarding"
+            className="font-futura-bold cx-btn bg-marketing-accent px-5 py-2.5 text-sm text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none"
           >
             Start Building
           </Link>
         </div>
       </div>
-
-      <div className="mx-4 border-t border-white/10 md:mx-8" aria-hidden="true" />
     </header>
   );
 }

@@ -660,6 +660,12 @@ input[type="reset"]:not([data-preserve-radius]) {
   }
 }
 
+/* Canva panel PNGs — knock out light matte on dark marketing canvas */
+.marketing-panel-art {
+  mix-blend-mode: multiply;
+  filter: contrast(1.08) brightness(1.05);
+}
+
 .pillar-detail-pop {
   animation: pillar-detail-pop 0.35s ease-out both;
 }

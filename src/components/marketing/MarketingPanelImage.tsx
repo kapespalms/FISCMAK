@@ -8,7 +8,9 @@ type MarketingPanelImageProps = {
   variant?: "tile" | "hero";
 };
 
-/** Canva panel art — use transparent PNGs from `npm run brand:panels`. */
+/**
+ * Canva panel exports often ship with a light matte — multiply blends white into the dark canvas.
+ */
 export function MarketingPanelImage({
   src,
   alt,
@@ -18,7 +20,7 @@ export function MarketingPanelImage({
   return (
     <div
       className={cn(
-        "overflow-hidden bg-transparent",
+        "marketing-panel-art-frame isolate overflow-hidden bg-[#030303]",
         variant === "hero" ? "rounded-xl" : "rounded-lg",
         className,
       )}
@@ -28,8 +30,8 @@ export function MarketingPanelImage({
         src={src}
         alt={alt}
         className={cn(
-          "mx-auto block w-full object-contain object-center",
-          variant === "hero" ? "aspect-[5/4]" : "aspect-[4/5] min-h-[200px]",
+          "marketing-panel-art mx-auto w-full object-contain object-center",
+          variant === "hero" ? "aspect-[5/4]" : "aspect-[4/5]",
         )}
         decoding="async"
       />

@@ -50,16 +50,16 @@ function PillarDetail({ pillar }: { pillar: (typeof PILLARS)[number] }) {
   return (
     <div className="pillar-detail-pop mt-3 space-y-2 border-t border-white/10 pt-3 text-left">
       <p className="font-futura-bold text-lg text-marketing-accent">{pillar.title}</p>
-      <p className="font-futura-bold text-xs italic text-white">{pillar.subtitle}</p>
+      <p className="font-futura-medium text-xs italic text-white/50">{pillar.subtitle}</p>
       <p className="font-futura-bold text-sm text-white md:text-base">{pillar.heading}</p>
       <ul className="space-y-0.5">
         {pillar.traits.map((trait) => (
-          <li key={trait} className="font-futura-bold text-sm text-marketing-accent">
+          <li key={trait} className="font-futura-medium text-sm text-marketing-accent/95">
             {trait}.
           </li>
         ))}
       </ul>
-      <p className="font-futura-bold text-sm leading-relaxed text-white">{pillar.footer}</p>
+      <p className="font-futura-medium text-sm leading-relaxed text-white/70">{pillar.footer}</p>
     </div>
   );
 }
@@ -118,7 +118,7 @@ export function FiscmakMeaningGlassSection() {
               <span className="text-marketing-accent">FISC</span>
               <span className="text-white">MAK</span>
             </h2>
-            <p className="font-futura-bold mt-1 text-sm text-white md:text-base">
+            <p className="font-futura-medium mt-1 text-sm text-white/60 md:text-base">
               Pronounced <span className="text-marketing-accent">[ FIZ-MAK ]</span>
             </p>
           </div>
@@ -132,7 +132,7 @@ export function FiscmakMeaningGlassSection() {
 
         <MarketingGlassPanel accent className="mt-5 overflow-hidden p-6 md:p-8 lg:p-10">
           <div className="max-w-2xl">
-            <p className="font-futura-bold text-base leading-relaxed text-white">
+            <p className="font-futura-medium text-base leading-relaxed text-white/70">
               By the standard rules of grammar, you should pronounce the C in FISC.
             </p>
             <p className="font-futura-medium mt-2 text-base leading-relaxed text-marketing-accent">

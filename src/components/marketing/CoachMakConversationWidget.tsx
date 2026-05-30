@@ -92,12 +92,12 @@ export function CoachMakConversationWidget({
         "marketing-glass flex h-[440px] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.45)]",
         className,
       )}
-      aria-label="Mak conversation preview"
+      aria-label="Coach Mak conversation preview"
     >
       <div className="flex h-12 shrink-0 items-center justify-between border-b border-white/10 bg-white/[0.03] px-4">
         <div className="flex items-center gap-2.5">
           <CoachMakAvatar size={36} />
-          <span className="text-[14px] font-semibold text-white">Mak</span>
+          <span className="text-[14px] font-semibold text-white">Coach Mak</span>
         </div>
         <span className="rounded-full border border-marketing-accent/30 bg-marketing-accent/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-marketing-accent">
           Preview

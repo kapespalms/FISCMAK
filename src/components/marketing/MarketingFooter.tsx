@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { ContactFormPopover } from "@/components/marketing/ContactFormPopover";
 
 type FooterLink = {
@@ -13,17 +14,28 @@ const footerLinks: FooterLink[] = [
   { label: "Institutions", href: "/institutions" },
   { label: "FAQ", href: "/faq" },
   { label: "Security", href: "/security" },
-  { label: "Terms", href: "/legal/terms-of-service" },
-  { label: "Privacy", href: "/legal/privacy-policy" },
 ];
 
 export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
   return (
-    <footer id="contact" aria-label="Footer navigation" className="marketing-site-footer relative z-[1] border-t border-white/10">
+    <footer id="contact" aria-label="Footer navigation" className="relative z-[1] border-t border-white/10">
       <ContactFormPopover />
 
       <div className="px-6 py-10 md:px-10 md:py-12">
-        <div className="flex items-end justify-between gap-6">
+        {!hideNav ? (
+          <nav
+            aria-label="Footer links"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400"
+          >
+            {footerLinks.map((item) => (
+              <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
+
+        <div className={cn("flex items-end justify-between gap-6", !hideNav && "mt-10")}>
           <Link
             href="/"
             aria-label="FISCMAK home"
@@ -33,30 +45,10 @@ export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
             <span className="text-marketing-accent">MAK</span>
           </Link>
 
-          <p className="font-futura-bold text-sm text-white">
+          <p className="font-futura-medium text-sm text-gray-500">
             FISCMAK LLC · {new Date().getFullYear()}
           </p>
         </div>
-
-        {!hideNav ? (
-          <>
-            <div
-              className="mx-4 mt-10 border-t border-white/10 md:mx-8"
-              aria-hidden="true"
-            />
-
-            <nav
-              aria-label="Footer links"
-              className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white"
-            >
-              {footerLinks.map((item) => (
-                <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </>
-        ) : null}
       </div>
     </footer>
   );

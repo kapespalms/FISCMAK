@@ -32,10 +32,10 @@ export default function SecurityPage() {
     <MarketingPageShell>
       <section className="relative px-6 py-16 md:px-10 md:py-20">
         <div className="mx-auto max-w-4xl">
-          <h1 className="font-futura-bold text-3xl text-cx-forest-dark md:text-4xl lg:text-5xl">
+          <h1 className="font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl">
             Security & <span className="text-marketing-accent">privacy</span>
           </h1>
-          <p className="font-futura-medium mt-4 text-base leading-relaxed text-cx-forest-dark/70 md:text-lg">
+          <p className="font-futura-medium mt-4 text-base leading-relaxed text-white/65 md:text-lg">
             Career intelligence requires trust. FISCMAK LLC is built with physician privacy as a
             default — not an upsell.
           </p>
@@ -51,9 +51,9 @@ export default function SecurityPage() {
             ))}
           </div>
 
-          <p className="font-futura-medium mt-10 text-sm text-cx-forest-dark/60">
+          <p className="font-futura-medium mt-10 text-sm text-white/50">
             Questions?{" "}
-            <Link href="/faq" className="text-marketing-accent transition hover:text-cx-forest-dark">
+            <Link href="/faq" className="text-marketing-accent transition hover:text-white">
               See FAQ
             </Link>{" "}
             or use Connect with FISCMAK in the footer.

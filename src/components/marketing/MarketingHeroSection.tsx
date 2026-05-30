@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { LANDING_PANEL_SILENT_C_SRC } from "@/lib/brand-assets";
 import { FiscMakLightBox } from "@/components/marketing/FiscMakLightBox";
 import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
 import { MarketingHeroHeadline } from "@/components/marketing/MarketingHeroHeadline";
+import { MarketingPanelImage } from "@/components/marketing/MarketingPanelImage";
 import { institutionAccentClass } from "@/lib/v2/programs/institution-brand";
 import { joinInstitutionLabel } from "@/lib/v2/programs/program-join-display";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
@@ -17,7 +19,7 @@ function HeroTagline({
   end: string;
 }) {
   return (
-    <p className="font-futura-bold text-base leading-relaxed text-white md:text-lg">
+    <p className="font-futura-medium text-base leading-relaxed text-white/85 md:text-lg">
       <span className="text-marketing-accent">{verb}</span>{" "}
       <span className="text-white">{middle}</span>{" "}
       <span className="text-marketing-gold">{end}</span>
@@ -74,7 +76,7 @@ export function MarketingHeroSection({
 
           {!isJoin ? (
             <>
-              <p className="font-futura-bold mt-5 max-w-lg text-lg leading-relaxed text-white">
+              <p className="font-futura-medium mt-5 max-w-lg text-lg leading-relaxed text-white/75">
                 FISCMAK helps physicians turn invisible work into career evidence, narrative, and
                 direction.
               </p>
@@ -87,7 +89,7 @@ export function MarketingHeroSection({
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="/login?next=%2Fapp%2Fonboarding"
+                  href="/app/onboarding"
                   className="font-futura-bold cx-btn bg-marketing-accent px-6 py-3 text-sm text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none"
                 >
                   Start Building
@@ -103,9 +105,26 @@ export function MarketingHeroSection({
           ) : null}
         </MarketingGlassPanel>
 
-        <div className="relative xl:min-h-[540px]">
-          <FiscMakLightBox />
-        </div>
+        {isJoin ? (
+          <div className="relative xl:min-h-[540px]">
+            <FiscMakLightBox />
+          </div>
+        ) : (
+          <MarketingGlassPanel className="relative flex items-center justify-center overflow-hidden p-5 sm:p-6 md:p-8">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(169,255,92,0.12),transparent_68%)]"
+              aria-hidden
+            />
+            <div className="relative z-[1] w-full max-w-[min(100%,420px)]">
+              <MarketingPanelImage
+                src={LANDING_PANEL_SILENT_C_SRC}
+                alt="FISCMAK — career intelligence for physicians"
+                variant="hero"
+                className="marketing-glass shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+              />
+            </div>
+          </MarketingGlassPanel>
+        )}
       </div>
     </section>
   );
