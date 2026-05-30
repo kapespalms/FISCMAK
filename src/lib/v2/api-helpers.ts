@@ -82,16 +82,23 @@ export async function upsertAppUser(
     return state.user;
   }
   const supabase = await createClient();
-  const { data, error } = await supabase
+  const row = {
+    user_id: userId,
+    email,
+    ...patch,
+    last_active: new Date().toISOString(),
+  };
+
+  const { data: existing } = await supabase
     .from("app_users")
-    .upsert({
-      user_id: userId,
-      email,
-      ...patch,
-      last_active: new Date().toISOString(),
-    })
-    .select("*")
-    .single();
+    .select("user_id")
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  const { data, error } = existing
+    ? await supabase.from("app_users").update(row).eq("user_id", userId).select("*").single()
+    : await supabase.from("app_users").insert(row).select("*").single();
+
   if (error) throw error;
   return withSpecialtyDefaults(data as AppUser);
 }
@@ -107,4 +114,14 @@ export async function touchLastActive(userId: string, demo: boolean) {
 
 export function isErrorResponse(v: unknown): v is NextResponse {
   return v instanceof NextResponse;
+}
+
+/** Extract a human-readable message from Supabase/PostgREST errors (not always `Error` instances). */
+export function storageErrorMessage(err: unknown): string {
+  if (err instanceof Error && err.message) return err.message;
+  if (typeof err === "object" && err !== null && "message" in err) {
+    const message = (err as { message?: unknown }).message;
+    if (typeof message === "string" && message.trim()) return message;
+  }
+  return "Could not save profile to database.";
 }
