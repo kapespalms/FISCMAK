@@ -12,6 +12,10 @@ import {
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
 } from "@/lib/v2/document-upload-types";
+import {
+  uploadUserDocument,
+  syncMempalaceAfterCvUpload,
+} from "@/lib/v2/document-upload-client";
 
 type V2Document = {
   document_id: string;
@@ -57,19 +61,12 @@ export function DocumentsView() {
     setProcessing(true);
     setError(null);
     try {
-      const form = new FormData();
-      form.append("file", file);
-      form.append("document_type", documentType);
-      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message ?? "Upload failed");
-      }
-      await fetch("/api/v1/mempalace/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
+      await uploadUserDocument(file, {
+        document_type: documentType,
+        document_subtype: documentType,
+        document_label: documentType === "CV" ? "CV / Resume" : documentType,
       });
+      await syncMempalaceAfterCvUpload();
       await loadDocuments();
       setPasteText("");
       window.dispatchEvent(new CustomEvent("fiscmak:document-uploaded"));

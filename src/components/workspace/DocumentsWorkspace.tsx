@@ -16,6 +16,10 @@ import {
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
 } from "@/lib/v2/document-upload-types";
+import {
+  uploadUserDocument,
+  syncMempalaceAfterCvUpload,
+} from "@/lib/v2/document-upload-client";
 import { themeKeyFromMetadata, type WorkspaceBucket, type DocumentBucketCounts } from "@/lib/v2/documents-workspace";
 import { resumeContentFromMetadata } from "@/lib/v2/resume-content";
 import { DOCUMENTS_MAK_CHIPS } from "@/lib/v2/documents-mak-context";
@@ -143,18 +147,12 @@ export function DocumentsWorkspace() {
     setProcessing(true);
     setError(null);
     try {
-      const form = new FormData();
-      form.append("file", file);
-      form.append("document_type", "CV");
-      form.append("document_subtype", "CV");
-      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message ?? "Upload failed");
-      await fetch("/api/v1/mempalace/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
+      await uploadUserDocument(file, {
+        document_type: "CV",
+        document_subtype: "CV",
+        document_label: "CV / Resume",
       });
+      await syncMempalaceAfterCvUpload();
       await loadDocuments();
       setPasteText("");
       window.dispatchEvent(new CustomEvent("fiscmak:document-uploaded"));

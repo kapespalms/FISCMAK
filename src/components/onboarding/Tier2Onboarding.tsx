@@ -11,6 +11,10 @@ import {
   ACCEPTED_CV_LABEL,
   isAcceptedCvFileName,
 } from "@/lib/v2/document-upload-types";
+import {
+  uploadUserDocument,
+  syncMempalaceAfterCvUpload,
+} from "@/lib/v2/document-upload-client";
 
 export function Tier2Onboarding() {
   const router = useRouter();
@@ -32,19 +36,12 @@ export function Tier2Onboarding() {
     setProcessing(true);
     setError("");
     try {
-      const form = new FormData();
-      form.append("file", file);
-      form.append("document_type", "CV");
-      const res = await fetch("/api/v1/documents", { method: "POST", body: form });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message ?? "Upload failed");
-
-      await fetch("/api/v1/mempalace/sync", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
+      await uploadUserDocument(file, {
+        document_type: "CV",
+        document_subtype: "CV",
+        document_label: "CV / Resume",
       });
-
+      await syncMempalaceAfterCvUpload();
       router.replace("/app/dashboard");
       router.refresh();
     } catch (e) {

@@ -46,8 +46,27 @@ function detectDocumentFormatFromBuffer(
   return null;
 }
 
+// One-time setup: point pdfjs-dist to its bundled worker script so serverless
+// environments (Vercel, Lambda) don't fall back to a broken default URL.
+// Uses the JS-only pdfjs-dist worker — no native binaries involved.
+let pdfWorkerReady = false;
+async function ensurePdfWorker(): Promise<void> {
+  if (pdfWorkerReady) return;
+  try {
+    const { createRequire } = await import("node:module");
+    const { pathToFileURL } = await import("node:url");
+    const req = createRequire(import.meta.url);
+    const workerPath = req.resolve("pdfjs-dist/legacy/build/pdf.worker.mjs");
+    PDFParse.setWorker(pathToFileURL(workerPath).href);
+  } catch {
+    // If path resolution fails, pdf-parse falls back to its own default —
+    // usually fine in dev; explicit path is the safety net for production.
+  }
+  pdfWorkerReady = true;
+}
+
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  // PDFParse handles text extraction without canvas — no setWorker() needed.
+  await ensurePdfWorker();
   const parser = new PDFParse({ data: buffer });
   try {
     const result = await parser.getText();

@@ -13,6 +13,9 @@ import {
   findCvDocument,
   isCvDocument,
   resolveOnboardingDocumentUpload,
+  documentSubtypeFromRecord,
+  documentLabelFromRecord,
+  documentFileNameFromRecord,
 } from "@/lib/v2/onboarding-document-types";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { mergeEnrichmentIntoMetadata, runApiEnrichment } from "@/lib/v2/api-enrichment";
@@ -22,10 +25,41 @@ import {
   DRAFT_TITLE_KEY,
   THEME_KEY,
   WORKSPACE_BUCKET_KEY,
+  documentListItem,
 } from "@/lib/v2/documents-workspace";
 import { parseResumeContent } from "@/lib/v2/resume-content";
+import { sanitizeDocumentMetadataForUser } from "@/lib/v2/mempalace-key-facts";
+import {
+  USER_DOCUMENTS_BUCKET,
+  storagePathFromMetadata,
+} from "@/lib/v2/document-storage";
 
 type RouteContext = { params: Promise<{ documentId: string }> };
+
+export async function GET(_request: Request, context: RouteContext) {
+  const auth = await requireApiUser();
+  if (isErrorResponse(auth)) return auth;
+
+  const { documentId } = await context.params;
+  const documents = await fetchDocuments(auth.userId, auth.demo);
+  const doc = documents.find((item) => item.document_id === documentId);
+
+  if (!doc) return jsonError("not_found", "Document not found", 404);
+
+  const metadata = sanitizeDocumentMetadataForUser(doc.metadata ?? {});
+  const extractionError =
+    typeof doc.metadata?.extraction_error === "string" ? doc.metadata.extraction_error : null;
+
+  return jsonOk({
+    ...documentListItem(doc),
+    document_subtype: documentSubtypeFromRecord(doc),
+    document_label: documentLabelFromRecord(doc),
+    file_name: documentFileNameFromRecord(doc),
+    extracted_text_preview: doc.extracted_text?.slice(0, 400) ?? "",
+    extraction_error: extractionError,
+    metadata,
+  });
+}
 
 function isDraftMetadata(metadata: Record<string, unknown>): boolean {
   return metadata[WORKSPACE_BUCKET_KEY] === "drafts" || Boolean(metadata[CONTENT_JSON_KEY]);
@@ -263,7 +297,16 @@ export async function DELETE(_request: Request, context: RouteContext) {
     return jsonOk({ deleted: true, document_id: documentId });
   }
 
+  const documents = await fetchDocuments(auth.userId, auth.demo);
+  const doc = documents.find((item) => item.document_id === documentId);
+  if (!doc) return jsonError("not_found", "Document not found", 404);
+
+  const storagePath = storagePathFromMetadata(doc.metadata);
   const supabase = await createClient();
+  if (storagePath) {
+    await supabase.storage.from(USER_DOCUMENTS_BUCKET).remove([storagePath]);
+  }
+
   const { error } = await supabase
     .from("documents")
     .delete()

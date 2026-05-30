@@ -21,6 +21,11 @@ export const ACCEPTED_CV_ACCEPT =
 
 export const ACCEPTED_CV_LABEL = ".txt, .md, .pdf, or .docx";
 
+/** Text and tiny files can skip Storage and post inline to the API. */
+export const INLINE_UPLOAD_MAX_BYTES = 256 * 1024;
+
+export const USER_DOCUMENTS_BUCKET = "user-documents";
+
 export type DocumentFormat = "txt" | "md" | "pdf" | "docx";
 
 export function isAcceptedCvFileName(name: string): boolean {

@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       "./node_modules/pdf-parse/**/*",
       "./node_modules/pdfjs-dist/**/*",
     ],
+    "/api/v1/documents/[documentId]/process": [
+      "./node_modules/pdf-parse/**/*",
+      "./node_modules/pdfjs-dist/**/*",
+    ],
   },
 };
 

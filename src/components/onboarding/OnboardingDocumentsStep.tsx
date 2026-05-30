@@ -20,6 +20,7 @@ import {
   LuxuryTextarea,
   LuxuryWorkspace,
 } from "@/components/onboarding/OnboardingLuxuryUi";
+import { uploadUserDocument } from "@/lib/v2/document-upload-client";
 
 type SavedDocument = {
   document_id: string;
@@ -50,37 +51,6 @@ type OnboardingDocumentsStepProps = {
 
 function isUploading(doc: DocumentRow): doc is UploadingDocument {
   return doc.status === "uploading" || doc.status === "error";
-}
-
-function uploadWithProgress(
-  form: FormData,
-  onProgress: (progress: number) => void,
-): Promise<Record<string, unknown>> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.upload.addEventListener("progress", (event) => {
-      if (event.lengthComputable) {
-        onProgress(Math.round((event.loaded / event.total) * 100));
-      }
-    });
-    xhr.addEventListener("load", () => {
-      let data: Record<string, unknown> = {};
-      try {
-        data = JSON.parse(xhr.responseText) as Record<string, unknown>;
-      } catch {
-        reject(new Error("Upload failed"));
-        return;
-      }
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(data);
-        return;
-      }
-      reject(new Error(typeof data.message === "string" ? data.message : "Upload failed"));
-    });
-    xhr.addEventListener("error", () => reject(new Error("Upload failed")));
-    xhr.open("POST", "/api/v1/documents");
-    xhr.send(form);
-  });
 }
 
 export function OnboardingDocumentsStep({
@@ -116,18 +86,45 @@ export function OnboardingDocumentsStep({
       document_label: string;
       file_name: string;
       extracted_text_preview?: string;
+      extraction_status?: string;
     }>;
 
     setDocuments((current) => {
       const inFlight = current.filter(isUploading);
-      const savedRows: SavedDocument[] = saved.map((doc) => ({
-        document_id: doc.document_id,
-        typeId: doc.document_subtype,
-        typeLabel: doc.document_label,
-        fileName: doc.file_name,
-        preview: doc.extracted_text_preview ?? "",
-        status: "complete",
-      }));
+      const savedRows: DocumentRow[] = [];
+      for (const doc of saved) {
+        if (doc.extraction_status === "pending" || doc.extraction_status === "processing") {
+          savedRows.push({
+            localId: doc.document_id,
+            typeId: doc.document_subtype,
+            typeLabel: doc.document_label,
+            fileName: doc.file_name,
+            progress: doc.extraction_status === "processing" ? 85 : 70,
+            status: "uploading",
+          });
+          continue;
+        }
+        if (doc.extraction_status === "failed") {
+          savedRows.push({
+            localId: doc.document_id,
+            typeId: doc.document_subtype,
+            typeLabel: doc.document_label,
+            fileName: doc.file_name,
+            progress: 0,
+            status: "error",
+            error: "Processing failed. Remove and try again, or paste text below.",
+          });
+          continue;
+        }
+        savedRows.push({
+          document_id: doc.document_id,
+          typeId: doc.document_subtype,
+          typeLabel: doc.document_label,
+          fileName: doc.file_name,
+          preview: doc.extracted_text_preview ?? "",
+          status: "complete",
+        });
+      }
       return [...inFlight, ...savedRows];
     });
   }, []);
@@ -164,15 +161,15 @@ export function OnboardingDocumentsStep({
 
     setDocuments((current) => [uploadingRow, ...current.filter((doc) => !isUploading(doc) || doc.localId !== localId)]);
 
-    const form = new FormData();
-    form.append("file", file);
-    form.append("document_type", resolved.document_type);
-    form.append("document_subtype", resolved.document_subtype);
-    form.append("document_label", resolved.document_label);
-    if (customLabel?.trim()) form.append("custom_label", customLabel.trim());
+    const formMeta = {
+      document_type: resolved.document_type,
+      document_subtype: resolved.document_subtype,
+      document_label: resolved.document_label,
+      custom_label: customLabel?.trim(),
+    };
 
     try {
-      await uploadWithProgress(form, (progress) => {
+      await uploadUserDocument(file, formMeta, (progress) => {
         setDocuments((current) =>
           current.map((doc) =>
             isUploading(doc) && doc.localId === localId ? { ...doc, progress } : doc,
