@@ -1,0 +1,1704 @@
+{
+  "framework_key": "surgery--pediatric-surgery",
+  "specialty": "Pediatric Surgery",
+  "version": "2.0",
+  "source": "ACGME Pediatric Surgery Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "surgery__pediatric_surgery_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Patient Evaluation and Clinical Decision Making",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "integrates information",
+          "with patient-specific",
+          "factors to design a",
+          "succinct diagnostic,",
+          "work-up, and",
+          "management plan of a",
+          "medically uncomplicated",
+          "neonatal or pediatric"
+        ],
+        "level_2": [
+          "surgical patient",
+          "With assistance,",
+          "integrates information",
+          "with patient-specific",
+          "factors to design a",
+          "succinct diagnostic, work-",
+          "up, and management plan",
+          "of a medically",
+          "complicated neonatal or"
+        ],
+        "level_3": [
+          "pediatric surgical patient",
+          "Independently integrates",
+          "information with patient-",
+          "specific factors to design",
+          "a succinct diagnostic,",
+          "work-up, and",
+          "management plan of a",
+          "medically uncomplicated",
+          "neonatal or pediatric"
+        ],
+        "level_4": [
+          "surgical patient",
+          "Independently",
+          "integrates information",
+          "with patient-specific",
+          "factors to design a",
+          "succinct diagnostic,",
+          "work-up, and",
+          "management plan of a",
+          "medically complicated"
+        ],
+        "level_5": [
+          "neonatal or pediatric",
+          "surgical patient",
+          "Appraises gaps in",
+          "literature and proposes",
+          "research related to",
+          "diagnostic work-up and",
+          "multidisciplinary treatment"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Intra-Operative Patient Care – Endoscopy Procedural Skills",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires active direction",
+          "to choose and assemble",
+          "instruments",
+          "Moves forward in",
+          "diagnostic bronchoscopy",
+          "and endoscopy only with",
+          "active direction",
+          "Recognizes intra-",
+          "operative complications",
+          "for common procedures",
+          "Is mostly proficient in",
+          "choosing and assembling",
+          "instruments",
+          "Moves forward in"
+        ],
+        "level_2": [
+          "therapeutic or",
+          "interventional procedures",
+          "with active direction",
+          "With active assistance,",
+          "manages intra-operative",
+          "complications for",
+          "therapeutic and",
+          "interventional procedures",
+          "Is consistent able to",
+          "choose and assemble",
+          "instruments for diagnostic",
+          "bronchoscopy and",
+          "endoscopy",
+          "Independently moves"
+        ],
+        "level_3": [
+          "forward in diagnostic",
+          "bronchoscopy and",
+          "endoscopy and refines",
+          "operative plans as",
+          "needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "straightforward intra-",
+          "operative complications",
+          "Independently chooses",
+          "and assembles",
+          "instruments",
+          "Independently moves"
+        ],
+        "level_4": [
+          "fluidly through therapeutic",
+          "or interventional",
+          "procedures and refines",
+          "operative plans as",
+          "needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "complex intra-operative",
+          "complications",
+          "Independently",
+          "troubleshoots",
+          "instrument",
+          "malfunction and failure"
+        ],
+        "level_5": [
+          "Independently moves",
+          "fluidly through the",
+          "course of rare",
+          "operations and refines",
+          "operative plans as",
+          "needed",
+          "Anticipates and",
+          "prevents intra-operative",
+          "complications for rare",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Intra-Operative Patient Care – Procedural Skills for Minimally Invasive Surgical Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Requires active direction",
+          "to identify trocar",
+          "placement and",
+          "appropriate",
+          "instrumentation for",
+          "minimally invasive",
+          "surgery (MIS)",
+          "Moves forward in",
+          "common operations with",
+          "active direction only",
+          "Recognizes intra-",
+          "operative complications",
+          "for common procedures",
+          "Is mostly proficient in",
+          "ability to identify trocar",
+          "placement and",
+          "appropriate MIS"
+        ],
+        "level_2": [
+          "instrumentation",
+          "Moves forward through",
+          "the course of defined",
+          "category operations with",
+          "active direction",
+          "With assistance,",
+          "manages intra-operative",
+          "complications for defined",
+          "category procedures",
+          "Is consistently able to",
+          "identify trocar placement",
+          "and appropriate MIS",
+          "instrumentation for",
+          "common and defined",
+          "category procedures",
+          "Independently (passive",
+          "help or supervision only)"
+        ],
+        "level_3": [
+          "moves forward in",
+          "common operations and",
+          "refines operative plans as",
+          "needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for common",
+          "procedures",
+          "Independently",
+          "identifies trocar",
+          "placement in patients",
+          "with abnormal",
+          "anatomy/re-operative",
+          "cases",
+          "Independently (passive"
+        ],
+        "level_4": [
+          "help or supervision",
+          "only) moves forward in",
+          "defined category",
+          "operations and refines",
+          "operative plans as",
+          "needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and",
+          "prevents intra-",
+          "operative",
+          "complications for",
+          "defined category",
+          "procedures",
+          "Independently",
+          "troubleshoots instrument,",
+          "camera, robotic failure,"
+        ],
+        "level_5": [
+          "and modified operative",
+          "approach",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves forward in rare",
+          "operations and refines",
+          "operative plans as needed",
+          "Anticipates and prevents",
+          "intra-operative",
+          "complications for rare",
+          "procedures",
+          "Not Yet Rotated",
+          "Not Yet Completed Level 1",
+          "-- 9 of 31 --"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Intra-Operative Patient Care – Procedural Skills for Thoracic Cases",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Moves forward in",
+          "common operations with",
+          "active direction for critical",
+          "portions of the procedure",
+          "Serves as first assistant",
+          "for critical portions of",
+          "defined category",
+          "operations",
+          "Recognizes intra-",
+          "operative complications",
+          "for common operations",
+          "Moves fluidly through the",
+          "entire course of common",
+          "operations with minimal"
+        ],
+        "level_2": [
+          "prompting",
+          "Requires active direction",
+          "for defined category",
+          "operations",
+          "With assistance,",
+          "manages, anticipates,",
+          "and prevents intra-",
+          "operative complications",
+          "for common procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of common",
+          "operations and refines"
+        ],
+        "level_3": [
+          "operative plans as",
+          "needed",
+          "Moves fluidly through the",
+          "entire course of defined",
+          "category operations with",
+          "minimal prompting",
+          "Independently manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for common",
+          "procedures",
+          "Independently (passive",
+          "help or supervision",
+          "only) moves fluidly"
+        ],
+        "level_4": [
+          "through the course of",
+          "defined category",
+          "operations and refines",
+          "operative plans as",
+          "needed",
+          "Requires active",
+          "direction for critical",
+          "portions of rare",
+          "operations",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and",
+          "prevents intra-operative",
+          "complications for"
+        ],
+        "level_5": [
+          "defined category",
+          "procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of rare operations",
+          "and refines operative",
+          "plans as needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for rare",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Intra-Operative Patient Care – Procedural Skills for Abdominal Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Moves forward in",
+          "common operations with",
+          "active direction for",
+          "critical portions of the",
+          "procedure",
+          "Serves as first assistant",
+          "for critical portions of",
+          "defined category",
+          "operations",
+          "Recognizes intra-",
+          "operative complications",
+          "for common operations",
+          "Moves fluidly through the",
+          "entire course of common",
+          "operations with minimal"
+        ],
+        "level_2": [
+          "prompting",
+          "Requires active direction",
+          "for defined category",
+          "operations",
+          "With assistance,",
+          "manages, anticipates,",
+          "and prevents intra-",
+          "operative complications",
+          "for common procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of common",
+          "operations and refines",
+          "operative plans as"
+        ],
+        "level_3": [
+          "needed",
+          "Moves fluidly through the",
+          "entire course of defined",
+          "category operations with",
+          "minimal prompting",
+          "Independently manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for common",
+          "procedures",
+          "Independently (passive",
+          "help or supervision",
+          "only) moves fluidly",
+          "through the course of",
+          "defined category"
+        ],
+        "level_4": [
+          "operations and refines",
+          "operative plans as",
+          "needed",
+          "Requires active",
+          "direction for critical",
+          "portions of rare",
+          "operations",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and",
+          "prevents intra-operative",
+          "complications for",
+          "defined category",
+          "procedures",
+          "Independently (passive"
+        ],
+        "level_5": [
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of rare operations",
+          "and refines operative",
+          "plans as needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for rare",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Intra-Operative Patient Care – Procedural Skills for Oncology Cases",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Moves forward in",
+          "common operations with",
+          "active direction for",
+          "critical portions of the",
+          "procedure",
+          "Serves as first assistant",
+          "for critical portions of",
+          "defined category",
+          "operations",
+          "Recognizes intra-",
+          "operative complications",
+          "for common operations",
+          "Moves fluidly through",
+          "the entire course of"
+        ],
+        "level_2": [
+          "common operations with",
+          "minimal prompting",
+          "Requires active direction",
+          "for defined category",
+          "operations",
+          "With assistance,",
+          "manages, anticipates,",
+          "and prevents intra-",
+          "operative complications",
+          "for common procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of common"
+        ],
+        "level_3": [
+          "operations and refines",
+          "operative plans as needed",
+          "Moves fluidly through the",
+          "entire course of defined",
+          "category operations with",
+          "minimal prompting",
+          "Independently manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for common",
+          "procedures",
+          "Independently (passive",
+          "help or supervision",
+          "only) moves fluidly"
+        ],
+        "level_4": [
+          "through the course of",
+          "defined category",
+          "operations and refines",
+          "operative plans as",
+          "needed",
+          "Requires active",
+          "direction for critical",
+          "portions of rare",
+          "operations",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and",
+          "prevents intra-operative",
+          "complications for"
+        ],
+        "level_5": [
+          "defined category",
+          "procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of rare operations",
+          "and refines operative",
+          "plans as needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for rare",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Intra-Operative Patient Care – Procedural Skills for Other Operations",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Moves forward in",
+          "common operations with",
+          "active direction for critical",
+          "portions of the procedure",
+          "Serves as first assistant",
+          "for critical portions of",
+          "defined category",
+          "operations",
+          "Recognizes intra-",
+          "operative complications",
+          "for common operations",
+          "Moves fluidly through",
+          "the entire course of",
+          "common operations with"
+        ],
+        "level_2": [
+          "minimal prompting",
+          "Requires active direction",
+          "for defined category",
+          "operations",
+          "With assistance,",
+          "manages, anticipates,",
+          "and prevents intra-",
+          "operative complications",
+          "for common procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of common",
+          "operations and refines"
+        ],
+        "level_3": [
+          "operative plans as needed",
+          "Moves fluidly through the",
+          "entire course of defined",
+          "category operations with",
+          "minimal prompting",
+          "Independently manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for common",
+          "procedures",
+          "Independently (passive",
+          "help or supervision only)",
+          "moves fluidly through the",
+          "course of defined"
+        ],
+        "level_4": [
+          "category operations and",
+          "refines operative plans as",
+          "needed",
+          "Requires active direction",
+          "for critical portions of rare",
+          "operations",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and prevents",
+          "intra-operative",
+          "complications for defined",
+          "category procedures",
+          "Independently (passive",
+          "help or supervision only)"
+        ],
+        "level_5": [
+          "moves fluidly through",
+          "the course of rare",
+          "operations and refines",
+          "operative plans as",
+          "needed",
+          "Independently",
+          "recognizes, manages,",
+          "anticipates, and",
+          "prevents intra-operative",
+          "complications for rare",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Tissue Handling of Delicate (oncologic, inflamed, and scarred tissue) and Neonatal Tissue",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates limited skill",
+          "in handling delicate and",
+          "neonatal tissue",
+          "Requires prompting to",
+          "identify appropriate tissue",
+          "planes",
+          "Demonstrates adequate",
+          "but inconsistent handling"
+        ],
+        "level_2": [
+          "of delicate and neonatal",
+          "tissue",
+          "Identifies appropriate",
+          "plane but requires",
+          "redirection to maintain",
+          "dissection in the optimal",
+          "tissue plane",
+          "Consistently"
+        ],
+        "level_3": [
+          "demonstrates careful",
+          "handling of delicate and",
+          "neonatal tissue",
+          "Visualizes tissue plane,",
+          "and identifies and dissects",
+          "relevant normal anatomy",
+          "Adapts tissue handling",
+          "based on tissue quality"
+        ],
+        "level_4": [
+          "Visualizes tissue planes",
+          "and identifies and",
+          "dissects relevant",
+          "abnormal anatomy",
+          "Demonstrates efficiency",
+          "and instructs other",
+          "learners in techniques",
+          "to identify and"
+        ],
+        "level_5": [
+          "manipulate delicate and",
+          "neonatal tissue in rare",
+          "procedures",
+          "Develops new",
+          "instrumentation and",
+          "techniques for delicate",
+          "and neonatal tissue"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc9",
+      "number": 9,
+      "domain_number": 9,
+      "name": "Post-Operative Care (Short- and Long-Term)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "manages the post-",
+          "operative course of an",
+          "uncomplicated neonatal",
+          "or pediatric surgical",
+          "patient",
+          "Identifies the rationale",
+          "for a long-term",
+          "management",
+          "Independently manages"
+        ],
+        "level_2": [
+          "the post-operative course",
+          "of an uncomplicated",
+          "neonatal or pediatric",
+          "surgical patient",
+          "Describes a general long-",
+          "term management plan",
+          "With minimal assistance,",
+          "manages the post-",
+          "operative course of a",
+          "complicated neonatal or"
+        ],
+        "level_3": [
+          "pediatric surgical patient",
+          "Follows an evidence",
+          "based long-term",
+          "management plan",
+          "Independently manages",
+          "the post-operative",
+          "course of a complicated",
+          "neonatal or pediatric",
+          "surgical patient",
+          "Integrates patient- and"
+        ],
+        "level_4": [
+          "patient family-specific",
+          "factors in the",
+          "construction of an",
+          "evidence-based long-",
+          "term management plan",
+          "Identifies gaps in post-",
+          "operative management,",
+          "and creates pathways to",
+          "address these through",
+          "quality"
+        ],
+        "level_5": [
+          "improvement/research",
+          "initiatives",
+          "Identifies knowledge gaps",
+          "in long-term management",
+          "plans, and creates",
+          "pathways to address",
+          "these through quality",
+          "improvement/research",
+          "initiatives"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc10",
+      "number": 10,
+      "domain_number": 10,
+      "name": "Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes a critically ill",
+          "neonate or child and",
+          "begins resuscitation",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "a critically ill neonate or",
+          "child and begins",
+          "resuscitation and initial",
+          "management",
+          "With minimal assistance,"
+        ],
+        "level_3": [
+          "individualizes ongoing",
+          "critical care management",
+          "and assesses the",
+          "response to therapy",
+          "Independently"
+        ],
+        "level_4": [
+          "individualizes ongoing",
+          "critical care",
+          "management and",
+          "assesses the response",
+          "to therapy"
+        ],
+        "level_5": [
+          "Implements novel",
+          "treatments and care",
+          "pathways for critically ill",
+          "children"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pc11",
+      "number": 11,
+      "domain_number": 11,
+      "name": "Trauma Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With active direction,",
+          "provides non-operative",
+          "management of severely",
+          "injured infants and",
+          "children",
+          "Recognizes injuries in",
+          "infants and children and",
+          "provides initial operative",
+          "management"
+        ],
+        "level_2": [
+          "With minimal prompting,",
+          "provides non-operative",
+          "management of severely",
+          "injured infants and",
+          "children",
+          "With active direction,",
+          "provides operative",
+          "management of severely",
+          "injured infants and"
+        ],
+        "level_3": [
+          "children",
+          "Independently provides",
+          "non-operative",
+          "management of severely",
+          "injured infants and",
+          "children",
+          "With minimal prompting,",
+          "provides operative",
+          "management of severely"
+        ],
+        "level_4": [
+          "injured infants and",
+          "children",
+          "Leads a",
+          "multidisciplinary team in",
+          "the ongoing",
+          "management of",
+          "severely injured infants",
+          "and children",
+          "Independently provides"
+        ],
+        "level_5": [
+          "operative management",
+          "of severely injured",
+          "infants and children",
+          "Implements novel",
+          "treatments and care",
+          "pathways for injured",
+          "children"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_mk1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Anatomy",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of surgically",
+          "relevant normal anatomy",
+          "Demonstrates knowledge",
+          "of surgically relevant"
+        ],
+        "level_2": [
+          "anatomic variations",
+          "With assistance, identifies",
+          "surgically relevant",
+          "anatomic variations and",
+          "alters patient"
+        ],
+        "level_3": [
+          "management accordingly",
+          "Independently identifies",
+          "surgically relevant",
+          "anatomic variations and",
+          "alters patient"
+        ],
+        "level_4": [
+          "management",
+          "accordingly",
+          "Leads advanced anatomy",
+          "discussion at a",
+          "multidisciplinary"
+        ],
+        "level_5": [
+          "conference and/or in",
+          "operating room"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_mk2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Developmental Biology and Neonatal Physiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of",
+          "developmental biology",
+          "and normal neonatal",
+          "physiology",
+          "Demonstrates",
+          "comprehensive"
+        ],
+        "level_2": [
+          "knowledge of",
+          "developmental biology",
+          "and neonatal physiology",
+          "and relevant clinical",
+          "implications",
+          "With assistance, applies",
+          "knowledge of"
+        ],
+        "level_3": [
+          "developmental biology",
+          "and neonatal physiology",
+          "into medical decision",
+          "making",
+          "Independently",
+          "incorporates knowledge",
+          "of developmental"
+        ],
+        "level_4": [
+          "biology and neonatal",
+          "physiology into medical",
+          "decision making",
+          "Recommends novel",
+          "investigations based on",
+          "knowledge of",
+          "developmental biology,"
+        ],
+        "level_5": [
+          "neonatal physiology, and",
+          "new and existing",
+          "therapies"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_mk3",
+      "number": 14,
+      "domain_number": 3,
+      "name": "Pediatrics and Pediatrics Surgery",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "development and",
+          "physiology of children",
+          "Demonstrates knowledge",
+          "of pathophysiology and",
+          "treatments of patients",
+          "with common pediatric",
+          "conditions",
+          "Demonstrates knowledge",
+          "of pathophysiology and",
+          "treatments of patients"
+        ],
+        "level_2": [
+          "with common pediatric",
+          "surgical conditions",
+          "Demonstrates basic",
+          "knowledge of",
+          "pathophysiology and",
+          "treatments of patients",
+          "with complex pediatric",
+          "conditions",
+          "Demonstrates basic",
+          "knowledge of",
+          "pathophysiology and",
+          "treatments of patients"
+        ],
+        "level_3": [
+          "with complex pediatric",
+          "surgical conditions",
+          "Demonstrates",
+          "advanced knowledge of",
+          "the varying patterns of",
+          "disease presentation",
+          "and treatment at",
+          "different ages for",
+          "patients with pediatric",
+          "conditions",
+          "Demonstrates",
+          "comprehensive"
+        ],
+        "level_4": [
+          "knowledge of the",
+          "varying patterns of",
+          "disease presentation",
+          "and treatment at",
+          "different ages for",
+          "patients with pediatric",
+          "surgical conditions",
+          "Contributes to peer-",
+          "reviewed literature on the",
+          "varying patterns of",
+          "disease presentation, and",
+          "age-appropriate"
+        ],
+        "level_5": [
+          "treatments of patients",
+          "with pediatric conditions",
+          "Contributes to peer-",
+          "reviewed literature on the",
+          "varying patterns of",
+          "disease presentation, and",
+          "age-appropriate",
+          "treatments of patients",
+          "with pediatric surgical",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_sbp1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of and",
+          "describes institutional",
+          "quality improvement",
+          "initiatives"
+        ],
+        "level_2": [
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in institutional",
+          "quality improvement",
+          "initiatives",
+          "Participates in disclosure"
+        ],
+        "level_3": [
+          "of patient safety events to",
+          "patients and patients’",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement, and",
+          "analyze an institutional",
+          "quality improvement"
+        ],
+        "level_4": [
+          "project",
+          "Independently",
+          "(supervision only)",
+          "discloses patient safety",
+          "events to patients and",
+          "patients’ families",
+          "(simulated or actual)",
+          "Creates, implements,",
+          "and assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives",
+          "at the institutional level",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses national quality",
+          "improvement initiatives"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_sbp2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination, including",
+          "transitions of care",
+          "Demonstrates",
+          "knowledge of the",
+          "pediatric surgical",
+          "population health needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of the",
+          "interprofessional teams,",
+          "including transitions of",
+          "care",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for their local pediatric",
+          "surgical population",
+          "Coordinates care of",
+          "patients in complex"
+        ],
+        "level_3": [
+          "clinical situations",
+          "effectively using the roles",
+          "of their interprofessional",
+          "teams, including",
+          "transitions of care",
+          "Coordinates with local",
+          "resources to effectively",
+          "meet the needs of a",
+          "pediatric surgical patient",
+          "population",
+          "Role models effective"
+        ],
+        "level_4": [
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines,",
+          "including transitions of",
+          "care",
+          "Participates in changing",
+          "and adapting individual",
+          "practice to provide for",
+          "the needs of specific",
+          "pediatric surgical",
+          "populations"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements, including",
+          "transitions of care",
+          "Leads innovations and",
+          "advocates for pediatric",
+          "surgical populations with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_sbp3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "pediatric rehabilitation",
+          "facility, finance,",
+          "personnel, technology,"
+        ],
+        "level_2": [
+          "payment systems)",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts pediatric surgical",
+          "patient care"
+        ],
+        "level_3": [
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for or leads"
+        ],
+        "level_5": [
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care for the pediatric",
+          "surgical population"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pbli1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use the",
+          "available evidence and",
+          "how to incorporate the",
+          "patient’s and patient’s",
+          "family’s preferences and",
+          "values into the care of"
+        ],
+        "level_2": [
+          "patients",
+          "Articulates clinical",
+          "questions and elicits the",
+          "patient’s and patient’s",
+          "family’s preferences and",
+          "values to guide evidence-",
+          "based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with the",
+          "patient’s and patient’s",
+          "family’s preferences, to",
+          "the care of patients",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence, even",
+          "in the face of uncertain",
+          "and/or conflicting",
+          "evidence, to guide care,",
+          "tailored to the individual",
+          "patient and the patient’s",
+          "family"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "patients and patients’",
+          "families; and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_pbli2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance"
+        ],
+        "level_2": [
+          "Demonstrates openness",
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance"
+        ],
+        "level_3": [
+          "Seeks performance data",
+          "episodically with",
+          "adaptability and humility",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance"
+        ],
+        "level_4": [
+          "Consistently seeks",
+          "performance data with",
+          "adaptability and humility",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance"
+        ],
+        "level_5": [
+          "Role models consistently",
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Coaches others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_prof1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to report them",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying the",
+          "care of cancer patients",
+          "Demonstrates",
+          "professional behavior in"
+        ],
+        "level_2": [
+          "routine situations and",
+          "takes responsibility for",
+          "own professionalism",
+          "lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles and recognizes",
+          "need to seek help in",
+          "managing and resolving",
+          "complex ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "Coaches others when",
+          "their behavior fails to"
+        ],
+        "level_5": [
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_prof2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future"
+        ],
+        "level_2": [
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in"
+        ],
+        "level_3": [
+          "routine situations",
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete",
+          "tasks and responsibilities",
+          "in a timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_4": [
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients,",
+          "teams, and systems are"
+        ],
+        "level_5": [
+          "met",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Takes ownership of",
+          "system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_prof3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Recognizes limits of the",
+          "team, with assistance",
+          "Independently recognizes",
+          "status of personal and"
+        ],
+        "level_2": [
+          "professional well-being",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being of",
+          "the team",
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and"
+        ],
+        "level_3": [
+          "professional well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being of",
+          "the team",
+          "Independently develops",
+          "a plan to optimize"
+        ],
+        "level_4": [
+          "personal and",
+          "professional well-being",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "of the team",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "emotional responses or",
+          "limitations in knowledge/",
+          "skills do not meet",
+          "professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_ics1",
+      "number": 23,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Establishes a",
+          "professional rapport with",
+          "patients and patients’",
+          "families and",
+          "communicates in a clear",
+          "and understandable",
+          "manner",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward patient",
+          "and patient family",
+          "encounters and",
+          "compassionately delivers",
+          "medical information",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy, cultural",
+          "differences)",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship in challenging",
+          "patient and patient family",
+          "encounters and",
+          "acknowledges uncertainty",
+          "in alignment of goals",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Uses shared decision",
+          "making to align",
+          "patients’/patients’"
+        ],
+        "level_4": [
+          "families’ values, goals,",
+          "and preferences with",
+          "treatment options to",
+          "make a personalized",
+          "care plan",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and"
+        ],
+        "level_5": [
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models self-",
+          "awareness while",
+          "identifying a contextual",
+          "approach to minimize",
+          "communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_ics2",
+      "number": 24,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Respectfully receives",
+          "feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Communicates"
+        ],
+        "level_2": [
+          "information clearly with all",
+          "health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses active listening to",
+          "adapt communication"
+        ],
+        "level_3": [
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "and maintains effective",
+          "communication in crisis",
+          "situations",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Role models flexible",
+          "communication strategies"
+        ],
+        "level_5": [
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "surgery__pediatric_surgery_ics3",
+      "number": 25,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)"
+        ],
+        "level_2": [
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through notes in the",
+          "patient record",
+          "Demonstrates efficient",
+          "use of appropriate",
+          "channels to communicate",
+          "with the health care team"
+        ],
+        "level_3": [
+          "Concisely integrates all",
+          "relevant data from outside",
+          "systems and prior",
+          "encounters and reports",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Maintains effective and",
+          "respectful communication"
+        ],
+        "level_4": [
+          "during emergent and",
+          "stressful situations",
+          "Communicates clearly,",
+          "concisely, timely, and in",
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Role model for",
+          "individual"
+        ],
+        "level_5": [
+          "communication across",
+          "the system",
+          "Coaches others to",
+          "improve written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "surgery",
+  "primary_name": "Surgery",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsurgerymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsurgerysupplementalguide.pdf"
+  }
+}

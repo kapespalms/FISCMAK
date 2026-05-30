@@ -1,0 +1,1130 @@
+{
+  "framework_key": "medical-genetics-and-genomics--laboratory-genetics-and-genomics",
+  "specialty": "Laboratory Genetics and Genomics",
+  "version": "2.0",
+  "source": "ACGME Laboratory Genetics and Genomics Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Pre-Analytic",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the",
+          "importance of clinical",
+          "history for optimal test",
+          "selection",
+          "Identifies elements of a",
+          "laboratory test request",
+          "Gathers pertinent",
+          "elements of the clinical",
+          "history to aid in test",
+          "selection"
+        ],
+        "level_2": [
+          "Recognizes sources of",
+          "pre-analytic error",
+          "Describes rationale",
+          "behind existing routine",
+          "laboratory workflows",
+          "Recommends the optimal",
+          "test option(s) based on",
+          "clinical or family history,",
+          "with assistance",
+          "Evaluates a specimen for"
+        ],
+        "level_3": [
+          "pre-analytic errors, with",
+          "assistance",
+          "Suggests modifications to",
+          "existing laboratory",
+          "workflows based on",
+          "clinical need, with",
+          "assistance",
+          "Independently",
+          "recommends the",
+          "optimal test(s) based on"
+        ],
+        "level_4": [
+          "clinical or family history",
+          "Independently",
+          "evaluates a specimen",
+          "for pre-analytic errors",
+          "and identifies possible",
+          "resolutions",
+          "Independently suggests",
+          "modifications to existing",
+          "laboratory workflows",
+          "based on clinical need"
+        ],
+        "level_5": [
+          "Creates an algorithm for",
+          "test selection based on",
+          "clinical history",
+          "Creates a new protocol to",
+          "assist the laboratory in",
+          "the appraisal of specimen",
+          "issues",
+          "Independently develops a",
+          "new laboratory workflow"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Analytic",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes basic",
+          "principles for major",
+          "assays performed in the",
+          "laboratory",
+          "Describes quality control"
+        ],
+        "level_2": [
+          "(QC) in the clinical",
+          "laboratory",
+          "Performs assays, with",
+          "substantial assistance",
+          "Identifies QC failures"
+        ],
+        "level_3": [
+          "Performs assays, with",
+          "minimal assistance",
+          "Explains possible sources",
+          "of QC failures",
+          "Independently performs"
+        ],
+        "level_4": [
+          "assays",
+          "Investigates QC failures",
+          "and proposes resolution",
+          "Develops new, alternate,",
+          "or improved assay"
+        ],
+        "level_5": [
+          "Identifies and implements",
+          "a new QC approach for a",
+          "clinical test"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Post-Analytic Skills",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies normal results",
+          "Discusses the",
+          "importance of patient’s",
+          "clinical history to test",
+          "interpretation",
+          "Interprets simple results,"
+        ],
+        "level_2": [
+          "with assistance",
+          "Gathers pertinent",
+          "elements of the clinical",
+          "history to aid in",
+          "interpretation",
+          "Interprets complex"
+        ],
+        "level_3": [
+          "results, with assistance",
+          "Integrates results with the",
+          "clinical history to develop",
+          "a final interpretation, with",
+          "assistance",
+          "Independently interprets"
+        ],
+        "level_4": [
+          "results",
+          "Independently",
+          "integrates results with",
+          "the clinical history to",
+          "develop a final",
+          "interpretation"
+        ],
+        "level_5": [
+          "Develops an improved",
+          "result interpretation",
+          "workflow",
+          "Identifies novel",
+          "correlations between",
+          "results and clinical history"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Reports",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the elements of",
+          "a laboratory report",
+          "Identifies that reports",
+          "can be revised",
+          "Drafts a report for simple",
+          "cases using accurate"
+        ],
+        "level_2": [
+          "terminology/",
+          "nomenclature, with",
+          "assistance",
+          "Identifies when to correct,",
+          "amend, or addend a",
+          "report based on the type"
+        ],
+        "level_3": [
+          "of alteration required",
+          "Drafts a report for",
+          "complex cases using",
+          "accurate terminology/",
+          "nomenclature, with",
+          "assistance"
+        ],
+        "level_4": [
+          "Drafts a revised report,",
+          "with assistance",
+          "Independently",
+          "generates concise",
+          "reports for complex",
+          "cases"
+        ],
+        "level_5": [
+          "Independently",
+          "generates a revised",
+          "report",
+          "Develops a new reporting",
+          "template for original or",
+          "revised reports"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Foundations of Medical Genetics and Genomics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Defines relevant medical",
+          "terminology",
+          "Explains basic structure",
+          "and function of the",
+          "genome",
+          "Describes the basic",
+          "mechanisms of germline",
+          "and somatic disease",
+          "development",
+          "Describes genetic",
+          "conditions using accurate",
+          "medical terminology"
+        ],
+        "level_2": [
+          "Identifies the basic",
+          "genomic alterations",
+          "underpinning abnormal",
+          "lab results",
+          "Recognizes the",
+          "pathogenic mechanisms",
+          "for well-described",
+          "conditions",
+          "With assistance,",
+          "assimilates and integrates",
+          "medical information to",
+          "generate a differential"
+        ],
+        "level_3": [
+          "diagnosis",
+          "Correlates genomic",
+          "alterations and",
+          "phenotypic information to",
+          "guide laboratory testing",
+          "and interpretation, with",
+          "assistance",
+          "Applies understanding of",
+          "pathogenic mechanisms",
+          "to interpretation of test",
+          "results, with assistance",
+          "Independently"
+        ],
+        "level_4": [
+          "assimilates and",
+          "integrates medical",
+          "information to generate",
+          "a differential diagnosis",
+          "Independently",
+          "correlates genomic",
+          "alterations and",
+          "phenotypic information",
+          "to guide laboratory",
+          "testing and",
+          "interpretation",
+          "Independently applies"
+        ],
+        "level_5": [
+          "understanding of",
+          "pathogenic mechanisms",
+          "to interpretation of test",
+          "results",
+          "Mentors others in the",
+          "process of integration of",
+          "clinical and laboratory",
+          "findings to generate a",
+          "differential diagnosis",
+          "Presents a new clinical",
+          "genomic/phenotypic",
+          "correlation"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Defines the basic",
+          "components of a test",
+          "validation and",
+          "verification",
+          "Describes various",
+          "methodologies used in a",
+          "clinical genetics",
+          "laboratory"
+        ],
+        "level_2": [
+          "Describes methods and",
+          "data used in establishing",
+          "test performance",
+          "characteristics for",
+          "validation and verification",
+          "Describes the strengths",
+          "and limitations of a",
+          "genetic laboratory test"
+        ],
+        "level_3": [
+          "Determines test",
+          "performance",
+          "characteristics, with",
+          "assistance",
+          "Determines the optimal",
+          "technologies and",
+          "platforms for genetic",
+          "tests, with assistance"
+        ],
+        "level_4": [
+          "Independently",
+          "calculates test",
+          "performance",
+          "characteristics",
+          "Independently",
+          "determines the optimal",
+          "technologies and",
+          "platforms for genetic"
+        ],
+        "level_5": [
+          "tests",
+          "Designs a test",
+          "validation/verification and",
+          "establishes QC metrics",
+          "Independently designs a",
+          "new test for a genetic",
+          "condition"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_sbp1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes common",
+          "patient safety events",
+          "Identifies that processes",
+          "exist for reporting patient",
+          "safety events",
+          "Demonstrates",
+          "knowledge of QI",
+          "concepts",
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events"
+        ],
+        "level_2": [
+          "Defines the institutional",
+          "process of safety",
+          "reporting systems",
+          "Describes laboratory QI",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Given a safety-related",
+          "concern, can describe the",
+          "risk management process"
+        ],
+        "level_3": [
+          "of disclosing such events",
+          "to the appropriate",
+          "individuals",
+          "Participates in laboratory",
+          "QI initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Reports patient safety"
+        ],
+        "level_4": [
+          "events (simulated or",
+          "actual event)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a QI",
+          "project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events"
+        ],
+        "level_5": [
+          "Develops innovative",
+          "protocols to detect and",
+          "report safety events",
+          "Develops and assesses",
+          "QI initiatives at the",
+          "institutional or community",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_sbp2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies the importance",
+          "of coordinating care",
+          "Explains the importance",
+          "of effective transitions of",
+          "care and hand-offs",
+          "Describes effective care",
+          "coordination with the"
+        ],
+        "level_2": [
+          "clinical and laboratory",
+          "team",
+          "Describes examples of",
+          "safe and effective",
+          "transitions of care/hand-",
+          "offs",
+          "Coordinates care with the"
+        ],
+        "level_3": [
+          "clinical and laboratory",
+          "team, with assistance",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs",
+          "Coordinates care with",
+          "the clinical and"
+        ],
+        "level_4": [
+          "laboratory team",
+          "Models and advocates",
+          "for safe and effective",
+          "transitions of care/hand-",
+          "offs",
+          "Improves quality of",
+          "transitions of care within"
+        ],
+        "level_5": [
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_sbp3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "Laboratory Geneticist’s Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "health care system",
+          "Identifies basic types of",
+          "medical reimbursement",
+          "Describes how",
+          "components of a health",
+          "care system are",
+          "interrelated, and how this",
+          "impacts patient care"
+        ],
+        "level_2": [
+          "Identifies testing",
+          "documentation related to",
+          "billing and reimbursement",
+          "Describes the financial",
+          "components related to the",
+          "laboratory operation",
+          "Collaborates with the",
+          "other members of the",
+          "health care system, with",
+          "assistance"
+        ],
+        "level_3": [
+          "Identifies opportunities for",
+          "cost-effective patient care",
+          "Identifies inter-",
+          "relationship between",
+          "fiscal responsibility and",
+          "quality metrics in a lab",
+          "(e.g., balancing staffing",
+          "needs, test reagent",
+          "needs, cost containment,",
+          "and billing efficiency)"
+        ],
+        "level_4": [
+          "Independently",
+          "collaborates with the",
+          "other members of the",
+          "health care system",
+          "Practices cost-effective",
+          "patient care",
+          "Independently drafts the",
+          "assessment of a",
+          "laboratory fiscal metric",
+          "for director review"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care",
+          "Participates in a local or",
+          "national committee",
+          "related to fiscal issues in",
+          "genetic testing"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_sbp4",
+      "number": 10,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality Management",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies laboratory",
+          "accreditation and",
+          "licensing agencies",
+          "Defines terminology",
+          "related to laboratory",
+          "quality",
+          "Describes the",
+          "accreditation process, its"
+        ],
+        "level_2": [
+          "requirements and",
+          "necessary documentation",
+          "Interprets quality data and",
+          "charts and trends,",
+          "including proficiency",
+          "testing results, with",
+          "assistance",
+          "Participates in review of"
+        ],
+        "level_3": [
+          "laboratory practice to",
+          "assure compliance with",
+          "accreditation",
+          "requirements",
+          "Independently evaluates",
+          "quality indicators,",
+          "including proficiency",
+          "testing results"
+        ],
+        "level_4": [
+          "Actively participates in",
+          "the laboratory self-",
+          "inspection",
+          "Formulates a response",
+          "for a proficiency test",
+          "failure (actual or",
+          "simulated)",
+          "Participates in the"
+        ],
+        "level_5": [
+          "inspection of an external",
+          "laboratory",
+          "Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvements"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_sbp5",
+      "number": 11,
+      "domain_number": 5,
+      "name": "Informatics",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates familiarity",
+          "with basic technical",
+          "concepts of hardware,",
+          "operating systems,",
+          "databases, and software",
+          "for general purpose",
+          "applications",
+          "Identifies the various",
+          "resources including",
+          "software, tools and",
+          "databases used for"
+        ],
+        "level_2": [
+          "classification of variants",
+          "Identifies laboratory",
+          "specific software, key",
+          "technical concepts,",
+          "interfaces, workflow,",
+          "barcode application, and",
+          "automation systems",
+          "(enterprise systems",
+          "architecture)",
+          "Uses resources to classify",
+          "variants in the context of"
+        ],
+        "level_3": [
+          "the phenotype, with",
+          "assistance",
+          "Discusses laboratory",
+          "initiatives based on",
+          "informatics (system",
+          "implementation and",
+          "configuration)",
+          "Independently uses",
+          "resources to perform",
+          "routine variant",
+          "classification using"
+        ],
+        "level_4": [
+          "professional standards",
+          "and guidelines",
+          "Applies informatics tools",
+          "as needed in laboratory",
+          "initiatives (e.g., data",
+          "management and",
+          "security, computational",
+          "statistics, information",
+          "governance)",
+          "Independently uses",
+          "resources to reclassify"
+        ],
+        "level_5": [
+          "ambiguous variants",
+          "Proposes medical",
+          "informatics improvements",
+          "for the operation of the",
+          "laboratory",
+          "Contributes to the",
+          "knowledge base for the",
+          "refinement of ambiguous",
+          "test results and variant",
+          "classifications"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and select",
+          "applicable evidence",
+          "Identifies and applies the",
+          "best available evidence",
+          "and/or clinical laboratory"
+        ],
+        "level_2": [
+          "standards/guidelines to",
+          "guide diagnostic",
+          "evaluation of simple",
+          "cases",
+          "Identifies and applies the",
+          "best available evidence"
+        ],
+        "level_3": [
+          "and/or clinical laboratory",
+          "standards/guidelines to",
+          "guide diagnostic",
+          "evaluation of complex",
+          "cases",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence to",
+          "guide lab-based",
+          "recommendations, even",
+          "in the face of conflicting",
+          "data",
+          "Mentors others to critically"
+        ],
+        "level_5": [
+          "appraise and apply",
+          "evidence for complex",
+          "cases; and/or participates",
+          "in the development of",
+          "laboratory",
+          "standards/guidelines"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Realizes responsibility",
+          "for personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates willingness"
+        ],
+        "level_2": [
+          "to receiving performance",
+          "data and feedback in",
+          "order to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance"
+        ],
+        "level_3": [
+          "Seeks performance data",
+          "and feedback with respect",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Models appropriate and"
+        ],
+        "level_4": [
+          "thoughtful seeking and",
+          "consideration of",
+          "feedback",
+          "Critically evaluates the",
+          "effectiveness of",
+          "behavioral changes in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the"
+        ],
+        "level_5": [
+          "effectiveness of the",
+          "learning plan and",
+          "improves it when",
+          "necessary",
+          "Coaches others in",
+          "personal and professional",
+          "development",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "laboratory testing",
+          "Describes how to report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers"
+        ],
+        "level_2": [
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations; takes",
+          "responsibility for own",
+          "professionalism lapses",
+          "Recognizes the need for"
+        ],
+        "level_3": [
+          "and uses appropriate",
+          "resources to seek",
+          "solutions in managing and",
+          "resolving complex ethical",
+          "situations",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_4": [
+          "Manages complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that introduce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities"
+        ],
+        "level_2": [
+          "Takes ownership and",
+          "performs tasks and",
+          "responsibilities in a timely",
+          "manner"
+        ],
+        "level_3": [
+          "Anticipates situations that",
+          "may impact own ability to",
+          "meet responsibilities and",
+          "describes the impact on"
+        ],
+        "level_4": [
+          "team",
+          "Shares responsibility for",
+          "system outcomes as a",
+          "member of the team"
+        ],
+        "level_5": [
+          "Designs new strategies to",
+          "ensure that the needs of",
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Personal and Professional Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Describes common",
+          "indicators of personal or",
+          "professional well-being",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed"
+        ],
+        "level_3": [
+          "Proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "Implements a plan to"
+        ],
+        "level_4": [
+          "optimize personal and",
+          "professional well-being",
+          "Coaches others to",
+          "develop and implement"
+        ],
+        "level_5": [
+          "plans to optimize personal",
+          "and professional well-",
+          "being"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "communication",
+          "Identifies the role of the",
+          "laboratory in",
+          "communicating results to",
+          "patients",
+          "Identifies complex",
+          "barriers to effective",
+          "communication"
+        ],
+        "level_2": [
+          "Uses nonverbal behavior",
+          "to demonstrate respect",
+          "and establish rapport",
+          "while observing in the",
+          "clinical setting and can",
+          "identify factors that could",
+          "make a clinical situation",
+          "psychosocially complex",
+          "With prompting, reflects",
+          "on biases and can identify"
+        ],
+        "level_3": [
+          "barriers in written",
+          "language that may",
+          "challenge understanding",
+          "by patients and families",
+          "Uses nonverbal behavior",
+          "to demonstrate respect",
+          "and establish rapport",
+          "while observing a",
+          "complex result disclosure",
+          "by a clinician"
+        ],
+        "level_4": [
+          "Communicates the",
+          "content of a report or",
+          "educational materials in",
+          "a way that is accessible",
+          "to patients and families",
+          "Orally communicates",
+          "simple results to",
+          "families in a concise",
+          "manner, under the",
+          "supervision of an"
+        ],
+        "level_5": [
+          "attending clinician",
+          "Develops systems to",
+          "communicate laboratory",
+          "information in a way that",
+          "is accessible to patients",
+          "and families",
+          "Independently orally",
+          "communicates laboratory",
+          "results with relevant",
+          "information to providers"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team,",
+          "including clinical and",
+          "laboratory professionals",
+          "Describes the utility of",
+          "constructive feedback",
+          "Adapts communication",
+          "style to fit team needs"
+        ],
+        "level_2": [
+          "Solicits feedback on",
+          "personal performance as",
+          "a member of the",
+          "laboratory team",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members, including",
+          "clinical and laboratory"
+        ],
+        "level_3": [
+          "professionals, with",
+          "assistance",
+          "Integrates feedback from",
+          "team members to improve",
+          "own communication and",
+          "other skills",
+          "Independently",
+          "communicates",
+          "information effectively"
+        ],
+        "level_4": [
+          "with all health care team",
+          "members, including",
+          "clinical and laboratory",
+          "professionals",
+          "Facilitates regular",
+          "health care team-based",
+          "communications and",
+          "feedback in complex",
+          "situations"
+        ],
+        "level_5": [
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed"
+        ]
+      }
+    },
+    {
+      "id": "medical_genetics_and_genomics__laboratory_genetics_and_genomics_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Protects patient personal",
+          "health information by",
+          "following institutional",
+          "policies",
+          "Identifies institutional",
+          "and departmental",
+          "procedures for",
+          "communication of issues"
+        ],
+        "level_2": [
+          "Selects content, recipient,",
+          "and communication",
+          "methods based on",
+          "context and clinical",
+          "urgency, with guidance",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and"
+        ],
+        "level_3": [
+          "constructive suggestions,",
+          "with assistance",
+          "Effectively and securely",
+          "communicates clinical",
+          "information, with guidance",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and"
+        ],
+        "level_4": [
+          "constructive suggestions",
+          "Independently",
+          "communicates clinical",
+          "information",
+          "Initiates conversations",
+          "on difficult subjects with",
+          "appropriate",
+          "stakeholders to improve"
+        ],
+        "level_5": [
+          "the system",
+          "Models effective",
+          "communication of clinical",
+          "information",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "medical-genetics-and-genomics",
+  "primary_name": "Medical Genetics and Genomics",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/laboratorygeneticsandgenomicsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/laboratorygeneticsandgenomicssupplementalguide.pdf"
+  }
+}

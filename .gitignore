@@ -22,6 +22,7 @@
 .DS_Store
 *.pem
 .venv-img/
+docs/seeds/acgme/_cache/
 
 # local schedule exports with phone directory (PHI) — use docs/seeds JSON instead
 public/content/uh-psych/schedules/*.xlsx

@@ -1,0 +1,1572 @@
+{
+  "framework_key": "obstetrics-and-gynecology--reproductive-endocrinology-and-infertility",
+  "specialty": "Reproductive Endocrinology and Infertility",
+  "version": "2.0",
+  "source": "ACGME Reproductive Endocrinology and Infertility Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "General Infertility Evaluation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Elicits basic medical,",
+          "obstetric, gynecologic,",
+          "surgical, family, and",
+          "social history",
+          "Performs a basic",
+          "physical and pelvic",
+          "examination as indicated",
+          "for the female partner",
+          "Discusses factors that",
+          "may affect treatment-",
+          "related outcomes and",
+          "complications",
+          "Elicits a comprehensive",
+          "history, incorporating a",
+          "directed history that",
+          "identifies potential"
+        ],
+        "level_2": [
+          "etiologies of infertility",
+          "Independently performs",
+          "and interprets imaging",
+          "(e.g.,",
+          "hysterosalpingogram",
+          "[HSG], ultrasound) in the",
+          "evaluation of infertility",
+          "Identifies patient-specific",
+          "factors that may affect",
+          "treatment-related",
+          "outcomes and",
+          "complications",
+          "Develops an evidence-",
+          "based treatment plan",
+          "based on a patient’s",
+          "specific history and"
+        ],
+        "level_3": [
+          "diagnosis (e.g., age,",
+          "financial resources,",
+          "presence of male factor)",
+          "Integrates diagnostic,",
+          "laboratory and imaging",
+          "studies to identify",
+          "potential etiologies of",
+          "infertility, including male",
+          "factor",
+          "Treats patient-specific",
+          "factors that may affect",
+          "treatment-related",
+          "outcomes and",
+          "complications",
+          "Provides subspecialty",
+          "evaluation and"
+        ],
+        "level_4": [
+          "treatment for complex",
+          "infertility in collaboration",
+          "with other members of",
+          "the health care team",
+          "(e.g., male factor,",
+          "pituitary disorders)",
+          "Uses infertility outcomes",
+          "to improve individual",
+          "and group practice",
+          "patterns",
+          "Incorporates cultural",
+          "and sex preferences",
+          "into collaborative",
+          "advanced treatment",
+          "planning",
+          "Evaluates the cost"
+        ],
+        "level_5": [
+          "effectiveness of",
+          "diagnostic testing and",
+          "management options",
+          "Develops novel strategies",
+          "for data evaluation to",
+          "improve patient care and",
+          "patient outcomes",
+          "Uses infertility research to",
+          "improve national and",
+          "global practice patterns,",
+          "develop novel techniques,",
+          "and improve access to",
+          "care"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Ovulation Induction (OI) and Assisted Reproductive Technologies (ART)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies basic treatment",
+          "options utilizing ovulation",
+          "induction agents (e.g.,",
+          "oral medications)",
+          "Performs basic",
+          "gynecologic ultrasounds",
+          "Identifies broad",
+          "indications and counsels",
+          "patients about treatment",
+          "options",
+          "Formulates ovulation",
+          "induction treatment plan",
+          "and effectively",
+          "communicates the",
+          "mechanism of action and"
+        ],
+        "level_2": [
+          "side effects of ovulation-",
+          "inducing agents",
+          "Performs basic ultrasound",
+          "monitoring in patients",
+          "undergoing OI and ART",
+          "Discusses therapies",
+          "involved in the",
+          "management of assisted",
+          "reproduction",
+          "Develops and manages",
+          "an appropriate treatment",
+          "plan for patients",
+          "undergoing OI and ART,",
+          "including adjuncts based",
+          "on indications (e.g., age,"
+        ],
+        "level_3": [
+          "ovulatory status, male",
+          "factor)",
+          "Proficiently performs",
+          "procedures associated",
+          "with OI and ART (e.g.,",
+          "intrauterine insemination",
+          "(IUI), oocyte retrieval,",
+          "embryo transfer)",
+          "Counsels patients to",
+          "maximize outcomes while",
+          "minimizing complications",
+          "from treatment (e.g.,",
+          "number of embryos to",
+          "transfer for patients",
+          "undergoing ART)"
+        ],
+        "level_4": [
+          "Manages complex",
+          "cycles, including dose",
+          "adjustment, cycle",
+          "counseling, and",
+          "complications",
+          "Proficiently performs",
+          "difficult IUIs and",
+          "embryo transfers",
+          "Counsels patients",
+          "about the outcomes",
+          "of treatment and",
+          "discusses other",
+          "options for treatment",
+          "and future family",
+          "planning"
+        ],
+        "level_5": [
+          "Develops and",
+          "disseminates an",
+          "evidence-based approach",
+          "to innovative and complex",
+          "treatment plans for fertility",
+          "treatment",
+          "Develops and implements",
+          "novel procedural",
+          "interventions to enhance",
+          "fertility and implantation",
+          "Develops patient",
+          "educational tools",
+          "implemented at a national",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Surgery for Reproductive Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patient-specific",
+          "diagnostic and operative",
+          "procedures available for",
+          "common reproductive",
+          "disorders",
+          "Discusses surgical",
+          "complications",
+          "Selects appropriate",
+          "diagnostic and operative",
+          "procedures, both",
+          "minimally invasive"
+        ],
+        "level_2": [
+          "(hysteroscopy,",
+          "laparoscopy, robotic-",
+          "assisted) and open",
+          "(laparotomy) approaches,",
+          "and assists for common",
+          "reproductive and",
+          "developmental disorders",
+          "Identifies patient-specific",
+          "risk factors for surgical",
+          "complications and",
+          "selects strategies to"
+        ],
+        "level_3": [
+          "minimize risk",
+          "Independently performs",
+          "basic operative",
+          "procedures, with both",
+          "minimally invasive and",
+          "open approaches,",
+          "demonstrating proficiency",
+          "Recognizes and develops",
+          "management strategies",
+          "for intra- and post-",
+          "operative complications"
+        ],
+        "level_4": [
+          "Independently and",
+          "skillfully performs",
+          "complex operative",
+          "procedures,",
+          "demonstrating",
+          "proficiency with both",
+          "minimally invasive and",
+          "open approaches",
+          "Comprehensively",
+          "manages intra- and",
+          "post-operative surgical"
+        ],
+        "level_5": [
+          "complications",
+          "Performs surgical",
+          "management of complex",
+          "reproductive disorders",
+          "and reconstructive",
+          "surgery",
+          "Develops and implements",
+          "an innovative surgical",
+          "technique or safer",
+          "surgical approach for",
+          "reproductive disorders"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_mk1",
+      "number": 4,
+      "domain_number": 1,
+      "name": "Diagnostic Techniques and Treatment Planning for Reproductive Disorders",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "imaging modalities",
+          "used to evaluate",
+          "patients (e.g.,",
+          "abdominal and vaginal",
+          "ultrasound)",
+          "Demonstrates",
+          "knowledge of basic",
+          "diagnostic techniques",
+          "used to evaluate",
+          "patients (e.g.,",
+          "laboratory studies,",
+          "endometrial biopsy,",
+          "Tanner staging)"
+        ],
+        "level_2": [
+          "Demonstrates",
+          "knowledge of advanced",
+          "imaging modalities used",
+          "to evaluate patients",
+          "(e.g., magnetic",
+          "resonance imaging",
+          "[MRI], sonohysterogram,",
+          "HSG)",
+          "Demonstrates",
+          "knowledge of advanced",
+          "diagnostic techniques",
+          "used to evaluate patients",
+          "(e.g., hormonal studies,",
+          "bone age, tumor",
+          "markers)"
+        ],
+        "level_3": [
+          "Applies knowledge of",
+          "imaging modalities and",
+          "diagnostic techniques to",
+          "understand reproductive",
+          "disorders",
+          "Develops treatment",
+          "plans by applying",
+          "comprehensive",
+          "knowledge of",
+          "reproductive disorders,",
+          "including provocative",
+          "tests of the reproductive",
+          "endocrine axis (e.g.,",
+          "cosyntropin stimulation)",
+          "Integrates knowledge"
+        ],
+        "level_4": [
+          "of imaging modalities",
+          "and diagnostic",
+          "techniques to diagnose",
+          "disorders across the",
+          "lifespan",
+          "Develops",
+          "comprehensive",
+          "treatment plans,",
+          "working with the",
+          "multidisciplinary team,",
+          "to optimize patient",
+          "outcomes for patients",
+          "with reproductive",
+          "disorders",
+          "Develops and"
+        ],
+        "level_5": [
+          "investigates innovative",
+          "and evidence-based",
+          "diagnostic techniques to",
+          "develop treatment plans",
+          "for patients with",
+          "reproductive disorders",
+          "Develops and implements",
+          "educational tools for",
+          "diagnostic techniques for",
+          "reproductive disorders at",
+          "a national level"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_mk2",
+      "number": 5,
+      "domain_number": 2,
+      "name": "Genetic Principles of Parent",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge of",
+          "basic genetic principles,",
+          "recognizes heritable",
+          "disorders associated with",
+          "specific patient populations,",
+          "and takes a basic genetic",
+          "family history",
+          "Demonstrates knowledge of",
+          "basic genetic screening and",
+          "diagnostic tests (genotyping",
+          "versus sequencing)",
+          "Applies knowledge of basic",
+          "genetics to patient",
+          "counseling (e.g., meiotic"
+        ],
+        "level_2": [
+          "and mitotic errors, FMR1,",
+          "Turner syndrome, advanced",
+          "maternal age)",
+          "Selects appropriate genetic",
+          "testing for patients with",
+          "reproductive disorders,",
+          "infertility, and pregnancy",
+          "loss",
+          "Applies knowledge of",
+          "reproductive genetic",
+          "principles to provide",
+          "counselling, optimize patient",
+          "outcomes, and recognize",
+          "non-reproductive"
+        ],
+        "level_3": [
+          "manifestations of genetic",
+          "and epigenetic syndromes",
+          "(e.g., common gynecologic",
+          "cancer syndromes,",
+          "Triploidy, inversions,",
+          "balanced translocations",
+          "autosomal versus",
+          "Robertsonian and",
+          "uniparental disomy [UPD])",
+          "Demonstrates knowledge of",
+          "advanced genetic testing,",
+          "including preimplantation",
+          "genetic testing and",
+          "diagnosis and appropriate"
+        ],
+        "level_4": [
+          "use (e.g., whole exome",
+          "sequencing [WES], whole",
+          "genome sequencing [WGS],",
+          "sequencing panels,",
+          "microarray, karyotype)",
+          "Applies knowledge of",
+          "advanced reproductive",
+          "genetics to interpret and",
+          "provide comprehensive",
+          "counselling and treatment",
+          "planning to optimize",
+          "outcomes for patients,",
+          "partners, and families",
+          "(including basic risk"
+        ],
+        "level_5": [
+          "counseling)",
+          "Demonstrates knowledge of",
+          "technology and techniques",
+          "for advanced genetic testing",
+          "of genomic samples from",
+          "the parent or products of",
+          "conception",
+          "Develops and implements",
+          "innovative concepts and",
+          "theories regarding genetic",
+          "principles and testing",
+          "Develops and implements",
+          "new genetic screening",
+          "protocols"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_mk3",
+      "number": 6,
+      "domain_number": 3,
+      "name": "Genetic Principles of Gamete/Embryo",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of the normal processes",
+          "of meiosis and mitosis",
+          "Demonstrates basic",
+          "knowledge of normal",
+          "epigenetic changes",
+          "Demonstrates knowledge",
+          "of the pathophysiology of",
+          "meiotic and mitotic errors",
+          "that lead to abnormalities",
+          "(e.g., non-dysjunction,",
+          "premature separation of"
+        ],
+        "level_2": [
+          "sister chromatids)",
+          "Demonstrates knowledge",
+          "of how mosaic and",
+          "segmental errors may",
+          "develop",
+          "Demonstrates knowledge",
+          "of the analytical",
+          "techniques used to",
+          "evaluate genetic samples,",
+          "as well as their limitations",
+          "Demonstrates knowledge",
+          "of the process of embryo"
+        ],
+        "level_3": [
+          "testing from biopsy to final",
+          "results (e.g.,",
+          "preimplantation genetic",
+          "testing for aneuploidy",
+          "[PGT-A], preimplantation",
+          "genetic testing for",
+          "monogenic disorders",
+          "[PGT-M], preimplantation",
+          "genetic testing for",
+          "structural chromosomal",
+          "rearrangements [PGT-",
+          "SR], and methylation"
+        ],
+        "level_4": [
+          "studies)",
+          "Demonstrates",
+          "knowledge of",
+          "recurrence risks for",
+          "various genetic",
+          "abnormalities of the",
+          "embryo and their impact",
+          "on future clinical",
+          "prognosis (e.g.,",
+          "recurrence risk for",
+          "aneuploidy, mosaicism,",
+          "segmental"
+        ],
+        "level_5": [
+          "abnormalities, de novo",
+          "mutations, tri codon",
+          "expansion)",
+          "Performs research on",
+          "new techniques to",
+          "diagnose genetic",
+          "abnormalities or to define",
+          "their role in",
+          "understanding or treating",
+          "clinical pathology"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_mk4",
+      "number": 7,
+      "domain_number": 4,
+      "name": "Reproductive Medicine and Neuroendocrinology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the",
+          "embryology and",
+          "anatomical relationships",
+          "and function of the",
+          "hypothalamus,",
+          "neurovascular bundles,",
+          "and target cells of the",
+          "anterior and posterior",
+          "pituitary",
+          "Demonstrates",
+          "knowledge of basic",
+          "testing used to assess",
+          "reproductive axis",
+          "Describes the normal and"
+        ],
+        "level_2": [
+          "abnormal physiology of",
+          "hypothalamic pituitary",
+          "reproductive axis,",
+          "including feedback",
+          "mechanisms, and",
+          "hormone and receptor",
+          "function",
+          "Interprets results of basic",
+          "endocrine testing for",
+          "evaluation of the",
+          "hypothalamus, pituitary,",
+          "thyroid, adrenal, and",
+          "gonadal systems",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "comprehensive",
+          "knowledge of common",
+          "conditions that impact",
+          "endocrine homeostasis",
+          "(e.g., polycystic ovary",
+          "syndrome, puberty,",
+          "adolescence, pregnancy,",
+          "climacteric, thyroid",
+          "disease) and develops a",
+          "treatment plan as",
+          "appropriate",
+          "Demonstrates knowledge",
+          "of advanced and dynamic",
+          "testing used to assess"
+        ],
+        "level_4": [
+          "reproductive axis (e.g.,",
+          "adrenocorticotropin",
+          "hormone stimulation)",
+          "Demonstrates",
+          "comprehensive",
+          "knowledge of complex",
+          "conditions that impact",
+          "endocrine homeostasis",
+          "(e.g., congenital adrenal",
+          "hyperplasia [CAH],",
+          "panhypopituitary) and",
+          "develops a treatment",
+          "plan as appropriate",
+          "Applies knowledge of"
+        ],
+        "level_5": [
+          "endocrine testing to",
+          "provide management",
+          "options for complex",
+          "endocrine disorders",
+          "(e.g., Cushing",
+          "syndrome)",
+          "Applies and disseminates",
+          "innovative approaches to",
+          "complex and atypical",
+          "endocrine disorders and",
+          "implements a treatment",
+          "plan based on emerging",
+          "evidence"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_mk5",
+      "number": 8,
+      "domain_number": 5,
+      "name": "Andrology and Embryology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the basic",
+          "physiology and",
+          "pathophysiology of oocytes",
+          "Discusses the basic",
+          "components of a semen",
+          "analysis",
+          "Describes the basic",
+          "process of in vitro",
+          "fertilization",
+          "Identifies the",
+          "developmental stages and",
+          "milestones of oocytes and",
+          "embryos during in vitro",
+          "culture",
+          "Identifies the",
+          "developmental stages of",
+          "spermatogenesis"
+        ],
+        "level_2": [
+          "Identifies lab (andrology",
+          "and in vitro) procedures,",
+          "protocols, and equipment",
+          "used during all stages from",
+          "retrieved oocytes to the",
+          "hatched blastocyst stages",
+          "of development",
+          "Grades embryos",
+          "(American Society for",
+          "Reproductive Medicine",
+          "(ASRM); Gardner) at the",
+          "various stages of",
+          "development (pronuclear",
+          "through hatched",
+          "blastocyst)",
+          "Demonstrates knowledge",
+          "of routine andrology"
+        ],
+        "level_3": [
+          "procedures (e.g.,",
+          "preparation of specimens",
+          "for IUI or ART, evaluation",
+          "of azoospermic",
+          "specimens, antibody",
+          "testing)",
+          "Demonstrates knowledge",
+          "of principles of andrology",
+          "and in vitro culture (e.g.,",
+          "media composition, buffers",
+          "to assure pH stability,",
+          "factors that influence the",
+          "stability of specimen",
+          "preparation, culture",
+          "system, and cryobiology)",
+          "Identifies abnormalities",
+          "encountered in vitro at all"
+        ],
+        "level_4": [
+          "stages from retrieved",
+          "oocytes to the hatched",
+          "blastocyst stages of",
+          "development",
+          "Identifies abnormal",
+          "findings encountered",
+          "during andrology testing in",
+          "all specimen types",
+          "(ejaculates, epididymal or",
+          "testicular aspirations)",
+          "Demonstrates knowledge",
+          "of quality assurance data",
+          "to determine if lab",
+          "preparation, procedure,",
+          "and culture conditions are",
+          "acceptable",
+          "Proficiently relates data on"
+        ],
+        "level_5": [
+          "in vitro embryo",
+          "development to clinical",
+          "prognosis in current and",
+          "future treatment cycles",
+          "Proficiently relates data",
+          "from andrology testing to",
+          "clinical prognosis in current",
+          "and future treatment cycles",
+          "Demonstrates advanced",
+          "knowledge of lab",
+          "procedures, protocols, and",
+          "equipment and",
+          "identifies/troubleshoots",
+          "problems that may arise in",
+          "the laboratory"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_sbp1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "potential patient safety",
+          "events",
+          "Demonstrates",
+          "awareness of",
+          "institutionally based",
+          "patient safety reporting",
+          "tools",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and"
+        ],
+        "level_2": [
+          "metrics",
+          "Identifies system factors",
+          "that lead to patient",
+          "safety events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., in vitro fertilization",
+          "[IVF] outcomes, smoking"
+        ],
+        "level_3": [
+          "cessation)",
+          "Participates in analysis",
+          "of patient safety events",
+          "(simulated or actual)",
+          "Participates in",
+          "disclosure of patient",
+          "safety events to patients",
+          "and patient families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of"
+        ],
+        "level_4": [
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Mentors others in",
+          "disclosure of patient",
+          "safety events",
+          "Leads current local",
+          "quality improvement",
+          "initiatives and",
+          "implements",
+          "improvements through",
+          "outcome analysis"
+        ],
+        "level_5": [
+          "Designs and implements scalable",
+          "process improvements to prevent",
+          "patient safety events",
+          "Designs and implements scalable",
+          "process improvements for",
+          "institutionally based (or beyond)",
+          "patient safety event reporting tools",
+          "Designs and implements scalable",
+          "quality improvement initiatives,",
+          "fosters protocol changes based on",
+          "analysis and outcomes"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_sbp2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "System Navigation for Patient Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, effectively",
+          "using the roles of",
+          "interprofessional team"
+        ],
+        "level_2": [
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and community",
+          "health needs for their",
+          "local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,",
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Performs safe and"
+        ],
+        "level_3": [
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations and with",
+          "multiple levels of the care",
+          "team",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of the entire patient",
+          "population and community",
+          "Identifies concerns with",
+          "current systems and",
+          "identifies opportunities",
+          "for improvement with",
+          "specific",
+          "recommendations",
+          "Role models and"
+        ],
+        "level_4": [
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings and at-risk",
+          "populations",
+          "Participates in changing",
+          "and adapting practice to",
+          "transform the health",
+          "education, care, and",
+          "outcomes of specific",
+          "populations",
+          "Analyzes the process of",
+          "care coordination and"
+        ],
+        "level_5": [
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "finance, personnel,",
+          "technology)",
+          "Demonstrates"
+        ],
+        "level_2": [
+          "understanding of the",
+          "complex interactions",
+          "within major parts of a",
+          "health care system and",
+          "their impact (individually",
+          "and wholly) on patient",
+          "care"
+        ],
+        "level_3": [
+          "Demonstrates",
+          "understanding of the role",
+          "individual care",
+          "components (e.g.,",
+          "nursing, same-day",
+          "surgery, emergency",
+          "department) have on the"
+        ],
+        "level_4": [
+          "broader health care",
+          "system (e.g., length of",
+          "stay, readmission rates,",
+          "clinical efficiency)",
+          "Successfully manages",
+          "multidisciplinary",
+          "teams/plans to provide"
+        ],
+        "level_5": [
+          "efficient and effective",
+          "patient care",
+          "Identifies and leads",
+          "systemic changes that",
+          "enhance the efficiency and",
+          "effectiveness of patient",
+          "care"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_sbp4",
+      "number": 12,
+      "domain_number": 4,
+      "name": "Regulatory",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Knows that embryology",
+          "laboratories must be",
+          "accredited and inspected",
+          "Discusses the need for",
+          "quality control and",
+          "proficiency testing within",
+          "embryology laboratories",
+          "Identifies the differences",
+          "between accreditation and"
+        ],
+        "level_2": [
+          "regulatory compliance;",
+          "discusses the process for",
+          "achieving accreditation",
+          "and maintaining",
+          "regulatory compliance",
+          "Interprets Society for",
+          "Assisted Reproductive",
+          "Technology (SART) data",
+          "and outcomes and"
+        ],
+        "level_3": [
+          "evaluates institution",
+          "outcomes and identify",
+          "areas for improvement",
+          "Demonstrates knowledge",
+          "of the components of",
+          "laboratory accreditation",
+          "and regulatory",
+          "compliance",
+          "Demonstrates knowledge"
+        ],
+        "level_4": [
+          "of the components of a",
+          "laboratory quality",
+          "management plan",
+          "Understands the",
+          "elements of an internal",
+          "or external laboratory",
+          "inspection",
+          "Reviews the quality",
+          "management plan to"
+        ],
+        "level_5": [
+          "identify areas for",
+          "improvement",
+          "Formulates a response for",
+          "laboratory inspection",
+          "deficiencies",
+          "Creates and follows a",
+          "comprehensive quality",
+          "management plan"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporate patient",
+          "preferences and values",
+          "to take care of a routine",
+          "patient"
+        ],
+        "level_2": [
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care, with guidance",
+          "from other health care",
+          "team members"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients, with",
+          "minimal guidance",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care tailored to",
+          "the individual patient",
+          "Mentors others to critically"
+        ],
+        "level_5": [
+          "appraise and apply",
+          "evidence for complex",
+          "patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development",
+          "Analyzes and reflects on",
+          "the factors that contribute"
+        ],
+        "level_2": [
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Identifies opportunities for",
+          "performance",
+          "improvement; designs a",
+          "learning plan",
+          "Institutes behavioral",
+          "change(s) to narrow the"
+        ],
+        "level_3": [
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Integrates practice data",
+          "and feedback with",
+          "humility to implement a",
+          "learning plan",
+          "Continuously reflects on",
+          "remaining gaps and"
+        ],
+        "level_4": [
+          "institutes behavioral",
+          "adjustments to narrow",
+          "them",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "adapts when necessary",
+          "Mentors others on"
+        ],
+        "level_5": [
+          "reflective practice",
+          "Mentors others in the",
+          "design and",
+          "implementation of",
+          "learning plans"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_pbli3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy",
+          "of scholarly",
+          "investigation and",
+          "completes the",
+          "institution’s Institutional",
+          "Review Board (IRB)",
+          "training"
+        ],
+        "level_2": [
+          "Designs an ethical",
+          "hypothesis-driven or",
+          "hypothesis-generating",
+          "scholarly thesis, under the",
+          "direction of a research",
+          "mentor",
+          "Presents products of"
+        ],
+        "level_3": [
+          "scholarly activity at local,",
+          "regional, or national",
+          "meetings, and/or submits",
+          "an abstract to regional,",
+          "state, or national",
+          "meetings",
+          "Completes and defends"
+        ],
+        "level_4": [
+          "a comprehensive",
+          "written scholarly thesis",
+          "that demonstrates an",
+          "ethical, advanced",
+          "research methodology,",
+          "design, and analysis",
+          "Publishes independent"
+        ],
+        "level_5": [
+          "research that generates",
+          "new medical knowledge,",
+          "educational programs, or",
+          "process improvement"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates insight",
+          "into professional",
+          "behavior in routine",
+          "situations and takes",
+          "responsibility for one’s",
+          "own professional",
+          "behavior",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles"
+        ],
+        "level_2": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to appropriately",
+          "report professionalism",
+          "lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Recognizes the need to",
+          "seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Anticipates situations",
+          "that may trigger",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself and others",
+          "Uses appropriate",
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas and identifies",
+          "system-level issues that",
+          "induce or exacerbate",
+          "ethical problems"
+        ],
+        "level_5": [
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Addresses system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail in routine",
+          "situations"
+        ],
+        "level_2": [
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_3": [
+          "Anticipates and",
+          "proactively implements",
+          "strategies for ensuring",
+          "timely completion of",
+          "complex tasks in the",
+          "future"
+        ],
+        "level_4": [
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and assists them in",
+          "implementing strategies",
+          "for timely task"
+        ],
+        "level_5": [
+          "completion",
+          "Establishes systems for the",
+          "patient care team,",
+          "prioritization of tasks, and",
+          "coaching of team members",
+          "in task completion"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of personal",
+          "and professional",
+          "fulfillment",
+          "Recognizes the",
+          "importance of health and",
+          "well-being"
+        ],
+        "level_2": [
+          "Demonstrates self-",
+          "awareness of personal",
+          "and professional",
+          "fulfillment",
+          "Recognizes resources",
+          "available for health and",
+          "well-being"
+        ],
+        "level_3": [
+          "Proposes and implement",
+          "a plan to optimize",
+          "personal and professional",
+          "fulfillment",
+          "Utilizes resources for",
+          "improving health and well-",
+          "being as needed"
+        ],
+        "level_4": [
+          "Coaches other team",
+          "members to optimize",
+          "personal and",
+          "professional fulfillment",
+          "Promotes health and",
+          "well-being resource use",
+          "by team members as"
+        ],
+        "level_5": [
+          "needed",
+          "Implements system-based",
+          "resources for optimizing",
+          "personal and professional",
+          "fulfillment"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "with the patient and",
+          "patient’s family (e.g.,",
+          "situational awareness of",
+          "language, disability,",
+          "health literacy level,",
+          "cultural differences)",
+          "Communicates with",
+          "patients and their"
+        ],
+        "level_2": [
+          "families in an",
+          "understandable and",
+          "respectful manner",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Identifies barriers to",
+          "effective communication",
+          "(e.g., health literacy,"
+        ],
+        "level_3": [
+          "cultural differences)",
+          "Establishes a therapeutic",
+          "relationship in challenging",
+          "encounters (e.g., shared",
+          "decision making)",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Facilitates difficult"
+        ],
+        "level_4": [
+          "discussions specific to",
+          "patient and patient",
+          "family conferences,",
+          "(e.g., poor prognosis,",
+          "pregnancy loss,",
+          "therapeutic uncertainty)",
+          "Independently",
+          "recognizes biases while",
+          "attempting to proactively",
+          "minimize"
+        ],
+        "level_5": [
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection",
+          "Coaches others in the",
+          "facilitation of crucial",
+          "conversations"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Patient Counseling and Shared Decision Making",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Answers questions about",
+          "the treatment plan and",
+          "seeks guidance when",
+          "appropriate",
+          "Counsels the patient"
+        ],
+        "level_2": [
+          "through the decision-",
+          "making process, including",
+          "answering questions, for",
+          "simple clinical problems",
+          "Counsels the patient"
+        ],
+        "level_3": [
+          "through the decision-",
+          "making process, including",
+          "answering questions, for",
+          "complex clinical problems",
+          "Counsels the patient"
+        ],
+        "level_4": [
+          "through the decision-",
+          "making process,",
+          "including answering",
+          "questions, for",
+          "uncommon clinical"
+        ],
+        "level_5": [
+          "problems",
+          "Develops resources for",
+          "patient counseling and",
+          "shared decision making"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Understands and",
+          "respects the role and",
+          "function of",
+          "interprofessional/",
+          "intradisciplinary team",
+          "members"
+        ],
+        "level_2": [
+          "Solicits insights from and",
+          "uses language that values",
+          "all interprofessional/",
+          "intradisciplinary team",
+          "members",
+          "Integrates contributions"
+        ],
+        "level_3": [
+          "from interprofessional/",
+          "intradisciplinary team",
+          "members into the care",
+          "plan",
+          "Prevents and mediates",
+          "conflict and distress"
+        ],
+        "level_4": [
+          "among the",
+          "interprofessional/",
+          "intradisciplinary team",
+          "members",
+          "Fosters a culture of open",
+          "communication and"
+        ],
+        "level_5": [
+          "effective teamwork within",
+          "the interprofessional/",
+          "intradisciplinary team"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__reproductive_endocrinology_and_infertility_ics4",
+      "number": 22,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Demonstrates organized",
+          "diagnostic and therapeutic",
+          "reasoning through notes",
+          "in the patient record"
+        ],
+        "level_2": [
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy and",
+          "suitable for interpretation",
+          "by other clinicians and",
+          "patients",
+          "Concisely reports",
+          "diagnostic and therapeutic",
+          "reasoning in the patient",
+          "record in an efficient"
+        ],
+        "level_3": [
+          "manner",
+          "Appropriately selects",
+          "direct (e.g., telephone,",
+          "telemedicine, patient",
+          "portal, in-person) and",
+          "indirect (e.g., progress",
+          "notes, text messages)",
+          "forms of communication",
+          "based on context",
+          "Communicates clearly,"
+        ],
+        "level_4": [
+          "concisely, and in an",
+          "organized written form",
+          "and timely manner,",
+          "including anticipatory",
+          "guidance",
+          "Produces written or",
+          "verbal communication",
+          "(patient notes, email,",
+          "etc.) that serves as an",
+          "example for others to"
+        ],
+        "level_5": [
+          "follow",
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "obstetrics-and-gynecology",
+  "primary_name": "Obstetrics and Gynecology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/reproductiveendocrinologyandinfertilitymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/reproductiveendocrinologyandinfertilitysupplementalguide.pdf"
+  }
+}

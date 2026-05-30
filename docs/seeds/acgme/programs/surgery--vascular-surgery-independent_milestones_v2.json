@@ -1,0 +1,1465 @@
+{
+  "framework_key": "surgery--vascular-surgery-independent",
+  "specialty": "Vascular Surgery (Independent)",
+  "version": "2.0",
+  "source": "ACGME Vascular Surgery (Independent) Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "surgery__vascular_surgery_independent_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Patient Data",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Elicits and presents a",
+          "history and performs a",
+          "vascular examination",
+          "relevant to the patient’s",
+          "presenting complaint",
+          "Orders and interprets",
+          "diagnostic testing;",
+          "establishes differential"
+        ],
+        "level_2": [
+          "diagnosis",
+          "Synthesizes patient data,",
+          "including diagnostic",
+          "imaging, to arrive at an",
+          "organized hierarchical",
+          "differential diagnosis for",
+          "basic disease processes,",
+          "to include primary and"
+        ],
+        "level_3": [
+          "secondary treatment",
+          "options",
+          "Synthesizes patient",
+          "data, including",
+          "diagnostic imaging, to",
+          "arrive at an organized",
+          "hierarchical differential",
+          "diagnosis for complex"
+        ],
+        "level_4": [
+          "disease processes with",
+          "advanced comorbidities,",
+          "to include primary and",
+          "secondary treatment",
+          "options",
+          "Synthesizes patient data,",
+          "including diagnostic",
+          "imaging, to arrive at an"
+        ],
+        "level_5": [
+          "organized hierarchical",
+          "differential diagnosis for",
+          "rare disease processes",
+          "and variants of complex",
+          "disease processes"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Medical Management of Vascular Disease",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes risk factors for",
+          "vascular disease",
+          "Identifies therapies for risk",
+          "factor modification"
+        ],
+        "level_2": [
+          "Recognizes endpoints,",
+          "contraindications, and",
+          "complications of medical",
+          "therapy"
+        ],
+        "level_3": [
+          "Formulates a",
+          "comprehensive plan of",
+          "medical management",
+          "for patients with"
+        ],
+        "level_4": [
+          "vascular disease,",
+          "including risk factor",
+          "modification",
+          "Proposes novel medical"
+        ],
+        "level_5": [
+          "treatment algorithms",
+          "based on new literature"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Peri-Operative Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Manages basic peri-",
+          "operative problems (e.g.,",
+          "fever, pain)",
+          "Manages common peri-",
+          "operative problems (e.g.,",
+          "post-operative myocardial",
+          "infraction), including"
+        ],
+        "level_2": [
+          "ordering and",
+          "interpretation of",
+          "supplemental tests when",
+          "needed",
+          "Recognizes and manages",
+          "complex peri-operative",
+          "problems, including"
+        ],
+        "level_3": [
+          "vascular complications,",
+          "critical care, and palliative",
+          "care",
+          "Leads team and",
+          "provides supervision in",
+          "the evaluation and",
+          "management of"
+        ],
+        "level_4": [
+          "complex peri-operative",
+          "problems, including",
+          "vascular complications,",
+          "critical care, and",
+          "palliative care",
+          "Works with the",
+          "interdisciplinary care team"
+        ],
+        "level_5": [
+          "to develop new pathways",
+          "to prevent peri-operative",
+          "vascular complications"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Longitudinal Care (e.g., Outpatient Management, Screening, Surveillance)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes and",
+          "recognizes expected",
+          "longitudinal care,",
+          "including outpatient",
+          "management, screening,",
+          "and surveillance for"
+        ],
+        "level_2": [
+          "patients with basic",
+          "vascular disease",
+          "Describes the expected",
+          "longitudinal care for",
+          "patients with complex",
+          "vascular disease"
+        ],
+        "level_3": [
+          "Recognizes the impact of",
+          "disease progression and",
+          "complications on the",
+          "longitudinal care plan",
+          "Independently alters",
+          "longitudinal care based"
+        ],
+        "level_4": [
+          "on disease progression,",
+          "complications, or",
+          "patient-specific issues",
+          "Innovates new aspects of",
+          "longitudinal care for",
+          "patients with vascular"
+        ],
+        "level_5": [
+          "disease by considering",
+          "the most updated",
+          "evidence-based",
+          "guidelines"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Procedural Preparation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies and orders the",
+          "tests for standard pre-",
+          "operative optimization",
+          "Prepares patient for",
+          "surgery, including pre-",
+          "operative orders and",
+          "diagnostic tests",
+          "Interprets clinical data to",
+          "identify opportunities for",
+          "pre-operative optimization",
+          "For basic procedures,"
+        ],
+        "level_2": [
+          "ensures necessary",
+          "imaging, instrumentation,",
+          "equipment, devices, and",
+          "medications are available;",
+          "positions, prepares, and",
+          "drapes patient",
+          "appropriately",
+          "Recognizes when",
+          "procedural plan must",
+          "change due to patient",
+          "factors or disease"
+        ],
+        "level_3": [
+          "progression identified in",
+          "pre-operative work-up",
+          "For intermediate",
+          "procedures, ensures",
+          "necessary imaging,",
+          "instrumentation,",
+          "equipment, devices, and",
+          "medications are available;",
+          "positions, prepares, and",
+          "drapes patient",
+          "appropriately"
+        ],
+        "level_4": [
+          "Proposes alternative",
+          "surgical plan due to",
+          "patient factors or",
+          "disease progression",
+          "identified in pre-",
+          "operative work-up",
+          "For advanced",
+          "procedures, ensures",
+          "necessary imaging,",
+          "instrumentation,",
+          "equipment, devices, and"
+        ],
+        "level_5": [
+          "medications are",
+          "available; positions,",
+          "prepares, and drapes",
+          "patient appropriately",
+          "Proposes novel therapies",
+          "to address a patient that",
+          "is not a candidate for",
+          "standard care",
+          "Develops protocols to",
+          "improve the procedural",
+          "preparation process"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Technical Skills – Open Surgical Skills",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "surgical skills and",
+          "performs basic bedside",
+          "procedures",
+          "Demonstrates respect for",
+          "tissue, and is developing",
+          "skill in instrument",
+          "handling",
+          "Performs basic vascular"
+        ],
+        "level_2": [
+          "procedures with limited",
+          "supervision",
+          "Handles vascular",
+          "instruments with",
+          "increasing efficiency of",
+          "motion during procedures",
+          "Performs basic vascular",
+          "procedures independently",
+          "and intermediate vascular"
+        ],
+        "level_3": [
+          "procedures with limited",
+          "supervision",
+          "Proficiently handles",
+          "instruments and",
+          "equipment, uses",
+          "assistants, guides the",
+          "conduct of the",
+          "operation, and makes",
+          "independent intra-"
+        ],
+        "level_4": [
+          "operative decisions;",
+          "anticipates when",
+          "assistance is needed",
+          "Performs advanced",
+          "vascular procedures,",
+          "including",
+          "troubleshooting and",
+          "managing complications",
+          "with limited supervision"
+        ],
+        "level_5": [
+          "Handles instruments and",
+          "equipment independently",
+          "without supervision,",
+          "guides the conduct of the",
+          "operation, and makes",
+          "intra-operative decisions",
+          "Competently teaches",
+          "intermediate vascular",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Technical Skills – Endovascular",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses ultrasound to",
+          "demonstrate anatomy for",
+          "vascular access",
+          "Recognizes the",
+          "importance of",
+          "maintaining wire position",
+          "during wire and catheter",
+          "exchanges",
+          "Uses ultrasound to safely"
+        ],
+        "level_2": [
+          "obtain percutaneous",
+          "arterial and/or venous",
+          "access in most patients",
+          "Selects wires and",
+          "catheters and",
+          "demonstrates basic wire",
+          "handling techniques and",
+          "performs most catheter",
+          "exchanges without losing"
+        ],
+        "level_3": [
+          "wire position",
+          "Performs basic and",
+          "intermediate procedures",
+          "Troubleshoots and",
+          "manages basic",
+          "procedural challenges",
+          "Performs advanced",
+          "endovascular",
+          "procedures"
+        ],
+        "level_4": [
+          "with appropriate wire",
+          "and catheter skills",
+          "Identifies when to select",
+          "an alternative access",
+          "site, wire and catheter",
+          "technique, or approach",
+          "to troubleshoot complex",
+          "procedural challenges",
+          "Suggests novel"
+        ],
+        "level_5": [
+          "endovascular therapies",
+          "for most complex cases,",
+          "including troubleshooting",
+          "and managing",
+          "endovascular",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Vascular Imaging (e.g., Computed Tomography [CT], Magnetic Resonance [MR], Angiography, Ultrasonography)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the various",
+          "types of imaging",
+          "modalities",
+          "Uses imaging findings to",
+          "support differential",
+          "diagnosis and pre-",
+          "operative plan for basic",
+          "vascular procedures",
+          "Describes patient factors"
+        ],
+        "level_2": [
+          "that influence the imaging",
+          "modality",
+          "Uses imaging findings to",
+          "support differential",
+          "diagnosis and pre-",
+          "operative plan for",
+          "intermediate vascular",
+          "procedures",
+          "Uses complementary"
+        ],
+        "level_3": [
+          "information from varying",
+          "imaging studies",
+          "Uses imaging findings",
+          "to support differential",
+          "diagnosis, pre-operative",
+          "plan, and intra-operative",
+          "decision making for",
+          "advanced vascular",
+          "procedures"
+        ],
+        "level_4": [
+          "Independently uses",
+          "multidimensional",
+          "imaging (e.g., 3-D",
+          "computed tomography",
+          "angiography [CTA]) and",
+          "identifies abnormal",
+          "findings",
+          "Implements innovative",
+          "imaging technology to"
+        ],
+        "level_5": [
+          "enhance the care of the",
+          "patient",
+          "Teaches imaging",
+          "interpretation of multiple",
+          "modalities"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_mk1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Procedural Rationale (Open Surgical Procedures)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the need for",
+          "intervention over",
+          "medical management",
+          "Synthesizes clinical data to"
+        ],
+        "level_2": [
+          "choose an open surgical",
+          "procedure versus",
+          "endovascular intervention",
+          "Develops a specific"
+        ],
+        "level_3": [
+          "operative plan for the",
+          "current clinical situation,",
+          "understanding alternative",
+          "surgical options"
+        ],
+        "level_4": [
+          "Adapts management plan",
+          "for changing clinical",
+          "situation",
+          "Develops new guidelines or"
+        ],
+        "level_5": [
+          "innovative applications"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_mk2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "Procedural Rationale (Endovascular Interventions)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the need for",
+          "intervention over medical",
+          "management",
+          "Synthesizes clinical data",
+          "to choose an"
+        ],
+        "level_2": [
+          "endovascular intervention",
+          "versus open surgical",
+          "procedure",
+          "Develops a specific",
+          "endovascular plan for the"
+        ],
+        "level_3": [
+          "current clinical situation,",
+          "understanding device",
+          "instructions for use and",
+          "limitations",
+          "Adapts management plan"
+        ],
+        "level_4": [
+          "for changing clinical",
+          "situation and understands",
+          "alternative or off label",
+          "endovascular options",
+          "Develops new guidelines or"
+        ],
+        "level_5": [
+          "innovative applications"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_mk3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "Procedural Understanding, including Anatomy (Open Surgical Procedures)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the types of",
+          "procedures for a",
+          "patient’s pathology",
+          "Identifies appropriate",
+          "procedure"
+        ],
+        "level_2": [
+          "Describes procedural",
+          "sequence and equipment",
+          "needs, and understands",
+          "critical decision points of",
+          "basic procedures"
+        ],
+        "level_3": [
+          "Describes procedural",
+          "sequence and equipment",
+          "needs, and understands",
+          "critical decision points of",
+          "intermediate procedures"
+        ],
+        "level_4": [
+          "Describes procedural",
+          "sequence and",
+          "equipment needs, and",
+          "understands critical",
+          "decision points of"
+        ],
+        "level_5": [
+          "advanced procedures",
+          "Describes or develops an",
+          "innovative approach in",
+          "peer-reviewed literature"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_mk4",
+      "number": 12,
+      "domain_number": 4,
+      "name": "Procedural Understanding, including Anatomy (Endovascular Procedures)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the types of",
+          "procedures for a",
+          "patient’s pathology",
+          "Describes procedural",
+          "sequence and"
+        ],
+        "level_2": [
+          "understands critical",
+          "decision points of basic",
+          "procedures",
+          "Describes procedural",
+          "sequence and equipment"
+        ],
+        "level_3": [
+          "needs, and understands",
+          "critical decision points of",
+          "intermediate procedures",
+          "Describes procedural",
+          "sequence and"
+        ],
+        "level_4": [
+          "equipment needs, and",
+          "understands critical",
+          "decision points of",
+          "advanced procedures",
+          "Describes or develops an"
+        ],
+        "level_5": [
+          "innovative approach in",
+          "peer-reviewed literature"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_mk5",
+      "number": 13,
+      "domain_number": 5,
+      "name": "Intra-Operative Crisis Management",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes potential",
+          "crises during vascular",
+          "procedures",
+          "Describes intra-operative",
+          "findings associated with a"
+        ],
+        "level_2": [
+          "crisis",
+          "Describes appropriate",
+          "response to a crisis,",
+          "including imaging and",
+          "possible interventions"
+        ],
+        "level_3": [
+          "Anticipates patient-",
+          "specific risk for crisis",
+          "and describes",
+          "appropriate treatment",
+          "algorithm and potential"
+        ],
+        "level_4": [
+          "outcomes, including",
+          "conversion to an",
+          "alternate procedure",
+          "Describes, develops, or",
+          "publishes an innovative"
+        ],
+        "level_5": [
+          "approach or otherwise",
+          "impacts patient care,",
+          "delivery, or quality"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_sbp1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "their families (simulated",
+          "or actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent patient",
+          "safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_sbp2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality metrics and",
+          "quality improvement",
+          "methodologies"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., infection rate,",
+          "smoking cessation)",
+          "Participates in local"
+        ],
+        "level_3": [
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,"
+        ],
+        "level_4": [
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at"
+        ],
+        "level_5": [
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_sbp3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates",
+          "multidisciplinary care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of the",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates",
+          "multidisciplinary care of",
+          "patients in complex",
+          "clinical situations,"
+        ],
+        "level_3": [
+          "including those with",
+          "barriers to access,",
+          "effectively using the roles",
+          "of the interprofessional",
+          "team members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_sbp4",
+      "number": 17,
+      "domain_number": 4,
+      "name": "Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and community",
+          "health needs for their",
+          "local population",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and community",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of"
+        ],
+        "level_4": [
+          "specific populations",
+          "Leads innovations,",
+          "publishes peer-reviewed",
+          "paper, or advocates for",
+          "populations and"
+        ],
+        "level_5": [
+          "communities with specific",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_sbp5",
+      "number": 18,
+      "domain_number": 5,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models",
+          "Describes how",
+          "components of a complex",
+          "health care system are"
+        ],
+        "level_2": [
+          "interrelated, and",
+          "understands how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)",
+          "Identifies the need for",
+          "timely documentation to",
+          "support billing",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical"
+        ],
+        "level_3": [
+          "efficiency)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each patient’s",
+          "payment models",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice",
+          "Manages various",
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and"
+        ],
+        "level_4": [
+          "transitions of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment model",
+          "Demonstrates core",
+          "administrative",
+          "knowledge needed for",
+          "transition to practice",
+          "Advocates for or leads",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high-value,",
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Participates in local,",
+          "regional, or national",
+          "health policy advocacy",
+          "activities",
+          "Proposes changes to",
+          "patient care or billing",
+          "practices to improve",
+          "compliance and",
+          "reimbursement"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_sbp6",
+      "number": 19,
+      "domain_number": 6,
+      "name": "Radiation Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "mechanisms of radiation",
+          "injury and the ALARA",
+          "(“as low as reasonably",
+          "achievable”) concept",
+          "Wears lead apron and",
+          "dosimeter at all times",
+          "Applies principles of"
+        ],
+        "level_2": [
+          "ALARA in daily practice",
+          "Uses fluoroscopy",
+          "techniques that decrease",
+          "exposure, with guidance",
+          "Uses radiation protection",
+          "devices, including",
+          "shielding, as appropriate,",
+          "with guidance",
+          "Accesses resources to"
+        ],
+        "level_3": [
+          "determine exam-specific",
+          "radiation dose information",
+          "Independently uses",
+          "radiation protection",
+          "devices, including",
+          "shielding, as appropriate",
+          "Communicates the",
+          "relative risk and benefits",
+          "of exam-specific"
+        ],
+        "level_4": [
+          "radiation exposure to",
+          "patients and",
+          "practitioners",
+          "Counsels colleagues",
+          "and allied health staff",
+          "regarding radiation",
+          "exposure",
+          "Creates, implements, and",
+          "assesses radiation safety"
+        ],
+        "level_5": [
+          "initiatives at the",
+          "institutional level",
+          "Participates in radiation",
+          "safety education and",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pbli1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates effective",
+          "access and use of",
+          "available evidence to",
+          "guide routine patient",
+          "care",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care",
+          "Identifies and applies the",
+          "best available evidence"
+        ],
+        "level_3": [
+          "and integrates data to the",
+          "care of complex patients",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty and"
+        ],
+        "level_4": [
+          "conflicting evidence, to",
+          "guide care tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex patients, and/or",
+          "participates in the",
+          "development of peer-",
+          "reviewed literature or",
+          "guidelines"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_pbli2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development"
+        ],
+        "level_2": [
+          "Identifies opportunities for",
+          "performance",
+          "improvement; designs a",
+          "learning plan"
+        ],
+        "level_3": [
+          "Integrates performance",
+          "feedback and practice",
+          "data to develop and",
+          "implement a learning plan"
+        ],
+        "level_4": [
+          "Revises learning plan",
+          "based on performance",
+          "data",
+          "Coaches others in the"
+        ],
+        "level_5": [
+          "design and",
+          "implementation of",
+          "learning plans"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_prof1",
+      "number": 22,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates insight",
+          "into professional",
+          "behavior in routine",
+          "situations and takes",
+          "responsibility for own",
+          "lapses"
+        ],
+        "level_2": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and when to report lapses",
+          "in professionalism",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations and when to",
+          "seek help to resolve",
+          "complex ethical situation",
+          "Recognizes situations"
+        ],
+        "level_4": [
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself and others",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_prof2",
+      "number": 23,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance"
+        ],
+        "level_2": [
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Applies ethical principles"
+        ],
+        "level_3": [
+          "to straightforward",
+          "situations",
+          "Applies ethical principles",
+          "to complex situations",
+          "Resolves ethical",
+          "dilemmas using"
+        ],
+        "level_4": [
+          "appropriate resources",
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)"
+        ],
+        "level_5": [
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_prof3",
+      "number": 24,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail in routine",
+          "situations",
+          "Performs tasks and"
+        ],
+        "level_2": [
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Takes responsibility for",
+          "failures, identifies"
+        ],
+        "level_3": [
+          "potential contributing",
+          "factors, and describes",
+          "strategies for ensuring",
+          "timely task completion in",
+          "the future",
+          "Recognizes situations",
+          "that may impact others’"
+        ],
+        "level_4": [
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner, and",
+          "proactively implements",
+          "strategies to ensure the",
+          "needs of the patient and",
+          "team are met"
+        ],
+        "level_5": [
+          "Takes ownership of",
+          "system outcomes and",
+          "works toward system-",
+          "level changes"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_prof4",
+      "number": 25,
+      "domain_number": 4,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "With assistance, proposes",
+          "a plan to optimize",
+          "personal and professional"
+        ],
+        "level_3": [
+          "well-being",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well being"
+        ],
+        "level_4": [
+          "Coaches others when",
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional"
+        ],
+        "level_5": [
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_ics1",
+      "number": 26,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and",
+          "respectful manner",
+          "Provides timely updates",
+          "to patients and their",
+          "families",
+          "Customizes"
+        ],
+        "level_2": [
+          "communication, in the",
+          "setting of biases and",
+          "barriers (e.g., age,",
+          "literacy, cognitive",
+          "disabilities) with patients",
+          "and their families",
+          "Actively listens to patients",
+          "and their families to elicit",
+          "patient preferences and"
+        ],
+        "level_3": [
+          "expectations",
+          "Delivers complex and",
+          "difficult information to",
+          "patients and their families",
+          "Uses shared decision",
+          "making to make a",
+          "personalized care plan",
+          "Facilitates difficult",
+          "discussions specific to"
+        ],
+        "level_4": [
+          "patient and patient",
+          "family’s conferences,",
+          "(e.g., end-of-life,",
+          "explaining",
+          "complications,",
+          "therapeutic uncertainty)",
+          "Effectively negotiates",
+          "and manages conflict",
+          "among patients, their"
+        ],
+        "level_5": [
+          "families, and the health",
+          "care team",
+          "Coaches others in the",
+          "facilitation of difficult and",
+          "crucial conversations",
+          "Coaches others in conflict",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_ics2",
+      "number": 27,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Open to feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Communicates"
+        ],
+        "level_2": [
+          "information effectively and",
+          "concisely with all health",
+          "care team members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health care",
+          "team",
+          "Uses active listening to"
+        ],
+        "level_3": [
+          "adapt communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of the"
+        ],
+        "level_4": [
+          "health care team to",
+          "optimize patient care",
+          "Facilitates regular",
+          "health care team-based",
+          "feedback in complex",
+          "situations",
+          "Role models flexible",
+          "communication strategies"
+        ],
+        "level_5": [
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Communicates feedback",
+          "and constructive criticism",
+          "to superiors"
+        ]
+      }
+    },
+    {
+      "id": "surgery__vascular_surgery_independent_ics3",
+      "number": 28,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record, including",
+          "appropriate use of",
+          "documentation templates"
+        ],
+        "level_2": [
+          "Appropriately selects form",
+          "and urgency of",
+          "communication based on",
+          "context",
+          "Demonstrates efficient"
+        ],
+        "level_3": [
+          "use of electronic health",
+          "record (EHR) to",
+          "communicate with the",
+          "health care team",
+          "Integrates and"
+        ],
+        "level_4": [
+          "synthesizes all relevant",
+          "data from outside",
+          "systems and prior",
+          "encounters into the",
+          "EHR"
+        ],
+        "level_5": [
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "surgery",
+  "primary_name": "Surgery",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgerymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgerysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1226 @@
+{
+  "framework_key": "anesthesiology--critical-care-anesthesiology",
+  "specialty": "Critical Care Anesthesiology",
+  "version": "2.0",
+  "source": "ACGME Critical Care Anesthesiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Patient Assessment and Development of a Care Plan",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Efficiently gathers a",
+          "focused history and",
+          "physical examination to",
+          "identify disease",
+          "processes",
+          "Formulates a differential",
+          "diagnosis"
+        ],
+        "level_2": [
+          "Orders and interprets",
+          "imaging and laboratory",
+          "evaluation",
+          "Formulates a care plan",
+          "and communicates it to",
+          "the team",
+          "Integrates data into a"
+        ],
+        "level_3": [
+          "comprehensive patient",
+          "assessment",
+          "Develops and prioritizes a",
+          "care plan",
+          "Continuously assesses",
+          "the patient and",
+          "recognizes unusual"
+        ],
+        "level_4": [
+          "presentations",
+          "Adapts care plan for",
+          "complex clinical",
+          "situations",
+          "Serves as a peer",
+          "reference for unusual",
+          "presentations"
+        ],
+        "level_5": [
+          "Participates in the",
+          "development of clinical",
+          "pathways"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Crisis Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Responds to crisis",
+          "situations as a team",
+          "coordinator",
+          "Develops a differential",
+          "diagnosis that includes"
+        ],
+        "level_2": [
+          "the most likely etiologies",
+          "for acute clinical",
+          "deterioration",
+          "Determines the level of",
+          "patient acuity to prioritize"
+        ],
+        "level_3": [
+          "and implement an",
+          "actionable care plan",
+          "Independently",
+          "anticipates clinical",
+          "deterioration and leads"
+        ],
+        "level_4": [
+          "the multidisciplinary",
+          "team",
+          "Triages available",
+          "institutional resources to",
+          "effectively resolve patient"
+        ],
+        "level_5": [
+          "deterioration"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Procedural Skills/Technical Abilities/Interpretation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Selects equipment,",
+          "performs common",
+          "intensive care unit (ICU)",
+          "procedures (e.g.,",
+          "peripheral arterial or",
+          "central venous",
+          "catheterization), and",
+          "recognizes",
+          "complications, with",
+          "guidance"
+        ],
+        "level_2": [
+          "Interprets data obtained",
+          "from common ICU",
+          "procedures, with",
+          "guidance",
+          "Performs advanced ICU",
+          "procedures (e.g.,",
+          "bronchoscopy, chest",
+          "tube), with guidance",
+          "Interprets data obtained",
+          "from advanced ICU"
+        ],
+        "level_3": [
+          "procedures, with guidance",
+          "Performs common and",
+          "advanced ICU procedures",
+          "and troubleshoots",
+          "common complications",
+          "Synthesizes data",
+          "obtained from common",
+          "and advanced ICU",
+          "procedures to modify the",
+          "care plan"
+        ],
+        "level_4": [
+          "Proficiently performs",
+          "common and advanced",
+          "ICU procedures and",
+          "troubleshoots complex",
+          "complications",
+          "Proficiently synthesizes",
+          "data obtained and",
+          "identifies unusual",
+          "findings from common",
+          "and advanced ICU"
+        ],
+        "level_5": [
+          "procedures",
+          "Serves as a consultant for",
+          "performing difficult",
+          "procedures",
+          "Introduces new evidence-",
+          "based ICU procedures"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Respiratory Failure and Ventilation Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes respiratory",
+          "failure and develops a",
+          "differential diagnosis and",
+          "care plan, with guidance",
+          "Selects and implements",
+          "basic ventilation",
+          "strategies (e.g., assist",
+          "control, pressure",
+          "support, non-invasive",
+          "strategies)",
+          "Integrates relevant data to"
+        ],
+        "level_2": [
+          "develop a patient care",
+          "plan",
+          "Selects from a variety of",
+          "modes of ventilation or",
+          "respiratory care",
+          "techniques and initiates",
+          "the appropriate",
+          "interventions to optimize",
+          "gas exchange and",
+          "minimize complications",
+          "Identifies more complex"
+        ],
+        "level_3": [
+          "etiologies for respiratory",
+          "failure",
+          "Identifies the need for",
+          "advanced intervention",
+          "(e.g., extracorporeal",
+          "membrane oxygenation",
+          "(ECMO), inhaled",
+          "vasodilators) and",
+          "adjunctive therapies (e.g.,",
+          "proning, nitric)",
+          "Continuously assesses"
+        ],
+        "level_4": [
+          "a patient and",
+          "recognizes unusual",
+          "presentations",
+          "Independently",
+          "implements and adapts",
+          "evidence-based",
+          "ventilation strategies",
+          "and advanced",
+          "interventions",
+          "Serves as a consultant to",
+          "respiratory care service in"
+        ],
+        "level_5": [
+          "development of policies",
+          "and procedures to",
+          "optimize patient care",
+          "Directs evidenced-based",
+          "protocol development and",
+          "refinement of ventilator",
+          "strategies"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Management of Organ Dysfunction and Shock",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes a patient in",
+          "circulatory shock and",
+          "initiates indicated",
+          "therapies",
+          "Initiates a basic",
+          "diagnostic work-up to",
+          "delineate the etiology of",
+          "circulatory shock",
+          "Identifies the underlying",
+          "etiology for a shock state,",
+          "actively manages the"
+        ],
+        "level_2": [
+          "resuscitation, and",
+          "continually assesses the",
+          "response to therapy",
+          "Utilizes advance",
+          "diagnostic modalities, with",
+          "knowledge of advantages",
+          "and limitations of each, to",
+          "determine the etiology of",
+          "shock",
+          "Actively manages an",
+          "unstable patient in a"
+        ],
+        "level_3": [
+          "shock state, anticipates",
+          "and acts to minimize",
+          "multisystem organ",
+          "dysfunction, and",
+          "recognizes atypical or",
+          "subtle presentations of",
+          "shock",
+          "Incorporates data from",
+          "advanced diagnostic",
+          "modalities to develop",
+          "treatment plans"
+        ],
+        "level_4": [
+          "Anticipates and acts",
+          "independently to",
+          "minimize the long-term",
+          "consequences of",
+          "circulatory shock and",
+          "associated organ",
+          "dysfunction",
+          "Synthesizes data from",
+          "advanced diagnostic",
+          "modalities to develop a",
+          "comprehensive"
+        ],
+        "level_5": [
+          "treatment plan",
+          "Is recognized by others",
+          "as a resource in the",
+          "management of shock",
+          "and multisystem organ",
+          "failure",
+          "Develops diagnostic",
+          "algorithms for the",
+          "diagnosis and",
+          "management of",
+          "circulatory shock"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Pharmacology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "pharmacology, clinical",
+          "indications, and",
+          "application of",
+          "medications used in the",
+          "care of critically ill"
+        ],
+        "level_2": [
+          "patients, including",
+          "vasoactive drugs,",
+          "sedatives, analgesics,",
+          "immunotherapy, and",
+          "antibiotics",
+          "Applies knowledge of the",
+          "pharmacology, clinical"
+        ],
+        "level_3": [
+          "indications, and selection",
+          "of medications used in the",
+          "care of critically ill patients",
+          "Applies knowledge of the",
+          "pharmacology, clinical",
+          "indications, and selection",
+          "of medications used in the"
+        ],
+        "level_4": [
+          "care of complex critically",
+          "ill patients",
+          "Integrates knowledge of",
+          "pharmacology, clinical",
+          "indications, and",
+          "selection of medications",
+          "(including medication"
+        ],
+        "level_5": [
+          "interactions) to care for",
+          "critically ill patients",
+          "Serves as a consultant in",
+          "pharmacotherapy for",
+          "critically ill patients"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Pathophysiology of Critical Illness",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "pathophysiology and",
+          "complications related to",
+          "critical illness"
+        ],
+        "level_2": [
+          "Applies knowledge of",
+          "common pathophysiology",
+          "and complications to treat",
+          "critical illness",
+          "Applies knowledge of"
+        ],
+        "level_3": [
+          "complex pathophysiology",
+          "and complications to treat",
+          "critical illness",
+          "Serves as a resource",
+          "for knowledge of"
+        ],
+        "level_4": [
+          "pathophysiology and",
+          "complications related to",
+          "critical illness",
+          "Is recognized as an",
+          "expert in synthesizing and"
+        ],
+        "level_5": [
+          "prioritizing differential",
+          "diagnosis complex critical",
+          "care conditions and",
+          "anticipating potential",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "events that impact",
+          "patient safety",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "quality improvement",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and patients’",
+          "families (simulated or",
+          "actual)",
+          "Participates in department",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "patients’ families",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional level or",
+          "above"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses institutional",
+          "resources effectively to",
+          "meet the needs of a",
+          "patient population and",
+          "community",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "participates in the design",
+          "and implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Advocates for populations",
+          "and communities with",
+          "health care needs in the",
+          "peri-operative setting"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "States factors impacting",
+          "the costs of critical care"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Documents patient details",
+          "to facilitate accurate",
+          "billing and reimbursement",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Practices and",
+          "advocates for cost-",
+          "effective patient care"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care",
+          "Engages in external",
+          "activities related to",
+          "advocacy for cost-",
+          "effective care"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pbli1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accesses and uses",
+          "evidence in routine",
+          "patient care",
+          "Articulates clinical",
+          "questions and elicits"
+        ],
+        "level_2": [
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care",
+          "Compares and applies",
+          "the best available"
+        ],
+        "level_3": [
+          "evidence, integrated with",
+          "patient preference, to the",
+          "care of complex patients",
+          "Appraises and applies",
+          "evidence, even in the"
+        ],
+        "level_4": [
+          "face of uncertainty and",
+          "conflicting evidence, to",
+          "guide individualized",
+          "care",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "appraise and apply",
+          "evidence for complex",
+          "patients and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_pbli2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to",
+          "performance deficits",
+          "Actively seeks",
+          "opportunities to improve"
+        ],
+        "level_2": [
+          "Demonstrates openness",
+          "to performance data",
+          "(feedback and other",
+          "input) to form goals",
+          "Analyzes and",
+          "acknowledges the factors",
+          "that contribute to",
+          "performance deficits",
+          "Designs and implements",
+          "a learning plan, with"
+        ],
+        "level_3": [
+          "prompting",
+          "Seeks performance data",
+          "episodically, with",
+          "adaptability and humility",
+          "Institutes behavioral",
+          "change(s) to improve",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan"
+        ],
+        "level_4": [
+          "Intentionally seeks",
+          "performance data",
+          "consistently, with",
+          "adaptability and humility",
+          "Considers alternatives",
+          "to improve performance",
+          "Integrates performance",
+          "data to adapt the",
+          "learning plan",
+          "Role models consistently"
+        ],
+        "level_5": [
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Models reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_prof1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies potential",
+          "triggers for",
+          "professionalism lapses",
+          "Describes when and how",
+          "to report lapses in",
+          "professionalism",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "patient care",
+          "Demonstrates insight into"
+        ],
+        "level_2": [
+          "professional behavior in",
+          "routine situations",
+          "Takes responsibility for",
+          "one’s own",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex",
+          "interpersonal situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself",
+          "Actively solicits help",
+          "and acts on",
+          "recommendations to",
+          "resolve complex",
+          "interpersonal situations",
+          "Recognizes and uses",
+          "resources for managing",
+          "and resolving ethical"
+        ],
+        "level_5": [
+          "dilemmas",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_prof2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks",
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner"
+        ],
+        "level_2": [
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete",
+          "tasks and responsibilities",
+          "in a timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate"
+        ],
+        "level_3": [
+          "attention to detail in",
+          "routine situations",
+          "Takes responsibility for",
+          "tasks not completed in a",
+          "timely manner and",
+          "identifies strategies to",
+          "prevent recurrence",
+          "Prioritizes tasks and"
+        ],
+        "level_4": [
+          "responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail in complex or",
+          "stressful situations",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients,"
+        ],
+        "level_5": [
+          "teams, and systems are",
+          "met",
+          "Designs and implements",
+          "an institutional systems",
+          "approach to ensure timely",
+          "task completion and",
+          "shared responsibility"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_prof3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being",
+          "Lists available resources",
+          "for personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote/support well-",
+          "being",
+          "With assistance,",
+          "proposes a plan to",
+          "promote personal and"
+        ],
+        "level_3": [
+          "professional well-being",
+          "Recognizes which",
+          "institutional factors affect",
+          "well-being",
+          "Independently develops",
+          "a plan to promote",
+          "personal and"
+        ],
+        "level_4": [
+          "professional well-being",
+          "Describes institutional",
+          "factors that positively",
+          "and/or negatively affect",
+          "well-being",
+          "Creates institutional-level",
+          "interventions that promote"
+        ],
+        "level_5": [
+          "colleagues’ well-being",
+          "Describes institutional",
+          "programs designed to",
+          "examine systemic",
+          "contributors to burnout"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_ics1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and",
+          "respectful manner",
+          "Provides timely updates",
+          "to patients and patients’",
+          "families"
+        ],
+        "level_2": [
+          "Customizes",
+          "communication in the",
+          "setting of biases and",
+          "barriers with patients and",
+          "patients’ families",
+          "Actively listens to patients",
+          "and patients’ families to",
+          "elicit patient preferences"
+        ],
+        "level_3": [
+          "and expectations",
+          "Explains complex and",
+          "difficult information to",
+          "patients and patients’",
+          "families",
+          "Uses shared decision-",
+          "making to make a",
+          "personalized care plan"
+        ],
+        "level_4": [
+          "Facilitates difficult",
+          "discussions with",
+          "patients and patients’",
+          "families",
+          "Effectively negotiates",
+          "and manages conflict",
+          "among patients,",
+          "patients’ families, and"
+        ],
+        "level_5": [
+          "the health care team",
+          "Mentors others in the",
+          "facilitation of crucial",
+          "conversations",
+          "Mentors others in conflict",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_ics2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Complex Communication around Serious Illness",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies the need to",
+          "assess a",
+          "patient’s/patient’s",
+          "family’s expectations",
+          "and understanding of",
+          "health status and",
+          "treatment options",
+          "Identifies key",
+          "communication elements",
+          "for shared decision",
+          "making",
+          "Assesses a patient’s",
+          "family’s/caregiver’s",
+          "understanding of the"
+        ],
+        "level_2": [
+          "patient’s condition and",
+          "identifies preferences for",
+          "receiving information",
+          "Facilitates communication",
+          "with a patient/patient’s",
+          "family by introducing",
+          "stakeholders, setting the",
+          "agenda, clarifying",
+          "expectations, and",
+          "verifying an understanding",
+          "of the clinical situation",
+          "Delivers difficult",
+          "information and attends to",
+          "emotional responses of a"
+        ],
+        "level_3": [
+          "patient and patient’s",
+          "family/caregivers",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information;",
+          "elicits a patient’s/patient’s",
+          "family’s values, goals,",
+          "and preferences; and",
+          "acknowledges uncertainty",
+          "and conflict, with",
+          "guidance",
+          "Tailors communication",
+          "according to disease",
+          "characteristics and"
+        ],
+        "level_4": [
+          "trajectory, patient",
+          "consent, patient’s",
+          "family’s needs, and",
+          "medical uncertainty,",
+          "and is able to address",
+          "intense emotional",
+          "response",
+          "Independently uses",
+          "shared decision making",
+          "to align the",
+          "patient’s/patient’s",
+          "family’s values, goals,",
+          "and preferences with",
+          "treatment options to"
+        ],
+        "level_5": [
+          "make a personalized",
+          "care plan in situations",
+          "with a high degree of",
+          "uncertainty and conflict",
+          "Coaches others in the",
+          "communication of",
+          "prognostic information",
+          "Coaches others in shared",
+          "decision making in",
+          "communication with a",
+          "patient/patient’s family"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_ics3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests or",
+          "receives consultations",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Respectfully receives",
+          "feedback from health",
+          "care team members",
+          "Clearly, concisely, and",
+          "promptly requests or"
+        ],
+        "level_2": [
+          "responds to a",
+          "consultation",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team"
+        ],
+        "level_3": [
+          "Uses closed-loop",
+          "communication to verify",
+          "understanding",
+          "Adapts communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from"
+        ],
+        "level_4": [
+          "different members of",
+          "the health care team to",
+          "optimize patient care",
+          "Maintains effective",
+          "communication in crisis",
+          "situations",
+          "Communicates",
+          "constructive feedback to",
+          "superiors",
+          "Role models flexible"
+        ],
+        "level_5": [
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__critical_care_anesthesiology_ics4",
+      "number": 19,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record; demonstrates",
+          "judicious use of",
+          "documentation shortcuts",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy"
+        ],
+        "level_2": [
+          "Accurately gathers all",
+          "essential medical records",
+          "from other institutions",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Accurately records",
+          "information in the",
+          "electronic health record"
+        ],
+        "level_3": [
+          "(EHR) and communicates",
+          "complex care decisions",
+          "for complex cases",
+          "Appropriately selects",
+          "direct and indirect forms",
+          "of communication based",
+          "on context",
+          "Respectfully",
+          "communicates concerns",
+          "about the system and",
+          "contributes to solutions",
+          "Uses EHR functionality"
+        ],
+        "level_4": [
+          "to highlight challenges",
+          "in anesthetic care to",
+          "facilitate future peri-",
+          "operative management",
+          "Models exemplary",
+          "written or verbal",
+          "communication",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system"
+        ],
+        "level_5": [
+          "Explores innovative uses",
+          "of the EHR to facilitate",
+          "effective critical care",
+          "management",
+          "Guides departmental or",
+          "institutional policies and",
+          "procedures around",
+          "communication",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate stakeholders",
+          "to improve the system"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "anesthesiology",
+  "primary_name": "Anesthesiology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologysupplementalguide.pdf"
+  }
+}

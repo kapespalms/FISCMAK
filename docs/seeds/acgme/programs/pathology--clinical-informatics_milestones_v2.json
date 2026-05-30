@@ -1,0 +1,1306 @@
+{
+  "framework_key": "pathology--clinical-informatics",
+  "specialty": "Clinical Informatics",
+  "version": "2.0",
+  "source": "ACGME Clinical Informatics Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pathology__clinical_informatics_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Consumer Informatics Applications, Portals, and Telehealth",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the basis for a",
+          "consumer-facing health",
+          "informatics application",
+          "Describes the key",
+          "components and",
+          "processes of telehealth,",
+          "portals, and health",
+          "information systems",
+          "Identifies a use case for a"
+        ],
+        "level_2": [
+          "consumer-facing health",
+          "informatics application",
+          "and deduces required",
+          "functionalities",
+          "Identifies a use case for",
+          "telehealth, portals, and",
+          "health information",
+          "systems and describes",
+          "workflow and"
+        ],
+        "level_3": [
+          "functionalities",
+          "Applies tools for a",
+          "consumer-facing health",
+          "informatics application",
+          "Evaluates applications for",
+          "telehealth, portals, and",
+          "health information",
+          "systems",
+          "Designs a consumer-"
+        ],
+        "level_4": [
+          "facing health informatics",
+          "application prototype",
+          "Develops improvements",
+          "to existing telehealth,",
+          "portals, and health",
+          "information system",
+          "applications",
+          "Implements or leads",
+          "implementation of a"
+        ],
+        "level_5": [
+          "consumer-facing health",
+          "informatics application",
+          "Designs and implements",
+          "telehealth, portals, and",
+          "health information",
+          "systems"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Existing and Emerging Data Sources",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes opportunities",
+          "and challenges to the",
+          "acquisition and use of",
+          "emerging data sources",
+          "Describes medical",
+          "device data formats,",
+          "types, and architecture",
+          "Creates a plan to analyze"
+        ],
+        "level_2": [
+          "and develop knowledge",
+          "from emerging data",
+          "sources",
+          "Defines and electronically",
+          "accesses medical device",
+          "data",
+          "Analyzes and develops",
+          "knowledge from emerging"
+        ],
+        "level_3": [
+          "data sources",
+          "Extracts, stores, and",
+          "analyzes data from",
+          "medical devices",
+          "Implements specialty-",
+          "specific systems to",
+          "access and incorporate",
+          "emerging data sources"
+        ],
+        "level_4": [
+          "into the electronic health",
+          "record (EHR)",
+          "Assesses and prioritizes",
+          "the integration of data",
+          "from medical devices",
+          "Accesses and",
+          "incorporates information",
+          "from emerging data"
+        ],
+        "level_5": [
+          "sources",
+          "Develops improvements",
+          "to integration and use of",
+          "medical device data"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_mk1",
+      "number": 3,
+      "domain_number": 1,
+      "name": "Project Management",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic project",
+          "management principles",
+          "and identifies resources",
+          "and tools for projects",
+          "Plans and develops a",
+          "project idea"
+        ],
+        "level_2": [
+          "Identifies suitable areas to",
+          "apply project",
+          "management tools",
+          "Creates and leads a team",
+          "Designs a project,",
+          "leveraging project"
+        ],
+        "level_3": [
+          "management principles",
+          "Sets deadlines and",
+          "monitors project progress",
+          "according to the project",
+          "plan",
+          "Implements a project"
+        ],
+        "level_4": [
+          "using project",
+          "management principles",
+          "Addresses and solves",
+          "problems",
+          "Manages a project from",
+          "initiation to completion,"
+        ],
+        "level_5": [
+          "including scope,",
+          "resources, and timeline",
+          "Successfully manages",
+          "customer expectations",
+          "and evaluates projects"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_mk2",
+      "number": 4,
+      "domain_number": 2,
+      "name": "Health Information Technology (HIT) Knowledge of Current and New Testing, Implementation, and",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the features",
+          "and functionalities of",
+          "EHRs and other clinical",
+          "information systems",
+          "Possesses basic",
+          "knowledge of HIT",
+          "systems and their",
+          "integration into the",
+          "enterprise",
+          "Demonstrates basic",
+          "knowledge of HIT",
+          "industry standards and"
+        ],
+        "level_2": [
+          "ontologies",
+          "Conducts requirement",
+          "specifications",
+          "Defines best practices for",
+          "EHR implementation and",
+          "maintenance",
+          "Identifies and maintains",
+          "stakeholder expectations",
+          "Participates in the system",
+          "selection process using",
+          "shared principles for the",
+          "selection"
+        ],
+        "level_3": [
+          "Collaborates with",
+          "members of an",
+          "interprofessional clinical",
+          "informatics team to",
+          "implement, integrate,",
+          "monitor, or evaluate the",
+          "EHR or other clinical",
+          "information systems",
+          "Designs and implements",
+          "solutions",
+          "Participates in",
+          "leadership of the project"
+        ],
+        "level_4": [
+          "group",
+          "Demonstrates",
+          "leadership skills during",
+          "implementation projects",
+          "Evaluates projects and",
+          "provides solutions",
+          "Leads project groups in",
+          "the design,",
+          "implementation, and",
+          "upgrade of EHRs and",
+          "other clinical information",
+          "systems"
+        ],
+        "level_5": [
+          "Leads the evaluation a of",
+          "clinical informatics project",
+          "related to EHRs and other",
+          "clinical information",
+          "systems",
+          "Provides knowledge",
+          "management to existing",
+          "solutions"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_sbp1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "HIT Knowledge of Current and New Testing, Implementation, Monitoring",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes the",
+          "significance of legal and",
+          "regulatory issues related",
+          "to technical solutions to",
+          "enterprise challenges",
+          "Discusses the role of",
+          "vendor HIT products,",
+          "emerging technologies,",
+          "and innovation",
+          "Identifies key factors",
+          "associated with legal and"
+        ],
+        "level_2": [
+          "regulatory issues related",
+          "to technical solutions to",
+          "enterprise challenges",
+          "Identifies opportunities for",
+          "the use of vendor HIT",
+          "products, emerging",
+          "technologies, and",
+          "innovation",
+          "Participates in identifying",
+          "legal and regulatory",
+          "issues related to technical"
+        ],
+        "level_3": [
+          "solutions to enterprise",
+          "challenges",
+          "Analyzes HIT products,",
+          "emerging technologies,",
+          "and innovation for one or",
+          "more specific",
+          "opportunities",
+          "Addresses legal and",
+          "regulatory issues",
+          "related to technical",
+          "solutions to enterprise"
+        ],
+        "level_4": [
+          "challenges and assures",
+          "compliance with",
+          "regulations",
+          "Participates",
+          "meaningfully in",
+          "selection and",
+          "implementation of HIT",
+          "products, emerging",
+          "technologies, and",
+          "innovation",
+          "Leads processes"
+        ],
+        "level_5": [
+          "addressing legal and",
+          "regulatory issues related",
+          "to technical solutions to",
+          "enterprise challenges",
+          "Leads projects related to",
+          "the implementation of HIT",
+          "products, emerging",
+          "technologies, and",
+          "innovation"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_sbp2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Standards and Interoperability",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes methods and",
+          "standards for data sharing",
+          "across systems to support",
+          "data sharing through health",
+          "information exchanges,",
+          "public health reporting, or",
+          "other mechanisms",
+          "Discusses issues related to",
+          "ensuring connectivity,",
+          "interfacing, and validity of",
+          "content between systems",
+          "and clinical areas",
+          "Discusses sociocultural and",
+          "other issues regarding",
+          "fostering interoperability",
+          "between disparate health",
+          "information systems",
+          "Analyzes key factors"
+        ],
+        "level_2": [
+          "regarding methods and",
+          "standards for data sharing",
+          "across systems to support",
+          "data sharing through health",
+          "information exchanges,",
+          "public health reporting, or",
+          "other mechanisms",
+          "Identifies requirements",
+          "and/or constraints related to",
+          "ensuring connectivity,",
+          "interfacing, and validity of",
+          "content between systems",
+          "and clinical areas",
+          "Analyzes key factors in",
+          "fostering interoperability",
+          "between disparate health",
+          "information systems",
+          "Identifies opportunities for"
+        ],
+        "level_3": [
+          "data sharing across systems",
+          "to support data sharing",
+          "through health information",
+          "exchanges, public health",
+          "reporting, or other",
+          "mechanisms",
+          "Participates in efforts to",
+          "ensure connectivity,",
+          "interfacing, and validity of",
+          "content between systems",
+          "and clinical areas",
+          "Identifies opportunities to",
+          "foster interoperability",
+          "between disparate health",
+          "information systems",
+          "Participates in efforts to",
+          "design and implement",
+          "methods and standards for"
+        ],
+        "level_4": [
+          "data sharing across",
+          "systems to support data",
+          "sharing through health",
+          "information exchanges,",
+          "public health reporting, or",
+          "other mechanisms",
+          "Develops solutions to",
+          "ensure connectivity,",
+          "interfacing, and validity of",
+          "content between systems",
+          "and clinical areas",
+          "Participates meaningfully",
+          "in efforts to foster",
+          "interoperability between",
+          "disparate health",
+          "information systems",
+          "Leads efforts to design and",
+          "implement methods and"
+        ],
+        "level_5": [
+          "standards for data sharing",
+          "across systems to support",
+          "data sharing through health",
+          "information exchanges,",
+          "public health reporting, or",
+          "other mechanisms",
+          "Implements solutions to",
+          "ensure connectivity,",
+          "interfacing, and validity of",
+          "content between systems",
+          "and clinical areas",
+          "Leads efforts to foster",
+          "interoperability between",
+          "disparate health information",
+          "systems"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_sbp3",
+      "number": 7,
+      "domain_number": 3,
+      "name": "Data Integrity/Security",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Discusses data issues",
+          "and processes to",
+          "safeguard the availability",
+          "of relevant and valid data",
+          "to meet clinical, quality,",
+          "research, business, and",
+          "strategic objectives",
+          "Describes security threat",
+          "assessments,",
+          "development of security",
+          "policies, and training",
+          "Analyzes key factors in",
+          "existing efforts to"
+        ],
+        "level_2": [
+          "safeguard the availability",
+          "of relevant and valid data",
+          "to meet clinical, quality,",
+          "research, business, and",
+          "strategic objectives",
+          "Recognizes key factors",
+          "and benefits related to",
+          "security threat",
+          "assessments,",
+          "development of security",
+          "policies, and training",
+          "Identifies opportunities for",
+          "implementing new"
+        ],
+        "level_3": [
+          "processes to safeguard",
+          "the availability of relevant",
+          "and valid data to meet",
+          "clinical, quality, research,",
+          "business, and strategic",
+          "objectives",
+          "Identifies areas of focus",
+          "for security threat",
+          "assessments,",
+          "development of security",
+          "policies, and training",
+          "Meaningfully",
+          "participates in the"
+        ],
+        "level_4": [
+          "development of new",
+          "processes to safeguard",
+          "the availability of",
+          "relevant and valid data",
+          "to meet clinical, quality,",
+          "research, business, and",
+          "strategic objectives",
+          "Meaningfully engages in",
+          "efforts to conduct",
+          "security threat",
+          "assessments,",
+          "development of security",
+          "policies, and training"
+        ],
+        "level_5": [
+          "Leads efforts to",
+          "implement processes to",
+          "safeguard the availability",
+          "of relevant and valid data",
+          "to meet clinical, quality,",
+          "research, business, and",
+          "strategic objectives",
+          "Educates others",
+          "regarding security threat",
+          "assessments,",
+          "development of security",
+          "policies, and training"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_pbli1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Optimization, Downtime, Functional Requirements",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Discusses challenges",
+          "associated with clinical",
+          "information system",
+          "upgrades and downtime",
+          "Articulates functional",
+          "requirements related to",
+          "EHR optimization and",
+          "system downtime"
+        ],
+        "level_2": [
+          "Provides direct user",
+          "support during EHR",
+          "upgrades, routine system",
+          "maintenance cycles, and",
+          "downtime",
+          "Supports clinicians in",
+          "EHR optimization and",
+          "system downtime"
+        ],
+        "level_3": [
+          "Analyzes workflows",
+          "related to clinician use of",
+          "the EHR and suggests",
+          "techniques for",
+          "optimization of both",
+          "workflows and EHR use",
+          "Analyzes downtime",
+          "events and identifies"
+        ],
+        "level_4": [
+          "areas for improvement",
+          "Develops and deploys",
+          "specific system and",
+          "process changes during",
+          "EHR upgrades and for",
+          "optimization-related",
+          "clinical informatics",
+          "projects"
+        ],
+        "level_5": [
+          "Develops solution for",
+          "downtime problems and",
+          "challenges",
+          "Develops and executes",
+          "EHR upgrade,",
+          "optimization, and",
+          "downtime procedures"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_pbli2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Clinical Decision Support (CDS)",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies the elements",
+          "and categories and",
+          "discusses the challenges",
+          "of CDS, such as alert",
+          "fatigue",
+          "Describes the basics of"
+        ],
+        "level_2": [
+          "the science of decision-",
+          "making, including",
+          "heuristics and tools to",
+          "analyze decisions",
+          "Participates in the design",
+          "and evaluation of an"
+        ],
+        "level_3": [
+          "evidence-based CDS",
+          "based on input from",
+          "stakeholders",
+          "Assists in implementation of",
+          "an evidence-based CDS,",
+          "and monitors its"
+        ],
+        "level_4": [
+          "effectiveness using key",
+          "outcomes/measures/metrics",
+          "Leads the design and",
+          "implementation of an",
+          "evidence-based CDS and",
+          "develops a plan to identify"
+        ],
+        "level_5": [
+          "and monitor key",
+          "outcomes/measures/metrics"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_pbli3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Analytics",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Discusses various data",
+          "mining and analytics",
+          "techniques",
+          "Identifies appropriate data",
+          "analytics tools and"
+        ],
+        "level_2": [
+          "visualizations for a",
+          "specific use case",
+          "Constructs queries using",
+          "database query",
+          "languages and ancillary"
+        ],
+        "level_3": [
+          "software and performs",
+          "preliminary analysis on",
+          "datasets",
+          "Analyzes datasets using",
+          "programming tools and"
+        ],
+        "level_4": [
+          "present summary",
+          "findings to stakeholders",
+          "using data visualization",
+          "tools",
+          "Leverages analytics to"
+        ],
+        "level_5": [
+          "improve patient care"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_pbli4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "Human-Computer Interaction (HCI) and User Interfaces (UI)",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies models,",
+          "theories, and practices of",
+          "HCI, including interface",
+          "design standards and"
+        ],
+        "level_2": [
+          "principles",
+          "Discusses the role of EHR",
+          "UI in causing clinical",
+          "errors"
+        ],
+        "level_3": [
+          "Participates in analysis of",
+          "feedback of EHR users of",
+          "UI as new functionalities",
+          "or modules are"
+        ],
+        "level_4": [
+          "implemented",
+          "Evaluates elements of",
+          "usability of a new EHR",
+          "module or functionality"
+        ],
+        "level_5": [
+          "Designs or modifies a",
+          "prototype for UI that can",
+          "be used by clinical end",
+          "users"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_pbli5",
+      "number": 12,
+      "domain_number": 5,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other input)",
+          "to inform goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "episodically, with",
+          "adaptability and humility",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently, with",
+          "adaptability and humility",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the"
+        ],
+        "level_5": [
+          "learning plan and, when",
+          "necessary, improves it",
+          "Role models consistently",
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_prof1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Governance",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Attends and provides",
+          "summaries of",
+          "organizational",
+          "informatics and/or",
+          "management"
+        ],
+        "level_2": [
+          "governance meetings",
+          "Adds meaningful",
+          "contributions to ideas",
+          "generated during (or in",
+          "relation to) governance"
+        ],
+        "level_3": [
+          "meetings",
+          "Contributes new ideas",
+          "and tools to governance",
+          "and leads",
+          "subtasks/projects for the"
+        ],
+        "level_4": [
+          "governance committee",
+          "Leads work that",
+          "meaningfully contributes",
+          "to new policies and",
+          "strategic plans"
+        ],
+        "level_5": [
+          "Co-leads organizational",
+          "HIT governance activities"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_prof2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Mentorship",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Explains the functionality",
+          "of health IT systems",
+          "Seeks out and engages",
+          "with mentors",
+          "Provides direct support for",
+          "health IT systems"
+        ],
+        "level_2": [
+          "Offers support and advice",
+          "to team members",
+          "Participates in the",
+          "development of learning",
+          "materials for HIT",
+          "Serves as a mentor to a"
+        ],
+        "level_3": [
+          "team member or junior",
+          "colleague",
+          "Actively engages in",
+          "individual and HIT",
+          "systems training",
+          "Advises mentees and"
+        ],
+        "level_4": [
+          "supports them in",
+          "development and",
+          "evaluation of projects",
+          "Develops and executes",
+          "user education workshops",
+          "and sessions"
+        ],
+        "level_5": [
+          "Manages large teams of",
+          "mentees at various stages",
+          "of development and",
+          "leverages more senior",
+          "mentees to mentor junior",
+          "ones"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_prof3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Describes when and how",
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying the"
+        ],
+        "level_2": [
+          "practice of clinical",
+          "informatics",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Takes responsibility for",
+          "one’s own",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Recognizes the need to",
+          "seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself and others",
+          "Recognizes and utilizes",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk"
+        ],
+        "level_5": [
+          "management/legal",
+          "consultation)",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_prof4",
+      "number": 16,
+      "domain_number": 4,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to"
+        ],
+        "level_2": [
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes situations that",
+          "may impact one’s own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure that"
+        ],
+        "level_4": [
+          "the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Monitors and improves",
+          "strategies to ensure that"
+        ],
+        "level_5": [
+          "the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Takes ownership of",
+          "system outcomes",
+          "Takes ownership of",
+          "personal and team",
+          "failures"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_prof5",
+      "number": 17,
+      "domain_number": 5,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "the status of personal and",
+          "professional well-being",
+          "With assistance, proposes",
+          "a plan to optimize",
+          "personal and professional"
+        ],
+        "level_3": [
+          "well-being",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Coaches others when",
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional"
+        ],
+        "level_5": [
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_ics1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Communicate Effectively with Multiple Constituencies",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Effectively uses an",
+          "online team",
+          "communication tool",
+          "Demonstrates respectful",
+          "communications",
+          "Creates a logical",
+          "argument to propose a"
+        ],
+        "level_2": [
+          "new project",
+          "Sets up respectful",
+          "communication by the",
+          "team, project, and",
+          "subproject",
+          "Writes a project proposal",
+          "that is approved by the"
+        ],
+        "level_3": [
+          "administration",
+          "Generates a respectful",
+          "project proposal that is",
+          "approved by the",
+          "administration",
+          "Implements the results",
+          "of a project into practice"
+        ],
+        "level_4": [
+          "Implements a respectful",
+          "project in clinical",
+          "practice",
+          "Demonstrates practice",
+          "improvement through",
+          "team science and team",
+          "medicine"
+        ],
+        "level_5": [
+          "Demonstrates the",
+          "effectiveness of a",
+          "respectful practice",
+          "improvement project"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_ics2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Building Consensus",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies stakeholders",
+          "Contributes to the",
+          "creation of a project",
+          "vision",
+          "Creates targeted",
+          "messaging for each"
+        ],
+        "level_2": [
+          "stakeholder",
+          "Communicates vision of",
+          "the project",
+          "Delivers messages to",
+          "stakeholders in multi-",
+          "modal fashion and"
+        ],
+        "level_3": [
+          "receives feedback",
+          "Participates in",
+          "governance",
+          "Coordinates discussions",
+          "to resolve conflict",
+          "across stakeholders"
+        ],
+        "level_4": [
+          "Inspires and motivates",
+          "others to accept change",
+          "Builds consensus that is",
+          "operationalized in the",
+          "health system",
+          "Evaluates change and"
+        ],
+        "level_5": [
+          "pursues opportunities for",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_ics3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation",
+          "Respectfully receives a",
+          "consultation request",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Clearly and concisely",
+          "requests a consultation",
+          "and explains the rationale",
+          "for the request"
+        ],
+        "level_2": [
+          "Clearly and concisely",
+          "responds to a consultation",
+          "request",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health care",
+          "team"
+        ],
+        "level_3": [
+          "Checks one’s own",
+          "understanding of",
+          "consultant",
+          "recommendations",
+          "Checks understanding of",
+          "recommendations when",
+          "providing consultation",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs",
+          "Communicates concerns"
+        ],
+        "level_4": [
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of the",
+          "health care team to",
+          "optimize patient care",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors"
+        ],
+        "level_5": [
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__clinical_informatics_ics4",
+      "number": 21,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)",
+          "Demonstrates organized",
+          "diagnostic and therapeutic"
+        ],
+        "level_2": [
+          "reasoning through notes",
+          "in the patient record",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Concisely reports",
+          "diagnostic and therapeutic",
+          "reasoning in the patient",
+          "record",
+          "Appropriately selects",
+          "direct (e.g., telephone, in-"
+        ],
+        "level_3": [
+          "person) and indirect (e.g.,",
+          "progress notes, text",
+          "messages) forms of",
+          "communication based on",
+          "context",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system",
+          "Communicates clearly,",
+          "concisely, in a timely",
+          "manner, and in an",
+          "organized written form,"
+        ],
+        "level_4": [
+          "including providing",
+          "anticipatory guidance",
+          "Produces written or",
+          "verbal communication",
+          "(patient notes, email,",
+          "etc.) that serves as an",
+          "example for others to",
+          "follow",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Models feedback to"
+        ],
+        "level_5": [
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pathology",
+  "primary_name": "Pathology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf"
+  }
+}

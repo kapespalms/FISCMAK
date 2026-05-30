@@ -1,0 +1,1163 @@
+{
+  "framework_key": "dermatology--micrographic-surgery-and-dermatologic-oncology",
+  "specialty": "Micrographic Surgery and Dermatologic Oncology",
+  "version": "2.0",
+  "source": "ACGME Micrographic Surgery and Dermatologic Oncology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Mohs Surgery",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies appropriate use",
+          "criteria for selecting",
+          "cases",
+          "Identifies steps and",
+          "instrumentation used in",
+          "Mohs surgery",
+          "Draws a map for the first",
+          "layer of Mohs surgery",
+          "Evaluates patients",
+          "according to appropriate"
+        ],
+        "level_2": [
+          "use criteria",
+          "Performs first and",
+          "subsequent layers of",
+          "Mohs surgery of low",
+          "complexity",
+          "Maintains orientation of",
+          "tissue on a two-",
+          "dimensional surface for",
+          "low-complexity",
+          "specimens"
+        ],
+        "level_3": [
+          "Considers alternative",
+          "treatments",
+          "Performs first and",
+          "subsequent layers of",
+          "Mohs surgery of",
+          "moderate complexity",
+          "Maintains orientation of",
+          "tissue on three-",
+          "dimensional surface for",
+          "moderate-complexity"
+        ],
+        "level_4": [
+          "specimens",
+          "Counsels patients and",
+          "their families on the",
+          "breadth of treatment",
+          "options",
+          "Performs first and",
+          "subsequent layers of",
+          "Mohs surgery of high",
+          "complexity",
+          "Consistently maintains"
+        ],
+        "level_5": [
+          "orientation of tissue for",
+          "high-complexity",
+          "specimens",
+          "Performs Mohs surgery",
+          "for extremely complex",
+          "cases or special sites"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Reconstruction",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies categories of",
+          "reconstruction options",
+          "Performs linear closures",
+          "Manages complications",
+          "from linear closures",
+          "Selects reconstruction",
+          "options",
+          "Performs low-complexity",
+          "reconstruction"
+        ],
+        "level_2": [
+          "Manages acute",
+          "complications from low-",
+          "complexity reconstruction",
+          "Selects and designs low-",
+          "complexity reconstruction",
+          "options",
+          "Performs high-complexity",
+          "reconstruction",
+          "Manages acute"
+        ],
+        "level_3": [
+          "complications from high-",
+          "complexity reconstruction",
+          "and long-term",
+          "complications with non-",
+          "surgical treatments",
+          "Selects and designs",
+          "high-complexity",
+          "reconstruction options",
+          "Performs high-"
+        ],
+        "level_4": [
+          "complexity, multi-staged",
+          "reconstruction",
+          "Assists with",
+          "management of long-",
+          "term complications with",
+          "surgical treatments",
+          "Designs a novel",
+          "reconstruction",
+          "Efficiently performs high-"
+        ],
+        "level_5": [
+          "complexity, multi-staged",
+          "reconstruction",
+          "Manages long-term",
+          "complications with",
+          "surgical treatments"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Mohs Histopathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses en face",
+          "sectioning and the",
+          "process for preparing",
+          "tissue for frozen section",
+          "Identifies straightforward",
+          "tumors on frozen section"
+        ],
+        "level_2": [
+          "Assesses a Mohs slide",
+          "competently for the",
+          "presence/absence of",
+          "tumor",
+          "Identifies artifacts on",
+          "frozen section"
+        ],
+        "level_3": [
+          "Identifies when a recut is",
+          "needed",
+          "Identifies normal variants,",
+          "less common tumors, and",
+          "high-risk features on",
+          "frozen section"
+        ],
+        "level_4": [
+          "Troubleshoots slides",
+          "and suggests technical",
+          "solutions",
+          "Identifies unexpected",
+          "findings, and rare and",
+          "unusual tumors on"
+        ],
+        "level_5": [
+          "frozen section",
+          "Prepares frozen section",
+          "slides",
+          "Interprets frozen",
+          "immunohistochemistry",
+          "stains"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Diagnosis and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Diagnoses and manages",
+          "common malignant",
+          "lesions and discusses",
+          "current staging systems",
+          "Discusses risks and",
+          "benefits of non-surgical",
+          "management options"
+        ],
+        "level_2": [
+          "Orders additional",
+          "diagnostic testing to",
+          "narrow the differential",
+          "diagnosis or for staging",
+          "Identifies patients who",
+          "would benefit from non-",
+          "surgical management"
+        ],
+        "level_3": [
+          "Diagnoses and manages",
+          "complex malignant",
+          "lesions and stages tumor",
+          "Selects and manages",
+          "alternative treatment",
+          "and/or adjuvant therapy",
+          "or work-up in addition to"
+        ],
+        "level_4": [
+          "or in place of surgery",
+          "Diagnoses and",
+          "manages rare and",
+          "unusual malignant",
+          "lesions",
+          "Coordinates",
+          "multidisciplinary care for"
+        ],
+        "level_5": [
+          "non-surgical",
+          "management",
+          "Prescribes novel non-",
+          "surgical treatment options"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Micrographic Surgery",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of surgically",
+          "relevant normal anatomy",
+          "and physiology, and",
+          "principles of wound",
+          "healing",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of surgically relevant",
+          "anatomic variations and",
+          "peri-operative",
+          "considerations",
+          "With assistance, identifies",
+          "surgically relevant",
+          "anatomic variations and"
+        ],
+        "level_3": [
+          "peri-operative",
+          "considerations, and alters",
+          "patient management",
+          "accordingly",
+          "Independently identifies",
+          "surgically relevant",
+          "anatomic considerations"
+        ],
+        "level_4": [
+          "and peri-operative",
+          "considerations, and",
+          "alters patient",
+          "management",
+          "accordingly",
+          "Significantly contributes to",
+          "the surgical curriculum for"
+        ],
+        "level_5": [
+          "a dermatology residency",
+          "program or micrographic",
+          "surgery and dermatologic",
+          "oncology fellowship"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Cutaneous Oncology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of cutaneous",
+          "oncology",
+          "Demonstrates",
+          "comprehensive"
+        ],
+        "level_2": [
+          "knowledge of cutaneous",
+          "oncology and clinical",
+          "implications",
+          "With assistance, applies",
+          "knowledge of common"
+        ],
+        "level_3": [
+          "cutaneous oncology into",
+          "medical decision making",
+          "Independently",
+          "incorporates knowledge",
+          "of complex cutaneous"
+        ],
+        "level_4": [
+          "oncology into medical",
+          "decision making",
+          "Recommends novel",
+          "investigations based on",
+          "knowledge of cutaneous"
+        ],
+        "level_5": [
+          "oncology and clinical trials"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_sbp1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to safety events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of",
+          "safety events (simulated",
+          "or actual)",
+          "Participates in disclosure"
+        ],
+        "level_3": [
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "safety events and offers",
+          "error prevention",
+          "strategies (simulated or",
+          "actual)",
+          "Discloses patient safety"
+        ],
+        "level_4": [
+          "events to patients and",
+          "their families (simulated",
+          "or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent safety",
+          "events"
+        ],
+        "level_5": [
+          "Mentors others in the",
+          "disclosure of patient",
+          "safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_sbp2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, effectively"
+        ],
+        "level_2": [
+          "using the roles of the",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of the interprofessional",
+          "team members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and",
+          "community",
+          "Leads effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_sbp3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system",
+          "Describes basic health",
+          "payment systems and",
+          "practice models",
+          "Identifies basic practice",
+          "management knowledge",
+          "domains for effective",
+          "transition to practice",
+          "Describes how",
+          "components of a complex"
+        ],
+        "level_2": [
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment models",
+          "Describes core",
+          "administrative knowledge",
+          "needed for transition to",
+          "practice",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system"
+        ],
+        "level_3": [
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice",
+          "Manages various",
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective"
+        ],
+        "level_4": [
+          "patient care",
+          "Advocates for patient",
+          "care needs with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "models",
+          "Analyzes individual",
+          "practice patterns and",
+          "professional",
+          "requirements in",
+          "preparation for practice",
+          "Advocates for or leads"
+        ],
+        "level_5": [
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care",
+          "Participates in health",
+          "policy advocacy activities",
+          "Educates others to",
+          "prepare them for",
+          "transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_sbp4",
+      "number": 10,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge that",
+          "laboratories must be",
+          "accredited",
+          "Discusses the need for",
+          "quality control and",
+          "proficiency testing",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of the components of",
+          "laboratory accreditation",
+          "and regulatory",
+          "compliance, either",
+          "through training or",
+          "experience",
+          "Interprets quality data,",
+          "charts, and trends,"
+        ],
+        "level_3": [
+          "including proficiency",
+          "testing results, with",
+          "supervision",
+          "Identifies the differences",
+          "between accreditation and",
+          "regulatory compliance;",
+          "discusses the process for",
+          "achieving accreditation"
+        ],
+        "level_4": [
+          "and maintaining",
+          "regulatory compliance",
+          "Discusses implications of",
+          "proficiency testing failures",
+          "Participates in an",
+          "internal or external",
+          "laboratory inspection",
+          "(actual or simulated)"
+        ],
+        "level_5": [
+          "Performs analysis and",
+          "review of proficiency",
+          "testing failures and",
+          "recommends a course",
+          "of action, with oversight",
+          "Independently formulates",
+          "a response for proficiency",
+          "testing failures"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_pbli1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporate patient",
+          "preferences and values",
+          "in order to take care of a"
+        ],
+        "level_2": [
+          "routine patient",
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence, to",
+          "guide care tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_pbli2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Designs and implements",
+          "a learning plan with",
+          "prompting",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "episodically, with",
+          "adaptability and humility",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally and"
+        ],
+        "level_4": [
+          "consistently seeks",
+          "performance data, with",
+          "adaptability and humility",
+          "Challenges own",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the"
+        ],
+        "level_5": [
+          "learning plan and, when",
+          "necessary, improves it",
+          "Role models consistently",
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementing learning",
+          "plans for others"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_prof1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Describes when and how",
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Demonstrates",
+          "knowledge of medical",
+          "ethical principles"
+        ],
+        "level_2": [
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Takes responsibility for",
+          "one’s own",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Recognizes the need to",
+          "seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to"
+        ],
+        "level_4": [
+          "prevent lapses in",
+          "oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Serves as resource for",
+          "colleagues who face",
+          "ethical dilemmas"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_prof2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks",
+          "Proactively ensures that",
+          "the needs of patients are",
+          "met",
+          "Performs routine tasks",
+          "and responsibilities in a"
+        ],
+        "level_2": [
+          "timely manner with",
+          "appropriate attention to",
+          "detail",
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_3": [
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete",
+          "tasks and responsibilities"
+        ],
+        "level_4": [
+          "in a timely manner",
+          "Mitigates situations that",
+          "may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Implements strategies",
+          "to enhance"
+        ],
+        "level_5": [
+          "accountability of team",
+          "members involved in",
+          "patient care",
+          "Takes ownership of",
+          "system outcomes and",
+          "suggests revisions to the",
+          "systems to enhance",
+          "accountability"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_prof3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Recognizes limits in",
+          "one’s own knowledge/",
+          "skills, with assistance"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "Independently recognizes",
+          "limits in own",
+          "knowledge/skills and",
+          "seeks help when"
+        ],
+        "level_3": [
+          "appropriate",
+          "Proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "Proposes a plan to",
+          "remediate or improve",
+          "limits in one’s own"
+        ],
+        "level_4": [
+          "knowledge/skills",
+          "Independently develops",
+          "and implements a plan",
+          "to optimize personal",
+          "and professional well-",
+          "being",
+          "Independently develops"
+        ],
+        "level_5": [
+          "and implements a plan",
+          "to remediate or improve",
+          "limits in one’s own",
+          "knowledge/skills",
+          "Coaches others to",
+          "optimize personal and",
+          "professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_ics1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport with",
+          "patients of different",
+          "backgrounds",
+          "Identifies common",
+          "barriers (e.g., language,",
+          "disability/hearing) to",
+          "effective communication",
+          "Identifies elements of",
+          "shared decision making",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers (e.g., health",
+          "literacy) to effective",
+          "communication",
+          "Identifies the importance",
+          "of engaging in shared",
+          "decision making",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship in challenging",
+          "patient encounters, with",
+          "guidance",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Uses shared decision",
+          "making to make a",
+          "personalized care plan,",
+          "with guidance",
+          "Independently",
+          "establishes a"
+        ],
+        "level_4": [
+          "therapeutic relationship",
+          "in challenging patient",
+          "encounters",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Independently uses",
+          "shared decision making",
+          "to make a personalized",
+          "care plan",
+          "Mentors others in"
+        ],
+        "level_5": [
+          "situational awareness and",
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Independently uses",
+          "shared decision making to",
+          "make a personalized care",
+          "plan when there is a high",
+          "degree of uncertainty"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_ics2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes when a",
+          "consultation is needed",
+          "Respectfully receives a",
+          "consultation request",
+          "Uses language that",
+          "demonstrates that one",
+          "values all members of",
+          "the health care team",
+          "Clearly communicates",
+          "key reasons for a"
+        ],
+        "level_2": [
+          "requested consultation",
+          "Clearly and concisely",
+          "responds to a",
+          "consultation request",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Confirms comprehension",
+          "of consultant"
+        ],
+        "level_3": [
+          "recommendations",
+          "Checks understanding of",
+          "recommendations when",
+          "providing consultation",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of"
+        ],
+        "level_4": [
+          "the health care team to",
+          "optimize patient care",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Role models flexible",
+          "communication strategies",
+          "that demonstrate one",
+          "values input from all"
+        ],
+        "level_5": [
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__micrographic_surgery_and_dermatologic_oncology_ics3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the",
+          "electronic health record",
+          "(EHR) in a timely",
+          "manner",
+          "Safeguards protected",
+          "health information by",
+          "using appropriate",
+          "communication channels",
+          "Demonstrates organized"
+        ],
+        "level_2": [
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through notes in the EHR",
+          "Uses documentation tools",
+          "and shortcuts (e.g.,",
+          "copy/paste) accurately",
+          "and appropriately, per",
+          "institutional policy",
+          "Concisely reports",
+          "diagnostic and"
+        ],
+        "level_3": [
+          "therapeutic reasoning in",
+          "the EHR",
+          "Appropriately selects and",
+          "uses direct (e.g.,",
+          "telephone, in-person) and",
+          "indirect (e.g., progress",
+          "notes, texts, and inbox",
+          "messages) forms of",
+          "communication based on",
+          "context"
+        ],
+        "level_4": [
+          "Communicates clearly,",
+          "concisely, and in an",
+          "organized written form,",
+          "including anticipatory",
+          "guidance",
+          "Provides written or",
+          "verbal communication",
+          "(e.g., patient notes,",
+          "email) that serves as an",
+          "example for others to"
+        ],
+        "level_5": [
+          "follow",
+          "Coaches others to",
+          "improve written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "dermatology",
+  "primary_name": "Dermatology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgeryanddermatologiconcologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgerysupplementalguide.pdf"
+  }
+}

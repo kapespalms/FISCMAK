@@ -1,0 +1,1392 @@
+{
+  "framework_key": "pediatrics--child-abuse-pediatrics",
+  "specialty": "Child Abuse Pediatrics",
+  "version": "2.0",
+  "source": "ACGME Child Abuse Pediatrics Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Gathers information",
+          "strictly following a",
+          "template",
+          "Identifies the need for",
+          "additional information",
+          "Adapts template to filter",
+          "and prioritize pertinent",
+          "positives and negatives",
+          "based on broad"
+        ],
+        "level_2": [
+          "diagnostic categories or",
+          "possible diagnoses",
+          "Identifies and collects",
+          "additional information",
+          "from all available sources",
+          "Filters, prioritizes, and",
+          "synthesizes a thoroughly",
+          "detailed history to develop",
+          "a differential diagnosis for"
+        ],
+        "level_3": [
+          "simple presentations",
+          "Interprets information",
+          "from relevant sources",
+          "Filters, prioritizes, and",
+          "synthesizes the history,",
+          "recognizing and probing",
+          "for subtle clues to",
+          "develop a differential",
+          "diagnosis for"
+        ],
+        "level_4": [
+          "complicated",
+          "presentations",
+          "Synthesizes information",
+          "from relevant sources",
+          "for medical decision",
+          "making",
+          "Consistently and",
+          "efficiently filters,",
+          "prioritizes, and"
+        ],
+        "level_5": [
+          "synthesizes the history,",
+          "recognizing and probing",
+          "for subtle clues to develop",
+          "a differential diagnosis for",
+          "complicated presentations"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Physical Exam",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs fundamental",
+          "physical examination",
+          "and identifies the need",
+          "for photo documentation",
+          "Performs a rote physical",
+          "examination using a",
+          "strict head-to-toe",
+          "approach",
+          "Performs complete",
+          "physical examination with",
+          "basic photo",
+          "documentation and"
+        ],
+        "level_2": [
+          "identifies variants and",
+          "abnormal findings",
+          "Performs a physical",
+          "examination with",
+          "consistent use of a",
+          "developmentally",
+          "appropriate approach",
+          "Performs complete",
+          "physical examination with",
+          "focus on areas of",
+          "concern, adequate photo",
+          "documentation as"
+        ],
+        "level_3": [
+          "indicated, and interprets",
+          "normal variants and",
+          "abnormal findings",
+          "Performs a physical",
+          "examination using",
+          "trauma-informed",
+          "strategies to maximize",
+          "patient cooperation and",
+          "comfort",
+          "Performs complete",
+          "physical examination",
+          "with quality photo"
+        ],
+        "level_4": [
+          "documentation and",
+          "selects advanced",
+          "maneuvers for optimal",
+          "examination",
+          "Consistently performs a",
+          "trauma-informed",
+          "physical examination",
+          "that is developmentally",
+          "appropriate and",
+          "maximizes patient",
+          "cooperation and comfort",
+          "Performs a complete"
+        ],
+        "level_5": [
+          "physical examination with",
+          "quality photo",
+          "documentation, using",
+          "multiple techniques to",
+          "detect and integrate key",
+          "physical examination",
+          "findings to distinguish",
+          "differential diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Organization and Prioritization of Patient Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Organizes patient care",
+          "for an individual patient",
+          "when prompted",
+          "Organizes patient care",
+          "responsibilities by"
+        ],
+        "level_2": [
+          "focusing on individual",
+          "(rather than multiple)",
+          "patients",
+          "Organizes and prioritizes",
+          "the simultaneous care of"
+        ],
+        "level_3": [
+          "patients with efficiency;",
+          "anticipates and triages",
+          "urgent and emergent",
+          "issues",
+          "Organizes, prioritizes,"
+        ],
+        "level_4": [
+          "and delegates patient",
+          "care responsibilities,",
+          "even when patient",
+          "volume approaches the",
+          "capacity of the"
+        ],
+        "level_5": [
+          "individual or facility",
+          "Serves as a role model",
+          "and coach for organizing",
+          "patient care",
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Presents clinical facts",
+          "(e.g., history, exam,",
+          "tests, consultations) in",
+          "the order they were",
+          "elicited",
+          "Generates an unfocused",
+          "differential diagnosis"
+        ],
+        "level_2": [
+          "based on the clinical",
+          "facts; acknowledges",
+          "cognitive biases",
+          "Organizes clinical facts to",
+          "compare and contrast",
+          "diagnoses being",
+          "considered and appraises"
+        ],
+        "level_3": [
+          "cognitive biases, resulting",
+          "in a prioritized differential",
+          "diagnosis",
+          "Integrates clinical facts",
+          "into a unifying",
+          "diagnosis(es);",
+          "reappraises to avoid"
+        ],
+        "level_4": [
+          "diagnostic error and",
+          "bias",
+          "Role models and coaches",
+          "the organization of clinical",
+          "facts to develop a",
+          "prioritized differential",
+          "diagnosis, including life"
+        ],
+        "level_5": [
+          "threatening diagnoses,",
+          "complex presentations,",
+          "and complex clinical",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Patient Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Participates in the",
+          "creation of management",
+          "plans",
+          "Develops a general",
+          "management plan for",
+          "common and simple"
+        ],
+        "level_2": [
+          "diagnoses",
+          "Develops a",
+          "multidisciplinary",
+          "management plan for",
+          "common and simple",
+          "diagnoses"
+        ],
+        "level_3": [
+          "Develops and",
+          "implements informed",
+          "multidisciplinary",
+          "management plans for",
+          "complicated and/or",
+          "complex diagnoses,"
+        ],
+        "level_4": [
+          "with the ability to modify",
+          "plans as necessary",
+          "Serves as a role model",
+          "and coach for",
+          "development of",
+          "multidisciplinary"
+        ],
+        "level_5": [
+          "management plans for",
+          "complicated and/or",
+          "complex diagnoses, with",
+          "the ability to modify plans",
+          "as necessary"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Provides Consultative Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a",
+          "consultation request and",
+          "clarifies consultation",
+          "question, with guidance",
+          "Repeats impression from",
+          "other consultants",
+          "verbatim"
+        ],
+        "level_2": [
+          "Independently clarifies",
+          "consultation question and",
+          "respectfully responds",
+          "Generates",
+          "recommendations, with",
+          "guidance",
+          "Identifies the indications"
+        ],
+        "level_3": [
+          "for the consultation and",
+          "verifies understanding of",
+          "recommendations with",
+          "the medical team",
+          "Independently generates",
+          "recommendations for a",
+          "simple case"
+        ],
+        "level_4": [
+          "Effectively conveys",
+          "consultative",
+          "assessment and",
+          "rationale to the medical",
+          "team",
+          "Independently",
+          "generates"
+        ],
+        "level_5": [
+          "recommendations for a",
+          "complex case",
+          "Is identified as a role",
+          "model for the provision of",
+          "consultative care across",
+          "the spectrum of case",
+          "complexity"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Clinical Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "medical knowledge",
+          "Links basic medical",
+          "knowledge to clinical"
+        ],
+        "level_2": [
+          "cases",
+          "Applies medical",
+          "knowledge to simple",
+          "cases to guide patient"
+        ],
+        "level_3": [
+          "evaluation",
+          "Integrates a breadth of",
+          "medical knowledge that",
+          "includes complex cases"
+        ],
+        "level_4": [
+          "to guide patient",
+          "evaluation",
+          "Teaches at multiple",
+          "levels, drawing from a"
+        ],
+        "level_5": [
+          "breadth of medical",
+          "knowledge that spans the",
+          "continuum of simple to",
+          "complex cases"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Diagnostic Evaluation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists basic evaluation",
+          "plan of diagnostic testing",
+          "and consultation for",
+          "simple/typical cases,",
+          "with prompting",
+          "Reports results of",
+          "diagnostic studies",
+          "Develops a broad",
+          "evaluation plan for simple"
+        ],
+        "level_2": [
+          "cases",
+          "Identifies significant",
+          "diagnostic study results",
+          "Develops a prioritized",
+          "plan for simple cases and",
+          "a broad evaluation plan",
+          "for complex cases",
+          "Interprets significant",
+          "diagnostic study results"
+        ],
+        "level_3": [
+          "Prioritizes and",
+          "optimizes an evaluation",
+          "plan for simple and",
+          "complex cases based",
+          "on risks, benefits,",
+          "indications, and",
+          "alternatives to clarify the",
+          "diagnosis(es)",
+          "Interprets significant"
+        ],
+        "level_4": [
+          "diagnostic study results",
+          "while considering study",
+          "limitations",
+          "Educates others about",
+          "risks, benefits,",
+          "indications, and",
+          "alternatives to guide",
+          "diagnostic decision",
+          "making"
+        ],
+        "level_5": [
+          "Teaches others to",
+          "interpret significant",
+          "diagnostic study results",
+          "and consider study",
+          "limitations"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_sbp1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_sbp2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "System Navigation for Patient Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists the various",
+          "interprofessional",
+          "individuals involved in",
+          "the patient’s care",
+          "coordination",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations, incorporating",
+          "interprofessional teams",
+          "with consideration of",
+          "patient and family needs",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,"
+        ],
+        "level_3": [
+          "effectively utilizing the",
+          "roles of interprofessional",
+          "teams, and incorporating",
+          "patient and family needs",
+          "and goals",
+          "Coordinates",
+          "interprofessional,"
+        ],
+        "level_4": [
+          "patient-centered care",
+          "among different",
+          "disciplines and",
+          "specialties, actively",
+          "assisting families in",
+          "navigating the health",
+          "care system"
+        ],
+        "level_5": [
+          "Coaches others in",
+          "interprofessional, patient-",
+          "centered care",
+          "coordination"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_sbp4",
+      "number": 12,
+      "domain_number": 4,
+      "name": "System Navigation for Patient-Centered Care – Transitions in Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Uses a standard",
+          "template for transitions",
+          "of care/hand-offs",
+          "Adapts a standard",
+          "template, recognizing key",
+          "elements for safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex"
+        ],
+        "level_3": [
+          "clinical situations, and",
+          "ensures closed-loop",
+          "communication",
+          "Performs and",
+          "advocates for safe and",
+          "effective transitions of"
+        ],
+        "level_4": [
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Coaches others in",
+          "improving transitions of",
+          "care within and across"
+        ],
+        "level_5": [
+          "health care delivery",
+          "systems to optimize",
+          "patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_sbp5",
+      "number": 13,
+      "domain_number": 5,
+      "name": "Population and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "awareness of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs;",
+          "identifies local resources",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Adapts practice to",
+          "provide for the needs of"
+        ],
+        "level_4": [
+          "of a specific population",
+          "Advocates at the local,",
+          "regional, or national level",
+          "for populations and",
+          "communities with health"
+        ],
+        "level_5": [
+          "care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_sbp6",
+      "number": 14,
+      "domain_number": 6,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Engages with patients",
+          "and other providers in",
+          "discussions about cost-",
+          "conscious care and key",
+          "components of the",
+          "health care delivery"
+        ],
+        "level_2": [
+          "system",
+          "Identifies the relationships",
+          "between the delivery",
+          "system and cost-",
+          "conscious care and the",
+          "impact on the patient care"
+        ],
+        "level_3": [
+          "Discusses the need for",
+          "changes in clinical",
+          "approaches based on",
+          "evidence, outcomes, and",
+          "cost-effectiveness to",
+          "improve care for patients"
+        ],
+        "level_4": [
+          "and families",
+          "Advocates for the",
+          "promotion of safe,",
+          "quality, and high-value",
+          "care",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "promote safe, quality, and",
+          "high-value care across",
+          "health care systems"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pbli1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Develops an answerable",
+          "clinical question and",
+          "demonstrates how to",
+          "access available",
+          "evidence, with guidance"
+        ],
+        "level_2": [
+          "Independently articulates",
+          "clinical question and",
+          "accesses available",
+          "evidence",
+          "Locates and applies the"
+        ],
+        "level_3": [
+          "evidence, integrated with",
+          "patient preference, to the",
+          "care of patients",
+          "Critically appraises and",
+          "applies evidence, even"
+        ],
+        "level_4": [
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pbli2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Participates in feedback",
+          "sessions",
+          "Develops personal and",
+          "professional goals, with",
+          "assistance",
+          "Demonstrates openness",
+          "to feedback and",
+          "performance data",
+          "Designs a learning plan"
+        ],
+        "level_2": [
+          "based on established",
+          "goals, feedback, and",
+          "performance data, with",
+          "assistance",
+          "Seeks and incorporates",
+          "feedback and",
+          "performance data",
+          "episodically",
+          "Designs and implements"
+        ],
+        "level_3": [
+          "a learning plan by",
+          "analyzing and reflecting",
+          "on the factors which",
+          "contribute to gap(s)",
+          "between performance",
+          "expectations and actual",
+          "performance",
+          "Seeks and incorporates",
+          "feedback and"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently",
+          "Adapts a learning plan",
+          "using long-term",
+          "professional goals, self-",
+          "reflection, and",
+          "performance data to",
+          "measure its",
+          "effectiveness"
+        ],
+        "level_5": [
+          "Role models and coaches",
+          "others in seeking and",
+          "incorporating feedback",
+          "and performance data",
+          "Demonstrates continuous",
+          "self-reflection and",
+          "coaching of others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_pbli3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Teaching",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Teaches junior learners",
+          "in the clinical setting",
+          "Teaches junior learners in",
+          "the didactic setting"
+        ],
+        "level_2": [
+          "Teaches medical care",
+          "team and/or",
+          "multidisciplinary team on",
+          "basic concepts"
+        ],
+        "level_3": [
+          "Teaches medical care",
+          "team and/or",
+          "multidisciplinary team",
+          "on advanced concepts"
+        ],
+        "level_4": [
+          "Designs and implements",
+          "curricula or learning",
+          "activities for medical care",
+          "teams and/or"
+        ],
+        "level_5": [
+          "multidisciplinary teams"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_prof1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies expected",
+          "professional behaviors",
+          "and potential triggers for",
+          "lapses",
+          "Identifies the value and",
+          "role of child abuse",
+          "pediatrics as a",
+          "vocation/career",
+          "Demonstrates"
+        ],
+        "level_2": [
+          "professional behavior with",
+          "occasional lapses",
+          "Demonstrates",
+          "accountability for patient",
+          "care as a child abuse",
+          "pediatrician, with",
+          "guidance",
+          "Maintains professional",
+          "behavior in increasingly"
+        ],
+        "level_3": [
+          "complex or stressful",
+          "situations",
+          "Fully engages in patient",
+          "care and holds oneself",
+          "accountable",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to"
+        ],
+        "level_4": [
+          "prevent lapses in self",
+          "and others",
+          "Exhibits a sense of duty",
+          "to patient care and",
+          "professional",
+          "responsibilities",
+          "Models professional",
+          "behavior and coaches",
+          "others when their"
+        ],
+        "level_5": [
+          "behavior fails to meet",
+          "professional expectations",
+          "Extends the role of the",
+          "child abuse pediatrician",
+          "beyond the care of",
+          "patients by engaging with",
+          "the community, specialty,",
+          "and medical profession as",
+          "a whole"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_prof2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,"
+        ],
+        "level_2": [
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Applies ethical principles",
+          "in common situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles to address"
+        ],
+        "level_3": [
+          "conflict/controversy;",
+          "seeks help when needed",
+          "to manage and resolve",
+          "complex ethical situations",
+          "Manages and seeks to",
+          "resolve ethical",
+          "dilemmas using",
+          "appropriate resources"
+        ],
+        "level_4": [
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Called upon by others to",
+          "consult in cases of",
+          "complex ethical"
+        ],
+        "level_5": [
+          "dilemmas; identifies and",
+          "seeks to address system-",
+          "level factors that induce",
+          "or exacerbate"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_prof3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities, with",
+          "prompting",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner in routine",
+          "situations",
+          "Performs tasks and",
+          "responsibilities in a",
+          "thorough and timely"
+        ],
+        "level_3": [
+          "manner in complex or",
+          "stressful situations",
+          "Coaches others to",
+          "ensure tasks and",
+          "responsibilities are"
+        ],
+        "level_4": [
+          "completed in a thorough",
+          "and timely manner in",
+          "complex or stressful",
+          "situations",
+          "Creates strategies to"
+        ],
+        "level_5": [
+          "enhance others’ ability to",
+          "efficiently complete tasks",
+          "and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_prof4",
+      "number": 21,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote well-being",
+          "Recognizes institutional"
+        ],
+        "level_3": [
+          "and personal factors that",
+          "impact well-being",
+          "Describes interactions",
+          "between institutional"
+        ],
+        "level_4": [
+          "and personal factors",
+          "that impact well-being",
+          "Coaches and supports",
+          "colleagues to optimize"
+        ],
+        "level_5": [
+          "well-being at the team,",
+          "program, or institutional",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_ics1",
+      "number": 22,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and attempts to establish",
+          "rapport",
+          "Attempts to adjust",
+          "communication",
+          "strategies based upon",
+          "patient/family",
+          "expectations",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Adjusts communication",
+          "strategies as needed to",
+          "mitigate barriers and meet",
+          "patient/family",
+          "expectations",
+          "Establishes a culturally"
+        ],
+        "level_3": [
+          "aware and therapeutic",
+          "relationship in most",
+          "encounters",
+          "Communicates with",
+          "sensitivity and",
+          "compassion, elicits",
+          "patient/family values, and",
+          "acknowledges uncertainty",
+          "and conflict"
+        ],
+        "level_4": [
+          "Establishes a",
+          "therapeutic relationship",
+          "in straightforward and",
+          "complex encounters,",
+          "including those with",
+          "ambiguity and/or conflict",
+          "Uses shared decision",
+          "making with",
+          "patient/family to make a"
+        ],
+        "level_5": [
+          "personalized care plan",
+          "Mentors others to develop",
+          "positive therapeutic",
+          "relationships",
+          "Models and coaches",
+          "others in patient- and",
+          "family-centered",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_ics2",
+      "number": 23,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation, with",
+          "guidance",
+          "Identifies the members",
+          "of the interprofessional",
+          "team",
+          "Clearly and concisely"
+        ],
+        "level_2": [
+          "requests consultation by",
+          "communicating patient",
+          "information",
+          "Participates within the",
+          "interprofessional team",
+          "Formulates a specific",
+          "question for consultation"
+        ],
+        "level_3": [
+          "and tailors communication",
+          "strategy",
+          "Uses bi-directional",
+          "communication within the",
+          "interprofessional team",
+          "Coordinates consultant",
+          "recommendations to"
+        ],
+        "level_4": [
+          "optimize patient care",
+          "Facilitates",
+          "interprofessional team",
+          "communication",
+          "Maintains a collaborative",
+          "relationship with referring",
+          "providers that maximizes"
+        ],
+        "level_5": [
+          "adherence to practice",
+          "recommendations",
+          "Coaches others in",
+          "effective communication",
+          "within the",
+          "interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_ics3",
+      "number": 24,
+      "domain_number": 3,
+      "name": "Conflict Management",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Supports activities of",
+          "medical care team",
+          "and/or multidisciplinary",
+          "team members and",
+          "communicates findings",
+          "and recommendations"
+        ],
+        "level_2": [
+          "Recognizes",
+          "communication conflicts",
+          "in medical care teams",
+          "and/or multidisciplinary",
+          "teams",
+          "Recognizes differing"
+        ],
+        "level_3": [
+          "opinions and goals of",
+          "medical care team",
+          "and/or multidisciplinary",
+          "team members and",
+          "sustains working",
+          "relationships in the face"
+        ],
+        "level_4": [
+          "of conflict",
+          "Manages resolution of",
+          "conflicts in a team-based",
+          "setting or participates in",
+          "the resolution of",
+          "systems-level conflicts"
+        ],
+        "level_5": [
+          "Designs research or",
+          "quality improvement",
+          "projects to improve",
+          "team-based evaluation"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_ics4",
+      "number": 25,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Records accurate",
+          "information in the patient",
+          "record",
+          "Identifies the importance",
+          "of and responds to",
+          "multiple forms of",
+          "communication (e.g., in-",
+          "person, electronic health",
+          "record (EHR), telephone,"
+        ],
+        "level_2": [
+          "email)",
+          "Records accurate and",
+          "timely information in the",
+          "patient record",
+          "Selects appropriate",
+          "method of",
+          "communication, with",
+          "prompting",
+          "Concisely documents"
+        ],
+        "level_3": [
+          "updated, prioritized,",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Aligns type of",
+          "communication with",
+          "message to be delivered",
+          "(e.g., direct and indirect)",
+          "based on urgency and"
+        ],
+        "level_4": [
+          "complexity",
+          "Documents diagnostic",
+          "and therapeutic",
+          "reasoning, including",
+          "anticipatory guidance",
+          "Demonstrates",
+          "exemplary written and",
+          "verbal communication",
+          "Models and coaches"
+        ],
+        "level_5": [
+          "others in documenting",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "Coaches others in written",
+          "and verbal",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_ics5",
+      "number": 26,
+      "domain_number": 5,
+      "name": "Medicolegal Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Discusses the role of the",
+          "child abuse pediatrician",
+          "in the child protective",
+          "and legal systems",
+          "Meets with attorneys, law",
+          "enforcement, and/or child"
+        ],
+        "level_2": [
+          "protective services to",
+          "discuss case findings,",
+          "with supervision",
+          "Independently meets with",
+          "attorneys, law",
+          "enforcement, and/or child"
+        ],
+        "level_3": [
+          "protective services to",
+          "discuss case findings",
+          "Prepares and presents",
+          "ethical testimony based",
+          "on widely accepted",
+          "evidence-based"
+        ],
+        "level_4": [
+          "literature for a case",
+          "proceeding (actual or",
+          "mock)",
+          "Prepares and presents",
+          "ethical testimony based",
+          "on widely accepted"
+        ],
+        "level_5": [
+          "evidence-based literature",
+          "for a spectrum of complex",
+          "case proceedings"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__child_abuse_pediatrics_ics6",
+      "number": 27,
+      "domain_number": 6,
+      "name": "Difficult Conversations",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies communication",
+          "about diagnosis as a key",
+          "element of patient",
+          "evaluation",
+          "Participates in the",
+          "delivery of information",
+          "about diagnosis,"
+        ],
+        "level_2": [
+          "recommendations, and",
+          "multidisciplinary team",
+          "process",
+          "Delivers information about",
+          "diagnosis,",
+          "recommendations, and",
+          "multidisciplinary team"
+        ],
+        "level_3": [
+          "process; acknowledges",
+          "emotional responses of",
+          "patients and patients’",
+          "caregivers",
+          "Tailors communication",
+          "of diagnosis,",
+          "recommendations,"
+        ],
+        "level_4": [
+          "multidisciplinary team",
+          "process, and medical",
+          "uncertainty; attends to",
+          "emotional responses of",
+          "patients and patients’",
+          "caregivers",
+          "Coaches others in the"
+        ],
+        "level_5": [
+          "communication of difficult",
+          "information about",
+          "diagnosis,",
+          "recommendations, and",
+          "multidisciplinary team",
+          "process"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pediatrics",
+  "primary_name": "Pediatrics",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childabusepediatricsmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childabusepediatricssupplementalguide.pdf"
+  }
+}

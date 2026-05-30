@@ -1,0 +1,1291 @@
+{
+  "framework_key": "internal-medicine--pulmonary-disease-and-critical-care-medicine",
+  "specialty": "Pulmonary Disease and Critical Care Medicine",
+  "version": "2.0",
+  "source": "ACGME Pulmonary Disease and Critical Care Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History and Physical Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains specialty-",
+          "specific, detailed, and",
+          "accurate history from",
+          "patients with common",
+          "disorders, with",
+          "substantial guidance",
+          "Performs a specialty-",
+          "specific, detailed, and",
+          "accurate physical exam",
+          "on patients with common",
+          "disorders, with",
+          "substantial guidance"
+        ],
+        "level_2": [
+          "Obtains specialty-specific,",
+          "detailed, and accurate",
+          "history from patients with",
+          "common disorders",
+          "Performs a specialty-",
+          "specific, detailed, and",
+          "accurate physical exam",
+          "on patients with common",
+          "disorders",
+          "Obtains specialty-specific,",
+          "detailed, and accurate",
+          "history from multiple"
+        ],
+        "level_3": [
+          "sources for patients with",
+          "complex disorders",
+          "Elicits specialty-specific",
+          "signs while performing a",
+          "detailed and accurate",
+          "physical exam on patients",
+          "with complex disorders",
+          "Independently and",
+          "efficiently obtains a",
+          "specialty-specific,",
+          "detailed, and accurate",
+          "history from multiple"
+        ],
+        "level_4": [
+          "sources for patients with",
+          "complex disorders",
+          "Independently and",
+          "efficiently elicits",
+          "specialty-specific signs",
+          "while performing a",
+          "detailed and accurate",
+          "physical exam on",
+          "patients with complex",
+          "disorders",
+          "Independently obtains a",
+          "specialty-specific,"
+        ],
+        "level_5": [
+          "detailed, and accurate",
+          "history from multiple",
+          "sources for patients with",
+          "rare disorders",
+          "Independently elicits",
+          "specialty-specific signs",
+          "while performing a",
+          "detailed and accurate",
+          "physical exam on patients",
+          "with complex or rare",
+          "disorders in clinically",
+          "difficult circumstances"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Disease Management in Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Manages unstable",
+          "patients requiring a",
+          "higher intensity of care,",
+          "with substantial guidance",
+          "Identifies the long-term",
+          "consequences of critical",
+          "illness, with substantial",
+          "guidance",
+          "Provides critical care",
+          "consultation, with",
+          "substantial guidance"
+        ],
+        "level_2": [
+          "Manages unstable",
+          "patients with single",
+          "system disease",
+          "Anticipates the long-term",
+          "consequences of critical",
+          "illness",
+          "Provides critical care",
+          "consultation for patients",
+          "with single system",
+          "disease",
+          "Manages unstable"
+        ],
+        "level_3": [
+          "patients with multisystem",
+          "disease",
+          "Anticipates and acts to",
+          "minimize the long-term",
+          "consequences of critical",
+          "illness",
+          "Provides critical care",
+          "consultation for patients",
+          "with multisystem disease",
+          "Independently manages",
+          "unstable patients with"
+        ],
+        "level_4": [
+          "multisystem disease",
+          "and coordinates",
+          "interdisciplinary care",
+          "plans",
+          "Anticipates and acts",
+          "independently to",
+          "minimize the long-term",
+          "consequences of critical",
+          "illness",
+          "Independently triages",
+          "and prioritizes"
+        ],
+        "level_5": [
+          "comprehensive critical",
+          "care consultation for",
+          "multiple patients",
+          "Independently facilitates",
+          "post-intensive care unit",
+          "care",
+          "Independently reconciles",
+          "conflicting consultative",
+          "recommendations to",
+          "optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Disease Management in Pulmonary Medicine",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Manages common",
+          "pulmonary disorders in",
+          "hospitalized patients,",
+          "with substantial guidance",
+          "Manages common",
+          "pulmonary disorders in",
+          "ambulatory patients",
+          "Provides pulmonary",
+          "consultation for patients",
+          "with common pulmonary",
+          "disorders, with",
+          "substantial guidance",
+          "Manages common",
+          "pulmonary disorders in",
+          "hospitalized patients"
+        ],
+        "level_2": [
+          "Manages common",
+          "pulmonary disorders in",
+          "ambulatory patients and",
+          "mitigates their disease",
+          "risk factors",
+          "Provides pulmonary",
+          "consultation for patients",
+          "with common pulmonary",
+          "disorders",
+          "Manages complex",
+          "pulmonary disorders in",
+          "hospitalized patients",
+          "Manages pulmonary",
+          "disorders in ambulatory",
+          "patients with complex"
+        ],
+        "level_3": [
+          "comorbidities and",
+          "mitigates their disease",
+          "risk factors",
+          "Provides pulmonary",
+          "consultation for patients",
+          "with complex pulmonary",
+          "disorders",
+          "Independently manages",
+          "complex pulmonary",
+          "disorders in hospitalized",
+          "patients",
+          "Independently manages",
+          "complex ambulatory",
+          "patients with pulmonary",
+          "disorders and mitigates"
+        ],
+        "level_4": [
+          "their disease risk factors",
+          "Independently triages",
+          "and prioritizes",
+          "pulmonary consultation",
+          "for multiple patients",
+          "Independently manages",
+          "complex pulmonary",
+          "disorders in hospitalized",
+          "patients and coordinates",
+          "interdisciplinary care",
+          "plans",
+          "Independently manages",
+          "complex ambulatory",
+          "patients with pulmonary",
+          "disorders, mitigates their"
+        ],
+        "level_5": [
+          "disease risk factors, and",
+          "coordinates",
+          "interdisciplinary care",
+          "plans",
+          "Independently triages and",
+          "prioritizes pulmonary",
+          "consultation including",
+          "reconciling conflicting",
+          "consultative",
+          "recommendations to",
+          "optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Pre-Procedure Assessment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies indications for",
+          "procedures and their",
+          "risks, benefits, and",
+          "alternatives",
+          "Assesses indications,"
+        ],
+        "level_2": [
+          "risks, benefits and weighs",
+          "alternatives in low- to",
+          "moderate-risk situations",
+          "Assesses indications,",
+          "risks, benefits and weighs"
+        ],
+        "level_3": [
+          "alternatives in high-risk",
+          "situations",
+          "Independently assesses",
+          "indications, risks,",
+          "benefits and weighs"
+        ],
+        "level_4": [
+          "alternatives in high-risk",
+          "situations and acts to",
+          "mitigate modifiable risk",
+          "factors",
+          "Recognized by peers as"
+        ],
+        "level_5": [
+          "an expert in procedural",
+          "assessment"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Procedures (Invasive and Non-Invasive)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs simple",
+          "procedures, with",
+          "assistance",
+          "Interprets limited",
+          "procedural results, with",
+          "assistance",
+          "Recognizes common",
+          "complications"
+        ],
+        "level_2": [
+          "Performs complex",
+          "procedures, with",
+          "assistance",
+          "Interprets comprehensive",
+          "procedural results, with",
+          "assistance",
+          "Recognizes uncommon",
+          "complications"
+        ],
+        "level_3": [
+          "Performs complex",
+          "procedures, with minimal",
+          "assistance",
+          "Independently interprets",
+          "comprehensive",
+          "procedural results",
+          "Recognizes and manages",
+          "complications, with"
+        ],
+        "level_4": [
+          "oversight",
+          "Independently performs",
+          "all procedures in the",
+          "current practice",
+          "environment",
+          "Independently interprets",
+          "comprehensive",
+          "procedural results and"
+        ],
+        "level_5": [
+          "applies them to the",
+          "patient’s clinical context",
+          "Independently",
+          "recognizes and",
+          "manages complications",
+          "Recognized by peers as a",
+          "procedural expert"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Synthesizes a specialty-",
+          "specific, analytic, and",
+          "prioritized differential",
+          "diagnosis for common",
+          "presentations, with",
+          "substantial guidance",
+          "Identifies types of clinical",
+          "reasoning errors within",
+          "patient care, with"
+        ],
+        "level_2": [
+          "substantial guidance",
+          "Synthesizes a specialty-",
+          "specific, analytic, and",
+          "prioritized differential",
+          "diagnosis for common",
+          "presentations",
+          "Identifies types of clinical",
+          "reasoning errors within",
+          "patient care"
+        ],
+        "level_3": [
+          "Synthesizes a specialty-",
+          "specific, analytic, and",
+          "prioritized differential",
+          "diagnosis for complex",
+          "presentations",
+          "Applies clinical reasoning",
+          "principles to",
+          "retrospectively identify",
+          "cognitive errors"
+        ],
+        "level_4": [
+          "Synthesizes information",
+          "to reach high-probability",
+          "and/or high-risk",
+          "diagnoses and",
+          "anticipates potential",
+          "complications in patient",
+          "care",
+          "Continually re-appraises",
+          "one’s clinical reasoning"
+        ],
+        "level_5": [
+          "to prospectively",
+          "minimize cognitive",
+          "errors and manage",
+          "uncertainty",
+          "Recognized by peers as",
+          "an expert diagnostician",
+          "Coaches others to",
+          "recognize and avoid",
+          "cognitive errors"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Scientific Knowledge of Disease and Therapeutics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates scientific",
+          "knowledge of common",
+          "diseases",
+          "Demonstrates",
+          "knowledge of",
+          "pharmacology and",
+          "therapeutics for common",
+          "diseases"
+        ],
+        "level_2": [
+          "Applies scientific",
+          "knowledge of common",
+          "diseases",
+          "Applies knowledge of",
+          "pharmacology and",
+          "therapeutics for common",
+          "diseases",
+          "Applies scientific"
+        ],
+        "level_3": [
+          "knowledge of complex",
+          "diseases",
+          "Applies knowledge of",
+          "pharmacology and",
+          "therapeutics for complex",
+          "diseases",
+          "Independently applies",
+          "scientific knowledge of"
+        ],
+        "level_4": [
+          "complex diseases",
+          "Independently applies",
+          "knowledge of",
+          "pharmacology and",
+          "therapeutics for complex",
+          "diseases",
+          "Expertly teaches",
+          "scientific knowledge of"
+        ],
+        "level_5": [
+          "complex diseases",
+          "Applies cutting-edge",
+          "knowledge of",
+          "pharmacology and",
+          "therapeutics"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of common patient safety",
+          "events",
+          "Demonstrates knowledge",
+          "of how to report patient",
+          "safety events",
+          "Demonstrates knowledge",
+          "of basic quality",
+          "improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events",
+          "to patients and families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events and"
+        ],
+        "level_4": [
+          "offers error prevention",
+          "strategies (simulated or",
+          "actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement, and",
+          "analyze a quality",
+          "improvement project"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure",
+          "of patient safety events",
+          "Creates, implements,",
+          "and assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Coordination and Transition of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the members of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the"
+        ],
+        "level_3": [
+          "members of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "among different"
+        ],
+        "level_4": [
+          "disciplines and",
+          "specialties",
+          "Advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and"
+        ],
+        "level_5": [
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of population and",
+          "community health needs",
+          "Identifies specific",
+          "population and"
+        ],
+        "level_2": [
+          "community health needs",
+          "for their local population",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient"
+        ],
+        "level_3": [
+          "population in the",
+          "community",
+          "Advocates for changing",
+          "and adapting practice to",
+          "provide for the needs of"
+        ],
+        "level_4": [
+          "specific populations",
+          "Leads innovations and",
+          "advocates for",
+          "populations and",
+          "communities with specific"
+        ],
+        "level_5": [
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_sbp4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health",
+          "care delivery systems",
+          "(e.g., practice and",
+          "payment models,",
+          "accountable care",
+          "organizations)",
+          "Describes how"
+        ],
+        "level_2": [
+          "components of a",
+          "complex health care",
+          "delivery system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "(e.g., out-of-network",
+          "hospitalizations)"
+        ],
+        "level_3": [
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay, cost of",
+          "care, readmission rates,",
+          "clinical efficiency)",
+          "Advocates for patient"
+        ],
+        "level_4": [
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment model"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and apply",
+          "available evidence to",
+          "care for patients",
+          "Demonstrates",
+          "knowledge of basic trial",
+          "design and statistical",
+          "concepts and",
+          "communicates details of",
+          "published scientific work"
+        ],
+        "level_2": [
+          "Elicits patient preferences",
+          "and values to guide",
+          "evidence-based care for",
+          "patients",
+          "Reads scientific literature,",
+          "identifies gaps, and",
+          "generates hypotheses for",
+          "planned scholarly activity",
+          "Locates and applies the",
+          "best available evidence,"
+        ],
+        "level_3": [
+          "integrated with patient",
+          "preference to care for",
+          "patients",
+          "Participates in a scholarly",
+          "project",
+          "Critically appraises and",
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to"
+        ],
+        "level_4": [
+          "guide care, tailored to",
+          "the individual patient",
+          "Presents scholarly",
+          "activity at local or",
+          "regional meetings,",
+          "and/or submits an",
+          "abstract of their",
+          "scholarly work to a",
+          "regional meeting",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "critically appraise and",
+          "apply evidence; and/or",
+          "participates in the",
+          "development of guidelines",
+          "Effectively presents",
+          "scholarly work at national",
+          "and international",
+          "meetings or has a peer",
+          "reviewed publication",
+          "accepted or grant funded"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors",
+          "which contribute to",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Actively seeks",
+          "opportunities to improve"
+        ],
+        "level_2": [
+          "knowledge and abilities",
+          "Demonstrates openness",
+          "to performance feedback",
+          "in order to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting"
+        ],
+        "level_3": [
+          "Seeks performance",
+          "feedback episodically,",
+          "with adaptability, and",
+          "humility",
+          "Analyzes, reflects on,",
+          "and institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a"
+        ],
+        "level_4": [
+          "learning plan",
+          "Intentionally seeks",
+          "performance feedback",
+          "consistently with",
+          "adaptability, and humility",
+          "Identifies and uses",
+          "alternative methods to",
+          "narrow the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance",
+          "feedback to measure the"
+        ],
+        "level_5": [
+          "effectiveness of the",
+          "learning plan and when",
+          "necessary, improves it",
+          "Consistently role models",
+          "the seeking of",
+          "performance data with",
+          "adaptability and humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses in",
+          "self",
+          "Recognizes",
+          "professionalism lapses in",
+          "others",
+          "Demonstrates knowledge",
+          "of the ethical principles",
+          "underlying informed",
+          "consent, surrogate",
+          "decision making,",
+          "advance directives,",
+          "confidentiality, error",
+          "disclosure, stewardship",
+          "of limited resources, and"
+        ],
+        "level_2": [
+          "related topics",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility for",
+          "own professionalism",
+          "lapses",
+          "Knows institutional",
+          "processes for reporting",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles and applies"
+        ],
+        "level_3": [
+          "them to practice",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Follows institutional",
+          "processes for reporting",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles, and applies",
+          "them to practice, while",
+          "recognizing the need to"
+        ],
+        "level_4": [
+          "seek help in managing",
+          "these situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and acts to prevent them",
+          "Intervenes to prevent and",
+          "address professionalism",
+          "lapses in peers",
+          "Recognizes and utilizes",
+          "appropriate resources for",
+          "managing and resolving",
+          "ethical dilemmas as",
+          "needed (e.g., ethics",
+          "consultations, literature",
+          "review, risk"
+        ],
+        "level_5": [
+          "management/legal",
+          "consultation)",
+          "Recognized by peers as",
+          "a resource for",
+          "professionalism concerns",
+          "Coaches peers when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Completes tasks and",
+          "responsibilities in",
+          "response to requests or",
+          "reminders",
+          "Completes tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner, without",
+          "reminders",
+          "Completes tasks and",
+          "responsibilities without",
+          "reminders, identifies",
+          "potential barriers to"
+        ],
+        "level_3": [
+          "completion, and acts to",
+          "mitigate those barriers in",
+          "routine situations",
+          "Completes tasks and",
+          "responsibilities without",
+          "reminders, identifies"
+        ],
+        "level_4": [
+          "potential barriers to",
+          "completion, and acts to",
+          "mitigates those barriers",
+          "in complex or stressful",
+          "situations",
+          "Assists others in"
+        ],
+        "level_5": [
+          "developing strategies for",
+          "completing tasks and",
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Well-Being and Resiliency",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies elements of",
+          "well-being and describes",
+          "risk factors for burnout",
+          "and signs and symptoms",
+          "of burnout and",
+          "depression in self or"
+        ],
+        "level_2": [
+          "peers",
+          "With assistance,",
+          "recognizes status of well-",
+          "being and risk factors for",
+          "maladaptation in self or",
+          "peers"
+        ],
+        "level_3": [
+          "Independently recognizes",
+          "status of well-being in self",
+          "or peers and reports",
+          "concerns to appropriate",
+          "personnel",
+          "Develops and"
+        ],
+        "level_4": [
+          "implements a plan to",
+          "improve well-being of",
+          "self or peers, including",
+          "utilization of institutional",
+          "or external resources",
+          "Recommends and"
+        ],
+        "level_5": [
+          "facilitates system",
+          "changes to promote well-",
+          "being in a practice or",
+          "institution"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability,",
+          "bias)"
+        ],
+        "level_2": [
+          "Establishes a therapeutic",
+          "relationship using",
+          "effective communication",
+          "behaviors in",
+          "straightforward",
+          "encounters",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g."
+        ],
+        "level_3": [
+          "health literacy, cultural),",
+          "including bias",
+          "Establishes a therapeutic",
+          "relationship using",
+          "effective communication",
+          "behaviors in challenging",
+          "patient encounters",
+          "Mitigates communication",
+          "barriers, including bias"
+        ],
+        "level_4": [
+          "Establishes therapeutic",
+          "relationships using",
+          "shared decision making",
+          "(e.g., attention to",
+          "patient/family concerns",
+          "and context), regardless",
+          "of complexity",
+          "Role models the",
+          "mitigation of"
+        ],
+        "level_5": [
+          "communication barriers",
+          "Coaches others in",
+          "developing therapeutic",
+          "relationships and",
+          "mitigating communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the team",
+          "Communicates"
+        ],
+        "level_2": [
+          "information, including",
+          "basic feedback with all",
+          "team members",
+          "Facilitates team"
+        ],
+        "level_3": [
+          "communication to",
+          "reconcile conflict and",
+          "provides difficult feedback",
+          "Adapts communication"
+        ],
+        "level_4": [
+          "style to fit team needs",
+          "and maximizes impact",
+          "of feedback to the team",
+          "Role models flexible"
+        ],
+        "level_5": [
+          "communication strategies",
+          "that facilitate excellence",
+          "in teamwork"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "comprehensive",
+          "information",
+          "Communicates using",
+          "formats specified by",
+          "institutional policy to",
+          "safeguard patient",
+          "personal health"
+        ],
+        "level_2": [
+          "information",
+          "Documents clinical",
+          "reasoning through",
+          "organized notes",
+          "Selects direct (e.g.,",
+          "telephone, in-person) and",
+          "indirect (e.g., progress",
+          "notes, text messages)"
+        ],
+        "level_3": [
+          "forms of communication",
+          "based on context, with",
+          "assistance",
+          "Documents clinical",
+          "reasoning and is concise",
+          "most of the time",
+          "Appropriately selects",
+          "direct and indirect forms"
+        ],
+        "level_4": [
+          "of communication based",
+          "on context",
+          "Documents clinical",
+          "reasoning concisely",
+          "in an organized form,",
+          "including next steps in",
+          "care",
+          "Role models effective"
+        ],
+        "level_5": [
+          "written and verbal",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication policies",
+          "and procedures"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__pulmonary_disease_and_critical_care_medicine_ics4",
+      "number": 20,
+      "domain_number": 4,
+      "name": "Complex Communication Around Serious Illness",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies prognostic",
+          "communication as a key",
+          "element for shared",
+          "decision making",
+          "Identifies the need to",
+          "assess patient/family",
+          "expectations and",
+          "understanding of their",
+          "health status and",
+          "treatment options",
+          "Assesses the patient’s",
+          "families/caregivers’",
+          "prognostic awareness"
+        ],
+        "level_2": [
+          "and identifies preferences",
+          "for receiving prognostic",
+          "information",
+          "Facilitates communication",
+          "with patient/family by",
+          "introducing stakeholders,",
+          "setting the agenda,",
+          "clarifying expectations,",
+          "and verifying an",
+          "understanding of the",
+          "clinical situation",
+          "Delivers basic prognostic",
+          "information and attends to"
+        ],
+        "level_3": [
+          "emotional responses of",
+          "patient and",
+          "families/caregivers",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information;",
+          "elicits patient/family",
+          "values, goals and",
+          "preferences; and",
+          "acknowledges uncertainty",
+          "and conflict, with",
+          "guidance",
+          "Tailors communication"
+        ],
+        "level_4": [
+          "of prognosis according",
+          "to disease",
+          "characteristics and",
+          "trajectory, patient",
+          "consent, family needs,",
+          "and medical",
+          "uncertainty, and",
+          "manages intense",
+          "emotional response",
+          "Independently uses",
+          "shared decision making",
+          "to align patient/family",
+          "values, goals, and"
+        ],
+        "level_5": [
+          "preferences with",
+          "treatment options to",
+          "make a personalized",
+          "care plan in situations",
+          "with a high degree of",
+          "uncertainty and conflict",
+          "Coaches others in the",
+          "communication of",
+          "prognostic information",
+          "Coaches shared decision",
+          "making in patient/family",
+          "communication"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "internal-medicine",
+  "primary_name": "Internal Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarycriticalcaremilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarycriticalcaresupplementalguide.pdf"
+  }
+}

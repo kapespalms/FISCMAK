@@ -20,6 +20,11 @@ function main() {
   const appendixB = readJson("appendix_b_2024_2025.json");
   const milestoneFrameworks = readJson("milestone_frameworks.json");
   const psychiatryMilestones = readJson("psychiatry_milestones_v2.json");
+  let milestoneCatalog = { programs: [] };
+  let catalogPath = path.join(seedsDir, "milestone_catalog.json");
+  if (fs.existsSync(catalogPath)) {
+    milestoneCatalog = readJson("milestone_catalog.json");
+  }
 
   const primaries = appendixB.primary_specialties;
   const subspecialtyToPrimary = appendixB.subspecialty_to_primary;
@@ -86,6 +91,11 @@ function main() {
     primary_count: primaries.length,
     subspecialty_count: Object.keys(subspecialtyToPrimary).length,
     seeded_framework_count: rows.filter((r) => r.milestone_status === "seeded").length,
+    catalog_program_count: milestoneCatalog.programs?.length ?? 0,
+    catalog_parsed_count: (milestoneCatalog.programs ?? []).filter(
+      (p) => p.parse_status === "parsed" || p.parse_status === "seeded_manual",
+    ).length,
+    catalog_url_only_count: (milestoneCatalog.programs ?? []).filter((p) => p.milestone_pdf_url).length,
     rows,
     gaps,
     milestone_seed_pending,
@@ -96,6 +106,11 @@ function main() {
   console.log(`Subspecialty programs: ${audit.subspecialty_count}`);
   console.log(`Onboarding primary list: ${onboardingNames.size}`);
   console.log(`Seeded milestone frameworks: ${audit.seeded_framework_count}`);
+  if (audit.catalog_program_count) {
+    console.log(`Milestone catalog programs: ${audit.catalog_program_count}`);
+    console.log(`  Parsed / manual seeds: ${audit.catalog_parsed_count}`);
+    console.log(`  With milestone PDF URL: ${audit.catalog_url_only_count}`);
+  }
   console.log("");
 
   console.log(`Pending specialty milestone seeds: ${milestone_seed_pending.length}`);

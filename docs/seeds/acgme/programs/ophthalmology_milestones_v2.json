@@ -1,0 +1,1288 @@
+{
+  "framework_key": "ophthalmology",
+  "specialty": "Ophthalmology",
+  "version": "2.0",
+  "source": "ACGME Ophthalmology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "ophthalmology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Data Acquisition – Basic Ophthalmology Exam and Testing",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires relevant",
+          "problem-focused history,",
+          "including outside medical",
+          "records",
+          "Performs and documents",
+          "a comprehensive",
+          "ophthalmic examination;",
+          "distinguishes between",
+          "normal and abnormal",
+          "findings",
+          "Performs problem-"
+        ],
+        "level_2": [
+          "focused exam with",
+          "appropriate techniques",
+          "(e.g., gonioscopy and",
+          "scleral depression),",
+          "consistently identifies",
+          "common abnormalities on",
+          "examination; may identify",
+          "subtle findings",
+          "Orders, performs, and",
+          "interprets basic testing",
+          "(e.g., visual field testing,"
+        ],
+        "level_3": [
+          "Optical Coherence",
+          "Tomography, B-scan)",
+          "Identifies subtle or",
+          "uncommon examination",
+          "findings of common",
+          "disorders and",
+          "typical or common",
+          "findings of rarer",
+          "disorders",
+          "Interprets unusual",
+          "findings on routine"
+        ],
+        "level_4": [
+          "testing, identifies artifacts;",
+          "recognizes indications for",
+          "advanced diagnostic tests",
+          "and imaging procedures",
+          "(e.g., specular",
+          "microscopy,",
+          "electroretinography)",
+          "Orders and interprets",
+          "advanced diagnostic",
+          "tests and imaging",
+          "procedures according to"
+        ],
+        "level_5": [
+          "evidence-based",
+          "medicine (i.e., when",
+          "and when not to order",
+          "testing)",
+          "Demonstrates expertise in",
+          "advanced diagnostic tests",
+          "and imaging"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Hospital-Based Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires relevant",
+          "problem-focused history,",
+          "including outside medical",
+          "records",
+          "Performs inpatient",
+          "consultation, with direct",
+          "supervision",
+          "Triages consult requests",
+          "Performs a complete",
+          "examination"
+        ],
+        "level_2": [
+          "Recognizes ophthalmic",
+          "emergencies and initiates",
+          "non-surgical treatment",
+          "plan, with indirect",
+          "supervision",
+          "Manages consultations",
+          "(including coordination of",
+          "care) requiring surgical",
+          "intervention, including",
+          "procedural options and"
+        ],
+        "level_3": [
+          "timing; requests",
+          "ophthalmic subspecialty",
+          "advice, with indirect",
+          "supervision",
+          "Manages ophthalmic",
+          "emergencies with non-",
+          "surgical and surgical",
+          "treatment, with indirect",
+          "supervision",
+          "Manages consultations"
+        ],
+        "level_4": [
+          "(including coordination",
+          "of care) requiring",
+          "surgical intervention,",
+          "including procedural",
+          "options and timing;",
+          "requests ophthalmic",
+          "subspecialty input, with",
+          "oversight",
+          "Manages ophthalmic",
+          "emergencies with non-"
+        ],
+        "level_5": [
+          "surgical and surgical",
+          "treatment, with",
+          "oversight",
+          "Oversees the consultation",
+          "process and manages",
+          "interdisciplinary systems",
+          "issues affecting patient",
+          "care"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Office-Based Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes essential",
+          "components of care",
+          "related to office-based",
+          "procedures (e.g.,",
+          "informed consent,",
+          "indications and",
+          "contraindications,",
+          "anesthesia, sterile"
+        ],
+        "level_2": [
+          "procedure prep)",
+          "Administers anesthesia",
+          "and performs",
+          "procedure, with direct",
+          "supervision",
+          "Recognizes and",
+          "manages intra- and",
+          "post-operative"
+        ],
+        "level_3": [
+          "complications, with",
+          "direct supervision",
+          "Administers anesthesia",
+          "and performs",
+          "procedure, with indirect",
+          "supervision",
+          "Manages intra- and post-",
+          "operative complications,"
+        ],
+        "level_4": [
+          "with indirect supervision",
+          "Administers",
+          "anesthesia and",
+          "performs procedure,",
+          "with oversight",
+          "Manages intra- and",
+          "post-operative",
+          "complications, with"
+        ],
+        "level_5": [
+          "oversight",
+          "Incorporates recent",
+          "advancements in",
+          "technologies or",
+          "techniques"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Cataract Surgery – Technical Skill",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies visually",
+          "significant cataract",
+          "Demonstrates ability to",
+          "scrub, prep and drape",
+          "patient for surgery;",
+          "performs basic suturing",
+          "skills",
+          "Assesses patients for",
+          "routine cataract surgery",
+          "Performs elements of",
+          "cataract surgery in the",
+          "hands-on surgical skills",
+          "laboratory and in the"
+        ],
+        "level_2": [
+          "operating room (OR)",
+          "Manages common post-",
+          "operative complications",
+          "(e.g., post-op pain, high",
+          "intraocular pressure)",
+          "Assesses patients for",
+          "complex cataract surgery",
+          "Performs routine cataract",
+          "surgery in the OR",
+          "Manages common intra-",
+          "and post-operative",
+          "complications (e.g.,",
+          "posterior capsule rupture,"
+        ],
+        "level_3": [
+          "wound leak)",
+          "Assesses patients who",
+          "are candidates for",
+          "refractive intraocular",
+          "lenses to correct",
+          "astigmatism and/or",
+          "provide near correction",
+          "Performs cataract",
+          "surgery requiring",
+          "complex technical",
+          "maneuvers (e.g., pupil",
+          "expander, capsular",
+          "tension ring)"
+        ],
+        "level_4": [
+          "Manages complex intra-",
+          "and post-operative",
+          "complications (e.g.,",
+          "endophthalmitis)",
+          "Assesses patients for",
+          "intraocular lenses",
+          "complications requiring a",
+          "more complex",
+          "intervention",
+          "Performs lens surgery for",
+          "patients with",
+          "complications requiring a",
+          "more complex"
+        ],
+        "level_5": [
+          "intervention (e.g., sutured",
+          "intraocular lenses)",
+          "Manages rare and",
+          "complex intra- and post-",
+          "operative complications",
+          "(e.g., aqueous",
+          "misdirection,",
+          "suprachoroidal",
+          "hemorrhage)"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Extraocular Surgery (Plastics, Strabismus)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates ability to",
+          "scrub, prep and drape",
+          "patient for surgery;",
+          "performs basic suturing",
+          "skills",
+          "Identifies common post-",
+          "operative complications",
+          "(e.g., post-op pain,",
+          "bleeding)",
+          "Identifies patients for",
+          "routine extraocular"
+        ],
+        "level_2": [
+          "surgery",
+          "Performs simple",
+          "extraocular surgery (e.g.,",
+          "simple lid laceration",
+          "repair, nasolacrimal duct",
+          "probing)",
+          "Manages common post-",
+          "operative complications",
+          "Develops a pre-operative",
+          "plan for routine",
+          "extraocular surgery"
+        ],
+        "level_3": [
+          "Performs routine",
+          "extraocular surgery (e.g.,",
+          "complex lid laceration",
+          "repair, horizontal",
+          "strabismus, ptosis)",
+          "Manages intra- and post-",
+          "operative complications",
+          "(e.g., bleeding,",
+          "perforation)",
+          "Develops a pre-",
+          "operative plan for"
+        ],
+        "level_4": [
+          "complex extraocular",
+          "surgery",
+          "Performs complex",
+          "extraocular surgery",
+          "(e.g., vertical",
+          "strabismus), with",
+          "assistance",
+          "Manages complex intra-",
+          "and post-operative",
+          "complications (e.g.,",
+          "infection, retrobulbar"
+        ],
+        "level_5": [
+          "hemorrhage)",
+          "Assess patients and",
+          "develops a pre-operative",
+          "plan for complex/",
+          "multidisciplinary",
+          "extraocular surgery (e.g.,",
+          "nerve sheath",
+          "decompression, vessel",
+          "sparing strabismus)",
+          "Performs complex",
+          "extraocular surgery"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Intraocular Surgery (Cornea, Retina, Glaucoma)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates ability to",
+          "scrub, prep and drape",
+          "patient for surgery;",
+          "performs basic suturing",
+          "skills",
+          "Assesses patients for",
+          "routine intraocular surgery",
+          "Performs routine",
+          "intraocular surgery in the"
+        ],
+        "level_2": [
+          "hands-on surgical skills",
+          "laboratory",
+          "Manages common post-",
+          "operative complications",
+          "(e.g., post-op pain, high",
+          "intraocular pressure)",
+          "Assesses patients for",
+          "complex intraocular",
+          "surgery"
+        ],
+        "level_3": [
+          "Assists in subspecialty",
+          "intraocular surgery",
+          "Manages common intra-",
+          "operative complications",
+          "(e.g., flat chamber, wound",
+          "leak, hyphema)",
+          "Assesses patients for",
+          "multispecialty",
+          "intraocular surgeries"
+        ],
+        "level_4": [
+          "Performs routine",
+          "intraocular surgery",
+          "Manages complex intra-",
+          "and post-operative",
+          "complications (e.g., re-",
+          "bubble graft, blebitis)",
+          "Assess patients requiring",
+          "surgery from multiple",
+          "disciplines (e.g., plastic"
+        ],
+        "level_5": [
+          "surgery, facial trauma)",
+          "Performs complex",
+          "intraocular surgery",
+          "Manages rare and",
+          "complex intra- and post-",
+          "operative complications",
+          "(e.g., tube erosion,",
+          "proliferative",
+          "vitreoretinopathy)"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Pathophysiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Articulates knowledge of",
+          "pathophysiology and",
+          "clinical findings for",
+          "ophthalmic conditions",
+          "routinely managed by",
+          "non-ophthalmologists",
+          "Demonstrates basic",
+          "knowledge of"
+        ],
+        "level_2": [
+          "pathophysiology and",
+          "clinical findings for",
+          "common ophthalmic",
+          "conditions routinely",
+          "managed by",
+          "ophthalmologists",
+          "Demonstrates advanced",
+          "knowledge of"
+        ],
+        "level_3": [
+          "pathophysiology and",
+          "clinical findings for",
+          "commonly encountered",
+          "ophthalmic conditions;",
+          "demonstrates basic",
+          "knowledge of",
+          "pathophysiology and",
+          "clinical findings for"
+        ],
+        "level_4": [
+          "uncommon conditions",
+          "Demonstrates",
+          "advanced knowledge of",
+          "pathophysiology and",
+          "clinical findings for",
+          "uncommon ophthalmic",
+          "conditions",
+          "Contributes new"
+        ],
+        "level_5": [
+          "knowledge for",
+          "pathophysiology and",
+          "clinical findings for",
+          "ophthalmic conditions",
+          "(e.g., publication,",
+          "curriculum development)"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Differential Diagnosis",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies resources to",
+          "generate a focused",
+          "differential",
+          "Generates a basic",
+          "differential diagnosis",
+          "based on patient",
+          "symptoms and history",
+          "Generates",
+          "comprehensive",
+          "differential diagnosis",
+          "based on patient"
+        ],
+        "level_2": [
+          "symptoms and history;",
+          "documents and presents",
+          "differential in oral",
+          "presentation clearly and",
+          "concisely",
+          "Describes diagnostic tests",
+          "to aid in the differential",
+          "diagnosis",
+          "Generates refined",
+          "differential based on",
+          "patient symptoms, history"
+        ],
+        "level_3": [
+          "and examination findings,",
+          "distinguishing between",
+          "common and uncommon",
+          "conditions",
+          "Selects additional",
+          "diagnostic testing to",
+          "distinguish between",
+          "conditions on the",
+          "differential",
+          "Generates probabilistic",
+          "differential diagnosis in"
+        ],
+        "level_4": [
+          "patients with multiple",
+          "ocular and medical",
+          "comorbidities; modifies",
+          "likely differential with",
+          "new information from",
+          "additional testing",
+          "Articulates the rationale",
+          "for ordering diagnostic",
+          "testing in hierarchical",
+          "fashion based upon",
+          "probabilistic differential"
+        ],
+        "level_5": [
+          "Recognizes, self-reflects,",
+          "and shares experiences",
+          "to educate others on",
+          "factors that contributed to",
+          "missed diagnosis or faulty",
+          "clinical reasoning (e.g.,",
+          "publication, curriculum",
+          "development)"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_mk3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "Therapeutic Interventions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic",
+          "concepts of ophthalmic",
+          "pathophysiology and",
+          "pharmacology",
+          "Describes basic",
+          "ophthalmic anatomy and",
+          "categories of procedural",
+          "interventions",
+          "Explains relevant"
+        ],
+        "level_2": [
+          "pathophysiology and lists",
+          "indications and",
+          "contraindications for",
+          "planned medical therapy",
+          "Explains indications,",
+          "contraindications, and",
+          "relevant steps required for",
+          "procedural intervention",
+          "(e.g., anesthesia,"
+        ],
+        "level_3": [
+          "technique, instruments)",
+          "Identifies and describes",
+          "side effects of medical",
+          "therapies and ways to",
+          "minimize potential",
+          "complications",
+          "Identifies and describes",
+          "causes of complications",
+          "and alternatives for"
+        ],
+        "level_4": [
+          "routine procedural",
+          "interventions",
+          "Describes and",
+          "articulates the rationale",
+          "for using emerging",
+          "alternative medical",
+          "therapies",
+          "Describes and",
+          "articulates the rationale"
+        ],
+        "level_5": [
+          "for using novel",
+          "alternative procedural",
+          "interventions",
+          "Participates in the",
+          "development and",
+          "dissemination of novel",
+          "therapies or interventions"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., eye protection for",
+          "high risk activities,",
+          "diabetic eye screening)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health",
+          "care systems and",
+          "access models (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "Demonstrates use of",
+          "electronic medical record",
+          "Describes how different",
+          "system types require the"
+        ],
+        "level_2": [
+          "physician to deliver care",
+          "effectively with available",
+          "resources",
+          "Identifies the",
+          "documentation required",
+          "for billing and coding",
+          "compliance",
+          "Optimizes patient care",
+          "given available resources"
+        ],
+        "level_3": [
+          "Describes knowledge",
+          "domains for effective",
+          "transition to practice (e.g.,",
+          "information technology,",
+          "legal, billing and coding)",
+          "Advocates for patient",
+          "care needs beyond",
+          "patients’ available",
+          "resources (e.g.,"
+        ],
+        "level_4": [
+          "community resources,",
+          "patient assistance",
+          "resources, telehealth)",
+          "Demonstrates",
+          "administrative",
+          "knowledge needed for",
+          "transition to practice",
+          "(e.g., contract",
+          "negotiations,"
+        ],
+        "level_5": [
+          "malpractice insurance,",
+          "government regulation,",
+          "compliance)",
+          "Participates in health",
+          "policy advocacy activities",
+          "Analyzes individual",
+          "practice patterns and",
+          "professional requirements",
+          "in preparation for practice"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporate patient",
+          "preferences and values",
+          "in order to take care of a",
+          "routine patient"
+        ],
+        "level_2": [
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values in order to guide",
+          "evidence-based care",
+          "Locates and applies the",
+          "best available evidence,"
+        ],
+        "level_3": [
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and",
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and"
+        ],
+        "level_4": [
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients; and/or"
+        ],
+        "level_5": [
+          "participates in the",
+          "development of patient",
+          "care guidelines"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals;",
+          "actively seeks",
+          "opportunities to improve",
+          "Identifies the factors",
+          "which contribute to",
+          "gap(s) between",
+          "expectations and actual"
+        ],
+        "level_2": [
+          "performance",
+          "Demonstrates openness",
+          "to performance data",
+          "(feedback and other",
+          "input) in order to inform",
+          "goals; designs and",
+          "implements a learning",
+          "plan, with guidance",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)"
+        ],
+        "level_3": [
+          "between expectations and",
+          "actual performance",
+          "Seeks performance data",
+          "and accepts it with",
+          "responsibility and",
+          "equipoise; demonstrates",
+          "implementation of a",
+          "learning plan",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the"
+        ],
+        "level_4": [
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and when",
+          "necessary, improves it",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in"
+        ],
+        "level_5": [
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Facilitates the design and",
+          "implementing learning",
+          "plans for others",
+          "Coaches others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Describes when and how",
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision"
+        ],
+        "level_2": [
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Takes responsibility for",
+          "own professionalism",
+          "lapses",
+          "Analyzes straightforward",
+          "situations using ethical"
+        ],
+        "level_3": [
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex ethical",
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)"
+        ],
+        "level_5": [
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to"
+        ],
+        "level_2": [
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with attention to",
+          "detail in routine situations",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks",
+          "and responsibilities in a"
+        ],
+        "level_3": [
+          "timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with attention to",
+          "detail in complex or",
+          "stressful situations",
+          "Recognizes detrimental",
+          "consequences when",
+          "tasks and responsibilities",
+          "are not completed in a"
+        ],
+        "level_4": [
+          "timely manner (e.g., team",
+          "members, compliance)",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients,"
+        ],
+        "level_5": [
+          "teams, and systems are",
+          "met",
+          "Takes ownership of",
+          "system outcomes,",
+          "attempts to implement",
+          "changes at a systems",
+          "level in order to advance",
+          "the goals of professional",
+          "accountability"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Recognizes limits in the",
+          "knowledge/skills of self",
+          "and/or team, with",
+          "assistance"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "Independently recognizes",
+          "limits in the knowledge/",
+          "skills of self and/or team;",
+          "demonstrates appropriate",
+          "help-seeking behaviors"
+        ],
+        "level_3": [
+          "for self or others",
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "improve knowledge/skills"
+        ],
+        "level_4": [
+          "of self and/or team",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Independently develops",
+          "a plan to improve the",
+          "knowledge/skills of self"
+        ],
+        "level_5": [
+          "and/or team",
+          "Coaches others when",
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies barriers to",
+          "effective communication",
+          "(e.g., health literacy,",
+          "language, disability)",
+          "while accurately"
+        ],
+        "level_2": [
+          "communicating own role",
+          "within the health care",
+          "system",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language"
+        ],
+        "level_3": [
+          "Addresses barriers to",
+          "effective communication",
+          "Establishes a therapeutic",
+          "relationship",
+          "in challenging patient",
+          "encounters (e.g., breaking",
+          "bad news)",
+          "When prompted, reflects",
+          "on biases while"
+        ],
+        "level_4": [
+          "attempting to minimize",
+          "communication barriers",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with",
+          "attention to",
+          "patient/family concerns",
+          "and context, regardless",
+          "of complexity"
+        ],
+        "level_5": [
+          "Role models self-",
+          "awareness to minimize",
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Accepts feedback on",
+          "performance from all",
+          "members of the health",
+          "care team (e.g., nurses,",
+          "staff members, peers)"
+        ],
+        "level_2": [
+          "Communicates",
+          "information effectively and",
+          "uses active listening with",
+          "all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health"
+        ],
+        "level_3": [
+          "care team",
+          "Communicates concerns",
+          "to the team and learners",
+          "Provides feedback and",
+          "constructive criticism to",
+          "peers and learners",
+          "Role models flexible",
+          "communication"
+        ],
+        "level_4": [
+          "strategies that value",
+          "input from all health",
+          "care team members,",
+          "resolving conflict when",
+          "needed",
+          "Provides feedback and",
+          "constructive criticism to",
+          "superiors"
+        ],
+        "level_5": [
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "ophthalmology_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the",
+          "medical record",
+          "Aware of the role of",
+          "communication in patient",
+          "safety and privacy;",
+          "safeguards patient",
+          "personal health",
+          "information",
+          "Aware of responsibility to",
+          "report system",
+          "deficiencies"
+        ],
+        "level_2": [
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through notes in the",
+          "medical record",
+          "Appropriately selects",
+          "forms of communication",
+          "(e.g., telephone versus",
+          "text) to promote patient",
+          "safety and privacy",
+          "Identifies appropriate",
+          "channels to communicate"
+        ],
+        "level_3": [
+          "system deficiencies",
+          "Communicates clearly",
+          "and concisely, including",
+          "anticipatory guidance, in",
+          "the medical record",
+          "Avoids creating or",
+          "propagating errors in the",
+          "medical record through",
+          "accurate use of",
+          "documentation tools",
+          "Uses appropriate",
+          "channels to communicate"
+        ],
+        "level_4": [
+          "system deficiencies",
+          "Provides feedback to",
+          "improve others’ written",
+          "communication",
+          "Provides feedback and",
+          "constructive criticism",
+          "regarding compliance",
+          "with patient privacy and",
+          "safety",
+          "Offers clear and",
+          "constructive",
+          "suggestions to address"
+        ],
+        "level_5": [
+          "system deficiencies",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "primary",
+  "primary_slug": "ophthalmology",
+  "primary_name": "Ophthalmology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1401 @@
+{
+  "framework_key": "physical-medicine-and-rehabilitation--spinal-cord-injury-medicine",
+  "specialty": "Spinal Cord Injury Medicine",
+  "version": "2.0",
+  "source": "ACGME Spinal Cord Injury Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History of Individuals with Spinal Cord Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires a history with a",
+          "basic functional and",
+          "psychosocial",
+          "assessment",
+          "Acquires a",
+          "comprehensive history"
+        ],
+        "level_2": [
+          "identifying all components",
+          "of functioning, including",
+          "impairments, activities,",
+          "participation, and",
+          "contextual factors",
+          "Acquires a relevant"
+        ],
+        "level_3": [
+          "history in a prioritized",
+          "fashion, integrating",
+          "components of",
+          "functioning",
+          "Elicits key history,",
+          "including subtleties, in a"
+        ],
+        "level_4": [
+          "prioritized and efficient",
+          "fashion across a",
+          "spectrum of ages and",
+          "impairments",
+          "Role models the effective",
+          "gathering of subtle and"
+        ],
+        "level_5": [
+          "salient history from",
+          "patients across a",
+          "spectrum of ages and",
+          "impairments"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Physical Examination of Individuals with Spinal Cord Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a general",
+          "physical examination",
+          "Performs a physical",
+          "examination, including",
+          "functional assessment",
+          "and neurologic exam to"
+        ],
+        "level_2": [
+          "diagnose and classify",
+          "spinal cord injury",
+          "Performs a hypothesis-",
+          "driven physical",
+          "examination, with",
+          "identification of subtle or"
+        ],
+        "level_3": [
+          "atypical findings",
+          "Efficiently performs a",
+          "hypothesis-driven",
+          "physical examination",
+          "that identifies subtle or",
+          "atypical findings over a"
+        ],
+        "level_4": [
+          "spectrum of ages and",
+          "impairments",
+          "Role models a",
+          "hypothesis-driven",
+          "physical examination that",
+          "identifies subtle or"
+        ],
+        "level_5": [
+          "atypical findings over a",
+          "spectrum of ages and",
+          "impairments"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Medical/Surgical Management of Individuals with Spinal Cord Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies and manages",
+          "general medical",
+          "conditions and their",
+          "complications",
+          "Identifies the need and",
+          "resources for",
+          "consultation",
+          "Identifies and manages",
+          "consequences and",
+          "complications of spinal"
+        ],
+        "level_2": [
+          "cord disorders, with direct",
+          "supervision",
+          "Uses consultations to",
+          "guide a treatment plan",
+          "Develops and implements",
+          "a comprehensive",
+          "treatment plan to address",
+          "complications related to",
+          "spinal cord disorders, with",
+          "indirect supervision"
+        ],
+        "level_3": [
+          "Uses appropriate",
+          "consideration of patient",
+          "acuity and other factors to",
+          "triage, and provides",
+          "consultations to other",
+          "services for common",
+          "conditions",
+          "Independently develops",
+          "and implements a",
+          "comprehensive"
+        ],
+        "level_4": [
+          "treatment plan that",
+          "anticipates, identifies,",
+          "and addresses",
+          "complications related to",
+          "spinal cord disorders",
+          "Provides consultations",
+          "to other services for",
+          "complex and unusual",
+          "conditions across a",
+          "spectrum of"
+        ],
+        "level_5": [
+          "impairments and",
+          "conditions",
+          "Role models the",
+          "development and",
+          "implementation of a",
+          "comprehensive treatment",
+          "plan, including",
+          "appropriate consideration",
+          "of emerging treatments"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Assistive Technologies (e.g., Prosthetics and Orthotics, Adaptive Equipment, Mobility Devices, Seating Systems,",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes assistive",
+          "technologies and their",
+          "indications",
+          "Evaluates patient need for",
+          "common assistive",
+          "technologies based on"
+        ],
+        "level_2": [
+          "impairments",
+          "Evaluates a patient need",
+          "for a full range of assistive",
+          "technologies based on",
+          "impairments, considering",
+          "barriers, precautions,"
+        ],
+        "level_3": [
+          "contraindications,",
+          "comorbidities, and input",
+          "from other professionals",
+          "Generates a detailed",
+          "prescription, in",
+          "consultation with other"
+        ],
+        "level_4": [
+          "professionals, for a full",
+          "range of assistive",
+          "technologies, including",
+          "justification for need",
+          "Serves as a resource to",
+          "other professionals for"
+        ],
+        "level_5": [
+          "clinical problem solving",
+          "and functional challenges",
+          "related to assistive",
+          "technology"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Rehabilitation Interventions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes common",
+          "modalities and general",
+          "rehabilitation therapies",
+          "by discipline",
+          "Prescribes common",
+          "modalities and general"
+        ],
+        "level_2": [
+          "rehabilitation therapies by",
+          "discipline based on",
+          "impairments",
+          "Provides detailed therapy",
+          "prescriptions for specific",
+          "conditions with"
+        ],
+        "level_3": [
+          "appropriate precautions",
+          "Integrates",
+          "comprehensive",
+          "knowledge of",
+          "impairments, activity",
+          "limitations, participation"
+        ],
+        "level_4": [
+          "restrictions, and",
+          "contextual factors to",
+          "prescribe rehabilitation",
+          "interventions",
+          "Demonstrates the ability",
+          "to direct and implement"
+        ],
+        "level_5": [
+          "rehabilitation interventions",
+          "in challenging clinical",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies salient",
+          "elements of a patient",
+          "presentation to inform",
+          "clinical reasoning",
+          "Identifies diagnostic",
+          "studies for common",
+          "medical conditions",
+          "Describes common",
+          "causes of clinical",
+          "reasoning error",
+          "Develops a prioritized",
+          "differential diagnosis for",
+          "common presentations of",
+          "spinal cord disorders and"
+        ],
+        "level_2": [
+          "associated conditions",
+          "Identifies diagnostic",
+          "studies for conditions",
+          "seen in spinal cord",
+          "disorders practice",
+          "Identifies types of clinical",
+          "reasoning errors within",
+          "patient care, with",
+          "guidance",
+          "Develops a prioritized",
+          "differential diagnosis for",
+          "complex and uncommon",
+          "presentations of spinal",
+          "cord disorders and"
+        ],
+        "level_3": [
+          "associated conditions",
+          "Prioritizes the sequence",
+          "and urgency of diagnostic",
+          "testing",
+          "Demonstrates a",
+          "structured approach to",
+          "identifying clinical",
+          "reasoning errors",
+          "Synthesizes",
+          "information from a",
+          "variety of sources to",
+          "reach high-probability",
+          "diagnoses over a",
+          "spectrum of ages and"
+        ],
+        "level_4": [
+          "conditions",
+          "Considers diagnostic",
+          "testing based on cost",
+          "effectiveness, patient",
+          "burden, and likelihood",
+          "that results will",
+          "influence clinical",
+          "management",
+          "Anticipates and",
+          "accounts for errors and",
+          "biases with continuous",
+          "re-appraisal to minimize",
+          "clinical reasoning errors",
+          "Role models effective and"
+        ],
+        "level_5": [
+          "efficient clinical",
+          "reasoning, evaluation,",
+          "and diagnosis across the",
+          "spectrum of ages and",
+          "conditions",
+          "Role models identification",
+          "of cost-effective",
+          "diagnostic testing across",
+          "a range of conditions",
+          "Coaches others to",
+          "minimize clinical",
+          "reasoning errors"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Traumatic and Non-Traumatic Spinal Cord Disorders",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic spine",
+          "and spinal cord anatomy",
+          "Demonstrates basic",
+          "knowledge of common",
+          "spinal cord disorders and",
+          "associated complications",
+          "Demonstrates knowledge",
+          "of pathophysiology of",
+          "spinal cord disorders, and",
+          "the effects of the injury or",
+          "disorder on specific body"
+        ],
+        "level_2": [
+          "systems",
+          "Describes prevention and",
+          "management of",
+          "secondary conditions and",
+          "complications, including",
+          "expected effects and",
+          "contraindications of",
+          "treatment",
+          "Synthesizes and applies",
+          "knowledge of common",
+          "spinal cord disorders,"
+        ],
+        "level_3": [
+          "secondary conditions,",
+          "treatment options, and",
+          "complications",
+          "Demonstrates knowledge",
+          "of the continuum of spinal",
+          "cord disorder care,",
+          "including acute care,",
+          "initial rehabilitation, and",
+          "post-discharge follow-up",
+          "Synthesizes and applies",
+          "knowledge required to"
+        ],
+        "level_4": [
+          "diagnose and treat",
+          "complex and",
+          "uncommon spinal cord",
+          "conditions and",
+          "complications",
+          "Delineates a spinal cord",
+          "injury-specific health",
+          "maintenance and",
+          "management program",
+          "across the lifespan and",
+          "spectrum of"
+        ],
+        "level_5": [
+          "impairments and",
+          "disorders",
+          "Serves as an expert",
+          "resource to health care",
+          "professionals regarding",
+          "spinal cord disorders and",
+          "sequelae"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_mk3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Functional Outcomes and Interventions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of spinal cord",
+          "disorders on various",
+          "aspects of function",
+          "Demonstrates knowledge",
+          "of functional outcome,"
+        ],
+        "level_2": [
+          "prognosis, and",
+          "interventions based on",
+          "impairment and",
+          "classification",
+          "Integrates knowledge of",
+          "functional goals and"
+        ],
+        "level_3": [
+          "prognosis into an",
+          "individualized treatment",
+          "plan",
+          "Demonstrates",
+          "knowledge of functional",
+          "outcome and prognosis"
+        ],
+        "level_4": [
+          "based on advanced",
+          "treatments and",
+          "technology, including",
+          "controversial or",
+          "emerging interventions",
+          "Serves as an expert"
+        ],
+        "level_5": [
+          "resource regarding",
+          "functional outcomes in",
+          "spinal cord disorders"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_sbp1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "their families (simulated",
+          "or actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_sbp2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and"
+        ],
+        "level_2": [
+          "metrics",
+          "Describes quality",
+          "improvement initiatives",
+          "Participates in quality"
+        ],
+        "level_3": [
+          "improvement initiatives",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,"
+        ],
+        "level_4": [
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, effectively",
+          "using the roles of"
+        ],
+        "level_2": [
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively collaborating",
+          "with members of the"
+        ],
+        "level_3": [
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and",
+          "community",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different professions",
+          "and specialties"
+        ],
+        "level_4": [
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems and",
+          "settings",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of"
+        ],
+        "level_5": [
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocacy in partnership",
+          "with populations and",
+          "communities experiencing",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_sbp4",
+      "number": 12,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system, including the",
+          "various venues for post-",
+          "acute care",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models",
+          "Identifies basic",
+          "knowledge domains for",
+          "effective transition to",
+          "practice (e.g.,",
+          "information technology,",
+          "legal, billing and coding,"
+        ],
+        "level_2": [
+          "financial, personnel)",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice (e.g., electronic",
+          "health record,",
+          "documentation required",
+          "for billing and coding)"
+        ],
+        "level_3": [
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Describes core",
+          "administrative knowledge",
+          "needed for transition to",
+          "practice (e.g., contract",
+          "negotiations, malpractice",
+          "insurance, government",
+          "regulation, compliance)"
+        ],
+        "level_4": [
+          "Navigates the various",
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model",
+          "Analyzes individual"
+        ],
+        "level_5": [
+          "practice patterns and",
+          "professional",
+          "requirements in",
+          "preparation for",
+          "independent practice",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high value,",
+          "efficient, and effective",
+          "patient care, and",
+          "transitions of care",
+          "Participates in health",
+          "policy advocacy activities",
+          "Educates others to",
+          "prepare them for",
+          "transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence",
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient"
+        ],
+        "level_2": [
+          "preference, to the care of",
+          "straightforward patients",
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of"
+        ],
+        "level_3": [
+          "complex patients",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence, to"
+        ],
+        "level_4": [
+          "guide care tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients, and/or"
+        ],
+        "level_5": [
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Professional Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "professional",
+          "development",
+          "Identifies and/or",
+          "acknowledges gaps",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to verbal feedback and",
+          "other performance data",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to performance gaps",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Intermittently seeks and",
+          "incorporates verbal"
+        ],
+        "level_3": [
+          "feedback and other",
+          "performance data with",
+          "humility and adaptability",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "changes to narrow",
+          "performance gaps",
+          "Independently designs",
+          "and implements a",
+          "learning plan"
+        ],
+        "level_4": [
+          "Consistently seeks and",
+          "incorporates verbal",
+          "feedback and other",
+          "performance data with",
+          "humility and adaptability",
+          "Uses data to measure",
+          "the effectiveness of the",
+          "learning plan to address",
+          "performance gaps and",
+          "modifies it when"
+        ],
+        "level_5": [
+          "necessary",
+          "Role models consistent",
+          "incorporation of verbal",
+          "feedback and other",
+          "performance data",
+          "Coaches others on",
+          "reflective practice,",
+          "including the design and",
+          "implementation of",
+          "learning plans"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_prof1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Ethical Practice",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Approaches clinical care",
+          "and educational duties",
+          "with actions consistent",
+          "with core ethical",
+          "principles",
+          "Demonstrates consistent",
+          "application of ethical",
+          "principles in routine"
+        ],
+        "level_2": [
+          "clinical practice, such as",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error reporting and",
+          "disclosure, and",
+          "stewardship of limited"
+        ],
+        "level_3": [
+          "resources",
+          "Recognizes tensions",
+          "between conflicting",
+          "ethical principles in",
+          "complex situations and",
+          "seeks appropriate",
+          "guidance to help resolve",
+          "ethical dilemmas"
+        ],
+        "level_4": [
+          "Manages ethical",
+          "dilemmas using",
+          "appropriate resources,",
+          "as needed, to facilitate",
+          "resolution (e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal"
+        ],
+        "level_5": [
+          "consultation)",
+          "Serves as a resource for",
+          "others to resolve complex",
+          "ethical dilemmas"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_prof2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Professional Behaviors",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies",
+          "professionalism lapses in",
+          "oneself and others",
+          "Describes when and how",
+          "to appropriately report",
+          "lapses",
+          "Demonstrates"
+        ],
+        "level_2": [
+          "professional behavior in",
+          "routine situations",
+          "Takes responsibility for",
+          "one’s own",
+          "professionalism lapses",
+          "when applicable and",
+          "identifies contributing"
+        ],
+        "level_3": [
+          "factors",
+          "Anticipates situations that",
+          "may trigger",
+          "professionalism lapses",
+          "Takes remedial action to",
+          "address lapses when",
+          "applicable"
+        ],
+        "level_4": [
+          "Demonstrates",
+          "professional behavior",
+          "across situations and",
+          "settings",
+          "Proactively intervenes",
+          "to prevent lapses",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Addresses system issues",
+          "to minimize potential for",
+          "professionalism lapses"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_prof3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_3": [
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements"
+        ],
+        "level_4": [
+          "strategies to ensure the",
+          "needs of patients,",
+          "teams, and systems are",
+          "met in a timely manner",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "optimize timely task",
+          "completion"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_prof4",
+      "number": 18,
+      "domain_number": 4,
+      "name": "Patient Care Etiquette with Patients of All Abilities",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the need to",
+          "respect the dignity of all",
+          "patients regardless of",
+          "impairments or",
+          "disabilities",
+          "Demonstrates specific",
+          "elements of verbal and"
+        ],
+        "level_2": [
+          "physical communication",
+          "that reflect respect for",
+          "people with impairments",
+          "or disabilities",
+          "Proactively maintains the",
+          "patient’s comfort and",
+          "dignity during history"
+        ],
+        "level_3": [
+          "taking and physical",
+          "examination for a patient",
+          "with mild impairments or",
+          "disabilities",
+          "Proactively maintains",
+          "the patient’s comfort",
+          "and dignity during"
+        ],
+        "level_4": [
+          "history taking and",
+          "physical examination for",
+          "a patient with severe",
+          "impairments or",
+          "disabilities",
+          "Serves as a role model",
+          "and as a resource for"
+        ],
+        "level_5": [
+          "others by coaching them",
+          "in behaviors and actions",
+          "that optimize the comfort,",
+          "dignity, and respect of",
+          "people with impairments",
+          "or disabilities"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_prof5",
+      "number": 19,
+      "domain_number": 5,
+      "name": "Fellow Well-Being and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "and demonstrates",
+          "appropriate help seeking",
+          "behaviors"
+        ],
+        "level_3": [
+          "With assistance,",
+          "proposes, implements,",
+          "and refines a plan to",
+          "optimize personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Independently",
+          "develops, implements,",
+          "and refines a plan to",
+          "optimize personal and",
+          "professional well-being"
+        ],
+        "level_5": [
+          "Coaches others and",
+          "addresses system",
+          "barriers and facilitators to",
+          "optimize personal and",
+          "professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Minimizes common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "Accurately",
+          "communicates one’s",
+          "own role within the",
+          "health care system",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear"
+        ],
+        "level_2": [
+          "language",
+          "Minimizes complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy)",
+          "Organizes and initiates",
+          "communication with the",
+          "patient/patient’s family by",
+          "clarifying expectations",
+          "and verifying",
+          "understanding of the",
+          "clinical situation",
+          "Establishes a therapeutic",
+          "relationship in challenging",
+          "patient encounters",
+          "When prompted, reflects",
+          "on biases while"
+        ],
+        "level_3": [
+          "attempting to minimize",
+          "communication barriers",
+          "With guidance, sensitively",
+          "and compassionately",
+          "delivers medical",
+          "information, elicits the",
+          "patient’s/patient’s family’s",
+          "values, goals, and",
+          "preferences, and",
+          "acknowledges uncertainty",
+          "and conflict",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with",
+          "attention to the",
+          "patient/patient’s family’s",
+          "concerns and context,"
+        ],
+        "level_4": [
+          "regardless of complexity",
+          "of the situation",
+          "Overcomes biases",
+          "while proactively",
+          "minimizing",
+          "communication barriers",
+          "Independently, uses",
+          "shared decision making",
+          "to align the",
+          "patient’s/patient’s",
+          "family’s values, goals,",
+          "and preferences with",
+          "treatment options to",
+          "make a personalized",
+          "care plan",
+          "Mentors others in",
+          "developing positive"
+        ],
+        "level_5": [
+          "therapeutic relationships",
+          "Role models self-",
+          "awareness practice while",
+          "teaching a contextual",
+          "approach to minimize",
+          "communication barriers",
+          "Role models shared",
+          "decision making in",
+          "patient/patient family",
+          "communication, including",
+          "those situations with a",
+          "high degree of uncertainty",
+          "or conflict"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses respectful",
+          "language that values all",
+          "members of the health",
+          "care team",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on"
+        ],
+        "level_2": [
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Checks one’s own",
+          "understanding and biases",
+          "while listening to adapt",
+          "communication style to fit",
+          "team needs",
+          "Communicates concerns"
+        ],
+        "level_3": [
+          "and provides feedback to",
+          "members of the health",
+          "care team",
+          "Coordinates",
+          "recommendations and",
+          "communication from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Role models self-",
+          "awareness and flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record while",
+          "safeguarding patient",
+          "personal health",
+          "information",
+          "Demonstrates basic",
+          "knowledge of",
+          "appropriate channels of",
+          "communication within",
+          "the institution (e.g.,"
+        ],
+        "level_2": [
+          "pager callback, timely",
+          "response to emails)",
+          "Demonstrates organized",
+          "and complete diagnostic",
+          "and therapeutic reasoning",
+          "through notes in the",
+          "patient record, including",
+          "appropriate modifications",
+          "when using copy-and-",
+          "paste function",
+          "Communicates through"
+        ],
+        "level_3": [
+          "appropriate channels as",
+          "required by institutional",
+          "policy (e.g., patient safety",
+          "reports)",
+          "Communicates clearly,",
+          "concisely, in a timely",
+          "manner, and in an",
+          "organized written form,",
+          "including anticipatory",
+          "recommendations",
+          "Appropriately selects"
+        ],
+        "level_4": [
+          "direct (e.g., telephone, in-",
+          "person) and indirect (e.g.,",
+          "progress notes, text",
+          "messages) forms of",
+          "communication based on",
+          "context",
+          "Provides feedback to",
+          "improve others’ written",
+          "communication",
+          "Provides written or",
+          "verbal communication"
+        ],
+        "level_5": [
+          "that serves as an",
+          "example for others to",
+          "follow",
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    },
+    {
+      "id": "physical_medicine_and_rehabilitation__spinal_cord_injury_medicine_ics4",
+      "number": 23,
+      "domain_number": 4,
+      "name": "Complex Communication around Prognosis and Outcomes",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies prognostic",
+          "communication as a key",
+          "element for shared",
+          "decision making",
+          "Assesses the patient’s",
+          "and patient’s"
+        ],
+        "level_2": [
+          "family’s/caregiver’s",
+          "awareness and identifies",
+          "preferences for receiving",
+          "prognostic information",
+          "Delivers basic prognostic",
+          "information and attends to"
+        ],
+        "level_3": [
+          "emotional responses of",
+          "the patient and patient’s",
+          "family/caregiver",
+          "Tailors communication",
+          "of prognosis according",
+          "to spinal cord injury or"
+        ],
+        "level_4": [
+          "disorder characteristics",
+          "and trajectory, patient",
+          "consent, family needs,",
+          "and medical",
+          "uncertainty, and is able",
+          "to address intense"
+        ],
+        "level_5": [
+          "emotional response",
+          "Coaches others in the",
+          "communication of",
+          "prognostic information"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "physical-medicine-and-rehabilitation",
+  "primary_name": "Physical Medicine and Rehabilitation",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinemilestonesannotated.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinesupplementalguide.pdf"
+  }
+}

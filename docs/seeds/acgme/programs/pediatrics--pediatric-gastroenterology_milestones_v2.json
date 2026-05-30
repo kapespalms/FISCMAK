@@ -1,0 +1,1174 @@
+{
+  "framework_key": "pediatrics--pediatric-gastroenterology",
+  "specialty": "Pediatric Gastroenterology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Gastroenterology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Pediatric Gastroenterology History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires a",
+          "comprehensive and",
+          "developmentally",
+          "appropriate pediatric",
+          "medical history",
+          "Acquires a pediatric",
+          "gastroenterology history,"
+        ],
+        "level_2": [
+          "including pertinent",
+          "positives and negatives",
+          "Acquires a focused",
+          "pediatric gastroenterology",
+          "history with historical",
+          "subtleties and",
+          "psychosocial and physical"
+        ],
+        "level_3": [
+          "functioning for a patient",
+          "with a simple complaint",
+          "Acquires the complete",
+          "patient history, interprets",
+          "subtleties, and",
+          "determines tailored",
+          "assessment of disease"
+        ],
+        "level_4": [
+          "activity for a patient with",
+          "a complex complaint",
+          "Serves as a role model in",
+          "acquiring the complete",
+          "patient history,",
+          "interpreting subtleties,",
+          "recognizing ambiguities,"
+        ],
+        "level_5": [
+          "and determining tailored",
+          "assessment of disease",
+          "activity for a patient with a",
+          "complex complaint"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Pediatric Gastroenterology Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs complete",
+          "physical examination",
+          "adapted for age and",
+          "development",
+          "Performs a focused",
+          "physical examination on"
+        ],
+        "level_2": [
+          "patients with common",
+          "gastroenterology",
+          "complaints, based on",
+          "history, and identifies",
+          "abnormal findings",
+          "Performs a focused"
+        ],
+        "level_3": [
+          "physical examination on",
+          "patients with complex",
+          "gastroenterology",
+          "complaints using",
+          "strategies to maximize",
+          "patient cooperation and"
+        ],
+        "level_4": [
+          "comfort",
+          "Performs a physical",
+          "examination that",
+          "identifies subtle,",
+          "nuanced findings",
+          "Serves as a role model"
+        ],
+        "level_5": [
+          "for performing a physical",
+          "examination that identifies",
+          "subtle, nuanced findings"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Decision Making",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Reports clinical facts",
+          "(e.g., history, exam,",
+          "tests, consultations), with",
+          "prompting",
+          "Generates a differential"
+        ],
+        "level_2": [
+          "diagnosis based on the",
+          "clinical facts and develops",
+          "plan to obtain tests, as",
+          "needed",
+          "Generates a prioritized"
+        ],
+        "level_3": [
+          "differential diagnosis and",
+          "orders and interprets",
+          "focused testing for",
+          "diagnoses",
+          "Reappraises diagnosis"
+        ],
+        "level_4": [
+          "in real time to avoid",
+          "diagnostic error and",
+          "adjusts management",
+          "accordingly",
+          "Serves as a role model"
+        ],
+        "level_5": [
+          "for complex diagnostic",
+          "decision making"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Organize and Prioritize Inpatient Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Organizes patient care",
+          "tasks, with assistance",
+          "Organizes patient care",
+          "tasks and needs"
+        ],
+        "level_2": [
+          "assistance for patients",
+          "with complex disease;",
+          "recognizes urgent issues",
+          "Prioritizes patient care"
+        ],
+        "level_3": [
+          "tasks with efficiency;",
+          "anticipates and triages",
+          "urgent issues",
+          "Prioritizes patient care"
+        ],
+        "level_4": [
+          "tasks and manages",
+          "service independently",
+          "Serves as a role model",
+          "for organizing, prioritizing,"
+        ],
+        "level_5": [
+          "and managing patient",
+          "care tasks"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Patient Management in Pediatric Gastrointestinal and Liver Disease",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Reports management",
+          "plans developed by",
+          "others",
+          "Participates in the",
+          "creation of management"
+        ],
+        "level_2": [
+          "plans with assistance",
+          "Develops and implements",
+          "an interdisciplinary",
+          "management plan for",
+          "common and typical"
+        ],
+        "level_3": [
+          "diagnoses",
+          "Develops and",
+          "implements informed",
+          "management plans for",
+          "complicated and"
+        ],
+        "level_4": [
+          "atypical diagnoses, with",
+          "the ability to modify",
+          "plans as necessary",
+          "Serves as a role model",
+          "for development and"
+        ],
+        "level_5": [
+          "implementation of",
+          "management plans for",
+          "complicated and atypical",
+          "diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Endoscopic Procedures – Cognitive",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies indications for",
+          "endoscopic procedures",
+          "Explains diagnostic",
+          "endoscopic procedures",
+          "and possible"
+        ],
+        "level_2": [
+          "complications, and",
+          "obtains informed consent",
+          "Interprets findings during",
+          "endoscopic procedures,",
+          "recognizes complications,"
+        ],
+        "level_3": [
+          "and chooses appropriate",
+          "interventions",
+          "Anticipates and",
+          "manages patient-",
+          "specific comorbidities"
+        ],
+        "level_4": [
+          "(e.g., bleeding disorder)",
+          "and complications of",
+          "therapeutic procedures",
+          "Serves as a role model for",
+          "managing patients with"
+        ],
+        "level_5": [
+          "comorbidities and",
+          "complications of",
+          "therapeutic procedures"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Endoscopic Procedures – Technical",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Participates in",
+          "endoscopic procedures",
+          "and performs scope",
+          "functions correctly (e.g.,",
+          "dial maneuvers, button",
+          "use, appropriate",
+          "ergonomics)"
+        ],
+        "level_2": [
+          "Performs endoscopic",
+          "procedures, with",
+          "assistance",
+          "Independently performs",
+          "esophagogastro-",
+          "duodenoscopy ( EGD);",
+          "completes colonoscopy"
+        ],
+        "level_3": [
+          "and performs therapeutic",
+          "endoscopic procedures",
+          "with assistance",
+          "Independently performs",
+          "EGD and",
+          "ileocolonoscopy,",
+          "including therapeutic"
+        ],
+        "level_4": [
+          "endoscopic techniques",
+          "(e.g., polyps, bleeding,",
+          "foreign bodies), and",
+          "manages complications",
+          "Independently performs",
+          "advanced or specialized",
+          "endoscopic procedures"
+        ],
+        "level_5": [
+          "(e.g., single balloon",
+          "enteroscopy, refractory",
+          "gastrointestinal bleeding,",
+          "endo-FLIP) and manages",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_mk1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Diagnostic Evaluation Using Gastrointestinal Tests (e.g., breath test, pH probes, imaging, motility testing,",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Reports results of",
+          "diagnostic studies",
+          "Identifies clinically",
+          "significant results of"
+        ],
+        "level_2": [
+          "diagnostic studies, with",
+          "guidance",
+          "Independently interprets",
+          "or applies results of"
+        ],
+        "level_3": [
+          "common diagnostic",
+          "studies",
+          "Independently interprets",
+          "or applies results of"
+        ],
+        "level_4": [
+          "complex diagnostic",
+          "studies",
+          "Serves as a peer expert",
+          "for interpreting the clinical"
+        ],
+        "level_5": [
+          "significance of results of",
+          "complex diagnostic",
+          "studies"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_mk2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Clinical Knowledge of Pediatric Gastrointestinal and Liver Diseases",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "foundational medical",
+          "knowledge of specialty",
+          "disorders",
+          "Applies medical"
+        ],
+        "level_2": [
+          "knowledge to common",
+          "and typical scenarios to",
+          "guide patient care",
+          "Applies medical",
+          "knowledge to complicated"
+        ],
+        "level_3": [
+          "and atypical conditions to",
+          "guide patient care",
+          "Seeks out and",
+          "integrates medical",
+          "knowledge of specialty"
+        ],
+        "level_4": [
+          "disorders to develop",
+          "personalized care plans",
+          "Serves as a role model at",
+          "multiple levels, drawing",
+          "from a breadth of medical"
+        ],
+        "level_5": [
+          "knowledge that spans the",
+          "continuum of simple to",
+          "complex problems"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "System Navigation for Patient Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists the various",
+          "interprofessional",
+          "individuals involved in",
+          "the patient’s care",
+          "coordination",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations, incorporating",
+          "interprofessional teams",
+          "with consideration of",
+          "patient and family needs",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,"
+        ],
+        "level_3": [
+          "effectively utilizing the",
+          "roles of interprofessional",
+          "teams, and incorporating",
+          "patient and family needs",
+          "and goals",
+          "Coordinates",
+          "interprofessional,"
+        ],
+        "level_4": [
+          "patient-centered care",
+          "among different",
+          "disciplines and",
+          "specialties, actively",
+          "assisting families in",
+          "navigating the health",
+          "care system"
+        ],
+        "level_5": [
+          "Coaches others in",
+          "interprofessional, patient-",
+          "centered care",
+          "coordination"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_sbp4",
+      "number": 13,
+      "domain_number": 4,
+      "name": "System Navigation for Patient-Centered Care – Transitions in Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Uses a standard",
+          "template for transitions",
+          "of care/hand-offs",
+          "Adapts a standard",
+          "template, recognizing key",
+          "elements for safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex"
+        ],
+        "level_3": [
+          "clinical situations, and",
+          "ensures closed-loop",
+          "communication",
+          "Performs and",
+          "advocates for safe and",
+          "effective transitions of"
+        ],
+        "level_4": [
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including transitions to",
+          "adult care",
+          "Coaches others in"
+        ],
+        "level_5": [
+          "improving transitions of",
+          "care within and across",
+          "health care delivery",
+          "systems to optimize",
+          "patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_sbp5",
+      "number": 14,
+      "domain_number": 5,
+      "name": "Population and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "awareness of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs;",
+          "identifies local resources",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Adapts practice to",
+          "provide for the needs of"
+        ],
+        "level_4": [
+          "of a specific population",
+          "Advocates at the local,",
+          "regional, or national level",
+          "for populations and",
+          "communities with health"
+        ],
+        "level_5": [
+          "care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_sbp6",
+      "number": 15,
+      "domain_number": 6,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Engages with patients",
+          "and other providers in",
+          "discussions about cost-",
+          "conscious care and key",
+          "components of the",
+          "health care delivery"
+        ],
+        "level_2": [
+          "system",
+          "Identifies the relationships",
+          "between the delivery",
+          "system and cost-",
+          "conscious care and the",
+          "impact on the patient care"
+        ],
+        "level_3": [
+          "Discusses the need for",
+          "changes in clinical",
+          "approaches based on",
+          "evidence, outcomes, and",
+          "cost-effectiveness to",
+          "improve care for patients"
+        ],
+        "level_4": [
+          "and families",
+          "Advocates for the",
+          "promotion of safe,",
+          "quality, and high-value",
+          "care",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "promote safe, quality, and",
+          "high-value care across",
+          "health care systems"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pbli1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Develops an answerable",
+          "clinical question and",
+          "demonstrates how to",
+          "access available",
+          "evidence, with guidance"
+        ],
+        "level_2": [
+          "Independently articulates",
+          "clinical question and",
+          "accesses available",
+          "evidence",
+          "Locates and applies the"
+        ],
+        "level_3": [
+          "evidence, integrated with",
+          "patient preference, to the",
+          "care of patients",
+          "Critically appraises and",
+          "applies evidence, even"
+        ],
+        "level_4": [
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_pbli2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Participates in feedback",
+          "sessions",
+          "Develops personal and",
+          "professional goals, with",
+          "assistance",
+          "Demonstrates openness",
+          "to feedback and",
+          "performance data",
+          "Designs a learning plan"
+        ],
+        "level_2": [
+          "based on established",
+          "goals, feedback, and",
+          "performance data, with",
+          "assistance",
+          "Seeks and incorporates",
+          "feedback and",
+          "performance data",
+          "episodically",
+          "Designs and implements"
+        ],
+        "level_3": [
+          "a learning plan by",
+          "analyzing and reflecting",
+          "on the factors which",
+          "contribute to gap(s)",
+          "between performance",
+          "expectations and actual",
+          "performance",
+          "Seeks and incorporates",
+          "feedback and"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently",
+          "Adapts a learning plan",
+          "using long-term",
+          "professional goals, self-",
+          "reflection, and",
+          "performance data to",
+          "measure its",
+          "effectiveness"
+        ],
+        "level_5": [
+          "Role models and coaches",
+          "others in seeking and",
+          "incorporating feedback",
+          "and performance data",
+          "Demonstrates continuous",
+          "self-reflection and",
+          "coaching of others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_prof1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies expected",
+          "professional behaviors",
+          "and potential triggers for",
+          "lapses",
+          "Identifies the value and",
+          "role of pediatric",
+          "gastroenterology as a",
+          "vocation/career",
+          "Demonstrates",
+          "professional behavior with"
+        ],
+        "level_2": [
+          "occasional lapses",
+          "Demonstrates",
+          "accountability for patient",
+          "care as a pediatric",
+          "gastroenterologist, with",
+          "guidance",
+          "Maintains professional",
+          "behavior in increasingly",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_3": [
+          "Fully engages in patient",
+          "care and holds oneself",
+          "accountable",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Exhibits a sense of duty"
+        ],
+        "level_4": [
+          "to patient care and",
+          "professional",
+          "responsibilities",
+          "Models professional",
+          "behavior and coaches",
+          "others when their",
+          "behavior fails to meet",
+          "professional expectations",
+          "Extends the role of the",
+          "pediatric"
+        ],
+        "level_5": [
+          "gastroenterologist beyond",
+          "the care of patients by",
+          "engaging with the",
+          "community, specialty, and",
+          "medical profession as a",
+          "whole"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_prof2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,"
+        ],
+        "level_2": [
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Applies ethical principles",
+          "in common situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles to address"
+        ],
+        "level_3": [
+          "conflict/controversy;",
+          "seeks help when needed",
+          "to manage and resolve",
+          "complex ethical situations",
+          "Manages and seeks to",
+          "resolve ethical",
+          "dilemmas using",
+          "appropriate resources"
+        ],
+        "level_4": [
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Called upon by others to",
+          "consult in cases of",
+          "complex ethical"
+        ],
+        "level_5": [
+          "dilemmas; identifies and",
+          "seeks to address system-",
+          "level factors that induce",
+          "or exacerbate"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_prof3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities, with",
+          "prompting",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner in routine",
+          "situations",
+          "Performs tasks and",
+          "responsibilities in a",
+          "thorough and timely"
+        ],
+        "level_3": [
+          "manner in complex or",
+          "stressful situations",
+          "Coaches others to",
+          "ensure tasks and",
+          "responsibilities are"
+        ],
+        "level_4": [
+          "completed in a thorough",
+          "and timely manner in",
+          "complex or stressful",
+          "situations",
+          "Creates strategies to"
+        ],
+        "level_5": [
+          "enhance others’ ability to",
+          "efficiently complete tasks",
+          "and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_prof4",
+      "number": 21,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote well-being",
+          "Recognizes institutional"
+        ],
+        "level_3": [
+          "and personal factors that",
+          "impact well-being",
+          "Describes interactions",
+          "between institutional"
+        ],
+        "level_4": [
+          "and personal factors",
+          "that impact well-being",
+          "Coaches and supports",
+          "colleagues to optimize"
+        ],
+        "level_5": [
+          "well-being at the team,",
+          "program, or institutional",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_ics1",
+      "number": 22,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and attempts to establish",
+          "rapport",
+          "Attempts to adjust",
+          "communication",
+          "strategies based upon",
+          "patient/family",
+          "expectations",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Adjusts communication",
+          "strategies as needed to",
+          "mitigate barriers and meet",
+          "patient/family",
+          "expectations",
+          "Establishes a culturally"
+        ],
+        "level_3": [
+          "aware and therapeutic",
+          "relationship in most",
+          "encounters",
+          "Communicates with",
+          "sensitivity and",
+          "compassion, elicits",
+          "patient/family values, and",
+          "acknowledges uncertainty",
+          "and conflict"
+        ],
+        "level_4": [
+          "Establishes a",
+          "therapeutic relationship",
+          "in straightforward and",
+          "complex encounters,",
+          "including those with",
+          "ambiguity and/or conflict",
+          "Uses shared decision",
+          "making with",
+          "patient/family to make a"
+        ],
+        "level_5": [
+          "personalized care plan",
+          "Mentors others to develop",
+          "positive therapeutic",
+          "relationships",
+          "Models and coaches",
+          "others in patient- and",
+          "family-centered",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_ics2",
+      "number": 23,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation, with",
+          "guidance",
+          "Identifies the members",
+          "of the interprofessional",
+          "team",
+          "Clearly and concisely"
+        ],
+        "level_2": [
+          "requests consultation by",
+          "communicating patient",
+          "information",
+          "Participates within the",
+          "interprofessional team",
+          "Formulates a specific",
+          "question for consultation"
+        ],
+        "level_3": [
+          "and tailors communication",
+          "strategy",
+          "Uses bi-directional",
+          "communication within the",
+          "interprofessional team",
+          "Coordinates consultant",
+          "recommendations to"
+        ],
+        "level_4": [
+          "optimize patient care",
+          "Facilitates",
+          "interprofessional team",
+          "communication",
+          "Maintains a collaborative",
+          "relationship with referring",
+          "providers that maximizes"
+        ],
+        "level_5": [
+          "adherence to practice",
+          "recommendations",
+          "Coaches others in",
+          "effective communication",
+          "within the",
+          "interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_gastroenterology_ics3",
+      "number": 24,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Records accurate",
+          "information in the patient",
+          "record",
+          "Identifies the importance",
+          "of and responds to",
+          "multiple forms of",
+          "communication (e.g., in-",
+          "person, electronic health",
+          "record (EHR), telephone,"
+        ],
+        "level_2": [
+          "email)",
+          "Records accurate and",
+          "timely information in the",
+          "patient record",
+          "Selects appropriate",
+          "method of",
+          "communication, with",
+          "prompting",
+          "Concisely documents"
+        ],
+        "level_3": [
+          "updated, prioritized,",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Aligns type of",
+          "communication with",
+          "message to be delivered",
+          "(e.g., direct and indirect)",
+          "based on urgency and"
+        ],
+        "level_4": [
+          "complexity",
+          "Documents diagnostic",
+          "and therapeutic",
+          "reasoning, including",
+          "anticipatory guidance",
+          "Demonstrates",
+          "exemplary written and",
+          "verbal communication",
+          "Models and coaches"
+        ],
+        "level_5": [
+          "others in documenting",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "Coaches others in written",
+          "and verbal",
+          "communication"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pediatrics",
+  "primary_name": "Pediatrics",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricgastroenterologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricgastroenterologysupplementalguide.pdf"
+  }
+}

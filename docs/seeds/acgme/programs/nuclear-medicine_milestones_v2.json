@@ -1,0 +1,1292 @@
+{
+  "framework_key": "nuclear-medicine",
+  "specialty": "Nuclear Medicine",
+  "version": "2.0",
+  "source": "ACGME Nuclear Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "nuclear_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Diagnostic Planar, SPECT, and PET Imaging: Patient Evaluation, Procedure Selection, Monitoring, and",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs patient-focused",
+          "assessment and",
+          "discusses routine nuclear",
+          "medicine procedures,",
+          "common indications, and",
+          "contraindications",
+          "Recognizes normal",
+          "physiologic distribution of",
+          "FDA-approved"
+        ],
+        "level_2": [
+          "radiopharmaceuticals",
+          "Proposes procedure",
+          "and patient preparation",
+          "based on exam request",
+          "and patient information",
+          "Identifies abnormalities",
+          "in the physiologic",
+          "distribution and",
+          "forms a preliminary"
+        ],
+        "level_3": [
+          "impression in the context",
+          "of a patient’s history",
+          "Selects procedures for",
+          "routine cases and",
+          "modifies protocols, as",
+          "needed",
+          "Assesses completion of",
+          "and accurately interprets",
+          "procedures done for"
+        ],
+        "level_4": [
+          "uncomplicated cases",
+          "Selects procedures for",
+          "complex cases and",
+          "modifies protocols, as",
+          "needed",
+          "Assesses completion of",
+          "and accurately",
+          "interprets procedures",
+          "done for complex or"
+        ],
+        "level_5": [
+          "less common cases",
+          "Develops or revises",
+          "protocol(s) for nuclear",
+          "medicine procedures",
+          "Manages the nuclear",
+          "medicine clinic and acts",
+          "as a consultant in an",
+          "interdisciplinary",
+          "conference"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Cardiovascular Nuclear Medicine-Stress Testing: Patient Evaluation and Procedure Monitoring",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs targeted",
+          "patient evaluation for a",
+          "range of cardiac stress",
+          "protocols",
+          "Interprets"
+        ],
+        "level_2": [
+          "electrocardiogram and",
+          "monitors stress",
+          "procedure, and applies",
+          "criteria for procedure",
+          "completion or"
+        ],
+        "level_3": [
+          "termination",
+          "Recognizes and manages",
+          "common procedure",
+          "complications and",
+          "contraindications"
+        ],
+        "level_4": [
+          "Recognizes and",
+          "manages complex or",
+          "less common procedure",
+          "complications",
+          "Manages the nuclear"
+        ],
+        "level_5": [
+          "cardiology clinic and acts",
+          "as a consultant in an",
+          "interdisciplinary",
+          "conference"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Theranostics: Radioiodine for Benign Thyroid Disease – Patient Evaluation, Procedure Selection, Procedure",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs initial patient",
+          "evaluation and discusses",
+          "patient preparation,",
+          "indications,",
+          "contraindications,",
+          "guidelines, and radiation"
+        ],
+        "level_2": [
+          "safety precautions",
+          "Analyzes relevant patient",
+          "information and confirms",
+          "patient preparation,",
+          "pertinent imaging, and",
+          "therapeutic procedure set-"
+        ],
+        "level_3": [
+          "up and technique",
+          "Formulates the",
+          "therapeutic plan, performs",
+          "the procedure, and",
+          "recommends follow-up",
+          "strategies for routine"
+        ],
+        "level_4": [
+          "clinical situations",
+          "Formulates the",
+          "therapeutic plan,",
+          "performs the procedure,",
+          "and recommends",
+          "follow-up strategies for"
+        ],
+        "level_5": [
+          "complicated or less",
+          "common situations",
+          "Acts as an expert",
+          "consultant for radioiodine",
+          "theranostics for benign",
+          "thyroid disease"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Theranostics: Radioiodine for Thyroid Malignancy – Patient Evaluation, Procedure Selection, Procedure",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs initial patient",
+          "evaluation and",
+          "discusses patient",
+          "preparation,",
+          "indications,",
+          "contraindications, and",
+          "radiation safety"
+        ],
+        "level_2": [
+          "precautions",
+          "Analyzes relevant patient",
+          "information and confirms",
+          "patient preparation,",
+          "pertinent imaging, and",
+          "therapeutic procedure",
+          "set-up and technique"
+        ],
+        "level_3": [
+          "Formulates the",
+          "therapeutic plan, performs",
+          "the procedure, and",
+          "recommends follow-up",
+          "strategies for routine",
+          "clinical situations",
+          "Formulates the"
+        ],
+        "level_4": [
+          "therapeutic plan,",
+          "performs the procedure,",
+          "and recommends",
+          "follow-up strategies for",
+          "complicated or less",
+          "common situations",
+          "Acts as an expert"
+        ],
+        "level_5": [
+          "consultant for radioiodine",
+          "theranostics for thyroid",
+          "malignancies and acts as",
+          "a consultant for",
+          "multidisciplinary",
+          "conferences"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Theranostics: Parenteral – Patient Evaluation, Procedure Selection, Procedure Performance, and Follow-Up",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs initial patient",
+          "evaluation and",
+          "discusses patient",
+          "preparation,",
+          "indications,",
+          "contraindications, and",
+          "radiation safety",
+          "precautions"
+        ],
+        "level_2": [
+          "Analyzes relevant patient",
+          "information and confirms",
+          "patient preparation,",
+          "pertinent imaging,",
+          "therapeutic procedure",
+          "set-up and technique, and",
+          "regulatory compliance",
+          "Formulates the"
+        ],
+        "level_3": [
+          "therapeutic plan, performs",
+          "the procedure, and",
+          "recommends follow-up",
+          "strategies for",
+          "uncomplicated clinical",
+          "situations",
+          "Formulates the",
+          "therapeutic plan,"
+        ],
+        "level_4": [
+          "performs the procedure,",
+          "and recommends",
+          "follow-up strategies for",
+          "complicated or less",
+          "common clinical",
+          "situations",
+          "Acts as an expert",
+          "consultant for parenteral"
+        ],
+        "level_5": [
+          "theranostics and acts as a",
+          "consultant for",
+          "multidisciplinary",
+          "conferences"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Physiology and Pathophysiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic",
+          "physiology and",
+          "pathophysiology of",
+          "common diseases",
+          "Identifies physiologic",
+          "basis for patient",
+          "preparation and adjunct"
+        ],
+        "level_2": [
+          "pharmacologic",
+          "interventions",
+          "Explains imaging findings",
+          "of common diseases",
+          "based on knowledge of",
+          "physiology and",
+          "pathophysiology"
+        ],
+        "level_3": [
+          "Explains imaging",
+          "findings of complex and",
+          "less common diseases",
+          "based on knowledge of",
+          "physiology and",
+          "pathophysiology",
+          "Applies knowledge of"
+        ],
+        "level_4": [
+          "physiology and",
+          "pathophysiology to",
+          "perform meaningful",
+          "nuclear medicine",
+          "research, assess and",
+          "revise (as needed)",
+          "department protocols for"
+        ],
+        "level_5": [
+          "imaging or therapy, or",
+          "critically assess research",
+          "in the medical literature"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Anatomic Imaging",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "normal anatomy for",
+          "imaging",
+          "Demonstrates",
+          "knowledge of anatomy",
+          "depicted on commonly",
+          "obtained imaging views",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of normal cross-sectional",
+          "anatomy, common",
+          "anatomic variants, and",
+          "commonly encountered",
+          "abnormalities",
+          "Obtains common imaging",
+          "views to depict desired",
+          "anatomy",
+          "Applies knowledge of"
+        ],
+        "level_3": [
+          "anatomy to correlative,",
+          "functional, and hybrid",
+          "imaging",
+          "Directs technical staff",
+          "members to obtain",
+          "common imaging views to",
+          "depict desired anatomy",
+          "Demonstrates",
+          "knowledge of less"
+        ],
+        "level_4": [
+          "common anatomic",
+          "variants, less common",
+          "abnormalities, and",
+          "critical findings",
+          "Directs technical staff",
+          "members to acquire",
+          "images to depict less",
+          "common anatomical",
+          "views"
+        ],
+        "level_5": [
+          "Teaches anatomic",
+          "imaging to junior",
+          "residents, medical",
+          "students, and",
+          "technologists",
+          "Modifies protocols as",
+          "needed to depict desired",
+          "anatomy and function"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_mk3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Instrumentation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic image",
+          "acquisition and image",
+          "processing",
+          "Recognizes common"
+        ],
+        "level_2": [
+          "imaging artifacts and",
+          "technical problems",
+          "Demonstrates knowledge",
+          "of instrument quality"
+        ],
+        "level_3": [
+          "control and recognizes",
+          "unusual and rare artifacts",
+          "and technique problems",
+          "Works with technologist"
+        ],
+        "level_4": [
+          "to optimize image",
+          "acquisition and",
+          "processing",
+          "Modifies institutional"
+        ],
+        "level_5": [
+          "protocols, including",
+          "instrumentation and image",
+          "acquisition"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_mk4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Radiopharmaceuticals and Molecular Agents",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "radiopharmaceutical",
+          "properties",
+          "Demonstrates knowledge",
+          "of appropriate use and",
+          "normal distribution of",
+          "common",
+          "radiopharmaceuticals",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of common",
+          "radiopharmacy operations",
+          "and routine quality control",
+          "Demonstrates knowledge",
+          "of pathology for common",
+          "imaging procedures",
+          "Demonstrates knowledge",
+          "of less common",
+          "radiopharmaceutical",
+          "properties"
+        ],
+        "level_3": [
+          "Demonstrates knowledge",
+          "of appropriate use,",
+          "abnormal distribution, and",
+          "pathology of less common",
+          "radiopharmaceuticals",
+          "Demonstrates",
+          "knowledge of",
+          "recently approved",
+          "radiopharmaceuticals",
+          "and other molecular"
+        ],
+        "level_4": [
+          "agents",
+          "Demonstrates",
+          "knowledge of",
+          "appropriate use,",
+          "abnormal distribution,",
+          "and pathology for",
+          "recently approved",
+          "imaging procedures",
+          "Demonstrates",
+          "knowledge of"
+        ],
+        "level_5": [
+          "emerging",
+          "radiopharmaceuticals",
+          "that are near Food",
+          "and Drug",
+          "Administration (FDA)",
+          "approval",
+          "Conducts research on",
+          "emerging",
+          "radiopharmaceuticals"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_mk5",
+      "number": 10,
+      "domain_number": 5,
+      "name": "Medical Physics, Mathematics, and Radiation Biology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Understands the",
+          "concepts underlying",
+          "medical physics pertinent",
+          "to nuclear medicine",
+          "Recognizes the",
+          "importance of",
+          "radiation/cancer biology",
+          "in nuclear medicine"
+        ],
+        "level_2": [
+          "Applies basic medical",
+          "physics and mathematical",
+          "principles in clinical",
+          "nuclear medicine practice",
+          "Discusses the basic",
+          "concepts of radiation",
+          "biology as pertains to",
+          "nuclear medicine"
+        ],
+        "level_3": [
+          "Applies advanced medical",
+          "physics and mathematical",
+          "principles in clinical",
+          "nuclear medicine practice",
+          "Applies advanced",
+          "concepts in radiation",
+          "biology to clinical nuclear",
+          "medicine practice"
+        ],
+        "level_4": [
+          "Functions and",
+          "converses with the",
+          "department’s medical",
+          "physicist staff at an",
+          "advanced level",
+          "Serves as an expert",
+          "consultant with both",
+          "patients and other"
+        ],
+        "level_5": [
+          "medical staff members",
+          "on matters of radiation",
+          "treatment",
+          "Serves as an expert",
+          "on the radiation safety",
+          "committee"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient radiation",
+          "safety events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure"
+        ],
+        "level_3": [
+          "of patient radiation safety",
+          "events to patients and",
+          "their families (simulated or",
+          "actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient"
+        ],
+        "level_4": [
+          "radiation safety events",
+          "to patients and their",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent patient",
+          "safety events"
+        ],
+        "level_5": [
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient radiation safety",
+          "events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination in nuclear",
+          "medicine imaging and",
+          "therapies",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine nuclear"
+        ],
+        "level_2": [
+          "medicine imaging and",
+          "therapies, effectively",
+          "utilizing the roles of the",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and community",
+          "health needs for the local",
+          "population",
+          "Coordinates care of",
+          "patients in complex"
+        ],
+        "level_3": [
+          "nuclear medicine imaging",
+          "and therapies, effectively",
+          "utilizing the roles of the",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and community",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated and impact",
+          "patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each patient’s",
+          "payment model",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each"
+        ],
+        "level_5": [
+          "patient’s payment model",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_sbp4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "Radiation Protection, Patient Safety, and Procedural Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "radiation protection",
+          "concepts and basic",
+          "procedural safety in",
+          "nuclear medicine",
+          "Demonstrates",
+          "knowledge of universal",
+          "precautions, including",
+          "hand washing and",
+          "sterile injection",
+          "technique"
+        ],
+        "level_2": [
+          "Demonstrates",
+          "knowledge of radiation",
+          "protection concepts in",
+          "nuclear medicine and",
+          "correlative imaging",
+          "Demonstrates knowledge",
+          "of appropriate use of",
+          "“time-out” procedure, and",
+          "how to ensure the right",
+          "patient has the right study",
+          "or therapy at the right",
+          "time in the right setting"
+        ],
+        "level_3": [
+          "Consistently practices",
+          "ALARA (as low as",
+          "reasonably",
+          "achievable) principle",
+          "for patients, patients’",
+          "families, staff",
+          "members, and the",
+          "public",
+          "Demonstrates knowledge",
+          "of more complex concepts",
+          "of procedural safety and",
+          "contraindications"
+        ],
+        "level_4": [
+          "Models excellent",
+          "understanding of",
+          "radiation protection",
+          "and/or procedural safety",
+          "Demonstrates",
+          "knowledge of",
+          "prevention and",
+          "management of",
+          "procedural",
+          "complications for",
+          "nuclear medicine and",
+          "correlative imaging"
+        ],
+        "level_5": [
+          "studies",
+          "Participates in Radiation",
+          "Safety Committee",
+          "meetings and/or",
+          "independently manages",
+          "radiation safety events",
+          "Implements new safety",
+          "procedures and quality",
+          "control measures",
+          "impacting patient care"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_pbli1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "accesses available",
+          "evidence and practice",
+          "guidelines for patient",
+          "care"
+        ],
+        "level_2": [
+          "Independently identifies",
+          "available evidence and",
+          "practice guidelines for",
+          "patient care",
+          "Critically appraises"
+        ],
+        "level_3": [
+          "evidence and applies to",
+          "patient care",
+          "Applies best available",
+          "evidence, even in the",
+          "face of insufficient"
+        ],
+        "level_4": [
+          "and/or conflicting",
+          "information",
+          "Coaches others and",
+          "serves as a role model to",
+          "apply evidence to patient"
+        ],
+        "level_5": [
+          "care and/or participates in",
+          "the development of",
+          "guidelines"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_pbli2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gaps in",
+          "knowledge and",
+          "performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Reflects on the factors",
+          "that contribute to gaps"
+        ],
+        "level_2": [
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Institutes changes to",
+          "narrow the gaps between"
+        ],
+        "level_3": [
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks",
+          "performance data to"
+        ],
+        "level_4": [
+          "narrow the gaps",
+          "between expectations",
+          "and actual performance",
+          "Measures the",
+          "effectiveness of the",
+          "learning plan and",
+          "makes appropriate"
+        ],
+        "level_5": [
+          "changes",
+          "Role models reflective",
+          "practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_prof1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "ethical principles and",
+          "potential triggers for",
+          "professionalism lapses",
+          "Describes when and how"
+        ],
+        "level_2": [
+          "to appropriately report",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Recognizes and takes"
+        ],
+        "level_3": [
+          "responsibility for one’s",
+          "own professionalism",
+          "lapses",
+          "Manages and resolves",
+          "complex ethical situations,",
+          "including personal lapses,"
+        ],
+        "level_4": [
+          "with assistance",
+          "Intervenes and uses",
+          "appropriate resources to",
+          "prevent and manage",
+          "professionalism lapses",
+          "and dilemmas in oneself"
+        ],
+        "level_5": [
+          "and others",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_prof2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "Performs tasks in a timely",
+          "manner or provides",
+          "notification when unable"
+        ],
+        "level_2": [
+          "to complete tasks",
+          "Performs tasks in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Takes responsibility in",
+          "situations that impact",
+          "the ability of team",
+          "members to complete"
+        ],
+        "level_4": [
+          "tasks and",
+          "responsibilities in a",
+          "timely manner",
+          "Coaches others in taking",
+          "responsibility for"
+        ],
+        "level_5": [
+          "administrative and clinical",
+          "care duties"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_prof3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Well-Being and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "as well as the limits of",
+          "such knowledge, with"
+        ],
+        "level_2": [
+          "assistance",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being,",
+          "as well as the limits of"
+        ],
+        "level_3": [
+          "such knowledge",
+          "With assistance, proposes",
+          "a plan to optimize",
+          "personal and professional",
+          "well-being"
+        ],
+        "level_4": [
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Coaches others and"
+        ],
+        "level_5": [
+          "role models the continual",
+          "ability to monitor and",
+          "address personal and",
+          "professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "communication",
+          "Recognizes the need to",
+          "adjust communication",
+          "strategies based on",
+          "context",
+          "Learns to obtain",
+          "informed consent",
+          "Identifies complex barriers",
+          "to effective",
+          "communication"
+        ],
+        "level_2": [
+          "Verifies patient’s/patient’s",
+          "family’s understanding of",
+          "the clinical situation to",
+          "optimize effective",
+          "communication",
+          "Obtains informed consent",
+          "for routine procedures",
+          "Reflects on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "With guidance, uses",
+          "shared decision making to"
+        ],
+        "level_3": [
+          "align the",
+          "patient’s/patient’s family’s",
+          "values, goals, and",
+          "preferences with",
+          "treatment options to make",
+          "a personalized care plan",
+          "Obtains informed consent",
+          "for complex procedures",
+          "Proactively improves",
+          "communication by",
+          "addressing barriers",
+          "Independently uses"
+        ],
+        "level_4": [
+          "shared decision making",
+          "to make a personalized",
+          "care plan",
+          "Teaches junior",
+          "residents how to obtain",
+          "informed consent in",
+          "common clinical and",
+          "research situations",
+          "Role models",
+          "communication that",
+          "addresses barriers",
+          "Role models shared"
+        ],
+        "level_5": [
+          "decision making in",
+          "patient/patient’s family",
+          "communication, including",
+          "in situations with a high",
+          "degree of",
+          "uncertainty/conflict",
+          "Addresses informed",
+          "consent in complex",
+          "clinical and research",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses respectful",
+          "communication (verbal",
+          "and non-verbal) with all",
+          "members of the health",
+          "care team",
+          "Demonstrates openness",
+          "to feedback",
+          "Communicates effectively"
+        ],
+        "level_2": [
+          "with all health care team",
+          "members",
+          "Is responsive to feedback",
+          "Adapts communication",
+          "style within and across",
+          "heath care teams to",
+          "ensure mutual",
+          "understanding"
+        ],
+        "level_3": [
+          "Seeks and provides",
+          "performance feedback",
+          "Coordinates",
+          "recommendations from",
+          "different members of the",
+          "health care team to",
+          "optimize patient care",
+          "Uses feedback to"
+        ],
+        "level_4": [
+          "improve one’s own",
+          "performance and",
+          "provides actionable",
+          "feedback to team",
+          "members",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all"
+        ],
+        "level_5": [
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Role models giving and",
+          "receiving of feedback"
+        ]
+      }
+    },
+    {
+      "id": "nuclear_medicine_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patients’",
+          "personal health",
+          "information in",
+          "communications",
+          "Demonstrates organized"
+        ],
+        "level_2": [
+          "diagnostic and therapeutic",
+          "reasoning through notes",
+          "in the patient record",
+          "Appropriately selects",
+          "forms of communication",
+          "based on context",
+          "Concisely reports",
+          "diagnostic and therapeutic"
+        ],
+        "level_3": [
+          "reasoning in the patient",
+          "record",
+          "Includes key stakeholders",
+          "in all communications",
+          "Communicates clearly,",
+          "concisely, timely, and in",
+          "an organized written",
+          "form, including"
+        ],
+        "level_4": [
+          "anticipatory guidance",
+          "Produces written or",
+          "verbal communication",
+          "that serves as an",
+          "example for others to",
+          "follow",
+          "Role models optimal",
+          "documentation"
+        ],
+        "level_5": [
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "primary",
+  "primary_slug": "nuclear-medicine",
+  "primary_name": "Nuclear Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinemilestonesannotated.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinesupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1249 @@
+{
+  "framework_key": "pathology--pediatric-pathology",
+  "specialty": "Pediatric Pathology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Pathology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pathology__pediatric_pathology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Pediatric and Perinatal Pathology Grossing (Examine, Describe, Triage, Sample, and Document)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs gross",
+          "examination of routine",
+          "specimens, with direct",
+          "supervision",
+          "Performs gross"
+        ],
+        "level_2": [
+          "examination of complex",
+          "specimens, with direct",
+          "supervision",
+          "Performs gross",
+          "examination of complex"
+        ],
+        "level_3": [
+          "specimens and identifies",
+          "when additional sampling",
+          "is necessary for diagnosis",
+          "or staging, with indirect",
+          "supervision"
+        ],
+        "level_4": [
+          "Independently performs",
+          "gross examination of",
+          "complex specimens",
+          "Serves as an expert",
+          "resource for gross"
+        ],
+        "level_5": [
+          "examination and applies",
+          "innovative approaches of",
+          "grossing to demonstrate",
+          "innovative pathology in",
+          "unique specimens"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Intra-Operative Consultation (Frozen Sections, Rapid Onsite Evaluation of Fine Needle Aspiration)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Selects tissue and",
+          "prepares quality slides",
+          "for common and",
+          "complex pediatric cases,",
+          "with direct supervision",
+          "Develops differential",
+          "diagnosis of common",
+          "pediatric specimens and",
+          "recognizes broad",
+          "diagnostic categories"
+        ],
+        "level_2": [
+          "(i.e., benign versus",
+          "malignant, normal versus",
+          "abnormal)",
+          "Selects tissue and",
+          "prepares quality slides for",
+          "common pediatric cases,",
+          "with indirect supervision,",
+          "and complex pediatric",
+          "cases, with direct",
+          "supervision"
+        ],
+        "level_3": [
+          "Interprets common",
+          "pediatric cases",
+          "independently and",
+          "develops differential for",
+          "complex pediatric cases",
+          "with guidance",
+          "Selects tissue and",
+          "prepares quality slides for",
+          "common pediatric cases,",
+          "independently, and"
+        ],
+        "level_4": [
+          "complex pediatric cases,",
+          "with indirect supervision",
+          "Interprets common",
+          "pediatric cases",
+          "independently and",
+          "complex cases with",
+          "guidance",
+          "Independently selects",
+          "tissue and prepares",
+          "quality slides for"
+        ],
+        "level_5": [
+          "common and complex",
+          "pediatric cases",
+          "Independently interprets",
+          "common and complex",
+          "pediatric cases",
+          "Serves as an expert",
+          "resource for",
+          "intraoperative",
+          "consultations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Autopsy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs standard",
+          "autopsy, with direct",
+          "supervision",
+          "Obtains clinical history",
+          "from electronic health",
+          "record (EHR) and/or",
+          "other sources",
+          "Performs standard",
+          "autopsy with indirect"
+        ],
+        "level_2": [
+          "supervision and performs",
+          "complex autopsy with",
+          "direct supervision",
+          "Reviews clinical history",
+          "and summarizes pertinent",
+          "findings",
+          "Independently performs",
+          "standard autopsy and",
+          "performs complex"
+        ],
+        "level_3": [
+          "autopsy with indirect",
+          "supervision",
+          "Reviews clinical history,",
+          "summarizes pertinent",
+          "findings, and identifies",
+          "relevant clinical questions",
+          "for standard cases",
+          "Independently performs",
+          "standard and complex"
+        ],
+        "level_4": [
+          "autopsy",
+          "Reviews clinical history,",
+          "summarizes pertinent",
+          "findings, and identifies",
+          "relevant clinical",
+          "questions for complex",
+          "cases",
+          "Serves as an expert",
+          "resource for complex"
+        ],
+        "level_5": [
+          "techniques in autopsy",
+          "Serves as an expert",
+          "resource for identifying",
+          "and interpreting clinical",
+          "questions in complex",
+          "cases"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Reporting, including Surgical Pathology, Cytopathology, and Autopsy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Composes reports on",
+          "routine cases, with",
+          "guidance, including",
+          "synoptics and",
+          "amended/addended",
+          "reports, when applicable"
+        ],
+        "level_2": [
+          "Independently composes",
+          "reports on routine cases",
+          "Composes reports on",
+          "complex cases with",
+          "integration of clinical and",
+          "ancillary (e.g., molecular,"
+        ],
+        "level_3": [
+          "cytogenetic, flow",
+          "cytometric) information,",
+          "including language of",
+          "uncertainty, with guidance",
+          "Independently",
+          "composes reports on"
+        ],
+        "level_4": [
+          "complex cases with",
+          "integration of clinical",
+          "and ancillary",
+          "information, including",
+          "language of uncertainty",
+          "Serves as a resource for"
+        ],
+        "level_5": [
+          "composition of reports on",
+          "complex cases with",
+          "integration of clinical and",
+          "ancillary information,",
+          "including language of",
+          "uncertainty"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Knowledge of Pediatric and Perinatal Diseases",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "medical knowledge",
+          "acquired through",
+          "pathology education in",
+          "residency",
+          "Demonstrates basic",
+          "knowledge of",
+          "histochemistry,",
+          "immunohistochemistry,",
+          "and molecular",
+          "techniques"
+        ],
+        "level_2": [
+          "Demonstrates advanced",
+          "knowledge of common",
+          "pediatric neoplastic and",
+          "non-neoplastic diseases",
+          "Demonstrates advanced",
+          "knowledge of",
+          "histochemistry,",
+          "immunohistochemistry,",
+          "and molecular techniques",
+          "Applies advanced",
+          "knowledge of uncommon"
+        ],
+        "level_3": [
+          "pediatric neoplastic and",
+          "non-neoplastic diseases",
+          "Applies advanced",
+          "knowledge of",
+          "histochemistry,",
+          "immunohistochemistry,",
+          "and molecular techniques",
+          "Integrates advanced",
+          "knowledge of",
+          "uncommon pediatric",
+          "neoplastic and non-"
+        ],
+        "level_4": [
+          "neoplastic diseases,",
+          "with reference to",
+          "literature",
+          "Integrates advanced",
+          "knowledge of",
+          "histochemistry,",
+          "immunohistochemistry,",
+          "and molecular",
+          "techniques with",
+          "reference to literature",
+          "Demonstrates expertise"
+        ],
+        "level_5": [
+          "and teaches pediatric",
+          "pathology",
+          "Demonstrates expertise",
+          "and teaches",
+          "histochemistry,",
+          "immunohistochemistry,",
+          "and molecular techniques",
+          "Not Yet Completed Level 1",
+          "Not Yet Rotated",
+          "-- 11 of 25 --"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic",
+          "framework for clinical",
+          "reasoning",
+          "Identifies appropriate",
+          "resources to inform",
+          "clinical reasoning",
+          "Demonstrates clinical",
+          "reasoning to determine"
+        ],
+        "level_2": [
+          "relevant information",
+          "Selects relevant",
+          "resources based on",
+          "scenario to inform",
+          "decisions",
+          "Synthesizes information",
+          "to inform clinical",
+          "reasoning, with"
+        ],
+        "level_3": [
+          "assistance",
+          "Seeks and integrates",
+          "evidence-based",
+          "information to inform",
+          "diagnostic decision",
+          "making in complex cases,",
+          "with assistance",
+          "Independently"
+        ],
+        "level_4": [
+          "synthesizes information",
+          "to inform clinical",
+          "reasoning in complex",
+          "cases",
+          "Independently seeks",
+          "out, analyzes, and",
+          "applies relevant original",
+          "research to diagnostic"
+        ],
+        "level_5": [
+          "decision making in",
+          "complex clinical cases",
+          "Demonstrates intuitive",
+          "approach to clinical",
+          "reasoning for complex",
+          "cases"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_sbp1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic QI",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "and institutional QI",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "clinicians and/or patients",
+          "and families (simulated or",
+          "actual)",
+          "Participates in",
+          "departmental and",
+          "institutional QI initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error"
+        ],
+        "level_4": [
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to clinicians",
+          "and/or patients and",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a QI",
+          "project"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses QI initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_sbp2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of case",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients/specimens in",
+          "routine cases effectively"
+        ],
+        "level_2": [
+          "using interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "situations",
+          "Identifies pathology’s role",
+          "in population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients/specimens in",
+          "complex cases effectively",
+          "using interprofessional"
+        ],
+        "level_3": [
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "situations",
+          "Identifies opportunities for",
+          "pathology to participate in",
+          "community and",
+          "population health",
+          "Models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties"
+        ],
+        "level_4": [
+          "Models and advocates",
+          "for safe and effective",
+          "transitions of care/hand-",
+          "offs within and across",
+          "health care delivery",
+          "systems",
+          "Recommends and/or",
+          "participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "communities and",
+          "populations",
+          "Analyzes the process of",
+          "care coordination and"
+        ],
+        "level_5": [
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_sbp3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "reference lab, finance,",
+          "personnel, technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Documents testing detail",
+          "and explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system (e.g., test",
+          "utilization, turnaround",
+          "time)",
+          "Engages with clinicians",
+          "and/or patients in shared",
+          "decision making, such as",
+          "use of preauthorization for",
+          "complex testing",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Practices and",
+          "advocates for cost",
+          "effective patient care",
+          "with consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_sbp4",
+      "number": 10,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge that",
+          "laboratories must be",
+          "accredited",
+          "Discusses the need for",
+          "quality control and",
+          "proficiency testing",
+          "Demonstrates knowledge",
+          "of the components of",
+          "laboratory accreditation"
+        ],
+        "level_2": [
+          "and regulatory",
+          "compliance (e.g., Clinical",
+          "Laboratory Improvement",
+          "Amendments), either",
+          "through training or",
+          "experience",
+          "Interprets quality data and",
+          "charts and trends,",
+          "including proficiency",
+          "testing results, with"
+        ],
+        "level_3": [
+          "supervision",
+          "Identifies the differences",
+          "between accreditation",
+          "and regulatory",
+          "compliance; discusses",
+          "the process for achieving",
+          "accreditation and",
+          "maintaining regulatory",
+          "compliance",
+          "Demonstrates knowledge"
+        ],
+        "level_4": [
+          "of the components of a",
+          "laboratory quality",
+          "management plan",
+          "Participates in an",
+          "internal or external",
+          "laboratory inspection",
+          "Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvement"
+        ],
+        "level_5": [
+          "Serves as a resource for",
+          "accreditation at the",
+          "regional or national level",
+          "Creates and follows a",
+          "comprehensive quality",
+          "management plan"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_sbp5",
+      "number": 11,
+      "domain_number": 5,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general",
+          "pediatric pathology work",
+          "practices and workflow",
+          "(e.g., molecular",
+          "diagnostic, histology,"
+        ],
+        "level_2": [
+          "immunohistochemistry",
+          "stains, chemical tests,",
+          "administrative support)",
+          "Explains rationale for",
+          "test/resource utilization"
+        ],
+        "level_3": [
+          "patterns in own practice",
+          "setting",
+          "Identifies opportunities to",
+          "optimize utilization of",
+          "pathology resources"
+        ],
+        "level_4": [
+          "Initiates efforts to",
+          "optimize utilization",
+          "Completes a utilization",
+          "review, implements",
+          "change, and reviews"
+        ],
+        "level_5": [
+          "effectiveness"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and select",
+          "applicable evidence",
+          "Is aware of the need for",
+          "patient privacy,",
+          "autonomy, and consent",
+          "as applied to clinical",
+          "research",
+          "Identifies and applies the",
+          "best available evidence to",
+          "guide diagnostic work-up",
+          "of simple cases"
+        ],
+        "level_2": [
+          "Develops knowledge of",
+          "the basic principles of",
+          "research (demographics,",
+          "Institutional Review",
+          "Board, human subjects),",
+          "including how research is",
+          "evaluated, explained to",
+          "patients, and applied to",
+          "patient care",
+          "Identifies and applies the",
+          "best available evidence to",
+          "guide diagnostic work-up"
+        ],
+        "level_3": [
+          "of complex cases",
+          "Applies knowledge of the",
+          "basic principles of",
+          "research such as",
+          "informed consent and",
+          "research protocols to",
+          "clinical practice, with",
+          "supervision",
+          "Critically appraises and",
+          "applies evidence to",
+          "guide care, even in the",
+          "face of conflicting data"
+        ],
+        "level_4": [
+          "Proactively and",
+          "consistently applies",
+          "knowledge of the basic",
+          "principles of research",
+          "such as informed",
+          "consent and research",
+          "protocols to clinical",
+          "practice",
+          "Teaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex cases; and/or"
+        ],
+        "level_5": [
+          "participates in the",
+          "development of guidelines",
+          "Suggests improvements",
+          "to research regulations",
+          "and/or substantially",
+          "contributes to the primary",
+          "literature through basic,",
+          "translational, or clinical",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness",
+          "to receiving performance"
+        ],
+        "level_2": [
+          "data and feedback in",
+          "order to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Seeks performance data",
+          "and feedback with"
+        ],
+        "level_3": [
+          "humility",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Actively and",
+          "consistently seeks",
+          "performance data and"
+        ],
+        "level_4": [
+          "feedback with humility",
+          "Critically evaluates the",
+          "effectiveness of",
+          "behavioral changes in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "improves it when"
+        ],
+        "level_5": [
+          "necessary",
+          "Models seeking",
+          "performance data and",
+          "accepting feedback with",
+          "humility",
+          "Coaches others in",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementing of learning",
+          "plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Describes when and how"
+        ],
+        "level_2": [
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers; identifies and",
+          "describes potential",
+          "triggers for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates insight into"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "routine situations; takes",
+          "responsibility for one’s",
+          "own professionalism",
+          "lapses",
+          "Recognizes the need and",
+          "uses relevant resources",
+          "to seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Demonstrates",
+          "professional behavior in"
+        ],
+        "level_4": [
+          "complex or stressful",
+          "situations",
+          "Independently resolves",
+          "and manages complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities",
+          "Takes ownership and",
+          "performs tasks and"
+        ],
+        "level_2": [
+          "responsibilities in a timely",
+          "manner with attention to",
+          "detail",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner and",
+          "describes the impact on",
+          "team",
+          "Anticipates and",
+          "intervenes in situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Takes ownership of",
+          "system outcomes, and"
+        ],
+        "level_5": [
+          "implements new",
+          "strategies when",
+          "necessary"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team, with assistance",
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes",
+          "limitations in the"
+        ],
+        "level_2": [
+          "knowledge/skills/",
+          "behaviors of self or team",
+          "and seeks help when",
+          "needed",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed",
+          "Proposes and implements"
+        ],
+        "level_3": [
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors of self or",
+          "team, with assistance",
+          "Proposes and implements",
+          "a plan to optimize",
+          "personal and professional",
+          "well-being, with",
+          "assistance",
+          "Independently develops"
+        ],
+        "level_4": [
+          "and implements a plan",
+          "to remediate or improve",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team",
+          "Independently develops",
+          "and implements a plan",
+          "to optimize personal",
+          "and professional well-",
+          "being"
+        ],
+        "level_5": [
+          "Serves as a resource or",
+          "consultant for developing",
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors",
+          "Coaches others when",
+          "responses or limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role"
+        ],
+        "level_2": [
+          "within the health care",
+          "system",
+          "Establishes a relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,"
+        ],
+        "level_3": [
+          "health literacy)",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information, with",
+          "supervision",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Independently,"
+        ],
+        "level_4": [
+          "sensitively, and",
+          "compassionately",
+          "delivers medical",
+          "information and",
+          "acknowledges",
+          "uncertainty and conflict",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize"
+        ],
+        "level_5": [
+          "communication barriers",
+          "Mentors others in the",
+          "sensitive and",
+          "compassionate delivery of",
+          "medical information",
+          "Models self-awareness",
+          "while teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Describes the utility of",
+          "constructive feedback",
+          "Communicates",
+          "information effectively",
+          "with all health care team"
+        ],
+        "level_2": [
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Integrates feedback from",
+          "team members to improve",
+          "communication",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__pediatric_pathology_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient",
+          "personal health",
+          "information by",
+          "communicating through",
+          "appropriate means as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)",
+          "Identifies institutional",
+          "and departmental"
+        ],
+        "level_2": [
+          "structure for",
+          "communication of issues",
+          "Selects forms of",
+          "communication based on",
+          "context and urgency of",
+          "the situation",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Communicates while",
+          "ensuring security of"
+        ],
+        "level_3": [
+          "personal health",
+          "information, with",
+          "supervision",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and",
+          "constructive suggestions",
+          "to improve the system",
+          "Independently",
+          "communicates while",
+          "ensuring security of"
+        ],
+        "level_4": [
+          "personal health",
+          "information",
+          "Initiates conversations",
+          "on difficult subjects with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ],
+        "level_5": [
+          "regarding the security of",
+          "personal health",
+          "information",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pathology",
+  "primary_name": "Pathology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpathologysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1423 @@
+{
+  "framework_key": "internal-medicine--nephrology",
+  "specialty": "Nephrology",
+  "version": "2.0",
+  "source": "ACGME Nephrology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "internal_medicine__nephrology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Acute Kidney Injury",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Creates a basic",
+          "differential diagnosis for",
+          "patients with acute",
+          "kidney injury using the",
+          "history and physical",
+          "exam",
+          "Develops a basic",
+          "diagnostic plan",
+          "Develops a basic",
+          "management plan",
+          "Formulates a",
+          "comprehensive",
+          "differential diagnosis for"
+        ],
+        "level_2": [
+          "patients with acute kidney",
+          "injury using a focused",
+          "history and physical exam",
+          "Recommends diagnostic",
+          "testing to inform the",
+          "differential diagnosis",
+          "Identifies patients who",
+          "need urgent treatment,",
+          "including dialysis and",
+          "medication adjustment",
+          "Formulates a prioritized",
+          "differential diagnosis for",
+          "patients with acute kidney"
+        ],
+        "level_3": [
+          "injury",
+          "Interprets diagnostic test",
+          "results, including",
+          "evaluation of urine",
+          "sediment, laboratory and",
+          "imaging studies, and",
+          "kidney biopsy",
+          "Develops and implements",
+          "a management plan,",
+          "including dialysis modality",
+          "selection and/or disease-",
+          "specific treatment",
+          "Independently"
+        ],
+        "level_4": [
+          "formulates a prioritized",
+          "differential diagnosis for",
+          "patients with common",
+          "and uncommon causes",
+          "of acute kidney injury",
+          "Independently interprets",
+          "and integrates",
+          "diagnostic test results",
+          "Independently develops",
+          "and implements a",
+          "management plan with",
+          "consideration of patient",
+          "acuity and complexity"
+        ],
+        "level_5": [
+          "Independently formulates",
+          "a prioritized differential",
+          "diagnosis with",
+          "consideration of rare or",
+          "newly recognized causes",
+          "of acute kidney injury",
+          "Identifies indications for",
+          "ordering advanced",
+          "diagnostic studies",
+          "Formulates a",
+          "management plan",
+          "incorporating novel",
+          "therapies"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Chronic Dialysis Therapy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists the indication(s) for",
+          "initiation of chronic",
+          "dialysis",
+          "Lists common",
+          "complications in patients",
+          "on chronic dialysis",
+          "Identifies types of",
+          "dialysis access and",
+          "common access",
+          "complications",
+          "Selects appropriate",
+          "dialysis modality and"
+        ],
+        "level_2": [
+          "writes patient-specific",
+          "hemodialysis and",
+          "peritoneal dialysis",
+          "prescriptions",
+          "Assesses for common",
+          "complications of chronic",
+          "dialysis",
+          "Performs basic",
+          "assessment of dialysis",
+          "accesses",
+          "Modifies a dialysis",
+          "prescription based on"
+        ],
+        "level_3": [
+          "patient assessment",
+          "Treats common",
+          "complications of chronic",
+          "dialysis",
+          "Develops a diagnostic",
+          "and therapeutic plan for",
+          "management of common",
+          "access complications",
+          "Independently manages",
+          "patients receiving",
+          "dialysis",
+          "Independently"
+        ],
+        "level_4": [
+          "anticipates and",
+          "manages common and",
+          "uncommon",
+          "complications of chronic",
+          "dialysis",
+          "Develops a diagnostic",
+          "and therapeutic plan for",
+          "management of",
+          "uncommon access",
+          "complications",
+          "Identifies the complexities",
+          "of providing quality care"
+        ],
+        "level_5": [
+          "to a population of patients",
+          "receiving dialysis",
+          "Anticipates and manages",
+          "the breadth of comorbid",
+          "medical and technical",
+          "complications in the",
+          "patient on dialysis,",
+          "including when dialysis is",
+          "not appropriate"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Chronic Kidney Disease",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a differential",
+          "diagnosis of causes of",
+          "chronic kidney disease",
+          "Develops a basic",
+          "diagnostic plan for",
+          "patients with chronic",
+          "kidney disease",
+          "Identifies stages of",
+          "chronic kidney disease",
+          "and how it relates to",
+          "patient prognosis",
+          "Expands the differential"
+        ],
+        "level_2": [
+          "diagnosis based on",
+          "specific history/physical",
+          "information",
+          "Modifies the diagnostic",
+          "plan based on evolving",
+          "clinical data for patients",
+          "with chronic kidney",
+          "disease",
+          "Develops a management",
+          "plan to slow chronic",
+          "kidney disease",
+          "progression"
+        ],
+        "level_3": [
+          "Reformulates the",
+          "differential diagnosis as",
+          "necessary for atypical",
+          "disease presentations",
+          "Identifies patients with",
+          "chronic kidney disease",
+          "who require more",
+          "evaluation, including",
+          "kidney biopsy",
+          "Develops a management",
+          "plan for chronic kidney",
+          "disease complications"
+        ],
+        "level_4": [
+          "and discusses treatment",
+          "options",
+          "Independently",
+          "diagnoses common and",
+          "uncommon causes of",
+          "chronic kidney disease",
+          "Identifies indications for",
+          "ordering advanced or",
+          "novel diagnostic studies",
+          "Independently leads the",
+          "preparation for the next",
+          "steps in management of"
+        ],
+        "level_5": [
+          "progressive chronic",
+          "kidney disease and",
+          "integrates patient-",
+          "specific goals of care",
+          "Independently recognizes",
+          "rare and newly described",
+          "causes of chronic kidney",
+          "disease",
+          "Identifies candidates for",
+          "enrollment in research",
+          "and novel and emerging",
+          "therapies"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Transplant",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses indications",
+          "and contraindications for",
+          "kidney transplantation",
+          "Identifies the presence of",
+          "kidney allograft",
+          "dysfunction",
+          "Lists indications for",
+          "common kidney",
+          "transplant",
+          "immunosuppressive",
+          "medications",
+          "Identifies and counsels",
+          "patients and families"
+        ],
+        "level_2": [
+          "regarding kidney",
+          "transplant candidacy and",
+          "the evaluation process",
+          "Generates a differential",
+          "diagnosis for common",
+          "causes of kidney allograft",
+          "dysfunction",
+          "Identifies common and",
+          "uncommon complications",
+          "of immunosuppressive",
+          "medications",
+          "Manages stable",
+          "ambulatory post-"
+        ],
+        "level_3": [
+          "transplant patients",
+          "Generates a differential",
+          "diagnosis for uncommon",
+          "causes of kidney allograft",
+          "dysfunction and an initial",
+          "management plan for",
+          "common causes of kidney",
+          "allograft dysfunction",
+          "Manages",
+          "immunosuppressive",
+          "medications, including",
+          "common complications",
+          "and drug interactions"
+        ],
+        "level_4": [
+          "Independently manages",
+          "stable and unstable",
+          "post-transplant patients",
+          "Independently",
+          "generates a differential",
+          "diagnosis and",
+          "management plan for",
+          "uncommon causes of",
+          "kidney allograft",
+          "dysfunction",
+          "Independently manages",
+          "immunosuppressive",
+          "medications, including"
+        ],
+        "level_5": [
+          "patients with allograft",
+          "dysfunction and failure",
+          "Identifies opportunities to",
+          "improve kidney",
+          "transplantation access",
+          "and outcomes",
+          "Identifies novel and",
+          "emerging therapies for",
+          "immunosuppression and",
+          "transplant dysfunction"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Fluid and Electrolytes",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Creates a differential",
+          "diagnosis and initial",
+          "management plan",
+          "Develops a",
+          "comprehensive",
+          "differential diagnosis,"
+        ],
+        "level_2": [
+          "recommends initial",
+          "diagnostic testing, and",
+          "identifies patients who",
+          "require urgent treatment",
+          "Develops a prioritized",
+          "differential diagnosis,"
+        ],
+        "level_3": [
+          "interprets diagnostic test",
+          "results, and implements a",
+          "comprehensive",
+          "management plan",
+          "Independently",
+          "formulates a differential"
+        ],
+        "level_4": [
+          "diagnosis, including",
+          "common and",
+          "uncommon causes, and",
+          "adjusts management",
+          "plan based on patient",
+          "response"
+        ],
+        "level_5": [
+          "Independently and",
+          "effectively manages",
+          "unusual, rare, or complex",
+          "fluid and/or electrolyte",
+          "disorder(s)"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Hypertension",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Diagnoses and manages",
+          "hypertension, proposes",
+          "initial evaluation for",
+          "secondary causes, and",
+          "recognizes hypertensive",
+          "emergencies",
+          "Develops a differential"
+        ],
+        "level_2": [
+          "diagnosis, evaluates",
+          "causes of secondary and",
+          "resistant hypertension,",
+          "and proposes a",
+          "management plan",
+          "Interprets the results of",
+          "specialized testing for"
+        ],
+        "level_3": [
+          "secondary and resistant",
+          "hypertension, and adjusts",
+          "management plan based",
+          "on treatment results and",
+          "patient comorbidity",
+          "Independently develops",
+          "and implements a"
+        ],
+        "level_4": [
+          "management plan for",
+          "secondary and resistant",
+          "hypertension, and",
+          "adjusts therapy based",
+          "on patient acuity and",
+          "complexity",
+          "Independently and"
+        ],
+        "level_5": [
+          "effectively manages",
+          "unusual, rare, or complex",
+          "presentations of",
+          "hypertension"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Competence in Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the indications",
+          "for and assists with all",
+          "procedures",
+          "Discusses potential",
+          "procedural complications",
+          "Performs procedures, with"
+        ],
+        "level_2": [
+          "direct supervision",
+          "Recognizes complications",
+          "of procedures and enlists",
+          "help",
+          "Competently performs",
+          "procedures, with indirect"
+        ],
+        "level_3": [
+          "supervision",
+          "Manages complications of",
+          "procedures, with",
+          "supervision",
+          "Proficiently and",
+          "independently performs"
+        ],
+        "level_4": [
+          "procedures",
+          "Anticipates and",
+          "independently manages",
+          "complications of",
+          "procedures",
+          "Serves as an educational"
+        ],
+        "level_5": [
+          "resource for procedures",
+          "and their complications"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_mk1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Physiology and Pathophysiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies key clinical",
+          "physiological and",
+          "pathophysiological",
+          "concepts",
+          "Identifies key basic",
+          "science concepts (e.g.,",
+          "histopathology,",
+          "immunology, genetics,",
+          "molecular biology)"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of more complex clinical",
+          "physiology and",
+          "pathophysiology",
+          "Demonstrates knowledge",
+          "of more complex basic",
+          "science concepts",
+          "Applies knowledge of",
+          "common clinical"
+        ],
+        "level_3": [
+          "pathophysiology to",
+          "diagnosis and",
+          "management",
+          "Applies knowledge of",
+          "basic science concepts of",
+          "common diseases to",
+          "diagnosis and",
+          "management",
+          "Integrates knowledge of"
+        ],
+        "level_4": [
+          "advanced clinical",
+          "pathophysiology with",
+          "diagnosis and",
+          "management",
+          "Integrates knowledge of",
+          "advanced basic science",
+          "concepts of less",
+          "common diseases with",
+          "diagnosis and"
+        ],
+        "level_5": [
+          "management",
+          "Researches newly",
+          "described and emerging",
+          "clinical physiology and",
+          "pathophysiology concepts",
+          "Researches newly",
+          "described and emerging",
+          "basic science concepts"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_mk2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Pharmacology and Therapeutics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "pharmacology",
+          "Recognizes kidney",
+          "toxicity of common",
+          "medications and effects",
+          "of intoxicants"
+        ],
+        "level_2": [
+          "Recognizes the effect of",
+          "kidney disease on",
+          "pharmacokinetics of",
+          "medications",
+          "Employs strategies to",
+          "minimize drug toxicity in",
+          "common scenarios"
+        ],
+        "level_3": [
+          "Monitors and adjusts the",
+          "choice and dosing of",
+          "common medications",
+          "Employs strategies to",
+          "minimize drug toxicity in",
+          "complex scenarios",
+          "Monitors and adjusts"
+        ],
+        "level_4": [
+          "the choice and dosing",
+          "of uncommon",
+          "medications",
+          "Identifies strategies to",
+          "manage drug toxicities",
+          "and acute intoxications",
+          "Demonstrates advanced"
+        ],
+        "level_5": [
+          "knowledge of",
+          "pharmacology of novel",
+          "therapeutic agents"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_mk3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Diagnostic Testing in Kidney Disease",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes indications,",
+          "risks, and benefits for",
+          "basic diagnostic testing",
+          "Provides interpretation of"
+        ],
+        "level_2": [
+          "basic diagnostic testing",
+          "results",
+          "Recognizes indications,",
+          "risks, and benefits for"
+        ],
+        "level_3": [
+          "advanced diagnostic",
+          "testing",
+          "Independently interprets",
+          "advanced diagnostic"
+        ],
+        "level_4": [
+          "testing",
+          "Recognizes emerging",
+          "applications of novel",
+          "diagnostic testing"
+        ],
+        "level_5": [
+          "technologies"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Understands the",
+          "importance of reporting",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Demonstrates knowledge",
+          "of how to report patient",
+          "safety events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Empathically discloses",
+          "patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to implement",
+          "and analyze a quality",
+          "improvement project,",
+          "including in dialysis",
+          "management",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to monitor",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care/hand-",
+          "offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of",
+          "interprofessional teams",
+          "within nephrology",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of interprofessional teams",
+          "within nephrology",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Demonstrates effective",
+          "coordination of patient-",
+          "centered care across"
+        ],
+        "level_4": [
+          "different disciplines and",
+          "specialties",
+          "Advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Advances quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Participates in changing",
+          "and adapting practice to"
+        ],
+        "level_4": [
+          "provide for the needs of",
+          "specific populations",
+          "Leads innovations and",
+          "advocates for",
+          "populations and"
+        ],
+        "level_5": [
+          "communities with specific",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_sbp4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system",
+          "Describes basic health",
+          "payment systems,",
+          "including practice",
+          "models",
+          "Describes how"
+        ],
+        "level_2": [
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Manages various",
+          "components of the",
+          "complex health care",
+          "system to provide"
+        ],
+        "level_4": [
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Advocates for patient",
+          "care needs with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and",
+          "transitions of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pbli1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporates patient",
+          "preferences and values",
+          "in order to care for a"
+        ],
+        "level_2": [
+          "routine patient",
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values in order to guide",
+          "evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_pbli2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness",
+          "to performance data"
+        ],
+        "level_2": [
+          "(feedback and other",
+          "input) in order to inform",
+          "goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and",
+          "performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks and incorporates",
+          "performance data"
+        ],
+        "level_3": [
+          "episodically into practice,",
+          "with adaptability and",
+          "insight",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Seeks and incorporates"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently into",
+          "practice, with",
+          "adaptability and insight",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the"
+        ],
+        "level_5": [
+          "learning plan, and when",
+          "necessary, improves it",
+          "Role models consistently",
+          "seeking performance",
+          "data, with adaptability and",
+          "insight",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_prof1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations",
+          "Demonstrates use of the",
+          "ethical principles",
+          "underlying informed",
+          "consent, surrogate",
+          "decision making,",
+          "advance directives, and",
+          "confidentiality"
+        ],
+        "level_2": [
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Uses ethical principles to",
+          "address error disclosure",
+          "and stewardship of limited",
+          "resources",
+          "Recognizes potential",
+          "triggers and takes"
+        ],
+        "level_3": [
+          "responsibility for",
+          "professionalism lapses",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles, and seeks help",
+          "when necessary",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to"
+        ],
+        "level_4": [
+          "prevent lapses in self",
+          "and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas (e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal"
+        ],
+        "level_5": [
+          "consultation)",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Serves as a resource for",
+          "others to help work",
+          "through complex ethical",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_prof2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to"
+        ],
+        "level_2": [
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure that"
+        ],
+        "level_4": [
+          "training requirements are",
+          "met as assigned",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner and",
+          "offers to help",
+          "Offers and implements",
+          "strategies to make"
+        ],
+        "level_5": [
+          "systems-level care",
+          "responsibilities more",
+          "efficient",
+          "Comments",
+          "Not Yet Completed Level 1",
+          "-- 24 of 29 --"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_prof3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed",
+          "With assistance,"
+        ],
+        "level_3": [
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "Independently develops",
+          "a plan to optimize"
+        ],
+        "level_4": [
+          "personal and",
+          "professional well-being",
+          "(well-being survey,",
+          "fatigue assessment)",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role",
+          "within the health care",
+          "system",
+          "Participates with",
+          "stakeholders in setting",
+          "the agenda, clarifying",
+          "expectations, and",
+          "verifying understanding",
+          "of the clinical situation",
+          "for shared decision"
+        ],
+        "level_2": [
+          "making",
+          "Establishes a",
+          "therapeutic relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy, cultural)",
+          "With guidance,",
+          "sensitively and",
+          "compassionately",
+          "delivers medical",
+          "information, elicits",
+          "patient/family values,",
+          "goals and preferences,",
+          "and acknowledges"
+        ],
+        "level_3": [
+          "uncertainty and conflict",
+          "Establishes a therapeutic",
+          "relationship",
+          "in challenging patient",
+          "encounters",
+          "When prompted, reflects on",
+          "biases while attempting to",
+          "minimize communication",
+          "barriers",
+          "Adjusts communication",
+          "strategies based on",
+          "assessment of",
+          "patient/family expectations",
+          "and understanding of their",
+          "health status and treatment",
+          "options",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with"
+        ],
+        "level_4": [
+          "attention to",
+          "patient/family concerns",
+          "and context, regardless",
+          "of complexity",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Independently uses",
+          "shared decision making",
+          "to align patient/family",
+          "values, goals, and",
+          "preferences with",
+          "treatment options to",
+          "make a personalized",
+          "care plan",
+          "Mentors others in",
+          "situational awareness and"
+        ],
+        "level_5": [
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models self-",
+          "awareness while",
+          "identifying a contextual",
+          "approach to minimize",
+          "communication barriers",
+          "Role models shared",
+          "decision making in",
+          "patient/family",
+          "communication including",
+          "those with a high degree",
+          "of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests",
+          "and/or receives a",
+          "consultation request",
+          "Communicates basic",
+          "information with primary",
+          "consulting service",
+          "Clearly and concisely",
+          "requests and/or responds",
+          "to a consultation request"
+        ],
+        "level_2": [
+          "Communicates basic",
+          "information effectively",
+          "with the health care team",
+          "Checks own",
+          "understanding of",
+          "consultant",
+          "recommendations and/or",
+          "understanding of",
+          "recommendations when"
+        ],
+        "level_3": [
+          "providing consultation",
+          "Adapts communication",
+          "style to fit team needs",
+          "and uses language that",
+          "values all members of the",
+          "health care team",
+          "Coordinates",
+          "recommendations from",
+          "different members of"
+        ],
+        "level_4": [
+          "the health care team to",
+          "optimize patient care",
+          "Communicates complex",
+          "information effectively",
+          "with the primary",
+          "consulting service and",
+          "other members of the",
+          "health care team",
+          "Role models flexible"
+        ],
+        "level_5": [
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__nephrology_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately and",
+          "professionally records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Documents diagnostic",
+          "and therapeutic reasoning",
+          "in the patient record in a"
+        ],
+        "level_2": [
+          "timely manner",
+          "Appropriately selects and",
+          "uses direct (e.g.,",
+          "telephone, in-person) and",
+          "indirect (e.g., progress",
+          "notes, text messages)",
+          "forms of communication",
+          "based on context",
+          "Demonstrates advanced",
+          "diagnostic and"
+        ],
+        "level_3": [
+          "therapeutic reasoning in",
+          "the patient record",
+          "Demonstrates effective",
+          "use of direct (e.g.,",
+          "telephone, in-person) and",
+          "indirect (e.g., progress",
+          "notes, text messages)",
+          "forms of communication",
+          "based on context",
+          "Communicates clearly,"
+        ],
+        "level_4": [
+          "concisely, in a timely",
+          "manner, and in an",
+          "organized written form,",
+          "including anticipatory",
+          "guidance",
+          "Achieves written and/or",
+          "verbal communication",
+          "(patient notes, email,",
+          "etc.) that serves as an",
+          "example for others to"
+        ],
+        "level_5": [
+          "follow",
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "internal-medicine",
+  "primary_name": "Internal Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nephrologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nephrologysupplementalguide.pdf"
+  }
+}

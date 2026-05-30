@@ -1,0 +1,981 @@
+{
+  "framework_key": "thoracic-surgery--congenital-cardiac-surgery",
+  "specialty": "Congenital Cardiac Surgery",
+  "version": "2.0",
+  "source": "ACGME Congenital Cardiac Surgery Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Technical Skills and Performance",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs components of",
+          "basic complexity",
+          "procedures",
+          "Performs basic"
+        ],
+        "level_2": [
+          "complexity procedures",
+          "Performs moderate",
+          "complexity procedures",
+          "and recognizes intra-"
+        ],
+        "level_3": [
+          "operative complications",
+          "Performs high",
+          "complexity procedures",
+          "and manages intra-"
+        ],
+        "level_4": [
+          "operative complications",
+          "Independently performs",
+          "high complexity",
+          "procedures"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Patient Evaluation and Clinical Decision Making",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patient specific",
+          "factors needed to design",
+          "a diagnostic work-up and",
+          "surgical plan for a basic",
+          "complexity procedure",
+          "Integrates information"
+        ],
+        "level_2": [
+          "with patient specific",
+          "factors to design a",
+          "succinct diagnostic work-",
+          "up and surgical plan for a",
+          "basic complexity",
+          "procedure"
+        ],
+        "level_3": [
+          "Integrates information",
+          "with patient specific",
+          "factors to design a",
+          "succinct diagnostic work-",
+          "up and surgical plan for a",
+          "moderate complexity"
+        ],
+        "level_4": [
+          "procedure",
+          "Integrates information",
+          "with patient specific",
+          "factors to design a",
+          "succinct diagnostic",
+          "work-up and surgical"
+        ],
+        "level_5": [
+          "plan for a high",
+          "complexity procedure",
+          "Formulates an approach",
+          "for complex patients who",
+          "do not fit into traditional",
+          "algorithms"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Interprets diagnostic data",
+          "for a critically ill patient",
+          "Performs basic",
+          "complexity bedside",
+          "procedures",
+          "Implements a treatment",
+          "plan for peri-operative",
+          "patients with basic"
+        ],
+        "level_2": [
+          "complexity procedures",
+          "Performs moderate",
+          "complexity bedside",
+          "procedures",
+          "Implements a treatment",
+          "plan for peri-operative",
+          "patients with moderate",
+          "complexity procedures"
+        ],
+        "level_3": [
+          "Performs high complexity",
+          "bedside procedures",
+          "Implements a",
+          "comprehensive",
+          "treatment plan for peri-",
+          "operative patients with",
+          "high complexity",
+          "procedures"
+        ],
+        "level_4": [
+          "Performs high",
+          "complexity procedures",
+          "in urgent scenarios and",
+          "determine need for",
+          "emergent surgical",
+          "intervention",
+          "Implements a",
+          "comprehensive treatment"
+        ],
+        "level_5": [
+          "plan for a patient condition",
+          "that does not have clear",
+          "guidelines",
+          "Teaches moderate",
+          "complexity procedures to",
+          "junior learners"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_mk1",
+      "number": 4,
+      "domain_number": 1,
+      "name": "Morphology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "comprehension of and",
+          "explains morphology for",
+          "basic complexity",
+          "congenital cardiac",
+          "defects"
+        ],
+        "level_2": [
+          "Demonstrates",
+          "comprehension and",
+          "applies knowledge of",
+          "morphology for moderate",
+          "complexity defects",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "comprehension of",
+          "morphology for higher",
+          "complexity defects and",
+          "distinguishes between",
+          "different morphologies",
+          "Demonstrates"
+        ],
+        "level_4": [
+          "comprehension and",
+          "integrates knowledge of",
+          "morphology for most",
+          "complex defects and",
+          "uncommon or rare",
+          "variants"
+        ],
+        "level_5": [
+          "Teaches morphology for",
+          "complex defects to junior",
+          "learners"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_mk2",
+      "number": 5,
+      "domain_number": 2,
+      "name": "Pathophysiology and Surgical Outcomes",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "comprehension of",
+          "pathophysiology and",
+          "surgical outcomes of",
+          "basic complexity defects,",
+          "including timing of repair"
+        ],
+        "level_2": [
+          "Demonstrates general",
+          "comprehension of",
+          "pathophysiology and",
+          "surgical outcomes of",
+          "moderate complexity",
+          "defects, including timing"
+        ],
+        "level_3": [
+          "of repair",
+          "Demonstrates detailed",
+          "comprehension of",
+          "pathophysiology and",
+          "surgical outcomes of",
+          "higher complexity defects,"
+        ],
+        "level_4": [
+          "including timing of repair",
+          "Demonstrates in-depth",
+          "comprehension of",
+          "pathophysiology and",
+          "surgical outcomes of",
+          "most complex defects"
+        ],
+        "level_5": [
+          "and uncommon or rare",
+          "variants",
+          "Teaches pathophysiology",
+          "and surgical outcomes of",
+          "complex defects to junior",
+          "learners"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_sbp1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events to superiors/",
+          "faculty members",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Reports patient safety"
+        ],
+        "level_3": [
+          "events through",
+          "institutional reporting",
+          "systems (actual or",
+          "simulated)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)"
+        ],
+        "level_4": [
+          "Participates in",
+          "disclosure of patient",
+          "safety events to patients",
+          "and families (simulated",
+          "or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify"
+        ],
+        "level_5": [
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the",
+          "reporting/disclosure of",
+          "patient safety events to",
+          "superiors/organization",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_sbp2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine",
+          "clinical/social situations"
+        ],
+        "level_2": [
+          "effectively using the roles",
+          "of the interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical/social situations"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of the interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and",
+          "community",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Adapts personal",
+          "practice to provide for",
+          "the needs of specific",
+          "populations",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_sbp3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components",
+          "of the healthcare system",
+          "(e.g., hospital, finance,",
+          "personnel, technology)",
+          "Understands the",
+          "mechanisms for",
+          "reimbursement, including",
+          "types of payors"
+        ],
+        "level_2": [
+          "Recognizes the",
+          "components of how a",
+          "health care system are",
+          "inter-related, and its impact",
+          "on patient care",
+          "Recognizes the impact of",
+          "component selection on",
+          "overall costs"
+        ],
+        "level_3": [
+          "Understands how",
+          "individual practice affects",
+          "the broader system (e.g.,",
+          "length of stay, readmission",
+          "rates, clinical efficiency)",
+          "Discusses the impact of",
+          "component selection on",
+          "overall costs"
+        ],
+        "level_4": [
+          "Discusses various",
+          "components of the health",
+          "care system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Makes cost effective",
+          "decisions"
+        ],
+        "level_5": [
+          "Advocates for systems",
+          "change that enhances",
+          "high-value, efficient, and",
+          "effective patient care and",
+          "transition of care",
+          "Participates in health policy",
+          "advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_pbli1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence to take care of",
+          "a routine patient",
+          "Articulates clinical",
+          "questions and elicits"
+        ],
+        "level_2": [
+          "patient preferences and",
+          "values in order to guide",
+          "evidence-based care",
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient"
+        ],
+        "level_3": [
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and",
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and"
+        ],
+        "level_4": [
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex patients; and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_pbli2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals and"
+        ],
+        "level_2": [
+          "actively seeking",
+          "opportunities to improve",
+          "When prompted, uses",
+          "performance data to",
+          "identify gaps, design, and"
+        ],
+        "level_3": [
+          "implement a learning plan",
+          "Independently uses",
+          "performance data to",
+          "identify gaps, design, and",
+          "implement a learning plan"
+        ],
+        "level_4": [
+          "Independently uses",
+          "performance data to",
+          "measure the",
+          "effectiveness of the",
+          "learning plan and adapt"
+        ],
+        "level_5": [
+          "the plan as needed",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_prof1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance"
+        ],
+        "level_2": [
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Applies ethical principles"
+        ],
+        "level_3": [
+          "during patient care",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving ethical",
+          "situations",
+          "Uses appropriate"
+        ],
+        "level_4": [
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas as needed",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or"
+        ],
+        "level_5": [
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_prof2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Professional Behavior and Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Completes patient care",
+          "tasks and",
+          "responsibilities, identifies",
+          "potential barriers, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion",
+          "Describes when and how",
+          "to appropriately report",
+          "lapses in professional",
+          "behavior",
+          "Accepts feedback"
+        ],
+        "level_2": [
+          "highlighting gaps",
+          "Performs patient care",
+          "tasks and responsibilities",
+          "in a timely manner with",
+          "appropriate attention to",
+          "detail in routine situations",
+          "Takes responsibility for",
+          "his or her own",
+          "professional behavior and",
+          "reports lapses in self and",
+          "others",
+          "Episodically seeks"
+        ],
+        "level_3": [
+          "feedback",
+          "Performs patient care",
+          "tasks and responsibilities",
+          "in a timely manner with",
+          "appropriate attention to",
+          "detail in complex or",
+          "stressful situations",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Intentionally seeks and"
+        ],
+        "level_4": [
+          "integrates multisource",
+          "feedback into practice",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete",
+          "patient-care tasks and",
+          "responsibilities in a",
+          "timely manner",
+          "Intervenes to prevent",
+          "and correct lapses in",
+          "professional behavior in",
+          "self and others"
+        ],
+        "level_5": [
+          "Provides constructive",
+          "feedback to others",
+          "Develops systems to",
+          "enhance other’s ability to",
+          "efficiently complete",
+          "patient-care tasks and",
+          "responsibilities",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_prof3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Administrative Tasks",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the need to",
+          "complete administrative",
+          "tasks and responsibilities",
+          "Performs administrative",
+          "tasks and responsibilities"
+        ],
+        "level_2": [
+          "in a timely manner with",
+          "appropriate attention to",
+          "detail in routine situations",
+          "Performs administrative",
+          "tasks and responsibilities"
+        ],
+        "level_3": [
+          "in a timely manner with",
+          "appropriate attention to",
+          "detail in complex or",
+          "stressful situations",
+          "Recognizes situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete",
+          "administrative tasks and",
+          "responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Facilitates efforts to",
+          "enhance other’s ability to",
+          "efficiently complete",
+          "administrative tasks and",
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_prof4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "Proposes a plan to"
+        ],
+        "level_3": [
+          "optimize personal and",
+          "professional well-being",
+          "Executes a plan to",
+          "optimize personal and"
+        ],
+        "level_4": [
+          "professional well-being",
+          "Coaches others when",
+          "emotional responses do",
+          "not meet professional"
+        ],
+        "level_5": [
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_ics1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Introduces themselves",
+          "and explains their role to",
+          "the patient and family",
+          "Provides timely updates",
+          "to patients and families",
+          "Identifies common",
+          "barriers to effective",
+          "communication",
+          "Delivers routine",
+          "information to patients"
+        ],
+        "level_2": [
+          "and families and confirms",
+          "understanding",
+          "Actively listens to patients",
+          "and families to elicit",
+          "patient preferences and",
+          "expectations",
+          "Identifies complex",
+          "barriers to effective",
+          "communication",
+          "Delivers complex and"
+        ],
+        "level_3": [
+          "difficult information to",
+          "patients and families and",
+          "confirms understanding",
+          "Uses shared decision",
+          "making to make a",
+          "personalized care plan",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers"
+        ],
+        "level_4": [
+          "Facilitates",
+          "interdisciplinary patient",
+          "and family conferences",
+          "Effectively negotiates",
+          "and manages conflict",
+          "among patients,",
+          "families, and the health",
+          "care team",
+          "Manages",
+          "communication barriers"
+        ],
+        "level_5": [
+          "and biases",
+          "Coaches others in the",
+          "facilitation of difficult",
+          "conversations",
+          "Coaches others in conflict",
+          "resolution",
+          "Coaches others to",
+          "manage communication",
+          "barriers and biases"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_ics2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation",
+          "Respectfully receives a",
+          "consultation request",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Clearly and concisely",
+          "requests a consultation",
+          "Clearly and concisely"
+        ],
+        "level_2": [
+          "responds to a",
+          "consultation request",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Verifies own",
+          "understanding of",
+          "consultant",
+          "recommendations"
+        ],
+        "level_3": [
+          "Verifies understanding of",
+          "recommendations when",
+          "providing consultation",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to"
+        ],
+        "level_4": [
+          "optimize patient care",
+          "Navigates and resolves",
+          "disagreements with",
+          "interprofessional team",
+          "Mediates conflict within",
+          "the team",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Coaches others in",
+          "navigating",
+          "interprofessional",
+          "disagreements",
+          "Coaches others in active",
+          "listening and",
+          "communication styles"
+        ]
+      }
+    },
+    {
+      "id": "thoracic_surgery__congenital_cardiac_surgery_ics3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately and timely",
+          "documents information in",
+          "the patient record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy",
+          "Completes documentation",
+          "thoroughly and"
+        ],
+        "level_2": [
+          "communicates diagnostic",
+          "and therapeutic reasoning",
+          "in an organized fashion",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Completes documentation",
+          "accurately, concisely, and",
+          "completely"
+        ],
+        "level_3": [
+          "Appropriately selects",
+          "direct and indirect forms",
+          "of communication",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system",
+          "Communicates in a",
+          "clearly organized,",
+          "concise, and timely",
+          "manner, and includes"
+        ],
+        "level_4": [
+          "anticipatory guidance",
+          "Uses written and verbal",
+          "communication (e.g.,",
+          "patient notes, email) in",
+          "a professional manner",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Models feedback to",
+          "improve others’ written"
+        ],
+        "level_5": [
+          "communication",
+          "Facilitates departmental",
+          "or institutional",
+          "communication policies",
+          "and procedures",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "thoracic-surgery",
+  "primary_name": "Thoracic Surgery",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerysupplementalguide.pdf"
+  }
+}

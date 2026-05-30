@@ -1,0 +1,1106 @@
+{
+  "framework_key": "orthopaedic-surgery--orthopaedic-sports-medicine",
+  "specialty": "Orthopaedic Sports Medicine",
+  "version": "2.0",
+  "source": "ACGME Orthopaedic Sports Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History and Physical Examination, Imaging Interpretation, and Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains appropriate",
+          "medical history and",
+          "performs basic",
+          "orthopaedic examination,",
+          "with guidance",
+          "Identifies diagnostic",
+          "testing for common",
+          "orthopaedic sports",
+          "conditions",
+          "Develops a basic",
+          "differential diagnosis",
+          "pertinent to common",
+          "orthopaedic conditions,",
+          "with guidance"
+        ],
+        "level_2": [
+          "Obtains history of sports-",
+          "related conditions",
+          "or injuries and performs",
+          "orthopaedic examination",
+          "for common sports",
+          "conditions",
+          "Interprets diagnostic",
+          "testing for orthopaedic",
+          "sports conditions, with",
+          "guidance",
+          "Develops a basic",
+          "differential diagnosis",
+          "pertinent to orthopaedic",
+          "sports conditions, with"
+        ],
+        "level_3": [
+          "guidance",
+          "Obtains history of sports-",
+          "related conditions or",
+          "injuries and performs",
+          "orthopaedic examination",
+          "and recognizes complex",
+          "or high-risk sports",
+          "conditions",
+          "Orders and interprets",
+          "diagnostic",
+          "testing for complex",
+          "orthopaedic sports",
+          "conditions, with guidance",
+          "Develops a"
+        ],
+        "level_4": [
+          "comprehensive",
+          "differential diagnosis",
+          "based on history and",
+          "physical examination",
+          "findings, with guidance",
+          "Independently obtains",
+          "history of sports-related",
+          "conditions or",
+          "injuries and consistently",
+          "performs complex",
+          "examinations of",
+          "sports conditions",
+          "Independently interprets",
+          "diagnostic testing for"
+        ],
+        "level_5": [
+          "complex orthopaedic",
+          "sports conditions",
+          "Independently develops",
+          "a comprehensive",
+          "differential diagnosis",
+          "based on history and",
+          "physical examination",
+          "findings",
+          "Develops and publishes",
+          "on a new physical",
+          "examination maneuver",
+          "Develops novel imaging",
+          "techniques for sports",
+          "medicine"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Non-Operative Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates a basic",
+          "treatment plan for",
+          "common orthopaedic",
+          "sports conditions, with",
+          "direct supervision",
+          "Manages patients with",
+          "basic orthopaedic sports",
+          "conditions (e.g., knee",
+          "injection, bracing,"
+        ],
+        "level_2": [
+          "physical therapy",
+          "prescription), with direct",
+          "supervision",
+          "Generates a basic",
+          "treatment plan for",
+          "common orthopaedic",
+          "sports conditions, with",
+          "indirect supervision",
+          "Manages patients with"
+        ],
+        "level_3": [
+          "basic orthopaedic sports",
+          "conditions, with indirect",
+          "supervision",
+          "Generates and modifies a",
+          "treatment plan for",
+          "complex orthopaedic",
+          "sports conditions, with",
+          "guidance",
+          "Independently manages"
+        ],
+        "level_4": [
+          "patients and adapts a",
+          "management plan for",
+          "basic orthopaedic sports",
+          "conditions",
+          "Independently",
+          "generates and modifies",
+          "individualized treatment",
+          "plans",
+          "Independently manages"
+        ],
+        "level_5": [
+          "patients and adapts",
+          "management plan for",
+          "complex orthopaedic",
+          "sports conditions",
+          "Develops and/or",
+          "disseminates a novel",
+          "treatment protocol"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Arthroscopic Operative Skills",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a simple",
+          "surgical plan, with",
+          "indirect supervision",
+          "Demonstrates basic",
+          "surgical skills (e.g.,",
+          "wound closure) and",
+          "assists with procedures",
+          "Identifies and reports",
+          "simple complications",
+          "Develops a surgical plan",
+          "that includes identification",
+          "of potential challenges"
+        ],
+        "level_2": [
+          "and technical",
+          "complexities, with",
+          "guidance",
+          "Establishes portals and",
+          "access and performs",
+          "diagnostic knee and",
+          "shoulder arthroscopy,",
+          "with indirect supervision",
+          "Identifies and manages",
+          "simple complications, with",
+          "guidance",
+          "Develops a surgical plan"
+        ],
+        "level_3": [
+          "for complex procedures,",
+          "including contingencies",
+          "for complications, with",
+          "guidance",
+          "Performs critical steps of",
+          "knee and shoulder",
+          "procedures, with",
+          "guidance; establishes",
+          "portals and access, and",
+          "performs hip, elbow, and",
+          "arthroscopy, with indirect",
+          "supervision"
+        ],
+        "level_4": [
+          "Identifies and manages",
+          "complex complications,",
+          "with guidance",
+          "Independently develops",
+          "a surgical plan for",
+          "complex procedures,",
+          "including contingencies",
+          "for complications",
+          "Independently performs",
+          "complex knee and",
+          "shoulder procedures",
+          "with skill and confidence"
+        ],
+        "level_5": [
+          "Independently develops",
+          "a plan for managing",
+          "complex complications",
+          "Develops novel surgical",
+          "techniques",
+          "Contributes to a quality",
+          "improvement initiative",
+          "regarding addressing",
+          "complications at the",
+          "institution"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Open Operative Skills",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a simple",
+          "surgical plan, with",
+          "indirect supervision",
+          "Demonstrates basic",
+          "surgical skills (e.g.,",
+          "wound closure) and",
+          "assists with procedures",
+          "Identifies and reports",
+          "simple complications",
+          "Develops a surgical plan"
+        ],
+        "level_2": [
+          "that includes identification",
+          "of potential challenges",
+          "and technical",
+          "complexities, with",
+          "guidance",
+          "Performs surgical",
+          "approach with indirect",
+          "supervision",
+          "Identifies and manages",
+          "simple complications with"
+        ],
+        "level_3": [
+          "guidance",
+          "Develops a surgical plan",
+          "for complex procedures,",
+          "including contingencies",
+          "for complications, with",
+          "guidance",
+          "Performs critical steps of",
+          "procedures with guidance",
+          "Identifies and manages",
+          "complex complications"
+        ],
+        "level_4": [
+          "with guidance",
+          "Independently develops",
+          "a surgical plan for",
+          "complex procedures,",
+          "including contingencies",
+          "for complications",
+          "Independently performs",
+          "complex procedures",
+          "with skill and confidence",
+          "Independently develops"
+        ],
+        "level_5": [
+          "a plan for managing",
+          "complex complications",
+          "Develops novel surgical",
+          "techniques",
+          "Contributes to quality",
+          "improvement initiative",
+          "regarding complications",
+          "at the institution"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Team Coverage and Athletic Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Observes team/event",
+          "coverage",
+          "Observes care for acute",
+          "injuries and illness of the",
+          "athlete on the sidelines",
+          "Provides team/event",
+          "coverage, with indirect",
+          "supervision",
+          "Treats and manages"
+        ],
+        "level_2": [
+          "acute injuries and illness",
+          "of the athlete on the",
+          "sidelines with instructions",
+          "for return-to-play, with",
+          "indirect supervision",
+          "Provides team-based",
+          "care with the athletic",
+          "healthcare team for",
+          "athletic teams and/or"
+        ],
+        "level_3": [
+          "organizations,",
+          "with guidance",
+          "Treats and manages",
+          "acute injuries and illness",
+          "of the athlete on the",
+          "sidelines with instructions",
+          "for return-to-play, with",
+          "guidance",
+          "Independently provides"
+        ],
+        "level_4": [
+          "team-based care with",
+          "the athletic health care",
+          "team for athletic teams",
+          "and/or organizations",
+          "Independently treats",
+          "and manages acute",
+          "injuries and illness of",
+          "the athlete on the",
+          "sidelines with"
+        ],
+        "level_5": [
+          "instructions for return-",
+          "to-play",
+          "Develops and/or",
+          "disseminates novel",
+          "treatments for sideline",
+          "management"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Orthopaedic Clinical Decision-Making",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Articulates a",
+          "methodology for clinical",
+          "reasoning",
+          "Identifies resources to",
+          "direct clinical decisions",
+          "Demonstrates clinical",
+          "reasoning to determine"
+        ],
+        "level_2": [
+          "treatment goals",
+          "Selects and prioritizes",
+          "relevant resources based",
+          "on scenario to inform",
+          "decisions",
+          "Synthesizes information",
+          "to make clinical decisions"
+        ],
+        "level_3": [
+          "for straightforward",
+          "conditions",
+          "Integrates evidence-",
+          "based information to",
+          "inform diagnostic",
+          "decision-making for",
+          "straightforward conditions"
+        ],
+        "level_4": [
+          "Efficiently synthesizes",
+          "information and",
+          "integrates reflection to",
+          "make clinical decisions",
+          "for complex conditions",
+          "Integrates evidence-",
+          "based information to"
+        ],
+        "level_5": [
+          "inform diagnostic",
+          "decision-making for",
+          "complex conditions",
+          "Incorporates clinical",
+          "reasoning to improve care",
+          "pathways"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Basic Science – Gross Anatomy, Microanatomy, Rehabilitation and Kinesiology, Pathophysiology, Tissue",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of regional",
+          "gross anatomy",
+          "Demonstrates",
+          "knowledge of basic",
+          "kinesiology",
+          "Demonstrates basic",
+          "knowledge of cellular",
+          "biology",
+          "Demonstrates knowledge",
+          "of surgical anatomy and"
+        ],
+        "level_2": [
+          "pathophysiology",
+          "Demonstrates knowledge",
+          "of basic science of injury",
+          "and rehabilitation after",
+          "injury or surgery",
+          "Demonstrates knowledge",
+          "of the basic science of",
+          "inflammation and healing",
+          "Applies knowledge of",
+          "anatomy and",
+          "pathophysiology to"
+        ],
+        "level_3": [
+          "explain the effects of",
+          "surgical or non-surgical",
+          "treatment on patient",
+          "outcomes for",
+          "straightforward conditions",
+          "Applies knowledge of",
+          "biomechanics of injury",
+          "and rehabilitation",
+          "Applies knowledge of soft",
+          "tissue healing and cellular",
+          "mechanisms"
+        ],
+        "level_4": [
+          "Applies knowledge of",
+          "anatomy and",
+          "pathophysiology to",
+          "explain the effects of",
+          "surgical or non-surgical",
+          "treatment on patient",
+          "outcomes for complex",
+          "conditions",
+          "Applies knowledge of",
+          "the details of",
+          "rehabilitation protocols"
+        ],
+        "level_5": [
+          "and preventive",
+          "techniques",
+          "Applies knowledge of",
+          "the details of tissue",
+          "healing and cellular",
+          "physiology of treatment",
+          "modalities",
+          "Develops and/or",
+          "disseminates knowledge",
+          "of basic science topics in",
+          "sports medicine"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "their families (simulated",
+          "or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify"
+        ],
+        "level_5": [
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, effectively"
+        ],
+        "level_2": [
+          "using the roles of",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in",
+          "straightforward clinical",
+          "situations",
+          "Coordinates care of",
+          "patients in complex"
+        ],
+        "level_3": [
+          "clinical situations,",
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "multidisciplinary team",
+          "members",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and"
+        ],
+        "level_5": [
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health",
+          "payment systems,",
+          "including government,",
+          "private, public, and",
+          "uninsured care, as well"
+        ],
+        "level_2": [
+          "as different practice",
+          "models",
+          "Describes how working",
+          "within the health care",
+          "system impacts patient"
+        ],
+        "level_3": [
+          "care, including billing and",
+          "coding",
+          "Analyzes how personal",
+          "practice affects the",
+          "system (e.g., length of"
+        ],
+        "level_4": [
+          "stay, readmission rates,",
+          "clinical efficiency)",
+          "Uses shared decision-",
+          "making in patient care,",
+          "considering costs to the"
+        ],
+        "level_5": [
+          "patient",
+          "Participates in advocacy",
+          "activities for health policy"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pbli1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporate patient",
+          "preferences and values",
+          "to the care of a"
+        ],
+        "level_2": [
+          "straightforward condition",
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preferences, to the care",
+          "of complex conditions",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence, to",
+          "guide care tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex conditions,",
+          "and/or participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_pbli2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the strengths,",
+          "deficiencies, and",
+          "limitations in one’s",
+          "knowledge and expertise"
+        ],
+        "level_2": [
+          "Demonstrates openness",
+          "to feedback and other",
+          "input to inform goals",
+          "Analyzes and reflects on",
+          "the strengths,",
+          "deficiencies, and",
+          "limitations in one’s",
+          "knowledge and expertise",
+          "to design a learning plan,"
+        ],
+        "level_3": [
+          "with assistance",
+          "Responds to feedback",
+          "and other input",
+          "episodically, with",
+          "adaptability and humility",
+          "Creates and implements",
+          "a learning plan to",
+          "optimize educational and",
+          "professional development"
+        ],
+        "level_4": [
+          "Actively seeks feedback",
+          "and other input, with",
+          "adaptability and humility",
+          "Uses ongoing reflection,",
+          "feedback, and other",
+          "input to measure the",
+          "effectiveness of the",
+          "learning plan and, when",
+          "necessary, improves it"
+        ],
+        "level_5": [
+          "Role models consistently",
+          "seeking feedback and",
+          "other input with",
+          "adaptability and humility",
+          "Coaches others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_prof1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "straightforward situations",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "patient care (e.g.,",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,"
+        ],
+        "level_2": [
+          "stewardship of limited",
+          "resources, and related",
+          "topics)",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "straightforward situations",
+          "and describes inciting",
+          "events for lapses in",
+          "professionalism",
+          "Applies ethical principles",
+          "in straightforward",
+          "situations and takes"
+        ],
+        "level_3": [
+          "responsibility for lapses",
+          "Demonstrates",
+          "professional behavior in",
+          "complex situations",
+          "Integrates ethical",
+          "principles and recognizes",
+          "the need to seek help in",
+          "complex situations",
+          "Recognizes situations",
+          "that may promote",
+          "professionalism lapses",
+          "and intervenes to"
+        ],
+        "level_4": [
+          "prevent lapses in",
+          "oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas (e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_prof2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Reliably arrives to",
+          "clinical activities on time",
+          "and describes strategies",
+          "for ensuring timely task",
+          "completion",
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks and"
+        ],
+        "level_2": [
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "straightforward situations",
+          "Completes tasks and",
+          "responsibilities without"
+        ],
+        "level_3": [
+          "reminders",
+          "Prioritizes tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex situations",
+          "Proactively completes",
+          "tasks and responsibilities"
+        ],
+        "level_4": [
+          "to ensure that the needs",
+          "of patients, teams, and",
+          "systems are met",
+          "Recognizes barriers",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Develops processes to",
+          "enhance the health care",
+          "team’s ability to efficiently",
+          "complete patient care",
+          "tasks and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_prof3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "(e.g., physical and",
+          "emotional health)",
+          "Lists available resources",
+          "for personal and"
+        ],
+        "level_3": [
+          "professional well-being",
+          "Discusses a plan to",
+          "promote personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "with institutional support",
+          "Independently develops",
+          "a plan to promote",
+          "personal and"
+        ],
+        "level_5": [
+          "professional well-being",
+          "Creates institutional level",
+          "interventions that promote",
+          "colleagues’ well-being"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_ics1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "with patients and their",
+          "families",
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and"
+        ],
+        "level_2": [
+          "respectful manner",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Identifies barriers to",
+          "effective communication",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship in challenging",
+          "encounters",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Facilitates difficult",
+          "discussions to patients"
+        ],
+        "level_4": [
+          "and their families",
+          "Recognizes biases and",
+          "integrates the patient’s",
+          "viewpoint and autonomy",
+          "to ensure effective",
+          "communication",
+          "Coaches others in the",
+          "facilitation of difficult"
+        ],
+        "level_5": [
+          "conversations",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_ics2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes the value",
+          "and role of each team",
+          "member and respectfully",
+          "interacts with all",
+          "members of the health"
+        ],
+        "level_2": [
+          "care team",
+          "Communicates in a",
+          "professional and",
+          "productive manner to",
+          "facilitate teamwork (e.g.,"
+        ],
+        "level_3": [
+          "active listening, updates",
+          "in timely fashion)",
+          "Actively recognizes and",
+          "mitigates communication",
+          "barriers and biases with"
+        ],
+        "level_4": [
+          "the health care team",
+          "Facilitates respectful",
+          "communications and",
+          "conflict resolution with",
+          "the multidisciplinary"
+        ],
+        "level_5": [
+          "health care team",
+          "Exemplar of effective and",
+          "respectful communication",
+          "strategies"
+        ]
+      }
+    },
+    {
+      "id": "orthopaedic_surgery__orthopaedic_sports_medicine_ics3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record while",
+          "safeguarding patient",
+          "personal health"
+        ],
+        "level_2": [
+          "information",
+          "Demonstrates accurate,",
+          "timely, and efficient use of",
+          "the electronic health",
+          "record to communicate"
+        ],
+        "level_3": [
+          "with members of the",
+          "health care team",
+          "Concisely reports",
+          "diagnostic and",
+          "therapeutic reasoning"
+        ],
+        "level_4": [
+          "while incorporating",
+          "relevant outside data",
+          "Independently",
+          "communicates via",
+          "written or verbal"
+        ],
+        "level_5": [
+          "methods based on",
+          "urgency and context",
+          "Facilitates improved",
+          "written and verbal",
+          "communication of others"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "orthopaedic-surgery",
+  "primary_name": "Orthopaedic Surgery",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinemilestonesannotated.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinesupplementalguide.pdf"
+  }
+}

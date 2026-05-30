@@ -1,0 +1,1385 @@
+{
+  "framework_key": "anesthesiology--pediatric-cardiac-anesthesiology",
+  "specialty": "Pediatric Cardiac Anesthesiology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Cardiac Anesthesiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Peri-Procedural Assessment and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains medical and",
+          "surgical history;",
+          "performs physical",
+          "examinations for",
+          "pediatric cardiac patients",
+          "Identifies clinical issues",
+          "relevant to the",
+          "preparation of pediatric",
+          "cardiac patients"
+        ],
+        "level_2": [
+          "With guidance, identifies",
+          "disease processes and",
+          "relevant medical or",
+          "surgical issues and their",
+          "implications on anesthetic",
+          "care for pediatric patients",
+          "with simple cardiac lesion",
+          "With guidance, prepares",
+          "pediatric patients with"
+        ],
+        "level_3": [
+          "simple cardiac lesion",
+          "receiving anesthetic care",
+          "Identifies disease",
+          "processes and relevant",
+          "medical or surgical issues",
+          "and their implications on",
+          "anesthetic care for",
+          "pediatric patients with",
+          "simple cardiac lesion"
+        ],
+        "level_4": [
+          "Optimizes preparation of",
+          "pediatric patients with",
+          "simple cardiac lesion",
+          "Performs a complete",
+          "assessment of complex",
+          "or critically ill pediatric",
+          "cardiac patients",
+          "Optimizes preparation",
+          "of complex or critically ill"
+        ],
+        "level_5": [
+          "children across all age",
+          "groups",
+          "Independently serves as",
+          "a consultant to other",
+          "members of the health",
+          "care team regarding",
+          "optimal pre-anesthetic",
+          "preparation"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Technical/Procedural Skills: Airway Management and Lung Isolation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes unique",
+          "characteristics of",
+          "pediatric cardiac",
+          "anatomy and airway",
+          "management in pediatric",
+          "patients with cardiac",
+          "lesions",
+          "Performs airway",
+          "management across the",
+          "age spectrum from",
+          "neonates to adults with"
+        ],
+        "level_2": [
+          "cardiac lesions",
+          "Recognizes the need for",
+          "and complications of lung",
+          "isolation techniques in",
+          "pediatric patients with",
+          "cardiac lesions",
+          "Identifies the need for",
+          "advanced airway",
+          "management and",
+          "identifies possible",
+          "complications with airway"
+        ],
+        "level_3": [
+          "management in patients",
+          "with cardiac lesions",
+          "Manages lung isolation",
+          "techniques for pediatric",
+          "patients with cardiac",
+          "lesions, with guidance",
+          "Identifies and corrects",
+          "problems and",
+          "complications",
+          "associated with airway",
+          "management of"
+        ],
+        "level_4": [
+          "complex cardiac",
+          "patients",
+          "Manages lung isolation",
+          "techniques for pediatric",
+          "patients with cardiac",
+          "lesions",
+          "Independently identifies",
+          "and corrects problems",
+          "and complications of",
+          "advanced airway",
+          "management"
+        ],
+        "level_5": [
+          "Independently supervises",
+          "and provides consultation",
+          "to other members of the",
+          "health care team for lung",
+          "isolation in pediatric",
+          "patients with cardiac",
+          "lesions"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Technical/Procedural Skills: Vascular Access",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs basic radial",
+          "artery cannulation",
+          "procedures",
+          "Performs basic right",
+          "internal jugular central",
+          "venous cannulation",
+          "procedures",
+          "Identifies relevant",
+          "vascular access anatomy",
+          "and uses ultrasound in",
+          "vascular access",
+          "procedures",
+          "Performs complex radial"
+        ],
+        "level_2": [
+          "artery cannulation",
+          "procedures",
+          "Performs complex right",
+          "internal jugular central",
+          "venous cannulation",
+          "procedures",
+          "Interprets ultrasound to",
+          "optimize technique and",
+          "reduce complications in",
+          "vascular access",
+          "procedures",
+          "Performs arterial",
+          "cannulation at various"
+        ],
+        "level_3": [
+          "locations (e.g., femoral,",
+          "brachial, axillary)",
+          "Performs central venous",
+          "cannulation at various",
+          "locations (e.g.,",
+          "subclavian, left internal",
+          "jugular, femoral)",
+          "Independently conducts",
+          "and interprets complex",
+          "vascular access",
+          "ultrasound (e.g.,",
+          "intravenous)",
+          "Performs complex"
+        ],
+        "level_4": [
+          "arterial cannulation at",
+          "various locations (e.g.,",
+          "femoral, brachial,",
+          "axillary)",
+          "Performs complex",
+          "central venous",
+          "cannulation at various",
+          "locations (e.g.,",
+          "subclavian, left internal",
+          "jugular, femoral)",
+          "Advises and supervises",
+          "others with ultrasound",
+          "for vascular access"
+        ],
+        "level_5": [
+          "Serves as a departmental",
+          "resource for challenging",
+          "arterial cannulation",
+          "procedures",
+          "Serves as a departmental",
+          "resource for challenging",
+          "central venous",
+          "cannulation procedures",
+          "Serves as a departmental",
+          "resource for challenging",
+          "vascular access",
+          "ultrasound"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Anesthetic Management of Interventional Cardiology Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Differentiates between",
+          "diagnostic and",
+          "interventional",
+          "procedures",
+          "Develops anesthetic plan",
+          "for routine intra- and post-",
+          "operative management of"
+        ],
+        "level_2": [
+          "cardiac patients in the",
+          "catheterization and",
+          "electrophysiology",
+          "laboratories",
+          "Conducts intra- and post-",
+          "operative care for patients",
+          "with simple cardiac"
+        ],
+        "level_3": [
+          "lesions in the",
+          "catheterization and",
+          "electrophysiology",
+          "laboratories",
+          "Conducts intra- and",
+          "post-operative care for",
+          "patients with complex"
+        ],
+        "level_4": [
+          "cardiac lesions in the",
+          "catheterization and",
+          "electrophysiology",
+          "laboratories",
+          "Serves as a consultant for",
+          "complex intra- and post-",
+          "operative care in the"
+        ],
+        "level_5": [
+          "catheterization and",
+          "electrophysiology",
+          "laboratories"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Anesthetic Management of Surgical Cardiac Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Differentiates anesthetic",
+          "plan for surgical",
+          "procedures with and",
+          "without cardiopulmonary",
+          "bypass (CPB)",
+          "Recognizes presence of",
+          "peri-operative",
+          "cardiopulmonary and",
+          "hematologic",
+          "complications",
+          "Develops anesthetic plan",
+          "with consideration of"
+        ],
+        "level_2": [
+          "underlying clinical",
+          "conditions; past medical",
+          "history; and patient,",
+          "anesthetic, and surgical",
+          "risk factors for routine",
+          "intra- and post-operative",
+          "management of cardiac",
+          "patients in the operating",
+          "room",
+          "Identifies and manages",
+          "peri-operative",
+          "cardiopulmonary and"
+        ],
+        "level_3": [
+          "hematologic",
+          "complications, with direct",
+          "supervision",
+          "Conducts intra- and post-",
+          "operative care for patients",
+          "with simple cardiac",
+          "lesions in the operating",
+          "room",
+          "Identifies and manages",
+          "peri-operative",
+          "cardiopulmonary and",
+          "hematologic"
+        ],
+        "level_4": [
+          "complications, with",
+          "indirect supervision",
+          "Conducts intra- and",
+          "post-operative care for",
+          "patients with complex",
+          "cardiac lesions in the",
+          "operating room",
+          "Identifies and manages",
+          "peri-operative",
+          "cardiopulmonary and",
+          "hematologic",
+          "complications"
+        ],
+        "level_5": [
+          "Serves as a consultant for",
+          "complex intra- and post-",
+          "operative care in the",
+          "operating room",
+          "Serves as a consultant to",
+          "manage peri-operative",
+          "cardiopulmonary and",
+          "hematologic",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Situational Awareness and Crisis Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates vigilance",
+          "during clinical care",
+          "Articulates causes of",
+          "common peri-operative",
+          "crisis situations",
+          "Responds to crisis",
+          "situations as a reliable",
+          "team member",
+          "Demonstrates awareness",
+          "of case flow and"
+        ],
+        "level_2": [
+          "developments throughout",
+          "a procedure",
+          "Recognizes crisis",
+          "situations; calls for help",
+          "Participates in",
+          "management during crisis",
+          "situations",
+          "Demonstrates awareness",
+          "of case flow and",
+          "developments throughout"
+        ],
+        "level_3": [
+          "a procedure, including",
+          "those outside of one’s",
+          "immediate control, with",
+          "supervision",
+          "Anticipates an impending",
+          "crisis and identifies",
+          "possible etiologies, with",
+          "supervision",
+          "Initiates management and",
+          "resolves crisis situations,"
+        ],
+        "level_4": [
+          "with supervision",
+          "Independently",
+          "demonstrates",
+          "awareness of case flow",
+          "and developments",
+          "throughout a procedure,",
+          "including those outside",
+          "of one’s immediate",
+          "control",
+          "Independently"
+        ],
+        "level_5": [
+          "anticipates an",
+          "impending crisis and",
+          "identifies possible",
+          "etiologies",
+          "Independently initiates",
+          "management and",
+          "resolves crisis situations",
+          "Leads the health care",
+          "team in the management",
+          "of crisis situations"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Circulatory Support Transitions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the basic",
+          "principles and indications",
+          "for CPB",
+          "Discusses the basic",
+          "principles and indications",
+          "for circulatory assist",
+          "devices"
+        ],
+        "level_2": [
+          "Guides a patient on and",
+          "off CPB with assistance",
+          "Uses available",
+          "hemodynamic data to",
+          "guide a patient onto and",
+          "off circulatory assist",
+          "devices, with assistance"
+        ],
+        "level_3": [
+          "Guides a patient on and",
+          "off routine CPB",
+          "Integrates available",
+          "hemodynamic and",
+          "echocardiographic data to",
+          "guide a patient onto and",
+          "off circulatory assist"
+        ],
+        "level_4": [
+          "devices, with assistance",
+          "Guides a patient on and",
+          "off complex CPB",
+          "Integrates available",
+          "hemodynamic and",
+          "echocardiographic data",
+          "to guide a patient onto"
+        ],
+        "level_5": [
+          "and off circulatory assist",
+          "devices",
+          "Develops policies with the",
+          "interdisciplinary team to",
+          "guide institutional CPB",
+          "protocols"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_mk1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Foundational Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of cardiac",
+          "anatomy and physiology",
+          "and treatment of medical",
+          "and surgical conditions",
+          "Demonstrates knowledge",
+          "of common medical and"
+        ],
+        "level_2": [
+          "surgical disease,",
+          "treatments, and",
+          "populations as relates to",
+          "anesthetic care",
+          "Demonstrates knowledge",
+          "of complex medical and",
+          "surgical disease,"
+        ],
+        "level_3": [
+          "treatments, and",
+          "populations as relates to",
+          "anesthetic care",
+          "Demonstrates",
+          "comprehensive",
+          "knowledge of medical",
+          "and surgical disease as"
+        ],
+        "level_4": [
+          "relates to the full",
+          "spectrum of a patient’s",
+          "peri-operative care",
+          "Demonstrates scientific",
+          "knowledge of uncommon,",
+          "atypical, or complex",
+          "conditions as relates to"
+        ],
+        "level_5": [
+          "the full spectrum of a",
+          "patient’s peri-operative",
+          "care"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_mk2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Pharmacology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of",
+          "pharmacologic principles",
+          "of inhaled and/or",
+          "intravenous anesthetic,",
+          "vasoactive, and inotropic",
+          "drugs to routine patient",
+          "management",
+          "Demonstrates advanced",
+          "knowledge of",
+          "pharmacologic principles"
+        ],
+        "level_2": [
+          "of inhaled and/or",
+          "intravenous anesthetic,",
+          "vasoactive, and inotropic",
+          "drugs for management of",
+          "pediatric patients with",
+          "cardiac lesions",
+          "Demonstrates basic",
+          "knowledge of",
+          "pharmacokinetics and",
+          "pharmacodynamics and",
+          "selection and dosing of"
+        ],
+        "level_3": [
+          "inhaled and/or",
+          "intravenous anesthetic,",
+          "vasoactive, and inotropic",
+          "drugs for management of",
+          "pediatric patients with",
+          "cardiac lesions, including",
+          "indications,",
+          "contraindications, side",
+          "effects, and complications",
+          "Demonstrates",
+          "advanced knowledge of"
+        ],
+        "level_4": [
+          "pharmacokinetics and",
+          "pharmacodynamics and",
+          "selection and dosing of",
+          "anesthetic, vasoactive,",
+          "and inotropic drugs for",
+          "management of",
+          "pediatric patients with",
+          "cardiac lesions",
+          "Is recognized (through",
+          "scholarship or education)",
+          "as an expert resource in"
+        ],
+        "level_5": [
+          "advanced understanding",
+          "of pharmacokinetics and",
+          "pharmacodynamics of",
+          "inhaled and/or",
+          "intravenous anesthetic,",
+          "vasoactive, and inotropic",
+          "drugs to management of",
+          "pediatric patients with",
+          "cardiac lesions"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_mk3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Cardiovascular Imaging and Monitoring",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Interprets data from",
+          "cardiopulmonary imaging",
+          "and monitoring to guide",
+          "routine clinical decision-",
+          "making, with guidance",
+          "Interprets data from"
+        ],
+        "level_2": [
+          "cardiopulmonary imaging",
+          "and monitoring to guide",
+          "routine clinical decision",
+          "making",
+          "Integrates data from",
+          "cardiopulmonary imaging"
+        ],
+        "level_3": [
+          "and monitoring to guide",
+          "advanced clinical decision",
+          "making",
+          "Integrates data from",
+          "cardiopulmonary",
+          "imaging and monitoring,"
+        ],
+        "level_4": [
+          "including tools used",
+          "infrequently outside of",
+          "cardiothoracic surgery,",
+          "to guide advanced",
+          "clinical decision making",
+          "Is recognized (through"
+        ],
+        "level_5": [
+          "scholarship or education",
+          "of others) as an expert",
+          "resource in peri-operative",
+          "monitoring"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "events that impact",
+          "patient safety",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "quality improvement",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and patients’",
+          "families (simulated or",
+          "actual)",
+          "Participates in department",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "patients’ families",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional level or",
+          "above"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses institutional",
+          "resources effectively to",
+          "meet the needs of a",
+          "patient population and",
+          "community",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "participates in the design",
+          "and implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Advocates for populations",
+          "and communities with",
+          "specific health care needs",
+          "in the peri-operative",
+          "setting"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "States factors impacting",
+          "the costs of anesthetic",
+          "care"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how they",
+          "impact patient care",
+          "Documents anesthetic",
+          "detail to facilitate accurate",
+          "billing and reimbursement",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Practices and",
+          "advocates for cost-",
+          "effective patient care",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,"
+        ],
+        "level_5": [
+          "efficient, and effective",
+          "patient care",
+          "Engages in external",
+          "activities related to",
+          "advocacy for cost-",
+          "effective care"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accesses and uses",
+          "evidence in routine",
+          "patient care",
+          "Articulates clinical",
+          "questions and elicits"
+        ],
+        "level_2": [
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care",
+          "Locates and applies the",
+          "best available evidence,"
+        ],
+        "level_3": [
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Appraises and applies",
+          "evidence, even in the"
+        ],
+        "level_4": [
+          "face of uncertainty and",
+          "conflicting evidence, to",
+          "guide individualized",
+          "care",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "appraise and apply",
+          "evidence for complex",
+          "patients and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to",
+          "performance deficits",
+          "Actively seeks",
+          "opportunities to improve"
+        ],
+        "level_2": [
+          "Demonstrates openness",
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and",
+          "acknowledges the factors",
+          "that contribute to",
+          "performance deficits",
+          "Designs and implements",
+          "a learning plan, with"
+        ],
+        "level_3": [
+          "prompting",
+          "Seeks performance data",
+          "episodically, with",
+          "adaptability and humility",
+          "Institutes behavioral",
+          "change(s) to improve",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan"
+        ],
+        "level_4": [
+          "Intentionally seeks",
+          "performance data",
+          "consistently, with",
+          "adaptability and humility",
+          "Considers alternatives",
+          "to improve performance",
+          "Integrates performance",
+          "data to adapt the",
+          "learning plan",
+          "Role models consistently"
+        ],
+        "level_5": [
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Models reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies potential",
+          "triggers for",
+          "professionalism lapses",
+          "Describes when and how",
+          "to report lapses in",
+          "professionalism",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "patient care",
+          "Demonstrates insight into"
+        ],
+        "level_2": [
+          "professional behavior in",
+          "routine situations",
+          "Takes responsibility for",
+          "one’s own",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex",
+          "interpersonal situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself",
+          "Actively solicits help",
+          "and acts on",
+          "recommendations to",
+          "resolve complex",
+          "interpersonal situations",
+          "Recognizes and uses",
+          "resources for managing",
+          "and resolving ethical"
+        ],
+        "level_5": [
+          "dilemmas",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks",
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner"
+        ],
+        "level_2": [
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete",
+          "tasks and responsibilities",
+          "in a timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate"
+        ],
+        "level_3": [
+          "attention to detail in",
+          "routine situations",
+          "Takes responsibility for",
+          "tasks not completed in a",
+          "timely manner and",
+          "identifies strategies to",
+          "prevent recurrence",
+          "Prioritizes tasks and"
+        ],
+        "level_4": [
+          "responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail in complex or",
+          "stressful situations",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients"
+        ],
+        "level_5": [
+          "and their families,",
+          "teams, and systems are",
+          "met",
+          "Designs and implements",
+          "an institutional systems",
+          "approach to ensure timely",
+          "task completion and",
+          "shared responsibility"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being",
+          "Lists available resources",
+          "for personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "promote personal and",
+          "professional well-being"
+        ],
+        "level_3": [
+          "Recognizes which",
+          "institutional factors affect",
+          "well-being",
+          "Independently develops",
+          "a plan to promote",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Describes institutional",
+          "factors that positively",
+          "and/or negatively affect",
+          "well-being",
+          "Creates institutional-level",
+          "interventions that promote",
+          "colleagues’ well-being"
+        ],
+        "level_5": [
+          "Describes institutional",
+          "programs designed to",
+          "examine systemic",
+          "contributors to burnout"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and",
+          "respectful manner",
+          "Provides timely updates",
+          "to patients and patients’",
+          "families"
+        ],
+        "level_2": [
+          "Customizes",
+          "communication in the",
+          "setting of biases and",
+          "barriers with patients and",
+          "patients’ families",
+          "Actively listens to patients",
+          "and patients’ families to",
+          "elicit patient preferences"
+        ],
+        "level_3": [
+          "and expectations",
+          "Explains complex and",
+          "difficult information to",
+          "patients and patients’",
+          "families",
+          "Uses shared decision-",
+          "making to make a",
+          "personalized care plan"
+        ],
+        "level_4": [
+          "Facilitates difficult",
+          "discussions with",
+          "patients and patients’",
+          "families",
+          "Effectively negotiates",
+          "and manages conflict",
+          "among patients,",
+          "patients’ families, and"
+        ],
+        "level_5": [
+          "the health care team",
+          "Mentors others in the",
+          "facilitation of crucial",
+          "conversations",
+          "Mentors others in conflict",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests or",
+          "receives consultations",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Respectfully receives",
+          "feedback from the health",
+          "care team",
+          "Clearly, concisely, and",
+          "promptly requests or",
+          "responds to a"
+        ],
+        "level_2": [
+          "consultation",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses closed-loop",
+          "communication to verify"
+        ],
+        "level_3": [
+          "understanding",
+          "Adapts communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Maintains effective",
+          "communication in crisis",
+          "situations",
+          "Communicates",
+          "constructive feedback to",
+          "superiors",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving"
+        ],
+        "level_5": [
+          "conflict when needed",
+          "Leads an after-event",
+          "debrief of the health care",
+          "team",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_cardiac_anesthesiology_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record; demonstrates",
+          "judicious use of",
+          "documentation shortcuts",
+          "Safeguards patients’",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy",
+          "Accurately records"
+        ],
+        "level_2": [
+          "information in the",
+          "anesthetic record for",
+          "basic cases",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Accurately records",
+          "information in the",
+          "anesthetic record and",
+          "communicates complex"
+        ],
+        "level_3": [
+          "care decisions for",
+          "complex cases",
+          "Appropriately selects",
+          "direct and indirect forms",
+          "of communication based",
+          "on context",
+          "Respectfully",
+          "communicates concerns",
+          "about the system and",
+          "contributes to solutions",
+          "Uses medical record",
+          "functionality to highlight",
+          "challenges in anesthetic"
+        ],
+        "level_4": [
+          "care to facilitate future",
+          "peri-operative",
+          "management",
+          "Models exemplary",
+          "written or verbal",
+          "communication",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system",
+          "Explores innovative uses",
+          "of the medical record to"
+        ],
+        "level_5": [
+          "facilitate peri-operative",
+          "management",
+          "Guides departmental or",
+          "institutional policies and",
+          "procedures around",
+          "communication",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate stakeholders",
+          "to improve the system"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "anesthesiology",
+  "primary_name": "Anesthesiology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiacanesthesiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiacanesthesiologysupplementalguide.pdf"
+  }
+}

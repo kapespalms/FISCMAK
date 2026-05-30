@@ -1,0 +1,1638 @@
+{
+  "framework_key": "neurology--clinical-neurophysiology",
+  "specialty": "Clinical Neurophysiology",
+  "version": "2.0",
+  "source": "ACGME Clinical Neurophysiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "neurology__clinical_neurophysiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a basic",
+          "neurologic history",
+          "Obtains, communicates,",
+          "and documents a focused",
+          "and relevant history,"
+        ],
+        "level_2": [
+          "including collateral",
+          "information as appropriate",
+          "Obtains a focused history",
+          "sufficient to guide",
+          "subsequent"
+        ],
+        "level_3": [
+          "neurophysiologic",
+          "investigation",
+          "Consistently obtains a",
+          "focused history to guide",
+          "hypothesis-driven"
+        ],
+        "level_4": [
+          "neurophysiologic",
+          "investigation",
+          "Serves as a role model in",
+          "obtaining a hypothesis-",
+          "driven neurophysiologic"
+        ],
+        "level_5": [
+          "investigation"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Neurological Exam",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a basic",
+          "neurological exam",
+          "Performs, communicates,",
+          "and documents a",
+          "neurological exam",
+          "incorporating additional"
+        ],
+        "level_2": [
+          "relevant maneuvers",
+          "Performs, communicates,",
+          "and documents a focused",
+          "neurological examination",
+          "sufficient to guide",
+          "subsequent"
+        ],
+        "level_3": [
+          "neurophysiologic",
+          "investigation",
+          "Consistently obtains a",
+          "focused neurological",
+          "examination to guide",
+          "hypothesis-driven"
+        ],
+        "level_4": [
+          "neurophysiologic",
+          "investigation",
+          "Serves as a role model in",
+          "performing a focused",
+          "neurological examination",
+          "to guide hypothesis-"
+        ],
+        "level_5": [
+          "driven neurophysiologic",
+          "investigation"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Electroencephalogram (EEG)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes normal EEG",
+          "features of awake and",
+          "sleep states and",
+          "common EEG artifacts",
+          "Identifies the elements of",
+          "a routine EEG report",
+          "Interprets common EEG"
+        ],
+        "level_2": [
+          "abnormalities",
+          "Generates a routine",
+          "normal EEG report",
+          "Interprets common",
+          "normal variants and",
+          "abnormal EEG patterns",
+          "Generates an abnormal"
+        ],
+        "level_3": [
+          "EEG report",
+          "Efficiently interprets",
+          "EEG findings, including",
+          "uncommon normal",
+          "variants and abnormal",
+          "EEG patterns",
+          "Efficiently generates"
+        ],
+        "level_4": [
+          "normal and complex",
+          "reports of continuous",
+          "video EEG",
+          "Mentors others in",
+          "interpreting EEG findings",
+          "in children and adults",
+          "Utilizes advanced analytic"
+        ],
+        "level_5": [
+          "techniques to efficiently",
+          "and accurately generate",
+          "reports on continuous",
+          "video EEG studies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Nerve Conduction Studies (NCS)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Applies principles of",
+          "electrical safety to the",
+          "performance of NCS",
+          "Identifies the elements of",
+          "a routine NCS report",
+          "Performs common motor",
+          "and sensory NCS and"
+        ],
+        "level_2": [
+          "late responses",
+          "Interprets common motor",
+          "and sensory",
+          "abnormalities and",
+          "generates a report",
+          "Performs",
+          "neuromuscular junction"
+        ],
+        "level_3": [
+          "testing",
+          "Interprets uncommon",
+          "motor and sensory",
+          "abnormalities, as well as",
+          "common anatomical",
+          "variants in the",
+          "interpretation of NCS and"
+        ],
+        "level_4": [
+          "generates a report",
+          "Performs cranial nerve",
+          "testing and uncommon",
+          "motor and sensory NCS",
+          "Efficiently interprets and",
+          "generates a detailed",
+          "report of complex nerve"
+        ],
+        "level_5": [
+          "conduction study",
+          "findings",
+          "Performs special NCS",
+          "procedures",
+          "Mentor others in the",
+          "interpretation and",
+          "documentation of NCS"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Needle EMG",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies technical",
+          "artifacts in the",
+          "interpretation of EMG",
+          "Applies knowledge of",
+          "nerve and muscle",
+          "anatomy in the",
+          "performance of EMG",
+          "and applies principles of",
+          "electrical safety to the",
+          "performance of EMG",
+          "Identifies the elements of"
+        ],
+        "level_2": [
+          "an EMG report",
+          "Formulates basic EMG",
+          "plan for common clinical",
+          "presentations",
+          "Performs and interprets",
+          "EMG of commonly",
+          "sampled muscles,",
+          "recognizing common",
+          "EMG findings",
+          "Generates a normal",
+          "report for an EMG/NCS"
+        ],
+        "level_3": [
+          "study",
+          "Formulates EMG plan for",
+          "uncommon/atypical",
+          "clinical presentations",
+          "Performs and interprets",
+          "EMG of uncommonly",
+          "sampled muscles,",
+          "including cranial nerve",
+          "innervated muscles",
+          "Generates a report for",
+          "common normal and"
+        ],
+        "level_4": [
+          "abnormal findings of an",
+          "EMG/NCS study",
+          "Actively interprets EMG",
+          "findings “in real time”",
+          "and adjusts EMG plan",
+          "in accordance",
+          "Interprets uncommon",
+          "EMG findings",
+          "Generates a report for",
+          "uncommon normal and",
+          "abnormal findings of an"
+        ],
+        "level_5": [
+          "EMG/NCS study",
+          "Serves as a mentor in the",
+          "planning of EMG studies",
+          "Performs and interprets",
+          "special EMG procedures",
+          "(e.g., single fiber EMG,",
+          "quantitative EMG studies)",
+          "Serves as a mentor in",
+          "generation of EMG",
+          "reports"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Intra-operative Monitoring (IOM)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes normal",
+          "waveforms related to",
+          "commonly performed",
+          "IOM studies",
+          "Identifies the basic",
+          "elements of the IOM",
+          "report",
+          "Correlates normal",
+          "waveforms with",
+          "associated anatomic"
+        ],
+        "level_2": [
+          "structures and physiologic",
+          "phenomena",
+          "Generates a basic normal",
+          "IOM report",
+          "Orders and utilizes",
+          "appropriate basic",
+          "procedures in patients",
+          "undergoing IOM",
+          "Interprets common",
+          "normal and abnormal"
+        ],
+        "level_3": [
+          "findings in IOM, including",
+          "artifacts",
+          "Provides timely feedback",
+          "to surgeons with support",
+          "and generates written",
+          "report",
+          "Orders appropriate IOM",
+          "in cases of moderate",
+          "complexity",
+          "Interprets uncommon"
+        ],
+        "level_4": [
+          "findings in IOM studies",
+          "Provides timely",
+          "feedback to surgeons",
+          "independently, and",
+          "generates written report",
+          "Orders and utilizes",
+          "appropriate IOM in",
+          "cases of high",
+          "complexity",
+          "Serves as a mentor in"
+        ],
+        "level_5": [
+          "interpretation of IOM",
+          "studies",
+          "Serves as a mentor in",
+          "communication with",
+          "surgeons during IOM",
+          "studies and generating a",
+          "written report",
+          "Role models the ordering",
+          "and utilization of",
+          "appropriate IOM"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Evoked Potential (EP)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes normal",
+          "waveforms related to",
+          "commonly performed EP",
+          "studies",
+          "Identifies the basic",
+          "elements of the EP study",
+          "report",
+          "Describes normal",
+          "waveforms related to",
+          "commonly performed EP"
+        ],
+        "level_2": [
+          "studies and correlates",
+          "normal waveforms with",
+          "associated anatomic",
+          "structures and physiologic",
+          "phenomena",
+          "Generates a basic normal",
+          "report",
+          "Orders and utilizes",
+          "appropriate basic",
+          "procedures in patients"
+        ],
+        "level_3": [
+          "undergoing EP studies",
+          "Interprets common",
+          "findings of clinical",
+          "significance associated",
+          "with EP studies",
+          "Generates a report of",
+          "common abnormal EP",
+          "studies",
+          "Orders and utilizes",
+          "appropriate EP studies in"
+        ],
+        "level_4": [
+          "cases of moderate",
+          "complexity",
+          "Interprets uncommon",
+          "findings of clinical",
+          "significance during EP",
+          "studies",
+          "Generates a report of",
+          "uncommon EP studies",
+          "Orders and utilizes",
+          "appropriate EP studies"
+        ],
+        "level_5": [
+          "in cases of high",
+          "complexity",
+          "Serves as a mentor for",
+          "interpretation of EP",
+          "studies",
+          "Role models in the",
+          "creation of EP reports",
+          "Role models the ordering",
+          "and utilization of",
+          "appropriate EP studies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Polysomnography",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the technical",
+          "aspects of",
+          "polysomnograph/HST",
+          "Describes normal"
+        ],
+        "level_2": [
+          "neurophysiologic features",
+          "of sleep stages",
+          "Interprets and reports",
+          "polysomnographic"
+        ],
+        "level_3": [
+          "features of common sleep",
+          "disorders",
+          "Interprets and reports",
+          "polysomnographic"
+        ],
+        "level_4": [
+          "features of uncommon",
+          "sleep disorders",
+          "Mentors others in the",
+          "interpretation and"
+        ],
+        "level_5": [
+          "reporting of PSG"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pc9",
+      "number": 9,
+      "domain_number": 9,
+      "name": "Telemedicine",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the required",
+          "components for remote",
+          "neurophysiologic",
+          "monitoring",
+          "Identifies the required",
+          "components of a",
+          "telehealth visit",
+          "Identifies appropriate use",
+          "settings for remote"
+        ],
+        "level_2": [
+          "neurophysiologic",
+          "monitoring",
+          "Identifies clinical",
+          "situations that can be",
+          "managed through a",
+          "telehealth visit",
+          "Demonstrates use of",
+          "digital or remote",
+          "monitoring to support"
+        ],
+        "level_3": [
+          "patient management in",
+          "clinical neurophysiology",
+          "settings",
+          "Initiates and performs a",
+          "complete telehealth visit",
+          "Utilizes digital and",
+          "remote monitoring data",
+          "to optimize the care of",
+          "patients in clinical"
+        ],
+        "level_4": [
+          "neurophysiology",
+          "settings",
+          "Utilizes telehealth visits",
+          "for complex patient",
+          "management",
+          "Innovates and leads in",
+          "the use of emerging",
+          "remote monitoring",
+          "technologies in clinical"
+        ],
+        "level_5": [
+          "neurophysiology settings",
+          "Innovates and leads in",
+          "the use of telehealth",
+          "technologies in the",
+          "delivery of patient care"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_mk1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Localization",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Accurately localizes",
+          "lesions to specific",
+          "regions of the nervous",
+          "system",
+          "Demonstrates knowledge",
+          "of neuroanatomy and",
+          "neurophysiology relevant"
+        ],
+        "level_2": [
+          "to performing and",
+          "interpreting common",
+          "neurophysiologic studies",
+          "Demonstrates knowledge",
+          "of neuroanatomy and",
+          "neurophysiology relevant",
+          "to performing and"
+        ],
+        "level_3": [
+          "interpreting uncommon",
+          "neurophysiologic studies",
+          "Consistently",
+          "demonstrates",
+          "sophisticated and",
+          "detailed knowledge of",
+          "neuroanatomy and"
+        ],
+        "level_4": [
+          "neurophysiology",
+          "relevant to performing",
+          "and interpreting",
+          "complex",
+          "neurophysiologic",
+          "studies",
+          "Teaches other learners"
+        ],
+        "level_5": [
+          "neuroanatomy relevant to",
+          "performing and",
+          "interpreting",
+          "neurophysiologic studies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_mk2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "Neuromuscular (NM) Disorders",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Explains typical",
+          "presentations of",
+          "common NM disorders",
+          "(based on knowledge of",
+          "anatomy of the NMJ",
+          "Explains atypical"
+        ],
+        "level_2": [
+          "presentations of",
+          "commonly encountered",
+          "NM disorders",
+          "Demonstrates basic",
+          "knowledge of",
+          "neurophysiologic findings"
+        ],
+        "level_3": [
+          "in common and",
+          "uncommon",
+          "neuromuscular disorders",
+          "Demonstrates detailed",
+          "knowledge of",
+          "neurophysiologic"
+        ],
+        "level_4": [
+          "findings in common and",
+          "uncommon",
+          "neuromuscular",
+          "disorders",
+          "Engages in scholarly",
+          "activity related to"
+        ],
+        "level_5": [
+          "neurophysiologic findings",
+          "in neuromuscular",
+          "disorders"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_mk3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "Epilepsy",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of common",
+          "types of seizures and",
+          "epilepsy syndromes",
+          "Demonstrates basic",
+          "knowledge related to the",
+          "medical management of",
+          "epilepsy",
+          "Demonstrates basic",
+          "knowledge of uncommon",
+          "types of seizures and"
+        ],
+        "level_2": [
+          "epilepsy syndromes as",
+          "well as demonstrates an",
+          "ability to differentiate",
+          "epileptic seizures from",
+          "other paroxysmal",
+          "disorders",
+          "Demonstrates detailed",
+          "knowledge of common",
+          "anti-seizure medications",
+          "(ASM)",
+          "Demonstrates detailed"
+        ],
+        "level_3": [
+          "knowledge of clinical,",
+          "findings seen in common",
+          "and uncommon types of",
+          "seizures and epilepsy",
+          "syndromes, as well as the",
+          "ability to localize and",
+          "lateralize seizure foci",
+          "based on reported seizure",
+          "semiology",
+          "Demonstrates detailed",
+          "knowledge of uncommon"
+        ],
+        "level_4": [
+          "ASMs",
+          "Demonstrates detailed",
+          "knowledge of clinical",
+          "findings, and typical",
+          "EEG findings seen in",
+          "common and",
+          "uncommon seizures",
+          "and epilepsy syndromes",
+          "Demonstrates",
+          "knowledge of advanced",
+          "treatment options for"
+        ],
+        "level_5": [
+          "medically refractory",
+          "epilepsy",
+          "Engages in scholarly",
+          "activity related to epileptic",
+          "seizures and/or epilepsy",
+          "syndromes",
+          "Demonstrates detailed",
+          "knowledge of advanced",
+          "treatment options for",
+          "medically refractory",
+          "epilepsy"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_mk4",
+      "number": 13,
+      "domain_number": 4,
+      "name": "Sleep Disorders",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes clinical",
+          "features of common",
+          "sleep disorders",
+          "Recognizes the"
+        ],
+        "level_2": [
+          "indications for use of",
+          "different sleep study",
+          "modalities",
+          "Describes clinical and"
+        ],
+        "level_3": [
+          "neurophysiologic features",
+          "of common sleep",
+          "disorders",
+          "Describes clinical and"
+        ],
+        "level_4": [
+          "neurophysiologic",
+          "features of uncommon",
+          "sleep disorders",
+          "Engages in scholarly"
+        ],
+        "level_5": [
+          "activity related to sleep",
+          "disorders"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_mk5",
+      "number": 14,
+      "domain_number": 5,
+      "name": "EP/IOM",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic",
+          "knowledge of the",
+          "fundamental neurophysi",
+          "ologic principles of EP",
+          "and/or IOM",
+          "Describes common",
+          "indications for IOM",
+          "and/or EP studies",
+          "Demonstrates advanced",
+          "knowledge of the"
+        ],
+        "level_2": [
+          "fundamental neurophysiol",
+          "ogic principles of EP",
+          "and/or IOM",
+          "Describes basic",
+          "procedures utilized in IOM",
+          "and/or EP and when",
+          "studies are clinically",
+          "appropriate",
+          "Demonstrates basic",
+          "knowledge of the"
+        ],
+        "level_3": [
+          "technical aspects of EP",
+          "and/or IOM",
+          "Describes normal",
+          "patterns of EP and/or IOM",
+          "studies",
+          "Demonstrates detailed",
+          "knowledge of the",
+          "technical aspects of EP",
+          "and/or IOM studies",
+          "Describes atypical"
+        ],
+        "level_4": [
+          "findings of clinical",
+          "significance associated",
+          "with EP and/or IOM",
+          "studies",
+          "Demonstrates",
+          "comprehensive",
+          "knowledge of the",
+          "fundamental",
+          "neurophysiologic",
+          "principles and technical"
+        ],
+        "level_5": [
+          "aspects of EP and/or IOM",
+          "studies",
+          "Describes uncommon",
+          "findings of clinical",
+          "significance during IOM",
+          "and/or EP studies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_sbp1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of commonly",
+          "reported patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(actual or simulated)",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error"
+        ],
+        "level_4": [
+          "prevention strategies",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (actual or",
+          "simulated)",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_sbp2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_sbp3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the roles"
+        ],
+        "level_3": [
+          "of their interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and",
+          "community",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among"
+        ],
+        "level_4": [
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_sbp4",
+      "number": 18,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models",
+          "Identifies basic",
+          "knowledge domains for",
+          "effective transition to"
+        ],
+        "level_2": [
+          "practice",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)",
+          "Describes core",
+          "administrative knowledge",
+          "needed for transition to",
+          "practice",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Demonstrates use of",
+          "administrative knowledge",
+          "required for transition to",
+          "practice",
+          "Manages various",
+          "components of the"
+        ],
+        "level_4": [
+          "complex health care",
+          "system to provide",
+          "efficient, and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model",
+          "Analyzes individual"
+        ],
+        "level_5": [
+          "practice patterns and",
+          "professional",
+          "requirements for",
+          "transition to practice",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities",
+          "Educates others to",
+          "prepare them for",
+          "transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pbli1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Evidence -Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence in patient care",
+          "Articulates clinical",
+          "questions to guide search",
+          "for evidence and elicits"
+        ],
+        "level_2": [
+          "patient preferences and",
+          "values in order to guide",
+          "evidence-based care",
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient"
+        ],
+        "level_3": [
+          "preferences and values,",
+          "to the care of patients",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty, and"
+        ],
+        "level_4": [
+          "interprets conflicting",
+          "evidence to guide care,",
+          "tailored to the individual",
+          "patient",
+          "Coaches others to",
+          "critically appraise and"
+        ],
+        "level_5": [
+          "apply evidence for",
+          "complex patients; and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_pbli2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors",
+          "which contribute to gaps",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve"
+        ],
+        "level_2": [
+          "Demonstrates openness",
+          "to performance data",
+          "(feedback and other",
+          "input)",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gaps",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with"
+        ],
+        "level_3": [
+          "prompting",
+          "Seeks performance data",
+          "sporadically, with",
+          "adaptability and humility",
+          "Institutes behavioral",
+          "changes to narrow the",
+          "gaps between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a"
+        ],
+        "level_4": [
+          "learning plan",
+          "Seeks performance",
+          "data consistently",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gaps",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the"
+        ],
+        "level_5": [
+          "effectiveness of the",
+          "learning plan and when",
+          "necessary, improves it",
+          "Role models seeking",
+          "performance data with",
+          "adaptability and humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_prof1",
+      "number": 21,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to report",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles related to",
+          "patient care"
+        ],
+        "level_2": [
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in"
+        ],
+        "level_3": [
+          "complex or stressful",
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Intervenes to prevent",
+          "professionalism lapses",
+          "in self and others"
+        ],
+        "level_4": [
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional"
+        ],
+        "level_5": [
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_prof2",
+      "number": 22,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks and"
+        ],
+        "level_2": [
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes situations that",
+          "may impact own ability to",
+          "complete tasks and",
+          "responsibilities in a timely",
+          "manner"
+        ],
+        "level_3": [
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients,",
+          "teams, and systems are",
+          "met"
+        ],
+        "level_4": [
+          "Manages situations that",
+          "may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Role models the",
+          "strategies to ensure that",
+          "the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that impact",
+          "completion of tasks",
+          "Coaches others to",
+          "develop strategies to",
+          "ensure that the needs of",
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_prof3",
+      "number": 23,
+      "domain_number": 3,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Recognizes limits in",
+          "knowledge/skills, with",
+          "assistance"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "Independently recognizes",
+          "limits in knowledge/skills",
+          "With assistance, proposes",
+          "a plan to promote"
+        ],
+        "level_3": [
+          "personal and professional",
+          "well-being",
+          "With assistance, proposes",
+          "a plan to remediate or",
+          "improve limits in",
+          "knowledge/skills",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to promote",
+          "personal and",
+          "professional well-being",
+          "Independently develops",
+          "a plan to remediate or",
+          "improve limits in",
+          "knowledge/skills"
+        ],
+        "level_5": [
+          "Coaches others when",
+          "emotional responses or",
+          "limitations in knowledge/",
+          "skills do not meet",
+          "professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_ics1",
+      "number": 24,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "with patients",
+          "Identifies the need to",
+          "individualize",
+          "communication",
+          "strategies based on",
+          "patient/family",
+          "expectations and fund of",
+          "knowledge",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Communicates",
+          "compassionately with",
+          "patient/family, clarifying",
+          "expectations and verifying",
+          "understanding of the",
+          "clinical situation"
+        ],
+        "level_3": [
+          "Establishes a therapeutic",
+          "relationship",
+          "in challenging patient",
+          "encounters",
+          "Communicates medical",
+          "information in the context",
+          "of patient/family values,",
+          "uncertainty and conflict",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with"
+        ],
+        "level_4": [
+          "attention to",
+          "patient/family concerns",
+          "and context, regardless",
+          "of complexity",
+          "Uses shared decision",
+          "making to align",
+          "patient/family values,",
+          "goals, and preferences",
+          "with treatment options",
+          "Mentors others in",
+          "situational awareness and"
+        ],
+        "level_5": [
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models shared",
+          "decision making in the",
+          "context of patient/family",
+          "values, uncertainty, and",
+          "conflict"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_ics2",
+      "number": 25,
+      "domain_number": 2,
+      "name": "Barrier and Bias Mitigation",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "patient care (e.g.,",
+          "language, disability)"
+        ],
+        "level_2": [
+          "Identifies complex",
+          "barriers to effective",
+          "patient care (e.g., health",
+          "literacy)"
+        ],
+        "level_3": [
+          "Recognizes biases and",
+          "mitigates barriers to",
+          "optimize patient care,",
+          "when prompted"
+        ],
+        "level_4": [
+          "Recognizes biases and",
+          "proactively mitigates",
+          "barriers to optimize",
+          "patient care"
+        ],
+        "level_5": [
+          "Mentors others on",
+          "recognition of bias and",
+          "mitigation of barriers to",
+          "optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_ics3",
+      "number": 26,
+      "domain_number": 3,
+      "name": "Patient and Family Education",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes link between",
+          "patient outcomes and",
+          "education",
+          "Describes methods for"
+        ],
+        "level_2": [
+          "effective patient education",
+          "Educates patients",
+          "effectively in",
+          "straightforward situations,"
+        ],
+        "level_3": [
+          "including eliciting",
+          "understanding of",
+          "information provided",
+          "Educates patients"
+        ],
+        "level_4": [
+          "effectively in complex",
+          "situations",
+          "Educates patients in self-",
+          "advocacy, community"
+        ],
+        "level_5": [
+          "outreach, and activism"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_ics4",
+      "number": 27,
+      "domain_number": 4,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Understands the",
+          "importance of feedback",
+          "Communicates",
+          "information effectively",
+          "with all members of the"
+        ],
+        "level_2": [
+          "health care team",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health care",
+          "team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of the",
+          "health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "neurology__clinical_neurophysiology_ics5",
+      "number": 28,
+      "domain_number": 5,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record as required by",
+          "institutional policy",
+          "Describes appropriate",
+          "use of documentation",
+          "shortcuts as required by",
+          "institutional policy",
+          "Demonstrates organized",
+          "diagnostic and therapeutic"
+        ],
+        "level_2": [
+          "reasoning through notes",
+          "in the patient record",
+          "Demonstrates accurate,",
+          "timely, and appropriate",
+          "use of documentation",
+          "shortcuts in formats",
+          "specified by institutional",
+          "policy",
+          "Concisely reports",
+          "diagnostic and therapeutic"
+        ],
+        "level_3": [
+          "reasoning in the patient",
+          "record",
+          "Appropriately selects",
+          "direct (e.g., telephone, in-",
+          "person) and indirect (e.g.",
+          "progress notes, text",
+          "messages) forms of",
+          "communication based on",
+          "context",
+          "Communicates clearly,"
+        ],
+        "level_4": [
+          "concisely, timely, and in",
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Achieves written or",
+          "verbal communication",
+          "(patient notes, email,",
+          "etc.) that streamlines",
+          "and enhances patient",
+          "care."
+        ],
+        "level_5": [
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Achieves written or verbal",
+          "communication (patient",
+          "notes, email, etc.) that",
+          "serves as an example for",
+          "others to follow"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "neurology",
+  "primary_name": "Neurology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalneurophysiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalneurophysiologysupplementalguide.pdf"
+  }
+}

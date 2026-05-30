@@ -1,0 +1,1244 @@
+{
+  "framework_key": "pediatrics--neonatal-perinatal-medicine",
+  "specialty": "Neonatal-Perinatal Medicine",
+  "version": "2.0",
+  "source": "ACGME Neonatal-Perinatal Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Neonatal and Maternal History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Gathers information",
+          "following a template",
+          "Adapts the template to",
+          "filter and prioritize",
+          "pertinent positives and"
+        ],
+        "level_2": [
+          "negatives or missing data",
+          "Gathers and synthesizes",
+          "the history for",
+          "uncomplicated or typical",
+          "presentations"
+        ],
+        "level_3": [
+          "Gathers and",
+          "synthesizes the history,",
+          "including protected",
+          "family health",
+          "information, for"
+        ],
+        "level_4": [
+          "complicated or atypical",
+          "presentations",
+          "Synthesizes and",
+          "reappraises the history,",
+          "incorporating subtle clues"
+        ],
+        "level_5": [
+          "for potentially rare",
+          "presentations"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Physical Exam",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a physical",
+          "examination based on a",
+          "template",
+          "Performs a complete",
+          "physical examination and",
+          "identifies variants and"
+        ],
+        "level_2": [
+          "abnormal findings",
+          "Adapts the physical",
+          "examination based on",
+          "gestational age, patient",
+          "status, and clinical acuity,",
+          "and interprets findings to"
+        ],
+        "level_3": [
+          "build a differential",
+          "diagnosis",
+          "Synthesizes and",
+          "reappraises information",
+          "gathered via the",
+          "physical examination to"
+        ],
+        "level_4": [
+          "narrow the differential",
+          "diagnoses",
+          "Detects and integrates",
+          "subtle physical",
+          "examination findings to",
+          "distinguish nuances"
+        ],
+        "level_5": [
+          "among competing",
+          "diagnoses"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Organization and Prioritization of Patient Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Organizes patient care",
+          "for an individual patient",
+          "Organizes patient care",
+          "responsibilities for",
+          "multiple patients"
+        ],
+        "level_2": [
+          "Prioritizes and delegates",
+          "the simultaneous care of",
+          "patients; triages urgent",
+          "and emergent issues",
+          "Efficiently prioritizes and"
+        ],
+        "level_3": [
+          "delegates patient care",
+          "responsibilities,",
+          "maintains situational",
+          "awareness, and",
+          "anticipates urgent and"
+        ],
+        "level_4": [
+          "emergent issues",
+          "Serves as a role model",
+          "and coach for balancing",
+          "patient care",
+          "responsibilities and unit"
+        ],
+        "level_5": [
+          "needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses pattern recognition",
+          "to formulate a broad",
+          "differential diagnosis",
+          "Develops illness scripts"
+        ],
+        "level_2": [
+          "and formulates a holistic",
+          "patient assessment",
+          "Refines illness scripts,",
+          "while using strategies to"
+        ],
+        "level_3": [
+          "identify cognitive bias",
+          "Reappraises illness",
+          "scripts in real time while",
+          "using strategies to"
+        ],
+        "level_4": [
+          "minimize cognitive bias",
+          "Serves as a role model in",
+          "clinical reasoning and",
+          "strategies to minimize"
+        ],
+        "level_5": [
+          "cognitive bias"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Disease Management in Neonatal Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops and",
+          "implements care plans",
+          "for patients with a low",
+          "level of acuity/complexity",
+          "Develops and implements",
+          "care plans for patients"
+        ],
+        "level_2": [
+          "with a high level of",
+          "acuity/complexity",
+          "Coordinates and",
+          "implements",
+          "multidisciplinary care",
+          "plans for patients with a"
+        ],
+        "level_3": [
+          "high level of",
+          "acuity/complexity",
+          "Manages patients with",
+          "multiple levels of",
+          "acuity/complexity while",
+          "anticipating future"
+        ],
+        "level_4": [
+          "needs and minimizing",
+          "long-term",
+          "consequences",
+          "Role models and coaches",
+          "others in the management",
+          "of patients requiring"
+        ],
+        "level_5": [
+          "complex multidisciplinary",
+          "care, while anticipating",
+          "future needs and",
+          "minimizing long-term",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs simple",
+          "procedures with",
+          "assistance",
+          "Recognizes common",
+          "complications"
+        ],
+        "level_2": [
+          "Performs complex",
+          "procedures with",
+          "assistance",
+          "Recognizes uncommon",
+          "complications"
+        ],
+        "level_3": [
+          "Performs complex",
+          "procedures",
+          "Anticipates, recognizes,",
+          "and manages common",
+          "complications"
+        ],
+        "level_4": [
+          "Adapts technique based",
+          "on patient acuity and",
+          "anatomy",
+          "Anticipates, recognizes,",
+          "and manages"
+        ],
+        "level_5": [
+          "uncommon",
+          "complications",
+          "Is recognized as a",
+          "procedural expert"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Emergency Stabilization",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies unstable",
+          "patients and performs",
+          "basic interventions",
+          "Identifies patients with"
+        ],
+        "level_2": [
+          "acute deterioration and",
+          "initiates advanced",
+          "resuscitation measures",
+          "Leads resuscitations,"
+        ],
+        "level_3": [
+          "including critical decision",
+          "making and anticipates",
+          "next steps",
+          "Integrates family and"
+        ],
+        "level_4": [
+          "support services while",
+          "leading resuscitations",
+          "Coaches others to lead",
+          "resuscitations while"
+        ],
+        "level_5": [
+          "integrating family and",
+          "support services"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Discharge from the Neonatal Intensive Care Unit",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patient",
+          "readiness and prepares",
+          "the patient for discharge",
+          "Makes discharge",
+          "decisions for patients with",
+          "low-complexity needs and",
+          "addresses family"
+        ],
+        "level_2": [
+          "resources",
+          "Partners with the patient’s",
+          "family in discharge",
+          "planning and provides",
+          "education for a patient",
+          "with moderate complexity,",
+          "while anticipating and"
+        ],
+        "level_3": [
+          "coordinating",
+          "multidisciplinary follow-up",
+          "care",
+          "Partners with the",
+          "patient’s family in",
+          "discharge planning and",
+          "provides education for a"
+        ],
+        "level_4": [
+          "patient with high-",
+          "complexity needs, while",
+          "anticipating and",
+          "coordinating",
+          "multidisciplinary follow-",
+          "up care",
+          "Role models partnering"
+        ],
+        "level_5": [
+          "with patients’ families in",
+          "discharging and providing",
+          "education for patients with",
+          "high-complexity needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_mk1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Neonatal-Perinatal Medical Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of normal",
+          "maternal-fetal and",
+          "neonatal physiology",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of maternal-fetal and",
+          "neonatal pathophysiology",
+          "Applies knowledge of",
+          "pathophysiology of",
+          "common and typical"
+        ],
+        "level_3": [
+          "conditions to guide patient",
+          "care",
+          "Integrates knowledge of",
+          "pathophysiology of",
+          "complicated and"
+        ],
+        "level_4": [
+          "atypical conditions to",
+          "guide patient care",
+          "Is recognized as an",
+          "expert in maternal-fetal",
+          "and neonatal"
+        ],
+        "level_5": [
+          "pathophysiology"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_mk2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "Diagnostic Evaluation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of diagnostic",
+          "evaluations",
+          "Demonstrates knowledge",
+          "of risks, benefits,"
+        ],
+        "level_2": [
+          "indications, and",
+          "alternatives to common",
+          "diagnostic evaluations",
+          "Applies knowledge of",
+          "diagnostic evaluations"
+        ],
+        "level_3": [
+          "based on risks, benefits,",
+          "indications, alternatives,",
+          "and limitations to patient",
+          "care",
+          "Applies knowledge of"
+        ],
+        "level_4": [
+          "diagnostic evaluations,",
+          "including pre-test",
+          "probability, to prioritize",
+          "testing to achieve high-",
+          "value care"
+        ],
+        "level_5": [
+          "Role models diagnostic",
+          "evaluation that achieves",
+          "high-value care"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "families (simulated or",
+          "actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients’",
+          "families (simulated or",
+          "actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists the various",
+          "interprofessional",
+          "individuals involved in",
+          "the patient’s care",
+          "coordination",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations, incorporating",
+          "interprofessional teams",
+          "with consideration of",
+          "patient and family needs",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,"
+        ],
+        "level_3": [
+          "effectively utilizing the",
+          "roles of interprofessional",
+          "teams, and incorporating",
+          "patient and family needs",
+          "and goals",
+          "Coordinates",
+          "interprofessional,"
+        ],
+        "level_4": [
+          "patient-centered care",
+          "among different",
+          "disciplines and",
+          "specialties, actively",
+          "assisting families in",
+          "navigating the health",
+          "care system"
+        ],
+        "level_5": [
+          "Coaches others in",
+          "interprofessional, patient-",
+          "centered care",
+          "coordination"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_sbp4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "System Navigation for Patient-Centered Care – Transitions in Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Uses a standard",
+          "template for transitions",
+          "of care/hand-offs",
+          "Adapts a standard",
+          "template, recognizing key",
+          "elements for safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex"
+        ],
+        "level_3": [
+          "clinical situations, and",
+          "ensures closed-loop",
+          "communication",
+          "Performs and",
+          "advocates for safe and",
+          "effective transitions of"
+        ],
+        "level_4": [
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Coaches others in",
+          "improving transitions of",
+          "care within and across"
+        ],
+        "level_5": [
+          "health care delivery",
+          "systems to optimize",
+          "patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_sbp5",
+      "number": 15,
+      "domain_number": 5,
+      "name": "Population and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "awareness of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs;",
+          "identifies local resources",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Adapts practice to",
+          "provide for the needs of"
+        ],
+        "level_4": [
+          "a specific population",
+          "Advocates at the local,",
+          "regional, or national level",
+          "for populations and",
+          "communities with health"
+        ],
+        "level_5": [
+          "care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_sbp6",
+      "number": 16,
+      "domain_number": 6,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Engages with families",
+          "and other providers in",
+          "discussions about cost-",
+          "conscious care and key",
+          "components of the",
+          "health care delivery"
+        ],
+        "level_2": [
+          "system",
+          "Identifies the relationships",
+          "between the delivery",
+          "system and cost-",
+          "conscious care and the",
+          "impact on the patient care"
+        ],
+        "level_3": [
+          "Discusses the need for",
+          "changes in clinical",
+          "approaches based on",
+          "evidence, outcomes, and",
+          "cost-effectiveness to",
+          "improve care for patients"
+        ],
+        "level_4": [
+          "and families",
+          "Advocates for the",
+          "promotion of safe,",
+          "quality, and high-value",
+          "care",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "promote safe, quality, and",
+          "high-value care across",
+          "health care systems"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pbli1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Develops an answerable",
+          "clinical question and",
+          "demonstrates how to",
+          "access available",
+          "evidence, with guidance"
+        ],
+        "level_2": [
+          "Independently articulates",
+          "clinical question and",
+          "accesses available",
+          "evidence",
+          "Locates and applies the"
+        ],
+        "level_3": [
+          "evidence, integrated with",
+          "patient preference, to the",
+          "care of patients",
+          "Critically appraises and",
+          "applies evidence, even"
+        ],
+        "level_4": [
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_pbli2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Participates in feedback",
+          "sessions",
+          "Develops personal and",
+          "professional goals, with",
+          "assistance",
+          "Demonstrates openness",
+          "to feedback and",
+          "performance data",
+          "Designs a learning plan"
+        ],
+        "level_2": [
+          "based on established",
+          "goals, feedback, and",
+          "performance data, with",
+          "assistance",
+          "Seeks and incorporates",
+          "feedback and",
+          "performance data",
+          "episodically",
+          "Designs and implements"
+        ],
+        "level_3": [
+          "a learning plan by",
+          "analyzing and reflecting",
+          "on the factors which",
+          "contribute to gap(s)",
+          "between performance",
+          "expectations and actual",
+          "performance",
+          "Seeks and incorporates",
+          "feedback and"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently",
+          "Adapts a learning plan",
+          "using long-term",
+          "professional goals, self-",
+          "reflection, and",
+          "performance data to",
+          "measure its",
+          "effectiveness"
+        ],
+        "level_5": [
+          "Role models and coaches",
+          "others in seeking and",
+          "incorporating feedback",
+          "and performance data",
+          "Demonstrates continuous",
+          "self-reflection and",
+          "coaching of others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_prof1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies expected",
+          "professional behaviors",
+          "and potential triggers for",
+          "lapses",
+          "Identifies the value and",
+          "role of neonatology as a",
+          "vocation/career",
+          "Demonstrates",
+          "professional behavior with"
+        ],
+        "level_2": [
+          "occasional lapses",
+          "Demonstrates",
+          "accountability for patient",
+          "care as a neonatologist,",
+          "with guidance",
+          "Maintains professional",
+          "behavior in increasingly",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_3": [
+          "Fully engages in patient",
+          "care and holds oneself",
+          "accountable",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others"
+        ],
+        "level_4": [
+          "Exhibits a sense of duty",
+          "to patient care and",
+          "professional",
+          "responsibilities",
+          "Models professional",
+          "behavior and coaches",
+          "others when their",
+          "behavior fails to meet",
+          "professional expectations"
+        ],
+        "level_5": [
+          "Extends the role of the",
+          "neonatologist beyond the",
+          "care of patients by",
+          "engaging with the",
+          "community, specialty, and",
+          "medical profession as a",
+          "whole"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_prof2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,"
+        ],
+        "level_2": [
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Applies ethical principles",
+          "in common situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles to address"
+        ],
+        "level_3": [
+          "conflict/controversy;",
+          "seeks help when needed",
+          "to manage and resolve",
+          "complex ethical situations",
+          "Manages and seeks to",
+          "resolve ethical",
+          "dilemmas using",
+          "appropriate resources"
+        ],
+        "level_4": [
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Called upon by others to",
+          "consult in cases of",
+          "complex ethical"
+        ],
+        "level_5": [
+          "dilemmas; identifies and",
+          "seeks to address system-",
+          "level factors that induce",
+          "or exacerbate"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_prof3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities, with",
+          "prompting",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner in routine",
+          "situations",
+          "Performs tasks and",
+          "responsibilities in a",
+          "thorough and timely"
+        ],
+        "level_3": [
+          "manner in complex or",
+          "stressful situations",
+          "Coaches others to",
+          "ensure tasks and",
+          "responsibilities are"
+        ],
+        "level_4": [
+          "completed in a thorough",
+          "and timely manner in",
+          "complex or stressful",
+          "situations",
+          "Creates strategies to"
+        ],
+        "level_5": [
+          "enhance others’ ability to",
+          "efficiently complete tasks",
+          "and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_prof4",
+      "number": 22,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote well-being",
+          "Recognizes institutional"
+        ],
+        "level_3": [
+          "and personal factors that",
+          "impact well-being",
+          "Describes interactions",
+          "between institutional"
+        ],
+        "level_4": [
+          "and personal factors",
+          "that impact well-being",
+          "Coaches and supports",
+          "colleagues to optimize"
+        ],
+        "level_5": [
+          "well-being at the team,",
+          "program, or institutional",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_ics1",
+      "number": 23,
+      "domain_number": 1,
+      "name": "Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and attempts to establish",
+          "rapport",
+          "Attempts to adjust",
+          "communication",
+          "strategies based upon",
+          "family expectations",
+          "Establishes a therapeutic",
+          "relationship in"
+        ],
+        "level_2": [
+          "straightforward",
+          "encounters",
+          "Adjusts communication",
+          "strategies as needed to",
+          "mitigate barriers and meet",
+          "family expectations",
+          "Establishes a culturally",
+          "aware and therapeutic",
+          "relationship in most"
+        ],
+        "level_3": [
+          "encounters",
+          "Communicates with",
+          "sensitivity and",
+          "compassion, elicits family",
+          "values, and",
+          "acknowledges uncertainty",
+          "and conflict",
+          "Establishes a",
+          "therapeutic relationship"
+        ],
+        "level_4": [
+          "in straightforward and",
+          "complex encounters,",
+          "including those with",
+          "ambiguity and/or conflict",
+          "Uses shared decision",
+          "making with family to",
+          "make a personalized",
+          "care plan",
+          "Mentors others to develop"
+        ],
+        "level_5": [
+          "positive therapeutic",
+          "relationships",
+          "Models and coaches",
+          "others in family-centered",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_ics2",
+      "number": 24,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation, with",
+          "guidance",
+          "Identifies the members",
+          "of the interprofessional",
+          "team",
+          "Clearly and concisely"
+        ],
+        "level_2": [
+          "requests consultation by",
+          "communicating patient",
+          "information",
+          "Participates within the",
+          "interprofessional team",
+          "Formulates a specific",
+          "question for consultation"
+        ],
+        "level_3": [
+          "and tailors communication",
+          "strategy",
+          "Uses bi-directional",
+          "communication within the",
+          "interprofessional team",
+          "Coordinates consultant",
+          "recommendations to"
+        ],
+        "level_4": [
+          "optimize patient care",
+          "Facilitates",
+          "interprofessional team",
+          "communication",
+          "Maintains a collaborative",
+          "relationship with referring",
+          "providers that maximizes"
+        ],
+        "level_5": [
+          "adherence to practice",
+          "recommendations",
+          "Coaches others in",
+          "effective communication",
+          "within the",
+          "interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_ics3",
+      "number": 25,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Records accurate",
+          "information in the patient",
+          "record",
+          "Identifies the importance",
+          "of and responds to",
+          "multiple forms of",
+          "communication (e.g., in-",
+          "person, electronic health",
+          "record (EHR), telephone,"
+        ],
+        "level_2": [
+          "email)",
+          "Records accurate and",
+          "timely information in the",
+          "patient record",
+          "Selects appropriate",
+          "method of",
+          "communication, with",
+          "prompting",
+          "Concisely documents"
+        ],
+        "level_3": [
+          "updated, prioritized,",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Aligns type of",
+          "communication with",
+          "message to be delivered",
+          "(e.g., direct and indirect)",
+          "based on urgency and"
+        ],
+        "level_4": [
+          "complexity",
+          "Documents diagnostic",
+          "and therapeutic",
+          "reasoning, including",
+          "anticipatory guidance",
+          "Demonstrates",
+          "exemplary written and",
+          "verbal communication",
+          "Models and coaches"
+        ],
+        "level_5": [
+          "others in documenting",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "Coaches others in written",
+          "and verbal",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__neonatal_perinatal_medicine_ics4",
+      "number": 26,
+      "domain_number": 4,
+      "name": "Complex Communication with Patients’ Families around Serious News",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Delivers serious news",
+          "and prognostic",
+          "information to a patient’s",
+          "family",
+          "Delivers serious news to",
+          "a patient’s family while"
+        ],
+        "level_2": [
+          "assessing what the",
+          "patient’s family",
+          "understands about the",
+          "clinical condition",
+          "Delivers serious news",
+          "and prognostic"
+        ],
+        "level_3": [
+          "information while",
+          "adjusting communication",
+          "based on the patient’s",
+          "family’s understanding",
+          "about the clinical situation",
+          "Tailors communication"
+        ],
+        "level_4": [
+          "of serious news to a",
+          "patient’s family based",
+          "on the patient’s family’s",
+          "needs and preferences",
+          "and the degree of",
+          "clinical uncertainty"
+        ],
+        "level_5": [
+          "Role models empathic",
+          "communication of serious",
+          "news and serves as a",
+          "peer resource for others"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pediatrics",
+  "primary_name": "Pediatrics",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinatalmedicinemilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinalmedicinesupplementalguide.pdf"
+  }
+}

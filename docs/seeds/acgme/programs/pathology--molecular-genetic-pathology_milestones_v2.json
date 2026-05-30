@@ -1,0 +1,1415 @@
+{
+  "framework_key": "pathology--molecular-genetic-pathology",
+  "specialty": "Molecular Genetic Pathology",
+  "version": "2.0",
+  "source": "ACGME Molecular Genetic Pathology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pathology__molecular_genetic_pathology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Quality Assurance and Quality Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of quality",
+          "assurance and quality",
+          "management",
+          "Understands the"
+        ],
+        "level_2": [
+          "components of a",
+          "comprehensive quality",
+          "management plan",
+          "Actively participates in",
+          "laboratory quality"
+        ],
+        "level_3": [
+          "management and reviews",
+          "data at designated",
+          "intervals",
+          "Recommends",
+          "improvements in"
+        ],
+        "level_4": [
+          "laboratory activities to",
+          "improve quality",
+          "assurance metrics",
+          "Involved in local, regional,",
+          "or national service in"
+        ],
+        "level_5": [
+          "developing and/or",
+          "implementing quality",
+          "assurance programs and",
+          "standards"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Interpretation of Molecular and Genetic Testing",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the elements",
+          "required to interpret the",
+          "results of molecular",
+          "testing:",
+          "• Recognizes assay-",
+          "specific quality",
+          "assurance/quality",
+          "control",
+          "• Discusses clinical",
+          "indication of test",
+          "• Identifies elements of",
+          "clinical report"
+        ],
+        "level_2": [
+          "With substantial",
+          "guidance, interprets the",
+          "results of molecular",
+          "testing:",
+          "• Reviews/approves",
+          "assay-specific quality",
+          "assurance/quality",
+          "control",
+          "• Correlates indication",
+          "and test results",
+          "• Generates a clinical",
+          "report"
+        ],
+        "level_3": [
+          "With minimal guidance,",
+          "interprets the results of",
+          "molecular testing:",
+          "• Identifies assay-",
+          "specific quality",
+          "assurance/quality",
+          "control failures/issues",
+          "• Correlates indication",
+          "and test results",
+          "• Generates a clinical",
+          "report",
+          "Independently interprets"
+        ],
+        "level_4": [
+          "the results of molecular",
+          "testing:",
+          "• Troubleshoots",
+          "assays",
+          "• Correlates indication",
+          "and test results",
+          "• Generates a clinical",
+          "report",
+          "Provides guidance and/or",
+          "participates in setting",
+          "policies or developing",
+          "practice guidelines for"
+        ],
+        "level_5": [
+          "reporting or interpretation",
+          "of results including:",
+          "• Designing/implementing",
+          "report template",
+          "• Trains more junior",
+          "learners to interpret",
+          "results of molecular",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Interdisciplinary Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies skills (verbal,",
+          "written), techniques, and",
+          "knowledge required to"
+        ],
+        "level_2": [
+          "provide a consultation",
+          "Develops skills and",
+          "knowledge to manage"
+        ],
+        "level_3": [
+          "consultations",
+          "Manages consultations",
+          "with assistance"
+        ],
+        "level_4": [
+          "Independently manages",
+          "consultations",
+          "Is recognized as an"
+        ],
+        "level_5": [
+          "expert in providing",
+          "comprehensive",
+          "consultations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_mk1",
+      "number": 4,
+      "domain_number": 1,
+      "name": "Molecular Testing with Various Platforms (Diagnosis, Management, Prognostication)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses basic",
+          "principles and",
+          "applications of various",
+          "methodologies and",
+          "testing platforms in the",
+          "areas of:",
+          "• hematopathology"
+        ],
+        "level_2": [
+          "• heritable diseases",
+          "• identity/human",
+          "leukocyte antigen",
+          "(HLA)",
+          "• infectious disease",
+          "• pharmacogenomics",
+          "• solid tumors"
+        ],
+        "level_3": [
+          "With substantial",
+          "guidance, identifies best",
+          "methods to use for",
+          "diagnosis and disease-",
+          "specific management",
+          "With minimal guidance,",
+          "identifies best methods"
+        ],
+        "level_4": [
+          "for diagnosis and",
+          "disease-specific",
+          "management",
+          "Independently identifies",
+          "best methods for",
+          "diagnosis and disease-",
+          "specific management"
+        ],
+        "level_5": [
+          "Develops policies or",
+          "practice guidelines to",
+          "apply new techniques or",
+          "new clinical correlations",
+          "for testing procedures"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_mk2",
+      "number": 5,
+      "domain_number": 2,
+      "name": "Genomic Testing, Genomic Databases, and Bioinformatics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Explains differences",
+          "between genetic and",
+          "genomic analysis",
+          "Describes basic",
+          "principles and",
+          "methodology used for",
+          "genomic analysis",
+          "and the roles of",
+          "bioinformatics and",
+          "clinical genomic",
+          "databases in",
+          "genomic/molecular",
+          "testing"
+        ],
+        "level_2": [
+          "With substantial",
+          "guidance, identifies",
+          "clinical situations in which",
+          "genomic testing is",
+          "appropriate",
+          "Describes basic workflow",
+          "of genomic analysis and",
+          "bioinformatics in",
+          "genomic/molecular testing",
+          "and identifies information",
+          "from clinical databases for",
+          "final interpretation",
+          "With minimal guidance,"
+        ],
+        "level_3": [
+          "identifies clinical",
+          "situations in which",
+          "genomic testing is",
+          "appropriate",
+          "With minimal guidance,",
+          "interprets the information",
+          "obtained from genomic",
+          "testing, applies standard",
+          "bioinformatics workflow",
+          "and clinical databases for",
+          "clinical interpretation, and",
+          "address errors and",
+          "artifacts"
+        ],
+        "level_4": [
+          "Independently identifies",
+          "clinical situations in",
+          "which genomic testing",
+          "is appropriate",
+          "Independently",
+          "interprets the",
+          "information obtained",
+          "from genomic testing,",
+          "applies standard",
+          "bioinformatics workflow",
+          "and clinical databases",
+          "for clinical",
+          "interpretation, and"
+        ],
+        "level_5": [
+          "troubleshoots genomic",
+          "testing and",
+          "bioinformatics pipeline",
+          "Develops national or",
+          "institutional polices or",
+          "practice guidelines for",
+          "genomic testing",
+          "Develops and validates",
+          "genomic tests,",
+          "bioinformatics pipeline,",
+          "and/or clinical genomic",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_mk3",
+      "number": 6,
+      "domain_number": 3,
+      "name": "Patient-Centered Interpretation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Understands the",
+          "importance of ancillary",
+          "data (e.g., medical",
+          "history, family history,",
+          "other diagnostic results)",
+          "in the interpretation of",
+          "molecular results",
+          "With substantial"
+        ],
+        "level_2": [
+          "guidance, seeks and",
+          "incorporates ancillary",
+          "data (e.g., medical",
+          "history, family history,",
+          "other diagnostic results)",
+          "in the interpretation of",
+          "molecular results",
+          "With minimal guidance,"
+        ],
+        "level_3": [
+          "seeks and incorporates",
+          "ancillary data (e.g.,",
+          "medical history, family",
+          "history, other diagnostic",
+          "results) in the",
+          "interpretation of molecular",
+          "results",
+          "Independently seeks"
+        ],
+        "level_4": [
+          "and incorporates",
+          "ancillary data (e.g.,",
+          "medical history, family",
+          "history, other diagnostic",
+          "results) in the",
+          "interpretation of",
+          "molecular results",
+          "Develops algorithms"
+        ],
+        "level_5": [
+          "and/or practice guidelines",
+          "to incorporate ancillary",
+          "data (e.g., medical",
+          "history, family history,",
+          "other diagnostic results)",
+          "in the interpretation of",
+          "molecular results"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_mk4",
+      "number": 7,
+      "domain_number": 4,
+      "name": "Assay Design and Verification/Validation (e.g., Wet Labs, Troubleshooting)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "requirements for",
+          "validation and",
+          "verification (FDA-",
+          "approved) of molecular",
+          "tests",
+          "Recognizes the",
+          "components of a",
+          "validation or verification",
+          "summary"
+        ],
+        "level_2": [
+          "With substantial",
+          "guidance, designs assay,",
+          "validation or verification",
+          "experiments, and/or",
+          "interpretation of the",
+          "validation or verification",
+          "data",
+          "Discusses and",
+          "understand calculations",
+          "for the components of a"
+        ],
+        "level_3": [
+          "validation or verification",
+          "summary",
+          "With minimal guidance,",
+          "designs assay, validation",
+          "or verification",
+          "experiments, and",
+          "interpretation of the",
+          "validation or verification",
+          "data",
+          "Drafts written validation or"
+        ],
+        "level_4": [
+          "verification summary with",
+          "guidance",
+          "Independently designs",
+          "assay, validation or",
+          "verification experiments,",
+          "and interpretation of the",
+          "validation or verification",
+          "data",
+          "Independently provides",
+          "a written validation or"
+        ],
+        "level_5": [
+          "verification summary",
+          "Leads/participates in",
+          "expert guidelines for test",
+          "validation",
+          "Is recognized as a",
+          "content expert in",
+          "validation design and data",
+          "interpretation"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic QI",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "and institutional QI",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "clinicians and/or patients",
+          "and their families, as",
+          "appropriate (simulated or",
+          "actual)",
+          "Participates in",
+          "departmental and",
+          "institutional QI initiatives",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to clinicians",
+          "and/or patients and their",
+          "families, as appropriate",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a QI"
+        ],
+        "level_5": [
+          "project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses QI initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge and",
+          "importance of",
+          "coordination in patient",
+          "care",
+          "Explains key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of"
+        ],
+        "level_2": [
+          "patients in routine cases",
+          "effectively among clinical",
+          "and laboratory teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "situations",
+          "Coordinates care of",
+          "patients in complex cases",
+          "effectively among clinical"
+        ],
+        "level_3": [
+          "and laboratory teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "situations",
+          "Models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties"
+        ],
+        "level_4": [
+          "Models and advocates",
+          "for safe and effective",
+          "transitions of care/hand-",
+          "offs within and across",
+          "health care delivery",
+          "systems",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of"
+        ],
+        "level_5": [
+          "improvements",
+          "Designs improvement in",
+          "quality of transitions of",
+          "care within and across",
+          "health care delivery",
+          "systems to optimize",
+          "patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Identifies pathology’s role"
+        ],
+        "level_2": [
+          "in population and",
+          "community health needs",
+          "for the local population",
+          "Identifies opportunities for",
+          "pathologists to participate"
+        ],
+        "level_3": [
+          "in community and",
+          "population health",
+          "Recommends and/or",
+          "participates in changing",
+          "and adapting practice to"
+        ],
+        "level_4": [
+          "provide for the needs of",
+          "communities and",
+          "populations",
+          "Leads innovations and",
+          "advocates for populations"
+        ],
+        "level_5": [
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_sbp4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)"
+        ],
+        "level_2": [
+          "and practice models",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Documents testing detail",
+          "and explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g., test",
+          "utilization, turnaround",
+          "time)",
+          "Engages with clinicians",
+          "and/or patients in shared",
+          "decision making, such as",
+          "use of preauthorization for",
+          "complex testing",
+          "Manages various",
+          "components of the"
+        ],
+        "level_4": [
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Practices and",
+          "advocates for cost-",
+          "effective patient care",
+          "with consideration of the",
+          "limitations of each",
+          "patient’s payment"
+        ],
+        "level_5": [
+          "model",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_sbp5",
+      "number": 12,
+      "domain_number": 5,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge that",
+          "laboratories must be",
+          "accredited and",
+          "knowledge of the roles of",
+          "different agencies",
+          "Discusses the need for",
+          "quality control and",
+          "proficiency testing",
+          "Demonstrates knowledge",
+          "of the components of",
+          "laboratory accreditation",
+          "and regulatory"
+        ],
+        "level_2": [
+          "compliance (Clinical",
+          "Laboratory Improvement",
+          "Amendments and others),",
+          "either through training or",
+          "experience",
+          "With assistance,",
+          "interprets quality data,",
+          "charts, and trends,",
+          "including proficiency",
+          "testing results",
+          "Identifies the differences",
+          "between accreditation",
+          "and regulatory"
+        ],
+        "level_3": [
+          "compliance; discusses",
+          "the processes for",
+          "achieving accreditation",
+          "and maintaining",
+          "regulatory compliance",
+          "Demonstrates knowledge",
+          "of the components of a",
+          "laboratory quality",
+          "management plan,",
+          "including submission and",
+          "review of proficiency",
+          "testing results and",
+          "understanding the"
+        ],
+        "level_4": [
+          "implications of testing",
+          "failures",
+          "Participates in an",
+          "internal laboratory",
+          "inspection (actual or",
+          "simulated)",
+          "Participates in",
+          "laboratory quality team:",
+          "• Drafts response to",
+          "inspection",
+          "deficiencies (actual",
+          "or simulated)",
+          "Participates in an external"
+        ],
+        "level_5": [
+          "laboratory inspection",
+          "Participates in laboratory",
+          "quality team:",
+          "• Independently crafts",
+          "response to inspection",
+          "deficiencies or",
+          "proficiency failures",
+          "• Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_sbp6",
+      "number": 13,
+      "domain_number": 6,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general",
+          "molecular pathology",
+          "work practices and",
+          "workflow (e.g., nucleic",
+          "acid extraction,",
+          "polymerase chain",
+          "reaction (PCR)-based",
+          "testing)"
+        ],
+        "level_2": [
+          "Recognizes outside",
+          "resources for referred",
+          "testing",
+          "Explains rationale for",
+          "optimizing utilization,",
+          "including batching and",
+          "reflex algorithms",
+          "Evaluates the need for"
+        ],
+        "level_3": [
+          "referred testing",
+          "Identifies opportunities to",
+          "optimize utilization of",
+          "resources by reviewing",
+          "reflex testing algorithms",
+          "Participates in review of",
+          "referral lab certification",
+          "and appropriateness for"
+        ],
+        "level_4": [
+          "referred testing",
+          "Participates in a",
+          "utilization review",
+          "Helps to establish",
+          "appropriate criteria for",
+          "referred testing (i.e.,",
+          "correct gene/disorder)",
+          "Completes a utilization"
+        ],
+        "level_5": [
+          "review and drafts change",
+          "plan",
+          "Optimizes a test menu",
+          "based on trends of",
+          "referred testing"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and select",
+          "applicable evidence and",
+          "use appropriate",
+          "resources"
+        ],
+        "level_2": [
+          "Identifies and applies the",
+          "best available evidence to",
+          "guide diagnostic work-up",
+          "of simple cases",
+          "Identifies and applies the"
+        ],
+        "level_3": [
+          "best available evidence to",
+          "guide diagnostic work-up",
+          "of complex cases",
+          "Critically appraises and",
+          "applies evidence to"
+        ],
+        "level_4": [
+          "guide care, even in the",
+          "face of conflicting data",
+          "Teaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex cases; and/or",
+          "leads/participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Research",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Is aware of the need for",
+          "patient privacy,",
+          "autonomy, consent, and",
+          "information safeguarding",
+          "as applied to clinical and",
+          "genetic research",
+          "Develops knowledge of",
+          "the basic principles of",
+          "research particularly as it"
+        ],
+        "level_2": [
+          "pertains to genetic testing",
+          "(demographics,",
+          "Institutional Review",
+          "Board, human subjects),",
+          "including how research is",
+          "evaluated, conducted,",
+          "and applied to patient",
+          "care",
+          "Applies knowledge of the"
+        ],
+        "level_3": [
+          "basic principles of",
+          "research, such as",
+          "informed consent, and",
+          "research protocols to",
+          "clinical practice",
+          "particularly as it pertains",
+          "to genetic testing, with",
+          "assistance",
+          "Proactively and"
+        ],
+        "level_4": [
+          "consistently applies",
+          "knowledge of the basic",
+          "principles of research,",
+          "such as informed",
+          "consent and research",
+          "protocols to clinical",
+          "practice particularly as it",
+          "pertains to genetic",
+          "testing"
+        ],
+        "level_5": [
+          "Suggest improvements to",
+          "research regulations",
+          "and/or substantially",
+          "contributes to the primary",
+          "literature through basic,",
+          "translational, or clinical",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_pbli3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks help in",
+          "designing a learning plan",
+          "Demonstrates openness",
+          "to receiving performance"
+        ],
+        "level_2": [
+          "data and feedback to",
+          "inform goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "With assistance, designs",
+          "and implements a",
+          "learning plan",
+          "Seeks performance data",
+          "and feedback with a"
+        ],
+        "level_3": [
+          "receptive mindset",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Actively and",
+          "consistently seeks",
+          "performance data and"
+        ],
+        "level_4": [
+          "feedback with a",
+          "receptive mindset",
+          "Critically evaluates and",
+          "continues to optimize",
+          "the behavioral changes",
+          "in narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and"
+        ],
+        "level_5": [
+          "improves it when",
+          "necessary",
+          "Models seeking",
+          "performance data with a",
+          "receptive mindset",
+          "Teaches others reflective",
+          "practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_prof1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "laboratory testing,",
+          "including informed",
+          "consent, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, fair treatment",
+          "of patient samples, and",
+          "review of",
+          "appropriateness of",
+          "laboratory testing"
+        ],
+        "level_2": [
+          "Describes when and how",
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers; identifies and",
+          "describes potential",
+          "triggers for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates insight into"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "routine situations; takes",
+          "responsibility for",
+          "understanding own",
+          "personal role in",
+          "professionalism lapses",
+          "Recognizes the need for",
+          "and uses appropriate",
+          "resources to seek",
+          "guidance in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Demonstrates"
+        ],
+        "level_4": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Independently resolves",
+          "and manages complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and in others",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_prof2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities",
+          "Understands the",
+          "importance of well-",
+          "defined workflow",
+          "processes for laboratory",
+          "efficacy and accurate",
+          "patient reporting"
+        ],
+        "level_2": [
+          "Takes appropriate",
+          "ownership and performs",
+          "tasks and responsibilities",
+          "in a timely manner with",
+          "attention to detail",
+          "Participates in monitoring",
+          "laboratory operations and",
+          "assists to resolve",
+          "workflow issues",
+          "Recognizes situations"
+        ],
+        "level_3": [
+          "that may impact own",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner and",
+          "describes the impact on",
+          "team",
+          "Prepares and leads",
+          "troubleshooting efforts to",
+          "correct workflow problems",
+          "Anticipates and"
+        ],
+        "level_4": [
+          "intervenes in situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Critically evaluates",
+          "workflows and proposes",
+          "recommendations to",
+          "accomplish desired",
+          "goals"
+        ],
+        "level_5": [
+          "Designs and recommends",
+          "new strategies to ensure",
+          "that the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Develops and implements",
+          "process improvements",
+          "across health care teams"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_prof3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes limitations in",
+          "the knowledge, skills,",
+          "and behaviors of oneself",
+          "or team",
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being",
+          "Independently recognizes",
+          "limitations in the"
+        ],
+        "level_2": [
+          "knowledge, skills, and",
+          "behaviors of oneself or",
+          "team and seeks help",
+          "when needed",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed",
+          "With assistance,",
+          "proposes and implements"
+        ],
+        "level_3": [
+          "a plan to remediate or",
+          "improve the knowledge,",
+          "skills, and behaviors of",
+          "oneself or team",
+          "With assistance,",
+          "proposes and implements",
+          "a plan to optimize",
+          "personal and professional",
+          "well-being",
+          "Independently develops",
+          "and implements a plan"
+        ],
+        "level_4": [
+          "to remediate or improve",
+          "the knowledge, skills,",
+          "and behaviors of",
+          "oneself or team",
+          "Independently develops",
+          "and implements a plan",
+          "to optimize personal",
+          "and professional well-",
+          "being",
+          "Serves as a resource or",
+          "consultant for developing"
+        ],
+        "level_5": [
+          "a plan to remediate or",
+          "improve the knowledge,",
+          "skills, and behaviors",
+          "Coaches others when",
+          "responses or limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role",
+          "within the health care"
+        ],
+        "level_2": [
+          "system",
+          "Establishes a relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy)",
+          "Establishes a relationship"
+        ],
+        "level_3": [
+          "in challenging patient",
+          "encounters, as",
+          "appropriate",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Easily establishes",
+          "relationships, with",
+          "attention to",
+          "patient/patient’s family’s"
+        ],
+        "level_4": [
+          "concerns and context,",
+          "regardless of complexity",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to",
+          "consistently develop"
+        ],
+        "level_5": [
+          "positive therapeutic",
+          "relationships",
+          "Models self-awareness",
+          "while teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Describes the utility of",
+          "constructive feedback",
+          "Communicates",
+          "information effectively",
+          "with all health care team"
+        ],
+        "level_2": [
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Integrates feedback from",
+          "team members to improve",
+          "communication",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__molecular_genetic_pathology_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient",
+          "personal health",
+          "information (PHI) by",
+          "communicating through",
+          "appropriate means as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)",
+          "Identifies institutional"
+        ],
+        "level_2": [
+          "and departmental",
+          "structure for",
+          "communication of issues",
+          "Appropriately selects",
+          "forms of communication",
+          "based on context and",
+          "urgency of the situation",
+          "Respectfully",
+          "communicates concerns",
+          "about the system"
+        ],
+        "level_3": [
+          "Communicates while",
+          "ensuring security of PHI,",
+          "with guidance",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and",
+          "constructive suggestions",
+          "to improve the system",
+          "Independently",
+          "communicates while"
+        ],
+        "level_4": [
+          "ensuring security of PHI",
+          "Initiates conversations",
+          "on difficult subjects with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ],
+        "level_5": [
+          "regarding the security of",
+          "PHI",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pathology",
+  "primary_name": "Pathology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologysupplementalguide.pdf"
+  }
+}

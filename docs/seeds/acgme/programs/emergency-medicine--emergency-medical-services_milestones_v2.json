@@ -1,0 +1,1187 @@
+{
+  "framework_key": "emergency-medicine--emergency-medical-services",
+  "specialty": "Emergency Medical Services",
+  "version": "2.0",
+  "source": "ACGME Emergency Medical Services Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "emergency_medicine__emergency_medical_services_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Procedures Performed in the Pre-Hospital Environment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Knows indications,",
+          "contraindications, risks,",
+          "and benefits, anatomic",
+          "landmarks, equipment,",
+          "procedural technique,",
+          "and potential",
+          "complications of",
+          "common pre-hospital",
+          "procedures",
+          "Recognizes that the pre-",
+          "hospital environment"
+        ],
+        "level_2": [
+          "affects procedures",
+          "Performs the indicated",
+          "common procedure on",
+          "patients with moderate",
+          "urgency who have",
+          "identifiable landmarks and",
+          "a low-moderate risk for",
+          "complications",
+          "Discusses the effects of",
+          "the pre-hospital",
+          "environment on"
+        ],
+        "level_3": [
+          "performing procedures",
+          "Performs the indicated",
+          "procedure, takes steps to",
+          "avoid potential",
+          "complications, and",
+          "recognizes the outcome",
+          "and/or complications",
+          "resulting from the",
+          "procedure",
+          "Evaluates the",
+          "environment and situation"
+        ],
+        "level_4": [
+          "in the decision to perform",
+          "a procedure",
+          "Performs indicated",
+          "procedures on patients,",
+          "including those with",
+          "challenging features",
+          "(e.g., poorly identifiable",
+          "landmarks, at extremes",
+          "of age, or with co-",
+          "morbid conditions)",
+          "Modifies the procedure"
+        ],
+        "level_5": [
+          "depending on the",
+          "environment and",
+          "situation",
+          "Incorporates evidence-",
+          "based medicine to",
+          "improve procedures and",
+          "develop novel techniques",
+          "used in different",
+          "environments"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Pre-Hospital Recognition and Stabilization of Time/Life-Critical Conditions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes when a",
+          "patient is unstable and",
+          "requires immediate",
+          "intervention",
+          "Performs a primary",
+          "assessment on a critical",
+          "patient",
+          "Describes local laws and",
+          "regulations governing",
+          "advanced directives for",
+          "medical care",
+          "Prioritizes stabilization"
+        ],
+        "level_2": [
+          "actions in the",
+          "resuscitation of a critical",
+          "patient",
+          "Reassesses a patient",
+          "after implementing an",
+          "intervention",
+          "Evaluates the validity of",
+          "an advanced directive for",
+          "medical care as it applies",
+          "to resuscitation",
+          "Independently adapts",
+          "management strategies of"
+        ],
+        "level_3": [
+          "critical conditions to the",
+          "situation and environment",
+          "Chooses appropriate",
+          "transport modality and",
+          "destination facility for",
+          "critical conditions",
+          "Makes the decision to",
+          "withhold or end",
+          "resuscitation",
+          "Participates in policy and",
+          "protocol development for",
+          "the management of"
+        ],
+        "level_4": [
+          "critical patients",
+          "Performs quality",
+          "improvement efforts to",
+          "improve the care to",
+          "patients with critical",
+          "conditions",
+          "Participates in",
+          "development of policies",
+          "and protocols related to",
+          "end-of-life care",
+          "Independently develops",
+          "or leads the"
+        ],
+        "level_5": [
+          "development of policies",
+          "and protocols for the",
+          "care of critical conditions",
+          "Independently develops",
+          "or leads the",
+          "development of policies",
+          "and protocols related to",
+          "end-of-life care"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Recognition and Treatment of Pre-Hospital Conditions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Under supervision,",
+          "manages patients with",
+          "common and simple",
+          "presentations",
+          "Recognizes that the pre-",
+          "hospital environment",
+          "affects patient care",
+          "Independently manages",
+          "patients with common and"
+        ],
+        "level_2": [
+          "simple presentations",
+          "Discusses the effects of",
+          "the pre-hospital",
+          "environment on patient",
+          "care",
+          "Under supervision,",
+          "manages patients with",
+          "uncommon and",
+          "complicated presentations"
+        ],
+        "level_3": [
+          "Modifies patient care",
+          "depending on the",
+          "environment and situation",
+          "Independently manages",
+          "patients with uncommon",
+          "and complicated",
+          "presentations in",
+          "challenging conditions",
+          "Incorporates evidence-"
+        ],
+        "level_4": [
+          "based medicine to",
+          "improve patient care",
+          "provided in different",
+          "environments",
+          "Teaches others how to",
+          "manage patients with",
+          "uncommon and",
+          "complicated presentations",
+          "in challenging conditions"
+        ],
+        "level_5": [
+          "Independently develops",
+          "or leads the development",
+          "of policies and protocols",
+          "related to pre-hospital",
+          "patient care"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "General Special Operations in Emergency Medical Services (EMS); Mass Casualty and Disaster Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the principles",
+          "of care in mass casualty",
+          "or disaster situations",
+          "Demonstrates",
+          "awareness of National",
+          "Incident Management",
+          "System (NIMS) and",
+          "Incident Command",
+          "System (ICS)"
+        ],
+        "level_2": [
+          "With supervision,",
+          "participates in a mass",
+          "casualty or disaster",
+          "management",
+          "event/exercise",
+          "Describes principles and",
+          "terminology of mass",
+          "casualty and disaster",
+          "response, including triage,"
+        ],
+        "level_3": [
+          "NIMS, and ICS",
+          "Independently provides",
+          "care at a mass casualty or",
+          "disaster event/exercise",
+          "Participates in the",
+          "development of an",
+          "Incident Action Plan",
+          "and/or After Action",
+          "Review"
+        ],
+        "level_4": [
+          "Develops and",
+          "implements protocols",
+          "for a mass casualty or",
+          "disaster event",
+          "Leads the team to",
+          "develop an Incident",
+          "Action Plan and/or After",
+          "Action Review",
+          "Performs as a medical"
+        ],
+        "level_5": [
+          "director for a mass",
+          "casualty or disaster",
+          "response team",
+          "Conducts scholarly",
+          "activity in mass casualty",
+          "or disaster management"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Medical Oversight",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the need for",
+          "medical oversight of",
+          "EMS agencies and",
+          "systems",
+          "Describes the policies for",
+          "EMS oversight in their",
+          "EMS agency or system"
+        ],
+        "level_2": [
+          "Defines the core",
+          "components of medical",
+          "oversight of EMS",
+          "agencies and systems",
+          "Contributes to",
+          "meetings/planning",
+          "sessions where policies"
+        ],
+        "level_3": [
+          "for EMS agency or",
+          "system oversight are",
+          "discussed",
+          "Performs medical",
+          "oversight of an EMS",
+          "agency, with supervision",
+          "Assists in policy"
+        ],
+        "level_4": [
+          "development for oversight",
+          "of EMS agencies or",
+          "systems",
+          "Independently performs",
+          "oversight of an EMS",
+          "agency",
+          "Develops policy for"
+        ],
+        "level_5": [
+          "oversight of EMS",
+          "agencies or systems",
+          "Performs oversight of a",
+          "complex or multi-agency",
+          "EMS system"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Special Teams",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "the basic roles of Special",
+          "Teams",
+          "Defines the core"
+        ],
+        "level_2": [
+          "components and specialty",
+          "training required of",
+          "Special Teams",
+          "Effectively participates as"
+        ],
+        "level_3": [
+          "a medical team member",
+          "of a Special Team during",
+          "actual or simulated",
+          "operations"
+        ],
+        "level_4": [
+          "Develops and",
+          "implements protocols",
+          "for Special Teams",
+          "Performs as medical"
+        ],
+        "level_5": [
+          "director for a Special",
+          "Team"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_sbp1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events and",
+          "knows how to report"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Conducts root cause",
+          "analysis of patient"
+        ],
+        "level_4": [
+          "safety events and offers",
+          "error prevention",
+          "strategies (simulated or",
+          "actual)"
+        ],
+        "level_5": [
+          "Actively engages team",
+          "and modifies system",
+          "processes to prevent",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_sbp2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local EMS",
+          "agency/system quality",
+          "improvement initiatives",
+          "Participates in local EMS",
+          "agency/system quality"
+        ],
+        "level_3": [
+          "improvement initiatives",
+          "Demonstrates the skills",
+          "required for identifying,",
+          "developing,",
+          "implementing, and"
+        ],
+        "level_4": [
+          "analyzing an EMS",
+          "quality improvement",
+          "project",
+          "Creates, implements, and",
+          "assesses EMS quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the agency or",
+          "local/regional/state",
+          "system levels"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_sbp3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "In routine clinical",
+          "situations, coordinates",
+          "patient care integrating"
+        ],
+        "level_2": [
+          "the roles of",
+          "interprofessional teams",
+          "In routine clinical",
+          "situations, enables safe",
+          "and effective transitions of",
+          "care/hand-offs",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for their local population",
+          "In complex clinical",
+          "situations, coordinates",
+          "patient care by integrating",
+          "the roles of the"
+        ],
+        "level_3": [
+          "interprofessional teams,",
+          "with supervision",
+          "In complex clinical",
+          "situations, enables safe",
+          "and effective transitions of",
+          "care/hand-offs, with",
+          "supervision",
+          "Effectively uses local",
+          "EMS resources to meet",
+          "the needs of a patient",
+          "population and",
+          "community",
+          "In complex clinical",
+          "situations, coordinates"
+        ],
+        "level_4": [
+          "patient care by",
+          "integrating the roles of",
+          "the interprofessional",
+          "teams, independently",
+          "In complex clinical",
+          "situations, enables safe",
+          "and effective transitions",
+          "of care/hand-offs,",
+          "independently",
+          "Participates in changing",
+          "and adapting EMS",
+          "practice to provide for",
+          "the needs of specific",
+          "populations"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "EMS care coordination",
+          "and implements systemic",
+          "improvements",
+          "Implements systemic",
+          "improvement for",
+          "transitions of care",
+          "Leads EMS system",
+          "innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_sbp4",
+      "number": 10,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of EMS",
+          "within the complex",
+          "health care system",
+          "Identifies basic",
+          "knowledge domains",
+          "required for medical",
+          "practice",
+          "Describes how"
+        ],
+        "level_2": [
+          "components of a complex",
+          "health care system are",
+          "interrelated to EMS",
+          "systems, and how this",
+          "impacts patient care",
+          "Demonstrates efficient",
+          "integration of information",
+          "technology, including",
+          "EMS information systems,"
+        ],
+        "level_3": [
+          "required for medical",
+          "practice",
+          "Discusses how individual",
+          "EMS practice affects the",
+          "broader system",
+          "Describes core",
+          "administrative knowledge",
+          "needed for the transition",
+          "to independent EMS"
+        ],
+        "level_4": [
+          "practice",
+          "Manages various",
+          "components of the",
+          "complex EMS system to",
+          "provide efficient and",
+          "effective patient care",
+          "and the transition of",
+          "care",
+          "Analyzes individual"
+        ],
+        "level_5": [
+          "EMS practice patterns",
+          "and professional",
+          "requirements",
+          "Advocates for or leads",
+          "EMS systems change that",
+          "enhances high value,",
+          "efficient, and effective",
+          "patient care, and the",
+          "transition of care"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_sbp5",
+      "number": 11,
+      "domain_number": 5,
+      "name": "EMS Personnel (Supervision and Training)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "awareness of",
+          "educational content",
+          "appropriate to scope of",
+          "practice",
+          "Demonstrates",
+          "awareness of culture of",
+          "safety and EMS clinician",
+          "health and well-being"
+        ],
+        "level_2": [
+          "With supervision, designs",
+          "and presents educational",
+          "content appropriate to",
+          "scope of practice",
+          "Describes a culture of",
+          "safety and EMS clinician",
+          "health and well-being",
+          "Identifies educational",
+          "needs and develops"
+        ],
+        "level_3": [
+          "training materials",
+          "appropriate to scope of",
+          "practice",
+          "Integrates a culture of",
+          "safety and EMS clinician",
+          "health and well-being into",
+          "pre-hospital practice, with",
+          "supervision",
+          "Develops educational"
+        ],
+        "level_4": [
+          "content in response to",
+          "identified educational",
+          "need",
+          "Independently",
+          "integrates culture of",
+          "safety and EMS",
+          "clinician health and",
+          "well-being into pre-",
+          "hospital practice"
+        ],
+        "level_5": [
+          "Designs a curriculum or",
+          "course appropriate for a",
+          "given scope of practice or",
+          "to address a specific need",
+          "involving multiple levels of",
+          "care providers",
+          "Designs health and well-",
+          "being program for EMS",
+          "system"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence",
+          "Articulates the questions",
+          "necessary to guide"
+        ],
+        "level_2": [
+          "evidence-based systems",
+          "of care",
+          "Locates and applies the",
+          "best available evidence to",
+          "guide systems of care"
+        ],
+        "level_3": [
+          "Critically appraises and",
+          "applies evidence even",
+          "in the face of incomplete",
+          "or conflicting evidence",
+          "to guide systems of care"
+        ],
+        "level_4": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "systems of care, and/or",
+          "participates in the"
+        ],
+        "level_5": [
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates an",
+          "openness to feedback",
+          "and other input",
+          "Demonstrates an",
+          "openness to feedback",
+          "and other input and uses",
+          "it to develop personal and",
+          "professional goals"
+        ],
+        "level_2": [
+          "Identifies the factors that",
+          "contribute to the gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Seeks and accepts",
+          "feedback and other input",
+          "for developing personal",
+          "and professional goals"
+        ],
+        "level_3": [
+          "Analyzes and reflects",
+          "upon the factors that",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Using feedback and",
+          "other input, continually",
+          "improves and measures"
+        ],
+        "level_4": [
+          "the effectiveness of",
+          "one’s personal and",
+          "professional goals",
+          "Analyzes, reflects on,",
+          "and institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual"
+        ],
+        "level_5": [
+          "performance",
+          "Acts as a role model for",
+          "the development of",
+          "personal and professional",
+          "goals",
+          "Coaches others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations and in",
+          "how to report",
+          "professionalism lapses",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "patient care"
+        ],
+        "level_2": [
+          "Identifies and describes",
+          "potential triggers and",
+          "takes responsibility for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Exhibits professional",
+          "behavior in complex"
+        ],
+        "level_3": [
+          "and/or stressful situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles, and recognizes",
+          "the need to seek help in",
+          "managing and resolving",
+          "them",
+          "Identifies situations that",
+          "might trigger"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent them in oneself",
+          "and others",
+          "Uses appropriate",
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and addresses",
+          "system-level factors that",
+          "either induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "In routine situations,",
+          "performs tasks and",
+          "responsibilities with",
+          "appropriate attention to",
+          "detail",
+          "Responds promptly to",
+          "requests and reminders",
+          "to complete tasks and",
+          "responsibilities"
+        ],
+        "level_2": [
+          "In routine situations,",
+          "performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail",
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities",
+          "In complex or stressful"
+        ],
+        "level_3": [
+          "situations, performs tasks",
+          "and responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail",
+          "Recognizes situations",
+          "that might impact one’s",
+          "own ability to complete",
+          "tasks and responsibilities"
+        ],
+        "level_4": [
+          "in a timely manner, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients,",
+          "teams, and systems are",
+          "met"
+        ],
+        "level_5": [
+          "Recognizes situations",
+          "that might impact",
+          "others’ ability to",
+          "complete tasks and",
+          "responsibilities",
+          "Takes ownership of",
+          "system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes, with",
+          "assistance, the status of",
+          "one’s personal and",
+          "professional well-being",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "the status of one’s",
+          "personal and professional",
+          "well-being and engages in",
+          "help-seeking behaviors",
+          "With assistance,"
+        ],
+        "level_3": [
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "Independently develops",
+          "a plan to optimize one’s"
+        ],
+        "level_4": [
+          "personal and",
+          "professional well-being",
+          "Coaches others when",
+          "their emotional responses",
+          "or level of"
+        ],
+        "level_5": [
+          "knowledge/skills fail to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to reflect",
+          "respect and establish",
+          "rapport while accurately",
+          "communicating one’s own",
+          "role within the health care",
+          "system",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "With insight gained",
+          "through an assessment of",
+          "patient/patient’s family’s",
+          "expectations coupled with",
+          "an understanding of their",
+          "health status and",
+          "treatment options, adjusts"
+        ],
+        "level_2": [
+          "one’s communication",
+          "strategies",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward encounters",
+          "with patients, using active",
+          "listening and clear",
+          "language",
+          "Identifies complex barriers",
+          "to effective communication",
+          "(e.g., health literacy,",
+          "cultural, technology)",
+          "Organizes and initiates",
+          "communication with a",
+          "patient/patient’s family by",
+          "clarifying expectations and",
+          "verifying one’s",
+          "understanding of the"
+        ],
+        "level_3": [
+          "clinical situation",
+          "Establishes a therapeutic",
+          "relationship",
+          "in challenging patient",
+          "encounters",
+          "When prompted, reflects",
+          "on biases, while attempting",
+          "to minimize communication",
+          "barriers",
+          "With guidance, sensitively",
+          "and compassionately",
+          "delivers medical",
+          "information to patients,",
+          "elicits patient/patient’s",
+          "family’s values, learns their",
+          "goals and preferences, and",
+          "acknowledges uncertainty",
+          "and conflict"
+        ],
+        "level_4": [
+          "Easily establishes",
+          "therapeutic relationships",
+          "with patients, regardless",
+          "of the complexity of",
+          "cases",
+          "Independently",
+          "recognizes biases of",
+          "patients, while attempting",
+          "to proactively minimize",
+          "communication barriers",
+          "Independently uses",
+          "shared decision making",
+          "with a patient/patient’s",
+          "family to align their",
+          "values, goals, and",
+          "preferences with",
+          "potential treatment",
+          "options and ultimately to"
+        ],
+        "level_5": [
+          "achieve a personalized",
+          "care plan",
+          "Acts as a mentor to others",
+          "in situational awareness",
+          "and critical self-reflection",
+          "with the aim of consistently",
+          "developing positive",
+          "therapeutic relationships",
+          "and minimizing",
+          "communication barriers",
+          "Acts as a role model to",
+          "exemplify shared decision",
+          "making in patient/patient’s",
+          "family’s communication",
+          "that embodies various",
+          "degrees of",
+          "uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies the roles and",
+          "areas of expertise of",
+          "various members of",
+          "the health care team",
+          "Uses language that",
+          "reflects the values all",
+          "members of the health",
+          "care team",
+          "Receives feedback in",
+          "a respectful manner",
+          "Describes the roles and",
+          "areas of expertise of"
+        ],
+        "level_2": [
+          "various members of the",
+          "health care team",
+          "Communicates",
+          "information effectively",
+          "with all health care",
+          "team members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Integrates",
+          "recommendations"
+        ],
+        "level_3": [
+          "made by various",
+          "members of the health",
+          "care team to optimize",
+          "patient care",
+          "Engages in active",
+          "listening to adapt to the",
+          "communication styles",
+          "of the team",
+          "Communicates",
+          "concerns and provides",
+          "feedback to peers and",
+          "learners"
+        ],
+        "level_4": [
+          "Uses flexible",
+          "communication",
+          "strategies to",
+          "incorporate input from",
+          "all team members and",
+          "resolve conflict when",
+          "needed",
+          "Uses effective",
+          "communication to",
+          "lead or manage",
+          "health care teams",
+          "Communicates"
+        ],
+        "level_5": [
+          "feedback and",
+          "constructive criticism",
+          "to superiors",
+          "Acts as a role model for",
+          "communication skills",
+          "necessary to lead or",
+          "manage health care",
+          "teams",
+          "In complex situations,",
+          "facilitates regular health",
+          "care team-based",
+          "feedback"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__emergency_medical_services_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes how to",
+          "accurately document",
+          "information in the",
+          "patient’s record and",
+          "safeguards the patient’s",
+          "personal information",
+          "Communicates",
+          "professionally through",
+          "appropriate",
+          "channels/chain of"
+        ],
+        "level_2": [
+          "command",
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through the patient record",
+          "in a timely manner",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Concisely reports"
+        ],
+        "level_3": [
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Uses appropriate",
+          "channels/chain of",
+          "command to offer",
+          "constructive suggestions",
+          "for improving the system",
+          "Communicates clearly,",
+          "concisely, and"
+        ],
+        "level_4": [
+          "contemporaneously in",
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Models feedback to"
+        ],
+        "level_5": [
+          "improve others’ written",
+          "communication",
+          "Leads dialogue regarding",
+          "systems issues among",
+          "broader community",
+          "stakeholders"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "emergency-medicine",
+  "primary_name": "Emergency Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicalservicesmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicalservicessupplementalguide.pdf"
+  }
+}

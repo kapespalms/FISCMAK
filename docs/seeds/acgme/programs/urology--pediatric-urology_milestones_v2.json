@@ -1,0 +1,1099 @@
+{
+  "framework_key": "urology--pediatric-urology",
+  "specialty": "Pediatric Urology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Urology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "urology__pediatric_urology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Patient Evaluation and Decision Making",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains and performs",
+          "developmentally",
+          "appropriate history and",
+          "physical exam"
+        ],
+        "level_2": [
+          "Selects and interprets",
+          "diagnostic testing",
+          "Develops a plan to",
+          "manage patients with"
+        ],
+        "level_3": [
+          "straightforward conditions",
+          "Develops a plan to",
+          "manage patients with",
+          "complex conditions and"
+        ],
+        "level_4": [
+          "adapts plan for",
+          "changing clinical",
+          "situation",
+          "Develops a clinical"
+        ],
+        "level_5": [
+          "pathway for the",
+          "management of patients",
+          "with complex conditions"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Peri-Procedural Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes how changes",
+          "in normal physiology",
+          "may lead to peri-",
+          "procedural alterations",
+          "and complications",
+          "Accurately and reliably"
+        ],
+        "level_2": [
+          "gathers and reports",
+          "clinical information",
+          "pertaining to common",
+          "peri-procedural alterations",
+          "and complications",
+          "Identifies and prioritizes"
+        ],
+        "level_3": [
+          "tasks necessary for",
+          "management of peri-",
+          "procedural alterations and",
+          "complications",
+          "Proactively recognizes",
+          "potential risk factors for"
+        ],
+        "level_4": [
+          "complications and",
+          "implements measures",
+          "to prevent or mitigate",
+          "them",
+          "Coordinates input from",
+          "multiple specialties and/or"
+        ],
+        "level_5": [
+          "manages multiple",
+          "scenarios simultaneously"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Endoscopic Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prepares pediatric",
+          "patients and equipment",
+          "for endoscopic",
+          "procedures",
+          "Identifies anatomic and",
+          "safety differences",
+          "between pediatric and",
+          "adult populations",
+          "Independently performs"
+        ],
+        "level_2": [
+          "diagnostic pediatric lower",
+          "tract endoscopic",
+          "procedures",
+          "Identifies urethral and",
+          "ureteral abnormalities",
+          "during endoscopic",
+          "procedures",
+          "Independently performs",
+          "simple diagnostic upper"
+        ],
+        "level_3": [
+          "tract and lower tract",
+          "therapeutic endoscopic",
+          "procedures",
+          "Selects ureteroscope and",
+          "stent size for individual",
+          "patients and plans for",
+          "assistive devices to",
+          "perform endoscopic",
+          "procedures"
+        ],
+        "level_4": [
+          "Independently performs",
+          "complex endoscopic",
+          "procedures",
+          "Selects endoscopic",
+          "assistive devices in a",
+          "cost-effective manner",
+          "and effectively",
+          "troubleshoots during the",
+          "procedure"
+        ],
+        "level_5": [
+          "Independently performs",
+          "complex endoscopic",
+          "procedures in a patient",
+          "with challenging anatomy",
+          "Identifies a novel use of",
+          "available tools"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Open Procedures – Abdominal and Retroperitoneal",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes various",
+          "published techniques",
+          "available for open",
+          "procedures",
+          "Anticipates the steps of"
+        ],
+        "level_2": [
+          "the procedure and",
+          "actively assists",
+          "Performs simple open",
+          "procedures with good",
+          "tissue handling and"
+        ],
+        "level_3": [
+          "identifies the need for",
+          "deviation in the surgical",
+          "plan",
+          "Performs complex open",
+          "procedures and"
+        ],
+        "level_4": [
+          "executes deviation in",
+          "the surgical plan when",
+          "needed",
+          "Performs procedures",
+          "incorporating surgical"
+        ],
+        "level_5": [
+          "innovations"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Genital Reconstruction",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes various",
+          "published techniques",
+          "available for",
+          "reconstruction",
+          "Anticipates the steps of"
+        ],
+        "level_2": [
+          "the procedure and",
+          "actively assists",
+          "Performs routine genital",
+          "procedures with good",
+          "tissue handling and"
+        ],
+        "level_3": [
+          "identifies the need for",
+          "deviation from the",
+          "surgical plan",
+          "Performs complex",
+          "genital procedures and"
+        ],
+        "level_4": [
+          "deviates from the",
+          "surgical plan when",
+          "needed",
+          "Performs procedures",
+          "incorporating surgical"
+        ],
+        "level_5": [
+          "innovations"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Minimally Invasive Procedures (Laparoscopic and Robotic)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prepares pediatric",
+          "patients and equipment",
+          "for minimally invasive",
+          "procedures",
+          "Actively assists and"
+        ],
+        "level_2": [
+          "performs portions of the",
+          "minimally invasive",
+          "procedure",
+          "Performs low complexity",
+          "minimally invasive"
+        ],
+        "level_3": [
+          "procedures with good",
+          "tissue handling and",
+          "identifies need for",
+          "deviation in the surgical",
+          "plan or conversion to"
+        ],
+        "level_4": [
+          "open approach",
+          "Performs complex",
+          "minimally invasive",
+          "procedures and",
+          "deviates from the"
+        ],
+        "level_5": [
+          "surgical plan when",
+          "needed",
+          "Performs procedures",
+          "incorporating surgical",
+          "innovations"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Clinical Medical Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of anatomy",
+          "and physiology of the",
+          "genitourinary tract as it",
+          "relates to pediatric",
+          "patients",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of pathophysiology and",
+          "treatments of simple",
+          "conditions, including",
+          "guidelines",
+          "Demonstrates knowledge",
+          "of pathophysiology and",
+          "treatments of complex"
+        ],
+        "level_3": [
+          "conditions, taking",
+          "individual patient factors",
+          "into consideration (e.g.,",
+          "contributing bowel and",
+          "bladder dysfunction,",
+          "familial preferences)",
+          "Demonstrates"
+        ],
+        "level_4": [
+          "knowledge of the full",
+          "spectrum of congenital",
+          "conditions, including",
+          "rare diseases,",
+          "controversies, and",
+          "evolving treatment",
+          "practices"
+        ],
+        "level_5": [
+          "Advances understanding",
+          "of pathophysiology or",
+          "clinical care pathways in",
+          "pediatric urology"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Integrates patient-",
+          "specific information to",
+          "generate an appropriate",
+          "working diagnosis",
+          "Provides a prioritized"
+        ],
+        "level_2": [
+          "differential diagnosis",
+          "using supporting rationale",
+          "Independently",
+          "synthesizes clinical",
+          "information to inform"
+        ],
+        "level_3": [
+          "diagnosis and therapy in",
+          "simple cases and adapts",
+          "based on a patient’s",
+          "clinical course and",
+          "additional data"
+        ],
+        "level_4": [
+          "Independently",
+          "synthesizes clinical",
+          "information to inform",
+          "diagnosis and therapy",
+          "in complex cases,"
+        ],
+        "level_5": [
+          "recognizing sources of",
+          "error",
+          "Teaches others to",
+          "recognize sources of",
+          "diagnostic error"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_mk3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "Complex Care in Medical Management",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Understands long-term",
+          "ramifications of urinary",
+          "tract, renal function,",
+          "gastrointestinal function,",
+          "and reproductive health",
+          "Demonstrates basic",
+          "knowledge of",
+          "embryology and",
+          "physiologic changes with",
+          "aging in the"
+        ],
+        "level_2": [
+          "genitourinary system",
+          "Identifies role of other",
+          "specialists to achieve",
+          "goals of care",
+          "Describes initial treatment",
+          "options for patients born",
+          "with genitourinary",
+          "conditions requiring long-",
+          "term care",
+          "Engages with other"
+        ],
+        "level_3": [
+          "specialists for",
+          "comprehensive care",
+          "Lists care requirements",
+          "for pediatric patients with",
+          "chronic genitourinary",
+          "conditions as they age",
+          "and grow",
+          "Actively contributes to",
+          "the medical and",
+          "psychological well-being"
+        ],
+        "level_4": [
+          "of patients with complex",
+          "conditions",
+          "Identifies potential",
+          "complications and long-",
+          "term adult needs for",
+          "patients with chronic",
+          "genitourinary conditions",
+          "arising in childhood",
+          "Advocates locally and",
+          "nationally for"
+        ],
+        "level_5": [
+          "psychological well-being",
+          "and collaborative care of",
+          "chronic conditions",
+          "Develops clinical",
+          "curriculum related to care",
+          "transition from child to",
+          "adulthood for chronic",
+          "genitourinary conditions"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Participates in basic",
+          "patient safety initiatives",
+          "(e.g., time-outs,",
+          "handwashing protocols)",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies and reports",
+          "patient safety events",
+          "Describes and",
+          "participates in local",
+          "quality improvement",
+          "initiatives (e.g.,",
+          "multimodal analgesics,",
+          "antibiotic stewardship,",
+          "hospital acquired"
+        ],
+        "level_3": [
+          "infection)",
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual) and",
+          "offers strategies to",
+          "prevent future events",
+          "Identifies potential areas",
+          "for team or local quality",
+          "improvement initiatives"
+        ],
+        "level_4": [
+          "Actively engages care",
+          "team to prevent patient",
+          "safety events",
+          "Demonstrates the skills",
+          "required to develop,",
+          "implement, and analyze",
+          "a quality improvement",
+          "project",
+          "Enacts systemic changes"
+        ],
+        "level_5": [
+          "to prevent patient safety",
+          "events by affecting",
+          "processes",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Advocates for quality",
+          "patient care and",
+          "identifies potential",
+          "barriers to care",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Demonstrates knowledge",
+          "of local resources",
+          "available for optimizing"
+        ],
+        "level_2": [
+          "care delivery and",
+          "coordination",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, considering",
+          "potential barriers to care",
+          "including health needs,"
+        ],
+        "level_3": [
+          "language differences, and",
+          "family circumstances",
+          "Supervises safe and",
+          "effective transitions of",
+          "care/hand-offs of junior",
+          "team members",
+          "Coordinates",
+          "multidisciplinary care of",
+          "patients in complex",
+          "clinical situations by",
+          "incorporating local"
+        ],
+        "level_4": [
+          "resources into the plan",
+          "(e.g., social worker to",
+          "identify additional home",
+          "resources)",
+          "Resolves conflicts in",
+          "transitions of care",
+          "between teams",
+          "Designs innovative care",
+          "coordination strategies for",
+          "optimizing health care",
+          "outcomes, taking into"
+        ],
+        "level_5": [
+          "consideration populations",
+          "with specific health care",
+          "needs",
+          "Leads in the design and",
+          "implementation of",
+          "improved transitions of",
+          "care"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Understands different",
+          "types of physician",
+          "practices and the basic",
+          "differences/benefits and",
+          "liabilities associated with",
+          "each (e.g., private",
+          "practice versus",
+          "academic, solo",
+          "practitioner versus group",
+          "practice)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,"
+        ],
+        "level_2": [
+          "public, uninsured care)",
+          "and practice models",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice (e.g., electronic",
+          "health record,",
+          "documentation required",
+          "for billing and coding)",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated and how this"
+        ],
+        "level_3": [
+          "impacts patient care",
+          "Identifies basic needs for",
+          "effective transition to",
+          "practice (e.g., information",
+          "technology, legal, billing",
+          "and coding, financial)",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system",
+          "performance (e.g., length",
+          "of stay, readmission",
+          "rates, clinical efficiency)",
+          "Describes core"
+        ],
+        "level_4": [
+          "administrative",
+          "knowledge needed for",
+          "transition to",
+          "independent practice",
+          "(e.g., cost/billing",
+          "effectiveness)",
+          "Manages various",
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care (e.g.,",
+          "patient payment"
+        ],
+        "level_5": [
+          "models, insurance)",
+          "Analyzes professional",
+          "requirements in",
+          "preparation for practice",
+          "(e.g., contract",
+          "negotiations, malpractice",
+          "insurance, government",
+          "regulation, compliance)",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access available",
+          "evidence",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions to guide",
+          "evidence-based care",
+          "Integrates best available",
+          "evidence with patient"
+        ],
+        "level_3": [
+          "preferences to guide care",
+          "Tailors patient care in",
+          "the setting of conflicting",
+          "or absent evidence"
+        ],
+        "level_4": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "patients with complex"
+        ],
+        "level_5": [
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts feedback from",
+          "faculty members",
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development",
+          "Uses feedback from all"
+        ],
+        "level_2": [
+          "members of the team to",
+          "improve performance",
+          "Monitors progress",
+          "towards goals and directs",
+          "efforts accordingly",
+          "Integrates feedback and",
+          "adjusts behaviors in real"
+        ],
+        "level_3": [
+          "time to improve",
+          "performance",
+          "Integrates practice data to",
+          "revise goals",
+          "Seeks out specific",
+          "feedback to further",
+          "improve performance"
+        ],
+        "level_4": [
+          "Uses performance data",
+          "to measure readiness",
+          "for independent clinical",
+          "practice",
+          "Coaches others to",
+          "integrate feedback and",
+          "improve performance"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "incorporate performance",
+          "data"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_prof1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations and",
+          "knows how to report",
+          "professionalism lapses",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles underlying",
+          "shared decision making",
+          "and patient"
+        ],
+        "level_2": [
+          "confidentiality",
+          "Demonstrates insight into",
+          "personal triggers for",
+          "professionalism lapses",
+          "and develops mitigation",
+          "strategies",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Seeks help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Recognizes and",
+          "intervenes in situations",
+          "to prevent",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "in oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas (e.g., ethics",
+          "consultations, literature",
+          "review)",
+          "Coaches others when",
+          "their behavior fails to"
+        ],
+        "level_5": [
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_prof2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Administrative Tasks",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail in routine",
+          "situations"
+        ],
+        "level_2": [
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex and stressful",
+          "situations"
+        ],
+        "level_3": [
+          "Delegates and oversees",
+          "tasks to medical students",
+          "and residents that results",
+          "in efficient management",
+          "of clinical activities and",
+          "enhances education"
+        ],
+        "level_4": [
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner and",
+          "proposes solutions"
+        ],
+        "level_5": [
+          "Develops systems to",
+          "enhance others’ ability to",
+          "efficiently complete",
+          "administrative tasks and",
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_prof3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "Identifies how well-being"
+        ],
+        "level_3": [
+          "impacts the team’s",
+          "performance",
+          "Independently develops",
+          "a plan to optimize"
+        ],
+        "level_4": [
+          "personal and",
+          "professional well-being",
+          "Coaches others when",
+          "emotional responses do"
+        ],
+        "level_5": [
+          "not meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_ics1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "with patients and",
+          "patients’ families (e.g.,",
+          "situational awareness of",
+          "language, disability,",
+          "health literacy level)",
+          "Communicates with",
+          "patients and their"
+        ],
+        "level_2": [
+          "families in an",
+          "understandable and",
+          "respectful manner",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Identifies barriers to",
+          "effective communication"
+        ],
+        "level_3": [
+          "(e.g., health literacy)",
+          "Establishes a therapeutic",
+          "relationship in challenging",
+          "encounters (e.g., shared",
+          "decision making)",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers"
+        ],
+        "level_4": [
+          "Facilitates difficult",
+          "discussions specific to",
+          "patient and family",
+          "conferences, (e.g., end-",
+          "of-life, explaining",
+          "complications,",
+          "therapeutic uncertainty)",
+          "Independently",
+          "recognizes biases while"
+        ],
+        "level_5": [
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection",
+          "Coaches others in the",
+          "facilitation of crucial",
+          "conversations"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_ics2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Patient Counseling and Shared Decision Making",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "understanding of the",
+          "informed consent",
+          "process",
+          "Answers questions from",
+          "patients and caregivers"
+        ],
+        "level_2": [
+          "about treatment plans and",
+          "seeks guidance when",
+          "appropriate",
+          "Counsels patients and",
+          "caregivers through",
+          "decision-making process"
+        ],
+        "level_3": [
+          "using developmentally",
+          "appropriate language for",
+          "simple clinical and",
+          "surgical problems",
+          "Counsels patients and",
+          "caregivers through"
+        ],
+        "level_4": [
+          "decision-making",
+          "process using",
+          "developmentally",
+          "appropriate language",
+          "for complex clinical and",
+          "surgical problems"
+        ],
+        "level_5": [
+          "Leads patients,",
+          "caregivers, and team in",
+          "complex and high-risk",
+          "decision making and",
+          "counseling"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_ics3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully interacts",
+          "and actively",
+          "communicates with all",
+          "members of health care",
+          "team (e.g., proper",
+          "identification, politely"
+        ],
+        "level_2": [
+          "accepts and requests",
+          "consults)",
+          "Communicates in an",
+          "approachable and",
+          "productive manner to",
+          "facilitate teamwork (e.g.,"
+        ],
+        "level_3": [
+          "active listening, updates",
+          "in timely fashion)",
+          "Actively recognizes and",
+          "mitigates communication",
+          "barriers and biases with",
+          "members of the health"
+        ],
+        "level_4": [
+          "care team",
+          "Identifies conflict as",
+          "threat to patient care",
+          "and team functioning",
+          "and initiates an",
+          "intervention"
+        ],
+        "level_5": [
+          "Exemplifies flexible",
+          "communication strategies"
+        ]
+      }
+    },
+    {
+      "id": "urology__pediatric_urology_ics4",
+      "number": 21,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record in a timely",
+          "manner while",
+          "safeguarding patient"
+        ],
+        "level_2": [
+          "personal health",
+          "information",
+          "Documents diagnostic",
+          "and therapeutic reasoning",
+          "in the patient record with"
+        ],
+        "level_3": [
+          "appropriate use of",
+          "documentation shortcuts",
+          "Concisely reports",
+          "diagnostic and",
+          "therapeutic reasoning"
+        ],
+        "level_4": [
+          "Efficiently",
+          "communicates in an",
+          "organized fashion that",
+          "includes contingency",
+          "plans"
+        ],
+        "level_5": [
+          "Facilitates improved",
+          "written and verbal",
+          "communication of others"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "urology",
+  "primary_name": "Urology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricurologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricurologysupplementalguide.pdf"
+  }
+}

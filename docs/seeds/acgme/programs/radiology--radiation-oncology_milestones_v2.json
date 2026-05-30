@@ -1,0 +1,1458 @@
+{
+  "framework_key": "radiology--radiation-oncology",
+  "specialty": "Radiation Oncology",
+  "version": "2.0",
+  "source": "ACGME Radiation Oncology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "radiology__radiation_oncology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Consult",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Takes basic medical",
+          "history and performs",
+          "general physical exam",
+          "Lists the elements of the",
+          "informed consent",
+          "process",
+          "Takes site-focused history",
+          "and performs basic site-",
+          "focused physical exam"
+        ],
+        "level_2": [
+          "Lists treatment options",
+          "Answers questions about",
+          "treatment plan and seeks",
+          "guidance, when needed",
+          "Takes comprehensive",
+          "site-focused history and",
+          "performs advanced site-",
+          "focused physical exam",
+          "Selects treatment(s) for"
+        ],
+        "level_3": [
+          "common clinical scenarios",
+          "and formulates",
+          "multidisciplinary care plan",
+          "Identifies risks and",
+          "benefits of common",
+          "treatment options and",
+          "obtains informed consent",
+          "Completes a",
+          "history/physical for"
+        ],
+        "level_4": [
+          "complex clinical",
+          "scenarios",
+          "Selects treatment and",
+          "coordinates the",
+          "multidisciplinary care",
+          "plan for complex clinical",
+          "scenarios",
+          "Identifies risks and",
+          "benefits of complex"
+        ],
+        "level_5": [
+          "treatment options and",
+          "obtains informed",
+          "consent",
+          "Leads the",
+          "multidisciplinary care",
+          "team"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Simulation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the members of",
+          "interprofessional team",
+          "involved in simulation",
+          "Identifies role of the",
+          "radiation oncologist in",
+          "simulation process",
+          "Lists simulation",
+          "parameters"
+        ],
+        "level_2": [
+          "Supervises simulation to",
+          "ensure parameters are",
+          "met",
+          "Selects simulation",
+          "parameters for common",
+          "clinical scenarios to",
+          "balance tumor exposure",
+          "and patient comfort"
+        ],
+        "level_3": [
+          "Recognizes common",
+          "problems that arise during",
+          "simulation scans and",
+          "works with",
+          "interprofessional team to",
+          "resolve",
+          "Selects simulation",
+          "parameters for"
+        ],
+        "level_4": [
+          "uncommon clinical",
+          "scenarios to balance",
+          "tumor exposure and",
+          "patient comfort",
+          "Recognizes uncommon",
+          "problems that arise",
+          "during simulation scans",
+          "and works with"
+        ],
+        "level_5": [
+          "interprofessional team",
+          "to resolve",
+          "Develops a new",
+          "simulation immobilization",
+          "technique"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Contouring and Target Delineation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies relevant organs",
+          "at risk",
+          "Identifies diagnostic",
+          "imaging modalities useful",
+          "for target delineation",
+          "Lists target volume",
+          "definitions"
+        ],
+        "level_2": [
+          "Contours common organs",
+          "at risk",
+          "Selects diagnostic images",
+          "to aid in high-quality",
+          "target delineation",
+          "Contours simple target",
+          "volumes"
+        ],
+        "level_3": [
+          "Contours complex organs",
+          "at risk",
+          "Verifies accuracy of co-",
+          "registration of the image",
+          "fusions with the planning",
+          "scan",
+          "Contours moderately"
+        ],
+        "level_4": [
+          "complex target volumes",
+          "Identifies errors in organ",
+          "at risk contours",
+          "Resolves errors in co-",
+          "registration",
+          "Contours complex",
+          "target volumes"
+        ],
+        "level_5": [
+          "Anticipates treatment",
+          "planning challenges and",
+          "proactively adjusts target",
+          "volumes"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Treatment Planning and Plan Evaluation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the role of the",
+          "radiation oncologist in",
+          "treatment planning",
+          "Identifies different",
+          "treatment planning",
+          "techniques",
+          "Understands that target",
+          "coverage must be",
+          "balanced with dose to",
+          "organs at risk",
+          "Evaluates a simple"
+        ],
+        "level_2": [
+          "radiotherapy plan and",
+          "recognizes when revision",
+          "is needed",
+          "Identifies basic treatment",
+          "planning techniques",
+          "Demonstrates general",
+          "knowledge of organs at",
+          "risk tolerance (serial and",
+          "parallel) with conventional",
+          "fractionation",
+          "Evaluates a moderately"
+        ],
+        "level_3": [
+          "complex radiotherapy",
+          "plan and recognizes when",
+          "revision is needed",
+          "Suggests plan revisions",
+          "that incorporate simple",
+          "planning techniques",
+          "Demonstrates general",
+          "knowledge organs at risk",
+          "tolerance for fractionation",
+          "other than conventional",
+          "Evaluates a complex"
+        ],
+        "level_4": [
+          "radiotherapy plan and",
+          "recognizes when",
+          "revision is needed",
+          "Suggests plan revisions",
+          "that incorporate",
+          "complex planning",
+          "techniques",
+          "Independently evaluates",
+          "a reirradiation plan",
+          "using biologically",
+          "effective dose or"
+        ],
+        "level_5": [
+          "equivalent dose",
+          "calculations",
+          "Consistently anticipates",
+          "challenges dosimetrists",
+          "may incur with plan",
+          "design and offers",
+          "prospective advice on",
+          "how to maximize target",
+          "coverage and minimize",
+          "dose to organs at risk"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Treatment Delivery",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the purpose of",
+          "on-treatment visits",
+          "including eliciting",
+          "symptoms",
+          "Identifies the importance",
+          "of online/offline imaging",
+          "review",
+          "Identifies the importance",
+          "of continued coordination",
+          "of care during combined"
+        ],
+        "level_2": [
+          "modality treatments",
+          "Anticipates and elicits",
+          "common treatment-",
+          "related acute toxicities",
+          "Assesses online and",
+          "offline imaging to evaluate",
+          "for basic set-up",
+          "Identifies issues during",
+          "treatment that require",
+          "multidisciplinary"
+        ],
+        "level_3": [
+          "discussion",
+          "Manages common",
+          "treatment-related acute",
+          "toxicities",
+          "Assesses online and",
+          "offline imaging to evaluate",
+          "for complex set-up",
+          "Coordinates the",
+          "multidisciplinary care of",
+          "patient receiving"
+        ],
+        "level_4": [
+          "combined modality",
+          "therapy",
+          "Manages complex/high-",
+          "grade treatment-related",
+          "acute toxicities",
+          "Independently decides",
+          "on re-simulations and",
+          "start adaptive",
+          "radiotherapy",
+          "Manages"
+        ],
+        "level_5": [
+          "multidisciplinary care",
+          "that requires a deviation",
+          "from the initial treatment",
+          "course (such as",
+          "treatment break)",
+          "Designs novel set-up",
+          "strategies"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Follow-Up",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Participates in post-",
+          "treatment cancer",
+          "surveillance",
+          "Describes the purpose",
+          "of follow-up visits and",
+          "surveillance including"
+        ],
+        "level_2": [
+          "eliciting symptoms",
+          "related to radiation",
+          "Recommends appropriate",
+          "cancer surveillance in routine",
+          "situations",
+          "Recognizes and elicits"
+        ],
+        "level_3": [
+          "common radiation-induced",
+          "late toxicities",
+          "Recommends appropriate",
+          "cancer surveillance in",
+          "complex or rare situations",
+          "Manages common radiation-"
+        ],
+        "level_4": [
+          "induced late toxicities",
+          "Formulates and",
+          "coordinates a",
+          "comprehensive cancer",
+          "survivorship plan",
+          "Manages complex/high-"
+        ],
+        "level_5": [
+          "grade radiation-induced",
+          "late toxicities",
+          "Exemplifies formulation",
+          "and coordination of a",
+          "comprehensive cancer",
+          "survivorship plan"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Brachytherapy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies brachytherapy",
+          "applicators",
+          "Identifies targets/organs",
+          "at risk for brachytherapy",
+          "Participates in",
+          "brachytherapy treatment",
+          "plan review",
+          "Places simple",
+          "intracavitary applicators",
+          "during the implant"
+        ],
+        "level_2": [
+          "procedure and",
+          "participates in peri-",
+          "operative care",
+          "Delineates common",
+          "brachytherapy",
+          "targets/organs at risk",
+          "Evaluates the plan for",
+          "common brachytherapy",
+          "treatment",
+          "Implants patients for"
+        ],
+        "level_3": [
+          "common",
+          "intracavitary/interstitial",
+          "procedures and manages",
+          "peri-operative care",
+          "including common",
+          "complications",
+          "Delineates moderately",
+          "complex brachytherapy",
+          "targets/organs at risk",
+          "Evaluates the plan for"
+        ],
+        "level_4": [
+          "moderately complex",
+          "brachytherapy treatment",
+          "Implants patients for",
+          "complex",
+          "intracavitary/interstitial",
+          "procedures and",
+          "manages peri-operative",
+          "care including",
+          "challenging peri-",
+          "operative complications"
+        ],
+        "level_5": [
+          "Delineates complex",
+          "brachytherapy",
+          "targets/organs at risk",
+          "Demonstrates",
+          "consistent ability to",
+          "evaluate the plan for",
+          "complex brachytherapy",
+          "treatment",
+          "Exemplifies best practices",
+          "in brachytherapy"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Procedures: Stereotactic Radiosurgery (SRS) and Stereotactic Body Radiation Therapy (SBRT)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Participates in",
+          "discussions of",
+          "SRS/SBRT indications",
+          "Identifies SRS/SBRT",
+          "targets/organs at risk",
+          "Recognizes an",
+          "SRS/SBRT treatment"
+        ],
+        "level_2": [
+          "plan",
+          "Demonstrates awareness",
+          "of indications for",
+          "SRS/SBRT",
+          "Delineates simple",
+          "SRS/SBRT targets/organs",
+          "at risk"
+        ],
+        "level_3": [
+          "Evaluates a simple",
+          "SRS/SBRT plan",
+          "Makes recommendations",
+          "for simple SRS/SBRT",
+          "Delineates moderately",
+          "complex SRS/SBRT",
+          "targets/organs at risk"
+        ],
+        "level_4": [
+          "Evaluates a moderately",
+          "complex SRS/SBRT plan",
+          "Makes",
+          "recommendations for",
+          "complex SRS/SBRT",
+          "Delineates complex",
+          "SRS/SBRT"
+        ],
+        "level_5": [
+          "targets/organs at risk",
+          "Evaluates a complex",
+          "SRS/SBRT plan",
+          "Exemplifies best practices",
+          "in complex SRS/SBRT"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_mk1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Applied Sciences (Radiation Physics, Radiation and Cancer Biology, Biostatistics, Trial Design,",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "radiographic anatomy of",
+          "normal structures",
+          "Recognizes the",
+          "importance of medical",
+          "physics in radiation",
+          "oncology",
+          "Recognizes the",
+          "importance of",
+          "radiation/cancer biology",
+          "in radiation oncology"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of basic radiographic",
+          "anatomy of abnormal",
+          "(oncologic) structures and",
+          "can apply to relevant",
+          "staging systems",
+          "Discusses basic concepts",
+          "of medical physics",
+          "Discusses basic concepts",
+          "of radiation/cancer biology",
+          "Integrates knowledge of",
+          "pathologic anatomy and"
+        ],
+        "level_3": [
+          "targeting guidelines in",
+          "common clinical situations",
+          "(e.g., breast/head and",
+          "neck nodal anatomy)",
+          "Applies concepts of",
+          "medical physics to",
+          "common clinical situations",
+          "Applies concepts of",
+          "radiation/cancer biology to",
+          "common clinical situations",
+          "Integrates knowledge of",
+          "pathologic anatomy and"
+        ],
+        "level_4": [
+          "guidelines as needed to",
+          "complex clinical",
+          "situations",
+          "Applies medical physics",
+          "concepts to complex",
+          "clinical situations",
+          "Applies radiation/cancer",
+          "biology concepts to",
+          "complex clinical",
+          "situations",
+          "Demonstrates exemplary",
+          "knowledge of the"
+        ],
+        "level_5": [
+          "application of anatomic",
+          "and radiographic",
+          "knowledge",
+          "Demonstrates exemplary",
+          "knowledge of medical",
+          "physics concepts in the",
+          "clinic",
+          "Demonstrates exemplary",
+          "knowledge of",
+          "radiation/cancer biology",
+          "concepts in the clinic"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_mk2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "Evidence-Based Foundations of Radiation Oncology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of evidence-",
+          "based medicine in",
+          "radiation oncology",
+          "Summarizes a published",
+          "study",
+          "Summarizes evidence-"
+        ],
+        "level_2": [
+          "based data supporting",
+          "treatment management of",
+          "common patient",
+          "presentations",
+          "Evaluates a basic",
+          "published study and",
+          "applies trial data to"
+        ],
+        "level_3": [
+          "common clinical situations",
+          "Summarizes evidence-",
+          "based data supporting",
+          "treatment management of",
+          "uncommon patient",
+          "presentations",
+          "Evaluates complex"
+        ],
+        "level_4": [
+          "published studies and",
+          "applies trial data to less",
+          "common clinical situations",
+          "Compares/contrasts",
+          "and critiques evidence-",
+          "based data supporting",
+          "treatment management"
+        ],
+        "level_5": [
+          "Evaluates complex",
+          "published studies and",
+          "applies trial data to rare",
+          "clinical situations",
+          "Demonstrates exemplary",
+          "evaluation of published",
+          "studies"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "(physical, mental, and",
+          "financial)",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events (physical, mental,",
+          "and financial)",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement"
+        ],
+        "level_2": [
+          "methodologies and",
+          "metrics",
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events (physical, mental,",
+          "and financial)",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual) (physical, mental,",
+          "and financial)",
+          "Describes local quality"
+        ],
+        "level_3": [
+          "improvement initiatives",
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent patient",
+          "safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "System Navigation for Patient Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and community",
+          "health needs for their",
+          "local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the roles"
+        ],
+        "level_3": [
+          "of their interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and community",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and"
+        ],
+        "level_4": [
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and"
+        ],
+        "level_5": [
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key components",
+          "of the complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models",
+          "Identifies basic knowledge",
+          "domains for effective",
+          "transition to practice (e.g.,",
+          "information technology,",
+          "legal, billing and coding,",
+          "financial, personnel)"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "inter-related, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment",
+          "constraints (e.g., insurance",
+          "type)",
+          "Describes core",
+          "administrative knowledge",
+          "needed for transition to",
+          "practice (e.g., contract",
+          "negotiations, malpractice",
+          "insurance, government",
+          "regulation, compliance)"
+        ],
+        "level_3": [
+          "Discusses how individual",
+          "practice affects the broader",
+          "system (e.g., length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each patient’s",
+          "payment constraints",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice (e.g., electronic",
+          "health record,",
+          "documentation required for",
+          "billing and coding)",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "constraints",
+          "Analyzes individual",
+          "practice patterns and"
+        ],
+        "level_5": [
+          "professional",
+          "requirements in",
+          "preparation for practice",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health policy",
+          "advocacy activities",
+          "Educates others to prepare",
+          "them for transition to",
+          "practice"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporate patient",
+          "preferences and values",
+          "to take care of a routine"
+        ],
+        "level_2": [
+          "patient",
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors",
+          "which contribute to",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other input)",
+          "to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks performance data",
+          "episodically, with"
+        ],
+        "level_3": [
+          "adaptability, and humility",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks",
+          "performance data",
+          "consistently with"
+        ],
+        "level_4": [
+          "adaptability, and",
+          "humility",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and when",
+          "necessary, improves it"
+        ],
+        "level_5": [
+          "Role models consistently",
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Describes when and how",
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Demonstrates knowledge",
+          "of the ethical principles",
+          "underlying informed",
+          "consent, surrogate"
+        ],
+        "level_2": [
+          "decision making, advance",
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Demonstrates professional",
+          "behavior in routine",
+          "situations",
+          "Takes responsibility for",
+          "own professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical"
+        ],
+        "level_3": [
+          "principles",
+          "Demonstrates professional",
+          "behavior in complex or",
+          "stressful situations",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex ethical",
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to prevent",
+          "lapses in self and others",
+          "Recognizes and uses",
+          "appropriate resources for",
+          "managing and resolving",
+          "ethical dilemmas as",
+          "needed. (e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Coaches others when their"
+        ],
+        "level_5": [
+          "behavior fails to meet",
+          "professional expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution through",
+          "structured quality",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for"
+        ],
+        "level_2": [
+          "ensuring timely task",
+          "completion in the future",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in"
+        ],
+        "level_3": [
+          "routine situations",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful"
+        ],
+        "level_4": [
+          "situations",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Takes ownership of",
+          "system outcomes"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies elements of",
+          "wellness and describes",
+          "risk factors for burnout",
+          "and signs and symptoms",
+          "of burnout and",
+          "depression in self or"
+        ],
+        "level_2": [
+          "peers",
+          "With assistance,",
+          "recognizes status of well-",
+          "being and risk factors for",
+          "maladaptation in self or",
+          "peers"
+        ],
+        "level_3": [
+          "Independently recognizes",
+          "status of well-being in self",
+          "or peers and reports",
+          "concerns to appropriate",
+          "personnel",
+          "Develops and"
+        ],
+        "level_4": [
+          "implements a plan to",
+          "improve well-being of",
+          "self or peers, including",
+          "utilization of institutional",
+          "or external resources",
+          "Recommends and"
+        ],
+        "level_5": [
+          "facilitates system changes",
+          "to promote wellness in a",
+          "practice or institution"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common barriers",
+          "to effective",
+          "communication (e.g.,",
+          "language, disability) while",
+          "accurately communicating",
+          "own role within the health",
+          "care system",
+          "Identifies the need to",
+          "adjust communication",
+          "strategies based on",
+          "assessment of",
+          "patient/family expectations",
+          "and understanding of their"
+        ],
+        "level_2": [
+          "health status and",
+          "treatment options",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward encounters",
+          "using active listening and",
+          "clear language",
+          "Identifies complex barriers",
+          "to effective communication",
+          "(e.g. health literacy)",
+          "Organizes and initiates",
+          "communication with",
+          "patient/family by",
+          "introducing stakeholders,",
+          "setting the agenda,",
+          "clarifying expectations, and",
+          "verifying understanding of"
+        ],
+        "level_3": [
+          "the clinical situation",
+          "Establishes a therapeutic",
+          "relationship in challenging",
+          "patient encounters",
+          "When prompted, reflects",
+          "on biases while attempting",
+          "to minimize communication",
+          "barriers",
+          "With guidance, sensitively",
+          "and compassionately",
+          "delivers medical",
+          "information, elicits",
+          "patient/family values, goals",
+          "and preferences, and",
+          "acknowledges uncertainty",
+          "and conflict",
+          "Easily establishes"
+        ],
+        "level_4": [
+          "therapeutic relationships,",
+          "with attention to",
+          "patient/family concerns",
+          "and context, regardless",
+          "of complexity",
+          "Independently recognizes",
+          "biases while attempting",
+          "to proactively minimize",
+          "communication barriers",
+          "Independently, uses",
+          "shared decision making",
+          "to align patient/family",
+          "values, goals, and",
+          "preferences with",
+          "treatment options to",
+          "make a personalized",
+          "care plan"
+        ],
+        "level_5": [
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models self-",
+          "awareness while identifying",
+          "a contextual approach to",
+          "minimize communication",
+          "barriers",
+          "Role models shared",
+          "decision making in",
+          "patient/family",
+          "communication including",
+          "those with a high degree of",
+          "uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Participates in structured",
+          "feedback",
+          "Clearly and concisely",
+          "requests a consultation",
+          "Communicates",
+          "information effectively",
+          "with all health care team"
+        ],
+        "level_2": [
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health care",
+          "team",
+          "Checks own",
+          "understanding of",
+          "consultant",
+          "recommendations",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of the",
+          "health care team to",
+          "optimize patient care",
+          "Consistently",
+          "demonstrates effective",
+          "team communication",
+          "based upon summative"
+        ],
+        "level_4": [
+          "feedback",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Develops strategies for"
+        ],
+        "level_5": [
+          "and/or leads",
+          "interdisciplinary team",
+          "communication training",
+          "Facilitates regular",
+          "healthcare team-based",
+          "feedback in complex",
+          "situations or new",
+          "technologies"
+        ]
+      }
+    },
+    {
+      "id": "radiology__radiation_oncology_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy (e.g. patient safety",
+          "reports, cell phone/pager",
+          "usage)",
+          "Demonstrates organized",
+          "diagnostic and therapeutic"
+        ],
+        "level_2": [
+          "reasoning through notes",
+          "in the patient record",
+          "Documents required data",
+          "in a timely manner, in",
+          "formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Concisely reports",
+          "diagnostic and therapeutic",
+          "reasoning in the patient",
+          "record",
+          "Appropriately selects"
+        ],
+        "level_3": [
+          "direct (e.g. telephone, in-",
+          "person) and indirect (e.g.",
+          "progress notes, text",
+          "messages) forms of",
+          "communication based on",
+          "context",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system",
+          "Communicates clearly,",
+          "concisely, timely, and in",
+          "an organized written"
+        ],
+        "level_4": [
+          "form, including",
+          "anticipatory guidance",
+          "Achieves written or",
+          "verbal communication",
+          "(e.g., patient notes,",
+          "email) that serves as an",
+          "example for others to",
+          "follow",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system data integrity",
+          "and friendliness"
+        ],
+        "level_5": [
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "radiology",
+  "primary_name": "Radiology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologysupplementalguide.pdf"
+  }
+}

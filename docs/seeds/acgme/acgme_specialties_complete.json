@@ -1,0 +1,1097 @@
+{
+  "generated_at": "2026-05-30",
+  "source": "https://www.acgme.org/specialties/",
+  "total_specialties": 28,
+  "specialties": [
+    {
+      "name": "Allergy and Immunology",
+      "slug": "allergy-and-immunology",
+      "overview_url": "https://www.acgme.org/specialties/allergy-and-immunology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/allergy-and-immunology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandfimmunologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandimmunologysupplementalguide.pdf",
+      "subspecialties": []
+    },
+    {
+      "name": "Anesthesiology",
+      "slug": "anesthesiology",
+      "overview_url": "https://www.acgme.org/specialties/anesthesiology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/anesthesiology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Addiction Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Adult Cardiothoracic Anesthesiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultcardiothoracicanesthesiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultcardiothoracicanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Critical Care Anesthesiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcareanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Clinical Informatics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Obstetric Anesthesiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricanesthesiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pain Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Anesthesiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricanesthesiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Cardiac Anesthesiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiacanesthesiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiacanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Regional Anesthesiology and Acute Pain Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologyandacutepainmedicinemilestonesanesthesiology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/regionalanesthesiologysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Colon and Rectal Surgery",
+      "slug": "colon-and-rectal-surgery",
+      "overview_url": "https://www.acgme.org/specialties/colon-and-rectal-surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/colon-and-rectal-surgery/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerymilestones2.0.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerysupplementalguide.pdf",
+      "subspecialties": []
+    },
+    {
+      "name": "Dermatology",
+      "slug": "dermatology",
+      "overview_url": "https://www.acgme.org/specialties/dermatology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/dermatology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Dermatopathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Micrographic Surgery and Dermatologic Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgeryanddermatologiconcologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/micrographicsurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Dermatology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricdermatologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricdermatologysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Emergency Medicine",
+      "slug": "emergency-medicine",
+      "overview_url": "https://www.acgme.org/specialties/emergency-medicine/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/emergency-medicine/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinesupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Anesthesiology Critical Care Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Emergency Medical Services",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicalservicesmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicalservicessupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Toxicology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pain Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesanesthesiology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicineanesthesiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Emergency Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonesem.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Undersea and Hyperbaric Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonesem.pdf",
+          "supplemental_guide_url": null
+        }
+      ]
+    },
+    {
+      "name": "Family Medicine",
+      "slug": "family-medicine",
+      "overview_url": "https://www.acgme.org/specialties/family-medicine/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/family-medicine/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinesupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Addiction Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Geriatric Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Sleep Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Sports Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Internal Medicine",
+      "slug": "internal-medicine",
+      "overview_url": "https://www.acgme.org/specialties/internal-medicine/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/internal-medicine/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedicinesupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Addiction Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Cardiovascular Disease",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/cardiovasculardiseasemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/cardiovasculardiseasesupplementalguide.pdf"
+        },
+        {
+          "name": "Clinical Cardiac Electrophysiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalcardiacelectrophysiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalcardiacelectrophysiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Clinical Informatics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf"
+        },
+        {
+          "name": "Critical Care Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/criticalcaremedicineinternalmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Endocrinology, Diabetes and Metabolism",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endocrinologydiabetesandmetabolismmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endocrinologydiabetesandmetabolismsupplementalguide.pdf"
+        },
+        {
+          "name": "Gastroenterology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/gastroenterologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/gastroenterologysupplementalguide.pdf"
+        },
+        {
+          "name": "Geriatric Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Hematology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologysupplementalguide.pdf"
+        },
+        {
+          "name": "Hematology and Medical Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologyandmedicaloncologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologyandmedicaloncologysupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Infectious Disease",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/infectiousdiseasemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/infectiousdiseasesupplementalguide.pdf"
+        },
+        {
+          "name": "Internal Medicine-Pediatrics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf",
+          "supplemental_guide_url": null
+        },
+        {
+          "name": "Interventional Cardiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalcardiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalcardiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaloncologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaloncologysupplementalguide.pdf"
+        },
+        {
+          "name": "Nephrology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nephrologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nephrologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pulmonary Disease",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarydiseasemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarydiseasesupplementalguide.pdf"
+        },
+        {
+          "name": "Pulmonary Disease and Critical Care Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarycriticalcaremilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pulmonarycriticalcaresupplementalguide.pdf"
+        },
+        {
+          "name": "Rheumatology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/rheumatologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/rheumatologysupplementalguide.pdf"
+        },
+        {
+          "name": "Sleep Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Sports Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Transplant Hepatology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/transplantheptatologysupplementalguide.pdf"
+        },
+        {
+          "name": "Advanced Heart Failure and Transplant Cardiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/advancedheartfailureandtransplantcardiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/advancedheartfailureandtransplantcardiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Addiction Psychiatry",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrysupplementalguide.pdf"
+        },
+        {
+          "name": "Obesity Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinemilestonesim.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obesitymedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Medical Genetics and Genomics",
+      "slug": "medical-genetics-and-genomics",
+      "overview_url": "https://www.acgme.org/specialties/medical-genetics-and-genomics/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/medical-genetics-and-genomics/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicssupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Biochemical Genetics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/biochemicalgeneticssupplementalguide.pdf"
+        },
+        {
+          "name": "Laboratory Genetics and Genomics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/laboratorygeneticsandgenomicsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/laboratorygeneticsandgenomicssupplementalguide.pdf"
+        },
+        {
+          "name": "Molecular Genetic Pathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Biochemical Genetics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalbiochemicalgeneticsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalbiochemicalgeneticssupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Genetics and Genomics (Residency)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsresidencysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Neurological Surgery",
+      "slug": "neurological-surgery",
+      "overview_url": "https://www.acgme.org/specialties/neurological-surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/neurological-surgery/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologicalsurgerymilestones.pdf",
+      "supplemental_guide_url": null,
+      "subspecialties": [
+        {
+          "name": "Endovascular Surgical Neuroradiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologicalsurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Neurological Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricneurologicalsurgerysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Neurology",
+      "slug": "neurology",
+      "overview_url": "https://www.acgme.org/specialties/neurology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/neurology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Brain Injury Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinemilestonesneurology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Child Neurology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childneurologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childneurologysupplementalguide.pdf"
+        },
+        {
+          "name": "Clinical Neurophysiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalneurophysiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalneurophysiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Endovascular Surgical Neuroradiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyneurologysupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Neurocritical Care",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurocriticalcaremilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurocriticalcaresupplementalguide.pdf"
+        },
+        {
+          "name": "Neurodevelopmental Disabilities",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiesmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf"
+        },
+        {
+          "name": "Neuromuscular Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinemilestonesneurology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Pain Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Sleep Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Vascular Neurology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularneurologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularneurologysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Nuclear Medicine",
+      "slug": "nuclear-medicine",
+      "overview_url": "https://www.acgme.org/specialties/nuclear-medicine/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/nuclear-medicine/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinesupplementalguide.pdf",
+      "subspecialties": []
+    },
+    {
+      "name": "Obstetrics and Gynecology",
+      "slug": "obstetrics-and-gynecology",
+      "overview_url": "https://www.acgme.org/specialties/obstetrics-and-gynecology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/obstetrics-and-gynecology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Female Pelvic Medicine and Reconstructive Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Gynecologic Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/gynecologiconcologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/gynecologiconcologysupplementalguide.pdf"
+        },
+        {
+          "name": "Maternal-Fetal Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Reproductive Endocrinology and Infertility",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/reproductiveendocrinologyandinfertilitymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/reproductiveendocrinologyandinfertilitysupplementalguide.pdf"
+        },
+        {
+          "name": "Urogynecology and Reconstructive Pelvic Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/urogynecologyandreconstructivepelvicsurgerymilestones2-1.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urogynecologyandreconstructivepelvicsurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Ophthalmology",
+      "slug": "ophthalmology",
+      "overview_url": "https://www.acgme.org/specialties/ophthalmology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/ophthalmology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Ophthalmic Plastic and Reconstructive Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmicplasticandreconstructivesurgerymilestones.pdf",
+          "supplemental_guide_url": null
+        }
+      ]
+    },
+    {
+      "name": "Orthopaedic Surgery",
+      "slug": "orthopaedic-surgery",
+      "overview_url": "https://www.acgme.org/specialties/orthopaedic-surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/orthopaedic-surgery/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgerysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Adult Reconstructive Orthopaedics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adultreconstructiveorthopaedicssupplementalguide.pdf"
+        },
+        {
+          "name": "Foot and Ankle Orthopaedics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/footandankleorthopaedicssupplementalguide.pdf"
+        },
+        {
+          "name": "Musculoskeletal Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/musculoskeletaloncologymilestones.pdf",
+          "supplemental_guide_url": null
+        },
+        {
+          "name": "Orthopaedic Sports Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsportsmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Orthopaedic Surgery of the Spine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgeryofthespinesupplementalguide.pdf"
+        },
+        {
+          "name": "Orthopaedic Trauma",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedictraumamilestones.pdf",
+          "supplemental_guide_url": null
+        },
+        {
+          "name": "Pediatric Orthopaedics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricorthopaedicssupplementalguide.pdf"
+        },
+        {
+          "name": "Surgery of the Hand",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesorthopaedic.pdf",
+          "supplemental_guide_url": null
+        }
+      ]
+    },
+    {
+      "name": "Osteopathic Neuromusculoskeletal Medicine",
+      "slug": "osteopathic-neuromusculoskeletal-medicine",
+      "overview_url": "https://www.acgme.org/specialties/osteopathic-neuromusculoskeletal-medicine/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/osteopathic-neuromusculoskeletal-medicine/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/osteopathicneuromusculoskeletalmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/onmmsupplementalguide.pdf",
+      "subspecialties": []
+    },
+    {
+      "name": "Otolaryngology - Head and Neck Surgery",
+      "slug": "otolaryngology---head-and-neck-surgery",
+      "overview_url": "https://www.acgme.org/specialties/otolaryngology---head-and-neck-surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/otolaryngology---head-and-neck-surgery/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/otolaryngologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/otolaryngologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Neurotology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurotologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurotologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Otolaryngology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricotolaryngologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricotolaryngologysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Pathology",
+      "slug": "pathology",
+      "overview_url": "https://www.acgme.org/specialties/pathology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/pathology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pathologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pathologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Blood Banking and Transfusion Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Chemical Pathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/chemicalpathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/chemicalpathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Clinical Informatics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf"
+        },
+        {
+          "name": "Cytopathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/cytopathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/cytopathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Dermatopathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Forensic Pathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Hematopathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematopathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematopathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Microbiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalmicrobiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalmicrobiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Molecular Genetic Pathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/moleculargeneticpathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Neuropathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuropathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuropathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Pathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpathologysupplementalguide.pdf"
+        },
+        {
+          "name": "Selective Pathology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/selectivepathologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/selectivepathologysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Pediatrics",
+      "slug": "pediatrics",
+      "overview_url": "https://www.acgme.org/specialties/pediatrics/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/pediatrics/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricssupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Adolescent Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/adolescentmedicinemilestonespediatrics.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/adolescentmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Child Abuse Pediatrics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childabusepediatricsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childabusepediatricssupplementalguide.pdf"
+        },
+        {
+          "name": "Developmental-Behavioral Pediatrics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/developmentalbehavioralpediatricsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/developmentalbehavioralpediatricssupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Internal Medicine-Pediatrics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedpedsmilestones.pdf",
+          "supplemental_guide_url": null
+        },
+        {
+          "name": "Neonatal-Perinatal Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinatalmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neonatalperinalmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Neurodevelopmental Disabilities",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiesmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Cardiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Critical Care",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccriticalcaremilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccriticalcaresupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Emergency Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinemilestonespeds.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricemergencymedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Endocrinology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricendocrinologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricendocrinologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Gastroenterology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricgastroenterologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricgastroenterologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Hematology-Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichematologyoncologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichematologyoncologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Hospital Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichospitalmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrichospitalmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Infectious Diseases",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricinfectiousdiseasesmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricinfectiousdiseasessupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Nephrology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricnephrologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricnephrologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Pulmonology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpulmonologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricpulmonologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Rheumatology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrheumatologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrheumatologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Transplant Hepatology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatrictransplantheptatologysupplementalguide.pdf"
+        },
+        {
+          "name": "Sleep Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Sports Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sportsmedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Physical Medicine and Rehabilitation",
+      "slug": "physical-medicine-and-rehabilitation",
+      "overview_url": "https://www.acgme.org/specialties/physical-medicine-and-rehabilitation/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/physical-medicine-and-rehabilitation/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicinanrehabilitationmilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicineandrehabilitationsupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Brain Injury Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinepmrmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/braininjurymedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Neuromuscular Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinepmrmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuromuscularmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Pain Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonespmr.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Rehabilitation Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrehabilitationmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricrehabilitationmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Spinal Cord Injury Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/spinalcordinjurymedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Plastic Surgery",
+      "slug": "plastic-surgery",
+      "overview_url": "https://www.acgme.org/specialties/plastic-surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/plastic-surgery/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Craniofacial Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/craniofacialsurgerymilestones.pdf",
+          "supplemental_guide_url": null
+        },
+        {
+          "name": "Surgery of the Hand",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandmilestonesplastic.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgeryofthehandsupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Preventive Medicine",
+      "slug": "preventive-medicine",
+      "overview_url": "https://www.acgme.org/specialties/preventive-medicine/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/preventive-medicine/milestones/",
+      "milestone_pdf_url": null,
+      "supplemental_guide_url": null,
+      "subspecialties": [
+        {
+          "name": "Addiction Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Aerospace Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/aerospacemedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/aerospacemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Clinical Informatics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/clinicalinformaticssupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Toxicology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologysupplementalguide.pdf"
+        },
+        {
+          "name": "Occupational Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinemilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/occupationalmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Public Health and General Preventive Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Undersea and Hyperbaric Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/underseaandhyperbaricmedicinemilestonespm.pdf",
+          "supplemental_guide_url": null
+        }
+      ]
+    },
+    {
+      "name": "Psychiatry",
+      "slug": "psychiatry",
+      "overview_url": "https://www.acgme.org/specialties/psychiatry/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/psychiatry/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Addiction Psychiatry",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/addictionpsychiatrysupplementalguide.pdf"
+        },
+        {
+          "name": "Child and Adolescent Psychiatry",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/childandadolescentpsychiatrymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/childandadolescentpsychiatrysupplementalguide.pdf"
+        },
+        {
+          "name": "Forensic Psychiatry",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpsychiatrymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpsychiatrysupplementalguide.pdf"
+        },
+        {
+          "name": "Geriatric Psychiatry",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricpsychiatrymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricpsychiatrysupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Neurology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pain Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinemilestonesneurology.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/painmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Sleep Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/sleepmedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Psychosomatic Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinemilestonesannotated.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychosomaticmedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Radiation Oncology",
+      "slug": "radiation-oncology",
+      "overview_url": "https://www.acgme.org/specialties/radiation-oncology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/radiation-oncology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Radiology",
+      "slug": "radiology",
+      "overview_url": "https://www.acgme.org/specialties/radiology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/radiology/milestones/",
+      "milestone_pdf_url": null,
+      "supplemental_guide_url": null,
+      "subspecialties": [
+        {
+          "name": "Diagnostic Radiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/diagnosticradiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/diagnosticradiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Interventional Radiology (Independent)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Interventional Radiology (Integrated)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologyintegratedmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/interventionalradiologyintegratedsupplementalguide.pdf"
+        },
+        {
+          "name": "Medical Physics",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicsmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalphysicssupplementalguide.pdf"
+        },
+        {
+          "name": "Neuroradiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuroradiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuroradiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Nuclear Radiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearradiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearradiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Radiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricradiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricradiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Radiation Oncology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologysupplementalguide.pdf"
+        },
+        {
+          "name": "Endovascular Surgical Neuroradiology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/endovascularsurgicalneuroradiologyradiologysupplementalguide.pdf"
+        },
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Surgery",
+      "slug": "surgery",
+      "overview_url": "https://www.acgme.org/specialties/surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/surgery/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Hospice and Palliative Medicine",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinemilestonesa.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hospiceandpalliativemedicinesupplementalguide.pdf"
+        },
+        {
+          "name": "Pediatric Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Surgical Critical Care",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgicalcriticalcaremilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/surgicalcriticalcaresupplementalguide.pdf"
+        },
+        {
+          "name": "Vascular Surgery (Independent)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Vascular Surgery (Integrated)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/vascularsurgeryintegratedsupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Thoracic Surgery",
+      "slug": "thoracic-surgery",
+      "overview_url": "https://www.acgme.org/specialties/thoracic-surgery/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/thoracic-surgery/milestones/",
+      "milestone_pdf_url": null,
+      "supplemental_guide_url": null,
+      "subspecialties": [
+        {
+          "name": "Thoracic Surgery (Independent)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgerysupplementalguide.pdf"
+        },
+        {
+          "name": "Thoracic Surgery (Integrated)",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgeryintegratedmilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/thoracicsurgeryintegratedsupplementalguide.pdf"
+        },
+        {
+          "name": "Congenital Cardiac Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/congenitalcardiacsurgerysupplementalguide.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Transitional Year",
+      "slug": "transitional-year",
+      "overview_url": "https://www.acgme.org/specialties/transitional-year/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/transitional-year/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearsupplementalguide.pdf",
+      "subspecialties": []
+    },
+    {
+      "name": "Urology",
+      "slug": "urology",
+      "overview_url": "https://www.acgme.org/specialties/urology/overview/",
+      "milestones_page_url": "https://www.acgme.org/specialties/urology/milestones/",
+      "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologysupplementalguide.pdf",
+      "subspecialties": [
+        {
+          "name": "Pediatric Urology",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricurologymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricurologysupplementalguide.pdf"
+        },
+        {
+          "name": "Female Pelvic Medicine and Reconstructive Surgery",
+          "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerymilestones.pdf",
+          "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/femalepelvicmedicineandreconstructivesurgerysupplementalguide.pdf"
+        }
+      ]
+    }
+  ]
+}

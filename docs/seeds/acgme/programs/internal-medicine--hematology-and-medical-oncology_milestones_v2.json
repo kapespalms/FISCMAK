@@ -1,0 +1,1084 @@
+{
+  "framework_key": "internal-medicine--hematology-and-medical-oncology",
+  "specialty": "Hematology and Medical Oncology",
+  "version": "2.0",
+  "source": "ACGME Hematology and Medical Oncology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Accesses Data Sources to Synthesize Patient and Disease Specific Information Necessary for Clinical",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Accesses data and",
+          "gathers a history",
+          "standard for general",
+          "internal medicine",
+          "Performs a physical",
+          "examination standard for",
+          "general internal medicine",
+          "Gathers a disease-"
+        ],
+        "level_2": [
+          "specific history, with",
+          "assistance",
+          "Performs a disease-",
+          "specific physical",
+          "examination, with",
+          "assistance",
+          "Accesses data from",
+          "multiple sources and"
+        ],
+        "level_3": [
+          "collects disease-specific",
+          "history, including",
+          "psychosocial issues, from",
+          "the patient and family",
+          "members",
+          "Completes a disease-",
+          "specific physical",
+          "examination"
+        ],
+        "level_4": [
+          "Consistently",
+          "synthesizes data from",
+          "multiple sources and",
+          "collects a disease-",
+          "specific history from the",
+          "patient and family",
+          "members",
+          "Consistently completes"
+        ],
+        "level_5": [
+          "a disease-specific",
+          "physical examination",
+          "Role models gathering",
+          "and synthesis of clinical",
+          "information"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Diagnoses and Assigns Stage and Severity of Hematology and Oncology Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates a differential",
+          "diagnosis expected of a",
+          "graduating internal",
+          "medicine resident",
+          "Orders testing without",
+          "specialty-specific"
+        ],
+        "level_2": [
+          "differential diagnosis",
+          "Interprets initial diagnostic",
+          "studies to generate a",
+          "specialty-specific",
+          "differential diagnosis",
+          "Determines stage of"
+        ],
+        "level_3": [
+          "disorder",
+          "Orders advanced",
+          "diagnostic studies for",
+          "common disorders when",
+          "appropriate",
+          "Determines clinical"
+        ],
+        "level_4": [
+          "comorbidities",
+          "Diagnoses uncommon",
+          "disorders and",
+          "determines disease",
+          "severity using evidence-",
+          "based studies"
+        ],
+        "level_5": [
+          "Role models the",
+          "assignments of stage and",
+          "disease severity, informed",
+          "by evidence-based",
+          "studies and guidelines for",
+          "specialty disorders"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Formulates the Management Plan",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Formulates a",
+          "management plan for",
+          "patients without",
+          "comorbidities, with",
+          "assistance"
+        ],
+        "level_2": [
+          "Formulates a",
+          "management plan using",
+          "decision-support tools for",
+          "patients without",
+          "comorbidities"
+        ],
+        "level_3": [
+          "Formulates a",
+          "management plan with",
+          "consideration of disease",
+          "and patient factors and",
+          "enrollment in clinical trials"
+        ],
+        "level_4": [
+          "Consistently formulates",
+          "management plans that",
+          "include consideration of",
+          "clinical trial enrollment",
+          "and conforms to patient"
+        ],
+        "level_5": [
+          "preferences and goals",
+          "of care",
+          "Serves as an expert in",
+          "formulating management",
+          "plans"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Adjusts Management Plans for Acute and Chronic Issues",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Adjusts management",
+          "plans according to",
+          "standard guidelines and",
+          "toxicities, with assistance",
+          "Adjusts management",
+          "plans according to"
+        ],
+        "level_2": [
+          "standard guidelines and",
+          "toxicities",
+          "Adjusts management",
+          "plans based on response",
+          "to treatment, side effects",
+          "of the treatment, and"
+        ],
+        "level_3": [
+          "comorbidities",
+          "Adjusts management",
+          "plans based on",
+          "anticipation and",
+          "recognition of subtle",
+          "toxicities and long-term"
+        ],
+        "level_4": [
+          "sequelae and/or",
+          "changes in patient",
+          "preferences and goals",
+          "Serves as an expert in",
+          "developing and",
+          "implementing pathways"
+        ],
+        "level_5": [
+          "that influence",
+          "management plans"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Competence in Procedures:",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the",
+          "indications for and",
+          "assists with all required",
+          "procedures",
+          "Discusses potential",
+          "procedural complications"
+        ],
+        "level_2": [
+          "Performs all required",
+          "procedures, with direct",
+          "supervision",
+          "Recognizes complications",
+          "of procedures and enlists",
+          "help"
+        ],
+        "level_3": [
+          "Competently performs all",
+          "required procedures, with",
+          "indirect supervision",
+          "Manages complications of",
+          "procedures, with",
+          "supervision"
+        ],
+        "level_4": [
+          "Proficiently and",
+          "independently performs",
+          "all required procedures",
+          "Anticipates and",
+          "independently manages",
+          "complications of"
+        ],
+        "level_5": [
+          "procedures",
+          "Serves as an expert for all",
+          "required procedures and",
+          "their complications"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Non-Malignant Hematology (includes Pathophysiology, Diagnostics, Prognostic Information, and",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of specialty",
+          "disorders",
+          "Demonstrates expanding",
+          "knowledge of specialty"
+        ],
+        "level_2": [
+          "disorders and",
+          "development of clinical",
+          "reasoning",
+          "Demonstrates sufficient",
+          "knowledge of specialty"
+        ],
+        "level_3": [
+          "disorders and clinical",
+          "reasoning skills to",
+          "determine evidence-",
+          "based interventions",
+          "Synthesizes advanced"
+        ],
+        "level_4": [
+          "knowledge of specialty",
+          "disorders and uses",
+          "clinical reasoning skills",
+          "to develop personalized",
+          "interventions"
+        ],
+        "level_5": [
+          "Serves as a subject",
+          "matter expert"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Malignant Hematology (includes Pathophysiology, Diagnostics, Prognostic Information, and Treatment)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of specialty",
+          "disorders",
+          "Demonstrates expanding",
+          "knowledge of specialty"
+        ],
+        "level_2": [
+          "disorders and",
+          "development of clinical",
+          "reasoning",
+          "Demonstrates sufficient",
+          "knowledge of specialty"
+        ],
+        "level_3": [
+          "disorders and clinical",
+          "reasoning skills to",
+          "determine evidence-",
+          "based interventions",
+          "Synthesizes advanced"
+        ],
+        "level_4": [
+          "knowledge of specialty",
+          "disorders and uses",
+          "clinical reasoning skills",
+          "to develop personalized",
+          "interventions"
+        ],
+        "level_5": [
+          "Serves as a subject",
+          "matter expert"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_mk3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Solid Tumor Oncology (includes Pathophysiology, Diagnostics, Prognostic Information, and Treatment)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "knowledge of specialty",
+          "disorders",
+          "Demonstrates expanding",
+          "knowledge of specialty"
+        ],
+        "level_2": [
+          "disorders and",
+          "development of clinical",
+          "reasoning",
+          "Demonstrates sufficient",
+          "knowledge of specialty"
+        ],
+        "level_3": [
+          "disorders and clinical",
+          "reasoning skills to",
+          "determine evidence-",
+          "based interventions",
+          "Synthesizes advanced"
+        ],
+        "level_4": [
+          "knowledge of specialty",
+          "disorders and uses",
+          "clinical reasoning skills",
+          "to develop personalized",
+          "interventions"
+        ],
+        "level_5": [
+          "Serves as a subject",
+          "matter expert"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_mk4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy",
+          "of scholarly",
+          "investigation",
+          "Formulates a scholarly",
+          "plan under supervision of"
+        ],
+        "level_2": [
+          "a mentor",
+          "Presents products of",
+          "scholarly activity at local",
+          "meetings",
+          "Disseminates products"
+        ],
+        "level_3": [
+          "of scholarly activity at",
+          "regional or national",
+          "meetings, and/or",
+          "submits an abstract to",
+          "regional, state, or"
+        ],
+        "level_4": [
+          "national meetings",
+          "Publication of",
+          "independent research that",
+          "has generated new",
+          "medical knowledge,"
+        ],
+        "level_5": [
+          "educational programs, or",
+          "process improvement"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in the"
+        ],
+        "level_3": [
+          "analysis of patient safety",
+          "events",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "Leads disclosure of",
+          "patient safety events to",
+          "patients and families",
+          "with documentation",
+          "(simulated or actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and"
+        ],
+        "level_2": [
+          "metrics",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in local"
+        ],
+        "level_3": [
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and"
+        ],
+        "level_5": [
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care: Coordination and Transitions of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of their",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the roles"
+        ],
+        "level_3": [
+          "of their interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and"
+        ],
+        "level_4": [
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_sbp4",
+      "number": 13,
+      "domain_number": 4,
+      "name": "System Navigation for Patient-Centered Care: Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "care needs"
+        ],
+        "level_2": [
+          "Identifies specific",
+          "population and",
+          "community health care",
+          "needs"
+        ],
+        "level_3": [
+          "Identifies local resources",
+          "to meet community health",
+          "care needs",
+          "Adapts practice to"
+        ],
+        "level_4": [
+          "provide for the needs of",
+          "specific populations",
+          "Leads innovations and",
+          "advocates for populations"
+        ],
+        "level_5": [
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_sbp5",
+      "number": 14,
+      "domain_number": 5,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies basic financial",
+          "barriers for individual",
+          "patients and basic",
+          "financial components of",
+          "the health care system",
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system",
+          "Considers financial",
+          "barriers and quality of"
+        ],
+        "level_2": [
+          "care when ordering",
+          "diagnostic or therapeutic",
+          "interventions",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "inter-related, and how this",
+          "impacts ordering",
+          "therapeutic interventions",
+          "Incorporates value",
+          "(quality/costs) into shared"
+        ],
+        "level_3": [
+          "decision making, with",
+          "interprofessional team",
+          "input",
+          "Discusses how individual",
+          "practice and the broader",
+          "system affect each other",
+          "Manages financial",
+          "factors that affect a",
+          "patient's access to care",
+          "and decision making",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care",
+          "Role models and teaches",
+          "patients and",
+          "interprofessional team",
+          "members to consider",
+          "value when making",
+          "diagnostic and"
+        ],
+        "level_5": [
+          "therapeutic",
+          "recommendations",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pbli1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "accesses available",
+          "evidence and practice",
+          "guidelines for patient",
+          "care"
+        ],
+        "level_2": [
+          "Independently identifies",
+          "available evidence and",
+          "practice guidelines for",
+          "patient care",
+          "Critically appraises"
+        ],
+        "level_3": [
+          "evidence and applies to",
+          "patient care",
+          "Applies best available",
+          "evidence, even in the",
+          "face of insufficient"
+        ],
+        "level_4": [
+          "and/or conflicting",
+          "information",
+          "Serves as a role model to",
+          "critically appraise and",
+          "apply evidence to patient"
+        ],
+        "level_5": [
+          "care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_pbli2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gaps in",
+          "knowledge and",
+          "performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Reflects on the factors",
+          "which contribute to gaps"
+        ],
+        "level_2": [
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Institutes changes to",
+          "narrow the gaps between"
+        ],
+        "level_3": [
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks",
+          "performance data to"
+        ],
+        "level_4": [
+          "narrow the gaps",
+          "between expectations",
+          "and actual performance",
+          "Measures the",
+          "effectiveness of the",
+          "learning plan and",
+          "makes appropriate"
+        ],
+        "level_5": [
+          "changes",
+          "Role models",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_prof1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "ethical principles and",
+          "potential triggers for",
+          "professionalism lapses",
+          "Describes when and how"
+        ],
+        "level_2": [
+          "to appropriately report",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Recognizes and takes"
+        ],
+        "level_3": [
+          "responsibility for own",
+          "professionalism lapses",
+          "Manages and resolves",
+          "complex ethical",
+          "situations, including",
+          "personal lapses, with"
+        ],
+        "level_4": [
+          "assistance",
+          "Intervenes and uses",
+          "appropriate resources",
+          "to prevent and manage",
+          "professionalism lapses",
+          "and dilemmas in self"
+        ],
+        "level_5": [
+          "and others",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_prof2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "Performs tasks in a timely",
+          "manner or provides",
+          "notification when unable"
+        ],
+        "level_2": [
+          "to complete tasks",
+          "Performs tasks in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Takes responsibility in",
+          "situations that impact",
+          "the ability of team",
+          "members to complete"
+        ],
+        "level_4": [
+          "tasks and",
+          "responsibilities in a",
+          "timely manner",
+          "Exceeds expectations for",
+          "supporting team"
+        ],
+        "level_5": [
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_prof3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Fellow Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and"
+        ],
+        "level_3": [
+          "professional well-being",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Role models the continual",
+          "ability to monitor and",
+          "address personal and",
+          "professional well-being",
+          "Advocates for institutional"
+        ],
+        "level_5": [
+          "changes to support well-",
+          "being"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "communication",
+          "Recognizes the need to",
+          "adjust communication",
+          "strategies based on",
+          "context",
+          "Identifies complex",
+          "barriers to effective"
+        ],
+        "level_2": [
+          "communication",
+          "Verifies patient/",
+          "family understanding",
+          "of the clinical",
+          "situation to optimize",
+          "effective",
+          "communication",
+          "Reflects on biases while",
+          "attempting to minimize"
+        ],
+        "level_3": [
+          "communication barriers",
+          "With guidance, uses",
+          "shared decision making to",
+          "align patient/family",
+          "values, goals, and",
+          "preferences with",
+          "treatment options to make",
+          "a personalized care plan",
+          "Proactively improves"
+        ],
+        "level_4": [
+          "communication by",
+          "addressing barriers and",
+          "biases",
+          "Independently, uses",
+          "shared decision making",
+          "to make a personalized",
+          "care plan",
+          "Role models",
+          "communication that"
+        ],
+        "level_5": [
+          "addresses barriers",
+          "Role models shared",
+          "decision making in",
+          "patient/family",
+          "communication,",
+          "including those with a",
+          "high degree of",
+          "uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses respectful",
+          "communication (verbal,",
+          "non-verbal) with all",
+          "members of the health",
+          "care team",
+          "Demonstrates openness",
+          "to feedback",
+          "Communicates effectively"
+        ],
+        "level_2": [
+          "within and across all",
+          "health care teams",
+          "Responsive to feedback",
+          "Adapts communication",
+          "style within and across all",
+          "health care teams to",
+          "ensure mutual",
+          "understanding"
+        ],
+        "level_3": [
+          "Seeks and provides",
+          "performance feedback",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care",
+          "Uses feedback to"
+        ],
+        "level_4": [
+          "improve own",
+          "performance and",
+          "provides actionable",
+          "feedback to team",
+          "members",
+          "Role models flexible",
+          "communication strategies",
+          "that solicits and values"
+        ],
+        "level_5": [
+          "input from all health care",
+          "team members, resolving",
+          "conflict when needed",
+          "Role models giving and",
+          "receiving of feedback"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__hematology_and_medical_oncology_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information in",
+          "communications"
+        ],
+        "level_2": [
+          "Demonstrates organized",
+          "diagnostic and medical",
+          "reasoning through notes",
+          "in the patient record",
+          "Appropriately selects",
+          "forms of communication",
+          "based on context"
+        ],
+        "level_3": [
+          "Documentation reflects",
+          "level of complexity and",
+          "severity of disease",
+          "Communication includes",
+          "key stakeholders",
+          "Documentation reflects",
+          "medical reasoning,"
+        ],
+        "level_4": [
+          "patient preferences, and",
+          "management",
+          "recommendations and",
+          "plans",
+          "Achieves written or",
+          "verbal communication",
+          "that is exemplary"
+        ],
+        "level_5": [
+          "Role models optimal",
+          "documentation",
+          "Guides departmental or",
+          "institutional",
+          "communication policies"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "internal-medicine",
+  "primary_name": "Internal Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologyandmedicaloncologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/hematologyandmedicaloncologysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1180 @@
+{
+  "framework_key": "transitional-year",
+  "specialty": "Transitional Year",
+  "version": "2.0",
+  "source": "ACGME Transitional Year Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "transitional_year_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains an accurate",
+          "history",
+          "Obtains and reports an",
+          "accurate, organized",
+          "history, and seeks"
+        ],
+        "level_2": [
+          "appropriate data from",
+          "secondary sources",
+          "Consistently obtains and",
+          "reports a comprehensive",
+          "and accurate history"
+        ],
+        "level_3": [
+          "incorporating clinical",
+          "patterns in historical data",
+          "Consistently obtains",
+          "and concisely reports a",
+          "focused history with"
+        ],
+        "level_4": [
+          "subtle details supportive",
+          "of a rational clinical",
+          "diagnosis",
+          "Consistently serves as a",
+          "role model and educator"
+        ],
+        "level_5": [
+          "in obtaining and",
+          "presenting a focused",
+          "history with subtle details"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Physical Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a basic",
+          "physical exam accurately",
+          "Performs and reports an",
+          "accurate, organized",
+          "physical exam, and"
+        ],
+        "level_2": [
+          "identifies appropriate",
+          "physical findings for the",
+          "chief complaint",
+          "Consistently performs an",
+          "accurate and thorough"
+        ],
+        "level_3": [
+          "physical examination, and",
+          "reports relevant findings",
+          "in support of likely clinical",
+          "diagnosis",
+          "Consistently identifies"
+        ],
+        "level_4": [
+          "and concisely reports",
+          "subtle physical findings;",
+          "is proficient with",
+          "advanced maneuvers",
+          "Consistently serves as a"
+        ],
+        "level_5": [
+          "role model and educator",
+          "in the performance of an",
+          "advanced physical exam"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Differential Diagnosis and Assessment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Integrates patient-",
+          "specific information to",
+          "generate an appropriate",
+          "working diagnosis",
+          "Provides a prioritized",
+          "differential diagnosis"
+        ],
+        "level_2": [
+          "using supporting rationale",
+          "Consistently provides an",
+          "accurate diagnosis for",
+          "common medical",
+          "conditions; demonstrates",
+          "the ability to modify a"
+        ],
+        "level_3": [
+          "diagnosis based on a",
+          "patient’s clinical course",
+          "and additional data",
+          "Consistently provides",
+          "an accurate diagnosis",
+          "for patients with multiple"
+        ],
+        "level_4": [
+          "co-morbidities or",
+          "uncommon medical",
+          "conditions, recognizing",
+          "sources of diagnostic",
+          "error",
+          "Consistently serves as a"
+        ],
+        "level_5": [
+          "role model and educator",
+          "for deriving accurate",
+          "diagnoses and",
+          "recognizing sources of",
+          "diagnostic error"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Clinical Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With direct supervision,",
+          "determines appropriate",
+          "tests and initiates a",
+          "therapeutic plan",
+          "With direct supervision,"
+        ],
+        "level_2": [
+          "orders appropriate tests,",
+          "and initiates a therapeutic",
+          "plan; provides rational",
+          "basis for decisions",
+          "With indirect supervision,"
+        ],
+        "level_3": [
+          "orders appropriate tests,",
+          "and initiates a therapeutic",
+          "plan; provides rational",
+          "basis for decisions",
+          "Consistently modifies"
+        ],
+        "level_4": [
+          "the therapeutic plan",
+          "based on test results",
+          "and the patient’s clinical",
+          "course as appropriate",
+          "Implements testing and"
+        ],
+        "level_5": [
+          "therapeutic plans,",
+          "integrating patient",
+          "preferences, evidence-",
+          "based guidelines, and",
+          "costs"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Urgent and Emergent Medical Conditions",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes urgent and",
+          "emergent medical",
+          "conditions and initiates",
+          "system protocols as",
+          "appropriate",
+          "Knows code status",
+          "Performs an initial",
+          "assessment of patients"
+        ],
+        "level_2": [
+          "with urgent and emergent",
+          "conditions",
+          "Discusses and clarifies",
+          "code status with patient",
+          "and family",
+          "Provides initial",
+          "stabilization of patients",
+          "with urgent and emergent"
+        ],
+        "level_3": [
+          "medical conditions, as",
+          "well as safe transitions in",
+          "care",
+          "Uses code status in",
+          "clinical decision making",
+          "Coordinates the initial",
+          "assessment and",
+          "management of urgent"
+        ],
+        "level_4": [
+          "and emergent",
+          "conditions with the",
+          "interprofessional care",
+          "team",
+          "Considers patient and",
+          "family wishes to modify",
+          "code status and",
+          "subsequent care as"
+        ],
+        "level_5": [
+          "appropriate",
+          "Anticipates clinical",
+          "decompensation and",
+          "intervenes early",
+          "Leads conversation with",
+          "medical team when care",
+          "is futile"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Care of Heterogenous Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes basic health",
+          "needs of heterogeneous",
+          "patient populations",
+          "Addresses health needs"
+        ],
+        "level_2": [
+          "of individual patient",
+          "populations",
+          "Provides anticipatory",
+          "guidance for health needs"
+        ],
+        "level_3": [
+          "of individual patient",
+          "populations",
+          "Teaches peers and/or",
+          "students on health"
+        ],
+        "level_4": [
+          "needs of individual",
+          "patient populations",
+          "Advocates in the",
+          "community for health"
+        ],
+        "level_5": [
+          "needs of individual patient",
+          "populations"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Uses educational",
+          "resources to answer",
+          "clinical questions and to",
+          "recognize gaps in",
+          "personal medical",
+          "knowledge"
+        ],
+        "level_2": [
+          "Integrates basic science",
+          "knowledge, interpretation",
+          "of test results, and social",
+          "and behavioral",
+          "determinants of health",
+          "into clinical decision"
+        ],
+        "level_3": [
+          "making",
+          "Incorporates preferences",
+          "from patients, family, and",
+          "interprofessional team",
+          "into clinical decision",
+          "making"
+        ],
+        "level_4": [
+          "Develops a rational",
+          "treatment approach in",
+          "ambiguous medical",
+          "and/or social situations",
+          "Consistently serves as a",
+          "role model and educator"
+        ],
+        "level_5": [
+          "in the navigation of",
+          "complex and ambiguous",
+          "clinical decision making"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Procedural Knowledge and Informed Consent",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes indications/",
+          "contraindications and",
+          "complications of",
+          "common procedures",
+          "Describes informed",
+          "consent process",
+          "Accurately documents",
+          "procedures in medical",
+          "record in a timely manner"
+        ],
+        "level_2": [
+          "Counsels patients and",
+          "obtains informed consent",
+          "for common diagnostic",
+          "and therapeutic",
+          "procedures",
+          "Demonstrates knowledge",
+          "of indicated follow-up",
+          "measures after",
+          "procedures and"
+        ],
+        "level_3": [
+          "recognizes common",
+          "complications",
+          "Incorporates patient",
+          "preferences in procedural",
+          "decision making;",
+          "assesses patient",
+          "understanding",
+          "Recognizes and",
+          "provides initial"
+        ],
+        "level_4": [
+          "management of",
+          "complications",
+          "Describes procedural",
+          "appropriateness in the",
+          "context of the patient’s",
+          "clinical scenario,",
+          "addressing patient",
+          "concerns",
+          "Anticipates potential"
+        ],
+        "level_5": [
+          "complications and",
+          "discusses with attending",
+          "Discusses potential",
+          "treatment progression",
+          "with patient and family,",
+          "based on procedural",
+          "outcomes"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_sbp1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes programmatic",
+          "or institutional quality",
+          "improvement initiatives",
+          "(e.g., handwashing,",
+          "reducing needle stick",
+          "injuries)"
+        ],
+        "level_3": [
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "the team (simulated or",
+          "actual)",
+          "Participates in",
+          "programmatic or",
+          "institutional quality",
+          "improvement initiatives",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Participates in",
+          "disclosure of patient",
+          "safety events to patients",
+          "and families (simulated",
+          "or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community systems level"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_sbp2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of local",
+          "population and",
+          "community health needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the resources of",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies resources to",
+          "meet the health needs of",
+          "local communities and",
+          "populations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the"
+        ],
+        "level_3": [
+          "resources of",
+          "interprofessional teams",
+          "Reassesses patient and",
+          "anticipates patient",
+          "specific factors that may",
+          "lead to readmission",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and",
+          "community",
+          "Efficiently coordinates",
+          "patient-centered care",
+          "using interprofessional"
+        ],
+        "level_4": [
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in",
+          "complex clinical",
+          "situations and across",
+          "health care delivery",
+          "systems",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Leads and role models",
+          "effective coordination of"
+        ],
+        "level_5": [
+          "patient-centered care",
+          "among different",
+          "disciplines and specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within and",
+          "across health care",
+          "delivery systems",
+          "Leads innovations and",
+          "advocates across",
+          "populations and",
+          "communities with specific",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies components of",
+          "the complex health care",
+          "system",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "private, public,",
+          "government, and",
+          "uninsured care) and",
+          "different practice models",
+          "(e.g., fee for service,",
+          "capitated fees,"
+        ],
+        "level_2": [
+          "accountable care",
+          "organizations)",
+          "Describes the physician’s",
+          "role and how the",
+          "interrelated components",
+          "of the complex health",
+          "care system impact",
+          "patient care",
+          "Describes the limitations",
+          "of payment models and",
+          "uses available patient"
+        ],
+        "level_3": [
+          "care resources",
+          "Analyzes how personal",
+          "practice affects the",
+          "system (e.g., length of",
+          "stay, readmission rates,",
+          "clinical efficiency)",
+          "Uses shared decision",
+          "making in delivering care",
+          "informed by patient-",
+          "specific payment models",
+          "Adapts personal"
+        ],
+        "level_4": [
+          "practice based on",
+          "practice habits data",
+          "Advocates for patient",
+          "care incorporating the",
+          "limitations of their",
+          "payment model (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources)",
+          "Manages the interrelated",
+          "components of complex"
+        ],
+        "level_5": [
+          "health care systems for",
+          "efficient and effective",
+          "patient care",
+          "Advocates for health",
+          "policy to better align",
+          "payment systems with",
+          "high-value care"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "awareness of evidence-",
+          "based practice",
+          "parameters, how to",
+          "access and use available",
+          "evidence, and how to"
+        ],
+        "level_2": [
+          "assess the quality of the",
+          "evidence",
+          "Demonstrates critical",
+          "thinking of clinical",
+          "situations and",
+          "incorporates patient"
+        ],
+        "level_3": [
+          "preferences and values in",
+          "evidence-based care plan",
+          "for routine patients",
+          "Applies the best available",
+          "evidence, integrated with",
+          "patient preference, to the"
+        ],
+        "level_4": [
+          "care of complex patients",
+          "Navigates conflicting",
+          "evidence to guide care",
+          "tailored to individualized",
+          "patient",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "critically appraise and",
+          "apply evidence for the",
+          "care of complex patients;",
+          "and/or participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Establishes personal and",
+          "professional",
+          "development goals and",
+          "tracks own progress",
+          "Seeks and is receptive to",
+          "feedback",
+          "Recognizes when"
+        ],
+        "level_2": [
+          "performance falls short of",
+          "expectations and seeks",
+          "feedback for improvement",
+          "Adapts behavior based on",
+          "feedback",
+          "Seeks performance data",
+          "with the intention to"
+        ],
+        "level_3": [
+          "improve; independently",
+          "creates and implements a",
+          "learning plan",
+          "Accurately self-assesses",
+          "strengths, weaknesses,",
+          "and opportunities for",
+          "improvement"
+        ],
+        "level_4": [
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "identifies when the plan",
+          "should be modified",
+          "Is able to coach others in"
+        ],
+        "level_5": [
+          "the identification of gaps",
+          "between knowledge and",
+          "performance and",
+          "formulate an improvement",
+          "plan"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional and Ethical Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies ethical",
+          "decision-making skills",
+          "specific to clinical work",
+          "Demonstrates",
+          "knowledge of the",
+          "ethical principles",
+          "underlying informed",
+          "consent, surrogate",
+          "decision making,",
+          "advance directives,"
+        ],
+        "level_2": [
+          "confidentiality, error",
+          "disclosure, stewardship",
+          "of limited resources,",
+          "and related topics",
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Applies knowledge of",
+          "ethical principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "routine and complex",
+          "situations",
+          "Recognizes need to seek",
+          "help from team members",
+          "to manage and resolve",
+          "complex ethical situations",
+          "Demonstrates",
+          "professional behavior in",
+          "conflictual and/or"
+        ],
+        "level_4": [
+          "stressful situations",
+          "Uses appropriate",
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas as needed",
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)"
+        ],
+        "level_5": [
+          "Intervenes to prevent",
+          "professional and ethical",
+          "lapses in self and others",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Completes tasks and",
+          "assigned responsibilities,",
+          "with guidance",
+          "Arrives on time and",
+          "prepared for work",
+          "Independently completes",
+          "tasks and assigned",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Takes responsibility for",
+          "personal actions and",
+          "performance",
+          "Independently completes",
+          "tasks and assigned"
+        ],
+        "level_3": [
+          "responsibilities",
+          "in a timely manner with",
+          "appropriate attention to",
+          "detail in complex or",
+          "stressful situations",
+          "Admits errors and",
+          "proposes remediation as",
+          "necessary"
+        ],
+        "level_4": [
+          "Proactively",
+          "communicates with",
+          "program staff members",
+          "regarding situations that",
+          "may impact own ability",
+          "to complete tasks and",
+          "responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Intervenes in situations",
+          "that impact others’ ability",
+          "to complete tasks and",
+          "responsibilities in a timely",
+          "manner"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Recognizes limits in the",
+          "knowledge/skills of self,",
+          "with assistance",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "limits and the",
+          "knowledge/skills of self or",
+          "team and demonstrates",
+          "appropriate help-seeking",
+          "behaviors",
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being"
+        ],
+        "level_3": [
+          "With assistance,",
+          "proposes a plan to",
+          "remediate or improve",
+          "limits in the",
+          "knowledge/skills of self or",
+          "team",
+          "Independently develops",
+          "a plan to optimize",
+          "lifelong personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Independently develops",
+          "a plan to remediate or",
+          "improve limits in the",
+          "knowledge/skills of self",
+          "or team",
+          "Coaches others when",
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional"
+        ],
+        "level_5": [
+          "expectations",
+          "Strives for self-",
+          "improvement to provide",
+          "the highest quality of",
+          "patient care through",
+          "lifelong learning and",
+          "education"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role",
+          "within the health care",
+          "system",
+          "Identifies the need to",
+          "adjust communication",
+          "strategies based on",
+          "assessment of"
+        ],
+        "level_2": [
+          "patient/family",
+          "expectations",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy, cultural,",
+          "bias)",
+          "Organizes and initiates",
+          "communication with",
+          "patient/family to clarify"
+        ],
+        "level_3": [
+          "expectations",
+          "Establishes a therapeutic",
+          "relationship",
+          "in challenging patient",
+          "encounters",
+          "Identifies and uses",
+          "available resources to",
+          "ameliorate barriers in",
+          "communication",
+          "With guidance, sensitively",
+          "and compassionately",
+          "delivers medical",
+          "information and elicits",
+          "patient/family values",
+          "Easily establishes",
+          "therapeutic"
+        ],
+        "level_4": [
+          "relationships, with",
+          "attention to",
+          "patient/family concerns",
+          "and context, regardless",
+          "of complexity",
+          "Anticipates and",
+          "consistently uses",
+          "resources to ameliorate",
+          "barriers in",
+          "communication",
+          "Independently, uses",
+          "shared decision making",
+          "to make a personalized",
+          "care plan",
+          "Mentors others in",
+          "situational awareness and"
+        ],
+        "level_5": [
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Develops educational",
+          "tools or methods to",
+          "ameliorate",
+          "communication barriers",
+          "Role models shared",
+          "decision making in",
+          "patient/family",
+          "communication, including",
+          "those with a high degree",
+          "of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "routine consultation",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Provides prompt,",
+          "objective and honest",
+          "feedback on",
+          "evaluations",
+          "Clearly and concisely"
+        ],
+        "level_2": [
+          "explains clinical scenario",
+          "and rationale for",
+          "consultation",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health"
+        ],
+        "level_3": [
+          "care team",
+          "Checks own",
+          "understanding of",
+          "consultant",
+          "recommendations",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to"
+        ],
+        "level_4": [
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors"
+        ],
+        "level_5": [
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "transitional_year_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Identifies and",
+          "understands the",
+          "importance of",
+          "safeguarding protected",
+          "health information",
+          "Documents required",
+          "data in formats specified",
+          "by institutional policy",
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning"
+        ],
+        "level_2": [
+          "through notes in the",
+          "patient record",
+          "Consistently safeguards",
+          "protected health",
+          "information",
+          "Uses documentation",
+          "shortcuts accurately,",
+          "appropriately, and in a",
+          "timely manner",
+          "Concisely reports",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Identifies breaches of"
+        ],
+        "level_3": [
+          "protected health",
+          "information and works to",
+          "correct them",
+          "Appropriately selects",
+          "direct (e.g. telephone, in-",
+          "person) and indirect (e.g.,",
+          "progress notes, text",
+          "messages, pager) forms",
+          "of communication based",
+          "on context and as",
+          "required by institutional",
+          "policy",
+          "Communicates clearly,",
+          "concisely, and in a"
+        ],
+        "level_4": [
+          "timely manner, and in",
+          "an organized written",
+          "form, with anticipatory",
+          "guidance",
+          "Provides guidance and",
+          "feedback to other team",
+          "members on ways to",
+          "safeguard protected",
+          "health information",
+          "Produces written or",
+          "verbal communications",
+          "(e.g., patient notes, e-",
+          "mail) that serve as an",
+          "example for others to"
+        ],
+        "level_5": [
+          "follow",
+          "Provides feedback to",
+          "improve others’ written",
+          "communication",
+          "Identifies potential",
+          "systemic breaches of",
+          "protected health",
+          "information and works to",
+          "correct them",
+          "Identifies potential",
+          "systemic gaps in",
+          "communication and works",
+          "to correct them"
+        ]
+      }
+    }
+  ],
+  "program_type": "primary",
+  "primary_slug": "transitional-year",
+  "primary_name": "Transitional Year",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearsupplementalguide.pdf"
+  }
+}

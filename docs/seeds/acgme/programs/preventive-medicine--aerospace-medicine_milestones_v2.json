@@ -1,0 +1,1373 @@
+{
+  "framework_key": "preventive-medicine--aerospace-medicine",
+  "specialty": "Aerospace Medicine",
+  "version": "2.0",
+  "source": "ACGME Aerospace Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "preventive_medicine__aerospace_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Health and Performance Optimization",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies techniques to",
+          "improve human",
+          "performance",
+          "Identifies risks factors for",
+          "development of disease",
+          "and injury",
+          "Describes techniques to",
+          "improve human"
+        ],
+        "level_2": [
+          "performance",
+          "Describes approach to",
+          "decrease risk factors for",
+          "development of disease",
+          "and injury",
+          "Uses techniques to",
+          "improve human",
+          "performance at the"
+        ],
+        "level_3": [
+          "individual level",
+          "Develops a plan using",
+          "primary, secondary, and",
+          "tertiary approaches for",
+          "disease and injury",
+          "prevention for an",
+          "individual patient",
+          "Directs the evaluation of"
+        ],
+        "level_4": [
+          "techniques to improve",
+          "human performance",
+          "Develops a plan using",
+          "primary, secondary, and",
+          "tertiary approaches for",
+          "disease and injury",
+          "prevention for the",
+          "community"
+        ],
+        "level_5": [
+          "Develops techniques to",
+          "improve human",
+          "performance",
+          "Develops and implements",
+          "a policy to improve",
+          "community health efforts"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Fitness for Duty and Medical Standards",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Acquires a history and",
+          "performs a basic",
+          "physical exam to assess",
+          "for workplace or",
+          "environmental exposures",
+          "Identifies individuals",
+          "meeting all physical",
+          "qualifications",
+          "Assesses work-"
+        ],
+        "level_2": [
+          "relatedness of common",
+          "workplace problems",
+          "Uses medical standards",
+          "to identify disqualifying",
+          "conditions",
+          "Formulates a differential",
+          "diagnosis, assessment,",
+          "treatment, and plan,",
+          "including return-to-work"
+        ],
+        "level_3": [
+          "accommodations for",
+          "simple cases",
+          "Selects and interprets",
+          "medical standards",
+          "applicable to the",
+          "operational situation",
+          "Formulates a differential",
+          "diagnosis, assessment,",
+          "treatment, and plan,"
+        ],
+        "level_4": [
+          "including return-to-work",
+          "accommodations for",
+          "complex cases",
+          "Applies medical",
+          "standards to certify or",
+          "grant exceptions or",
+          "waivers",
+          "Independently manages",
+          "complex occupational"
+        ],
+        "level_5": [
+          "injury and illness, using",
+          "system-wide resources",
+          "Develops medical",
+          "standards for certification",
+          "or to grant exceptions or",
+          "waivers"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Hazard Recognition, Mitigation, and Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists the exposure levels",
+          "and adverse effects of",
+          "workplace hazards",
+          "Demonstrates basic",
+          "skills in emergency",
+          "medical care",
+          "Recommends prevention"
+        ],
+        "level_2": [
+          "and mitigation of",
+          "workplace hazards",
+          "Identifies key aspects of",
+          "emergency preparedness",
+          "programs and triage",
+          "concepts",
+          "Assesses effectiveness of"
+        ],
+        "level_3": [
+          "prevention and mitigation",
+          "of workplace hazards,",
+          "and provides treatment to",
+          "exposed individuals",
+          "Participates in emergency",
+          "preparedness programs",
+          "(simulated or actual)"
+        ],
+        "level_4": [
+          "Assesses effectiveness",
+          "of prevention and",
+          "mitigation of workplace",
+          "hazards for at-risk",
+          "populations",
+          "Develops and evaluates",
+          "the medical portion of"
+        ],
+        "level_5": [
+          "an emergency plan",
+          "Modifies or develops",
+          "exposure standards",
+          "Develops, implements,",
+          "and evaluates emergency",
+          "preparedness programs"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Clinical Care Skills",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs a history and",
+          "physical examination,",
+          "identifying significant",
+          "historical events and",
+          "findings on physical",
+          "examination; formulates",
+          "a broad differential"
+        ],
+        "level_2": [
+          "diagnosis and initial",
+          "assessment and plan",
+          "Performs an accurate",
+          "history and physical",
+          "examination, identifying",
+          "significant historical",
+          "events and findings on"
+        ],
+        "level_3": [
+          "physical examination;",
+          "formulates an accurate",
+          "differential diagnosis,",
+          "assessment, and plan",
+          "Identifies illness or injury",
+          "and level of acuity;",
+          "initiates diagnosis-specific"
+        ],
+        "level_4": [
+          "treatment and intervention",
+          "Manages critical illness",
+          "or injury within the",
+          "standard of care for the",
+          "clinical scenario and",
+          "available medical",
+          "resources"
+        ],
+        "level_5": [
+          "Triages and prioritizes",
+          "use of available medical",
+          "resources for multiple",
+          "patients with complex",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Air and Space Environment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the hazards of",
+          "aviation and space flight,",
+          "including acceleration,",
+          "radiation, microgravity,",
+          "hypobaria, hypoxia, and",
+          "isolation",
+          "Identifies life support",
+          "systems for air and",
+          "space flight",
+          "Lists elements of",
+          "operational medical",
+          "support for launch, flight,",
+          "orbital operations, and",
+          "landing, including air",
+          "frames, space habitats,",
+          "and support systems"
+        ],
+        "level_2": [
+          "Describes the adverse",
+          "health risks and mitigation",
+          "and counter measures of",
+          "aviation and space flight",
+          "Describes life support",
+          "systems for air and space",
+          "flight",
+          "Describes key elements",
+          "of operational medical",
+          "support for launch, flight,",
+          "orbital operations, and",
+          "landing, including air",
+          "frames, space habitats,",
+          "and support systems",
+          "Participates in passenger,",
+          "crew, and physician"
+        ],
+        "level_3": [
+          "health education about",
+          "the adverse health risks",
+          "and mitigation and",
+          "counter measures of",
+          "aviation and space flight",
+          "Operates life support",
+          "systems for air and space",
+          "flight",
+          "Participates in planning of",
+          "operational medical",
+          "support for launch, flight,",
+          "orbital operations, and",
+          "landing, considering air",
+          "frames, space habitats,",
+          "and support systems",
+          "Performs passenger,"
+        ],
+        "level_4": [
+          "crew, and physician",
+          "health education about",
+          "the adverse health risks",
+          "and mitigation and",
+          "counter measures of",
+          "aviation and space flight",
+          "Troubleshoots life",
+          "support systems for air",
+          "and space flight",
+          "Provides operational",
+          "medical support in the",
+          "field for launch, flight,",
+          "orbital operations, and",
+          "landing, considering air",
+          "frames, space habitats,",
+          "and support systems"
+        ],
+        "level_5": [
+          "Designs and advances",
+          "health education activities",
+          "to promote flight safety",
+          "Analyzes and",
+          "recommends life support",
+          "systems for air and space",
+          "flight",
+          "Leads, plans, and/or",
+          "designs operational",
+          "medical support for",
+          "launch, flight, orbital",
+          "operations, and landing,",
+          "considering air frames,",
+          "space habitats, and",
+          "support systems"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Aeromedical Transport",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies physiologic and",
+          "clinical criteria for and",
+          "contraindications to safe",
+          "aeromedical transport of",
+          "patients",
+          "Describes patient",
+          "movement",
+          "categories/priorities",
+          "Identifies biomedical",
+          "equipment to support air",
+          "and space flight"
+        ],
+        "level_2": [
+          "Describes physiologic and",
+          "clinical criteria for and",
+          "contraindications to safe",
+          "aeromedical transport of",
+          "patients",
+          "Assigns patients to",
+          "movement",
+          "categories/priorities",
+          "Describes biomedical",
+          "equipment to support air",
+          "and space flight"
+        ],
+        "level_3": [
+          "Applies physiologic and",
+          "clinical criteria for safe",
+          "aeromedical transport of",
+          "patients",
+          "Participates in planning of",
+          "aeromedical transport",
+          "mission",
+          "Participates in the",
+          "evaluation of biomedical",
+          "equipment to support air",
+          "and space flight"
+        ],
+        "level_4": [
+          "Demonstrates clinical",
+          "decision-making skills to",
+          "validate patients for",
+          "aeromedical transport",
+          "Leads planning of",
+          "aeromedical transport",
+          "mission",
+          "Evaluates and",
+          "troubleshoots",
+          "biomedical equipment",
+          "to support air and space"
+        ],
+        "level_5": [
+          "flight",
+          "Oversees treatment plans",
+          "and restrictions, and",
+          "supervises clearance of",
+          "patients for aeromedical",
+          "transport",
+          "Creates policies or guides",
+          "for aeromedical transport",
+          "Develops biomedical",
+          "equipment to support air",
+          "and space flight"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Biostatistics and Epidemiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes and defines",
+          "common statistical",
+          "concepts and tests",
+          "Recognizes and defines",
+          "basic measures of",
+          "disease frequency",
+          "Describes commonly",
+          "used epidemiologic",
+          "concepts",
+          "Describes that statistics is",
+          "a method for making"
+        ],
+        "level_2": [
+          "population inferences",
+          "from sample data",
+          "Recognizes and defines",
+          "basic measures for",
+          "comparing risk",
+          "Critically appraises,",
+          "epidemiologic literature",
+          "for study designs,",
+          "identifying purpose,",
+          "population, design, and",
+          "biases"
+        ],
+        "level_3": [
+          "Critically appraises",
+          "statistical methods in",
+          "published research",
+          "Describes methods for",
+          "calculating basic",
+          "measures of disease",
+          "frequency and risk",
+          "Selects and applies",
+          "epidemiologic methods",
+          "appropriate to the",
+          "population and risk"
+        ],
+        "level_4": [
+          "factors being studied",
+          "Selects and applies",
+          "statistical tests",
+          "appropriate to the data",
+          "being analyzed",
+          "Calculates measures of",
+          "disease frequency and",
+          "one or more risk factors",
+          "for a specified disease",
+          "or condition",
+          "Designs and conducts"
+        ],
+        "level_5": [
+          "an epidemiologic study",
+          "Synthesizes results of",
+          "statistical analysis to",
+          "make correct population",
+          "inferences",
+          "Uses data to characterize",
+          "and compare the health of",
+          "populations, and",
+          "assesses the importance",
+          "of different risk factors"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Regulatory",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies relevant",
+          "regulatory agencies and",
+          "their jurisdictions for",
+          "aeromedical certification,",
+          "flight safety, mishap and",
+          "hazard response, and",
+          "aviation and space",
+          "operations"
+        ],
+        "level_2": [
+          "Identifies relevant",
+          "regulations for",
+          "aeromedical certification,",
+          "flight safety, mishap and",
+          "hazard response, and",
+          "aviation and space",
+          "operations",
+          "Applies and interprets"
+        ],
+        "level_3": [
+          "relevant regulations for",
+          "aeromedical certification,",
+          "flight safety, mishap and",
+          "hazard response, and",
+          "aviation and space",
+          "operations based on",
+          "operational scenarios",
+          "(simulated or actual)"
+        ],
+        "level_4": [
+          "Assesses compliance",
+          "with relevant regulations",
+          "for aeromedical",
+          "certification, flight",
+          "safety, mishap and",
+          "hazard response, and",
+          "aviation and space",
+          "operations (simulated or"
+        ],
+        "level_5": [
+          "actual)",
+          "Prepares an evidence-",
+          "based proposal for",
+          "modifying an existing",
+          "regulatory standard"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_sbp1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_sbp2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations effectively using",
+          "the roles of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in complex"
+        ],
+        "level_3": [
+          "clinical situations",
+          "effectively using the roles",
+          "of their interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models effective"
+        ],
+        "level_4": [
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Participates in changing",
+          "and adapting practice to"
+        ],
+        "level_4": [
+          "provide for the needs of",
+          "specific populations",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with"
+        ],
+        "level_5": [
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_sbp4",
+      "number": 12,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems, (e.g.,",
+          "employer, government,",
+          "private, public, uninsured",
+          "care) and practice",
+          "models",
+          "Identifies basic",
+          "knowledge domains for",
+          "effective transition to",
+          "practice (e.g.,"
+        ],
+        "level_2": [
+          "information technology,",
+          "legal, billing and coding,",
+          "financial, personnel)",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)",
+          "Describes core",
+          "administrative knowledge",
+          "needed for transition to",
+          "practice (e.g., contract",
+          "negotiations, malpractice"
+        ],
+        "level_3": [
+          "insurance, government",
+          "regulation, compliance)",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice (e.g., electronic",
+          "health record,",
+          "documentation required",
+          "for billing and coding)",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model",
+          "Analyzes practice",
+          "patterns and"
+        ],
+        "level_5": [
+          "professional",
+          "requirements in",
+          "preparation for practice",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities",
+          "Educates others to",
+          "prepare them for",
+          "transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and",
+          "incorporate patient",
+          "preferences and values",
+          "in order to take care of a"
+        ],
+        "level_2": [
+          "routine patient",
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values in order to guide",
+          "evidence-based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients; and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors",
+          "which contribute to",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other",
+          "input) in order to inform",
+          "goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "episodically, with",
+          "adaptability, and humility",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks",
+          "performance data"
+        ],
+        "level_4": [
+          "consistently with",
+          "adaptability, and",
+          "humility",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and when"
+        ],
+        "level_5": [
+          "necessary, improves it",
+          "Role models consistently",
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_prof1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies basic ethical",
+          "principles of medicine",
+          "Identifies common",
+          "lapses in professionalism",
+          "Identifies and describes",
+          "potential triggers of",
+          "lapses in professionalism",
+          "Demonstrates knowledge",
+          "of the ethical principles",
+          "underlying professional",
+          "practice",
+          "Describes when and how",
+          "to appropriately report",
+          "lapses in professionalism,"
+        ],
+        "level_2": [
+          "including strategies for",
+          "addressing common",
+          "barriers",
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility for",
+          "own lapses in",
+          "professionalism",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger lapses in"
+        ],
+        "level_3": [
+          "professionalism and",
+          "intervenes to prevent",
+          "lapses in self and others",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex ethical",
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_4": [
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Articulates, models, and",
+          "teaches ethical behavior",
+          "from first principles as",
+          "applied to the working"
+        ],
+        "level_5": [
+          "environment",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_prof2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "task completion and",
+          "identifies factors,",
+          "behaviors, and strategies",
+          "that ensure timely task",
+          "completion"
+        ],
+        "level_2": [
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Performs tasks and"
+        ],
+        "level_3": [
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to priority and",
+          "detail in complex or",
+          "stressful situations",
+          "Recognizes situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner and",
+          "proposes alternate",
+          "paths to task completion"
+        ],
+        "level_5": [
+          "Proactively works with",
+          "others to develop and",
+          "implement strategies to",
+          "ensure that the needs of",
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_prof3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being",
+          "of self and others"
+        ],
+        "level_2": [
+          "Recognizes institutional",
+          "resources that are meant",
+          "to promote well-being of",
+          "self and others",
+          "Describes institutional"
+        ],
+        "level_3": [
+          "factors that affect the",
+          "well-being of self and",
+          "others",
+          "Describes institutional",
+          "factors and programs"
+        ],
+        "level_4": [
+          "that positively or",
+          "negatively affect well-",
+          "being of self and others",
+          "Creates institutional level",
+          "interventions that promote"
+        ],
+        "level_5": [
+          "well-being of self and",
+          "others"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_ics1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role",
+          "within the health care",
+          "system"
+        ],
+        "level_2": [
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy)",
+          "Establishes a therapeutic",
+          "relationship"
+        ],
+        "level_3": [
+          "in challenging patient",
+          "encounters",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Independently, uses",
+          "shared decision making",
+          "to align patient/family",
+          "values, and",
+          "health/occupational",
+          "goals with"
+        ],
+        "level_4": [
+          "aeromedically",
+          "acceptable treatment",
+          "options to make a",
+          "personalized care plan",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to"
+        ],
+        "level_5": [
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models self-",
+          "awareness while",
+          "identifying a contextual",
+          "approach to minimize",
+          "communication barriers"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_ics2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation",
+          "Respectfully receives a",
+          "consultation request",
+          "Uses language that",
+          "values all members of",
+          "the team",
+          "Clearly and concisely",
+          "requests a consultation",
+          "Clearly and concisely",
+          "responds to a",
+          "consultation request"
+        ],
+        "level_2": [
+          "Communicates",
+          "information effectively",
+          "with all team members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the team",
+          "Checks own",
+          "understanding of",
+          "consultant",
+          "recommendations",
+          "Checks recipient's",
+          "understanding of"
+        ],
+        "level_3": [
+          "recommendations when",
+          "providing consultation",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the team and"
+        ],
+        "level_4": [
+          "stakeholders to optimize",
+          "patient care and return",
+          "to flying duties",
+          "Discusses consultation",
+          "with multidisciplinary",
+          "team, including external",
+          "stakeholders;",
+          "determines aeromedical",
+          "disposition",
+          "Facilitates regular team-",
+          "based feedback in",
+          "complex situations"
+        ],
+        "level_5": [
+          "Educates consultants on",
+          "aeromedical significance",
+          "of certain medical",
+          "conditions",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "team members, resolving",
+          "conflict when needed",
+          "Communicates feedback",
+          "and constructive criticism",
+          "to superiors"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__aerospace_medicine_ics3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)",
+          "Demonstrates organized",
+          "diagnostic and"
+        ],
+        "level_2": [
+          "therapeutic reasoning",
+          "through notes in the",
+          "patient record",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Concisely reports",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record and",
+          "aeromedical waiver or"
+        ],
+        "level_3": [
+          "Special Issuance",
+          "narrative",
+          "Appropriately selects",
+          "direct (e.g., telephone, in-",
+          "person, telemedicine) and",
+          "indirect (e.g., progress",
+          "notes, text messages)",
+          "forms of communication",
+          "based on context",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system"
+        ],
+        "level_4": [
+          "Communicates clearly,",
+          "concisely, timely, and in",
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Achieves written or",
+          "verbal communication",
+          "(e.g., patient notes,",
+          "email) that serves as an",
+          "example for others to",
+          "follow",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate"
+        ],
+        "level_5": [
+          "stakeholders to improve",
+          "the system",
+          "Creates local, regional or",
+          "national medical",
+          "documentation standards",
+          "Guides departmental or",
+          "institutional policies and",
+          "procedures around",
+          "communication",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "preventive-medicine",
+  "primary_name": "Preventive Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/aerospacemedicinemilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/aerospacemedicinesupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1862 @@
+{
+  "framework_key": "neurology--neurodevelopmental-disabilities",
+  "specialty": "Neurodevelopmental Disabilities",
+  "version": "2.0",
+  "source": "ACGME Neurodevelopmental Disabilities Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Neurologic and Developmental History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains, communicates,",
+          "and documents an",
+          "appropriate history and",
+          "begins to document",
+          "perinatal, developmental,",
+          "and family components",
+          "Obtains, communicates,"
+        ],
+        "level_2": [
+          "and documents a relevant",
+          "history, including",
+          "perinatal, developmental,",
+          "and family components,",
+          "eliciting patient’s and",
+          "patient’s family’s",
+          "contributions"
+        ],
+        "level_3": [
+          "Obtains, communicates,",
+          "and documents a well-",
+          "organized history that",
+          "incorporates",
+          "supplemental data from",
+          "external sources",
+          "Reconciles information"
+        ],
+        "level_4": [
+          "from conflicting sources",
+          "or sources that are",
+          "difficult to access into",
+          "the history, and uses",
+          "the history to develop a",
+          "differential diagnosis",
+          "that serves as a"
+        ],
+        "level_5": [
+          "foundation for an",
+          "etiological evaluation",
+          "Teaches the fine points of",
+          "history-taking to other",
+          "learners"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Neurodevelopmental Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies components of",
+          "and performs a complete",
+          "neurodevelopmental",
+          "examination",
+          "(neurological and",
+          "developmental",
+          "components)",
+          "Performs, communicates,",
+          "and documents an"
+        ],
+        "level_2": [
+          "accurate",
+          "neurodevelopmental",
+          "examination on patients",
+          "across the lifespan",
+          "Performs, communicates,",
+          "and documents a",
+          "comprehensive and",
+          "relevant",
+          "neurodevelopmental"
+        ],
+        "level_3": [
+          "examination,",
+          "incorporating some",
+          "additional pertinent",
+          "maneuvers on patients",
+          "ranging across the",
+          "lifespan",
+          "Consistently",
+          "demonstrates mastery",
+          "in performing,"
+        ],
+        "level_4": [
+          "communicating, and",
+          "documenting a",
+          "neurodevelopmental",
+          "examination on patients",
+          "ranging across the",
+          "lifespan to inform",
+          "diagnostic and",
+          "treatment",
+          "recommendations"
+        ],
+        "level_5": [
+          "Teaches other learners of",
+          "varying experience and",
+          "disciplines about techniques",
+          "of the neurodevelopmental",
+          "examination and implications",
+          "of findings across a broad",
+          "range of disorders"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Neurodevelopmental Disabilities",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes when a",
+          "patient may have a",
+          "neurodevelopmental",
+          "disability",
+          "Identifies",
+          "neurodevelopmental"
+        ],
+        "level_2": [
+          "disabilities’",
+          "phenomenology and",
+          "diagnoses",
+          "Diagnoses common",
+          "neurodevelopmental",
+          "disabilities and coexisting"
+        ],
+        "level_3": [
+          "disorders",
+          "Distinguishes",
+          "uncommon",
+          "neurodevelopmental",
+          "disabilities from",
+          "alternative conditions"
+        ],
+        "level_4": [
+          "that may have a similar",
+          "presentation",
+          "Identifies previously",
+          "undescribed",
+          "neurodevelopmental",
+          "disability disorders or"
+        ],
+        "level_5": [
+          "engages in scholarly",
+          "activity (e.g., teaching,",
+          "research) in",
+          "neurodevelopmental",
+          "disabilities"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Behavioral and Psychiatric Disorders",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes when a",
+          "patient with a",
+          "neurodevelopmental",
+          "disorder has a",
+          "behavioral or psychiatric",
+          "disorder",
+          "Lists various treatment",
+          "approaches to",
+          "behavioral or psychiatric",
+          "disorders in patients with",
+          "neurodevelopmental",
+          "disorders"
+        ],
+        "level_2": [
+          "Identifies common",
+          "behavioral or psychiatric",
+          "disorders in patients with",
+          "neurodevelopmental",
+          "disorders",
+          "Identifies major side",
+          "effects of psychiatric and",
+          "neurotropic medications",
+          "in patients with",
+          "neurodevelopmental",
+          "disorders",
+          "Diagnoses common"
+        ],
+        "level_3": [
+          "behavioral or psychiatric",
+          "disorders in patients with",
+          "neurodevelopmental",
+          "disorders",
+          "Manages patients with",
+          "common psychiatric",
+          "disorders in patients with",
+          "neurodevelopmental",
+          "disorders",
+          "Diagnoses uncommon",
+          "cognitive and behavioral",
+          "disorders in patients"
+        ],
+        "level_4": [
+          "with",
+          "neurodevelopmental",
+          "disorders",
+          "Manages complex",
+          "combinations of",
+          "medications with central",
+          "nervous system effects",
+          "in patients with",
+          "neurodevelopmental",
+          "disorders",
+          "Engages in scholarly",
+          "activity (e.g., teaching,"
+        ],
+        "level_5": [
+          "research) in cognitive,",
+          "behavioral, or psychiatric",
+          "disorders",
+          "Demonstrates",
+          "sophisticated knowledge",
+          "of advanced diagnostic",
+          "testing related to",
+          "behavioral or psychiatric",
+          "disorders in patients with",
+          "neurodevelopmental",
+          "disorders"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes critical",
+          "illnesses and",
+          "emergencies that affect",
+          "the nervous system",
+          "Diagnoses critical"
+        ],
+        "level_2": [
+          "illnesses and",
+          "emergencies that affect",
+          "the nervous system",
+          "With direct supervision,",
+          "manages critical illnesses"
+        ],
+        "level_3": [
+          "and emergencies that",
+          "affect the nervous system",
+          "With indirect",
+          "supervision, diagnoses",
+          "and manages critical"
+        ],
+        "level_4": [
+          "illnesses and",
+          "emergencies that affect",
+          "the nervous system",
+          "Teaches and supervises",
+          "others in the management"
+        ],
+        "level_5": [
+          "of critical illnesses and",
+          "emergencies that affect",
+          "the nervous system, and",
+          "is an integral part of the",
+          "interdisciplinary team"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Diagnosis and Management in the Inpatient Setting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies typical",
+          "presentations of",
+          "common",
+          "neurodevelopmental",
+          "conditions",
+          "(neurological and",
+          "developmental",
+          "components)",
+          "Develops an initial plan",
+          "to diagnose common",
+          "neurodevelopmental"
+        ],
+        "level_2": [
+          "disorders (neurological",
+          "and developmental",
+          "components)",
+          "Diagnoses common",
+          "neurodevelopmental",
+          "conditions",
+          "Manages common",
+          "neurodevelopmental",
+          "disorders, considering",
+          "risks and benefits of",
+          "treatment"
+        ],
+        "level_3": [
+          "Identifies atypical",
+          "presentations of common",
+          "neurodevelopmental",
+          "conditions and",
+          "typical presentations of",
+          "uncommon",
+          "neurodevelopmental",
+          "conditions",
+          "Individualizes",
+          "management, ensuring",
+          "the appropriate level of"
+        ],
+        "level_4": [
+          "care throughout",
+          "hospitalization and upon",
+          "discharge",
+          "Diagnoses uncommon",
+          "neurodevelopmental",
+          "conditions",
+          "Reviews and evaluates",
+          "the literature to manage",
+          "treatment responses,",
+          "disease progression,",
+          "and complications of"
+        ],
+        "level_5": [
+          "therapy",
+          "Teaches inpatient",
+          "management of",
+          "neurodevelopmental",
+          "conditions to other",
+          "learners",
+          "Conducts scholarly",
+          "reviews, original research",
+          "or participates in the",
+          "development of clinical",
+          "guidelines"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Diagnosis and Management in the Outpatient Setting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies typical",
+          "presentations of",
+          "common",
+          "neurodevelopmental",
+          "conditions",
+          "Develops an initial plan",
+          "to diagnose common",
+          "neurodevelopmental",
+          "disorders",
+          "Recognizes the value",
+          "and need for monitoring",
+          "in the provision of",
+          "ongoing care",
+          "Diagnoses common",
+          "neurodevelopmental"
+        ],
+        "level_2": [
+          "conditions",
+          "Manages common",
+          "neurodevelopmental",
+          "disorders, considering",
+          "risks and benefits of",
+          "treatment",
+          "Enumerates the areas",
+          "that are to be monitored",
+          "for children with complex",
+          "care needs",
+          "Recognizes atypical",
+          "variants of common",
+          "neurodevelopmental",
+          "conditions and",
+          "typical presentations of"
+        ],
+        "level_3": [
+          "uncommon",
+          "neurodevelopmental",
+          "conditions",
+          "Assesses the",
+          "effectiveness of",
+          "management programs,",
+          "and individualizes",
+          "management and adapts",
+          "plan based on patient",
+          "response and family",
+          "factors",
+          "Uses longitudinal follow-",
+          "up and re-evaluations to",
+          "assess effectiveness of",
+          "care"
+        ],
+        "level_4": [
+          "Diagnoses uncommon",
+          "neurodevelopmental",
+          "conditions",
+          "Manages disease",
+          "progression and",
+          "complications of",
+          "therapy; identifies when",
+          "to change acuity of care",
+          "considering lifespan",
+          "issues",
+          "Uses new information",
+          "from the literature to",
+          "provide anticipatory",
+          "guidance appropriate to",
+          "the patient’s"
+        ],
+        "level_5": [
+          "developmental age",
+          "Teaches other learners",
+          "about the presentation,",
+          "evaluation, diagnosis, and",
+          "management of",
+          "neurodevelopmental",
+          "conditions",
+          "Coordinates, supervises,",
+          "and evaluates quality of",
+          "care",
+          "Teaches other learners",
+          "about longitudinal and",
+          "complex needs"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Electroencephalogram (EEG)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes general",
+          "indications and test",
+          "selection for",
+          "electroencephalographic",
+          "studies",
+          "Describes normal EEG"
+        ],
+        "level_2": [
+          "features and identifies",
+          "status epilepticus using",
+          "correct terminology,",
+          "including common",
+          "artifacts, across the",
+          "lifespan"
+        ],
+        "level_3": [
+          "With direct supervision,",
+          "recognizes and describes",
+          "patterns of status",
+          "epilepticus, normal EEG",
+          "variants, and common",
+          "abnormalities across the"
+        ],
+        "level_4": [
+          "lifespan, and writes a",
+          "report",
+          "With indirect",
+          "supervision, reads a",
+          "standard EEG and",
+          "writes a report"
+        ],
+        "level_5": [
+          "Interprets uncommon",
+          "EEG abnormalities or",
+          "conducts research using",
+          "EEG"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc9",
+      "number": 9,
+      "domain_number": 9,
+      "name": "Lumbar Puncture",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists the indications,",
+          "contraindications, and",
+          "complications of lumbar",
+          "puncture",
+          "With direct supervision,",
+          "chooses cerebrospinal"
+        ],
+        "level_2": [
+          "fluid studies based on",
+          "clinical presentation,",
+          "performs lumbar",
+          "puncture, manages",
+          "complications, and",
+          "interprets findings"
+        ],
+        "level_3": [
+          "With indirect supervision,",
+          "performs lumbar puncture",
+          "and interprets findings",
+          "Identifies and interprets",
+          "specialized",
+          "cerebrospinal fluid"
+        ],
+        "level_4": [
+          "studies to aid diagnosis,",
+          "and independently",
+          "performs lumbar",
+          "puncture on patients",
+          "across the lifespan",
+          "Instructs others in proper"
+        ],
+        "level_5": [
+          "lumbar puncture",
+          "technique and",
+          "administers intrathecal",
+          "therapies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pc10",
+      "number": 10,
+      "domain_number": 10,
+      "name": "Determination of Death by Neurologic Criteria",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the concept of",
+          "determination of death",
+          "by neurologic criteria",
+          "Identifies components of"
+        ],
+        "level_2": [
+          "determination of death by",
+          "neurologic criteria",
+          "With assistance, performs",
+          "determination of death by"
+        ],
+        "level_3": [
+          "neurologic criteria",
+          "Performs determination",
+          "of death by neurologic",
+          "criteria in compliance"
+        ],
+        "level_4": [
+          "with practice guidelines",
+          "and state regulations",
+          "Teaches others the",
+          "determination of death by"
+        ],
+        "level_5": [
+          "neurologic criteria"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_mk1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Development and Behavior",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists developmental",
+          "norms across domains",
+          "Recognizes that all",
+          "streams of development",
+          "evolve across the",
+          "lifespan",
+          "Identifies signs and"
+        ],
+        "level_2": [
+          "patterns of abnormal",
+          "development",
+          "Discusses normal",
+          "neurodevelopment across",
+          "the lifespan",
+          "Interprets patterns of",
+          "abnormalities across the"
+        ],
+        "level_3": [
+          "streams of development",
+          "Discusses abnormal",
+          "neurodevelopment across",
+          "the lifespan",
+          "Counsels families",
+          "regarding common and",
+          "uncommon disorders of"
+        ],
+        "level_4": [
+          "neurodevelopment",
+          "across the lifespan",
+          "Anticipates associated",
+          "developmental",
+          "disorders based on",
+          "patterns of",
+          "abnormalities"
+        ],
+        "level_5": [
+          "Serves as a role model to",
+          "counsel families regarding",
+          "uncommon disorders of",
+          "development across the",
+          "lifespan"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_mk2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Localization",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Localizes signs and",
+          "symptoms to general",
+          "regions of the nervous",
+          "system",
+          "Localizes signs and"
+        ],
+        "level_2": [
+          "symptoms to specific",
+          "regions of the nervous",
+          "system",
+          "Localizes signs and",
+          "symptoms to discrete"
+        ],
+        "level_3": [
+          "structures of the nervous",
+          "system, recognizing",
+          "challenges in precise",
+          "localization of lesions in",
+          "infants and children"
+        ],
+        "level_4": [
+          "Precisely localizes signs",
+          "and symptoms and",
+          "describes the impact on",
+          "patient management",
+          "Role models the precise"
+        ],
+        "level_5": [
+          "localization of complex",
+          "signs and symptoms to",
+          "discrete structures of the",
+          "nervous system"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_mk3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Neuroimaging",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies normal",
+          "neuroanatomy on brain",
+          "and spine magnetic",
+          "resonance (MR) and",
+          "computed tomography",
+          "(CT)",
+          "Describes major"
+        ],
+        "level_2": [
+          "abnormalities of the brain,",
+          "spine, and",
+          "neurovasculature on MR",
+          "and CT",
+          "Describes normal",
+          "developmental changes",
+          "on MR and CT and"
+        ],
+        "level_3": [
+          "interprets subtle",
+          "abnormalities of the brain,",
+          "spine, and",
+          "neurovasculature on",
+          "imaging",
+          "Interprets common",
+          "clinical neuroimaging"
+        ],
+        "level_4": [
+          "modalities with indirect",
+          "supervision and",
+          "identifies the indications",
+          "for advanced",
+          "neuroimaging",
+          "techniques",
+          "Interprets rare and"
+        ],
+        "level_5": [
+          "complex findings on",
+          "neuroimaging, and serves",
+          "as a resource for",
+          "colleagues or conducts",
+          "research using",
+          "neuroimaging"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_mk4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "Electromyography",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes general",
+          "indications for nerve",
+          "conduction",
+          "studies/electromyograph",
+          "y tests"
+        ],
+        "level_2": [
+          "Describes patterns seen",
+          "on nerve conduction",
+          "studies/electromyography",
+          "related to localization",
+          "Plans nerve conduction"
+        ],
+        "level_3": [
+          "studies/electromyography",
+          "in the context of the",
+          "clinical presentation",
+          "Interprets results of",
+          "nerve conduction"
+        ],
+        "level_4": [
+          "studies/electromyograp",
+          "hy testing in the context",
+          "of the clinical",
+          "presentation",
+          "Conducts research that"
+        ],
+        "level_5": [
+          "uses nerve conduction",
+          "studies/electromyography",
+          "data"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_mk5",
+      "number": 15,
+      "domain_number": 5,
+      "name": "Diagnostic Investigation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses general",
+          "diagnostic approach",
+          "appropriate to clinical",
+          "presentation",
+          "Lists indications,"
+        ],
+        "level_2": [
+          "contraindications, risks,",
+          "and benefits of diagnostic",
+          "testing",
+          "Prioritizes and interprets",
+          "diagnostic tests"
+        ],
+        "level_3": [
+          "appropriate to clinical",
+          "urgency and complexity",
+          "Uses complex",
+          "diagnostic approaches",
+          "that have the highest"
+        ],
+        "level_4": [
+          "diagnostic yield and",
+          "cost effectiveness",
+          "Demonstrates",
+          "sophisticated knowledge",
+          "of diagnostic testing and"
+        ],
+        "level_5": [
+          "controversies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_sbp1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Recognizes that most",
+          "safety events are the",
+          "result of system failure",
+          "and not human error",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Demonstrates a non-",
+          "accusatory, non-",
+          "judgmental attitude in",
+          "dealing with issues of",
+          "patient safety"
+        ],
+        "level_3": [
+          "Participates in analysis of",
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Presents at a morbidity",
+          "and mortality conference",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error"
+        ],
+        "level_4": [
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Participates as a",
+          "member of a team",
+          "investigating a patient",
+          "safety issue",
+          "Actively engages teams",
+          "and processes to modify"
+        ],
+        "level_5": [
+          "systems to prevent",
+          "patient safety events",
+          "Models or mentors others",
+          "in the disclosure of patient",
+          "safety events",
+          "Evaluates the",
+          "effectiveness of systems",
+          "changes implemented as",
+          "a result of patient safety",
+          "activities"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_sbp2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., public health",
+          "measures)",
+          "Participates in local"
+        ],
+        "level_3": [
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,"
+        ],
+        "level_4": [
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at"
+        ],
+        "level_5": [
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_sbp3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Systems of Care Delivery: Patient- and Family-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes the role of",
+          "interdisciplinary team",
+          "members",
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Defines “family” for",
+          "individual patients and",
+          "lists the various roles",
+          "that families play in care",
+          "delivery and decision",
+          "making",
+          "Demonstrates an attitude"
+        ],
+        "level_2": [
+          "of mutual respect for",
+          "other members of the",
+          "interdisciplinary team",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using",
+          "the roles of the",
+          "interprofessional teams",
+          "Listens carefully to",
+          "patients’ families, with",
+          "sensitivity to each family’s",
+          "values and customs",
+          "Participates in"
+        ],
+        "level_3": [
+          "interdisciplinary care",
+          "activities",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the roles",
+          "of their interprofessional",
+          "teams",
+          "Provides timely,",
+          "complete, and accurate",
+          "information to patients’",
+          "families in a manner that",
+          "would enable participation"
+        ],
+        "level_4": [
+          "in care and decision",
+          "making",
+          "Leads interdisciplinary",
+          "teams",
+          "Demonstrates effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Collaborates with",
+          "families in the",
+          "development and",
+          "implementation of care"
+        ],
+        "level_5": [
+          "management programs",
+          "Teaches and mentors",
+          "interdisciplinary leaders",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of care",
+          "system improvements",
+          "Involves families in the",
+          "development and",
+          "implementation of",
+          "teaching and research",
+          "activities"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_sbp4",
+      "number": 19,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Discusses conceptual",
+          "components of delivering",
+          "the right care at the right",
+          "time meeting patient’s",
+          "immediate and longer-",
+          "term needs",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Advocates for patient care",
+          "needs (e.g., community",
+          "resources, patient",
+          "assistance resources)",
+          "with consideration of",
+          "strengths and challenges",
+          "of patient, family, and"
+        ],
+        "level_4": [
+          "environment",
+          "Manages various",
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Discuss means of",
+          "effecting systemic",
+          "change in health care",
+          "costs and care delivery"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_sbp5",
+      "number": 20,
+      "domain_number": 5,
+      "name": "Community Resources",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes educational,",
+          "mental health,",
+          "rehabilitation, and",
+          "community support",
+          "resources for patients",
+          "with neurodevelopmental",
+          "disabilities ranging",
+          "across the lifespan",
+          "Recognizes that most",
+          "treatment for",
+          "neurodevelopmental",
+          "disabilities is provided in",
+          "the community by",
+          "community resources"
+        ],
+        "level_2": [
+          "Makes initial referrals to",
+          "educational, mental",
+          "health, rehabilitation, and",
+          "community support",
+          "resources for patients",
+          "with neurodevelopmental",
+          "disabilities ranging across",
+          "the lifespan",
+          "Discusses relevant laws",
+          "that guide the care of",
+          "people with",
+          "neurodevelopmental",
+          "disabilities",
+          "Makes more complex"
+        ],
+        "level_3": [
+          "referrals with requests for",
+          "specific interventions to",
+          "educational, mental",
+          "health, rehabilitation, and",
+          "community support",
+          "resources for patients",
+          "with neurodevelopmental",
+          "disabilities ranging across",
+          "the lifespan",
+          "Participates in a",
+          "community meeting (e.g.,",
+          "individualized education",
+          "plan, parent group, etc.)",
+          "Consistently"
+        ],
+        "level_4": [
+          "demonstrates",
+          "competence in referring",
+          "and coordinating",
+          "services",
+          "Evaluates the strengths,",
+          "challenges, and",
+          "effectiveness of the",
+          "community resources to",
+          "which patients are",
+          "referred",
+          "Participates in leadership",
+          "role in educational,",
+          "mental health,",
+          "rehabilitation, and"
+        ],
+        "level_5": [
+          "community support",
+          "resources for patients",
+          "with neurodevelopmental",
+          "disabilities",
+          "Engages in scholarly",
+          "projects regarding",
+          "integration of medical,",
+          "educational, mental",
+          "health, rehabilitation, and",
+          "community support",
+          "resources for patients",
+          "with neurodevelopmental",
+          "and related disabilities"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_sbp6",
+      "number": 21,
+      "domain_number": 6,
+      "name": "Access and Outcomes in the Neurodevelopmental Population",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "neurodevelopmental",
+          "population, community",
+          "health needs, and",
+          "variations in care",
+          "Recognizes differences",
+          "in care and clinical",
+          "outcomes for persons",
+          "with neurodevelopmental"
+        ],
+        "level_2": [
+          "disabilities",
+          "Identifies specific health",
+          "needs and care variations",
+          "in the local",
+          "neurodevelopmental",
+          "population",
+          "Identifies local factors",
+          "contributing to differences",
+          "in care and outcomes",
+          "Identifies barriers and"
+        ],
+        "level_3": [
+          "contributing factors",
+          "affecting access and",
+          "outcomes in",
+          "neurodevelopmental care",
+          "Identifies available",
+          "resources to reduce",
+          "systems-level barriers to",
+          "neurodevelopmental care",
+          "Applies local resources",
+          "to improve outcomes for"
+        ],
+        "level_4": [
+          "neurodevelopmental",
+          "populations",
+          "Adapts clinical practices",
+          "to better meet the",
+          "needs of specific patient",
+          "populations",
+          "Leads innovations and",
+          "advocates for improved",
+          "access and outcomes in",
+          "neurodevelopmental care"
+        ],
+        "level_5": [
+          "at regional or national",
+          "levels",
+          "Participates in regional",
+          "and national advocacy",
+          "and research to improve",
+          "care delivery and clinical",
+          "outcomes for",
+          "neurodevelopmental",
+          "populations"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pbli1",
+      "number": 22,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Uses available evidence",
+          "to care for a routine",
+          "patient",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions to guide",
+          "evidence-based care",
+          "Locates and applies the",
+          "best available evidence"
+        ],
+        "level_3": [
+          "Critically appraises and",
+          "applies evidence to",
+          "guide care, even in the",
+          "face of uncertainty and"
+        ],
+        "level_4": [
+          "conflicting evidence",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_pbli2",
+      "number": 23,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals"
+        ],
+        "level_2": [
+          "Accepts performance",
+          "data (feedback and other",
+          "input) and uses it to",
+          "develop a learning plan",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "and develops a learning",
+          "plan with increasing",
+          "independence",
+          "Regularly measures",
+          "oneself against the"
+        ],
+        "level_4": [
+          "learning plan, modifying",
+          "the plan when",
+          "necessary",
+          "Models creation,",
+          "implementation, analysis,"
+        ],
+        "level_5": [
+          "and modification of",
+          "learning plans,",
+          "incorporating",
+          "performance data"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_prof1",
+      "number": 24,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to act upon",
+          "professionalism lapses"
+        ],
+        "level_2": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility for",
+          "one’s own"
+        ],
+        "level_3": [
+          "professionalism lapses",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_4": [
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and/or intervenes to",
+          "prevent lapses in"
+        ],
+        "level_5": [
+          "oneself and others",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_prof2",
+      "number": 25,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "fundamental ethical",
+          "principles",
+          "Analyzes straightforward"
+        ],
+        "level_2": [
+          "situations using ethical",
+          "principles and recognizes",
+          "the need to seek help in",
+          "managing and resolving",
+          "complex ethical situations"
+        ],
+        "level_3": [
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes and uses",
+          "appropriate resources"
+        ],
+        "level_4": [
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "Identifies and seeks to",
+          "address system-level"
+        ],
+        "level_5": [
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_prof3",
+      "number": 26,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to"
+        ],
+        "level_2": [
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete"
+        ],
+        "level_3": [
+          "tasks and responsibilities",
+          "in a timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure the"
+        ],
+        "level_4": [
+          "needs of patients, teams,",
+          "and systems are met",
+          "Manages situations that",
+          "may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Models the strategies to",
+          "ensure the needs of",
+          "patients, teams, and"
+        ],
+        "level_5": [
+          "systems are met",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that impact",
+          "completion of tasks",
+          "Coaches others to",
+          "develop strategies to",
+          "ensure the needs of",
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_prof4",
+      "number": 27,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "With assistance,"
+        ],
+        "level_3": [
+          "proposes a plan to",
+          "promote personal and",
+          "professional well-being",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to promote",
+          "personal and",
+          "professional well-being",
+          "Supports the"
+        ],
+        "level_5": [
+          "departmental well-being",
+          "program"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_prof5",
+      "number": 28,
+      "domain_number": 5,
+      "name": "Patient Care Etiquette with Patients of all Abilities",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the need to",
+          "respect the dignity of all",
+          "patients regardless of",
+          "impairments or",
+          "disabilities",
+          "Demonstrates specific",
+          "elements of verbal and"
+        ],
+        "level_2": [
+          "physical communication",
+          "that reflect respect for",
+          "people with impairments",
+          "or disabilities",
+          "Proactively maintains",
+          "patients’ comfort and",
+          "dignity during history"
+        ],
+        "level_3": [
+          "taking and physical",
+          "examination for those with",
+          "mild impairments or",
+          "disabilities",
+          "Proactively maintains",
+          "patients’ comfort and",
+          "dignity during history"
+        ],
+        "level_4": [
+          "taking and physical",
+          "examination for those",
+          "with severe impairments",
+          "or disabilities",
+          "Serves as a role model",
+          "and as a resource for",
+          "others by coaching them"
+        ],
+        "level_5": [
+          "in behaviors and actions",
+          "that optimize the comfort,",
+          "dignity, and respect of",
+          "people with impairments",
+          "or disabilities"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_ics1",
+      "number": 29,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication while",
+          "accurately",
+          "communicating own role",
+          "within the health care",
+          "system"
+        ],
+        "level_2": [
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication",
+          "Establishes a therapeutic",
+          "relationship in challenging"
+        ],
+        "level_3": [
+          "patient encounters",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with",
+          "attention to",
+          "patient’s/patient’s",
+          "family’s concerns and"
+        ],
+        "level_4": [
+          "context, regardless of",
+          "complexity",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to",
+          "consistently develop"
+        ],
+        "level_5": [
+          "positive therapeutic",
+          "relationships",
+          "Role models self-",
+          "awareness practice while",
+          "identifying teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_ics2",
+      "number": 30,
+      "domain_number": 2,
+      "name": "Patient and Family Education",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes link between",
+          "patient outcomes and",
+          "education",
+          "Identifies the need to",
+          "adjust communication",
+          "strategies based on each",
+          "patient’s/patient’s",
+          "family’s expectations and",
+          "understanding of their",
+          "health status and",
+          "treatment options"
+        ],
+        "level_2": [
+          "Describes methods for",
+          "effective patient and",
+          "patient family education",
+          "Organizes and initiates",
+          "communication with",
+          "patients and their families",
+          "by introducing",
+          "stakeholders, setting the",
+          "agenda, clarifying",
+          "expectations, and",
+          "verifying understanding of"
+        ],
+        "level_3": [
+          "the clinical situation",
+          "Educates patients and",
+          "their families effectively in",
+          "straightforward situations,",
+          "including eliciting",
+          "understanding of",
+          "information provided",
+          "Compassionately delivers",
+          "medical information,",
+          "elicits patient/family",
+          "values, goals, and"
+        ],
+        "level_4": [
+          "preferences, and",
+          "acknowledges uncertainty",
+          "and conflict",
+          "Educates patients and",
+          "their families effectively",
+          "in complex situations",
+          "Uses shared decision",
+          "making to align",
+          "patient/family values,",
+          "goals, and preferences",
+          "with treatment options"
+        ],
+        "level_5": [
+          "to make a personalized",
+          "care plan",
+          "Educates patients and",
+          "their families in self-",
+          "advocacy, community",
+          "outreach, and activism",
+          "Models shared decision",
+          "making in patient/family",
+          "communication, including",
+          "those with a high degree",
+          "of uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_ics3",
+      "number": 31,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests",
+          "and/or receives a",
+          "consultation",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Understands the",
+          "importance of feedback",
+          "Clearly and concisely",
+          "requests or responds to a"
+        ],
+        "level_2": [
+          "consultation",
+          "Communicates",
+          "information effectively",
+          "with all members of the",
+          "health care team",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Checks own or others’"
+        ],
+        "level_3": [
+          "understanding of",
+          "consultation",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from"
+        ],
+        "level_4": [
+          "different members of",
+          "the health care team to",
+          "optimize patient care",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all"
+        ],
+        "level_5": [
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurodevelopmental_disabilities_ics4",
+      "number": 32,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record as required by",
+          "institutional policy",
+          "Describes appropriate",
+          "use of documentation",
+          "shortcuts as required by",
+          "institutional policy",
+          "Demonstrates organized",
+          "diagnostic and"
+        ],
+        "level_2": [
+          "therapeutic reasoning",
+          "through notes in the",
+          "patient record",
+          "Accurate, timely, and",
+          "appropriate use of",
+          "documentation shortcuts",
+          "in formats specified by",
+          "institutional policy",
+          "Concisely reports",
+          "diagnostic and"
+        ],
+        "level_3": [
+          "therapeutic reasoning in",
+          "the patient record",
+          "Appropriately selects",
+          "direct (e.g., telephone, in-",
+          "person) and indirect (e.g.,",
+          "progress notes, text",
+          "messages) forms of",
+          "communication based on",
+          "context",
+          "Communicates clearly,"
+        ],
+        "level_4": [
+          "concisely, timely, and in",
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Achieves written or",
+          "verbal communication",
+          "(e.g., patient notes,",
+          "email) that serves as an",
+          "example for others to",
+          "follow"
+        ],
+        "level_5": [
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Participates in developing",
+          "departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "neurology",
+  "primary_name": "Neurology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiesmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurodevelopmentaldisabilitiessupplementalguide.pdf"
+  }
+}

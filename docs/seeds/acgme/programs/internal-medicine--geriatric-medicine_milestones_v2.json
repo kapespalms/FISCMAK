@@ -1,0 +1,1256 @@
+{
+  "framework_key": "internal-medicine--geriatric-medicine",
+  "specialty": "Geriatric Medicine",
+  "version": "2.0",
+  "source": "ACGME Geriatric Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "internal_medicine__geriatric_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Comprehensive Geriatric Assessment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies domains of a",
+          "comprehensive geriatric",
+          "assessment, including",
+          "medical, psychosocial,",
+          "and functional elements",
+          "Performs a",
+          "comprehensive geriatric",
+          "assessment, eliciting"
+        ],
+        "level_2": [
+          "information from ancillary",
+          "sources, including the",
+          "patient, family, caregivers,",
+          "and interdisciplinary team",
+          "Formulates a care plan",
+          "that integrates findings",
+          "from a comprehensive",
+          "geriatric assessment"
+        ],
+        "level_3": [
+          "focused on optimizing",
+          "physical, psychosocial,",
+          "and functional health",
+          "Implements a unified,",
+          "patient-centered care",
+          "plan that integrates all",
+          "domains of the",
+          "comprehensive geriatric"
+        ],
+        "level_4": [
+          "assessment in",
+          "collaboration with the",
+          "interdisciplinary team",
+          "and community partners",
+          "Implements a",
+          "comprehensive geriatric",
+          "assessment methodology",
+          "for use with innovative"
+        ],
+        "level_5": [
+          "models of care delivery,",
+          "new care settings, and/or",
+          "unique patient",
+          "populations"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Patient and Family/Caregiver Support",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes formal and",
+          "informal support systems",
+          "for older adults",
+          "Describes the roles of",
+          "caregiver(s) and the",
+          "risks and benefits of",
+          "caregiving",
+          "Identifies potential",
+          "stressors and support"
+        ],
+        "level_2": [
+          "options for individual",
+          "patients",
+          "Employs approaches or",
+          "tools to assess",
+          "family/caregiver burden",
+          "and identify potential",
+          "stressors and support",
+          "options",
+          "Collaborates with the"
+        ],
+        "level_3": [
+          "interdisciplinary team to",
+          "use available resources to",
+          "educate and support",
+          "patients",
+          "Collaborates with the",
+          "interdisciplinary team to",
+          "use available resources",
+          "and support for",
+          "family/caregiver(s)"
+        ],
+        "level_4": [
+          "Develops a",
+          "comprehensive plan in",
+          "partnership with the",
+          "patient, patient’s family,",
+          "and interdisciplinary",
+          "team to optimize",
+          "support of the patient",
+          "and patient’s",
+          "family/caregiver(s)"
+        ],
+        "level_5": [
+          "Innovates or advocates to",
+          "enhance caregiver",
+          "support and programming",
+          "within communities or",
+          "systems of care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Assessing and Optimizing of Pharmacotherapy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "medications that should",
+          "be avoided or used with",
+          "caution in older adults",
+          "Performs a medication",
+          "reconciliation, including",
+          "both prescribed and over",
+          "the counter medications",
+          "Recognizes age-related"
+        ],
+        "level_2": [
+          "changes in the",
+          "metabolism of and",
+          "response to medications",
+          "Identifies patients at risk",
+          "for negative outcomes",
+          "due to polypharmacy and",
+          "overprescribing or under",
+          "prescribing",
+          "Modifies medications"
+        ],
+        "level_3": [
+          "based on principles of",
+          "polypharmacy, risks and",
+          "benefits, and identification",
+          "of barriers to adherence,",
+          "and monitors response to",
+          "de-prescribing",
+          "Effectively communicates",
+          "medication changes to",
+          "patients, families,"
+        ],
+        "level_4": [
+          "caregivers, and health",
+          "care professionals across",
+          "health settings",
+          "Optimizes medication",
+          "management of patients",
+          "with multi-morbidity by",
+          "synthesizing evidence,",
+          "patient preferences, life",
+          "expectancy, functional"
+        ],
+        "level_5": [
+          "trajectory, and clinical",
+          "feasibility",
+          "Works within larger health",
+          "care systems and",
+          "community-based",
+          "organizations to minimize",
+          "harms from over and",
+          "under prescribing"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Assessing and Optimizing Physical and Cognitive Function",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies tools to assess",
+          "physical function",
+          "Identifies tools to assess",
+          "cognition",
+          "Performs functional",
+          "assessment of an",
+          "individual patient"
+        ],
+        "level_2": [
+          "Performs cognitive",
+          "assessment of an",
+          "individual patient",
+          "Interprets findings from a",
+          "functional assessment,",
+          "considering strengths and",
+          "limitations of the"
+        ],
+        "level_3": [
+          "assessment",
+          "Interprets findings from a",
+          "cognitive assessment,",
+          "considering strengths and",
+          "limitations of the",
+          "assessment",
+          "Effectively integrates"
+        ],
+        "level_4": [
+          "findings from",
+          "functional and cognitive",
+          "assessments into care",
+          "plans, including referral",
+          "for rehabilitative",
+          "therapies as indicated",
+          "Promotes assessment"
+        ],
+        "level_5": [
+          "and optimization of",
+          "physical and cognitive",
+          "functioning for patients",
+          "across care systems"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Framing Clinical Management Decisions within the Context of Prognosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists common methods",
+          "and tools for estimating",
+          "prognosis",
+          "Describes common",
+          "patterns of disease",
+          "trajectories",
+          "Describes strengths and",
+          "weaknesses of various"
+        ],
+        "level_2": [
+          "methods and tools for",
+          "assessing prognosis in",
+          "patient populations",
+          "Describes how the",
+          "interplay between multi-",
+          "morbidity, functional",
+          "impairment, and frailty",
+          "affects disease"
+        ],
+        "level_3": [
+          "trajectories",
+          "Applies an individual",
+          "patient’s prognosis and",
+          "“lag time to benefit” as",
+          "part of a framework to",
+          "determine risks and",
+          "benefits of preventative",
+          "and therapeutic"
+        ],
+        "level_4": [
+          "interventions",
+          "Integrates prognosis",
+          "and goals of care into",
+          "shared clinical decision",
+          "making, in collaboration",
+          "with patients, families/",
+          "caregivers, and the",
+          "interdisciplinary team"
+        ],
+        "level_5": [
+          "Incorporates prognosis in",
+          "local and national",
+          "guidelines and",
+          "performance metrics to",
+          "avoid overtreatment and",
+          "undertreatment of",
+          "preventive interventions"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Consultative Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Respectfully responds to",
+          "a consultation request",
+          "and conveys",
+          "recommendations, with",
+          "supervision",
+          "Recognizes consult",
+          "acuity and urgency, with",
+          "supervision",
+          "Identifies and clarifies the"
+        ],
+        "level_2": [
+          "goals of the consultation",
+          "and conveys",
+          "recommendations",
+          "Independently recognizes",
+          "consult acuity and",
+          "urgency",
+          "Seeks and integrates",
+          "input from different",
+          "members of the health"
+        ],
+        "level_3": [
+          "care team and provides",
+          "recommendations to the",
+          "primary team in a clear",
+          "and timely manner",
+          "Prioritizes workflow in",
+          "response to consult acuity",
+          "and urgency",
+          "Provides",
+          "comprehensive and"
+        ],
+        "level_4": [
+          "prioritized",
+          "recommendations,",
+          "including assessment",
+          "and rationale, to all",
+          "necessary health care",
+          "team members",
+          "Mobilizes resources to",
+          "provide care in an",
+          "urgent situation"
+        ],
+        "level_5": [
+          "Leads the health care",
+          "team in the provision of",
+          "effective consultative",
+          "services across the",
+          "spectrum of disease",
+          "complexity and acuity"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Geriatric Syndromes",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists common geriatric",
+          "syndromes",
+          "Recognizes risks and",
+          "predisposing factors in",
+          "the development of",
+          "geriatric syndromes",
+          "Describes the",
+          "pathophysiology of",
+          "geriatric syndromes",
+          "Describes the interplay"
+        ],
+        "level_2": [
+          "between medications, co-",
+          "morbidities,",
+          "socioeconomic factors,",
+          "and geriatric syndromes",
+          "Demonstrates knowledge",
+          "of diagnostic tests and",
+          "tools applicable to",
+          "geriatric syndromes,",
+          "recognizing their utility",
+          "and limitations"
+        ],
+        "level_3": [
+          "Recognizes clinical and",
+          "community resources,",
+          "evidence-based practices,",
+          "and models of care useful",
+          "in the prevention and",
+          "management of geriatric",
+          "syndromes",
+          "Synthesizes risk factors,",
+          "pathophysiology,",
+          "scientific knowledge,"
+        ],
+        "level_4": [
+          "diagnostic testing, and",
+          "patient and caregiver",
+          "factors to prevent and",
+          "manage geriatric",
+          "syndromes",
+          "Communicates and",
+          "works with",
+          "interprofessional teams",
+          "and community",
+          "resources to implement"
+        ],
+        "level_5": [
+          "geriatric syndrome",
+          "prevention and",
+          "management plans",
+          "Advances knowledge",
+          "about the basic science,",
+          "prevention, and clinical",
+          "management of geriatric",
+          "syndromes through",
+          "education, research, or",
+          "other scholarly activity"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Principles of Aging",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes age-related",
+          "changes to organs and",
+          "their system functions",
+          "Describes the",
+          "heterogeneity of aging",
+          "and its relationship to",
+          "sex, socioeconomic"
+        ],
+        "level_2": [
+          "factors, education,",
+          "lifestyle, and disease",
+          "Describes theories of",
+          "aging",
+          "Differentiates between",
+          "normal aging and disease",
+          "Describes how aging"
+        ],
+        "level_3": [
+          "affects the presentation of",
+          "diseases",
+          "Describes how aging",
+          "impacts homeostasis,",
+          "physiologic reserve,",
+          "function, cognition, and",
+          "pharmacology"
+        ],
+        "level_4": [
+          "Applies knowledge of",
+          "the biology and",
+          "physiology of aging to",
+          "promote healthy aging",
+          "Integrates knowledge of",
+          "normal aging into",
+          "disease diagnosis and"
+        ],
+        "level_5": [
+          "treatment",
+          "Advances knowledge of",
+          "the principles of aging",
+          "through education,",
+          "research, or other",
+          "scholarly activity"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_sbp1",
+      "number": 9,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Recognizes health care",
+          "system issues that",
+          "negatively impact the care",
+          "of older adults",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis",
+          "of patient safety events",
+          "and offers error"
+        ],
+        "level_4": [
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives",
+          "at the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_sbp2",
+      "number": 10,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key elements",
+          "of care coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, effectively",
+          "utilizing the roles of the"
+        ],
+        "level_2": [
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates care of",
+          "patients with multi-",
+          "morbidities, effectively",
+          "utilizing the roles of their"
+        ],
+        "level_3": [
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and"
+        ],
+        "level_4": [
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and"
+        ],
+        "level_5": [
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_sbp3",
+      "number": 11,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "continuum of care",
+          "Describes common",
+          "health payment models",
+          "Describes how the",
+          "relationship between the",
+          "health care system,",
+          "community health needs,"
+        ],
+        "level_2": [
+          "and health barriers impact",
+          "patient care",
+          "Delivers care with",
+          "consideration of the",
+          "patient’s health payment",
+          "model",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system"
+        ],
+        "level_3": [
+          "Engages with",
+          "patients/caregivers in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s health payment",
+          "model",
+          "Engages with various",
+          "components of the",
+          "health care system to"
+        ],
+        "level_4": [
+          "provide effective patient",
+          "care",
+          "Advocates for patient",
+          "care needs with",
+          "consideration of each",
+          "patient’s health",
+          "payment model",
+          "Advocates for or leads",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high value,",
+          "efficient, and effective",
+          "patient care",
+          "Participates in health",
+          "policy advocacy activities",
+          "for populations and",
+          "communities, outside of",
+          "the home institution"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_sbp4",
+      "number": 12,
+      "domain_number": 4,
+      "name": "Models and Systems of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies evidence-",
+          "based models of care for",
+          "older adults",
+          "Describes potential"
+        ],
+        "level_2": [
+          "reasons why evidence-",
+          "based models of care",
+          "improve outcomes for",
+          "older adults"
+        ],
+        "level_3": [
+          "Assesses evidence-based",
+          "models of care for",
+          "individual patients",
+          "Applies evidence-based"
+        ],
+        "level_4": [
+          "models of care to",
+          "improve patient care",
+          "Develops systems-based",
+          "initiatives using evidence-"
+        ],
+        "level_5": [
+          "based models of care"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access, categorize, and",
+          "analyze clinical evidence",
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and"
+        ],
+        "level_2": [
+          "values to guide evidence-",
+          "based care",
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to care for"
+        ],
+        "level_3": [
+          "patients",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence, to"
+        ],
+        "level_4": [
+          "guide care tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients, and/or"
+        ],
+        "level_5": [
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "episodically, with",
+          "adaptability and humility",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently, with",
+          "adaptability and humility",
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the"
+        ],
+        "level_5": [
+          "learning plan, and",
+          "improves it when",
+          "necessary",
+          "Consistently role models",
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_prof1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations",
+          "Identifies potential risk",
+          "factors for"
+        ],
+        "level_2": [
+          "professionalism lapses",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations and takes"
+        ],
+        "level_3": [
+          "responsibility for one’s",
+          "own professionalism",
+          "lapses",
+          "Recognizes situations",
+          "that may lead to"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself and others",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_prof2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "ethical principles",
+          "Applies basic principles to",
+          "address straightforward"
+        ],
+        "level_2": [
+          "ethical situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles and identifies",
+          "the need to seek help in"
+        ],
+        "level_3": [
+          "addressing complex",
+          "ethical situations",
+          "Analyzes complex",
+          "situations and engages",
+          "with resources for"
+        ],
+        "level_4": [
+          "managing and",
+          "addressing ethical",
+          "dilemmas as needed",
+          "Identifies and seeks to",
+          "address system-level"
+        ],
+        "level_5": [
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_prof3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs clinical and",
+          "non-clinical",
+          "responsibilities with",
+          "prompting",
+          "Performs clinical and non-"
+        ],
+        "level_2": [
+          "clinical responsibilities in",
+          "a timely manner in routine",
+          "situations",
+          "Performs clinical and non-",
+          "clinical responsibilities in"
+        ],
+        "level_3": [
+          "a timely manner in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure the"
+        ],
+        "level_4": [
+          "needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Creates strategies to",
+          "enhance others’ ability to"
+        ],
+        "level_5": [
+          "efficiently complete",
+          "clinical and non-clinical",
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_prof4",
+      "number": 18,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Identifies methods and",
+          "resources for maintaining",
+          "personal and professional",
+          "well-being"
+        ],
+        "level_3": [
+          "Creates a plan for",
+          "maintaining personal and",
+          "professional well-being",
+          "Reflects on how plans"
+        ],
+        "level_4": [
+          "for maintaining personal",
+          "and professional well-",
+          "being may change over",
+          "time and circumstance"
+        ],
+        "level_5": [
+          "Promotes system",
+          "changes to enhance the",
+          "well-being of others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies barriers to",
+          "effective communication",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship with the",
+          "patient and patient’s",
+          "family/caregiver, using",
+          "active listening and clear",
+          "language",
+          "Recognizes how barriers",
+          "to effective"
+        ],
+        "level_3": [
+          "communication apply to",
+          "specific patients",
+          "Establishes a therapeutic",
+          "relationship in the setting",
+          "of complex patient and",
+          "family/caregiver dynamics",
+          "Recognizes biases and"
+        ],
+        "level_4": [
+          "attitudes affecting",
+          "communication",
+          "Establishes and",
+          "maintains therapeutic",
+          "relationships using",
+          "shared decision making",
+          "Modifies strategies to"
+        ],
+        "level_5": [
+          "minimize barriers to",
+          "effective communication",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to",
+          "develop positive",
+          "therapeutic relationships"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies the role and",
+          "function of",
+          "interdisciplinary team",
+          "members"
+        ],
+        "level_2": [
+          "Solicits insights from and",
+          "uses language that values",
+          "all interdisciplinary team",
+          "members"
+        ],
+        "level_3": [
+          "Integrates contributions",
+          "from interdisciplinary",
+          "team members into the",
+          "care plan"
+        ],
+        "level_4": [
+          "Prevents and mediates",
+          "conflict and distress",
+          "among interdisciplinary",
+          "team members"
+        ],
+        "level_5": [
+          "Promotes a culture of",
+          "open communication and",
+          "effective teamwork within",
+          "the interdisciplinary team"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately documents",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information across the",
+          "continuum of care",
+          "Documents patient"
+        ],
+        "level_2": [
+          "encounters in an",
+          "organized manner",
+          "Facilitates communication",
+          "across the continuum of",
+          "care",
+          "Demonstrates organized",
+          "and timely diagnostic and",
+          "therapeutic reasoning"
+        ],
+        "level_3": [
+          "through notes in the",
+          "patient record",
+          "Appropriately selects the",
+          "method of communication",
+          "based on context",
+          "Concisely reports",
+          "diagnostic and",
+          "therapeutic reasoning,"
+        ],
+        "level_4": [
+          "including anticipatory",
+          "guidance, in the patient",
+          "record",
+          "Demonstrates written or",
+          "verbal communication",
+          "that serves as an",
+          "example for others to",
+          "follow across the"
+        ],
+        "level_5": [
+          "continuum of care",
+          "Provides feedback to",
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__geriatric_medicine_ics4",
+      "number": 22,
+      "domain_number": 4,
+      "name": "Complex Communication around Serious Illness",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies prognosis as a",
+          "key element for shared",
+          "decision making",
+          "Identifies the need to",
+          "assess patient and",
+          "patient family/caregiver",
+          "expectations and",
+          "understanding of their",
+          "health status and",
+          "treatment options",
+          "Assesses the patient’s",
+          "family’s/caregiver’s",
+          "prognostic awareness",
+          "and identifies preferences"
+        ],
+        "level_2": [
+          "for receiving prognostic",
+          "information",
+          "Facilitates communication",
+          "with the patient and the",
+          "patient’s family/caregiver",
+          "by setting the agenda,",
+          "clarifying expectations,",
+          "and verifying an",
+          "understanding of the",
+          "clinical situation",
+          "Delivers prognosis and",
+          "attends to emotional",
+          "responses of patients and",
+          "patients’"
+        ],
+        "level_3": [
+          "families/caregivers",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information;",
+          "elicits the patient’s and",
+          "the patient’s",
+          "family’s/caregiver’s",
+          "values, goals, and",
+          "preferences; and",
+          "acknowledges uncertainty",
+          "and conflict, with",
+          "guidance",
+          "Tailors communication",
+          "of prognosis according"
+        ],
+        "level_4": [
+          "to patient consent,",
+          "patient’s",
+          "family’s/caregiver’s",
+          "needs, and medical",
+          "uncertainty, and is able",
+          "to address emotional",
+          "responses",
+          "Independently uses",
+          "shared decision making",
+          "to align the patient’s",
+          "and the patient’s",
+          "family’s/caregiver’s",
+          "values, goals, and",
+          "preferences with"
+        ],
+        "level_5": [
+          "treatment options to",
+          "make a personalized",
+          "care plan in situations",
+          "with a high degree of",
+          "uncertainty and conflict",
+          "Coaches others in the",
+          "communication of",
+          "prognosis",
+          "Coaches shared decision",
+          "making in patient and",
+          "patient’s family/caregiver",
+          "communications"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "internal-medicine",
+  "primary_name": "Internal Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinemilestonesmilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/geriatricmedicinesupplementalguide.pdf"
+  }
+}

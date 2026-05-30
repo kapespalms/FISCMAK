@@ -1,0 +1,1286 @@
+{
+  "framework_key": "neurology--neurocritical-care",
+  "specialty": "Neurocritical Care",
+  "version": "2.0",
+  "source": "ACGME Neurocritical Care Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "neurology__neurocritical_care_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History and Physical Examination",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains specialty-",
+          "specific, detailed, and",
+          "accurate history from",
+          "patients with common",
+          "disorders, with",
+          "substantial guidance",
+          "Performs a specialty-",
+          "specific, detailed, and",
+          "accurate physical exam",
+          "on patients with common",
+          "disorders, with",
+          "substantial guidance",
+          "Obtains specialty-specific,"
+        ],
+        "level_2": [
+          "detailed, and accurate",
+          "history from patients with",
+          "common disorders",
+          "Performs a specialty-",
+          "specific, detailed, and",
+          "accurate physical exam",
+          "on patients with common",
+          "disorders",
+          "Obtains specialty-specific,",
+          "detailed, and accurate",
+          "history from multiple",
+          "sources for patients with",
+          "complex disorders"
+        ],
+        "level_3": [
+          "Elicits specialty-specific",
+          "signs while performing a",
+          "detailed and accurate",
+          "physical exam on patients",
+          "with complex disorders",
+          "Independently and",
+          "efficiently obtains a",
+          "specialty-specific,",
+          "detailed, and accurate",
+          "history from multiple",
+          "sources for patients with",
+          "complex disorders",
+          "Independently and"
+        ],
+        "level_4": [
+          "efficiently elicits",
+          "specialty-specific signs",
+          "while performing a",
+          "detailed and accurate",
+          "physical exam on",
+          "patients with complex",
+          "disorders",
+          "Serves as role model in",
+          "obtaining an efficient",
+          "specialty-specific,",
+          "detailed, and accurate",
+          "history from multiple",
+          "sources for patients with"
+        ],
+        "level_5": [
+          "complex disorders",
+          "Independently elicits",
+          "specialty-specific signs",
+          "while performing a",
+          "detailed and accurate",
+          "physical exam on patients",
+          "with complex or rare",
+          "disorders in clinically",
+          "difficult circumstances"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "General Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes clinical",
+          "conditions that",
+          "necessitate escalation to",
+          "critical care",
+          "Identifies the long-term",
+          "consequences of critical",
+          "illness, with substantial",
+          "guidance",
+          "Manages unstable"
+        ],
+        "level_2": [
+          "patients with single-",
+          "system disease",
+          "Identifies the long-term",
+          "consequences of critical",
+          "illness, with minimal",
+          "guidance",
+          "Manages unstable",
+          "patients with multisystem",
+          "disease"
+        ],
+        "level_3": [
+          "Anticipates long-term",
+          "consequences of critical",
+          "illness",
+          "Independently manages",
+          "unstable patients with",
+          "multisystem disease",
+          "and coordinates",
+          "interdisciplinary care",
+          "plans"
+        ],
+        "level_4": [
+          "Anticipates and acts",
+          "independently to",
+          "minimize the long-term",
+          "consequences of critical",
+          "illness",
+          "Serves as a role model",
+          "for managing unstable",
+          "patients with multisystem",
+          "disease and coordinating"
+        ],
+        "level_5": [
+          "interdisciplinary care",
+          "plans",
+          "Independently leads and",
+          "directs transition to post-",
+          "intensive care unit care"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Neurocritical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Manages neurologically",
+          "unstable patients",
+          "requiring a higher",
+          "intensity of care, with",
+          "substantial guidance",
+          "Provides neurocritical",
+          "care consultation, with",
+          "substantial guidance",
+          "Manages neurologically",
+          "unstable patients with"
+        ],
+        "level_2": [
+          "single-system disease",
+          "Provides neurocritical",
+          "care consultation for",
+          "patients with single-",
+          "system disease",
+          "Manages neurologically",
+          "unstable patients with",
+          "multisystem disease",
+          "Provides neurocritical",
+          "care consultation for"
+        ],
+        "level_3": [
+          "patients with multisystem",
+          "disease",
+          "Independently manages",
+          "neurologically unstable",
+          "patients with",
+          "multisystem disease",
+          "and coordinates",
+          "interdisciplinary care",
+          "plans",
+          "Independently provides"
+        ],
+        "level_4": [
+          "comprehensive",
+          "neurocritical care",
+          "consultation for patients",
+          "with complex",
+          "multisystem disease",
+          "Serves as a role model",
+          "for managing unstable",
+          "neurological patients with",
+          "multisystem disease and",
+          "coordinating"
+        ],
+        "level_5": [
+          "interdisciplinary care",
+          "plans",
+          "Serves as a role model",
+          "for providing",
+          "comprehensive",
+          "neurocritical care",
+          "consultation for patients",
+          "with complex multisystem",
+          "disease"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Diagnostic Evaluation (General)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes indications for",
+          "radiographic, laboratory,",
+          "and bedside diagnostic",
+          "procedures",
+          "Selects radiographic,"
+        ],
+        "level_2": [
+          "laboratory, and bedside",
+          "diagnostic procedures",
+          "Independently interprets",
+          "and integrates results of",
+          "radiographic, laboratory,"
+        ],
+        "level_3": [
+          "and bedside diagnostic",
+          "procedures into the",
+          "patient care plan",
+          "Independently",
+          "reconciles divergent"
+        ],
+        "level_4": [
+          "data from multiple",
+          "diagnostic modalities",
+          "Designs and implements",
+          "a clinical pathway for",
+          "utilizing diagnostic"
+        ],
+        "level_5": [
+          "evaluation tools"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Neurodiagnostic Evaluation (Neuromonitoring, Neuroimaging, etc.)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes indications for",
+          "neurodiagnostic",
+          "procedures",
+          "Selects neurodiagnostic"
+        ],
+        "level_2": [
+          "procedures",
+          "Independently interprets",
+          "and integrates the results",
+          "of neurodiagnostic"
+        ],
+        "level_3": [
+          "procedures into the",
+          "patient care plan",
+          "Independently",
+          "reconciles divergent"
+        ],
+        "level_4": [
+          "data from multiple",
+          "neurodiagnostic",
+          "modalities",
+          "Designs and implements"
+        ],
+        "level_5": [
+          "a clinical pathway for",
+          "utilizing neurodiagnostic",
+          "evaluation tools"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Assists in",
+          "performing common",
+          "intensive care unit (ICU)",
+          "procedures and",
+          "recognizes complications"
+        ],
+        "level_2": [
+          "Performs common and",
+          "assists with advanced",
+          "ICU procedures",
+          "Performs advanced ICU",
+          "procedures and"
+        ],
+        "level_3": [
+          "troubleshoots common",
+          "complications",
+          "Performs common and",
+          "advanced ICU",
+          "procedures and"
+        ],
+        "level_4": [
+          "troubleshoots complex",
+          "complications in",
+          "patients with complex",
+          "multisystem illness",
+          "Serves as a role model"
+        ],
+        "level_5": [
+          "for performing difficult",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_mk1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Prognosis in Critical Care Conditions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes clinical",
+          "course and natural",
+          "history, including",
+          "prognosis of common",
+          "critical care conditions",
+          "Identifies clinical"
+        ],
+        "level_2": [
+          "course for patients",
+          "with complex critical care",
+          "conditions, including",
+          "prognostic uncertainty",
+          "Formulates anticipated",
+          "clinical course for patients"
+        ],
+        "level_3": [
+          "with complex critical care",
+          "conditions by integrating",
+          "prognostic factors, tools,",
+          "and models",
+          "Facilitates",
+          "consensus of prognosis"
+        ],
+        "level_4": [
+          "for patients",
+          "with complex critical",
+          "care conditions in",
+          "collaboration with other",
+          "care providers",
+          "Advances knowledge of"
+        ],
+        "level_5": [
+          "application of tools",
+          "for prognostication in",
+          "complex critical care",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_mk2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Pathophysiology and Therapeutics for General Critical Care",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for common"
+        ],
+        "level_2": [
+          "diseases",
+          "Applies knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for common"
+        ],
+        "level_3": [
+          "diseases",
+          "Demonstrates knowledge",
+          "of pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for complex"
+        ],
+        "level_4": [
+          "diseases",
+          "Applies knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for"
+        ],
+        "level_5": [
+          "complex diseases",
+          "Advances knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_mk3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "Pathophysiology and Therapeutics for Neurocritical Care",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for common",
+          "neurocritical care"
+        ],
+        "level_2": [
+          "diseases",
+          "Applies knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for common",
+          "neurocritical care"
+        ],
+        "level_3": [
+          "diseases",
+          "Demonstrates knowledge",
+          "of pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for complex",
+          "neurocritical care"
+        ],
+        "level_4": [
+          "diseases",
+          "Applies knowledge of",
+          "pathophysiology,",
+          "pharmacology, and",
+          "therapeutics for",
+          "complex neurocritical"
+        ],
+        "level_5": [
+          "care diseases",
+          "Performs research on the",
+          "pathophysiology,",
+          "pharmacology, or",
+          "therapeutics for",
+          "neurocritical care disease"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_mk4",
+      "number": 10,
+      "domain_number": 4,
+      "name": "Determination of Death by Neurologic Criteria",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists the components for",
+          "determining death by",
+          "neurologic criteria and",
+          "performs bedside",
+          "neurologic maneuvers"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of medical and legal",
+          "significance of death by",
+          "neurologic criteria",
+          "Accurately performs"
+        ],
+        "level_3": [
+          "determination of death by",
+          "neurologic criteria",
+          "Describes supplemental",
+          "testing used to",
+          "determine death by"
+        ],
+        "level_4": [
+          "neurologic criteria",
+          "Educates others in the",
+          "determination of death by",
+          "neurologic criteria,",
+          "including appropriate use"
+        ],
+        "level_5": [
+          "of supplemental testing,",
+          "as well as controversies"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of commonly",
+          "reported patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety"
+        ],
+        "level_2": [
+          "events",
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting"
+        ],
+        "level_3": [
+          "systems",
+          "Participates in analysis of",
+          "patient safety events",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and patients’",
+          "families"
+        ],
+        "level_4": [
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "Discloses patient safety",
+          "events to patients and",
+          "patients’ families"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in local",
+          "quality improvement"
+        ],
+        "level_3": [
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,"
+        ],
+        "level_4": [
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations effectively using",
+          "the roles of",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for the local population",
+          "and community"
+        ],
+        "level_3": [
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Supervises transitions of",
+          "care by other team",
+          "members",
+          "Effectively uses local",
+          "resources to meet the",
+          "needs of a patient",
+          "population and"
+        ],
+        "level_4": [
+          "community",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Adapts practice to",
+          "provide for the needs of"
+        ],
+        "level_5": [
+          "specific populations",
+          "Develops projects to",
+          "improve quality of",
+          "transitions of care into",
+          "and out of the",
+          "neurocritical care setting",
+          "to optimize patient",
+          "outcomes",
+          "Leads innovations in",
+          "adapting practice and",
+          "systems for populations",
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_sbp4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health",
+          "care delivery systems",
+          "Describes how",
+          "components of a complex",
+          "health care delivery"
+        ],
+        "level_2": [
+          "system are interrelated,",
+          "and how this impacts",
+          "patient care",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance"
+        ],
+        "level_4": [
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pbli1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence and",
+          "incorporate patient",
+          "preferences and values",
+          "to the care of a routine",
+          "patient"
+        ],
+        "level_2": [
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care",
+          "Locates and applies the",
+          "best available evidence,"
+        ],
+        "level_3": [
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty, and"
+        ],
+        "level_4": [
+          "interprets conflicting",
+          "evidence to guide care",
+          "tailored to the individual",
+          "patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_pbli2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates an",
+          "openness to",
+          "performance data",
+          "(feedback and other",
+          "input)",
+          "Demonstrates an",
+          "openness to performance",
+          "data and uses it to",
+          "develop personal and"
+        ],
+        "level_2": [
+          "professional goals",
+          "Identifies the factors that",
+          "contribute to the gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Seeks and",
+          "accepts performance data",
+          "for developing personal",
+          "and professional goals"
+        ],
+        "level_3": [
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Using performance",
+          "data, continually",
+          "improves and measures",
+          "the effectiveness of"
+        ],
+        "level_4": [
+          "one’s personal and",
+          "professional goals",
+          "Analyzes, reflects on,",
+          "and institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Acts as a role model for"
+        ],
+        "level_5": [
+          "the development of",
+          "personal and professional",
+          "goals",
+          "Coaches others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_prof1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles related to",
+          "patient care",
+          "Demonstrates insight into"
+        ],
+        "level_2": [
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility for",
+          "personal lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Intervenes to prevent",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "in oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "Coaches others when",
+          "their behavior fails to"
+        ],
+        "level_5": [
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_prof2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to"
+        ],
+        "level_2": [
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete"
+        ],
+        "level_3": [
+          "tasks and responsibilities",
+          "in a timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure that"
+        ],
+        "level_4": [
+          "the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Recognizes situations in",
+          "which one’s own",
+          "behavior may impact",
+          "others’ ability to",
+          "complete tasks and",
+          "responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Develops or implements",
+          "strategies to improve",
+          "system-wide problems to",
+          "improve ability for oneself",
+          "and others to complete",
+          "tasks and responsibilities",
+          "in a timely fashion"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_prof3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes importance",
+          "of personal and",
+          "professional well-being",
+          "Independently recognizes",
+          "status of personal and"
+        ],
+        "level_2": [
+          "professional well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being"
+        ],
+        "level_3": [
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Coaches others when"
+        ],
+        "level_4": [
+          "emotional responses,",
+          "behaviors, or",
+          "interpersonal interactions",
+          "raise concerns about",
+          "personal and professional"
+        ],
+        "level_5": [
+          "well-being"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies the need to",
+          "individualize",
+          "communication",
+          "strategies based on the",
+          "patient’s/patient’s",
+          "family’s expectations and",
+          "understanding",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Communicates",
+          "compassionately with the",
+          "patient/patient’s family to",
+          "clarify expectations and",
+          "verify understanding of",
+          "the clinical situation",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship in challenging",
+          "patient encounters",
+          "Communicates medical",
+          "information in the context",
+          "of the patient’s/patient’s",
+          "family’s values,",
+          "uncertainty, and conflict",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with",
+          "attention to the",
+          "patient’s/patient’s"
+        ],
+        "level_4": [
+          "family’s concerns and",
+          "context, regardless of",
+          "complexity",
+          "Uses shared decision",
+          "making to align the",
+          "patient’s/patient’s",
+          "family’s values, goals,",
+          "and preferences with",
+          "treatment options",
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to"
+        ],
+        "level_5": [
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models shared",
+          "decision making in the",
+          "context of the",
+          "patient’s/patient’s family’s",
+          "values, uncertainty, and",
+          "conflict"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Barrier and Bias Mitigation",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "patient care and has",
+          "knowledge regarding"
+        ],
+        "level_2": [
+          "common biases",
+          "Identifies complex",
+          "barriers to effective",
+          "patient care"
+        ],
+        "level_3": [
+          "Recognizes biases and",
+          "mitigates barriers to",
+          "optimize patient care,",
+          "when prompted"
+        ],
+        "level_4": [
+          "Recognizes biases and",
+          "proactively mitigates",
+          "barriers to optimize",
+          "patient care"
+        ],
+        "level_5": [
+          "Mentors others on",
+          "recognition of bias and",
+          "mitigation of barriers to",
+          "optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Complex Communication around Serious Illness",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies prognostic",
+          "communication as a key",
+          "element for shared",
+          "decision-making",
+          "Assesses a patient’s",
+          "family’s/caregiver’s"
+        ],
+        "level_2": [
+          "prognostic awareness",
+          "and identifies preferences",
+          "for receiving prognostic",
+          "information",
+          "Delivers basic prognostic",
+          "information and attends to"
+        ],
+        "level_3": [
+          "emotional responses of a",
+          "patient and patient’s",
+          "family/caregiver(s)",
+          "Tailors communication",
+          "of prognosis according",
+          "to disease"
+        ],
+        "level_4": [
+          "characteristics and",
+          "trajectory, patient",
+          "consent/preference,",
+          "patient’s family’s needs,",
+          "and medical",
+          "uncertainty, and is able"
+        ],
+        "level_5": [
+          "to address intense",
+          "emotional response",
+          "Coaches others in the",
+          "communication of",
+          "prognostic information"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_ics4",
+      "number": 23,
+      "domain_number": 4,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "reflects the values all",
+          "members of the health",
+          "care team",
+          "Receives feedback in a",
+          "respectful manner",
+          "Communicates",
+          "information effectively"
+        ],
+        "level_2": [
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Engages in active",
+          "listening to adapt to the"
+        ],
+        "level_3": [
+          "communication styles of",
+          "the team",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Uses effective",
+          "communication to lead",
+          "or manage health care"
+        ],
+        "level_4": [
+          "teams",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Acts as a role model for",
+          "communication skills",
+          "necessary to lead or"
+        ],
+        "level_5": [
+          "manage health care",
+          "teams",
+          "In complex situations,",
+          "facilitates regular health",
+          "care team-based",
+          "feedback"
+        ]
+      }
+    },
+    {
+      "id": "neurology__neurocritical_care_ics5",
+      "number": 24,
+      "domain_number": 5,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Documents accurate and",
+          "up-to-date patient",
+          "information",
+          "Communicates in a way",
+          "that safeguards patient",
+          "information"
+        ],
+        "level_2": [
+          "Demonstrates diagnostic",
+          "reasoning through",
+          "organized and timely",
+          "notes",
+          "Communicates through",
+          "appropriate channels as"
+        ],
+        "level_3": [
+          "required by institutional",
+          "policy",
+          "Communicates diagnostic",
+          "and therapeutic reasoning",
+          "in a clear manner",
+          "Selects optimal mode of"
+        ],
+        "level_4": [
+          "communication based on",
+          "clinical context",
+          "Demonstrates concise,",
+          "organized written and",
+          "verbal communication,",
+          "including anticipatory"
+        ],
+        "level_5": [
+          "guidance",
+          "Guides departmental or",
+          "institutional",
+          "communication policies",
+          "and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "neurology",
+  "primary_name": "Neurology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurocriticalcaremilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurocriticalcaresupplementalguide.pdf"
+  }
+}

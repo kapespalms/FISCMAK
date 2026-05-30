@@ -1,0 +1,1372 @@
+{
+  "framework_key": "psychiatry--neurology",
+  "specialty": "Neurology",
+  "version": "2.0",
+  "source": "ACGME Neurology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "psychiatry__neurology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "History",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains a basic",
+          "neurologic history",
+          "Obtains a complete and",
+          "relevant neurologic"
+        ],
+        "level_2": [
+          "history",
+          "Obtains an organized",
+          "neurologic history,",
+          "including collateral"
+        ],
+        "level_3": [
+          "information as appropriate",
+          "Efficiently obtains an",
+          "organized hypothesis-",
+          "driven neurologic"
+        ],
+        "level_4": [
+          "history",
+          "Serves as a role model in",
+          "obtaining a hypothesis-",
+          "driven neurologic history"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Neurologic Exam",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs some",
+          "components of a",
+          "neurologic exam",
+          "Performs a standard"
+        ],
+        "level_2": [
+          "neurologic exam",
+          "accurately",
+          "Performs a relevant",
+          "neurologic exam"
+        ],
+        "level_3": [
+          "incorporating additional",
+          "appropriate maneuvers",
+          "Performs a hypothesis-",
+          "driven neurologic exam"
+        ],
+        "level_4": [
+          "Serves as a role model",
+          "for performing a",
+          "hypothesis-driven,",
+          "complete, relevant, and"
+        ],
+        "level_5": [
+          "organized neurologic",
+          "exam"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Formulation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Summarizes history and",
+          "exam findings",
+          "Generates a broad",
+          "differential diagnosis"
+        ],
+        "level_2": [
+          "based on history, exam,",
+          "and localization",
+          "Synthesizes relevant",
+          "information to focus and"
+        ],
+        "level_3": [
+          "prioritize diagnostic",
+          "possibilities",
+          "Continuously",
+          "reconsiders diagnosis in"
+        ],
+        "level_4": [
+          "response to changes in",
+          "clinical circumstances",
+          "and available data",
+          "Serves as a role model"
+        ],
+        "level_5": [
+          "for clinical reasoning by",
+          "demonstrating",
+          "sophisticated formulation",
+          "in complex presentations"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Diagnosis and Management of Neurologic Disorders in the Outpatient Setting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies typical",
+          "presentations of",
+          "commonly encountered",
+          "neurologic conditions",
+          "Diagnoses commonly",
+          "encountered neurologic",
+          "conditions",
+          "Develops an initial"
+        ],
+        "level_2": [
+          "treatment plan for",
+          "commonly encountered",
+          "neurologic disorders",
+          "Identifies atypical",
+          "presentations of",
+          "commonly encountered",
+          "neurologic conditions",
+          "Individualizes"
+        ],
+        "level_3": [
+          "management and follow-",
+          "up plan for commonly",
+          "encountered neurologic",
+          "disorders, considering",
+          "risks, benefits, and non-",
+          "pharmacologic strategies",
+          "Diagnoses uncommon",
+          "neurologic conditions"
+        ],
+        "level_4": [
+          "Adapts management",
+          "plan based upon patient",
+          "response and",
+          "complications of",
+          "therapy; identifies when",
+          "to change acuity of care",
+          "Identifies atypical",
+          "presentations of"
+        ],
+        "level_5": [
+          "uncommon neurologic",
+          "conditions",
+          "Longitudinally manages",
+          "uncommon neurologic",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Diagnosis and Management of Neurologic Disorders in the Inpatient Setting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies typical",
+          "presentations of",
+          "commonly encountered",
+          "neurologic conditions",
+          "Diagnoses commonly",
+          "encountered neurologic",
+          "conditions",
+          "Develops an initial"
+        ],
+        "level_2": [
+          "treatment plan for",
+          "commonly encountered",
+          "neurologic disorders",
+          "Identifies atypical",
+          "presentations of",
+          "commonly encountered",
+          "neurologic conditions",
+          "Individualizes"
+        ],
+        "level_3": [
+          "management plan,",
+          "ensuring the appropriate",
+          "level of care throughout",
+          "hospitalization and upon",
+          "discharge",
+          "Diagnoses uncommon",
+          "neurologic conditions",
+          "Adapts management"
+        ],
+        "level_4": [
+          "plan based upon",
+          "treatment response,",
+          "disease progression,",
+          "and complications of",
+          "therapy",
+          "Identifies atypical",
+          "presentations of",
+          "uncommon neurologic"
+        ],
+        "level_5": [
+          "conditions",
+          "Leads the management of",
+          "patients with complex and",
+          "uncommon neurologic",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Diagnosis and Management of Neurologic Emergencies",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the typical",
+          "presentation of",
+          "neurologic emergencies",
+          "Seeks assistance and",
+          "conveys pertinent details",
+          "during a neurologic"
+        ],
+        "level_2": [
+          "emergency",
+          "Recognizes when a",
+          "patient’s presentation is a",
+          "neurologic emergency",
+          "Initiates management for",
+          "a neurologic emergency"
+        ],
+        "level_3": [
+          "Diagnoses neurologic",
+          "emergencies, using",
+          "appropriate diagnostic",
+          "testing",
+          "Manages patients with",
+          "common neurologic"
+        ],
+        "level_4": [
+          "emergencies",
+          "Re-appraises diagnostic",
+          "considerations based",
+          "on treatment response,",
+          "disease progression,",
+          "and complications of"
+        ],
+        "level_5": [
+          "therapy",
+          "Manages complex",
+          "neurologic emergencies",
+          "Serves as a role model",
+          "for management of",
+          "neurologic emergencies"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Determination of Death by Neurologic Criteria",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of medical",
+          "and legal significance of",
+          "death by neurologic",
+          "criteria"
+        ],
+        "level_2": [
+          "Lists the components for",
+          "determining death by",
+          "neurologic criteria",
+          "Describes supplemental",
+          "testing used to determine"
+        ],
+        "level_3": [
+          "death by neurologic",
+          "criteria",
+          "Accurately performs",
+          "determination of death",
+          "by neurologic criteria"
+        ],
+        "level_4": [
+          "Educates others in the",
+          "determination of death by",
+          "neurologic criteria,",
+          "including appropriate use",
+          "of supplemental testing,"
+        ],
+        "level_5": [
+          "as well as controversies"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc8",
+      "number": 8,
+      "domain_number": 8,
+      "name": "Interpretation of Neuroimaging",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies basic",
+          "neuroanatomy on brain",
+          "and vascular anatomy of",
+          "the head and neck",
+          "magnetic resonance",
+          "(MR) and computed"
+        ],
+        "level_2": [
+          "tomography (CT)",
+          "Identifies major",
+          "abnormalities of the brain",
+          "and cerebrovascular",
+          "system on MR and CT",
+          "Identifies basic anatomy"
+        ],
+        "level_3": [
+          "of the spine and spinal",
+          "cord on MR and CT",
+          "Interprets typical",
+          "abnormalities of the brain",
+          "and cerebrovascular",
+          "system on MR and CT"
+        ],
+        "level_4": [
+          "Identifies abnormalities of",
+          "the spine and spinal cord",
+          "on MR and CT",
+          "Interprets subtle",
+          "abnormalities of brain",
+          "and cerebrovascular"
+        ],
+        "level_5": [
+          "system on MR and CT",
+          "Interprets MR and CT of",
+          "the spine",
+          "Interprets advanced",
+          "neuroimaging"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc9",
+      "number": 9,
+      "domain_number": 9,
+      "name": "Electroencephalogram (EEG)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patients for",
+          "whom EEG is",
+          "appropriate",
+          "Recognizes normal EEG"
+        ],
+        "level_2": [
+          "features, including",
+          "common artifacts, in",
+          "children and adults",
+          "Recognizes patterns of"
+        ],
+        "level_3": [
+          "status epilepticus, normal",
+          "EEG variants, and",
+          "common abnormalities in",
+          "children and adults"
+        ],
+        "level_4": [
+          "Interprets common EEG",
+          "abnormalities and",
+          "patterns that could",
+          "represent status"
+        ],
+        "level_5": [
+          "epilepticus",
+          "Interprets uncommon",
+          "EEG abnormalities and",
+          "creates a report"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc10",
+      "number": 10,
+      "domain_number": 10,
+      "name": "Nerve Conduction Study/Electromyogram (NCS/EMG)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patients for",
+          "whom NCS/EMG is",
+          "appropriate",
+          "Identifies NCS/EMG"
+        ],
+        "level_2": [
+          "findings for common",
+          "disorders",
+          "Correlates NCS/EMG",
+          "results to patient"
+        ],
+        "level_3": [
+          "presentation, including",
+          "identification of potential",
+          "study limitations",
+          "Formulates basic"
+        ],
+        "level_4": [
+          "NCS/EMG plan and",
+          "interprets data for",
+          "common clinical",
+          "presentations"
+        ],
+        "level_5": [
+          "Performs, interprets, and",
+          "creates a report for",
+          "NCS/EMG"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc11",
+      "number": 11,
+      "domain_number": 11,
+      "name": "Lumbar Puncture",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists the indications,",
+          "contraindications, and",
+          "complications for lumbar",
+          "puncture"
+        ],
+        "level_2": [
+          "Performs lumbar puncture",
+          "under direct supervision",
+          "Performs lumbar puncture",
+          "without direct supervision"
+        ],
+        "level_3": [
+          "and manages",
+          "complications",
+          "Performs lumbar",
+          "puncture on patients"
+        ],
+        "level_4": [
+          "with challenging",
+          "anatomy",
+          "Performs lumbar puncture",
+          "using image guidance"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pc12",
+      "number": 12,
+      "domain_number": 12,
+      "name": "Psychiatric and Functional Aspects of Neurology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes contributions",
+          "of common psychiatric",
+          "disorders and their",
+          "treatment to neurologic",
+          "diseases",
+          "Develops a treatment"
+        ],
+        "level_2": [
+          "plan that considers",
+          "psychiatric comorbidities",
+          "and side effects of",
+          "psychiatric medications",
+          "Accurately differentiates",
+          "psychiatric or functional"
+        ],
+        "level_3": [
+          "contributions to",
+          "neurologic symptoms",
+          "Leads a discussion with",
+          "a patient and/or",
+          "caregiver that explains",
+          "the psychiatric or"
+        ],
+        "level_4": [
+          "functional contribution",
+          "to the patient’s",
+          "neurologic symptoms",
+          "Develops a shared",
+          "management plan that",
+          "addresses the psychiatric"
+        ],
+        "level_5": [
+          "or functional contribution",
+          "to neurologic symptoms"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_mk1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Localization",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes the role of",
+          "localization in neurologic",
+          "diagnosis",
+          "Localizes lesions to"
+        ],
+        "level_2": [
+          "general regions of the",
+          "nervous system",
+          "Localizes lesions to",
+          "specific regions of the"
+        ],
+        "level_3": [
+          "nervous system",
+          "Localizes lesions to",
+          "discrete structures of",
+          "the nervous system"
+        ],
+        "level_4": [
+          "Consistently",
+          "demonstrates",
+          "sophisticated and detailed",
+          "knowledge of"
+        ],
+        "level_5": [
+          "neuroanatomy in",
+          "localizing lesions"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_mk2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Diagnostic Investigation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses a general",
+          "diagnostic approach",
+          "appropriate to clinical",
+          "presentation"
+        ],
+        "level_2": [
+          "Lists indications,",
+          "contraindications, risks,",
+          "and benefits of diagnostic",
+          "testing"
+        ],
+        "level_3": [
+          "Prioritizes and interprets",
+          "diagnostic tests",
+          "appropriate to clinical",
+          "urgency and complexity"
+        ],
+        "level_4": [
+          "Uses complex",
+          "diagnostic approaches",
+          "in uncommon situations",
+          "Demonstrates"
+        ],
+        "level_5": [
+          "sophisticated knowledge",
+          "of diagnostic testing and",
+          "controversies"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_sbp1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of commonly",
+          "reported patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety"
+        ],
+        "level_2": [
+          "events",
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting"
+        ],
+        "level_3": [
+          "systems",
+          "Participates in analysis of",
+          "patient safety events",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and patients’",
+          "families"
+        ],
+        "level_4": [
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "Discloses patient safety",
+          "events to patients and",
+          "patients’ families"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_sbp2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_sbp3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations effectively using",
+          "the roles of the",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for the local population",
+          "and community"
+        ],
+        "level_3": [
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively using the roles",
+          "of the interprofessional",
+          "team members",
+          "Supervises transitions of",
+          "care by other team",
+          "members",
+          "Effectively uses local",
+          "resources to meet the",
+          "needs of a patient",
+          "population and"
+        ],
+        "level_4": [
+          "community",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings"
+        ],
+        "level_5": [
+          "Adapts practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations in",
+          "adapting practice and",
+          "systems for populations",
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_sbp4",
+      "number": 18,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Describes basic health",
+          "care payment systems,",
+          "(e.g., government,",
+          "private, public,",
+          "uninsured care) and",
+          "practice models",
+          "Identifies basic",
+          "knowledge domains for",
+          "effective transition to",
+          "practice (e.g.,",
+          "information technology,"
+        ],
+        "level_2": [
+          "legal, billing and coding,",
+          "financial, personnel)",
+          "Delivers patient-centered",
+          "care, considering the",
+          "patient’s economic",
+          "constraints",
+          "Demonstrates use of",
+          "information technology",
+          "required for medical",
+          "practice (e.g., electronic",
+          "health record,"
+        ],
+        "level_3": [
+          "documentation required",
+          "for billing and coding)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Consistently",
+          "demonstrates timely and",
+          "accurate documentation,",
+          "including coding and",
+          "billing requirements"
+        ],
+        "level_4": [
+          "Uses available",
+          "resources to promote",
+          "optimal patient care",
+          "(e.g., community",
+          "resources, patient",
+          "assistance resources)",
+          "considering each",
+          "patient’s payment",
+          "model",
+          "Implements changes in",
+          "individual practice"
+        ],
+        "level_5": [
+          "patterns in response to",
+          "professional",
+          "requirements and in",
+          "preparation for practice",
+          "Advocates for systems",
+          "change that enhances",
+          "high-value, efficient, and",
+          "effective patient care",
+          "Educates others to",
+          "prepare them for",
+          "transition to practice"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pbli1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence, and to",
+          "incorporate patient",
+          "preferences and values",
+          "to care for a routine",
+          "patient"
+        ],
+        "level_2": [
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care",
+          "Locates and applies the",
+          "best available evidence,"
+        ],
+        "level_3": [
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of",
+          "uncertainty, and"
+        ],
+        "level_4": [
+          "interprets conflicting",
+          "evidence to guide care,",
+          "tailored to the individual",
+          "patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_pbli2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "sporadically, with",
+          "adaptability and humility",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Seeks performance",
+          "data consistently"
+        ],
+        "level_4": [
+          "Challenges",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan, and,",
+          "when necessary,",
+          "improves it"
+        ],
+        "level_5": [
+          "Role models seeking",
+          "performance data, with",
+          "adaptability and humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_prof1",
+      "number": 21,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to report",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles related to",
+          "patient care"
+        ],
+        "level_2": [
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Intervenes to prevent",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "in oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "Coaches others when",
+          "their behavior fails to"
+        ],
+        "level_5": [
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_prof2",
+      "number": 22,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to"
+        ],
+        "level_2": [
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Proactively implements",
+          "strategies to ensure that"
+        ],
+        "level_4": [
+          "the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Recognizes situations in",
+          "which one’s own",
+          "behavior may impact",
+          "others’ ability to",
+          "complete tasks and",
+          "responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Develops or implements",
+          "strategies to improve",
+          "system-wide problems to",
+          "improve ability for oneself",
+          "and others to complete",
+          "tasks and responsibilities",
+          "in a timely fashion"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_prof3",
+      "number": 23,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes sense of",
+          "personal and",
+          "professional well-being,",
+          "with assistance"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "With assistance,"
+        ],
+        "level_3": [
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "emotional responses or",
+          "limitations in knowledge/",
+          "skills do not meet",
+          "professional expectations"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_ics1",
+      "number": 24,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies the need to",
+          "individualize",
+          "communication",
+          "strategies based on the",
+          "patient’s/patient’s",
+          "family’s expectations and",
+          "understanding",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Communicates",
+          "compassionately with the",
+          "patient/patient’s family to",
+          "clarify expectations and",
+          "verify understanding of",
+          "the clinical situation",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship",
+          "in challenging patient",
+          "encounters",
+          "Communicates medical",
+          "information in the context",
+          "of the patient’s/patient’s",
+          "family’s values,",
+          "uncertainty and conflict",
+          "Easily establishes",
+          "therapeutic",
+          "relationships, with",
+          "attention to the"
+        ],
+        "level_4": [
+          "patient’s/patient’s",
+          "family’s concerns and",
+          "context, regardless of",
+          "complexity",
+          "Uses shared decision",
+          "making to align the",
+          "patient’s/patient’s",
+          "family’s values, goals,",
+          "and preferences with",
+          "treatment options",
+          "Mentors others in",
+          "situational awareness and"
+        ],
+        "level_5": [
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models shared",
+          "decision making in the",
+          "context of the",
+          "patient’s/patient’s family’s",
+          "values, uncertainty and",
+          "conflict"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_ics2",
+      "number": 25,
+      "domain_number": 2,
+      "name": "Barrier and Bias Mitigation",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "patient care (e.g.,",
+          "language, disability)"
+        ],
+        "level_2": [
+          "Identifies complex",
+          "barriers to effective",
+          "patient care (e.g., health",
+          "literacy)"
+        ],
+        "level_3": [
+          "Recognizes biases and",
+          "mitigates barriers to",
+          "optimize patient care,",
+          "when prompted"
+        ],
+        "level_4": [
+          "Recognizes biases and",
+          "proactively mitigates",
+          "barriers to optimize",
+          "patient care"
+        ],
+        "level_5": [
+          "Mentors others on",
+          "recognition of bias and",
+          "mitigation of barriers to",
+          "optimize patient care"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_ics3",
+      "number": 26,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation",
+          "Recognizes the role of a",
+          "neurology consultant",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Confirms understanding",
+          "of consultant"
+        ],
+        "level_2": [
+          "recommendations",
+          "Respectfully accepts a",
+          "consultation request",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Clearly and concisely",
+          "formulates a consultation"
+        ],
+        "level_3": [
+          "request",
+          "Clearly and concisely",
+          "responds to a",
+          "consultation request",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs",
+          "Coordinates",
+          "recommendations from"
+        ],
+        "level_4": [
+          "different members of",
+          "the health care team to",
+          "optimize patient care",
+          "Solicits and",
+          "communicates feedback",
+          "to other members of the",
+          "health care team",
+          "Role models and",
+          "facilitates flexible"
+        ],
+        "level_5": [
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__neurology_ics4",
+      "number": 27,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Documents accurate and",
+          "up-to-date patient",
+          "information",
+          "Communicates in a way",
+          "that safeguards patient",
+          "information"
+        ],
+        "level_2": [
+          "Demonstrates diagnostic",
+          "reasoning through",
+          "organized and timely",
+          "notes",
+          "Communicates through",
+          "appropriate channels as"
+        ],
+        "level_3": [
+          "required by institutional",
+          "policy",
+          "Communicates the",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "Selects optimal mode of"
+        ],
+        "level_4": [
+          "communication based on",
+          "clinical context",
+          "Demonstrates concise,",
+          "organized written and",
+          "verbal communication,",
+          "including anticipatory"
+        ],
+        "level_5": [
+          "guidance",
+          "Guides departmental or",
+          "institutional",
+          "communication policies",
+          "and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "psychiatry",
+  "primary_name": "Psychiatry",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologysupplementalguide.pdf"
+  }
+}

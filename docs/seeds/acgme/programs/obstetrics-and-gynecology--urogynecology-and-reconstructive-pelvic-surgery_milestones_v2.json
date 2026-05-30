@@ -1,0 +1,1330 @@
+{
+  "framework_key": "obstetrics-and-gynecology--urogynecology-and-reconstructive-pelvic-surgery",
+  "specialty": "Urogynecology and Reconstructive Pelvic Surgery",
+  "version": "2.0",
+  "source": "ACGME Urogynecology and Reconstructive Pelvic Surgery Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Patient and Pelvic Floor Evaluation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains history and",
+          "physical exam to form a",
+          "patient assessment",
+          "Evaluates patients;",
+          "orders and interprets"
+        ],
+        "level_2": [
+          "diagnostic testing",
+          "Develops a plan to",
+          "manage patients with",
+          "straightforward conditions",
+          "Develops a plan to"
+        ],
+        "level_3": [
+          "manage patients with",
+          "complex conditions and",
+          "adapts the plan for",
+          "changing clinical",
+          "situation"
+        ],
+        "level_4": [
+          "Develops a clinical",
+          "pathway for the",
+          "management of patients",
+          "with complex conditions or",
+          "identifies clinical trials for"
+        ],
+        "level_5": [
+          "patients"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Office-Based Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs simple office-",
+          "based procedures, with",
+          "supervision"
+        ],
+        "level_2": [
+          "Independently performs",
+          "simple office-based",
+          "procedures"
+        ],
+        "level_3": [
+          "Performs complex office-",
+          "based procedures, with",
+          "supervision"
+        ],
+        "level_4": [
+          "Independently performs",
+          "complex office-based",
+          "procedures"
+        ],
+        "level_5": [
+          "Independently teaches",
+          "and supervises complex",
+          "office-based procedures"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "General Peri-Operative Management (Pre-, Intra-, and Post-Procedural)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Accurately and reliably",
+          "gathers and reports",
+          "clinical information",
+          "pertaining to common",
+          "peri-procedural risks and",
+          "complications"
+        ],
+        "level_2": [
+          "Identifies alterations in",
+          "normal physiology and",
+          "anatomy",
+          "Independently identifies",
+          "and manages common",
+          "peri-procedural risks and"
+        ],
+        "level_3": [
+          "complications",
+          "Independently",
+          "identifies and",
+          "manages complex",
+          "peri-procedural risks",
+          "and complications"
+        ],
+        "level_4": [
+          "Anticipates and",
+          "implements strategies to",
+          "prevent or mitigate",
+          "complications, applying",
+          "effective interdisciplinary",
+          "team management skills"
+        ],
+        "level_5": [
+          "to manage multiple",
+          "scenarios simultaneously"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Endoscopic Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Prepares patients and",
+          "equipment for",
+          "endoscopic procedures"
+        ],
+        "level_2": [
+          "Performs simple",
+          "endoscopic procedures",
+          "Performs complex"
+        ],
+        "level_3": [
+          "endoscopic procedures,",
+          "with supervision",
+          "Independently performs"
+        ],
+        "level_4": [
+          "complex endoscopic",
+          "procedures",
+          "Independently performs"
+        ],
+        "level_5": [
+          "complex endoscopic",
+          "procedures in altered",
+          "anatomy"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Vaginal Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "skills (e.g., positioning,",
+          "knot tying, suturing)"
+        ],
+        "level_2": [
+          "Performs simple vaginal",
+          "procedures",
+          "Performs complex vaginal"
+        ],
+        "level_3": [
+          "procedures, with",
+          "supervision",
+          "Independently performs"
+        ],
+        "level_4": [
+          "complex vaginal",
+          "procedures",
+          "Independently performs"
+        ],
+        "level_5": [
+          "uncommon complex",
+          "vaginal procedures"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Incontinence and Lower Urinary Tract Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "skills",
+          "Performs simple",
+          "(uncomplicated)"
+        ],
+        "level_2": [
+          "incontinence and lower",
+          "urinary tract procedures",
+          "Performs complex",
+          "incontinence and lower"
+        ],
+        "level_3": [
+          "urinary tract procedures,",
+          "with supervision",
+          "Independently performs",
+          "complex incontinence"
+        ],
+        "level_4": [
+          "and lower urinary tract",
+          "procedures",
+          "Independently performs",
+          "uncommon complex"
+        ],
+        "level_5": [
+          "incontinence and lower",
+          "urinary tract procedures"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Minimally Invasive Procedures (Laparoscopic and Robotic)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Assists during minimally",
+          "invasive procedures",
+          "Independently performs"
+        ],
+        "level_2": [
+          "straightforward portions of",
+          "procedures",
+          "Independently performs"
+        ],
+        "level_3": [
+          "critical (complex) portions",
+          "of procedures",
+          "Independently performs"
+        ],
+        "level_4": [
+          "entirety of minimally",
+          "invasive procedures",
+          "Independently teaches"
+        ],
+        "level_5": [
+          "and supervises complex",
+          "minimally invasive",
+          "procedures"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Pelvic Floor Anatomy and Physiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "understanding of normal",
+          "anatomy and physiology",
+          "of the pelvic floor and",
+          "pelvic organs",
+          "Demonstrates knowledge",
+          "of surgically relevant",
+          "normal anatomy",
+          "Recognizes anatomic"
+        ],
+        "level_2": [
+          "alteration of common",
+          "disorders of the pelvic floor",
+          "and their impact on",
+          "physiology",
+          "Demonstrates knowledge",
+          "of surgically relevant",
+          "anatomic variations",
+          "Demonstrates knowledge of",
+          "the impact of common"
+        ],
+        "level_3": [
+          "anatomic abnormalities on",
+          "normal physiology of the",
+          "pelvic floor and pelvic organs",
+          "With assistance, identifies",
+          "surgically relevant anatomic",
+          "variations and alters patient",
+          "management accordingly",
+          "Demonstrates knowledge",
+          "of anatomic alteration of"
+        ],
+        "level_4": [
+          "complex and uncommon",
+          "disorders of the pelvic",
+          "floor and their impact on",
+          "physiology",
+          "Independently identifies",
+          "surgically relevant",
+          "anatomic variations and",
+          "alters patient",
+          "management accordingly"
+        ],
+        "level_5": [
+          "Develops innovative",
+          "teaching methods for pelvic",
+          "floor anatomy and",
+          "physiology",
+          "Leads advanced anatomy",
+          "discussion at a",
+          "multidisciplinary",
+          "conference and/or in the",
+          "operating room"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Urinary Incontinence (UI) and Lower Urinary Tract Symptoms (LUTS)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists a differential",
+          "diagnosis for common",
+          "clinical presentations for",
+          "UI and LUTS",
+          "Lists therapeutic options",
+          "for common clinical",
+          "presentations",
+          "Provides a comprehensive"
+        ],
+        "level_2": [
+          "differential diagnosis for a",
+          "wide range of clinical",
+          "presentations for UI and",
+          "LUTS",
+          "Explains effectiveness,",
+          "risks, and benefits of",
+          "standard therapeutic",
+          "options"
+        ],
+        "level_3": [
+          "Provides a focused",
+          "differential diagnosis based",
+          "on individual patient",
+          "presentation for UI and",
+          "LUTS",
+          "Justifies the optimal",
+          "therapeutic option based on",
+          "individual patient"
+        ],
+        "level_4": [
+          "presentation and goals",
+          "Interprets complex",
+          "presentations and rare",
+          "disorders of UI and LUTS",
+          "Adapts the therapeutic",
+          "choice to anomalous or",
+          "rare patient presentations",
+          "Studies and reports"
+        ],
+        "level_5": [
+          "challenging diagnostic",
+          "presentations of UI and",
+          "LUTS",
+          "Studies new therapeutic",
+          "options"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Fecal Incontinence (FI) and Defecatory Dysfunction (DD) Treatment",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the evaluation",
+          "for FI and DD",
+          "Lists a differential diagnosis",
+          "for common clinical",
+          "presentations for FI and DD",
+          "Lists therapeutic options for"
+        ],
+        "level_2": [
+          "common clinical",
+          "presentations",
+          "Provides a comprehensive",
+          "differential diagnosis for a",
+          "wide range of clinical",
+          "presentations for FI and DD"
+        ],
+        "level_3": [
+          "Explains effectiveness,",
+          "risks, and benefits of",
+          "standard therapeutic",
+          "options",
+          "Provides a focused",
+          "differential diagnosis"
+        ],
+        "level_4": [
+          "based on individual",
+          "patient presentation for FI",
+          "and DD",
+          "Justifies the optimal",
+          "therapeutic option based",
+          "on individual patient"
+        ],
+        "level_5": [
+          "presentation and goals",
+          "Studies and reports",
+          "challenging diagnostic",
+          "presentations of FI and DD",
+          "Creates new or modifies",
+          "existing therapeutic options"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "Pelvic Organ Prolapse (POP) Treatment",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the",
+          "pathophysiology and",
+          "differential diagnosis of",
+          "POP",
+          "Using evidence-based"
+        ],
+        "level_2": [
+          "medicine, discusses the",
+          "advantages and",
+          "disadvantages of diagnostic",
+          "tests, procedures, and",
+          "treatments"
+        ],
+        "level_3": [
+          "Articulates effectiveness,",
+          "risks, and benefits of",
+          "therapeutic modalities for",
+          "straightforward POP",
+          "Articulates effectiveness,"
+        ],
+        "level_4": [
+          "risks, and benefits of",
+          "therapeutic modalities for",
+          "complex or atypical POP",
+          "Studies and reports",
+          "challenging diagnostic"
+        ],
+        "level_5": [
+          "presentations and novel",
+          "management strategies of",
+          "POP"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk5",
+      "number": 12,
+      "domain_number": 5,
+      "name": "Urogenital Fistulas (UF) and Urethral Diverticula (UD) Treatment",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the",
+          "pathophysiology and",
+          "differential diagnosis of",
+          "UF/UD",
+          "Using evidence-based"
+        ],
+        "level_2": [
+          "medicine, discusses the",
+          "advantages and",
+          "disadvantages of diagnostic",
+          "tests, procedures, and",
+          "treatments"
+        ],
+        "level_3": [
+          "Articulates effectiveness,",
+          "risks, and benefits of",
+          "therapeutic modalities for",
+          "straightforward UF/UD",
+          "Articulates effectiveness,"
+        ],
+        "level_4": [
+          "risks, and benefits of",
+          "therapeutic modalities for",
+          "complex or atypical",
+          "UF/UD",
+          "Studies and reports"
+        ],
+        "level_5": [
+          "challenging diagnostic",
+          "presentations of UF and",
+          "UD"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk6",
+      "number": 13,
+      "domain_number": 6,
+      "name": "Painful Bladder Syndrome (PBS) and Pelvic Floor Dysfunction (PFDys)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the",
+          "pathophysiology and",
+          "differential diagnosis of",
+          "PBS/PFDys",
+          "Using EBM, discusses the"
+        ],
+        "level_2": [
+          "advantages and",
+          "disadvantages of diagnostic",
+          "tests, procedures, and",
+          "treatments",
+          "Articulates effectiveness,"
+        ],
+        "level_3": [
+          "risks, and benefits of",
+          "therapeutic modalities for",
+          "straightforward PBS/PFDys",
+          "Articulates effectiveness,",
+          "risks, and benefits of"
+        ],
+        "level_4": [
+          "therapeutic modalities for",
+          "complex or atypical",
+          "PBS/PFDys",
+          "Studies and reports",
+          "challenging diagnostic"
+        ],
+        "level_5": [
+          "presentations and novel",
+          "management strategies of",
+          "PBS/PFDys"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk7",
+      "number": 14,
+      "domain_number": 7,
+      "name": "Urinary Tract Infection (UTI) and Hematuria",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists a differential",
+          "diagnosis for common",
+          "clinical presentations for",
+          "UTI and hematuria",
+          "Lists therapeutic options",
+          "for common clinical",
+          "presentations",
+          "Provides a comprehensive"
+        ],
+        "level_2": [
+          "differential diagnosis for a",
+          "wide range of clinical",
+          "presentations for recurrent",
+          "UTI and hematuria",
+          "Explains advantages and",
+          "drawbacks of standard",
+          "diagnostic and therapeutic",
+          "options"
+        ],
+        "level_3": [
+          "Provides a focused",
+          "differential diagnosis based",
+          "on individual patient",
+          "presentation for recurrent",
+          "UTI and hematuria",
+          "Justifies the optimal",
+          "therapeutic option based on",
+          "individual patient"
+        ],
+        "level_4": [
+          "presentation",
+          "Interprets challenging",
+          "presentations and rare",
+          "disorders of recurrent UTI",
+          "and hematuria",
+          "Adapts the therapeutic",
+          "choice to anomalous or",
+          "rare patient presentations"
+        ],
+        "level_5": [
+          "Studies and reports",
+          "challenging diagnostic",
+          "presentations of recurrent",
+          "UTI and hematuria",
+          "Creates new or modifies",
+          "existing therapeutic options"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_mk8",
+      "number": 15,
+      "domain_number": 8,
+      "name": "Neuro-Urology and Neurogenic Lower Urinary Tract Dysfunction",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of neurophysiology of",
+          "normal storage and",
+          "emptying",
+          "Lists a differential",
+          "diagnosis for common",
+          "clinical presentations and",
+          "diseases associated with",
+          "neurogenic lower urinary",
+          "tract dysfunction",
+          "Demonstrates basic"
+        ],
+        "level_2": [
+          "understanding of how",
+          "congenital or acquired",
+          "neurologic conditions affect",
+          "storage and voiding",
+          "Provides a comprehensive",
+          "differential diagnosis for a",
+          "wide range of clinical",
+          "presentations for",
+          "neurogenic lower urinary",
+          "tract dysfunction",
+          "Integrates understanding of"
+        ],
+        "level_3": [
+          "the pathophysiology of",
+          "neurologic conditions and",
+          "pharmacologic",
+          "management strategies for",
+          "straightforward clinical",
+          "conditions",
+          "Provides therapeutic",
+          "options for common clinical",
+          "presentations, as well as",
+          "efficacy, risks, and benefits",
+          "of standard therapeutic"
+        ],
+        "level_4": [
+          "options",
+          "Integrates understanding",
+          "of the pathophysiology of",
+          "neurologic conditions and",
+          "management strategies",
+          "for complex clinical",
+          "conditions, with",
+          "anticipation of the natural",
+          "history of disease",
+          "Adapts the therapeutic",
+          "choice to complex or rare"
+        ],
+        "level_5": [
+          "patient presentations",
+          "Disseminates new",
+          "information regarding the",
+          "etiology of abnormal",
+          "storage and voiding",
+          "Studies and reports",
+          "challenging diagnostic",
+          "presentations and",
+          "management strategies of",
+          "neurogenic lower urinary",
+          "tract dysfunction"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_sbp1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies and reports",
+          "patient safety events",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)"
+        ],
+        "level_2": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events,",
+          "including formulation and",
+          "implementation of action",
+          "(simulated or actual)"
+        ],
+        "level_3": [
+          "Assesses impact of local",
+          "resources on the needs of",
+          "a patient population and",
+          "community",
+          "Demonstrates the skills",
+          "required to lead",
+          "disclosure of patient",
+          "safety events to patients"
+        ],
+        "level_4": [
+          "and their families",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages and",
+          "leads teams and"
+        ],
+        "level_5": [
+          "processes to prevent",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_sbp2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination and",
+          "community health needs",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates"
+        ],
+        "level_2": [
+          "multidisciplinary care of",
+          "patients in routine clinical",
+          "situations for their local",
+          "population",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Coordinates"
+        ],
+        "level_3": [
+          "multidisciplinary care of",
+          "patients in complex",
+          "clinical situations and",
+          "incorporates local",
+          "resources into the plan",
+          "Supervises safe and",
+          "effective transitions of",
+          "care/hand-offs of more",
+          "junior learners"
+        ],
+        "level_4": [
+          "Leads care coordination",
+          "of patients with barriers",
+          "to care",
+          "Resolves conflicts in",
+          "transitions of care",
+          "between teams",
+          "Designs innovative care",
+          "coordination strategies for",
+          "populations with health"
+        ],
+        "level_5": [
+          "care needs",
+          "Leads in the design and",
+          "implementation of",
+          "improvements to",
+          "transitions of care"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_sbp3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "administrative skills for",
+          "effective transition to",
+          "practice",
+          "Demonstrates advanced"
+        ],
+        "level_2": [
+          "use of information",
+          "technology required for",
+          "medical practice",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system",
+          "performance",
+          "Describes core",
+          "administrative",
+          "knowledge needed for"
+        ],
+        "level_4": [
+          "transition to",
+          "independent practice",
+          "Analyzes individual",
+          "independent practice",
+          "patterns and professional"
+        ],
+        "level_5": [
+          "requirements in",
+          "preparation for practice"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pbli1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access available",
+          "evidence",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions to guide",
+          "evidence-based care",
+          "Integrates best available",
+          "evidence with patient"
+        ],
+        "level_3": [
+          "preferences to guide care",
+          "Tailors patient care in",
+          "the setting of conflicting",
+          "or absent evidence"
+        ],
+        "level_4": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "patients with complex"
+        ],
+        "level_5": [
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pbli2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development",
+          "Analyzes and reflects on",
+          "the factors that contribute"
+        ],
+        "level_2": [
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Identifies opportunities for",
+          "performance",
+          "improvement; designs a",
+          "learning plan",
+          "Institutes behavioral",
+          "change(s) to narrow the"
+        ],
+        "level_3": [
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Integrates practice data",
+          "and feedback with",
+          "humility to implement a",
+          "learning plan",
+          "Continuously reflects on",
+          "remaining gaps and"
+        ],
+        "level_4": [
+          "institutes behavioral",
+          "adjustments to narrow",
+          "them",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "adapts when necessary",
+          "Coaches others on"
+        ],
+        "level_5": [
+          "reflective practice",
+          "Coaches others in the",
+          "design and",
+          "implementation of",
+          "learning plans"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_pbli3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies potential topics",
+          "for a scholarly project for",
+          "which gaps in evidence",
+          "exist"
+        ],
+        "level_2": [
+          "Develops specific",
+          "questions/aims that can",
+          "be measured in the",
+          "scholarly project"
+        ],
+        "level_3": [
+          "Using appropriate design",
+          "and methods, collects and",
+          "analyzes data for the",
+          "scholarly project"
+        ],
+        "level_4": [
+          "Completes and defends",
+          "the scholarly project",
+          "Widely disseminates the",
+          "scholarly project"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_prof1",
+      "number": 22,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations and",
+          "knows how to report",
+          "professionalism lapses",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles underlying",
+          "shared decision-making",
+          "and patient"
+        ],
+        "level_2": [
+          "confidentiality",
+          "Demonstrates insight into",
+          "personal triggers for",
+          "professionalism lapses;",
+          "develops mitigation",
+          "strategies",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Seeks help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Recognizes and",
+          "intervenes in situations",
+          "to prevent",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "in oneself and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas (e.g., ethics",
+          "consultations, literature",
+          "review)",
+          "Coaches others when",
+          "their behavior fails to"
+        ],
+        "level_5": [
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_prof2",
+      "number": 23,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task"
+        ],
+        "level_2": [
+          "completion in the future",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations and",
+          "recognizes situations that"
+        ],
+        "level_3": [
+          "may impact one’s ability",
+          "to accomplish this",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful"
+        ],
+        "level_4": [
+          "situations and proactively",
+          "implements strategies to",
+          "accomplish this",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a"
+        ],
+        "level_5": [
+          "timely manner and",
+          "proposes solutions",
+          "Develops systems to",
+          "ensure the best possible",
+          "care of patients, including",
+          "prioritizing tasks and",
+          "mitigating burnout"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_prof3",
+      "number": 24,
+      "domain_number": 3,
+      "name": "Well-Being and Awareness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "With assistance, proposes",
+          "a plan to optimize",
+          "personal and professional"
+        ],
+        "level_3": [
+          "well-being",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Recognizes risk to well-",
+          "being and offers support",
+          "when others’ l responses",
+          "or performance do not",
+          "meet professional"
+        ],
+        "level_5": [
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_ics1",
+      "number": 25,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "with patients and their",
+          "families",
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and"
+        ],
+        "level_2": [
+          "respectful manner",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Identifies barriers to",
+          "effective communication",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship in challenging",
+          "encounters",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Facilitates difficult",
+          "discussions with"
+        ],
+        "level_4": [
+          "patients and their",
+          "families",
+          "Independently",
+          "recognizes biases while",
+          "attempting to proactively",
+          "minimize",
+          "communication barriers",
+          "Mentors others in"
+        ],
+        "level_5": [
+          "situational awareness and",
+          "critical self-reflection",
+          "Coaches others in the",
+          "facilitation of crucial",
+          "conversations"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_ics2",
+      "number": 26,
+      "domain_number": 2,
+      "name": "Patient Counseling and Shared Decision Making",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Answers questions about",
+          "the treatment plan and",
+          "seeks guidance when",
+          "appropriate",
+          "Counsels patients through"
+        ],
+        "level_2": [
+          "the decision-making",
+          "process, including",
+          "answering questions, for",
+          "simple clinical problems",
+          "Counsels patients through"
+        ],
+        "level_3": [
+          "the decision-making",
+          "process, including",
+          "answering questions, for",
+          "complex clinical problems",
+          "Counsels patients"
+        ],
+        "level_4": [
+          "through the decision-",
+          "making process,",
+          "including answering",
+          "questions, for",
+          "uncommon clinical"
+        ],
+        "level_5": [
+          "problems",
+          "Coaches others in patient",
+          "counseling and the",
+          "shared decision-making",
+          "process"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_ics3",
+      "number": 27,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates in an",
+          "approachable and",
+          "productive manner to",
+          "facilitate teamwork",
+          "Integrates contributions"
+        ],
+        "level_2": [
+          "from interprofessional",
+          "team members and health",
+          "care team members into",
+          "the care plan",
+          "Actively recognizes and"
+        ],
+        "level_3": [
+          "mitigates communication",
+          "barriers and biases with",
+          "members of the health",
+          "care team",
+          "Leads and coordinates"
+        ],
+        "level_4": [
+          "recommendations from",
+          "multidisciplinary",
+          "members of the health",
+          "care team",
+          "Leads a communication"
+        ],
+        "level_5": [
+          "process"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__urogynecology_and_reconstructive_pelvic_surgery_ics4",
+      "number": 28,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through notes in the",
+          "patient record"
+        ],
+        "level_2": [
+          "Concisely reports",
+          "diagnostic and therapeutic",
+          "reasoning in the patient",
+          "record",
+          "Appropriately and"
+        ],
+        "level_3": [
+          "efficiently uses the",
+          "electronic health record",
+          "for varied types of",
+          "communication",
+          "Efficiently"
+        ],
+        "level_4": [
+          "communicates in an",
+          "organized fashion that",
+          "includes contingency",
+          "plans",
+          "Guides departmental or"
+        ],
+        "level_5": [
+          "institutional",
+          "communication around",
+          "medical informatics"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "obstetrics-and-gynecology",
+  "primary_name": "Obstetrics and Gynecology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/urogynecologyandreconstructivepelvicsurgerymilestones2-1.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urogynecologyandreconstructivepelvicsurgerysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1350 @@
+{
+  "framework_key": "pathology--medical-microbiology",
+  "specialty": "Medical Microbiology",
+  "version": "2.0",
+  "source": "ACGME Medical Microbiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pathology__medical_microbiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the use of a",
+          "consultation and lists",
+          "available resources",
+          "useful in consultation",
+          "For simple consultations,",
+          "delineates the clinical"
+        ],
+        "level_2": [
+          "question, obtains",
+          "additional clinical",
+          "information, accesses",
+          "available resources,",
+          "recommends next steps,",
+          "and documents it, with"
+        ],
+        "level_3": [
+          "assistance",
+          "For complex",
+          "consultations, delineates",
+          "the clinical question,",
+          "obtains additional clinical",
+          "information, applies"
+        ],
+        "level_4": [
+          "relevant resources, and",
+          "recommends next steps",
+          "with assistance; manages",
+          "simple consultations",
+          "independently",
+          "Manages complex"
+        ],
+        "level_5": [
+          "consultations",
+          "independently",
+          "Recognized as an expert",
+          "in providing",
+          "comprehensive",
+          "consultations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Test Performance and Organism Identification",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Observes and assists in",
+          "the performance of",
+          "common microbiology",
+          "tests",
+          "Performs common",
+          "microbiology tests and"
+        ],
+        "level_2": [
+          "observes and assists in",
+          "the performance of",
+          "uncommon (i.e., esoteric)",
+          "microbiology tests",
+          "Supervises and",
+          "troubleshoots"
+        ],
+        "level_3": [
+          "microbiology tests in all",
+          "clinical scenarios",
+          "Teaches the features of",
+          "microbiology testing,",
+          "including the use,",
+          "strengths, and"
+        ],
+        "level_4": [
+          "limitations of the various",
+          "methods of testing",
+          "Independently chooses",
+          "the optimal test based on",
+          "an analysis of test",
+          "characteristics and patient"
+        ],
+        "level_5": [
+          "population variables for",
+          "any clinical scenario"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Test Interpretation and Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies common pre-",
+          "analytic, analytic, and",
+          "post-analytic issues that",
+          "can affect results and",
+          "interpretation of testing"
+        ],
+        "level_2": [
+          "Interprets and reports",
+          "common microbiology",
+          "tests with guidance",
+          "Independently interprets",
+          "and reports common"
+        ],
+        "level_3": [
+          "microbiology tests, and",
+          "interprets and reports",
+          "complex microbiology",
+          "tests with guidance",
+          "Independently interprets"
+        ],
+        "level_4": [
+          "and reports",
+          "microbiology tests in all",
+          "clinical scenarios",
+          "Develops procedures for",
+          "test performance,"
+        ],
+        "level_5": [
+          "interpretation, and",
+          "reporting"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_mk1",
+      "number": 4,
+      "domain_number": 1,
+      "name": "Fundamental and Diagnostic Knowledge",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "microorganisms of all",
+          "groups that are",
+          "commonly encountered",
+          "and their role in disease",
+          "Demonstrates",
+          "knowledge of common",
+          "antibacterial agents",
+          "Demonstrates",
+          "knowledge of common",
+          "resistance mechanisms",
+          "in bacteria",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of the methods required",
+          "for detection/identification",
+          "of commonly encountered",
+          "microorganisms",
+          "Demonstrates knowledge",
+          "of guidelines regarding",
+          "selection of antibacterial",
+          "agents for testing",
+          "Demonstrates knowledge",
+          "in how to detect",
+          "phenotypic and genotypic",
+          "antimicrobial resistance",
+          "mechanisms for bacteria",
+          "Demonstrates knowledge"
+        ],
+        "level_3": [
+          "of the methods required",
+          "for detection/identification",
+          "of novel pathogens and",
+          "less commonly",
+          "encountered",
+          "microorganisms",
+          "Demonstrates knowledge",
+          "of antimicrobial agents for",
+          "all groups of organisms",
+          "Demonstrates knowledge",
+          "of resistance mechanisms",
+          "for all pathogens",
+          "Teaches the features of",
+          "microorganism"
+        ],
+        "level_4": [
+          "detection/identification",
+          "for all groups of",
+          "organisms",
+          "Demonstrates",
+          "knowledge of guidelines",
+          "regarding selection of",
+          "all agents for testing",
+          "Demonstrates",
+          "knowledge in how to",
+          "detect phenotypic and",
+          "genotypic antimicrobial",
+          "resistance mechanisms",
+          "for all pathogens",
+          "Consistently uses the"
+        ],
+        "level_5": [
+          "literature or other means",
+          "to investigate difficult to",
+          "identify or novel",
+          "pathogens",
+          "Demonstrates knowledge",
+          "of pharmacokinetics and",
+          "pharmacodynamics and",
+          "clinical use of",
+          "antimicrobials",
+          "Contributes to the",
+          "literature and/or guideline",
+          "development regarding",
+          "resistance detection"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_mk2",
+      "number": 5,
+      "domain_number": 2,
+      "name": "Test Methodology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic test",
+          "platforms and",
+          "methodology"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of complex test platforms",
+          "and methodology",
+          "Demonstrates knowledge"
+        ],
+        "level_3": [
+          "of the use and methods of",
+          "outsourced microbiology",
+          "tests",
+          "Demonstrates"
+        ],
+        "level_4": [
+          "knowledge of the",
+          "integration of different",
+          "test methodology and",
+          "platforms (e.g., testing"
+        ],
+        "level_5": [
+          "algorithms)",
+          "Identifies optimal",
+          "methodology for novel",
+          "test development"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_mk3",
+      "number": 6,
+      "domain_number": 3,
+      "name": "Test Development and Validation/Verification",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "necessity of test",
+          "validation/verification"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of the essentials of test",
+          "development and test",
+          "validation/verification"
+        ],
+        "level_3": [
+          "Identifies requirements for",
+          "test verification of a Food",
+          "and Drug Administration",
+          "(FDA)-approved test"
+        ],
+        "level_4": [
+          "Identifies requirements",
+          "for test validation of a",
+          "laboratory-developed",
+          "test"
+        ],
+        "level_5": [
+          "Designs and implements",
+          "a new laboratory-",
+          "developed test"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_mk4",
+      "number": 7,
+      "domain_number": 4,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic",
+          "framework for clinical",
+          "reasoning",
+          "Identifies resources to",
+          "inform clinical reasoning",
+          "Demonstrates clinical",
+          "reasoning to determine",
+          "relevant information",
+          "Selects relevant"
+        ],
+        "level_2": [
+          "resources based on",
+          "various scenarios to",
+          "inform decisions",
+          "Synthesizes information",
+          "to inform clinical",
+          "reasoning, with",
+          "assistance",
+          "Seeks and integrates",
+          "evidence-based"
+        ],
+        "level_3": [
+          "information to inform",
+          "diagnostic decision",
+          "making in complex cases,",
+          "with assistance",
+          "Independently",
+          "synthesizes information",
+          "to inform clinical",
+          "reasoning in complex",
+          "cases"
+        ],
+        "level_4": [
+          "Independently seeks",
+          "out, analyzes, and",
+          "applies relevant original",
+          "research to diagnostic",
+          "decision making in",
+          "complex clinical cases",
+          "Demonstrates intuitive",
+          "approach to clinical",
+          "reasoning for complex"
+        ],
+        "level_5": [
+          "cases",
+          "Contributes to the",
+          "literature or knowledge",
+          "base that informs",
+          "diagnostic decision",
+          "making"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic QI",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "and institutional QI",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "clinicians and/or patients",
+          "and families (simulated or",
+          "actual)",
+          "Participates in",
+          "departmental and",
+          "institutional QI initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error"
+        ],
+        "level_4": [
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to clinicians",
+          "and/or patients and",
+          "families, as appropriate",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a QI",
+          "project"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses QI initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of case",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients/specimens in",
+          "routine cases effectively"
+        ],
+        "level_2": [
+          "using interprofessional",
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "situations",
+          "Identifies pathology’s role",
+          "in population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients/specimens in",
+          "complex cases effectively",
+          "using interprofessional"
+        ],
+        "level_3": [
+          "teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "situations",
+          "Identifies opportunities for",
+          "pathology to participate in",
+          "community and",
+          "population health",
+          "Models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties"
+        ],
+        "level_4": [
+          "Models and advocates",
+          "for safe and effective",
+          "transitions of care/hand-",
+          "offs within and across",
+          "health care delivery",
+          "systems",
+          "Recommends and/or",
+          "participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "communities and",
+          "populations",
+          "Analyzes the process of",
+          "care coordination and"
+        ],
+        "level_5": [
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)"
+        ],
+        "level_2": [
+          "and practice models",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Documents testing detail",
+          "and explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g., test",
+          "utilization, turnaround",
+          "time)",
+          "Engages with clinicians",
+          "and/or patients in shared",
+          "decision making, such as",
+          "use of preauthorization for",
+          "complex testing",
+          "Manages various",
+          "components of the"
+        ],
+        "level_4": [
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Practices and",
+          "advocates for cost",
+          "effective patient care",
+          "with consideration of the",
+          "limitations of each",
+          "patient’s payment"
+        ],
+        "level_5": [
+          "model",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and",
+          "transitions of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_sbp4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge that",
+          "laboratories must be",
+          "accredited",
+          "Discusses the need for",
+          "quality control and",
+          "proficiency testing",
+          "Demonstrates knowledge",
+          "of the components of",
+          "laboratory accreditation",
+          "and regulatory",
+          "compliance (e.g., Clinical"
+        ],
+        "level_2": [
+          "Laboratory Improvement",
+          "Amendments and others),",
+          "either through training or",
+          "experience",
+          "Interprets quality data and",
+          "charts and trends,",
+          "including proficiency",
+          "testing results, with",
+          "assistance",
+          "Identifies the differences",
+          "between accreditation",
+          "and regulatory"
+        ],
+        "level_3": [
+          "compliance; discusses",
+          "the process for achieving",
+          "accreditation and",
+          "maintaining regulatory",
+          "compliance",
+          "Demonstrates knowledge",
+          "of the components of a",
+          "laboratory quality",
+          "management plan",
+          "Discusses implications of",
+          "proficiency testing failures",
+          "Participates in an"
+        ],
+        "level_4": [
+          "internal or external",
+          "laboratory inspection",
+          "Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvement",
+          "Performs analysis and",
+          "review of proficiency",
+          "testing failures and",
+          "recommends a course",
+          "of action, with oversight",
+          "Serves as a resource for"
+        ],
+        "level_5": [
+          "accreditation at the",
+          "regional or national level",
+          "Creates and follows a",
+          "comprehensive quality",
+          "management plan",
+          "Formulates a response",
+          "for proficiency testing",
+          "failures"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_sbp5",
+      "number": 12,
+      "domain_number": 5,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general",
+          "microbiology work",
+          "practices and workflow",
+          "(e.g., specialized"
+        ],
+        "level_2": [
+          "molecular testing,",
+          "serology, and pre-",
+          "analytics)",
+          "Explains rationale for"
+        ],
+        "level_3": [
+          "optimizing utilization",
+          "Identifies opportunities to",
+          "optimize utilization of",
+          "pathology resources"
+        ],
+        "level_4": [
+          "Initiates efforts to",
+          "optimize utilization",
+          "Completes a utilization",
+          "review and implements"
+        ],
+        "level_5": [
+          "change"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_sbp6",
+      "number": 13,
+      "domain_number": 6,
+      "name": "Infection Prevention, Antimicrobial Stewardship, and Public Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies the role of the",
+          "microbiology laboratory",
+          "in infection prevention",
+          "Identifies the role of the",
+          "microbiology laboratory",
+          "in antimicrobial",
+          "stewardship",
+          "Identifies the role and",
+          "requirements of the",
+          "microbiology laboratory",
+          "in public health",
+          "Attends infection",
+          "prevention meetings and"
+        ],
+        "level_2": [
+          "discusses initiatives to",
+          "enhance infection",
+          "prevention",
+          "Attends antimicrobial",
+          "stewardship meetings and",
+          "discusses the",
+          "antimicrobial stewardship",
+          "initiatives",
+          "Explains select agents",
+          "and other agents of",
+          "reportable diseases and",
+          "means of their control,",
+          "laboratory safety, and"
+        ],
+        "level_3": [
+          "destruction",
+          "Analyzes data and",
+          "coordinates initiatives to",
+          "support hospital infection",
+          "prevention committee,",
+          "with guidance",
+          "Analyzes susceptibility",
+          "data and coordinates",
+          "initiatives to support",
+          "antimicrobial stewardship,",
+          "with guidance",
+          "Employs resources to",
+          "interface with public"
+        ],
+        "level_4": [
+          "health officials/",
+          "departments, with",
+          "guidance",
+          "Independently analyzes",
+          "data and coordinates",
+          "initiatives to support",
+          "hospital infection",
+          "prevention committee",
+          "Independently analyzes",
+          "susceptibility data and",
+          "coordinates initiatives to",
+          "support antimicrobial",
+          "stewardship"
+        ],
+        "level_5": [
+          "Independently",
+          "interfaces with public",
+          "health officials/",
+          "departments",
+          "Leads an infection",
+          "prevention initiative",
+          "Independently analyzes",
+          "susceptibility data and",
+          "creates an antibiogram",
+          "Leads a collaboration with",
+          "public health to complete",
+          "a project"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and select",
+          "applicable evidence",
+          "Is aware of the need for",
+          "patient privacy,",
+          "autonomy, and consent",
+          "as applied to clinical",
+          "research",
+          "Identifies and applies the",
+          "best available evidence to",
+          "guide diagnostic work-up",
+          "of simple cases"
+        ],
+        "level_2": [
+          "Develops knowledge of",
+          "the basic principles of",
+          "research (e.g.,",
+          "demographics,",
+          "Institutional Review",
+          "Board, human subjects),",
+          "including how research is",
+          "evaluated, explained to",
+          "patients, and applied to",
+          "patient care",
+          "Identifies and applies the",
+          "best available evidence to"
+        ],
+        "level_3": [
+          "guide diagnostic work-up",
+          "of complex cases",
+          "Applies knowledge of the",
+          "basic principles of",
+          "research such as",
+          "informed consent and",
+          "research protocols to",
+          "clinical practice, with",
+          "supervision",
+          "Critically appraises and",
+          "applies evidence to",
+          "guide care, even in the"
+        ],
+        "level_4": [
+          "face of conflicting data",
+          "Proactively and",
+          "consistently applies",
+          "knowledge of the basic",
+          "principles of research",
+          "such as informed",
+          "consent and research",
+          "protocols to clinical",
+          "practice",
+          "Teaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex cases; and/or",
+          "participates in the",
+          "development of guidelines",
+          "Suggests improvements",
+          "to research regulations",
+          "and/or substantially",
+          "contributes to the primary",
+          "literature through basic,",
+          "translational, or clinical",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness",
+          "to receiving performance"
+        ],
+        "level_2": [
+          "data and feedback in",
+          "order to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Seeks performance data",
+          "and feedback with"
+        ],
+        "level_3": [
+          "humility",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Actively and",
+          "consistently seeks",
+          "performance data and"
+        ],
+        "level_4": [
+          "feedback with humility",
+          "Critically evaluates the",
+          "effectiveness of",
+          "behavioral changes in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "improves it when"
+        ],
+        "level_5": [
+          "necessary",
+          "Models seeking",
+          "performance data and",
+          "accepting feedback with",
+          "humility",
+          "Coaches others in",
+          "reflective practice",
+          "Facilitates the design and",
+          "implementing learning",
+          "plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Describes when and how"
+        ],
+        "level_2": [
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers; identifies and",
+          "describes potential",
+          "triggers for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates insight into"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "routine situations; takes",
+          "responsibility for one’s",
+          "own professionalism",
+          "lapses",
+          "Recognizes the need and",
+          "uses relevant resources",
+          "to seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Demonstrates",
+          "professional behavior in"
+        ],
+        "level_4": [
+          "complex or stressful",
+          "situations",
+          "Independently resolves",
+          "and manages complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities",
+          "Takes ownership and",
+          "performs tasks and"
+        ],
+        "level_2": [
+          "responsibilities in a timely",
+          "manner with attention to",
+          "detail",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner and",
+          "describes the impact on",
+          "team",
+          "Anticipates and",
+          "intervenes in situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Takes ownership of",
+          "system outcomes, and"
+        ],
+        "level_5": [
+          "implements new",
+          "strategies when",
+          "necessary"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team, with assistance",
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes",
+          "limitations in the"
+        ],
+        "level_2": [
+          "knowledge/skills/",
+          "behaviors of self or team",
+          "and seeks help when",
+          "needed",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed",
+          "Proposes and implements"
+        ],
+        "level_3": [
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors of self or",
+          "team, with assistance",
+          "Proposes and implements",
+          "a plan to optimize",
+          "personal and professional",
+          "well-being, with",
+          "assistance",
+          "Independently develops"
+        ],
+        "level_4": [
+          "and implements a plan",
+          "to remediate or improve",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team",
+          "Independently develops",
+          "and implements a plan",
+          "to optimize personal",
+          "and professional well-",
+          "being"
+        ],
+        "level_5": [
+          "Serves as a resource or",
+          "consultant for developing",
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors",
+          "Coaches others when",
+          "responses or limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating one’s"
+        ],
+        "level_2": [
+          "own role within the",
+          "health care system",
+          "Establishes a relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,"
+        ],
+        "level_3": [
+          "health literacy)",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information, with",
+          "supervision",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Independently,"
+        ],
+        "level_4": [
+          "sensitively, and",
+          "compassionately",
+          "delivers medical",
+          "information and",
+          "acknowledges",
+          "uncertainty and conflict",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize"
+        ],
+        "level_5": [
+          "communication barriers",
+          "Mentors others in the",
+          "sensitive and",
+          "compassionate delivery of",
+          "medical information",
+          "Models self-awareness",
+          "while teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Describes the utility of",
+          "constructive feedback",
+          "Communicates",
+          "information effectively",
+          "with all health care team"
+        ],
+        "level_2": [
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Integrates feedback from",
+          "team members to improve",
+          "communication",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__medical_microbiology_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient",
+          "personal health",
+          "information by",
+          "communicating through",
+          "appropriate means as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)",
+          "Identifies institutional",
+          "and departmental"
+        ],
+        "level_2": [
+          "structure for",
+          "communication of issues",
+          "Selects forms of",
+          "communication based on",
+          "context and urgency of",
+          "the situation",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Communicates while",
+          "ensuring security of"
+        ],
+        "level_3": [
+          "personal health",
+          "information, with",
+          "supervision",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and",
+          "constructive suggestions",
+          "to improve the system",
+          "Independently",
+          "communicates while",
+          "ensuring security of"
+        ],
+        "level_4": [
+          "personal health",
+          "information",
+          "Initiates conversations",
+          "on difficult subjects with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ],
+        "level_5": [
+          "regarding the security of",
+          "personal health",
+          "information",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (e.g.,",
+          "institution, health care",
+          "system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pathology",
+  "primary_name": "Pathology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalmicrobiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalmicrobiologysupplementalguide.pdf"
+  }
+}

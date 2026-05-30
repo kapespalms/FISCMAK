@@ -1,0 +1,1191 @@
+{
+  "framework_key": "emergency-medicine--medical-toxicology",
+  "specialty": "Medical Toxicology",
+  "version": "2.0",
+  "source": "ACGME Medical Toxicology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "emergency_medicine__medical_toxicology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Clinical Reasoning: Differential Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies a patient’s",
+          "problem with a potential",
+          "toxicologic cause",
+          "Synthesizes all available",
+          "data, including interview,",
+          "physical examination"
+        ],
+        "level_2": [
+          "findings, and preliminary",
+          "laboratory data, to define",
+          "the differential diagnosis",
+          "Modifies and refines",
+          "evidence-based",
+          "differential diagnosis"
+        ],
+        "level_3": [
+          "based upon clinical",
+          "course and data, and",
+          "avoids premature closure",
+          "Recognizes toxicological",
+          "presentations and/or",
+          "conflicting diagnostic"
+        ],
+        "level_4": [
+          "results that deviate from",
+          "common patterns and",
+          "require more complex",
+          "decision-making",
+          "Develops guidelines,",
+          "algorithms, or protocols"
+        ],
+        "level_5": [
+          "used for education and",
+          "guidance of learners,",
+          "clinicians, or poison",
+          "specialists"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Ordering and Interpreting Studies",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Orders diagnostic testing",
+          "based on patient",
+          "presentation",
+          "Interprets diagnostic"
+        ],
+        "level_2": [
+          "testing in the evaluation of",
+          "toxicologic disease",
+          "Orders advanced and",
+          "ancillary diagnostic"
+        ],
+        "level_3": [
+          "testing based on the pre-",
+          "test probability of disease",
+          "and the likelihood of test",
+          "results altering"
+        ],
+        "level_4": [
+          "management",
+          "Interprets advanced,",
+          "ancillary, and forensic",
+          "diagnostic testing"
+        ],
+        "level_5": [
+          "Develops and validates",
+          "diagnostic testing",
+          "processes or protocols"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Management Plan and Treatment",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Formulates initial",
+          "treatment plans for",
+          "patient’s with",
+          "[straightforward",
+          "toxicologic conditions"
+        ],
+        "level_2": [
+          "Formulates",
+          "comprehensive treatment",
+          "plans for patient’s with",
+          "straightforward toxicologic",
+          "conditions"
+        ],
+        "level_3": [
+          "Formulates",
+          "comprehensive treatment",
+          "plans for patient’s with",
+          "complex toxicological",
+          "conditions"
+        ],
+        "level_4": [
+          "Implements",
+          "interdisciplinary team",
+          "for patient’s with",
+          "complex toxicological",
+          "conditions"
+        ],
+        "level_5": [
+          "Develops novel",
+          "management strategies",
+          "for poisonings"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Substance Use and Withdrawal",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes substance",
+          "use disorders (SUD) and",
+          "withdrawal syndromes",
+          "Formulates treatment"
+        ],
+        "level_2": [
+          "plan for patients with",
+          "straightforward SUD and",
+          "withdrawal syndromes",
+          "Initiates treatment of"
+        ],
+        "level_3": [
+          "patients with complex",
+          "SUD and withdrawal",
+          "syndromes",
+          "Selects therapies based"
+        ],
+        "level_4": [
+          "on prior treatment",
+          "response, co-",
+          "morbidities, resources,",
+          "and patient preference"
+        ],
+        "level_5": [
+          "Establishes a holistic",
+          "treatment pathway",
+          "involving institutional and",
+          "community resources"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Pathophysiology of Poisoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses basic",
+          "concepts of",
+          "biochemistry, physiology,",
+          "and pharmacology",
+          "Describes basic"
+        ],
+        "level_2": [
+          "toxicologic mechanisms",
+          "and pathophysiology",
+          "Explains advanced",
+          "toxicologic mechanisms",
+          "and pathophysiology"
+        ],
+        "level_3": [
+          "Demonstrates",
+          "knowledge of the",
+          "mechanisms of complex",
+          "and rare toxicological",
+          "conditions"
+        ],
+        "level_4": [
+          "Demonstrates expertise",
+          "through publishing or",
+          "invited lectureship about",
+          "toxicologic",
+          "pathophysiology, and its"
+        ],
+        "level_5": [
+          "epidemiologic",
+          "associations"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Population Exposure",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies major routes of",
+          "exposure among the",
+          "human population [LN]",
+          "Identifies sources of",
+          "environmental exposures"
+        ],
+        "level_2": [
+          "to chemical, physical, and",
+          "biological hazards for",
+          "defined populations",
+          "Describes individual",
+          "factors that impact"
+        ],
+        "level_3": [
+          "susceptibility to adverse",
+          "health effects from",
+          "environmental exposures",
+          "Recommends methods",
+          "of monitoring and"
+        ],
+        "level_4": [
+          "reducing adverse",
+          "environmental health",
+          "effects for population",
+          "Uses data to characterize",
+          "effects of exposure of a"
+        ],
+        "level_5": [
+          "local population based on",
+          "comparison with other",
+          "populations"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_mk3",
+      "number": 7,
+      "domain_number": 3,
+      "name": "Laboratory and Clinical Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Selects ancillary testing",
+          "needed to assess an",
+          "acute exposure",
+          "Interprets the results of",
+          "ancillary testing for an"
+        ],
+        "level_2": [
+          "exposure incorporating",
+          "the pharmacokinetics of",
+          "the xenobiotic",
+          "Compares the analytical",
+          "modalities, including"
+        ],
+        "level_3": [
+          "appropriateness,",
+          "limitations, and",
+          "methodology",
+          "Demonstrates",
+          "knowledge of advanced"
+        ],
+        "level_4": [
+          "analytical and clinical",
+          "testing, including",
+          "alternative matrices",
+          "Develops protocols for",
+          "advanced and alternative"
+        ],
+        "level_5": [
+          "clinical testing"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_mk4",
+      "number": 8,
+      "domain_number": 4,
+      "name": "Substance Use and Withdrawal",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the relevant",
+          "terminology of substance",
+          "use, addiction, and",
+          "withdrawal",
+          "Describes the biological",
+          "basis, pharmacokinetics,"
+        ],
+        "level_2": [
+          "and toxicokinetics of",
+          "psychoactive and",
+          "addictive substances",
+          "Explains the basis of",
+          "treatments, both",
+          "pharmacological and non-"
+        ],
+        "level_3": [
+          "pharmacological, for",
+          "patients with SUD and",
+          "withdrawal",
+          "Identifies the systems-",
+          "related issues that",
+          "interfere with"
+        ],
+        "level_4": [
+          "identification, analysis,",
+          "and treatment of",
+          "substance use and",
+          "withdrawal",
+          "Develops protocols or",
+          "curriculum for the"
+        ],
+        "level_5": [
+          "management of patients",
+          "with SUD or withdrawal"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_mk5",
+      "number": 9,
+      "domain_number": 5,
+      "name": "Occupational Medicine/Occupational Toxicology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies occupational",
+          "hazards",
+          "Identifies relevant",
+          "agencies and their role in",
+          "risk assessment,"
+        ],
+        "level_2": [
+          "mitigation, and education",
+          "Explains the core",
+          "principles of occupational",
+          "safety, risk assessment",
+          "and communication, and"
+        ],
+        "level_3": [
+          "hazard controls",
+          "Demonstrates the",
+          "principles of",
+          "occupational safety, risk",
+          "assessment, and"
+        ],
+        "level_4": [
+          "hazard control to",
+          "patients or populations",
+          "Applies core principles of",
+          "risk assessment and",
+          "hierarchy of controls to"
+        ],
+        "level_5": [
+          "reduce risks from safety",
+          "hazards to patients or",
+          "populations"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in group",
+          "disclosure of patient",
+          "safety events to patients",
+          "and patient families",
+          "(simulated or actual)",
+          "Conducts analysis of"
+        ],
+        "level_4": [
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "patient families",
+          "(simulated or actual)"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems for preventing",
+          "patient safety events",
+          "Acts as a role model",
+          "and/or mentor for others",
+          "in the disclosing of patient",
+          "safety events"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., consultation",
+          "efficiency, testing",
+          "turnaround times)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required for identifying,"
+        ],
+        "level_4": [
+          "developing,",
+          "implementing, and",
+          "analyzing a quality",
+          "improvement project",
+          "Creates, implements, and"
+        ],
+        "level_5": [
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of the",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of their interprofessional",
+          "team members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among"
+        ],
+        "level_4": [
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of"
+        ],
+        "level_5": [
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_sbp4",
+      "number": 13,
+      "domain_number": 4,
+      "name": "Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Participates in changing",
+          "and adapting practice to"
+        ],
+        "level_4": [
+          "provide for the needs of",
+          "specific populations",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with"
+        ],
+        "level_5": [
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_sbp5",
+      "number": 14,
+      "domain_number": 5,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care),"
+        ],
+        "level_2": [
+          "including practice",
+          "models",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)"
+        ],
+        "level_3": [
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Engages patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment model",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and the",
+          "transition of care",
+          "Advocates for patient",
+          "care needs with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment"
+        ],
+        "level_5": [
+          "model",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high value,",
+          "efficient, and effective",
+          "patient care, and the",
+          "transition of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_pbli1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence and",
+          "incorporate patient",
+          "preferences and values",
+          "to the care of a routine"
+        ],
+        "level_2": [
+          "patient",
+          "Articulates clinical",
+          "questions and considers",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care"
+        ],
+        "level_3": [
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and"
+        ],
+        "level_4": [
+          "applies evidence even",
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_pbli2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates an",
+          "openness to receiving",
+          "performance data",
+          "(feedback and other",
+          "input)",
+          "Demonstrates",
+          "awareness that there",
+          "may be gaps between",
+          "expectations and actual",
+          "performance"
+        ],
+        "level_2": [
+          "Demonstrates an",
+          "openness to receiving",
+          "performance data and",
+          "uses it to develop",
+          "personal and professional",
+          "goals",
+          "Identifies the factors that",
+          "contribute to the gap(s)",
+          "between expectations and",
+          "actual performance"
+        ],
+        "level_3": [
+          "Seeks and accepts",
+          "performance data for",
+          "developing personal and",
+          "professional goals",
+          "Analyzes and reflects on",
+          "the factors that contribute",
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Using performance"
+        ],
+        "level_4": [
+          "data, continually",
+          "improves and measures",
+          "the effectiveness of",
+          "one’s personal and",
+          "professional goals",
+          "Analyzes, reflects on,",
+          "and institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual"
+        ],
+        "level_5": [
+          "performance",
+          "Acts as a role model for",
+          "the development of",
+          "personal and professional",
+          "goals",
+          "Coaches others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_prof1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "professional behavior in",
+          "routine situations and in",
+          "reporting professionalism",
+          "lapses",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "patient care"
+        ],
+        "level_2": [
+          "Identifies and describes",
+          "potential triggers and",
+          "takes responsibility for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Exhibits professional",
+          "behavior in complex"
+        ],
+        "level_3": [
+          "and/or stressful situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles, and recognizes",
+          "the need to seek help in",
+          "managing and resolving",
+          "them",
+          "Sets apart those",
+          "situations that might"
+        ],
+        "level_4": [
+          "trigger professionalism",
+          "lapses and intervenes",
+          "to prevent them in",
+          "oneself and others",
+          "Uses appropriate",
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and addresses",
+          "system-level factors that",
+          "either induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_prof2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for"
+        ],
+        "level_2": [
+          "ensuring timely task",
+          "completion in the future",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in"
+        ],
+        "level_3": [
+          "routine situations",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful"
+        ],
+        "level_4": [
+          "situations",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner"
+        ],
+        "level_5": [
+          "Proactively develops and",
+          "implements strategies to",
+          "ensure that the needs of",
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_prof3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes the status of",
+          "one’s personal and",
+          "professional well-being",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "the status of one’s",
+          "personal and professional",
+          "well-being and engages in",
+          "help-seeking behaviors",
+          "With assistance,"
+        ],
+        "level_3": [
+          "proposes a plan to",
+          "optimize one’s personal",
+          "and professional well-",
+          "being",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to optimize one’s",
+          "personal and",
+          "professional well-being",
+          "Coaches others when",
+          "their emotional responses"
+        ],
+        "level_5": [
+          "or level of",
+          "knowledge/skills fail to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to reflect",
+          "respect and establish",
+          "rapport while accurately",
+          "communicating one’s own",
+          "role within the health care",
+          "system",
+          "Identifies common barriers",
+          "to effective communication",
+          "(e.g., language, disability)",
+          "With insight gained through",
+          "an assessment of the",
+          "patient’s/patient’s family’s",
+          "expectations coupled with",
+          "an understanding of their",
+          "health status and treatment",
+          "options, adjusts one’s",
+          "communication strategies"
+        ],
+        "level_2": [
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward encounters",
+          "with patients using active",
+          "listening and clear language",
+          "Identifies complex barriers to",
+          "effective communication",
+          "(e.g., health literacy, cultural",
+          "differences, technology)",
+          "Organizes and initiates",
+          "communication with a",
+          "patient/patient’s family by",
+          "clarifying expectations and",
+          "verifying one’s",
+          "understanding of the clinical",
+          "situation",
+          "Establishes a therapeutic",
+          "relationship"
+        ],
+        "level_3": [
+          "in challenging patient",
+          "encounters",
+          "When prompted, reflects on",
+          "biases, while attempting to",
+          "minimize communication",
+          "barriers",
+          "With guidance, sensitively",
+          "and compassionately",
+          "delivers medical information",
+          "to patients, elicits",
+          "patient’s/patient’s family’s",
+          "values, learns their goals",
+          "and preferences, and",
+          "acknowledges uncertainty",
+          "and conflict",
+          "Easily establishes",
+          "therapeutic relationships",
+          "with patients, regardless of"
+        ],
+        "level_4": [
+          "the complexity of cases",
+          "Independently recognizes",
+          "biases of patients, while",
+          "attempting to proactively",
+          "minimize communication",
+          "barriers",
+          "Independently uses",
+          "shared decision making",
+          "with a patient/patient’s",
+          "family to align their values,",
+          "goals, and preferences",
+          "with potential treatment",
+          "options and ultimately to",
+          "achieve a personalized",
+          "care plan",
+          "Acts as a mentor to others in",
+          "situational awareness and",
+          "critical self-reflection with the"
+        ],
+        "level_5": [
+          "aim of consistently",
+          "developing positive",
+          "therapeutic relationships and",
+          "minimizing communication",
+          "barriers",
+          "Develops educational",
+          "programs or services that",
+          "address bias or",
+          "communication strategies.",
+          "Acts as a role model to",
+          "exemplify shared decision",
+          "making in communication",
+          "with patients/patients’",
+          "families that embodies",
+          "various degrees of",
+          "uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation",
+          "Uses language that",
+          "reflects the values all",
+          "members of the health",
+          "care team",
+          "Receives feedback in a",
+          "respectful manner",
+          "Clearly and concisely",
+          "requests a consultation or",
+          "other resources for",
+          "patient care"
+        ],
+        "level_2": [
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Integrates",
+          "recommendations made",
+          "by various members of",
+          "the health care team to"
+        ],
+        "level_3": [
+          "optimize patient care",
+          "Engages in active",
+          "listening to adapt to the",
+          "communication styles of",
+          "the team",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Acts as a role model for",
+          "flexible communication",
+          "strategies, i.e., those",
+          "strategies that value"
+        ],
+        "level_4": [
+          "input from all health",
+          "care team members",
+          "and that resolve conflict",
+          "when needed",
+          "Uses effective",
+          "communication to lead",
+          "or manage health care",
+          "teams",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors"
+        ],
+        "level_5": [
+          "Acts as a role model for",
+          "communication skills",
+          "necessary to lead or",
+          "manage health care",
+          "teams",
+          "In complex situations,",
+          "facilitates regular health",
+          "care team-based",
+          "feedback"
+        ]
+      }
+    },
+    {
+      "id": "emergency_medicine__medical_toxicology_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately documents",
+          "information in the",
+          "patient’s record and",
+          "safeguards the patient’s",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy (e.g., patient"
+        ],
+        "level_2": [
+          "safety reports, cell",
+          "phone/pager use)",
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through the patient record",
+          "in a timely manner",
+          "Respectfully",
+          "communicates concerns",
+          "about the system"
+        ],
+        "level_3": [
+          "Concisely reports",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions for improving",
+          "the system",
+          "Communicates clearly,"
+        ],
+        "level_4": [
+          "concisely, and",
+          "contemporaneously in",
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system"
+        ],
+        "level_5": [
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (e.g.,",
+          "institution, the health care",
+          "system, and/or the field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "emergency-medicine",
+  "primary_name": "Emergency Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicaltoxicologysupplementalguide.pdf"
+  }
+}

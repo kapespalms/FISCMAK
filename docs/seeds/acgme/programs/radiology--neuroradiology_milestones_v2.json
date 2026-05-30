@@ -1,0 +1,1145 @@
+{
+  "framework_key": "radiology--neuroradiology",
+  "specialty": "Neuroradiology",
+  "version": "2.0",
+  "source": "ACGME Neuroradiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "radiology__neuroradiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Generates reports with",
+          "appropriate elements for",
+          "coding",
+          "Describes lexicons and",
+          "structured reporting",
+          "Efficiently generates",
+          "clear, concise, and",
+          "thoroughly proofread",
+          "reports which do not"
+        ],
+        "level_2": [
+          "require substantive",
+          "correction",
+          "Uses lexicons and",
+          "structured reporting that",
+          "do not require substantive",
+          "correction",
+          "Efficiently generates",
+          "clear, concise, and",
+          "thoroughly proofread"
+        ],
+        "level_3": [
+          "reports which rarely",
+          "require correction",
+          "Uses lexicons and",
+          "structured reporting which",
+          "rarely require correction",
+          "Generates tailored",
+          "reports meeting the",
+          "needs of the",
+          "subspecialty care"
+        ],
+        "level_4": [
+          "provider",
+          "Proficiently uses",
+          "lexicons and structured",
+          "reporting to provide",
+          "accurate and timely",
+          "reports which do not",
+          "require correction",
+          "Creates and revises",
+          "templates to meet the"
+        ],
+        "level_5": [
+          "needs of the subspecialty",
+          "care provider",
+          "Serves as a role model",
+          "for use of lexicons and",
+          "structured reporting"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Consultant in Neuroradiology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Uses established",
+          "evidence-based imaging",
+          "guidelines, such as",
+          "American College of",
+          "Radiology (ACR)",
+          "Appropriateness",
+          "Criteria ®"
+        ],
+        "level_2": [
+          "Integrates clinical data",
+          "with imaging findings to",
+          "develop a differential",
+          "diagnosis; uses evidence-",
+          "based imaging guidelines",
+          "to recommend imaging of",
+          "common neuroradiology"
+        ],
+        "level_3": [
+          "conditions",
+          "Integrates clinical data",
+          "with imaging findings to",
+          "develop a differential",
+          "diagnosis; uses evidence-",
+          "based imaging guidelines",
+          "to recommend imaging of"
+        ],
+        "level_4": [
+          "complex neuroradiology",
+          "conditions",
+          "Effectively provides",
+          "independent",
+          "consultation to",
+          "subspecialists taking",
+          "into consideration cost"
+        ],
+        "level_5": [
+          "effectiveness, risks, and",
+          "benefits",
+          "Serves as an expert",
+          "neuroradiology resource",
+          "for other providers"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Interpretation of Neuroimaging",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies primary",
+          "imaging findings in",
+          "common conditions",
+          "Identifies secondary",
+          "imaging findings,"
+        ],
+        "level_2": [
+          "recognizes critical",
+          "imaging findings, and",
+          "formulates differential",
+          "diagnoses",
+          "Prioritizes differential"
+        ],
+        "level_3": [
+          "diagnoses and helps to",
+          "guide management",
+          "Provides an accurate",
+          "diagnosis with",
+          "integration of clinical"
+        ],
+        "level_4": [
+          "history",
+          "Demonstrates expertise",
+          "at a level expected of a",
+          "subspecialist, including",
+          "for rare or unusual"
+        ],
+        "level_5": [
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Competence in Neuroradiology Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs pre-procedural",
+          "work-up",
+          "Discusses indications,",
+          "contraindications, and",
+          "potential complications",
+          "Competently performs"
+        ],
+        "level_2": [
+          "procedures, with direct",
+          "supervision",
+          "Recognizes complications",
+          "and enlists help",
+          "Competently performs",
+          "procedures, with indirect"
+        ],
+        "level_3": [
+          "supervision",
+          "Manages complications,",
+          "with supervision",
+          "Competently performs",
+          "procedures",
+          "independently"
+        ],
+        "level_4": [
+          "Anticipates challenges",
+          "and independently",
+          "manages complications",
+          "Competently teaches",
+          "procedural skills to others",
+          "independently"
+        ],
+        "level_5": [
+          "Modifies procedures in",
+          "anticipation of potential",
+          "challenges or",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Application of Neuroscience to Neuroradiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses basic",
+          "pathophysiology,",
+          "anatomy, genetics of",
+          "diseases, and treatment-",
+          "related effects of the",
+          "brain, neck, and spine",
+          "Applies knowledge of"
+        ],
+        "level_2": [
+          "pathophysiology,",
+          "anatomy, genetics of",
+          "diseases, and treatment-",
+          "related effects to image",
+          "interpretation and",
+          "management of common",
+          "conditions"
+        ],
+        "level_3": [
+          "Applies knowledge of",
+          "pathophysiology,",
+          "anatomy, genetics of",
+          "diseases, and treatment-",
+          "related effects to image",
+          "interpretation and",
+          "management of"
+        ],
+        "level_4": [
+          "uncommon conditions",
+          "Applies knowledge of",
+          "pathophysiology,",
+          "anatomy, genetics of",
+          "diseases, and",
+          "treatment-related",
+          "effects to image"
+        ],
+        "level_5": [
+          "interpretation and",
+          "management of rare or",
+          "unusual conditions",
+          "Teaches and advances",
+          "the application of",
+          "neuroscience to",
+          "neuroradiology"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Protocol Selection, Contrast Agent Selection/Dosing, and Image Optimization",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses protocols and",
+          "contrast agent/dose",
+          "Discusses imaging",
+          "technology and image",
+          "acquisition",
+          "Selects protocols and",
+          "contrast agent/dose for",
+          "common exams"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of image acquisition and",
+          "processing, and",
+          "recognizes common",
+          "imaging artifacts and",
+          "technical problems",
+          "Selects protocols and",
+          "contrast agent/dose for"
+        ],
+        "level_3": [
+          "advanced exams",
+          "Applies knowledge of",
+          "image acquisition and",
+          "processing and",
+          "troubleshoots for imaging",
+          "artifacts and technical",
+          "problems",
+          "Independently tailors"
+        ],
+        "level_4": [
+          "protocols to answer",
+          "complex clinical",
+          "questions",
+          "Proficiently optimizes",
+          "image acquisition and",
+          "processing in",
+          "collaboration with the",
+          "technologist/imaging"
+        ],
+        "level_5": [
+          "team",
+          "Teaches and/or develops",
+          "imaging protocols",
+          "Teaches and advances",
+          "knowledge of image",
+          "acquisition and",
+          "processing"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp1",
+      "number": 7,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Serves as a role model to",
+          "or mentors others in the",
+          "disclosure of patient",
+          "safety events"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp2",
+      "number": 8,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in local",
+          "quality improvement",
+          "initiatives"
+        ],
+        "level_3": [
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project"
+        ],
+        "level_4": [
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the divisional,",
+          "departmental, or"
+        ],
+        "level_5": [
+          "institutional level"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp3",
+      "number": 9,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination and",
+          "transitions of care in",
+          "imaging/procedures",
+          "Coordinates care of"
+        ],
+        "level_2": [
+          "patients and transitions of",
+          "care in routine",
+          "imaging/procedures",
+          "Coordinates care of",
+          "patients and transitions of",
+          "care in complex"
+        ],
+        "level_3": [
+          "imaging/procedures",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care and",
+          "transitions of care",
+          "among different"
+        ],
+        "level_4": [
+          "disciplines and",
+          "specialties",
+          "Analyzes the process of",
+          "care coordination or",
+          "transitions of care and",
+          "leads in the design and"
+        ],
+        "level_5": [
+          "implementation of",
+          "multidisciplinary process",
+          "improvements"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp4",
+      "number": 10,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "finance, personnel,",
+          "technology)",
+          "Describes the",
+          "mechanisms for",
+          "reimbursement, including",
+          "types of payors"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "States relative cost of",
+          "common procedures",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,"
+        ],
+        "level_3": [
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Describes the technical",
+          "and professional",
+          "components of imaging",
+          "costs",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care",
+          "Describes the radiology",
+          "revenue cycle and",
+          "measurements of",
+          "productivity (e.g.,",
+          "relative value units)",
+          "Advocates for or leads",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care",
+          "Participates in health",
+          "policy revenue and",
+          "finance activities"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp5",
+      "number": 11,
+      "domain_number": 5,
+      "name": "Contrast Agent Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of contrast",
+          "safety and reactions",
+          "Recognizes contrast"
+        ],
+        "level_2": [
+          "safety issues and",
+          "reactions",
+          "Manages contrast safety",
+          "concerns and reactions,"
+        ],
+        "level_3": [
+          "with supervision",
+          "Independently manages",
+          "contrast safety",
+          "concerns and reactions"
+        ],
+        "level_4": [
+          "Serves as a role model",
+          "and researches on or",
+          "teaches contrast safety,",
+          "including to referring"
+        ],
+        "level_5": [
+          "providers"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp6",
+      "number": 12,
+      "domain_number": 6,
+      "name": "Radiation Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "mechanisms of radiation",
+          "injury and the ALARA",
+          "(“as low as reasonably"
+        ],
+        "level_2": [
+          "achievable”) concept",
+          "Accesses resources to",
+          "determine exam-specific",
+          "average radiation dose",
+          "information"
+        ],
+        "level_3": [
+          "Communicates the",
+          "relative risk of exam-",
+          "specific radiation",
+          "exposure to patients and",
+          "practitioners"
+        ],
+        "level_4": [
+          "Applies principles of",
+          "ALARA in daily practice",
+          "including for pediatric",
+          "patients",
+          "Creates, implements, and"
+        ],
+        "level_5": [
+          "assesses radiation safety",
+          "initiatives at the divisional,",
+          "departmental, or",
+          "institutional level"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_sbp7",
+      "number": 13,
+      "domain_number": 7,
+      "name": "Magnetic Resonance (MR) Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the risks of",
+          "magnetic resonance",
+          "imaging (MRI), including",
+          "safety zones and pre-"
+        ],
+        "level_2": [
+          "magnetic resonance",
+          "(MR) screening",
+          "Accesses resources to",
+          "determine the safety of",
+          "implanted devices and"
+        ],
+        "level_3": [
+          "retained foreign bodies",
+          "Discusses MR safety",
+          "concerns, including",
+          "implants and retained",
+          "foreign bodies, with"
+        ],
+        "level_4": [
+          "patients and practitioners",
+          "Independently applies",
+          "principles of MR safety",
+          "to daily practice",
+          "Creates, implements, and"
+        ],
+        "level_5": [
+          "assesses MR safety",
+          "initiatives at the divisional,",
+          "departmental, or",
+          "institutional level"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence to determine",
+          "the best imaging",
+          "examination for a routine",
+          "patient/diagnosis"
+        ],
+        "level_2": [
+          "Articulates clinical",
+          "questions and elicits",
+          "patient preferences and",
+          "values in order to guide",
+          "evidence-based imaging",
+          "Locates and applies the"
+        ],
+        "level_3": [
+          "best available evidence,",
+          "integrated with patient",
+          "preferences and values,",
+          "to the care of complex",
+          "patients",
+          "Critically appraises"
+        ],
+        "level_4": [
+          "conflicting evidence to",
+          "guide care, tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex patients; and/or",
+          "participates in the",
+          "development of evidence-",
+          "based care guidelines"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Professional Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies factors that",
+          "contribute to gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "performance",
+          "Receptive to performance"
+        ],
+        "level_2": [
+          "data and feedback in",
+          "order to adjust goals",
+          "Analyzes and reflects on",
+          "factors that contribute to",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Episodically seeks",
+          "performance data and"
+        ],
+        "level_3": [
+          "feedback, with humility",
+          "and adaptability",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Designs and implements",
+          "a learning plan",
+          "independently",
+          "Consistently seeks",
+          "performance data and"
+        ],
+        "level_4": [
+          "feedback with humility",
+          "and adaptability",
+          "Analyzes effectiveness",
+          "of behavioral changes",
+          "where appropriate and",
+          "considers alternatives in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the"
+        ],
+        "level_5": [
+          "learning plan and, when",
+          "necessary, improves it",
+          "Coaches other learners to",
+          "consistently seek",
+          "performance data and",
+          "feedback",
+          "Coaches others on self-",
+          "assessment and effective",
+          "behavioral changes",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of",
+          "expectations for",
+          "professional behavior",
+          "and describes how to",
+          "appropriately report",
+          "professional lapses",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision"
+        ],
+        "level_2": [
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure, and",
+          "stewardship of limited",
+          "resources",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility for",
+          "own professionalism",
+          "lapses",
+          "Analyzes straightforward"
+        ],
+        "level_3": [
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex ethical",
+          "situations",
+          "Recognizes situations",
+          "that may trigger"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed",
+          "Engages in professional",
+          "development educational",
+          "activities or coaches"
+        ],
+        "level_5": [
+          "others when their",
+          "behavior fails to meet",
+          "professional expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks and",
+          "responsibilities",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner to ensure that the",
+          "needs of patients, teams,",
+          "and systems are met in",
+          "routine situations",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_3": [
+          "manner to ensure that the",
+          "needs of patients, teams,",
+          "and systems are met in",
+          "complex or stressful",
+          "situations",
+          "Recognizes and raises"
+        ],
+        "level_4": [
+          "awareness of situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Coaches and educates on"
+        ],
+        "level_5": [
+          "professional",
+          "accountability and",
+          "managing performance",
+          "gaps"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance, and is",
+          "aware of available",
+          "resources",
+          "Recognizes limits in the",
+          "knowledge/skills of self",
+          "or team, with assistance",
+          "Independently recognizes",
+          "status of personal and"
+        ],
+        "level_2": [
+          "professional well-being",
+          "using available resources",
+          "when appropriate",
+          "Independently recognizes",
+          "limits in the",
+          "knowledge/skills of self or",
+          "team and demonstrates",
+          "appropriate help-seeking",
+          "behaviors",
+          "With assistance,",
+          "proposes a plan to"
+        ],
+        "level_3": [
+          "optimize personal and",
+          "professional well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "remediate or improve",
+          "limits in the knowledge/",
+          "skills of self or team",
+          "Independently develops",
+          "or modifies a plan to",
+          "optimize personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Independently develops",
+          "a plan to remediate or",
+          "improve limits in the",
+          "knowledge/skills of self",
+          "or team",
+          "Engages in professional",
+          "well-being educational",
+          "activities or coaches",
+          "others to optimize",
+          "personal and professional",
+          "well-being"
+        ],
+        "level_5": [
+          "Coaches and guides",
+          "others when their",
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately",
+          "communicates own role",
+          "within the health care",
+          "system",
+          "Identifies the need to",
+          "adjust communication",
+          "strategies based on",
+          "assessment of",
+          "patient/family",
+          "expectations and"
+        ],
+        "level_2": [
+          "understanding of their",
+          "health status and",
+          "treatment options",
+          "Identifies barriers to",
+          "effective communication",
+          "(e.g., language, health",
+          "literacy)",
+          "Organizes and initiates",
+          "communication with",
+          "patient/family by clarifying"
+        ],
+        "level_3": [
+          "expectations and verifying",
+          "understanding of the",
+          "clinical situation",
+          "Identifies biases that",
+          "hinder effective",
+          "communication",
+          "With guidance, sensitively",
+          "and compassionately",
+          "delivers medical",
+          "information, elicits patient"
+        ],
+        "level_4": [
+          "goals and preferences,",
+          "and acknowledges",
+          "uncertainty and conflict",
+          "Actively improves",
+          "communication barriers",
+          "Independently, uses",
+          "shared decision making",
+          "to align patient goals,",
+          "and preferences with",
+          "treatment options to"
+        ],
+        "level_5": [
+          "make a personalized",
+          "care plan",
+          "Coaches other learners to",
+          "improve communication",
+          "barriers",
+          "Coaches or teaches other",
+          "learners in shared",
+          "decision making"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a",
+          "consultation request",
+          "Demonstrates",
+          "knowledge of the",
+          "institutional and national",
+          "communication",
+          "guidelines",
+          "Clearly and concisely",
+          "responds to a"
+        ],
+        "level_2": [
+          "consultation request",
+          "Communicates emergent",
+          "findings according to",
+          "institutional or national",
+          "guidelines",
+          "Checks understanding of",
+          "recommendations when",
+          "providing consultation",
+          "Communicates non-"
+        ],
+        "level_3": [
+          "emergent findings where",
+          "failure to act may",
+          "adversely affect patient",
+          "outcome",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates findings",
+          "and management",
+          "options (as appropriate)",
+          "that are tailored to the",
+          "referring provider",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Coaches and teaches",
+          "other learners in tailored",
+          "communications to",
+          "referring providers"
+        ]
+      }
+    },
+    {
+      "id": "radiology__neuroradiology_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of institutional",
+          "communications policies,",
+          "including the",
+          "safeguarding patient"
+        ],
+        "level_2": [
+          "information",
+          "Communicates",
+          "appropriately as required",
+          "by institutional policy",
+          "Communicates systems"
+        ],
+        "level_3": [
+          "concerns in a respectful",
+          "manner",
+          "Communicates clear",
+          "and constructive",
+          "suggestions to improve"
+        ],
+        "level_4": [
+          "systems",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (division,"
+        ],
+        "level_5": [
+          "department, institution,",
+          "health care system)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "radiology",
+  "primary_name": "Radiology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuroradiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neuroradiologysupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1163 @@
+{
+  "framework_key": "dermatology--dermatopathology",
+  "specialty": "Dermatopathology",
+  "version": "2.0",
+  "source": "ACGME Dermatopathology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "dermatology__dermatopathology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Visual Recognition – Neoplastic Dermatopathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies basic",
+          "categories of cutaneous",
+          "neoplasms",
+          "Recognizes and",
+          "differentiates normal and",
+          "abnormal histology",
+          "relevant to neoplastic"
+        ],
+        "level_2": [
+          "dermatopathology",
+          "Diagnoses common",
+          "presentations of common",
+          "cutaneous neoplasms",
+          "Forms a histopathologic",
+          "differential diagnosis for",
+          "most common cutaneous"
+        ],
+        "level_3": [
+          "neoplasms",
+          "Diagnoses uncommon",
+          "presentations of common",
+          "cutaneous neoplasms",
+          "Develops a differential",
+          "diagnosis for uncommon",
+          "neoplasms"
+        ],
+        "level_4": [
+          "Diagnoses uncommon",
+          "cutaneous neoplasms",
+          "Identifies subtle clues in",
+          "the diagnosis of",
+          "cutaneous neoplasms",
+          "Serves as a role model in",
+          "the practice of neoplastic"
+        ],
+        "level_5": [
+          "dermatopathology;",
+          "sought out by other",
+          "health care providers as",
+          "a consultant"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Visual Recognition – Inflammatory and Non-Neoplastic Dermatopathology",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies basic",
+          "histopathologic",
+          "inflammatory patterns",
+          "and non-neoplastic",
+          "processes",
+          "Differentiates between",
+          "normal histology and",
+          "abnormal histopathology",
+          "relevant to inflammatory"
+        ],
+        "level_2": [
+          "and non-neoplastic skin",
+          "diseases",
+          "Diagnoses common",
+          "presentations of common",
+          "inflammatory and non-",
+          "neoplastic skin diseases",
+          "Forms a histopathologic",
+          "differential diagnosis for",
+          "most common"
+        ],
+        "level_3": [
+          "inflammatory and non-",
+          "neoplastic skin diseases",
+          "Diagnoses uncommon",
+          "presentations of common",
+          "inflammatory and non-",
+          "neoplastic skin diseases",
+          "Develops a differential",
+          "diagnosis and work-up",
+          "plan for uncommon"
+        ],
+        "level_4": [
+          "inflammatory and non-",
+          "neoplastic skin diseases",
+          "Diagnoses uncommon",
+          "inflammatory and non-",
+          "neoplastic skin diseases",
+          "Identifies subtle clues in",
+          "the diagnosis of",
+          "inflammatory and non-",
+          "neoplastic skin diseases"
+        ],
+        "level_5": [
+          "Serves as a role model in",
+          "practice of inflammatory",
+          "and non-neoplastic",
+          "dermatopathology;",
+          "sought out by other",
+          "health care providers as",
+          "a consultant"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Ancillary Studies",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies types of",
+          "ancillary studies (e.g.,",
+          "special stains,",
+          "immunohistochemistry,",
+          "immunofluorescence,",
+          "molecular testing) used",
+          "in establishing",
+          "histopathologic"
+        ],
+        "level_2": [
+          "diagnoses",
+          "Selects routine ancillary",
+          "studies (e.g., special",
+          "stains,",
+          "immunohistochemistry,",
+          "molecular testing) in the",
+          "context of the",
+          "histopathologic findings"
+        ],
+        "level_3": [
+          "Interprets routine ancillary",
+          "studies (e.g., special",
+          "stains,",
+          "immunohistochemistry,",
+          "immunofluorescence,",
+          "molecular testing) in the",
+          "context of the clinical and",
+          "histopathologic findings"
+        ],
+        "level_4": [
+          "Selects and interprets",
+          "complex ancillary",
+          "studies (e.g., special",
+          "stains,",
+          "immunohistochemistry,",
+          "immunofluorescence,",
+          "molecular testing) in the",
+          "context of the clinical"
+        ],
+        "level_5": [
+          "and histopathologic",
+          "findings",
+          "Serves as role model in",
+          "the selection,",
+          "interpretation, and",
+          "teaching of ancillary",
+          "studies, including cost-",
+          "effective utilization"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the key",
+          "elements of a report and",
+          "demonstrates",
+          "understanding of timely",
+          "reporting",
+          "Identifies the importance",
+          "of a complete pathology",
+          "report for optimal patient",
+          "care",
+          "With assistance,",
+          "generates a timely report"
+        ],
+        "level_2": [
+          "for a simple case",
+          "Identifies implications of",
+          "the diagnosis in the report",
+          "and makes simple",
+          "recommendations",
+          "With assistance,",
+          "generates a timely report",
+          "that includes synoptic",
+          "templates and/or ancillary",
+          "testing for a complex",
+          "case; independently"
+        ],
+        "level_3": [
+          "generates reports for a",
+          "simple case",
+          "With assistance,",
+          "generates an",
+          "amended/addended",
+          "report that includes",
+          "updated information",
+          "With assistance,",
+          "generates a report that",
+          "includes the language of",
+          "uncertainty, as"
+        ],
+        "level_4": [
+          "appropriate",
+          "Independently",
+          "generates timely",
+          "integrated reports for",
+          "complex cases",
+          "Generates an",
+          "amended/addended",
+          "report and documents",
+          "communication with the",
+          "clinical team, as",
+          "appropriate"
+        ],
+        "level_5": [
+          "Independently",
+          "generates a report that",
+          "includes the language",
+          "of uncertainty and",
+          "complex",
+          "recommendations",
+          "Serves as a role model in",
+          "creating reports that",
+          "express the ambiguity",
+          "and uncertainty for a",
+          "complex case"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Neoplastic Dermatopathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "differences between",
+          "benign and malignant",
+          "skin neoplasms",
+          "Demonstrates knowledge",
+          "of the clinical presentation"
+        ],
+        "level_2": [
+          "and histopathologic",
+          "features of common skin",
+          "neoplasms",
+          "Demonstrates knowledge",
+          "of the clinical presentation",
+          "and histopathologic",
+          "features of uncommon"
+        ],
+        "level_3": [
+          "skin neoplasms",
+          "Demonstrates an in-",
+          "depth knowledge of the",
+          "pathogenesis, clinical",
+          "presentation,",
+          "histopathologic",
+          "features, and biologic"
+        ],
+        "level_4": [
+          "behavior of common",
+          "and uncommon skin",
+          "neoplasms",
+          "Serves as a consultant for",
+          "pathogenesis, clinical",
+          "presentation,",
+          "histopathologic features,"
+        ],
+        "level_5": [
+          "and biologic behavior of",
+          "uncommon and rare skin",
+          "neoplasms"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Inflammatory and Non-Neoplastic Dermatopathology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the basic",
+          "histopathologic patterns",
+          "of inflammatory skin",
+          "diseases and non-",
+          "neoplastic processes",
+          "Recognizes the",
+          "importance of the clinical",
+          "presentation in",
+          "diagnosing inflammatory",
+          "and non-neoplastic skin",
+          "diseases"
+        ],
+        "level_2": [
+          "Demonstrates knowledge",
+          "of common skin diseases",
+          "that correspond to",
+          "inflammatory and non-",
+          "neoplastic patterns and",
+          "ability to develop a limited",
+          "differential diagnosis",
+          "Demonstrates knowledge",
+          "of the clinical presentation",
+          "of common inflammatory",
+          "and non-neoplastic skin",
+          "diseases"
+        ],
+        "level_3": [
+          "Demonstrates knowledge",
+          "of uncommon skin",
+          "diseases that correspond",
+          "to inflammatory and non-",
+          "neoplastic patterns and",
+          "able to develop an",
+          "expanded differential",
+          "diagnosis",
+          "Demonstrates knowledge",
+          "of the clinical presentation",
+          "of uncommon",
+          "inflammatory and non-"
+        ],
+        "level_4": [
+          "neoplastic skin diseases",
+          "Demonstrates an in-",
+          "depth knowledge of the",
+          "pathogenesis,",
+          "histopathologic features",
+          "of common and",
+          "uncommon",
+          "inflammatory and non-",
+          "neoplastic skin diseases",
+          "Correlates the clinical",
+          "presentation of",
+          "inflammatory and non-"
+        ],
+        "level_5": [
+          "neoplastic skin diseases",
+          "with the histopathologic",
+          "patterns",
+          "Serves as a consultant for",
+          "the pathogenesis, clinical",
+          "presentation, and",
+          "histopathologic features",
+          "of uncommon and rare",
+          "inflammatory and non-",
+          "neoplastic skin diseases"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_mk3",
+      "number": 7,
+      "domain_number": 3,
+      "name": "Ancillary Studies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Understands available",
+          "ancillary studies (e.g.,",
+          "special histochemical",
+          "stains,",
+          "immunohistochemistry,",
+          "immunofluorescence,",
+          "molecular testing) and",
+          "basics of tissue",
+          "processing",
+          "Demonstrates",
+          "knowledge of the"
+        ],
+        "level_2": [
+          "appropriate use for",
+          "ancillary studies (e.g.,",
+          "special histochemical",
+          "stains,",
+          "immunohistochemistry,",
+          "immunofluorescence,",
+          "molecular testing)",
+          "Demonstrates knowledge",
+          "of expected ancillary",
+          "study results in common",
+          "skin diseases"
+        ],
+        "level_3": [
+          "Demonstrates knowledge",
+          "of the fundamental",
+          "techniques, pitfalls, and",
+          "artifacts in routine",
+          "ancillary studies",
+          "Demonstrates knowledge",
+          "of appropriate use and",
+          "expected ancillary study",
+          "results in uncommon skin",
+          "diseases",
+          "Demonstrates"
+        ],
+        "level_4": [
+          "knowledge of the",
+          "interpretation and",
+          "troubleshooting of",
+          "complex ancillary",
+          "studies",
+          "Demonstrates",
+          "knowledge of potentially",
+          "conflicting ancillary",
+          "study results",
+          "Teaches the principles,",
+          "pitfalls, and expected"
+        ],
+        "level_5": [
+          "disease-related results of",
+          "ancillary studies (e.g.,",
+          "special histochemical",
+          "stains,",
+          "immunohistochemistry,",
+          "immunofluorescence,",
+          "molecular studies)"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic QI",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "and institutional QI",
+          "initiatives"
+        ],
+        "level_3": [
+          "Participates in analysis of",
+          "patient safety events to",
+          "identify problem",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "clinicians (simulated or",
+          "actual)",
+          "Participates in",
+          "departmental and",
+          "institutional QI initiatives"
+        ],
+        "level_4": [
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to clinicians",
+          "(simulated or actual)",
+          "Identifies, develops,",
+          "implements, and",
+          "analyzes a QI project"
+        ],
+        "level_5": [
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses QI initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of case",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care",
+          "Coordinates care of",
+          "patients in routine cases"
+        ],
+        "level_2": [
+          "effectively using",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care in routine situations",
+          "Coordinates care of",
+          "patients in complex cases",
+          "effectively using"
+        ],
+        "level_3": [
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care in complex situations",
+          "Models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and"
+        ],
+        "level_4": [
+          "specialties",
+          "Models and advocates",
+          "for safe and effective",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems",
+          "Analyzes the process of",
+          "care coordination and"
+        ],
+        "level_5": [
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system",
+          "Describes basic health",
+          "payment systems and",
+          "practice models",
+          "Describes how",
+          "components of a complex",
+          "health care system are"
+        ],
+        "level_2": [
+          "interrelated, and how this",
+          "impacts patient care",
+          "Documents testing details",
+          "and explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g., test",
+          "utilization, turnaround"
+        ],
+        "level_3": [
+          "time)",
+          "Engages with clinicians in",
+          "shared decision making,",
+          "such as preauthorization",
+          "for complex testing; has a",
+          "working knowledge and",
+          "application of appropriate",
+          "use criteria within the field",
+          "of dermatopathology",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Practices and",
+          "advocates for cost-",
+          "effective patient care",
+          "Advocates for or leads"
+        ],
+        "level_5": [
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_sbp4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Discusses various",
+          "laboratory accreditation",
+          "agencies",
+          "Discusses the need for",
+          "quality control",
+          "Understands the",
+          "importance of ongoing",
+          "laboratory accreditation"
+        ],
+        "level_2": [
+          "and regulatory",
+          "compliance",
+          "Participates in daily",
+          "quality control",
+          "Demonstrates knowledge",
+          "of the components of",
+          "laboratory accreditation",
+          "and regulatory"
+        ],
+        "level_3": [
+          "compliance, either",
+          "through training or",
+          "experience",
+          "Demonstrates knowledge",
+          "of the components of a",
+          "laboratory quality",
+          "management plan",
+          "Identifies the process"
+        ],
+        "level_4": [
+          "for achieving",
+          "accreditation and",
+          "maintaining regulatory",
+          "compliance",
+          "Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvement"
+        ],
+        "level_5": [
+          "Participates in an internal",
+          "or external laboratory",
+          "inspection",
+          "Creates and follows a",
+          "comprehensive quality",
+          "management plan"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_pbli1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "locate evidence",
+          "applicable to the",
+          "diagnostic work-up of",
+          "routine cases",
+          "When prompted, locates"
+        ],
+        "level_2": [
+          "and applies evidence to",
+          "guide the diagnostic work-",
+          "up of complex cases",
+          "Proactively locates and",
+          "applies evidence to guide",
+          "the diagnostic work-up of"
+        ],
+        "level_3": [
+          "complex cases",
+          "Consistently locates",
+          "and applies the best",
+          "available evidence to",
+          "guide the diagnostic",
+          "work-up of complex"
+        ],
+        "level_4": [
+          "cases",
+          "Consistently and critically",
+          "appraises and applies",
+          "evidence, even in the face",
+          "of uncertainty and/or",
+          "conflicting evidence, to"
+        ],
+        "level_5": [
+          "guide the diagnostic work-",
+          "up of complex cases"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_pbli2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates openness",
+          "to receiving performance",
+          "data",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Accepts feedback with"
+        ],
+        "level_2": [
+          "humility",
+          "Designs a learning plan to",
+          "address the gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Seeks performance data",
+          "episodically"
+        ],
+        "level_3": [
+          "Implements a learning",
+          "plan to narrow the gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Seeks performance",
+          "data regularly and",
+          "adapts performance"
+        ],
+        "level_4": [
+          "based on feedback",
+          "Measures effectiveness",
+          "of a learning plan using",
+          "performance feedback",
+          "data and narrows the",
+          "gap(s) between",
+          "expectations and actual"
+        ],
+        "level_5": [
+          "performance",
+          "Role models seeking and",
+          "adapting to feedback",
+          "Coaches others on",
+          "designing and",
+          "implementing an effective",
+          "learning plan"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_prof1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Demonstrates",
+          "knowledge of medical",
+          "ethical principles",
+          "Demonstrates",
+          "professional behavior in"
+        ],
+        "level_2": [
+          "routine situations",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations; takes"
+        ],
+        "level_3": [
+          "responsibility for own",
+          "professionalism lapses",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses"
+        ],
+        "level_4": [
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas"
+        ],
+        "level_5": [
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Serves as resource for",
+          "colleagues who face",
+          "ethical dilemmas"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_prof2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities",
+          "Takes appropriate",
+          "ownership and performs"
+        ],
+        "level_2": [
+          "tasks and responsibilities",
+          "in a timely manner with",
+          "attention to detail",
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete"
+        ],
+        "level_3": [
+          "tasks and responsibilities",
+          "in a timely manner and",
+          "describes the impact on",
+          "team",
+          "Anticipates and",
+          "intervenes in situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Designs new strategies to",
+          "ensure the needs of"
+        ],
+        "level_5": [
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_prof3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "With assistance,",
+          "recognizes status of",
+          "personal and",
+          "professional well-being",
+          "With assistance,",
+          "recognizes limits in one’s",
+          "own knowledge/ skills",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "the status of one’s own",
+          "personal and professional",
+          "well-being",
+          "Independently recognizes",
+          "limits in one’s own",
+          "knowledge/skills and",
+          "seeks help when",
+          "appropriate"
+        ],
+        "level_3": [
+          "With assistance,",
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "remediate or improve",
+          "limits in one’s own"
+        ],
+        "level_4": [
+          "knowledge/skills",
+          "Independently develops",
+          "a plan to optimize one’s",
+          "own personal and",
+          "professional well-being",
+          "Independently develops",
+          "a plan to remediate or",
+          "improve limits in one’s"
+        ],
+        "level_5": [
+          "own knowledge/skills",
+          "Coaches others to",
+          "optimize their personal",
+          "and professional well-",
+          "being"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_ics1",
+      "number": 17,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and non-",
+          "verbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating one’s",
+          "own role within the"
+        ],
+        "level_2": [
+          "health care system",
+          "Establishes a relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,",
+          "health literacy, cultural",
+          "differences)"
+        ],
+        "level_3": [
+          "With supervision,",
+          "sensitively and",
+          "compassionately delivers",
+          "medical information",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Independently,",
+          "sensitively, and",
+          "compassionately"
+        ],
+        "level_4": [
+          "delivers medical",
+          "information and",
+          "acknowledges",
+          "uncertainty and conflict",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize",
+          "communication barriers",
+          "Mentors others in the",
+          "sensitive and"
+        ],
+        "level_5": [
+          "compassionate delivery of",
+          "medical information",
+          "Models self-awareness",
+          "while teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_ics2",
+      "number": 18,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Describes the utility of",
+          "constructive feedback",
+          "Communicates",
+          "information effectively",
+          "with all health care team"
+        ],
+        "level_2": [
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Integrates feedback from",
+          "team members to improve",
+          "communication",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "dermatology__dermatopathology_ics3",
+      "number": 19,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Understands institutional",
+          "policy(ies) about",
+          "communication involving",
+          "protected health",
+          "information (PHI)",
+          "Identifies institutional",
+          "and/or departmental",
+          "structures to",
+          "communicate concerns"
+        ],
+        "level_2": [
+          "about the health care",
+          "system",
+          "Appropriately selects",
+          "forms of communication",
+          "based on context and",
+          "urgency of the situation",
+          "Respectfully",
+          "communicates concerns",
+          "about the health care"
+        ],
+        "level_3": [
+          "system",
+          "With guidance,",
+          "communicates relevant",
+          "information while",
+          "safeguarding PHI",
+          "Uses institutional and/or",
+          "departmental structures to",
+          "communicate constructive",
+          "suggestions to improve"
+        ],
+        "level_4": [
+          "the health care system",
+          "Independently",
+          "communicates relevant",
+          "information while",
+          "safeguarding PHI",
+          "Independently raises",
+          "concerns with",
+          "appropriate",
+          "stakeholders to improve"
+        ],
+        "level_5": [
+          "the health care system",
+          "Guides departmental or",
+          "institutional policies and",
+          "procedures regarding PHI",
+          "in communications",
+          "Leads discussions with",
+          "community stakeholders",
+          "to improve the health care",
+          "system"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "dermatology",
+  "primary_name": "Dermatology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatopathologysupplementalguide.pdf"
+  }
+}

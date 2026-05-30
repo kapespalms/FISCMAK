@@ -1,0 +1,1106 @@
+{
+  "framework_key": "preventive-medicine--public-health-and-general-preventive-medicine",
+  "specialty": "Public Health and General Preventive Medicine",
+  "version": "2.0",
+  "source": "ACGME Public Health and General Preventive Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Emergency Preparedness and Response – Apply Skills in Emergency Preparedness and Response",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies examples of",
+          "public health threats that",
+          "might warrant an",
+          "emergency response"
+        ],
+        "level_2": [
+          "Describes how a",
+          "response to a public",
+          "health emergency is",
+          "organized"
+        ],
+        "level_3": [
+          "Plans and/or participates",
+          "in an emergency",
+          "preparedness event",
+          "(actual or simulated)"
+        ],
+        "level_4": [
+          "Evaluates an",
+          "emergency",
+          "preparedness event",
+          "(actual or simulated)"
+        ],
+        "level_5": [
+          "Provides leadership",
+          "during an emergency",
+          "preparedness event",
+          "(actual or simulated)"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Policies and Plans – Develop Policies and Plans to Support Individual and Community Health Efforts",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies pertinent",
+          "policies and interventions",
+          "for individual patient care",
+          "Describes how policies",
+          "and plans are developed"
+        ],
+        "level_2": [
+          "and implemented to",
+          "support the health of",
+          "individuals and",
+          "communities",
+          "Applies policies and plans"
+        ],
+        "level_3": [
+          "for disease prevention",
+          "and health promotion to",
+          "individuals and/or",
+          "communities",
+          "Evaluates policies and"
+        ],
+        "level_4": [
+          "plans for disease",
+          "prevention and health",
+          "promotion that have",
+          "been applied to",
+          "individuals and/or"
+        ],
+        "level_5": [
+          "communities",
+          "Develops and/or",
+          "implements policies or",
+          "plans to improve",
+          "community health"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Clinical and Community Preventive Services",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Locates and appraises",
+          "evidence about a clinical",
+          "preventive service for an",
+          "individual patient",
+          "Recognizes distinctions",
+          "between population and",
+          "individual health services",
+          "Discusses the strengths",
+          "and weaknesses of an",
+          "individual study relevant"
+        ],
+        "level_2": [
+          "to a clinical preventive",
+          "service",
+          "Describes the usefulness",
+          "and value of population-",
+          "based health services in",
+          "meeting the needs of",
+          "target populations",
+          "Examines the quality and",
+          "strength of evidence of a",
+          "clinical preventive service"
+        ],
+        "level_3": [
+          "Assesses evidence for",
+          "population-based health",
+          "services",
+          "Participates in the",
+          "analysis of a guideline",
+          "to address a clinical",
+          "preventive service",
+          "Uses established",
+          "performance criteria to",
+          "evaluate a population-"
+        ],
+        "level_4": [
+          "based health service, to",
+          "include identifying",
+          "barriers to services and",
+          "strategies for",
+          "improvement",
+          "Evaluates the",
+          "implementation of an",
+          "evidence-based guideline",
+          "to address a clinical",
+          "preventive service and"
+        ],
+        "level_5": [
+          "identifies barriers and",
+          "proposes solutions to",
+          "improving system-level",
+          "adherence",
+          "Develops program goals",
+          "and/or performance",
+          "criteria to evaluate a",
+          "population-based health",
+          "service for strategic or",
+          "operational improvements"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Lifestyle Medicine",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists modifiable and non-",
+          "modifiable risk factors",
+          "associated with the",
+          "development of prevalent",
+          "chronic conditions",
+          "Identifies evidence of",
+          "utilizing lifestyle interventions"
+        ],
+        "level_2": [
+          "that reduce the risk of",
+          "developing, or to mitigate the",
+          "effects of, prevalent chronic",
+          "conditions",
+          "Recommends lifestyle",
+          "interventions to mitigate",
+          "and treat prevalent chronic"
+        ],
+        "level_3": [
+          "conditions in individuals",
+          "Evaluates or develops a",
+          "plan for management of",
+          "lifestyle factors associated",
+          "with prevalent chronic",
+          "conditions at the",
+          "population or community"
+        ],
+        "level_4": [
+          "level",
+          "Implements and",
+          "evaluates a population-",
+          "based strategy for an",
+          "evidence-based lifestyle",
+          "program or policy that",
+          "mitigates prevalent"
+        ],
+        "level_5": [
+          "chronic conditions at the",
+          "population or community",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Environmental Health",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "illnesses that may be",
+          "caused or influenced by",
+          "exposure to",
+          "environmental hazards",
+          "Identifies major classes",
+          "of environmental hazards",
+          "and their routes of",
+          "human exposure",
+          "Identifies the components"
+        ],
+        "level_2": [
+          "of an environmental",
+          "exposure history",
+          "Describes situations that",
+          "warrant an environmental",
+          "risk assessment",
+          "Takes a complete",
+          "environmental exposure",
+          "history, including",
+          "individual factors that",
+          "impact susceptibility to"
+        ],
+        "level_3": [
+          "environmental hazards",
+          "Identifies the steps in an",
+          "environmental risk",
+          "assessment and",
+          "describes how the results",
+          "are used to manage and",
+          "communicate risk",
+          "Recommends methods",
+          "for reducing or",
+          "eliminating exposure to"
+        ],
+        "level_4": [
+          "environmental hazards",
+          "and methods for",
+          "addressing the health",
+          "effects resulting from",
+          "these exposures",
+          "Conducts a population-",
+          "level environmental risk",
+          "assessment (actual or",
+          "simulated)",
+          "Evaluates and interprets"
+        ],
+        "level_5": [
+          "the results of individual",
+          "and/or population-level",
+          "environmental monitoring",
+          "Makes policy",
+          "recommendations based",
+          "on the results of an",
+          "environmental risk",
+          "assessment"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Biostatistics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes common",
+          "statistical concepts and",
+          "tests",
+          "Identifies statistical test(s)",
+          "for a given research"
+        ],
+        "level_2": [
+          "question and data set",
+          "Performs data analyses",
+          "using various statistical",
+          "methods",
+          "Interprets the statistical"
+        ],
+        "level_3": [
+          "and clinical significance",
+          "of a data set and",
+          "evaluates the",
+          "generalizability of the",
+          "results to a population"
+        ],
+        "level_4": [
+          "Analyzes and interprets",
+          "large data sets using",
+          "complex statistical",
+          "methods and submits the",
+          "results for publication or"
+        ],
+        "level_5": [
+          "presentation"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_mk3",
+      "number": 7,
+      "domain_number": 3,
+      "name": "Epidemiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies sources of data",
+          "and common measures",
+          "for descriptive",
+          "epidemiology",
+          "Describes the basic",
+          "types of research studies",
+          "Describes the natural",
+          "history of disease and",
+          "relevance to primary,",
+          "secondary, and tertiary",
+          "prevention",
+          "Defines basic measures"
+        ],
+        "level_2": [
+          "of disease frequency and",
+          "excess risk",
+          "Compares and contrasts",
+          "commonly used study",
+          "designs",
+          "Identifies criteria for",
+          "effective screening tests",
+          "Calculates measures of",
+          "disease frequency and",
+          "excess risk for a specified",
+          "disease or condition",
+          "Critiques epidemiologic"
+        ],
+        "level_3": [
+          "studies, including",
+          "assessing external and",
+          "internal validity and",
+          "distinguishing between",
+          "association and causation",
+          "Assesses the validity and",
+          "reliability of individual",
+          "screening tests",
+          "Uses data to",
+          "characterize the health",
+          "of a local population and",
+          "compares it with that of"
+        ],
+        "level_4": [
+          "other populations",
+          "Participates in",
+          "epidemiological",
+          "research, including",
+          "evaluating and",
+          "interpreting results",
+          "Uses evidence about",
+          "individual screening",
+          "tests, interventions, and",
+          "harms to weigh the",
+          "potential benefits and",
+          "harms of screening"
+        ],
+        "level_5": [
+          "programs",
+          "Teaches use of data to",
+          "characterize the health of",
+          "a population and compare",
+          "it with that of other",
+          "populations",
+          "Independently designs",
+          "and conducts",
+          "epidemiologic research",
+          "Provides expert opinion",
+          "on the benefits and harms",
+          "of screening programs"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_mk4",
+      "number": 8,
+      "domain_number": 4,
+      "name": "Public Health Regulations",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies examples of",
+          "public health regulatory",
+          "agencies",
+          "Describes the regulatory",
+          "requirements for a"
+        ],
+        "level_2": [
+          "specific public health topic",
+          "Interprets regulatory",
+          "requirements as applied",
+          "to individuals and/or",
+          "populations"
+        ],
+        "level_3": [
+          "Develops or modifies a",
+          "public health policy",
+          "based upon regulatory",
+          "requirements or public",
+          "health laws (actual or"
+        ],
+        "level_4": [
+          "simulated)",
+          "Contributes to the",
+          "development or",
+          "modification of a",
+          "proposed regulatory"
+        ],
+        "level_5": [
+          "requirement or public",
+          "health law"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_mk5",
+      "number": 9,
+      "domain_number": 5,
+      "name": "Infectious Diseases of Public Health Significance",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes common",
+          "methods for preventing",
+          "the transmission of",
+          "infectious diseases",
+          "Discusses aspects of",
+          "disease and common",
+          "environmental, health,"
+        ],
+        "level_2": [
+          "and behavioral risk factors",
+          "associated with infectious",
+          "diseases of public health",
+          "significance",
+          "Describes the",
+          "epidemiology, risk factors,",
+          "prevention strategies,"
+        ],
+        "level_3": [
+          "diagnosis, and treatment",
+          "for infectious diseases of",
+          "public health significance",
+          "Applies knowledge of",
+          "the epidemiology, risk",
+          "factors, prevention",
+          "strategies, diagnosis,"
+        ],
+        "level_4": [
+          "and treatment for",
+          "infectious diseases of",
+          "public health",
+          "significance to the",
+          "individual or population-",
+          "level",
+          "Designs a plan for the"
+        ],
+        "level_5": [
+          "prevention, diagnosis, and",
+          "treatment of an infectious",
+          "disease of public health",
+          "significance at the",
+          "population level"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists common patient",
+          "safety events and",
+          "describes how to report",
+          "patient safety events",
+          "Discusses basic quality",
+          "improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Describes quality",
+          "improvement initiatives",
+          "Participates in a root",
+          "cause analysis (actual or",
+          "simulated)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies",
+          "(actual or simulated)"
+        ],
+        "level_4": [
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively modifies systems",
+          "to prevent patient safety",
+          "events"
+        ],
+        "level_5": [
+          "Leads the conduct and",
+          "implementation of a",
+          "quality improvement",
+          "project"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "System Navigation for Patient- and Population-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists examples of care",
+          "coordination in a health",
+          "care system",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Demonstrates",
+          "coordination of care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations, effectively",
+          "using the roles of",
+          "interprofessional team",
+          "members and care",
+          "settings",
+          "Identifies specific",
+          "population and community",
+          "health needs for their",
+          "local population",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "coordination of care of",
+          "patients in complex",
+          "clinical situations,",
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and community"
+        ],
+        "level_4": [
+          "Models effective",
+          "coordination of patient-",
+          "and population-centered",
+          "care among different",
+          "disciplines and",
+          "specialties/settings",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations"
+        ],
+        "level_5": [
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "Physician Leadership in Health Care and Community Health Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the health",
+          "care system",
+          "Identifies key agencies",
+          "involved in community",
+          "health efforts",
+          "Describes how",
+          "components of a health",
+          "care system are inter-",
+          "related, and how they"
+        ],
+        "level_2": [
+          "impact patient and/or",
+          "population/stakeholder",
+          "care",
+          "Describes the interactions",
+          "between agencies and",
+          "how these impact the",
+          "overall health of the",
+          "community",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system",
+          "Discusses how each",
+          "agency impacts the",
+          "broader goal of a healthy",
+          "community",
+          "Navigates components",
+          "of the complex health",
+          "care system to promote",
+          "efficient and effective",
+          "patient and/or"
+        ],
+        "level_4": [
+          "population/stakeholder",
+          "care",
+          "Participates in a",
+          "community needs",
+          "assessment to identify",
+          "and improve the overall",
+          "health of a community",
+          "(actual or simulated)",
+          "Leads health care",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care",
+          "Leads a community needs",
+          "assessment to identify",
+          "and improve the overall",
+          "health of a community"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Recognizes the need for",
+          "evidence in decision-",
+          "making to care for a",
+          "routine patient, situation,",
+          "or public health problem",
+          "Identifies evidence and"
+        ],
+        "level_2": [
+          "elicits patient or",
+          "population preferences",
+          "and values to guide a",
+          "patient or population",
+          "intervention",
+          "Applies the best available"
+        ],
+        "level_3": [
+          "evidence, integrated with",
+          "patient or population",
+          "preferences and values",
+          "Critically appraises and",
+          "applies evidence, even",
+          "in the face of"
+        ],
+        "level_4": [
+          "uncertainty and",
+          "conflicting evidence, to",
+          "guide care tailored to an",
+          "individual or population",
+          "Trains others to critically",
+          "appraise and apply"
+        ],
+        "level_5": [
+          "evidence to complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness",
+          "to feedback and other"
+        ],
+        "level_2": [
+          "input to inform goals",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Analyzes, reflects on, and",
+          "institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between"
+        ],
+        "level_3": [
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks",
+          "feedback consistently,",
+          "with adaptability and"
+        ],
+        "level_4": [
+          "humility",
+          "Uses feedback to",
+          "measure the",
+          "effectiveness of the",
+          "learning plan and, when",
+          "necessary, improves it",
+          "Role models consistently",
+          "seeking feedback with"
+        ],
+        "level_5": [
+          "adaptability and humility",
+          "Facilitates the design and",
+          "implementation of learning",
+          "plans for others"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_pbli3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Disease Outbreak and Surveillance Systems",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Discusses common",
+          "causes of disease",
+          "clusters and outbreaks",
+          "Recognizes the need to",
+          "report selected diseases",
+          "to public health",
+          "authorities and describes",
+          "the need for surveillance",
+          "systems in a variety of",
+          "settings"
+        ],
+        "level_2": [
+          "Describes the steps of a",
+          "cluster or outbreak",
+          "investigation",
+          "Identifies and summarizes",
+          "commonly used",
+          "surveillance systems",
+          "Analyzes an outbreak,",
+          "assessing for steps taken,",
+          "mitigation strategies,",
+          "results, and areas for"
+        ],
+        "level_3": [
+          "improvement in the",
+          "approach",
+          "Lists the challenges in",
+          "designing and maintaining",
+          "a surveillance system",
+          "Participates in the",
+          "planning and",
+          "implementation of a",
+          "cluster/outbreak",
+          "investigation (actual or"
+        ],
+        "level_4": [
+          "simulated)",
+          "Analyzes surveillance",
+          "data to identify",
+          "appropriate targets for",
+          "individual, community,",
+          "and/or systems",
+          "interventions and to",
+          "evaluate the quality of",
+          "the system",
+          "Leads a team to"
+        ],
+        "level_5": [
+          "investigate and manage",
+          "an outbreak, including",
+          "supervision of staff",
+          "members, assignment of",
+          "roles, program design,",
+          "monitoring of",
+          "effectiveness, etc.",
+          "Independently designs",
+          "and implements a new",
+          "surveillance system"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies potential",
+          "triggers for and reporting",
+          "of professionalism lapses",
+          "Defines the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision-",
+          "making, advance",
+          "directives, privacy and"
+        ],
+        "level_2": [
+          "confidentiality, error",
+          "disclosure, stewardship",
+          "of limited resources, and",
+          "related topics",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Analyzes straightforward",
+          "situations using ethical"
+        ],
+        "level_3": [
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Uses appropriate",
+          "resources for managing",
+          "ethical dilemmas",
+          "Intervenes to prevent or"
+        ],
+        "level_4": [
+          "mitigate lapses in",
+          "professional behavior of",
+          "oneself and others",
+          "Develops an approach",
+          "to manage and resolve",
+          "complex ethical",
+          "situations",
+          "Coaches others when",
+          "their behavior fails to"
+        ],
+        "level_5": [
+          "meet professional",
+          "expectations",
+          "Implements system-level",
+          "factors to improve ethical",
+          "behavior in health care",
+          "professionals"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete",
+          "tasks and takes",
+          "responsibility"
+        ],
+        "level_2": [
+          "Responds promptly to",
+          "requests to complete",
+          "tasks and responsibilities",
+          "Proactively implements",
+          "strategies to ensure"
+        ],
+        "level_3": [
+          "responsibilities are met",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in"
+        ],
+        "level_4": [
+          "an accurate and timely",
+          "manner",
+          "Modifies/develops a",
+          "system of accountability",
+          "to ensure completeness"
+        ],
+        "level_5": [
+          "of tasks and",
+          "responsibilities in an",
+          "accurate and timely",
+          "manner"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking Behaviors",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes"
+        ],
+        "level_2": [
+          "status of personal and",
+          "professional well-being",
+          "With assistance, proposes",
+          "a plan to optimize",
+          "personal and professional"
+        ],
+        "level_3": [
+          "well-being",
+          "Independently develops",
+          "a plan to optimize",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Coaches others when",
+          "emotional responses or",
+          "limitations in",
+          "knowledge/skills do not",
+          "meet professional"
+        ],
+        "level_5": [
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Community- and Population-Centered Communication and Shared Decision-Making",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Identifies common",
+          "barriers to effective",
+          "communication while",
+          "accurately",
+          "communicating one’s",
+          "own role and"
+        ],
+        "level_2": [
+          "responsibilities within",
+          "the health system",
+          "Identifies complex barriers",
+          "to effective communication",
+          "Recognizes biases while",
+          "attempting to minimize"
+        ],
+        "level_3": [
+          "communication barriers",
+          "Independently uses shared",
+          "decision-making to align",
+          "community/population",
+          "values, goals, and",
+          "preferences with preventive"
+        ],
+        "level_4": [
+          "services",
+          "Practices shared",
+          "decision-making in",
+          "community/population",
+          "communication, including",
+          "in situations with a high"
+        ],
+        "level_5": [
+          "degree of",
+          "uncertainty/conflict"
+        ]
+      }
+    },
+    {
+      "id": "preventive_medicine__public_health_and_general_preventive_medicine_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of an",
+          "interprofessional team",
+          "Recognizes the",
+          "importance of the role of",
+          "feedback within an",
+          "interprofessional team",
+          "Communicates",
+          "information effectively,"
+        ],
+        "level_2": [
+          "including the use of active",
+          "listening and feedback,",
+          "with all members of an",
+          "interprofessional team",
+          "and/or with community",
+          "stakeholders",
+          "Solicits feedback on",
+          "performance as a",
+          "member of an"
+        ],
+        "level_3": [
+          "interprofessional team or",
+          "community group",
+          "Adapts communication",
+          "style to fit the needs of",
+          "health care team",
+          "members or community",
+          "stakeholders",
+          "Communicates concerns",
+          "and provides feedback to"
+        ],
+        "level_4": [
+          "peers and learners",
+          "Facilitates",
+          "interprofessional team",
+          "and community group",
+          "communication using",
+          "multiple communication",
+          "strategies",
+          "Uses constructive",
+          "criticism skills in"
+        ],
+        "level_5": [
+          "communicating with",
+          "interprofessional team",
+          "members, community",
+          "stakeholders, and",
+          "leaders",
+          "Serves as a role model for",
+          "effective interprofessional",
+          "team communication"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "preventive-medicine",
+  "primary_name": "Preventive Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinemilestonesannotated.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/publichealthandgeneralpreventivemedicinesupplementalguide.pdf"
+  }
+}

@@ -1,0 +1,1146 @@
+{
+  "framework_key": "psychiatry--forensic-psychiatry",
+  "specialty": "Forensic Psychiatry",
+  "version": "2.0",
+  "source": "ACGME Forensic Psychiatry Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "psychiatry__forensic_psychiatry_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Patient Care in Forensic Settings",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Provides psychiatric care",
+          "recognizing that there",
+          "are unique requirements",
+          "in the forensic setting",
+          "Provides psychiatric care",
+          "that recognizes the",
+          "tensions of security"
+        ],
+        "level_2": [
+          "concerns, dual agency,",
+          "and the potential for",
+          "conflicts with therapeutic",
+          "efforts",
+          "Provides psychiatric care",
+          "that applies knowledge",
+          "of the tensions of"
+        ],
+        "level_3": [
+          "security concerns, dual",
+          "agency, and the potential",
+          "for conflicts with",
+          "therapeutic efforts",
+          "Provides psychiatric care",
+          "that consistently",
+          "manages security"
+        ],
+        "level_4": [
+          "concerns, dual agency,",
+          "the potential for conflicts",
+          "with therapeutic efforts,",
+          "and other treatment",
+          "issues unique to a",
+          "forensic setting",
+          "Participates in policy"
+        ],
+        "level_5": [
+          "development for the",
+          "delivery of psychiatric",
+          "services in a forensic",
+          "setting"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Procedural Skills in Criminal Forensic Psychiatry",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the unique",
+          "evaluations that occur",
+          "within the practice of",
+          "forensic psychiatry in the",
+          "adult and juvenile justice",
+          "systems",
+          "Demonstrates",
+          "knowledge of the unique",
+          "requirements involved in",
+          "the communication of",
+          "forensic psychiatric",
+          "opinions"
+        ],
+        "level_2": [
+          "Under supervision,",
+          "performs basic",
+          "components of a forensic",
+          "evaluation with an",
+          "awareness of the",
+          "appropriate legal",
+          "standard",
+          "Under supervision,",
+          "expresses a well-",
+          "supported criminal",
+          "forensic psychiatric",
+          "opinion",
+          "Under supervision,"
+        ],
+        "level_3": [
+          "performs common",
+          "forensic evaluations,",
+          "such as to determine",
+          "competency to stand",
+          "trial, criminal",
+          "responsibility, diversion,",
+          "and risk assessment",
+          "Under supervision,",
+          "prepares an appropriate",
+          "criminal forensic report",
+          "and provides effective",
+          "testimony supported by",
+          "evidence"
+        ],
+        "level_4": [
+          "Independently performs",
+          "common forensic",
+          "evaluations, such as to",
+          "determine competency",
+          "to stand trial, criminal",
+          "responsibility, diversion,",
+          "and risk assessment",
+          "Independently prepares",
+          "an appropriate forensic",
+          "report and provides",
+          "testimony in a clear and",
+          "professional manner",
+          "Serves as a model for"
+        ],
+        "level_5": [
+          "excellence in",
+          "performance of forensic",
+          "evaluations, such as to",
+          "determine competency",
+          "to stand trial, criminal",
+          "responsibility, diversion,",
+          "and risk assessment",
+          "Produces reports and",
+          "testimony that serve as a",
+          "model for excellence that",
+          "can be used to teach",
+          "others"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Procedural Skills in Civil Forensic Psychiatry",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the unique",
+          "evaluations that occur",
+          "within the practice of civil",
+          "litigation and",
+          "administrative settings",
+          "Demonstrates",
+          "knowledge of the unique",
+          "requirements involved in",
+          "the communication of",
+          "civil forensic psychiatric"
+        ],
+        "level_2": [
+          "opinions",
+          "Under supervision,",
+          "performs basic",
+          "components of a civil",
+          "forensic evaluation with",
+          "an awareness of the",
+          "referral question and",
+          "relevant standards",
+          "Under supervision,",
+          "expresses a well-",
+          "supported civil forensic"
+        ],
+        "level_3": [
+          "psychiatric opinion",
+          "Under supervision,",
+          "performs common civil",
+          "forensic evaluations,",
+          "such as medical",
+          "malpractice, disability,",
+          "and personal injury",
+          "Under supervision,",
+          "prepares an appropriate",
+          "civil forensic report and",
+          "provides effective"
+        ],
+        "level_4": [
+          "testimony supported by",
+          "evidence",
+          "Independently performs",
+          "common civil forensic",
+          "evaluations",
+          "Independently prepares",
+          "an appropriate civil",
+          "forensic report and",
+          "provides testimony in a",
+          "clear and professional",
+          "manner"
+        ],
+        "level_5": [
+          "Serves as a model for",
+          "excellence in",
+          "performance of civil",
+          "forensic evaluations",
+          "Produces reports and",
+          "testimony that serve as a",
+          "model for excellence that",
+          "can be used to teach",
+          "others"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_mk1",
+      "number": 4,
+      "domain_number": 1,
+      "name": "Knowledge of Legal Principles Related to the Practice of Forensic Psychiatry",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates basic",
+          "understanding of legal",
+          "terms relevant to",
+          "forensic psychiatry",
+          "Identifies statutes,",
+          "cases, court procedure,",
+          "and administrative",
+          "regulation relevant to",
+          "forensic psychiatry, and",
+          "demonstrates",
+          "competence in use of",
+          "legal resources",
+          "Demonstrates",
+          "knowledge of civil law",
+          "relevant to forensic"
+        ],
+        "level_2": [
+          "psychiatry (e.g.,",
+          "malpractice, personal",
+          "injury litigation, treatment",
+          "refusal, and",
+          "commitment)",
+          "Demonstrates",
+          "knowledge of criminal",
+          "law relevant to forensic",
+          "psychiatry (e.g.,",
+          "competency to stand",
+          "trial, criminal",
+          "responsibility, sentencing",
+          "and mitigation)",
+          "Reads legal cases and",
+          "demonstrates"
+        ],
+        "level_3": [
+          "understanding of",
+          "procedural history, and",
+          "legal holdings",
+          "Demonstrates",
+          "knowledge of the",
+          "underlying principles of",
+          "civil law relevant to",
+          "forensic psychiatry",
+          "Demonstrates",
+          "knowledge of the",
+          "underlying principles of",
+          "criminal law relevant to",
+          "forensic psychiatry",
+          "Applies knowledge of",
+          "legal principles and state"
+        ],
+        "level_4": [
+          "and federal laws relevant",
+          "to their forensic practice",
+          "Applies knowledge of",
+          "civil law relevant to",
+          "forensic psychiatry",
+          "practice",
+          "Applies knowledge of",
+          "criminal law relevant to",
+          "forensic psychiatry",
+          "practice",
+          "Demonstrates sufficient",
+          "knowledge to assist in",
+          "the drafting of legal",
+          "briefs, statutes, or",
+          "regulations"
+        ],
+        "level_5": [
+          "Advances knowledge of",
+          "civil law relevant to",
+          "forensic psychiatry",
+          "through research,",
+          "presentation at national",
+          "professional meetings,",
+          "and/or publication",
+          "Advances knowledge of",
+          "criminal law relevant to",
+          "forensic psychiatry",
+          "through research,",
+          "presentation at national",
+          "professional meetings,",
+          "and/or publication"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_mk2",
+      "number": 5,
+      "domain_number": 2,
+      "name": "Knowledge of Clinical Psychiatry Especially Relevant to Forensic Psychiatry",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "importance of identifying",
+          "specific Diagnostic and",
+          "Statistical Manual of",
+          "Mental Disorders (DSM)",
+          "criteria to substantiate a",
+          "diagnosis while",
+          "maintaining an",
+          "awareness of potential",
+          "socio-cultural influences",
+          "Demonstrates",
+          "knowledge of the",
+          "importance of using"
+        ],
+        "level_2": [
+          "different assessment",
+          "approaches",
+          "Applies knowledge of",
+          "DSM criteria to general",
+          "psychiatric presentations",
+          "commonly encountered",
+          "in forensic psychiatric",
+          "practice (e.g., bipolar",
+          "disorder, depression)",
+          "Demonstrates",
+          "knowledge of the types",
+          "of standardized",
+          "assessment tools used",
+          "in forensic psychiatry"
+        ],
+        "level_3": [
+          "Applies knowledge of",
+          "DSM criteria to",
+          "psychiatric presentations",
+          "specific to forensic",
+          "psychiatric practice (e.g.,",
+          "paraphilic disorders,",
+          "malingering, antisocial",
+          "personality disorder, and",
+          "impulse control",
+          "disorders), including",
+          "relevant socio-cultural",
+          "influences",
+          "Identifies which",
+          "assessment tool is"
+        ],
+        "level_4": [
+          "appropriate for a specific",
+          "forensic question",
+          "Analyzes and",
+          "synthesizes data from",
+          "relevant sources to",
+          "substantiate a diagnosis",
+          "using DSM criteria",
+          "Incorporates the results",
+          "of the various",
+          "assessment methods",
+          "used in rendering a",
+          "forensic opinion",
+          "Advances knowledge",
+          "about the application of"
+        ],
+        "level_5": [
+          "the DSM in forensic",
+          "practice (e.g.,",
+          "publications,",
+          "presentations, national",
+          "committees)",
+          "Demonstrates",
+          "knowledge of the",
+          "research bases and",
+          "admissibility of the",
+          "various assessment",
+          "approaches"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_sbp1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Patient/Evaluee Safety and the Health Care Team",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "causes of errors",
+          "Demonstrates",
+          "knowledge of institutional",
+          "safety policies and",
+          "awareness of mandatory",
+          "reporting requirements",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report safety events",
+          "Participates in analysis",
+          "of safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety and/or"
+        ],
+        "level_3": [
+          "mandatory reporting",
+          "events",
+          "Critically analyzes data",
+          "to identify systems-",
+          "based errors related to",
+          "safety (e.g., malpractice",
+          "case involving suicide,",
+          "risk assessment)",
+          "Consistently follows"
+        ],
+        "level_4": [
+          "regulatory requirements",
+          "related to patient safety",
+          "and/or mandatory",
+          "reporting and prescribing",
+          "practices",
+          "Actively engages teams",
+          "and processes to",
+          "improve medical and",
+          "legal system to prevent"
+        ],
+        "level_5": [
+          "safety events",
+          "Provides consultation to",
+          "organizations to improve",
+          "personal and",
+          "patient/evaluee safety"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_sbp2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes internal quality",
+          "improvement initiatives",
+          "(e.g., reduced restraint",
+          "rates, falls risk, suicide",
+          "rates)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement, and",
+          "analyze a quality",
+          "improvement project",
+          "Creates, implements,",
+          "and assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives",
+          "at the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_sbp3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "System Navigation",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Recognizes differences",
+          "in resources impacting",
+          "care and supervision",
+          "among forensic and",
+          "community settings",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Performs safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "situations",
+          "Demonstrates",
+          "knowledge of forensic",
+          "and community",
+          "resources",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in"
+        ],
+        "level_3": [
+          "complex situations",
+          "Is aware of health care",
+          "funding and regulations",
+          "related to community",
+          "resources in forensic",
+          "psychiatry",
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a population",
+          "and community",
+          "Role models and serves",
+          "as a patient advocate for",
+          "safe and effective",
+          "transitions of care/hand-"
+        ],
+        "level_4": [
+          "offs within and across",
+          "systems",
+          "Considers system",
+          "resources in forensic",
+          "psychiatric",
+          "recommendations",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Improves quality of",
+          "transitions of care within",
+          "and across systems to",
+          "optimize outcomes"
+        ],
+        "level_5": [
+          "Advocates for improved",
+          "access to and better",
+          "allocation of resources",
+          "within forensic and",
+          "community systems of",
+          "care, as appropriate",
+          "Leads innovations and",
+          "advocates for",
+          "populations and",
+          "communities with",
+          "specific health care",
+          "needs"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_sbp4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care and",
+          "legal system",
+          "Identifies basic",
+          "knowledge domains for",
+          "effective transition to",
+          "practice",
+          "Describes how"
+        ],
+        "level_2": [
+          "components of a",
+          "complex health care and",
+          "legal system are",
+          "interrelated",
+          "Demonstrates use of",
+          "information technology",
+          "and documentation",
+          "required for practice",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system",
+          "Describes core",
+          "administrative",
+          "knowledge needed for",
+          "transition to practice",
+          "Manages various",
+          "components of the",
+          "complex health care and"
+        ],
+        "level_4": [
+          "legal system to provide",
+          "high-value, efficient, and",
+          "effective care and",
+          "consultation",
+          "Analyzes individual",
+          "practice patterns and",
+          "professional",
+          "requirements in",
+          "preparation for practice"
+        ],
+        "level_5": [
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "care and consultation"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_pbli1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access available",
+          "evidence in addressing a",
+          "clinical or forensic",
+          "question",
+          "Articulates clinical or"
+        ],
+        "level_2": [
+          "forensic questions and",
+          "initiates literature",
+          "searches to support",
+          "evidence-based opinions",
+          "Locates and applies the",
+          "best available evidence"
+        ],
+        "level_3": [
+          "relevant to clinical and/or",
+          "forensic practice",
+          "problems",
+          "Critically appraises and",
+          "applies evidence even in",
+          "the face of uncertainty"
+        ],
+        "level_4": [
+          "and conflicting evidence",
+          "to guide opinion, tailored",
+          "to the individual case",
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex cases, and/or",
+          "participates in the",
+          "development of",
+          "guidelines"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_pbli2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to gaps",
+          "between one’s expected",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness"
+        ],
+        "level_2": [
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and reflects on",
+          "the factors that",
+          "contribute to gaps",
+          "between one’s expected",
+          "and actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "prompting",
+          "Seeks performance data"
+        ],
+        "level_3": [
+          "episodically with",
+          "openness and humility",
+          "Analyzes, reflects on,",
+          "and institutes behavioral",
+          "changes to narrow the",
+          "gaps between one’s",
+          "expected and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Intentionally seeks"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently with",
+          "openness and humility",
+          "Challenges one’s own",
+          "assumptions and",
+          "considers alternatives in",
+          "narrowing the gaps",
+          "between expected and",
+          "actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the"
+        ],
+        "level_5": [
+          "learning plan and, when",
+          "necessary, improves it",
+          "Role models consistently",
+          "seeking performance",
+          "data with openness and",
+          "humility",
+          "Coaches others on",
+          "reflective practice",
+          "Facilitates the design",
+          "and implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_prof1",
+      "number": 12,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes that one’s",
+          "behavior in professional",
+          "settings affects others",
+          "Takes responsibility for",
+          "one’s own"
+        ],
+        "level_2": [
+          "professionalism lapses",
+          "and responds",
+          "appropriately",
+          "Describes when and how",
+          "to appropriately report"
+        ],
+        "level_3": [
+          "professionalism lapses in",
+          "others, including",
+          "strategies for addressing",
+          "common barriers to",
+          "reporting"
+        ],
+        "level_4": [
+          "Responds appropriately",
+          "to professionalism",
+          "lapses of colleagues and",
+          "other forensic evaluators",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_prof2",
+      "number": 13,
+      "domain_number": 2,
+      "name": "Compassion, Integrity, Respect for Others, Sensitivity to Patient Populations, Adherence to Ethical",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates capacity",
+          "for self-reflection,",
+          "empathy, and curiosity",
+          "about, and openness to,",
+          "different beliefs and",
+          "points of view",
+          "Recognizes ethical",
+          "conflicts in practice and",
+          "seeks supervision to",
+          "manage them",
+          "Elicits beliefs, values,",
+          "and practices of"
+        ],
+        "level_2": [
+          "patients/evaluees and",
+          "their families, and",
+          "understands their",
+          "potential impact on",
+          "patient care and",
+          "evaluees in a legal",
+          "context",
+          "Recognizes ethical/legal",
+          "issues in practice and",
+          "discusses these in",
+          "common clinical and",
+          "forensic situations"
+        ],
+        "level_3": [
+          "Develops an appropriate",
+          "care plan or forensic",
+          "recommendation in the",
+          "context of potential",
+          "biases",
+          "Identifies evolving ethical",
+          "issues within forensic",
+          "psychiatry practice and",
+          "can discuss opposing",
+          "viewpoints",
+          "Recognizes and adapts",
+          "approach based on"
+        ],
+        "level_4": [
+          "issues and special needs",
+          "populations related to",
+          "forensic psychiatry",
+          "Adapts to evolving",
+          "ethical and legal",
+          "standards (e.g., can",
+          "independently manage",
+          "conflicting ethical",
+          "standards and values",
+          "and can apply these to",
+          "practice)",
+          "Serves as a role model"
+        ],
+        "level_5": [
+          "and teacher of",
+          "compassion, integrity,",
+          "and respect for others",
+          "Leads educational",
+          "activities and case",
+          "discussions regarding",
+          "ethical issues specific to",
+          "both general psychiatry",
+          "and forensic psychiatry"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_prof3",
+      "number": 14,
+      "domain_number": 3,
+      "name": "Accountability to Self, Patients, Colleagues, Legal Systems, Professionals, and the Profession",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Accepts the role of the",
+          "patient’s physician and",
+          "takes responsibility",
+          "(under supervision) for",
+          "ensuring the patient",
+          "receives the best",
+          "possible care in a",
+          "forensic setting",
+          "Accepts the role of the",
+          "patient’s forensic",
+          "evaluator and takes",
+          "responsibility (under",
+          "supervision) to ensure",
+          "the special conditions of"
+        ],
+        "level_2": [
+          "forensic psychiatric",
+          "evaluations are",
+          "implemented",
+          "Is recognized by oneself,",
+          "the patient, the patient’s",
+          "family, and medical staff",
+          "members as the patient’s",
+          "psychiatric provider",
+          "Is recognized by oneself,",
+          "the patient, the patient’s",
+          "family, and medical staff",
+          "members as the",
+          "evaluee’s forensic",
+          "consultant"
+        ],
+        "level_3": [
+          "Displays increasing",
+          "autonomy and",
+          "leadership in taking",
+          "responsibility for",
+          "ensuring that patients",
+          "receive the best possible",
+          "care",
+          "Displays increasing",
+          "autonomy and",
+          "leadership in taking",
+          "responsibility for the",
+          "provision of forensic",
+          "consultation and in",
+          "ensuring that the special"
+        ],
+        "level_4": [
+          "conditions of forensic",
+          "psychiatric evaluations",
+          "are implemented",
+          "Serves as a role model",
+          "in demonstrating",
+          "responsibility in the",
+          "provision of forensic",
+          "psychiatric consultation",
+          "and ensuring that",
+          "patients receive the best",
+          "possible care",
+          "Serves as a role model",
+          "in demonstrating",
+          "responsibility in the"
+        ],
+        "level_5": [
+          "provision of forensic",
+          "psychiatric consultation",
+          "and ensuring the special",
+          "conditions of forensic",
+          "psychiatric evaluations",
+          "are implemented",
+          "Improves or develops",
+          "organizational policies",
+          "for standards of care",
+          "and/or standards for",
+          "forensic evaluation"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_prof4",
+      "number": 15,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Notifies supervisor and",
+          "takes appropriate steps",
+          "to manage clinical and",
+          "non-clinical",
+          "responsibilities when",
+          "fatigued or ill"
+        ],
+        "level_2": [
+          "Identifies situations in",
+          "which maintaining",
+          "personal emotional,",
+          "physical, and mental",
+          "health is challenged, and",
+          "seeks assistance when"
+        ],
+        "level_3": [
+          "needed",
+          "Knows how to take steps",
+          "to address",
+          "impairment/fatigue in",
+          "oneself and in",
+          "colleagues"
+        ],
+        "level_4": [
+          "Prioritizes and balances",
+          "conflicting interests of",
+          "oneself, family, and",
+          "others to optimize",
+          "medical care and",
+          "practice of the profession"
+        ],
+        "level_5": [
+          "Participates as an active",
+          "member on committees",
+          "or in organizations that",
+          "address physician well-",
+          "being"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_ics1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Relationship Development and Conflict Management with Patients, Evaluees,",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Knows the importance of",
+          "building working",
+          "relationships with",
+          "patients/evaluees and",
+          "relevant parties in"
+        ],
+        "level_2": [
+          "uncomplicated situations",
+          "Develops working",
+          "relationships across",
+          "patients/evaluees in",
+          "uncomplicated situations"
+        ],
+        "level_3": [
+          "Develops working",
+          "relationships with",
+          "patients/evaluees in",
+          "complicated situations",
+          "Sustains working"
+        ],
+        "level_4": [
+          "relationships with",
+          "patients/evaluees in",
+          "complex and challenging",
+          "situations",
+          "Develops"
+        ],
+        "level_5": [
+          "models/approaches to",
+          "managing difficult",
+          "communications with",
+          "patients/evaluees"
+        ]
+      }
+    },
+    {
+      "id": "psychiatry__forensic_psychiatry_ics2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Consultation to Medical Providers and Non-Medical Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Provides consultation to",
+          "other medical or mental",
+          "health providers and",
+          "non-medical",
+          "stakeholders, under",
+          "supervision",
+          "Recognizes",
+          "communication conflicts",
+          "in work relationships",
+          "Assists primary",
+          "treatment care team in",
+          "identifying and clarifying"
+        ],
+        "level_2": [
+          "the forensic referral",
+          "questions",
+          "Actively participates in",
+          "team-based evaluations;",
+          "supports activities of",
+          "other team members,",
+          "and communicates",
+          "findings and",
+          "recommendations",
+          "Provides forensic",
+          "recommendations",
+          "through collaboration"
+        ],
+        "level_3": [
+          "with health care teams",
+          "and/or non-medical",
+          "stakeholders (e.g.,",
+          "attorneys, courts), under",
+          "supervision",
+          "Recognizes differing",
+          "philosophies within and",
+          "between different",
+          "disciplines in forensic",
+          "evaluations and sustains",
+          "working relationships in",
+          "the face of conflict"
+        ],
+        "level_4": [
+          "Manages complicated",
+          "and challenging",
+          "consultation requests",
+          "Manages resolution of",
+          "conflicts in a team-based",
+          "setting or participates in",
+          "the resolution of systems",
+          "level conflicts in a",
+          "forensic setting",
+          "Provides forensic",
+          "psychiatric consultations",
+          "to larger systems,"
+        ],
+        "level_5": [
+          "including non-medical",
+          "systems, and/or leads a",
+          "forensic psychiatric",
+          "consultation team",
+          "Designs research or",
+          "quality improvement",
+          "projects to improve",
+          "team-based evaluation"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "psychiatry",
+  "primary_name": "Psychiatry",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpsychiatrymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpsychiatrysupplementalguide.pdf"
+  }
+}

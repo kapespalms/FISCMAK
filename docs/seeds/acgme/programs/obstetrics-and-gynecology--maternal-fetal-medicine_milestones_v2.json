@@ -1,0 +1,1372 @@
+{
+  "framework_key": "obstetrics-and-gynecology--maternal-fetal-medicine",
+  "specialty": "Maternal-Fetal Medicine",
+  "version": "2.0",
+  "source": "ACGME Maternal-Fetal Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Labor and Delivery",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Manages routine",
+          "peripartum care for",
+          "maternal-fetal medicine",
+          "patients",
+          "Identifies patients who",
+          "need complex obstetrical",
+          "procedures",
+          "Performs initial",
+          "consultation for complex",
+          "medical and surgical"
+        ],
+        "level_2": [
+          "procedures for maternal-",
+          "fetal medicine patients on",
+          "labor and delivery",
+          "Assists in complex",
+          "obstetrical procedures",
+          "Develops the",
+          "management plan for",
+          "complex medical and",
+          "surgical procedures for",
+          "maternal-fetal medicine"
+        ],
+        "level_3": [
+          "patients on labor and",
+          "delivery",
+          "Performs key components",
+          "of complex obstetrical",
+          "procedures",
+          "Manages the",
+          "interdisciplinary care for",
+          "complex medical and",
+          "surgical procedures for",
+          "maternal-fetal medicine"
+        ],
+        "level_4": [
+          "patients on labor",
+          "delivery",
+          "Proficiently performs",
+          "complex obstetrical",
+          "procedures and",
+          "manages complications",
+          "Implements novel",
+          "protocols for",
+          "interdisciplinary",
+          "management for complex"
+        ],
+        "level_5": [
+          "medical and surgical",
+          "procedures for maternal-",
+          "fetal medicine patients on",
+          "labor delivery",
+          "Applies an evidence-",
+          "based approach to",
+          "innovative and complex",
+          "obstetrical procedures"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Sonographic Diagnosis and Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies normal and",
+          "abnormal anatomy on",
+          "sonography",
+          "Selects appropriate",
+          "candidates for prenatal",
+          "diagnosis or therapeutic",
+          "procedures",
+          "Performs and interprets",
+          "sonography for cervical"
+        ],
+        "level_2": [
+          "length and standard",
+          "sonography for complete",
+          "fetal anatomic survey in",
+          "routine patient situations",
+          "Performs routine prenatal",
+          "diagnosis or therapeutic",
+          "procedures",
+          "Performs and interprets",
+          "sonography for cervical"
+        ],
+        "level_3": [
+          "length and standard",
+          "sonography for complete",
+          "fetal anatomic survey in",
+          "complex patient situations",
+          "Performs routine prenatal",
+          "diagnosis or therapeutic",
+          "procedures in complex",
+          "patient situations",
+          "Proficiently performs"
+        ],
+        "level_4": [
+          "detailed fetal",
+          "assessment and",
+          "interprets more",
+          "complex findings",
+          "Proficiently performs",
+          "complex prenatal",
+          "diagnosis or",
+          "therapeutic",
+          "procedures"
+        ],
+        "level_5": [
+          "Proficiently performs",
+          "advanced ultrasound",
+          "techniques",
+          "Proficiently performs",
+          "advanced fetal",
+          "therapeutic procedures"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Complications of Pregnancy",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Consults and manages",
+          "care for patients with",
+          "common comorbidities in",
+          "pregnancy",
+          "Consults and manages",
+          "care for patients with",
+          "common obstetric",
+          "complications",
+          "Consults and develops",
+          "care plans for patients"
+        ],
+        "level_2": [
+          "with complex medical",
+          "comorbidities in",
+          "pregnancy",
+          "Consults and develops",
+          "care plan for patients with",
+          "complex obstetric",
+          "complications",
+          "Consults and manages",
+          "care for patients with",
+          "complex medical"
+        ],
+        "level_3": [
+          "comorbidities in",
+          "pregnancy",
+          "Consults and manages",
+          "care for patients with",
+          "complex obstetric",
+          "complications",
+          "Manages the",
+          "interdisciplinary care for",
+          "patients with highly",
+          "complex medical"
+        ],
+        "level_4": [
+          "comorbidities in",
+          "pregnancy",
+          "Manages the",
+          "interdisciplinary care for",
+          "patients with highly",
+          "complex obstetric",
+          "complications",
+          "Implements novel",
+          "protocols for",
+          "interdisciplinary"
+        ],
+        "level_5": [
+          "management for complex",
+          "medical comorbidities in",
+          "pregnancy",
+          "Develops innovative",
+          "evidence-based",
+          "approaches to care of",
+          "patients with complex",
+          "obstetric complications"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Complex Genetic Counseling",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Participates in pre-test",
+          "counseling",
+          "Participates in post-test",
+          "counseling",
+          "Explains the rationale for",
+          "the recommended testing",
+          "Explains the results of the"
+        ],
+        "level_2": [
+          "test",
+          "Conveys the impact and",
+          "limitations of disorder-",
+          "specific targeted testing",
+          "while obtaining informed",
+          "consent",
+          "Conveys the impact and"
+        ],
+        "level_3": [
+          "limitations of diagnostic",
+          "and non-diagnostic results",
+          "Clearly conveys the",
+          "impact and limitations of",
+          "complex untargeted",
+          "testing while obtaining",
+          "informed consent"
+        ],
+        "level_4": [
+          "Conveys the impact and",
+          "limitations of",
+          "unexpected and",
+          "ambiguous results",
+          "Participates in the",
+          "development of",
+          "professional practice"
+        ],
+        "level_5": [
+          "guidelines regarding",
+          "testing and return of",
+          "results"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Critical Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes risk factors",
+          "that can lead to critical",
+          "illness in an obstetric",
+          "patient and formulates an",
+          "initial differential",
+          "diagnosis; recognizes",
+          "initial signs/symptoms of",
+          "a critically ill patient (vital"
+        ],
+        "level_2": [
+          "signs, lab abnormalities,",
+          "etc.) and asks for",
+          "assistance in a timely",
+          "fashion",
+          "Manages and initiates",
+          "timely treatment for",
+          "critically ill obstetric",
+          "patient, including"
+        ],
+        "level_3": [
+          "recognizing when",
+          "transfer to the intensive",
+          "care unit (ICU) or",
+          "another service is most",
+          "appropriate",
+          "With assistance, serves",
+          "as a consultant to the ICU",
+          "care team for the"
+        ],
+        "level_4": [
+          "management of an",
+          "obstetric critical care",
+          "patient",
+          "Serves as a consultant",
+          "to the ICU care team",
+          "and assists in the",
+          "management of an",
+          "obstetric critical care"
+        ],
+        "level_5": [
+          "patient",
+          "Leads the interdisciplinary",
+          "care team in the",
+          "management of an",
+          "obstetric critical care",
+          "patient"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Medical Complications of Pregnancy",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of the impact of",
+          "physiologic changes of",
+          "pregnancy on common",
+          "medical comorbidities and"
+        ],
+        "level_2": [
+          "knowledge of treatment",
+          "modalities",
+          "Demonstrates knowledge of",
+          "complex medical",
+          "comorbidities"
+        ],
+        "level_3": [
+          "Demonstrates knowledge of",
+          "treatment modalities of",
+          "complex medical",
+          "comorbidities in pregnancy",
+          "Applies knowledge of"
+        ],
+        "level_4": [
+          "complex medical",
+          "comorbidities and",
+          "treatment modalities,",
+          "including critical care",
+          "Develops and disseminates"
+        ],
+        "level_5": [
+          "knowledge regarding",
+          "complex medical",
+          "comorbidities and treatment",
+          "modalities"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Obstetrical Complications (Antepartum, Intrapartum, Postpartum)",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of common obstetric",
+          "complications and",
+          "treatment modalities",
+          "Demonstrates knowledge of"
+        ],
+        "level_2": [
+          "complex obstetric",
+          "complications",
+          "Demonstrates knowledge of",
+          "treatment modalities of",
+          "complex obstetric"
+        ],
+        "level_3": [
+          "complications",
+          "Applies knowledge of",
+          "complex obstetric",
+          "complications and",
+          "treatment modalities,"
+        ],
+        "level_4": [
+          "including interdisciplinary",
+          "care",
+          "Develops and disseminates",
+          "knowledge regarding",
+          "obstetric complications and"
+        ],
+        "level_5": [
+          "treatment modalities"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_mk3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Genetic Principles",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of basic genetic",
+          "principles, genetic",
+          "screening, and teratogens",
+          "Demonstrates knowledge",
+          "of basic genetic screening",
+          "and diagnostic tests",
+          "Demonstrates knowledge",
+          "of advanced genetic"
+        ],
+        "level_2": [
+          "principles and uncommon",
+          "hereditary syndromes",
+          "Applies knowledge of",
+          "basic genetic screening",
+          "and diagnostic testing",
+          "Applies knowledge of",
+          "basic genetic principles,",
+          "genetic screening, and",
+          "teratogens"
+        ],
+        "level_3": [
+          "Demonstrates knowledge",
+          "of advanced genetic",
+          "screening and diagnostic",
+          "testing",
+          "Applies knowledge of",
+          "advanced genetic",
+          "principles to provide",
+          "comprehensive",
+          "counselling to patients"
+        ],
+        "level_4": [
+          "and their families",
+          "Applies knowledge of",
+          "advanced genetic",
+          "screening and diagnostic",
+          "testing principles to",
+          "optimize perinatal",
+          "outcomes",
+          "Develops innovative",
+          "concepts and theories"
+        ],
+        "level_5": [
+          "regarding genetic",
+          "principles",
+          "Develops genetic testing",
+          "guidelines and principles",
+          "to optimize perinatal",
+          "outcomes on a regional or",
+          "national level"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_mk4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Prenatal Imaging and Diagnosis",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge,",
+          "including bioeffects and",
+          "safety, of imaging",
+          "modalities used to",
+          "evaluate obstetric patients",
+          "Demonstrates knowledge",
+          "of normal fetal anatomy,",
+          "placentation, and maternal",
+          "pelvic anatomy",
+          "Demonstrates knowledge",
+          "of indications and"
+        ],
+        "level_2": [
+          "complications of prenatal",
+          "screening and diagnostic",
+          "procedures",
+          "Demonstrates knowledge",
+          "of abnormal fetal anatomy,",
+          "growth, placentation, and",
+          "maternal pelvic anatomy",
+          "Demonstrates knowledge",
+          "of indications and",
+          "interpretation of advanced",
+          "imaging modalities"
+        ],
+        "level_3": [
+          "Demonstrates knowledge",
+          "of management options for",
+          "specific fetal anomalies,",
+          "fetal growth abnormalities",
+          "and abnormal placentation",
+          "Applies knowledge of",
+          "complex advanced",
+          "imaging and therapeutic",
+          "options to develop a",
+          "comprehensive",
+          "management plan"
+        ],
+        "level_4": [
+          "Applies knowledge of",
+          "specific fetal anomalies,",
+          "fetal growth",
+          "abnormalities, and",
+          "abnormal placentation to",
+          "develop a comprehensive",
+          "management plan in",
+          "collaboration with a",
+          "multidisciplinary care",
+          "team",
+          "Develops and disseminates"
+        ],
+        "level_5": [
+          "innovative concepts and",
+          "theories regarding",
+          "advanced prenatal",
+          "diagnosis and procedures",
+          "Develops and disseminates",
+          "innovative concepts and",
+          "theories regarding",
+          "management options of",
+          "complex fetal anomalies",
+          "and abnormal placentation"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "their families (simulated",
+          "or actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent patient",
+          "safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and"
+        ],
+        "level_2": [
+          "metrics",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in local"
+        ],
+        "level_3": [
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and"
+        ],
+        "level_5": [
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "System Navigation for Patient-Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations, effectively",
+          "using the roles of",
+          "interprofessional team",
+          "members",
+          "Coordinates care of"
+        ],
+        "level_3": [
+          "patients in complex",
+          "clinical situations,",
+          "effectively using the roles",
+          "of interprofessional team",
+          "members"
+        ],
+        "level_4": [
+          "Identifies concerns with",
+          "current systems and",
+          "identifies opportunities",
+          "for improvement",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_sbp4",
+      "number": 13,
+      "domain_number": 4,
+      "name": "System Navigation for Patient-Centered Care – Transitions of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Performs safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Performs safe and",
+          "effective transitions of"
+        ],
+        "level_3": [
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of"
+        ],
+        "level_4": [
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including outpatient",
+          "settings"
+        ],
+        "level_5": [
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_sbp5",
+      "number": 14,
+      "domain_number": 5,
+      "name": "Community and Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs"
+        ],
+        "level_2": [
+          "Identifies specific",
+          "population and community",
+          "health needs for their",
+          "local population"
+        ],
+        "level_3": [
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and community"
+        ],
+        "level_4": [
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations"
+        ],
+        "level_5": [
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_sbp6",
+      "number": 15,
+      "domain_number": 6,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., hospital,",
+          "skilled nursing facility,",
+          "finance, personnel,",
+          "technology)"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "inter-related, and how this",
+          "impacts patient care",
+          "Discusses how individual",
+          "practice affects the"
+        ],
+        "level_3": [
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,"
+        ],
+        "level_5": [
+          "efficient, and effective",
+          "patient care and",
+          "transitions of care"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pbli1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence and incorporate",
+          "patient preferences and",
+          "values to the care of a",
+          "routine patient",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care, with guidance",
+          "from other health care",
+          "team members",
+          "With minimal guidance,"
+        ],
+        "level_3": [
+          "locates and applies the",
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients",
+          "Critically appraises and",
+          "applies evidence, even"
+        ],
+        "level_4": [
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence, to",
+          "guide care tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and"
+        ],
+        "level_5": [
+          "apply evidence for the",
+          "care of complex patients,",
+          "and/or participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pbli2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development",
+          "Analyzes and reflects on",
+          "the factors that contribute"
+        ],
+        "level_2": [
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Identifies opportunities for",
+          "performance",
+          "improvement; designs a",
+          "learning plan",
+          "Institutes behavioral",
+          "change(s) to narrow the"
+        ],
+        "level_3": [
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Integrates practice data",
+          "and feedback with",
+          "humility to implement a",
+          "learning plan",
+          "Continuously reflects on",
+          "remaining gaps and"
+        ],
+        "level_4": [
+          "institutes behavioral",
+          "adjustments to narrow",
+          "them",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "adapts when necessary",
+          "Coaches others on"
+        ],
+        "level_5": [
+          "reflective practice",
+          "Coaches others in the",
+          "design and",
+          "implementation of",
+          "learning plans"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_pbli3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies areas worth of",
+          "scholarly investigation",
+          "Designs a hypothesis-",
+          "driven or hypothesis",
+          "generating scholarly",
+          "thesis, under the direction"
+        ],
+        "level_2": [
+          "of a research mentor",
+          "Presents products of",
+          "scholarly activity at local,",
+          "regional, or national",
+          "meetings, and/or submits",
+          "an abstract to regional,"
+        ],
+        "level_3": [
+          "state, or national",
+          "meetings",
+          "Completes and defends",
+          "a comprehensive written",
+          "scholarly thesis that",
+          "remonstrates advanced"
+        ],
+        "level_4": [
+          "research methodology,",
+          "design, and statistical",
+          "analysis",
+          "Publishes independent",
+          "research that generates",
+          "new medical knowledge,"
+        ],
+        "level_5": [
+          "education programs, or",
+          "process improvement"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_prof1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to appropriately",
+          "report professionalism",
+          "lapses"
+        ],
+        "level_2": [
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations and",
+          "takes responsibility for",
+          "one’s own",
+          "professionalism lapses"
+        ],
+        "level_3": [
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Recognizes situations",
+          "that may trigger"
+        ],
+        "level_4": [
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in",
+          "oneself and others",
+          "Develops programs for",
+          "others to recognize"
+        ],
+        "level_5": [
+          "potential triggers for",
+          "professionalism lapses",
+          "and approaches to",
+          "anticipate and manage",
+          "professional behavior"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_prof2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles",
+          "Analyzes and applies",
+          "ethical principles to"
+        ],
+        "level_2": [
+          "straightforward situations",
+          "Recognizes the need to",
+          "seek help in managing",
+          "and resolving complex",
+          "ethical situations"
+        ],
+        "level_3": [
+          "Recognizes and uses",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed,"
+        ],
+        "level_4": [
+          "and identifies system-",
+          "level issues that induce",
+          "or exacerbate ethical",
+          "problems",
+          "Seeks to address system-"
+        ],
+        "level_5": [
+          "level factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_prof3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Responds promptly to",
+          "requests or reminders to",
+          "complete tasks and",
+          "responsibilities"
+        ],
+        "level_2": [
+          "Consistently performs",
+          "tasks and responsibilities",
+          "in a timely manner, with",
+          "appropriate attention to",
+          "detail, in routine situations",
+          "Recognizes situations that",
+          "may impact one’s own",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Consistently performs",
+          "tasks and responsibilities"
+        ],
+        "level_3": [
+          "in a timely manner, with",
+          "appropriate attention to",
+          "detail, in complex or",
+          "stressful situations",
+          "Proactively implements",
+          "strategies to ensure the",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks"
+        ],
+        "level_4": [
+          "and responsibilities in a",
+          "timely manner",
+          "Proactively implements",
+          "strategies to ensure that",
+          "the needs of patients,",
+          "teams, and systems are",
+          "met",
+          "Recognizes one’s own",
+          "role in leading the care of",
+          "all patients on the service,",
+          "while mentoring/coaching",
+          "other team members to"
+        ],
+        "level_5": [
+          "ensure the best possible",
+          "care of patients, including",
+          "prioritizing tasks and",
+          "mitigating burnout",
+          "Develops workshops or",
+          "programs to mentor and",
+          "coach other team",
+          "members to ensure the",
+          "best possible care of",
+          "patients, including",
+          "prioritizing tasks and",
+          "mitigating burnout"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_prof4",
+      "number": 22,
+      "domain_number": 4,
+      "name": "Self-Awareness and Help-Seeking Behaviors",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "With assistance, proposes"
+        ],
+        "level_3": [
+          "a plan to optimize",
+          "personal and professional",
+          "well-being",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Develops programs for"
+        ],
+        "level_5": [
+          "others to recognize and",
+          "develop plans to optimize",
+          "personal and professional",
+          "well-being"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_ics1",
+      "number": 23,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "with patients and their",
+          "families",
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and"
+        ],
+        "level_2": [
+          "respectful manner",
+          "Establishes a therapeutic",
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Identifies barriers to",
+          "effective communication",
+          "Establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship in challenging",
+          "encounters",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Facilitates difficult",
+          "discussions specific to"
+        ],
+        "level_4": [
+          "patient and patient",
+          "family conferences,",
+          "Independently",
+          "recognizes biases while",
+          "attempting to proactively",
+          "minimize",
+          "communication barriers",
+          "Mentors others in"
+        ],
+        "level_5": [
+          "situational awareness and",
+          "critical self-reflection",
+          "Coaches others in the",
+          "facilitation of crucial",
+          "conversations"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_ics2",
+      "number": 24,
+      "domain_number": 2,
+      "name": "Patient Counseling and Shared Decision Making",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "understanding of and",
+          "executes the informed",
+          "consent process",
+          "Counsels patients through",
+          "the decision-making"
+        ],
+        "level_2": [
+          "process, including",
+          "answering questions, for",
+          "simple clinical problems",
+          "Counsels patients through",
+          "the decision-making",
+          "process, including"
+        ],
+        "level_3": [
+          "answering questions, for",
+          "complex clinical problems",
+          "Counsels patients",
+          "through the decision-",
+          "making process,",
+          "including answering"
+        ],
+        "level_4": [
+          "questions, in cases of",
+          "diagnostic and",
+          "therapeutic uncertainty",
+          "Provides education to",
+          "interdisciplinary learners",
+          "about shared decision"
+        ],
+        "level_5": [
+          "making for complex",
+          "clinical problems"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_ics3",
+      "number": 25,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Understands and",
+          "respects the role and",
+          "function of",
+          "interprofessional team",
+          "members"
+        ],
+        "level_2": [
+          "Solicits insights from and",
+          "uses language that values",
+          "all interprofessional team",
+          "members",
+          "Integrates contributions"
+        ],
+        "level_3": [
+          "from interprofessional",
+          "team members into the",
+          "care plan",
+          "Prevents and mediates",
+          "conflict and distress"
+        ],
+        "level_4": [
+          "among the",
+          "interprofessional team",
+          "members",
+          "Fosters a culture of open",
+          "communication and"
+        ],
+        "level_5": [
+          "effective teamwork within",
+          "the interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__maternal_fetal_medicine_ics4",
+      "number": 26,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Demonstrates organized",
+          "diagnostic and therapeutic"
+        ],
+        "level_2": [
+          "reasoning through notes",
+          "in the patient record",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Concisely reports",
+          "diagnostic and therapeutic",
+          "reasoning in the patient"
+        ],
+        "level_3": [
+          "record in an efficient",
+          "manner",
+          "Appropriately selects",
+          "direct and indirect forms",
+          "of communication based",
+          "on context",
+          "Communicates clearly,",
+          "concisely, timely, and in"
+        ],
+        "level_4": [
+          "an organized written",
+          "form, including",
+          "anticipatory guidance",
+          "Achieves written or",
+          "verbal communication",
+          "that serves as an",
+          "example for others to",
+          "follow"
+        ],
+        "level_5": [
+          "Models feedback to",
+          "improve others’ written",
+          "communication",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "obstetrics-and-gynecology",
+  "primary_name": "Obstetrics and Gynecology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinemilestonesannotated.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/maternalfetalmedicinesupplementalguide.pdf"
+  }
+}

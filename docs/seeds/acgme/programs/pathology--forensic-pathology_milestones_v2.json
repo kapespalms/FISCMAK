@@ -1,0 +1,1247 @@
+{
+  "framework_key": "pathology--forensic-pathology",
+  "specialty": "Forensic Pathology",
+  "version": "2.0",
+  "source": "ACGME Forensic Pathology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pathology__forensic_pathology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Death Investigation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Explains the necessity",
+          "and required aspects of",
+          "a scene investigation",
+          "Evaluates a medical",
+          "record in preparation for",
+          "an autopsy",
+          "Identifies types of",
+          "postmortem",
+          "examinations and",
+          "medical",
+          "examiner/coroner"
+        ],
+        "level_2": [
+          "notification criteria",
+          "Assists with a scene",
+          "investigation",
+          "Identifies additional",
+          "sources of information",
+          "necessary for a death",
+          "investigation",
+          "Explains when cases fall",
+          "under the jurisdiction of",
+          "the medical",
+          "examiner/coroner,"
+        ],
+        "level_3": [
+          "including laws about",
+          "religious and/or other",
+          "objections to autopsy",
+          "With supervision, leads a",
+          "routine scene",
+          "investigation",
+          "Independently",
+          "synthesizes pertinent",
+          "information from multiple",
+          "sources",
+          "With supervision,"
+        ],
+        "level_4": [
+          "determines which cases",
+          "should be accepted for",
+          "examination and what",
+          "type of examination is",
+          "most appropriate",
+          "Independently leads a",
+          "routine scene",
+          "investigation",
+          "Independently identifies",
+          "missing information that",
+          "needs to be gathered"
+        ],
+        "level_5": [
+          "Independently",
+          "determines which cases",
+          "should be accepted for",
+          "examination and what",
+          "type of examination is",
+          "most appropriate",
+          "Independently leads a",
+          "complex scene",
+          "investigation"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Autopsy (External and Internal Examination)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "With technical",
+          "assistance, performs",
+          "routine evisceration and",
+          "dissection",
+          "With supervision,",
+          "collects and submits",
+          "evidence for a routine",
+          "case",
+          "With supervision,",
+          "documents autopsy",
+          "findings (including",
+          "photography) for a"
+        ],
+        "level_2": [
+          "routine case",
+          "Independently performs",
+          "routine evisceration and",
+          "dissection, and identifies",
+          "cases requiring special",
+          "techniques",
+          "Independently identifies,",
+          "collects, and submits",
+          "evidence for a routine",
+          "case",
+          "Independently documents",
+          "autopsy findings for a"
+        ],
+        "level_3": [
+          "routine case",
+          "With supervision,",
+          "performs complex",
+          "evisceration and",
+          "dissection, including",
+          "special techniques",
+          "With supervision,",
+          "identifies, collects, and",
+          "submits evidence for a",
+          "complex case",
+          "With supervision,",
+          "documents autopsy"
+        ],
+        "level_4": [
+          "findings for a complex",
+          "case",
+          "Independently performs",
+          "complex evisceration",
+          "and dissection,",
+          "including special",
+          "techniques",
+          "Independently identifies,",
+          "collects, and submits",
+          "evidence for a complex",
+          "case",
+          "Independently"
+        ],
+        "level_5": [
+          "documents autopsy",
+          "findings for a complex",
+          "case",
+          "Reconstructs case",
+          "findings from the",
+          "documentation of others",
+          "to form independent",
+          "opinion for a complex",
+          "case"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_mk1",
+      "number": 3,
+      "domain_number": 1,
+      "name": "Death Certification and Reporting",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies the differences",
+          "between cause and",
+          "manner of death",
+          "Drafts a timely,",
+          "organized written report",
+          "for a routine case",
+          "Synthesizes findings to",
+          "opine on cause and"
+        ],
+        "level_2": [
+          "manner of death in",
+          "routine cases",
+          "Synthesizes and",
+          "prioritizes findings for a",
+          "routine case into a timely,",
+          "written report",
+          "Describes the subtleties",
+          "in death certification in"
+        ],
+        "level_3": [
+          "complex cases",
+          "Synthesizes and",
+          "prioritizes findings for a",
+          "complex case into a",
+          "timely written report with",
+          "editorial assistance",
+          "Synthesizes findings to",
+          "opine in complex cases"
+        ],
+        "level_4": [
+          "with multiple competing",
+          "causes and/or manners",
+          "of death",
+          "Synthesizes and",
+          "prioritizes findings for a",
+          "complex case into a",
+          "timely written report that",
+          "needs minimal editing"
+        ],
+        "level_5": [
+          "Independently generates",
+          "a nuanced report that",
+          "expresses the ambiguity",
+          "and uncertainty for a",
+          "complex case"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_mk2",
+      "number": 4,
+      "domain_number": 2,
+      "name": "Recognition and Interpretation of Autopsy Findings and Ancillary Studies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes common",
+          "artifacts (e.g., post",
+          "mortem change, medical",
+          "intervention, organ/tissue",
+          "procurement)",
+          "Describes categories of",
+          "injuries (e.g., blunt force,",
+          "sharp force, penetrating)",
+          "Describes available",
+          "ancillary studies (e.g.,",
+          "histology, microbiology,"
+        ],
+        "level_2": [
+          "molecular, radiology,",
+          "toxicology)",
+          "Identifies distinguishing",
+          "features of common",
+          "artifacts",
+          "Identifies distinguishing",
+          "features of injuries (e.g.,",
+          "undermining, bridging)",
+          "Performs proper",
+          "specimen collection,",
+          "preservation, and"
+        ],
+        "level_3": [
+          "submission",
+          "Interprets common",
+          "artifacts in the context of",
+          "the case",
+          "Identifies details and",
+          "patterns of injuries (e.g.,",
+          "range of gunshot wound)",
+          "Recognizes case",
+          "scenarios in which",
+          "ancillary studies are",
+          "indicated"
+        ],
+        "level_4": [
+          "Consistently",
+          "differentiates injury",
+          "patterns from artifacts",
+          "Interprets",
+          "multiple/variable injuries",
+          "in a single case",
+          "Independently orders",
+          "and interprets ancillary",
+          "study results and",
+          "incorporates into report",
+          "Interprets multiple,"
+        ],
+        "level_5": [
+          "complex injuries with",
+          "significant artifacts",
+          "Independently identifies",
+          "trends in ancillary study",
+          "results that advance",
+          "medical knowledge and",
+          "public health"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_mk3",
+      "number": 5,
+      "domain_number": 3,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic",
+          "framework for clinical",
+          "reasoning",
+          "Identifies appropriate",
+          "resources to inform",
+          "clinical reasoning",
+          "Demonstrates clinical",
+          "reasoning to determine",
+          "relevant information"
+        ],
+        "level_2": [
+          "Selects relevant",
+          "resources based on",
+          "scenario to inform",
+          "decisions",
+          "Synthesizes information",
+          "to inform clinical",
+          "reasoning, with",
+          "assistance",
+          "Seeks and integrates"
+        ],
+        "level_3": [
+          "evidence-based",
+          "information to inform",
+          "diagnostic decision",
+          "making in complex cases,",
+          "with assistance",
+          "Independently",
+          "synthesizes information",
+          "to inform clinical",
+          "reasoning in complex"
+        ],
+        "level_4": [
+          "cases",
+          "Independently seeks",
+          "out, analyzes, and",
+          "applies relevant original",
+          "research to diagnostic",
+          "decision making in",
+          "complex clinical cases",
+          "Demonstrates intuitive",
+          "approach to clinical"
+        ],
+        "level_5": [
+          "reasoning for complex",
+          "cases",
+          "0Comments:",
+          "Not Yet Completed Level 1",
+          "Not Yet Rotated",
+          "-- 11 of 25 --"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_sbp1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "safety events (e.g., body",
+          "or specimen",
+          "misidentification/",
+          "mislabeling)",
+          "Demonstrates",
+          "knowledge of how to",
+          "report safety events",
+          "(e.g., release of wrong",
+          "body, reportable",
+          "infectious disease)",
+          "Demonstrates"
+        ],
+        "level_2": [
+          "knowledge of basic QI",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors",
+          "that lead to safety events",
+          "Reports safety events",
+          "through institutional",
+          "reporting systems",
+          "(simulated or actual)",
+          "Describes departmental",
+          "and institutional QI",
+          "initiatives",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "safety events (simulated",
+          "or actual)",
+          "Participates in disclosure",
+          "of safety events to",
+          "clinicians, families, and",
+          "community as appropriate",
+          "(simulated or actual)",
+          "Participates in",
+          "departmental and",
+          "institutional QI initiatives",
+          "Conducts analysis of",
+          "safety events and offers",
+          "error prevention"
+        ],
+        "level_4": [
+          "strategies (simulated or",
+          "actual)",
+          "Discloses safety events",
+          "to clinicians, families,",
+          "and community as",
+          "appropriate (simulated",
+          "or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a QI",
+          "project",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent safety",
+          "events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "safety events",
+          "Creates, implements, and",
+          "assesses QI initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_sbp2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of case",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates routine cases",
+          "effectively using",
+          "interprofessional teams",
+          "Performs safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "situations (e.g., transition",
+          "from investigator to",
+          "pathologist, release to",
+          "funeral home)",
+          "Identifies pathology’s role",
+          "in population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates complex",
+          "cases effectively using",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of"
+        ],
+        "level_3": [
+          "care/hand-offs in complex",
+          "situations (e.g., transfer of",
+          "materials for outside",
+          "testing or consultation)",
+          "Identifies opportunities for",
+          "pathology to participate in",
+          "community and",
+          "population health",
+          "Models effective",
+          "coordination of cases",
+          "among different",
+          "disciplines and",
+          "specialties",
+          "Models and advocates",
+          "for safe and effective"
+        ],
+        "level_4": [
+          "transitions of care/hand-",
+          "offs within and across",
+          "health care delivery",
+          "systems (e.g., organ",
+          "transplantation, genetic",
+          "findings to family)",
+          "Recommends and/or",
+          "participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "communities and",
+          "populations",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads the design and"
+        ],
+        "level_5": [
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_sbp3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., medical",
+          "examiner, coroner,",
+          "public health, laboratory)"
+        ],
+        "level_2": [
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g., test",
+          "use, turnaround time)",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for or leads",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_sbp4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of accrediting",
+          "agencies and",
+          "compliance for hospital-",
+          "based laboratories",
+          "Discusses the need for",
+          "quality control",
+          "Demonstrates knowledge",
+          "of the accrediting"
+        ],
+        "level_2": [
+          "agencies for death",
+          "investigation offices and",
+          "forensic laboratories",
+          "Interprets quality data and",
+          "charts and trends, with",
+          "assistance",
+          "Identifies the differences",
+          "between accreditation",
+          "and regulatory"
+        ],
+        "level_3": [
+          "compliance; discusses",
+          "the process for achieving",
+          "accreditation and",
+          "maintaining regulatory",
+          "compliance",
+          "Demonstrates knowledge",
+          "of the components of a",
+          "laboratory quality",
+          "management plan"
+        ],
+        "level_4": [
+          "Participates in an",
+          "internal or external",
+          "laboratory inspection",
+          "(mock or actual)",
+          "Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvement",
+          "Serves as a resource for"
+        ],
+        "level_5": [
+          "accreditation at the",
+          "regional or national level",
+          "Creates and follows a",
+          "comprehensive quality",
+          "management plan"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_sbp5",
+      "number": 10,
+      "domain_number": 5,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general",
+          "pathology work practices",
+          "and workflow (e.g.,",
+          "histology,"
+        ],
+        "level_2": [
+          "immunohistochemistry",
+          "stains, chemical tests)",
+          "Explains rationale for",
+          "optimizing utilization"
+        ],
+        "level_3": [
+          "Identifies opportunities to",
+          "optimize utilization of",
+          "pathology resources",
+          "Initiates efforts to"
+        ],
+        "level_4": [
+          "optimize utilization",
+          "Completes a utilization",
+          "review and implements",
+          "change"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_pbli1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and select",
+          "applicable evidence",
+          "(e.g., literature,",
+          "guidelines)",
+          "Is aware of the need for",
+          "patient privacy,",
+          "autonomy, and consent",
+          "as applied to clinical",
+          "research",
+          "Identifies and applies the",
+          "best available evidence to"
+        ],
+        "level_2": [
+          "guide diagnostic work-up",
+          "of simple cases",
+          "Develops knowledge of",
+          "the basic principles of",
+          "research (demographics,",
+          "Institutional Review",
+          "Board, human subjects),",
+          "including how research is",
+          "evaluated, explained to",
+          "patients, and applied to",
+          "patient care",
+          "Identifies and applies the"
+        ],
+        "level_3": [
+          "best available evidence to",
+          "guide diagnostic work-up",
+          "of complex cases",
+          "Applies knowledge of the",
+          "basic principles of",
+          "research such as",
+          "informed consent and",
+          "research protocols to",
+          "clinical practice, with",
+          "supervision",
+          "Critically appraises and",
+          "applies evidence to"
+        ],
+        "level_4": [
+          "guide care, even in the",
+          "face of conflicting data",
+          "Proactively and",
+          "consistently applies",
+          "knowledge of the basic",
+          "principles of research",
+          "such as informed",
+          "consent and research",
+          "protocols to clinical",
+          "practice",
+          "Teaches others to",
+          "critically appraise and"
+        ],
+        "level_5": [
+          "apply evidence for",
+          "complex cases; and/or",
+          "participates in the",
+          "development of guidelines",
+          "Suggests improvements",
+          "to research regulations",
+          "and/or substantially",
+          "contributes to the primary",
+          "literature through basic,",
+          "translational, or clinical",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_pbli2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness",
+          "to receiving performance"
+        ],
+        "level_2": [
+          "data and feedback in",
+          "order to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Seeks performance data",
+          "and feedback with"
+        ],
+        "level_3": [
+          "humility",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Actively and",
+          "consistently seeks",
+          "performance data and"
+        ],
+        "level_4": [
+          "feedback with humility",
+          "Critically evaluates the",
+          "effectiveness of",
+          "behavioral changes in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "improves it when"
+        ],
+        "level_5": [
+          "necessary",
+          "Models seeking",
+          "performance data and",
+          "accepting feedback with",
+          "humility",
+          "Coaches others reflective",
+          "practice",
+          "Facilitates the design and",
+          "implementing learning",
+          "plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_prof1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying the",
+          "practice of medicine",
+          "Describes when and how",
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers; identifies and"
+        ],
+        "level_2": [
+          "describes potential",
+          "triggers for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations; takes",
+          "responsibility for own"
+        ],
+        "level_3": [
+          "professionalism lapses",
+          "Recognizes the need and",
+          "uses appropriate",
+          "resources to seek help in",
+          "managing and resolving",
+          "complex ethical situations",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_4": [
+          "Independently resolves",
+          "and manages complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_prof2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities",
+          "Takes appropriate",
+          "ownership and performs"
+        ],
+        "level_2": [
+          "tasks and responsibilities",
+          "in a timely manner with",
+          "attention to detail",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner and",
+          "describes the impact on",
+          "team",
+          "Anticipates and",
+          "intervenes in situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Designs new strategies to",
+          "ensure that the needs of"
+        ],
+        "level_5": [
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_prof3",
+      "number": 15,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team, with assistance",
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes",
+          "limitations in the"
+        ],
+        "level_2": [
+          "knowledge/skills/",
+          "behaviors of self or team",
+          "and seeks help when",
+          "needed",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed",
+          "Proposes and implements"
+        ],
+        "level_3": [
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors of self or",
+          "team, with assistance",
+          "Proposes and implements",
+          "a plan to optimize",
+          "personal and professional",
+          "well-being, with",
+          "assistance",
+          "Independently develops"
+        ],
+        "level_4": [
+          "and implements a plan",
+          "to remediate or improve",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team",
+          "Independently develops",
+          "and implements a plan",
+          "to optimize personal",
+          "and professional well-",
+          "being"
+        ],
+        "level_5": [
+          "Serves as a resource or",
+          "consultant for developing",
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors",
+          "Coaches others when",
+          "responses or limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_ics1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role"
+        ],
+        "level_2": [
+          "within the health care",
+          "system",
+          "Establishes a relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,"
+        ],
+        "level_3": [
+          "health literacy)",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information, with",
+          "assistance",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Independently,"
+        ],
+        "level_4": [
+          "sensitively, and",
+          "compassionately",
+          "delivers medical",
+          "information and",
+          "acknowledges",
+          "uncertainty and conflict",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize"
+        ],
+        "level_5": [
+          "communication barriers",
+          "Mentors others in the",
+          "sensitive and",
+          "compassionate delivery of",
+          "medical information",
+          "Models self-awareness",
+          "while teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_ics2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the team",
+          "Describes the utility of",
+          "constructive feedback",
+          "Communicates",
+          "information effectively"
+        ],
+        "level_2": [
+          "with all team members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Integrates feedback from",
+          "team members to improve",
+          "communication",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the team to optimize"
+        ],
+        "level_4": [
+          "patient care",
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies"
+        ],
+        "level_5": [
+          "that value input from all",
+          "team members, resolving",
+          "conflict when needed",
+          "Facilitates regular team-",
+          "based feedback in",
+          "complex situations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_ics3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Systems Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient",
+          "personal health",
+          "information by",
+          "communicating through",
+          "appropriate means as",
+          "required by institutional",
+          "policy (e.g., cell",
+          "phone/pager usage)",
+          "Identifies institutional",
+          "and departmental"
+        ],
+        "level_2": [
+          "structure for",
+          "communication of issues",
+          "Appropriately selects",
+          "forms of communication",
+          "based on context and",
+          "urgency of the situation",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Communicates while"
+        ],
+        "level_3": [
+          "ensuring security of",
+          "personal health",
+          "information, with guidance",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and",
+          "constructive suggestions",
+          "to improve the system",
+          "Independently",
+          "communicates while"
+        ],
+        "level_4": [
+          "ensuring security of",
+          "personal health",
+          "information",
+          "Initiates conversations",
+          "on difficult subjects with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Guides departmental or",
+          "institutional"
+        ],
+        "level_5": [
+          "communication around",
+          "policies and procedures",
+          "regarding the security of",
+          "personal health",
+          "information",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (institution,",
+          "health care system, field)"
+        ]
+      }
+    },
+    {
+      "id": "pathology__forensic_pathology_ics4",
+      "number": 19,
+      "domain_number": 4,
+      "name": "Medicolegal Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Discusses the role of the",
+          "forensic pathologist in",
+          "the criminal justice",
+          "system",
+          "Discusses the role of the",
+          "forensic pathologist in",
+          "public health, safety, and",
+          "disaster planning"
+        ],
+        "level_2": [
+          "Observes a court",
+          "proceeding after",
+          "reviewing the case",
+          "With assistance, reports",
+          "findings related to public",
+          "health or safety to",
+          "appropriate agency",
+          "Meets with attorneys"
+        ],
+        "level_3": [
+          "and/or law enforcement to",
+          "discuss the case findings",
+          "Independently reports",
+          "findings related to public",
+          "health or safety to",
+          "appropriate agency",
+          "Prepares and presents",
+          "testimony for a routine"
+        ],
+        "level_4": [
+          "case proceeding (actual",
+          "or mock)",
+          "Participates in a",
+          "multidisciplinary team",
+          "involving public health",
+          "or safety (e.g., child",
+          "death review, disaster",
+          "planning)"
+        ],
+        "level_5": [
+          "Prepares and presents",
+          "testimony for a complex",
+          "case proceeding",
+          "Leads a multidisciplinary",
+          "team involving public",
+          "health or safety"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pathology",
+  "primary_name": "Pathology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/forensicpathologysupplementalguide.pdf"
+  }
+}

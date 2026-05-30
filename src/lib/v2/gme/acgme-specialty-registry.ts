@@ -1,6 +1,8 @@
 import appendixB from "../../../../docs/seeds/acgme/appendix_b_2024_2025.json";
 import universalCompetencies from "../../../../docs/seeds/acgme/universal_core_competencies.json";
 import milestoneFrameworks from "../../../../docs/seeds/acgme/milestone_frameworks.json";
+import milestoneCatalog from "../../../../docs/seeds/acgme/milestone_catalog.json";
+import allProgramMilestones from "../../../../docs/seeds/acgme/all_program_milestones.json";
 import psychiatryMilestones from "../../../../docs/seeds/acgme/psychiatry_milestones_v2.json";
 
 export type AcgmeSpecialtyGroup =
@@ -31,7 +33,21 @@ export type AcgmeSubcompetency = {
   medhub_outpatient_form?: boolean;
 };
 
-export type MilestoneFrameworkStatus = "seeded" | "universal_only";
+export type MilestoneFrameworkStatus = "seeded" | "catalog_only" | "universal_only";
+
+export type MilestoneCatalogEntry = {
+  slug: string;
+  name: string;
+  program_type: "primary" | "subspecialty";
+  primary_slug: string;
+  primary_name: string;
+  milestones_page_url: string | null;
+  milestone_pdf_url: string | null;
+  supplemental_guide_url: string | null;
+  parse_status?: string;
+  subcompetency_count?: number;
+  seed_file?: string | null;
+};
 
 export type MilestoneFrameworkMeta = {
   primary_slug: string;
@@ -41,6 +57,8 @@ export type MilestoneFrameworkMeta = {
   subcompetency_seed?: string;
   citation?: string;
   citation_url?: string;
+  supplemental_guide_url?: string;
+  milestones_page_url?: string;
 };
 
 const PRIMARY_SPECIALTIES: AcgmePrimarySpecialty[] = appendixB.primary_specialties as AcgmePrimarySpecialty[];
@@ -107,8 +125,11 @@ const SUBSPECIALTY_ALIASES: Record<string, string> = {
   "Interventional Cardiology": "Interventional cardiology",
   "Infectious Disease": "Infectious disease",
   "Pulmonary Disease": "Pulmonary disease",
+  "Addiction Medicine": "Addiction medicine (multidisciplinary)",
   "Addiction Psychiatry": "Addiction psychiatry",
   "Child and Adolescent Psychiatry": "Child and adolescent psychiatry",
+  "Consultation-Liaison Psychiatry": "Consultation-liaison psychiatry",
+  "Consultation Liaison Psychiatry": "Consultation-liaison psychiatry",
   "Forensic Psychiatry": "Forensic psychiatry",
   "Geriatric Psychiatry": "Geriatric psychiatry",
   "Clinical Neurophysiology": "Clinical neurophysiology",
@@ -152,6 +173,60 @@ const SEEDED_MILESTONES: Record<string, { subcompetencies: AcgmeSubcompetency[] 
     subcompetencies: psychiatryMilestones.subcompetencies as AcgmeSubcompetency[],
   },
 };
+
+const CATALOG_PROGRAMS = milestoneCatalog.programs as MilestoneCatalogEntry[];
+const CATALOG_BY_SLUG = new Map(CATALOG_PROGRAMS.map((p) => [p.slug, p]));
+const BUNDLE_PROGRAMS = allProgramMilestones.programs as Record<
+  string,
+  { subcompetencies: AcgmeSubcompetency[] }
+>;
+
+for (const [slug, program] of Object.entries(BUNDLE_PROGRAMS)) {
+  if (slug === "psychiatry") continue;
+  if (program.subcompetencies?.length) {
+    SEEDED_MILESTONES[slug] = { subcompetencies: program.subcompetencies };
+  }
+}
+
+export function listAllMilestonePrograms(): MilestoneCatalogEntry[] {
+  return CATALOG_PROGRAMS;
+}
+
+export function getMilestoneCatalogEntry(slug: string): MilestoneCatalogEntry | null {
+  return CATALOG_BY_SLUG.get(slug) ?? null;
+}
+
+export function getMilestoneCatalogForProgram(nameOrSlug: string): MilestoneCatalogEntry | null {
+  const primary = getPrimarySpecialty(nameOrSlug);
+  if (primary) return getMilestoneCatalogEntry(primary.slug);
+  const normalizedSub = normalizeToAcgmeSubspecialtyName(nameOrSlug);
+  if (normalizedSub) {
+    const sponsor = getSubspecialtySponsorPrimary(normalizedSub);
+    const sponsorPrimary = sponsor ? getPrimarySpecialty(sponsor) : null;
+    if (sponsorPrimary) {
+      const subSlug = `${sponsorPrimary.slug}--${slugifyAcgmeName(normalizedSub)}`;
+      return getMilestoneCatalogEntry(subSlug) ?? null;
+    }
+  }
+  return getMilestoneCatalogEntry(nameOrSlug);
+}
+
+function slugifyAcgmeName(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u2013\u2014]/g, "-")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-+/g, "-");
+}
+
+export function getSubspecialtySubcompetencies(subspecialty: string): AcgmeSubcompetency[] {
+  const entry = getMilestoneCatalogForProgram(subspecialty);
+  if (!entry) return [];
+  const seeded = SEEDED_MILESTONES[entry.slug];
+  return seeded?.subcompetencies ?? [];
+}
 
 export function listAcgmePrimarySpecialties(): AcgmePrimarySpecialty[] {
   return PRIMARY_SPECIALTIES;
@@ -240,6 +315,11 @@ export function getSpecialtySubcompetencies(primarySlug: string): AcgmeSubcompet
   return seeded?.subcompetencies ?? [];
 }
 
+export function getProgramSubcompetencies(slug: string): AcgmeSubcompetency[] {
+  const seeded = SEEDED_MILESTONES[slug];
+  return seeded?.subcompetencies ?? [];
+}
+
 export function getSubspecialtyToPrimaryMap(): Readonly<Record<string, string>> {
   return SUBSPECIALTY_TO_PRIMARY;
 }
@@ -274,7 +354,12 @@ export function auditAcgmeOnboardingCoverage(): {
   const onboardingNames = new Set(listAcgmePrimarySpecialtyNames());
   const rows: AcgmeOnboardingAuditRow[] = PRIMARY_SPECIALTIES.map((p) => {
     const meta = getMilestoneFrameworkMeta(p.slug);
-    const status: MilestoneFrameworkStatus = meta?.status === "seeded" ? "seeded" : "universal_only";
+    const status: MilestoneFrameworkStatus =
+      meta?.status === "seeded"
+        ? "seeded"
+        : meta?.status === "catalog_only"
+          ? "catalog_only"
+          : "universal_only";
     const subcompetencies = getSpecialtySubcompetencies(p.slug);
     return {
       primary_name: p.name,

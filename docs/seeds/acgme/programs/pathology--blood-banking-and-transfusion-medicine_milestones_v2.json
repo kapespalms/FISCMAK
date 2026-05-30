@@ -1,0 +1,1440 @@
+{
+  "framework_key": "pathology--blood-banking-and-transfusion-medicine",
+  "specialty": "Blood Banking and Transfusion Medicine",
+  "version": "2.0",
+  "source": "ACGME Blood Banking and Transfusion Medicine Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Consultation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes the use of a",
+          "consultation and lists",
+          "useful resources",
+          "For simple consultations,",
+          "delineates the clinical",
+          "question, obtains",
+          "additional clinical"
+        ],
+        "level_2": [
+          "information, can access",
+          "available resources,",
+          "recommends next steps,",
+          "and documents, with",
+          "assistance",
+          "For complex",
+          "consultations, delineates"
+        ],
+        "level_3": [
+          "the clinical question,",
+          "obtains additional clinical",
+          "information, applies",
+          "relevant resources, and",
+          "recommends next steps",
+          "with assistance; manages",
+          "simple consultations"
+        ],
+        "level_4": [
+          "independently",
+          "Manages complex",
+          "consultations",
+          "independently with",
+          "comprehensive, timely",
+          "documentation of",
+          "findings and"
+        ],
+        "level_5": [
+          "recommendations",
+          "Recognized as an expert",
+          "in providing",
+          "comprehensive",
+          "consultations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Therapeutic and Donor Procedures",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Manages uncomplicated",
+          "apheresis procedures",
+          "(e.g., therapeutic,",
+          "hematopoietic progenitor"
+        ],
+        "level_2": [
+          "cell collection, donor",
+          "collections) with",
+          "assistance",
+          "Independently manages"
+        ],
+        "level_3": [
+          "uncomplicated apheresis",
+          "procedures",
+          "Manages complicated",
+          "apheresis procedures,"
+        ],
+        "level_4": [
+          "with assistance",
+          "Independently manages",
+          "complicated apheresis",
+          "procedures"
+        ],
+        "level_5": [
+          "Serves as an expert",
+          "resource in apheresis",
+          "management"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Interpretation and Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Develops a differential",
+          "diagnosis based on test",
+          "results, with assistance",
+          "Independently develops a"
+        ],
+        "level_2": [
+          "differential diagnosis",
+          "based on test results",
+          "Integrates test results and",
+          "the clinical scenario to"
+        ],
+        "level_3": [
+          "make recommendations",
+          "for clinical care, with",
+          "assistance",
+          "Independently"
+        ],
+        "level_4": [
+          "integrates test results",
+          "and the clinical scenario",
+          "to make",
+          "recommendations for"
+        ],
+        "level_5": [
+          "clinical care",
+          "Serves as a local expert",
+          "to inform clinical care"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Reporting",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies the key",
+          "elements of a complete",
+          "report and demonstrates",
+          "understanding of timely",
+          "reporting",
+          "Generates timely reports"
+        ],
+        "level_2": [
+          "for simple cases,",
+          "including",
+          "recommendations, with",
+          "assistance",
+          "Generates timely reports",
+          "that includes ancillary"
+        ],
+        "level_3": [
+          "testing for complex cases,",
+          "with assistance;",
+          "independently generates",
+          "reports for simple cases",
+          "Independently",
+          "generates timely reports"
+        ],
+        "level_4": [
+          "that include ancillary",
+          "testing for complex",
+          "cases",
+          "Independently generates",
+          "nuanced reports that",
+          "expresses the ambiguity"
+        ],
+        "level_5": [
+          "and uncertainty of",
+          "complex cases"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Immunohematology Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies components of",
+          "basic donor and patient/",
+          "recipient",
+          "immunohematology test",
+          "results",
+          "Describes basic",
+          "principles and",
+          "methodology of"
+        ],
+        "level_2": [
+          "immunohematology tests",
+          "Distinguishes normal and",
+          "abnormal donor and",
+          "patient/recipient",
+          "immunohematology test",
+          "results",
+          "Differentiates donor",
+          "versus patient/recipient"
+        ],
+        "level_3": [
+          "immunohematology",
+          "testing",
+          "Interprets basic and",
+          "complex donor and",
+          "patient/recipient",
+          "immunohematology test",
+          "results, with assistance",
+          "Recognizes limitations of"
+        ],
+        "level_4": [
+          "immunohematology",
+          "testing methodology",
+          "Independently interprets",
+          "basic and complex",
+          "donor and",
+          "patient/recipient",
+          "immunohematology test",
+          "results"
+        ],
+        "level_5": [
+          "Directs additional",
+          "immunohematology",
+          "testing as necessary to",
+          "resolve complex",
+          "problems",
+          "Serves as an expert",
+          "resource in",
+          "immunohematology"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Donor Management and Component Manufacture",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic",
+          "principles and",
+          "methodology of donor",
+          "infectious disease",
+          "screening and eligibility",
+          "Describes basic",
+          "principles and",
+          "methodology of",
+          "component"
+        ],
+        "level_2": [
+          "manufacturing",
+          "Interprets donor infectious",
+          "disease test results and",
+          "determines donor",
+          "eligibility, with assistance",
+          "Identifies component",
+          "acceptability criteria and",
+          "potential issues in",
+          "manufacturing"
+        ],
+        "level_3": [
+          "Independently interprets",
+          "donor infectious disease",
+          "test results, determines",
+          "donor eligibility, and",
+          "product disposition",
+          "Resolves common",
+          "manufacturing issues,",
+          "with assistance",
+          "Directs additional"
+        ],
+        "level_4": [
+          "infectious disease",
+          "testing as necessary to",
+          "resolve donor eligibility",
+          "issues",
+          "Independently resolves",
+          "common and unusual",
+          "manufacturing issues",
+          "Serves as an expert",
+          "resource in interpretation"
+        ],
+        "level_5": [
+          "of donor infectious",
+          "disease testing and donor",
+          "eligibility",
+          "Suggests or implements",
+          "workflow process",
+          "changes to prevent",
+          "manufacturing issues"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_mk3",
+      "number": 7,
+      "domain_number": 3,
+      "name": "Apheresis",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes basic",
+          "principles, methodology,",
+          "and risks of apheresis",
+          "Identifies resources to",
+          "guide apheresis practice",
+          "Uses basic clinical tests",
+          "and physical exam",
+          "findings/vital signs in the"
+        ],
+        "level_2": [
+          "assessment and",
+          "management of apheresis",
+          "patients",
+          "Demonstrates knowledge",
+          "of diseases commonly",
+          "treated with apheresis",
+          "Identifies potential",
+          "complications of"
+        ],
+        "level_3": [
+          "apheresis",
+          "Seeks and integrates",
+          "evidence-based",
+          "information to inform",
+          "application of therapeutic",
+          "apheresis to uncommon",
+          "cases, with assistance",
+          "Integrates advanced"
+        ],
+        "level_4": [
+          "knowledge of common",
+          "risk factors and",
+          "complications in",
+          "therapeutic apheresis",
+          "Independently seeks",
+          "and integrates",
+          "evidence-based",
+          "information to inform"
+        ],
+        "level_5": [
+          "application of",
+          "therapeutic apheresis to",
+          "uncommon cases",
+          "Serves as an expert",
+          "resource in therapeutic",
+          "apheresis"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_mk4",
+      "number": 8,
+      "domain_number": 4,
+      "name": "Transfusion Practice",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes blood",
+          "components and their",
+          "generally accepted",
+          "indications",
+          "Identifies blood bank and",
+          "supplemental testing"
+        ],
+        "level_2": [
+          "(e.g., hematology,",
+          "hemostasis) to guide",
+          "transfusion practice,",
+          "including blood product",
+          "selection",
+          "Interprets common"
+        ],
+        "level_3": [
+          "supplemental testing",
+          "results and integrates with",
+          "blood bank testing results",
+          "to guide transfusion",
+          "practice",
+          "Interprets complex"
+        ],
+        "level_4": [
+          "supplemental testing",
+          "results and integrates",
+          "with blood bank testing",
+          "results to guide",
+          "transfusion practice",
+          "Serves as an expert"
+        ],
+        "level_5": [
+          "resource in transfusion",
+          "practice and sets",
+          "institutional guidelines"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_mk5",
+      "number": 9,
+      "domain_number": 5,
+      "name": "Cellular Therapy and Transplantation",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes different",
+          "collection procedures",
+          "and sources of",
+          "hematopoietic progenitor",
+          "cells and their clinical",
+          "application",
+          "Describes basic",
+          "principles and",
+          "methodology of product",
+          "processing and",
+          "manufacturing",
+          "Identifies the importance"
+        ],
+        "level_2": [
+          "of specialized testing",
+          "relevant to",
+          "transplantation (e.g.,",
+          "human leukocyte",
+          "antigen)",
+          "Distinguishes clinical",
+          "scenarios that require",
+          "different hematopoietic",
+          "progenitor cell sources",
+          "Identifies product",
+          "acceptability criteria and",
+          "special considerations for"
+        ],
+        "level_3": [
+          "processing,",
+          "manufacturing, and",
+          "storage",
+          "Describes specialized",
+          "testing methods relevant",
+          "to transplantation",
+          "Recognizes complications",
+          "unique to hematopoietic",
+          "progenitor cell source",
+          "Recommends when",
+          "special modifications are",
+          "needed"
+        ],
+        "level_4": [
+          "Integrates specialized test",
+          "results relevant to",
+          "transplantation, with",
+          "assistance",
+          "Integrates knowledge of",
+          "hematopoietic",
+          "progenitor cell sources,",
+          "collection, and",
+          "monitoring of",
+          "engraftment into patient",
+          "care",
+          "Applies special"
+        ],
+        "level_5": [
+          "modifications for patient",
+          "care and assesses",
+          "efficacy of product",
+          "Independently",
+          "integrates specialized",
+          "test results relevant to",
+          "transplantation",
+          "Serves as an expert",
+          "resource in cellular",
+          "therapy"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_mk6",
+      "number": 10,
+      "domain_number": 6,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates a basic",
+          "framework for clinical",
+          "reasoning",
+          "Identifies appropriate",
+          "resources to inform",
+          "clinical reasoning",
+          "Demonstrates clinical",
+          "reasoning to determine"
+        ],
+        "level_2": [
+          "relevant information",
+          "Selects relevant",
+          "resources based on",
+          "scenario to inform",
+          "decisions",
+          "Synthesizes information",
+          "to inform clinical",
+          "reasoning, with"
+        ],
+        "level_3": [
+          "assistance",
+          "Seeks and integrates",
+          "evidence-based",
+          "information to inform",
+          "diagnostic decision",
+          "making in complex cases,",
+          "with assistance",
+          "Independently"
+        ],
+        "level_4": [
+          "synthesizes information",
+          "to inform clinical",
+          "reasoning in complex",
+          "cases",
+          "Independently seeks",
+          "out, analyzes, and",
+          "applies relevant original",
+          "research to diagnostic"
+        ],
+        "level_5": [
+          "decision making in",
+          "complex clinical cases",
+          "Demonstrates intuitive",
+          "approach to clinical",
+          "reasoning for complex",
+          "cases"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement (QI)",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic QI",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "and institutional QI",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "clinicians and/or patients",
+          "and families, as",
+          "appropriate (simulated or",
+          "actual)",
+          "Participates in",
+          "departmental and",
+          "institutional QI initiatives",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to clinicians",
+          "and/or patients and",
+          "families, as appropriate",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a QI"
+        ],
+        "level_5": [
+          "project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses QI initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "Systems Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of case",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine cases",
+          "effectively using"
+        ],
+        "level_2": [
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "situations",
+          "Identifies pathology’s role",
+          "in population and",
+          "community health needs",
+          "for the local population",
+          "Coordinates care of",
+          "patients in complex cases",
+          "effectively using",
+          "interprofessional teams",
+          "Performs safe and"
+        ],
+        "level_3": [
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "situations",
+          "Identifies opportunities for",
+          "pathology to participate in",
+          "community and",
+          "population health",
+          "Models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Models and advocates",
+          "for safe and effective"
+        ],
+        "level_4": [
+          "transitions of care/hand-",
+          "offs within and across",
+          "health care delivery",
+          "systems",
+          "Recommends and/or",
+          "participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "communities and",
+          "populations",
+          "Analyzes the process of",
+          "care coordination and",
+          "leads in the design and",
+          "implementation of"
+        ],
+        "level_5": [
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care System",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system (e.g., inpatient",
+          "/outpatient care, blood",
+          "donor center, finance,",
+          "personnel, technology)",
+          "Describes basic health",
+          "payment systems (e.g.,",
+          "government, private,",
+          "public, uninsured care)"
+        ],
+        "level_2": [
+          "and practice models",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this",
+          "impacts patient care",
+          "Documents testing detail",
+          "and explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system (e.g.,",
+          "blood product inventory,",
+          "product/test use,",
+          "turnaround time)",
+          "Engages with clinicians",
+          "and/or patients in shared",
+          "decision making, such as",
+          "use of preauthorization for",
+          "complex testing",
+          "Manages various"
+        ],
+        "level_4": [
+          "components of the",
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Practices and",
+          "advocates for cost",
+          "effective patient care",
+          "with consideration of the",
+          "limitations of each"
+        ],
+        "level_5": [
+          "patient’s payment",
+          "model",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and",
+          "transitions of care",
+          "Participates in health",
+          "policy advocacy activities"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_sbp4",
+      "number": 14,
+      "domain_number": 4,
+      "name": "Accreditation, Compliance, and Quality",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge that",
+          "laboratories must be",
+          "accredited",
+          "Discusses the need for",
+          "quality control and",
+          "proficiency testing",
+          "Demonstrates knowledge",
+          "of the components of",
+          "laboratory accreditation",
+          "and regulatory",
+          "compliance (e.g., Food",
+          "and Drug Administration,"
+        ],
+        "level_2": [
+          "AABB, Foundation for the",
+          "Accreditation of Cellular",
+          "Therapy [FACT], College",
+          "of American Pathology,",
+          "Clinical Laboratory",
+          "Improvement",
+          "Amendments), either",
+          "through training or",
+          "experience",
+          "Interprets quality data and",
+          "charts and trends,",
+          "including proficiency",
+          "testing results, with"
+        ],
+        "level_3": [
+          "assistance",
+          "Identifies the differences",
+          "between accreditation",
+          "and regulatory",
+          "compliance; discusses",
+          "the process for achieving",
+          "accreditation and",
+          "maintaining regulatory",
+          "compliance",
+          "Demonstrates knowledge",
+          "of the components of a",
+          "laboratory quality",
+          "management plan"
+        ],
+        "level_4": [
+          "Discusses implications of",
+          "proficiency testing failures",
+          "Participates in an",
+          "internal or external",
+          "laboratory inspection",
+          "Reviews the quality",
+          "management plan to",
+          "identify areas for",
+          "improvement",
+          "Analyzes proficiency",
+          "testing failures and",
+          "recommends a course",
+          "of action, with oversight"
+        ],
+        "level_5": [
+          "Serves as a resource for",
+          "accreditation at the",
+          "regional or national level",
+          "Creates and follows a",
+          "comprehensive quality",
+          "management plan",
+          "Independently formulates",
+          "a response for proficiency",
+          "testing failures"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_sbp5",
+      "number": 15,
+      "domain_number": 5,
+      "name": "Utilization",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies general",
+          "pathology work practices",
+          "and workflow (e.g., blood",
+          "product issuing,"
+        ],
+        "level_2": [
+          "immunohematologic",
+          "testing)",
+          "Explains rationale for",
+          "optimizing utilization"
+        ],
+        "level_3": [
+          "Identifies opportunities to",
+          "optimize utilization of",
+          "pathology resources",
+          "Initiates efforts to"
+        ],
+        "level_4": [
+          "optimize utilization",
+          "Completes a utilization",
+          "review and implements",
+          "change"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_pbli1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Evidence-Based Practice and Scholarship",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and select",
+          "applicable evidence",
+          "Is aware of the need for",
+          "patient privacy,",
+          "autonomy, and consent",
+          "as applied to clinical",
+          "research",
+          "Identifies and applies the",
+          "best available evidence to",
+          "guide diagnostic work-up",
+          "of simple cases"
+        ],
+        "level_2": [
+          "Develops knowledge of",
+          "the basic principles of",
+          "research (e.g.,",
+          "demographics,",
+          "Institutional Review",
+          "Board, human subjects),",
+          "including how research is",
+          "evaluated, explained to",
+          "patients, and applied to",
+          "patient care",
+          "Identifies and applies the",
+          "best available evidence to"
+        ],
+        "level_3": [
+          "guide diagnostic work-up",
+          "of complex cases",
+          "Applies knowledge of the",
+          "basic principles of",
+          "research such as",
+          "informed consent and",
+          "research protocols to",
+          "clinical practice, with",
+          "supervision",
+          "Critically appraises and",
+          "applies evidence to",
+          "guide care, even in the"
+        ],
+        "level_4": [
+          "face of conflicting data",
+          "Proactively and",
+          "consistently applies",
+          "knowledge of the basic",
+          "principles of research",
+          "such as informed",
+          "consent and research",
+          "protocols to clinical",
+          "practice",
+          "Teaches others to",
+          "critically appraise and",
+          "apply evidence for"
+        ],
+        "level_5": [
+          "complex cases; and/or",
+          "participates in the",
+          "development of guidelines",
+          "Suggests improvements",
+          "to research regulations",
+          "and/or substantially",
+          "contributes to the primary",
+          "literature through basic,",
+          "translational, or clinical",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_pbli2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Actively seeks",
+          "opportunities to improve",
+          "Demonstrates openness",
+          "to receiving performance"
+        ],
+        "level_2": [
+          "data and feedback in",
+          "order to inform goals",
+          "Analyzes and reflects on",
+          "the factors which",
+          "contribute to gap(s)",
+          "between expectations and",
+          "actual performance",
+          "Designs and implements",
+          "a learning plan, with",
+          "assistance",
+          "Seeks performance data",
+          "and feedback with"
+        ],
+        "level_3": [
+          "humility",
+          "Institutes behavioral",
+          "change(s) to narrow the",
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan",
+          "Actively and",
+          "consistently seeks",
+          "performance data and"
+        ],
+        "level_4": [
+          "feedback with humility",
+          "Critically evaluates the",
+          "effectiveness of",
+          "behavioral changes in",
+          "narrowing the gap(s)",
+          "between expectations",
+          "and actual performance",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "improves it when"
+        ],
+        "level_5": [
+          "necessary",
+          "Models seeking",
+          "performance data and",
+          "accepting feedback with",
+          "humility",
+          "Coaches others reflective",
+          "practice",
+          "Facilitates the design and",
+          "implementing learning",
+          "plans for others"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_prof1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,",
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Describes when and how"
+        ],
+        "level_2": [
+          "to appropriately report",
+          "professionalism lapses,",
+          "including strategies for",
+          "addressing common",
+          "barriers; identifies and",
+          "describes potential",
+          "triggers for",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates insight into"
+        ],
+        "level_3": [
+          "professional behavior in",
+          "routine situations; takes",
+          "responsibility for one’s",
+          "own professionalism",
+          "lapses",
+          "Recognizes the need and",
+          "uses appropriate",
+          "resources to seek help in",
+          "managing and resolving",
+          "complex ethical situations",
+          "Demonstrates",
+          "professional behavior in"
+        ],
+        "level_4": [
+          "complex or stressful",
+          "situations",
+          "Independently resolves",
+          "and manages complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to",
+          "prevent lapses in self",
+          "and others",
+          "Identifies and seeks to"
+        ],
+        "level_5": [
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution",
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_prof2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Accountability and Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "instructions, requests, or",
+          "reminders to complete",
+          "tasks and responsibilities",
+          "Takes appropriate",
+          "ownership and performs"
+        ],
+        "level_2": [
+          "tasks and responsibilities",
+          "in a timely manner with",
+          "attention to detail",
+          "Recognizes situations",
+          "that may impact own",
+          "ability to complete tasks"
+        ],
+        "level_3": [
+          "and responsibilities in a",
+          "timely manner and",
+          "describes the impact on",
+          "team",
+          "Anticipates and",
+          "intervenes in situations"
+        ],
+        "level_4": [
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Takes ownership of",
+          "system outcomes"
+        ],
+        "level_5": [
+          "Designs new strategies to",
+          "ensure that the needs of",
+          "patients, teams, and",
+          "systems are met"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_prof3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Self-Awareness and Help-Seeking",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes limitations in",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team, with assistance",
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance",
+          "Independently recognizes",
+          "limitations in the"
+        ],
+        "level_2": [
+          "knowledge/skills/",
+          "behaviors of self or team",
+          "and seeks help when",
+          "needed",
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "and seeks help when",
+          "needed",
+          "Proposes and implements"
+        ],
+        "level_3": [
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors of self or",
+          "team, with assistance",
+          "Proposes and implements",
+          "a plan to optimize",
+          "personal and professional",
+          "well-being, with",
+          "assistance",
+          "Independently develops"
+        ],
+        "level_4": [
+          "and implements a plan",
+          "to remediate or improve",
+          "the knowledge/skills/",
+          "behaviors of self or",
+          "team",
+          "Independently develops",
+          "and implements a plan",
+          "to optimize personal",
+          "and professional well-",
+          "being"
+        ],
+        "level_5": [
+          "Serves as a resource or",
+          "consultant for developing",
+          "a plan to remediate or",
+          "improve the knowledge/",
+          "skills/behaviors",
+          "Coaches others when",
+          "responses or limitations in",
+          "knowledge/skills do not",
+          "meet professional",
+          "expectations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_ics1",
+      "number": 21,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language and",
+          "nonverbal behavior to",
+          "demonstrate respect and",
+          "establish rapport",
+          "Identifies common",
+          "barriers to effective",
+          "communication (e.g.,",
+          "language, disability)",
+          "while accurately",
+          "communicating own role"
+        ],
+        "level_2": [
+          "within the health care",
+          "system",
+          "Establishes a relationship",
+          "in straightforward",
+          "encounters using active",
+          "listening and clear",
+          "language",
+          "Identifies complex",
+          "barriers to effective",
+          "communication (e.g.,"
+        ],
+        "level_3": [
+          "health literacy, cultural)",
+          "Sensitively and",
+          "compassionately delivers",
+          "medical information, with",
+          "assistance",
+          "When prompted, reflects",
+          "on biases while",
+          "attempting to minimize",
+          "communication barriers",
+          "Independently,"
+        ],
+        "level_4": [
+          "sensitively, and",
+          "compassionately",
+          "delivers medical",
+          "information and",
+          "acknowledges",
+          "uncertainty and conflict",
+          "Independently",
+          "recognizes biases while",
+          "attempting to",
+          "proactively minimize"
+        ],
+        "level_5": [
+          "communication barriers",
+          "Mentors others in the",
+          "sensitive and",
+          "compassionate delivery of",
+          "medical information",
+          "Models self-awareness",
+          "while teaching a",
+          "contextual approach to",
+          "minimize communication",
+          "barriers"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_ics2",
+      "number": 22,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Describes the utility of",
+          "constructive feedback",
+          "Communicates",
+          "information effectively",
+          "with all health care team"
+        ],
+        "level_2": [
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses active listening to",
+          "adapt communication",
+          "style to fit team needs"
+        ],
+        "level_3": [
+          "Integrates feedback from",
+          "team members to improve",
+          "communication",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Communicates",
+          "feedback and",
+          "constructive criticism to",
+          "superiors",
+          "Models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team"
+        ],
+        "level_5": [
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "pathology__blood_banking_and_transfusion_medicine_ics3",
+      "number": 23,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Safeguards patient",
+          "personal health",
+          "information by",
+          "communicating through",
+          "appropriate means as",
+          "required by institutional",
+          "policy (e.g., patient",
+          "safety reports, cell",
+          "phone/pager usage)",
+          "Identifies institutional",
+          "and departmental"
+        ],
+        "level_2": [
+          "structure for",
+          "communication of issues",
+          "Appropriately selects",
+          "forms of communication",
+          "based on context and",
+          "urgency of the situation",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Communicates while",
+          "ensuring security of"
+        ],
+        "level_3": [
+          "personal health",
+          "information, with guidance",
+          "Uses institutional",
+          "structure to effectively",
+          "communicate clear and",
+          "constructive suggestions",
+          "to improve the system",
+          "Independently",
+          "communicates while",
+          "ensuring security of",
+          "personal health"
+        ],
+        "level_4": [
+          "information",
+          "Initiates conversations",
+          "on difficult subjects with",
+          "appropriate",
+          "stakeholders to improve",
+          "the system",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures",
+          "regarding the security of"
+        ],
+        "level_5": [
+          "personal health",
+          "information",
+          "Facilitates dialogue",
+          "regarding systems issues",
+          "among larger community",
+          "stakeholders (e.g.,",
+          "institution, health care",
+          "system, field)"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pathology",
+  "primary_name": "Pathology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinemilestonesannotated.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/bloodbankingtransfusionmedicinesupplementalguide.pdf"
+  }
+}

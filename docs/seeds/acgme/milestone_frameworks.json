@@ -1,14 +1,350 @@
 {
-  "source_note": "Specialty-specific ACGME Milestones 2.0 seeds. Unlisted primaries use universal six only until seeded.",
+  "source_note": "Specialty-specific ACGME Milestones 2.0. Unlisted primaries use universal six only until seeded.",
+  "global_supplemental_refs": [
+    "https://www.acgme.org/globalassets/pdfs/milestones/milestones2.0astepforward.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/harmonizingpbli.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/usingmilestonestoguidecurriculum2022.pdf",
+    "https://www.acgme.org/globalassets/milestonesguidebook.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/milestonesguidebookforresidentsfellows.pdf",
+    "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf"
+  ],
   "frameworks": {
+    "anesthesiology": {
+      "primary_slug": "anesthesiology",
+      "primary_name": "Anesthesiology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/anesthesiology_milestones_v2.json",
+      "citation": "ACGME Anesthesiology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/anesthesiologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/anesthesiology/milestones/"
+    },
+    "emergency-medicine": {
+      "primary_slug": "emergency-medicine",
+      "primary_name": "Emergency medicine",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/emergency-medicine_milestones_v2.json",
+      "citation": "ACGME Emergency medicine Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/emergencymedicinesupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/emergency-medicine/milestones/"
+    },
+    "medical-genetics-and-genomics": {
+      "primary_slug": "medical-genetics-and-genomics",
+      "primary_name": "Medical genetics and genomics",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/medical-genetics-and-genomics_milestones_v2.json",
+      "citation": "ACGME Medical genetics and genomics Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/medicalgeneticsandgenomicssupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/medical-genetics-and-genomics/milestones/"
+    },
+    "clinical-biochemical-genetics": {
+      "primary_slug": "clinical-biochemical-genetics",
+      "primary_name": "Clinical biochemical genetics",
+      "status": "universal_only"
+    },
+    "laboratory-genetics-and-genomics": {
+      "primary_slug": "laboratory-genetics-and-genomics",
+      "primary_name": "Laboratory genetics and genomics",
+      "status": "universal_only"
+    },
+    "nuclear-medicine": {
+      "primary_slug": "nuclear-medicine",
+      "primary_name": "Nuclear medicine",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/nuclear-medicine_milestones_v2.json",
+      "citation": "ACGME Nuclear medicine Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/nuclearmedicinesupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/nuclear-medicine/milestones/"
+    },
+    "pathology-anatomic-and-clinical": {
+      "primary_slug": "pathology-anatomic-and-clinical",
+      "primary_name": "Pathology-anatomic and clinical",
+      "status": "universal_only"
+    },
+    "public-health-and-general-preventive-medicine": {
+      "primary_slug": "public-health-and-general-preventive-medicine",
+      "primary_name": "Public health and general preventive medicine",
+      "status": "universal_only"
+    },
+    "aerospace-medicine": {
+      "primary_slug": "aerospace-medicine",
+      "primary_name": "Aerospace medicine",
+      "status": "universal_only"
+    },
+    "occupational-and-environmental-medicine": {
+      "primary_slug": "occupational-and-environmental-medicine",
+      "primary_name": "Occupational and environmental medicine",
+      "status": "universal_only"
+    },
+    "radiation-oncology": {
+      "primary_slug": "radiation-oncology",
+      "primary_name": "Radiation oncology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/radiation-oncology_milestones_v2.json",
+      "citation": "ACGME Radiation oncology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/radiationoncologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/radiation-oncology/milestones/"
+    },
+    "radiology-diagnostic": {
+      "primary_slug": "radiology-diagnostic",
+      "primary_name": "Radiology-diagnostic",
+      "status": "universal_only"
+    },
+    "interventional-radiology-independent": {
+      "primary_slug": "interventional-radiology-independent",
+      "primary_name": "Interventional radiology – independent",
+      "status": "universal_only"
+    },
+    "interventional-radiology-integrated": {
+      "primary_slug": "interventional-radiology-integrated",
+      "primary_name": "Interventional radiology – integrated",
+      "status": "universal_only"
+    },
+    "transitional-year": {
+      "primary_slug": "transitional-year",
+      "primary_name": "Transitional year",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/transitional-year_milestones_v2.json",
+      "citation": "ACGME Transitional year Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/transitionalyearsupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/transitional-year/milestones/"
+    },
+    "allergy-and-immunology": {
+      "primary_slug": "allergy-and-immunology",
+      "primary_name": "Allergy and immunology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/allergy-and-immunology_milestones_v2.json",
+      "citation": "ACGME Allergy and immunology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandfimmunologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/allergyandimmunologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/allergy-and-immunology/milestones/"
+    },
+    "dermatology": {
+      "primary_slug": "dermatology",
+      "primary_name": "Dermatology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/dermatology_milestones_v2.json",
+      "citation": "ACGME Dermatology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/dermatologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/dermatology/milestones/"
+    },
+    "family-medicine": {
+      "primary_slug": "family-medicine",
+      "primary_name": "Family medicine",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/family-medicine_milestones_v2.json",
+      "citation": "ACGME Family medicine Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/familymedicinesupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/family-medicine/milestones/"
+    },
+    "internal-medicine": {
+      "primary_slug": "internal-medicine",
+      "primary_name": "Internal medicine",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/internal-medicine_milestones_v2.json",
+      "citation": "ACGME Internal medicine Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedicinemilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/internalmedicinesupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/internal-medicine/milestones/"
+    },
+    "neurology": {
+      "primary_slug": "neurology",
+      "primary_name": "Neurology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/neurology_milestones_v2.json",
+      "citation": "ACGME Neurology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/neurology/milestones/"
+    },
+    "child-neurology": {
+      "primary_slug": "child-neurology",
+      "primary_name": "Child neurology",
+      "status": "universal_only"
+    },
+    "osteopathic-neuromusculoskeletal-medicine": {
+      "primary_slug": "osteopathic-neuromusculoskeletal-medicine",
+      "primary_name": "Osteopathic neuromusculoskeletal medicine",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/osteopathic-neuromusculoskeletal-medicine_milestones_v2.json",
+      "citation": "ACGME Osteopathic neuromusculoskeletal medicine Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/osteopathicneuromusculoskeletalmedicinemilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/onmmsupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/osteopathic-neuromusculoskeletal-medicine/milestones/"
+    },
+    "pediatrics": {
+      "primary_slug": "pediatrics",
+      "primary_name": "Pediatrics",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/pediatrics_milestones_v2.json",
+      "citation": "ACGME Pediatrics Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricsmilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricssupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/pediatrics/milestones/"
+    },
+    "170-data-resource-book-academic-year-2024-2025": {
+      "primary_slug": "170-data-resource-book-academic-year-2024-2025",
+      "primary_name": "170 Data Resource Book, Academic Year 2024-2025",
+      "status": "universal_only"
+    },
+    "physical-medicine-and-rehabilitation": {
+      "primary_slug": "physical-medicine-and-rehabilitation",
+      "primary_name": "Physical medicine and rehabilitation",
+      "status": "catalog_only",
+      "milestone_version": "2.0",
+      "citation": "ACGME Physical medicine and rehabilitation Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicinanrehabilitationmilestonesannotated.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/physicalmedicineandrehabilitationsupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/physical-medicine-and-rehabilitation/milestones/"
+    },
     "psychiatry": {
       "primary_slug": "psychiatry",
       "primary_name": "Psychiatry",
       "status": "seeded",
       "milestone_version": "2.0",
-      "subcompetency_seed": "psychiatry_milestones_v2.json",
+      "subcompetency_seed": "programs/psychiatry_milestones_v2.json",
       "citation": "ACGME Psychiatry Milestones 2.0",
-      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf"
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/psychiatry/milestones/"
+    },
+    "internal-medicine-pediatrics": {
+      "primary_slug": "internal-medicine-pediatrics",
+      "primary_name": "Internal medicine/Pediatrics",
+      "status": "universal_only"
+    },
+    "colon-and-rectal-surgery": {
+      "primary_slug": "colon-and-rectal-surgery",
+      "primary_name": "Colon and rectal surgery",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/colon-and-rectal-surgery_milestones_v2.json",
+      "citation": "ACGME Colon and rectal surgery Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerymilestones2.0.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/colonandrectalsurgerysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/colon-and-rectal-surgery/milestones/"
+    },
+    "neurological-surgery": {
+      "primary_slug": "neurological-surgery",
+      "primary_name": "Neurological surgery",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/neurological-surgery_milestones_v2.json",
+      "citation": "ACGME Neurological surgery Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/neurologicalsurgerymilestones.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/neurological-surgery/milestones/"
+    },
+    "obstetrics-and-gynecology": {
+      "primary_slug": "obstetrics-and-gynecology",
+      "primary_name": "Obstetrics and gynecology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/obstetrics-and-gynecology_milestones_v2.json",
+      "citation": "ACGME Obstetrics and gynecology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/obstetricsandgynecologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/obstetrics-and-gynecology/milestones/"
+    },
+    "ophthalmology": {
+      "primary_slug": "ophthalmology",
+      "primary_name": "Ophthalmology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/ophthalmology_milestones_v2.json",
+      "citation": "ACGME Ophthalmology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/ophthalmologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/ophthalmology/milestones/"
+    },
+    "orthopaedic-surgery": {
+      "primary_slug": "orthopaedic-surgery",
+      "primary_name": "Orthopaedic surgery",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/orthopaedic-surgery_milestones_v2.json",
+      "citation": "ACGME Orthopaedic surgery Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/orthopaedicsurgerysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/orthopaedic-surgery/milestones/"
+    },
+    "otolaryngology-head-and-neck-surgery": {
+      "primary_slug": "otolaryngology-head-and-neck-surgery",
+      "primary_name": "Otolaryngology – head and neck surgery",
+      "status": "universal_only"
+    },
+    "plastic-surgery": {
+      "primary_slug": "plastic-surgery",
+      "primary_name": "Plastic surgery",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/plastic-surgery_milestones_v2.json",
+      "citation": "ACGME Plastic surgery Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/plasticsurgerysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/plastic-surgery/milestones/"
+    },
+    "plastic-surgery-integrated": {
+      "primary_slug": "plastic-surgery-integrated",
+      "primary_name": "Plastic surgery – integrated",
+      "status": "universal_only"
+    },
+    "surgery": {
+      "primary_slug": "surgery",
+      "primary_name": "Surgery",
+      "status": "catalog_only",
+      "milestone_version": "2.0",
+      "citation": "ACGME Surgery Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/generalsurgerysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/surgery/milestones/"
+    },
+    "vascular-surgery-integrated": {
+      "primary_slug": "vascular-surgery-integrated",
+      "primary_name": "Vascular surgery – integrated",
+      "status": "universal_only"
+    },
+    "thoracic-surgery": {
+      "primary_slug": "thoracic-surgery",
+      "primary_name": "Thoracic surgery",
+      "status": "universal_only",
+      "citation_url": "https://www.acgme.org/specialties/thoracic-surgery/milestones/",
+      "milestones_page_url": "https://www.acgme.org/specialties/thoracic-surgery/milestones/"
+    },
+    "thoracic-surgery-integrated": {
+      "primary_slug": "thoracic-surgery-integrated",
+      "primary_name": "Thoracic surgery – integrated",
+      "status": "universal_only"
+    },
+    "urology": {
+      "primary_slug": "urology",
+      "primary_name": "Urology",
+      "status": "seeded",
+      "milestone_version": "2.0",
+      "subcompetency_seed": "programs/urology_milestones_v2.json",
+      "citation": "ACGME Urology Milestones 2.0",
+      "citation_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologymilestones.pdf",
+      "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/urologysupplementalguide.pdf",
+      "milestones_page_url": "https://www.acgme.org/specialties/urology/milestones/"
     }
   }
 }

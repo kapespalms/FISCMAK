@@ -1,0 +1,176 @@
+{
+  "framework_key": "psychiatry",
+  "specialty": "Psychiatry",
+  "version": "2.0",
+  "source": "ACGME Psychiatry Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "psych_pc1",
+      "number": 1,
+      "name": "Psychiatric Evaluation",
+      "acgme_competency_key": "pc",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_pc2",
+      "number": 2,
+      "name": "Psychiatric Formulation and Differential Diagnosis",
+      "acgme_competency_key": "pc",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_pc3",
+      "number": 3,
+      "name": "Treatment Planning and Management",
+      "acgme_competency_key": "pc",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_pc4",
+      "number": 4,
+      "name": "Psychotherapy",
+      "acgme_competency_key": "pc",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_pc5",
+      "number": 5,
+      "name": "Somatic Therapies (Psychopharmacology and Neurostimulation)",
+      "acgme_competency_key": "pc",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_pc6",
+      "number": 6,
+      "name": "Clinical Consultation",
+      "acgme_competency_key": "pc",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_mk1",
+      "number": 7,
+      "name": "Development through the Life Cycle",
+      "acgme_competency_key": "mk",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_mk2",
+      "number": 8,
+      "name": "Psychopathology",
+      "acgme_competency_key": "mk",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_mk3",
+      "number": 9,
+      "name": "Clinical Neuroscience",
+      "acgme_competency_key": "mk",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_mk4",
+      "number": 10,
+      "name": "Psychotherapy (Medical Knowledge)",
+      "acgme_competency_key": "mk",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_sbp1",
+      "number": 11,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_sbp2",
+      "number": 12,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_sbp3",
+      "number": 13,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_pbli1",
+      "number": 14,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_pbli2",
+      "number": 15,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_prof1",
+      "number": 16,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_prof2",
+      "number": 17,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_prof3",
+      "number": 18,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "medhub_outpatient_form": false
+    },
+    {
+      "id": "psych_ics1",
+      "number": 19,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_ics2",
+      "number": 20,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "medhub_outpatient_form": true
+    },
+    {
+      "id": "psych_ics3",
+      "number": 21,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "medhub_outpatient_form": true
+    }
+  ],
+  "medhub_form_crosswalk": {
+    "psych_milestone_01": "psych_ics1",
+    "psych_milestone_02": "psych_ics2",
+    "psych_milestone_03": "psych_ics3",
+    "psych_milestone_04": "psych_prof1",
+    "psych_milestone_05": "psych_prof2",
+    "psych_milestone_06": "psych_pc1",
+    "psych_milestone_07": "psych_pc2",
+    "psych_milestone_08": "psych_pc3",
+    "psych_milestone_09": "psych_pc5",
+    "psych_milestone_10": "psych_mk2",
+    "psych_milestone_11": "psych_pbli1",
+    "psych_milestone_12": "psych_pbli2",
+    "psych_milestone_13": "psych_sbp2",
+    "psych_milestone_14": "psych_sbp3"
+  },
+  "program_type": "primary",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrysupplementalguide.pdf"
+  }
+}

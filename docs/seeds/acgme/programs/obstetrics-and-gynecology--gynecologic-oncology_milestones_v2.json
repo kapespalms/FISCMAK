@@ -1,0 +1,1396 @@
+{
+  "framework_key": "obstetrics-and-gynecology--gynecologic-oncology",
+  "specialty": "Gynecologic Oncology",
+  "version": "2.0",
+  "source": "ACGME Gynecologic Oncology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Surgical Care of Gynecologic Cancer – Open Techniques",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Independently selects",
+          "appropriate procedures",
+          "for benign gynecologic",
+          "conditions",
+          "Proficiently performs",
+          "benign gynecologic or",
+          "basic cancer-specific",
+          "procedures"
+        ],
+        "level_2": [
+          "Proposes appropriate",
+          "cancer-specific",
+          "procedures",
+          "Effectively assists during",
+          "radical cancer-specific",
+          "procedures",
+          "Selects appropriate",
+          "cancer-specific"
+        ],
+        "level_3": [
+          "procedures",
+          "Performs radical cancer-",
+          "specific procedures",
+          "Independently adapts",
+          "surgical plan based on",
+          "unforeseen intra-",
+          "operative events",
+          "Independently and"
+        ],
+        "level_4": [
+          "proficiently performs",
+          "radical cancer-specific",
+          "procedures",
+          "Independently manages",
+          "complicated or",
+          "multidisciplinary",
+          "procedures for patients",
+          "with multiple comorbidities"
+        ],
+        "level_5": [
+          "Identifies innovative",
+          "techniques and",
+          "approaches from the",
+          "literature or other",
+          "disciplines"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Surgical Care of Gynecologic Cancer – Minimally Invasive Surgical (MIS) Techniques",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Independently selects",
+          "appropriate procedures",
+          "for benign gynecologic",
+          "conditions",
+          "Proficiently performs",
+          "benign gynecologic or",
+          "basic cancer-specific",
+          "procedures"
+        ],
+        "level_2": [
+          "Proposes appropriate",
+          "cancer-specific",
+          "procedures",
+          "Effectively assists during",
+          "radical cancer-specific",
+          "procedures",
+          "Selects appropriate",
+          "cancer-specific"
+        ],
+        "level_3": [
+          "procedures",
+          "Performs radical cancer-",
+          "specific procedures",
+          "Independently adapts",
+          "surgical plan based on",
+          "unforeseen intra-",
+          "operative events",
+          "Independently and"
+        ],
+        "level_4": [
+          "proficiently performs",
+          "radical cancer-specific",
+          "procedures",
+          "Independently manages",
+          "complicated or",
+          "multidisciplinary",
+          "procedures for patients",
+          "with multiple comorbidities"
+        ],
+        "level_5": [
+          "Identifies innovative",
+          "techniques and",
+          "approaches from the",
+          "literature or other",
+          "disciplines"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Management of Chemotherapy and Targeted Therapeutics",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses commonly",
+          "used chemotherapy",
+          "agents, targeted",
+          "therapeutics, and",
+          "common toxicities",
+          "Proposes appropriate"
+        ],
+        "level_2": [
+          "options for treatment",
+          "based on guidelines",
+          "Selects appropriate",
+          "chemotherapy agents and",
+          "targeted therapies for",
+          "treatment based on"
+        ],
+        "level_3": [
+          "observed toxicities and",
+          "guidelines",
+          "Independently adapts",
+          "chemotherapy agents",
+          "and targeted therapies",
+          "based on genetics,"
+        ],
+        "level_4": [
+          "tumor testing, and/or",
+          "toxicities",
+          "Independently manages",
+          "acute and long-term",
+          "toxicities and makes",
+          "appropriate referrals to"
+        ],
+        "level_5": [
+          "other members of the",
+          "interdisciplinary team"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Peri-Operative Care (Pre-, Intra-, and Post-)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Assesses peri-operative",
+          "surgical risk and",
+          "manages routine peri-",
+          "operative care",
+          "Employs standardized"
+        ],
+        "level_2": [
+          "care protocols and",
+          "recognizes common peri-",
+          "operative complications",
+          "Manages patients with",
+          "complex peri-operative"
+        ],
+        "level_3": [
+          "needs and common peri-",
+          "operative complications",
+          "Independently manages",
+          "patients with complex",
+          "peri-operative needs"
+        ],
+        "level_4": [
+          "and complex peri-",
+          "operative complications,",
+          "integrating principles of",
+          "critical care",
+          "Identifies gaps in peri-"
+        ],
+        "level_5": [
+          "operative management",
+          "and complications to be",
+          "addressed in quality",
+          "improvement/research",
+          "initiatives"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Palliative Symptom Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Takes a complete cancer",
+          "and treatment-related",
+          "symptom history",
+          "Manages"
+        ],
+        "level_2": [
+          "uncomplicated",
+          "symptoms, integrating",
+          "standardized",
+          "symptom assessment"
+        ],
+        "level_3": [
+          "tools",
+          "Manages complex",
+          "symptoms",
+          "Coordinates"
+        ],
+        "level_4": [
+          "multidisciplinary",
+          "management of",
+          "complex and refractory",
+          "symptoms"
+        ],
+        "level_5": [
+          "Applies innovative",
+          "approaches to symptom",
+          "management"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Anatomy",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of pelvic anatomy",
+          "Applies knowledge of",
+          "normal pelvic anatomy in",
+          "the surgical setting to",
+          "reduce surgical",
+          "complications and",
+          "morbidity",
+          "Demonstrates knowledge",
+          "of normal retroperitoneal",
+          "and upper abdominal"
+        ],
+        "level_2": [
+          "anatomy",
+          "Applies knowledge of pelvic",
+          "anatomy distorted by",
+          "gynecologic cancer in a",
+          "complex surgical setting to",
+          "reduce surgical",
+          "complications and morbidity",
+          "Applies knowledge of",
+          "pelvic, retroperitoneal, and",
+          "upper abdominal anatomy",
+          "distorted by gynecologic"
+        ],
+        "level_3": [
+          "cancer in a straightforward",
+          "surgical setting to reduce",
+          "surgical complications and",
+          "morbidity",
+          "Applies knowledge of pelvic",
+          "anatomy, upper abdominal,",
+          "and retroperitoneal",
+          "anatomy when reviewing",
+          "diagnostic studies",
+          "Applies knowledge of",
+          "pelvic, retroperitoneal,"
+        ],
+        "level_4": [
+          "and upper abdominal",
+          "anatomy distorted by",
+          "gynecologic cancer in a",
+          "complex surgical setting",
+          "to reduce surgical",
+          "complications and",
+          "morbidity",
+          "Applies knowledge of",
+          "pelvic anatomy, upper",
+          "abdominal, and",
+          "retroperitoneal anatomy"
+        ],
+        "level_5": [
+          "when planning a complex",
+          "surgical intervention",
+          "Applies knowledge of pelvic",
+          "and abdominal anatomy to",
+          "complex surgical cases and",
+          "identifies areas for surgical",
+          "innovation and quality",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Medical Diseases in Gynecologic Cancer – Organ System Disorders",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of common medical",
+          "conditions that can affect",
+          "patient outcomes",
+          "Applies knowledge of"
+        ],
+        "level_2": [
+          "common medical co-",
+          "morbidities to optimize",
+          "patient outcomes",
+          "Demonstrates knowledge",
+          "of complex organ system"
+        ],
+        "level_3": [
+          "disorders, metabolic",
+          "derangements, and",
+          "coagulopathies",
+          "Applies knowledge of",
+          "complex organ system"
+        ],
+        "level_4": [
+          "disorders to optimize",
+          "patient outcomes",
+          "Applies an evidence-based",
+          "approach to innovative",
+          "management of the"
+        ],
+        "level_5": [
+          "gynecologic cancer patient",
+          "with complex medical",
+          "conditions"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Genetics, Cancer Biology, and Immunology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of basic genetics and",
+          "common hereditary cancer",
+          "syndromes in gynecologic",
+          "cancer",
+          "Demonstrates knowledge",
+          "of basic carcinogenesis",
+          "and gynecologic cancer",
+          "prevention strategies"
+        ],
+        "level_2": [
+          "Applies knowledge of basic",
+          "cancer genetics to patient",
+          "counseling",
+          "Demonstrates knowledge",
+          "of basic cancer biology and",
+          "immunology",
+          "Demonstrates knowledge",
+          "of less common hereditary",
+          "cancer syndromes and"
+        ],
+        "level_3": [
+          "genetic alterations",
+          "Demonstrates knowledge",
+          "of targeted therapeutic",
+          "principles and cancer",
+          "immunotherapy",
+          "Applies knowledge of",
+          "hereditary cancer",
+          "syndromes to optimize",
+          "patient outcomes"
+        ],
+        "level_4": [
+          "Applies knowledge of",
+          "cancer biology and",
+          "immunology to develop",
+          "treatment plans for",
+          "patients with gynecologic",
+          "cancers",
+          "Investigates and applies",
+          "evidence-based principles",
+          "of genetics to optimize"
+        ],
+        "level_5": [
+          "patient outcomes",
+          "Investigates and applies",
+          "evidence-based principles",
+          "of cancer biology and/or",
+          "immunology to optimize",
+          "patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Radiation Therapy – Radiation Biology and Physics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses common",
+          "therapeutic radiation",
+          "techniques",
+          "Demonstrates knowledge",
+          "of common complications",
+          "of radiation therapy",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of the indications for",
+          "adjuvant and primary",
+          "therapy",
+          "Demonstrates knowledge",
+          "of initial evaluation of",
+          "patients with radiation",
+          "toxicities"
+        ],
+        "level_3": [
+          "Demonstrates knowledge",
+          "of basic radiation biology",
+          "Demonstrates knowledge",
+          "of management strategies",
+          "for radiation complications",
+          "Applies comprehensive",
+          "knowledge of radiation"
+        ],
+        "level_4": [
+          "therapy to optimize",
+          "patient outcomes",
+          "Applies knowledge of",
+          "management strategies",
+          "for complex radiation",
+          "complications",
+          "Investigates principles of"
+        ],
+        "level_5": [
+          "innovative radiation therapy",
+          "in collaboration with a",
+          "radiation oncologist",
+          "Investigates novel",
+          "management strategies for",
+          "radiation complications"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk5",
+      "number": 10,
+      "domain_number": 5,
+      "name": "Chemotherapy and Targeted Therapeutics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of commonly used",
+          "systemic therapies",
+          "Discusses therapeutic",
+          "options, mechanisms of"
+        ],
+        "level_2": [
+          "action, and common",
+          "toxicities of common",
+          "systemic therapies based",
+          "on literature",
+          "Demonstrates"
+        ],
+        "level_3": [
+          "comprehensive knowledge",
+          "of systemic therapy options",
+          "based on literature",
+          "Applies knowledge of",
+          "systemic therapeutic"
+        ],
+        "level_4": [
+          "agents to individualize",
+          "management",
+          "Explores emerging",
+          "therapies and extrapolates",
+          "to rare or complex clinical"
+        ],
+        "level_5": [
+          "scenarios"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk6",
+      "number": 11,
+      "domain_number": 6,
+      "name": "Diagnostic Techniques and Treatment Planning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates knowledge",
+          "of basic diagnostic",
+          "techniques to evaluate",
+          "patients with gynecologic",
+          "neoplasms",
+          "Demonstrates knowledge",
+          "of histologic",
+          "characteristics of common",
+          "gynecologic cancers",
+          "Demonstrates knowledge",
+          "of diagnostic accuracy and"
+        ],
+        "level_2": [
+          "costs of advanced imaging",
+          "modalities used to evaluate",
+          "patients with gynecologic",
+          "neoplasms",
+          "Demonstrates knowledge",
+          "of pathologic studies used",
+          "to identify and",
+          "subcategorize malignant",
+          "and premalignant",
+          "gynecologic pathology",
+          "Discusses diagnostic"
+        ],
+        "level_3": [
+          "techniques to",
+          "comprehensively evaluate",
+          "patients with gynecologic",
+          "cancer",
+          "Demonstrates knowledge",
+          "of tailored diagnostic",
+          "pathologic, genomic, and",
+          "molecular studies to",
+          "facilitate comprehensive",
+          "treatment planning",
+          "Integrates knowledge of"
+        ],
+        "level_4": [
+          "diagnostic techniques to",
+          "develop comprehensive",
+          "treatment plans for",
+          "patients with gynecologic",
+          "cancer",
+          "Synthesizes results of",
+          "pathologic, genomic, and",
+          "molecular studies to",
+          "create effective treatment",
+          "plans",
+          "Applies innovative"
+        ],
+        "level_5": [
+          "evidence-based diagnostic",
+          "techniques to develop",
+          "treatment plans for patients",
+          "with gynecologic cancers",
+          "Designs research projects",
+          "to further the application or",
+          "development of innovative",
+          "tumor testing in",
+          "gynecologic cancers"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk7",
+      "number": 12,
+      "domain_number": 7,
+      "name": "Clinical Studies",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes the basics of",
+          "clinical study design and",
+          "levels of evidence",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of study design, including",
+          "statistical methods",
+          "Critically interprets the",
+          "results of a clinical study,"
+        ],
+        "level_3": [
+          "including statistical",
+          "limitations",
+          "Applies knowledge of",
+          "clinical study design,"
+        ],
+        "level_4": [
+          "research infrastructure,",
+          "and analytical statistics",
+          "and integrates these",
+          "into clinical practice"
+        ],
+        "level_5": [
+          "Proposes and designs",
+          "clinical investigation"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_mk8",
+      "number": 13,
+      "domain_number": 8,
+      "name": "End-of-Life Care",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Identifies general",
+          "eligibility for hospice care",
+          "Addresses basic",
+          "patient/family questions",
+          "about hospice and death",
+          "from cancer"
+        ],
+        "level_2": [
+          "Addresses complex",
+          "patient/family questions",
+          "about hospice,",
+          "discontinuation of",
+          "disease-directed therapy,",
+          "and death from cancer"
+        ],
+        "level_3": [
+          "Individualizes advice to",
+          "patients/patient families",
+          "about timing of hospice",
+          "enrollment and",
+          "appropriately sets",
+          "patient/family"
+        ],
+        "level_4": [
+          "expectations for last",
+          "days to weeks of life",
+          "Coordinates",
+          "multidisciplinary response",
+          "to complex circumstances,",
+          "such as family conflict and"
+        ],
+        "level_5": [
+          "futile care near the end of",
+          "life"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_sbp1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through the",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes local quality",
+          "improvement initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and patients’",
+          "families (simulated or",
+          "actual)",
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error"
+        ],
+        "level_4": [
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "patients’ families",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent patient",
+          "safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_sbp2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively"
+        ],
+        "level_2": [
+          "utilizing the roles of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care and hand-offs in",
+          "routine clinical situations",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations",
+          "effectively utilizing the"
+        ],
+        "level_3": [
+          "roles of the",
+          "interprofessional teams",
+          "Performs safe and",
+          "effective transitions of",
+          "care and hand-offs in",
+          "complex clinical situations",
+          "Identifies concerns with",
+          "current systems of care",
+          "coordination, and",
+          "identifies opportunities"
+        ],
+        "level_4": [
+          "for improvement",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care and hand-offs",
+          "within and across health",
+          "care delivery systems,",
+          "including outpatient",
+          "settings",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_sbp3",
+      "number": 16,
+      "domain_number": 3,
+      "name": "Community and Population Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs"
+        ],
+        "level_2": [
+          "Identifies specific",
+          "population and community",
+          "health needs for the local",
+          "population"
+        ],
+        "level_3": [
+          "Uses local resources",
+          "effectively to meet the",
+          "needs of a patient",
+          "population and community"
+        ],
+        "level_4": [
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations"
+        ],
+        "level_5": [
+          "Leads innovations and",
+          "advocates for populations",
+          "and communities with",
+          "specific health care needs"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_sbp4",
+      "number": 17,
+      "domain_number": 4,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "complex health care",
+          "system",
+          "Describes how"
+        ],
+        "level_2": [
+          "components of a complex",
+          "health care system are",
+          "inter-related, and how this",
+          "impacts patient care",
+          "Discusses how individual"
+        ],
+        "level_3": [
+          "practice affects the",
+          "broader system",
+          "Manages various",
+          "components of the",
+          "complex health care"
+        ],
+        "level_4": [
+          "system to provide",
+          "efficient and effective",
+          "patient care",
+          "Advocates for or leads",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high value,",
+          "efficient and effective",
+          "patient care"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pbli1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence and incorporate",
+          "patient preferences and",
+          "values to the care of a",
+          "routine patient",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions and elicits",
+          "patient preferences and",
+          "values to guide evidence-",
+          "based care, with guidance",
+          "from other health care",
+          "team members",
+          "Locates and applies the"
+        ],
+        "level_3": [
+          "best available evidence,",
+          "integrated with patient",
+          "preference, to the care of",
+          "complex patients, with",
+          "minimal guidance",
+          "Critically appraises and",
+          "applies evidence, even"
+        ],
+        "level_4": [
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence, to",
+          "guide care tailored to",
+          "the individual patient",
+          "Coaches others to",
+          "critically appraise and"
+        ],
+        "level_5": [
+          "apply evidence for",
+          "complex patients, and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pbli2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Establishes goals for",
+          "personal and",
+          "professional",
+          "development",
+          "Analyzes and reflects on",
+          "the factors that contribute"
+        ],
+        "level_2": [
+          "to gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Identifies opportunities for",
+          "performance",
+          "improvement; designs a",
+          "learning plan",
+          "Institutes behavioral",
+          "change(s) to narrow the"
+        ],
+        "level_3": [
+          "gap(s) between",
+          "expectations and actual",
+          "performance",
+          "Integrates practice data",
+          "and feedback, with",
+          "humility, to implement a",
+          "learning plan",
+          "Continuously reflects on",
+          "remaining gap(s) and"
+        ],
+        "level_4": [
+          "institutes behavioral",
+          "adjustments to narrow",
+          "them",
+          "Uses performance data",
+          "to measure the",
+          "effectiveness of the",
+          "learning plan and",
+          "adapts it when",
+          "necessary"
+        ],
+        "level_5": [
+          "Coaches others on",
+          "reflective practice",
+          "Coaches others in the",
+          "design and",
+          "implementation of",
+          "learning plans"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_pbli3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Scholarly Activity",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Identifies areas worthy",
+          "of scholarly",
+          "investigation",
+          "Designs a hypothesis-",
+          "driven or hypothesis-",
+          "generating scholarly"
+        ],
+        "level_2": [
+          "thesis, under the direction",
+          "of a research mentor",
+          "Presents products of",
+          "scholarly activity at local,",
+          "regional, or national",
+          "meetings, and/or submits"
+        ],
+        "level_3": [
+          "an abstract to regional,",
+          "state, or national",
+          "meetings",
+          "Completes and defends",
+          "a comprehensive",
+          "written scholarly thesis"
+        ],
+        "level_4": [
+          "that demonstrates",
+          "advanced research",
+          "methodology,",
+          "design, and statistical",
+          "analysis",
+          "Publishes independent"
+        ],
+        "level_5": [
+          "research that has",
+          "generated new medical",
+          "knowledge, educational",
+          "programs, or process",
+          "improvement"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_prof1",
+      "number": 21,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "and how to appropriately",
+          "report them",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles",
+          "Demonstrates insight into",
+          "professional behavior in"
+        ],
+        "level_2": [
+          "routine situations and",
+          "takes responsibility for",
+          "one’s own",
+          "professionalism lapses",
+          "Analyzes straightforward",
+          "situations using ethical",
+          "principles",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Recognizes the need to",
+          "seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Consistently recognizes",
+          "situations that may",
+          "trigger professionalism",
+          "lapses and intervenes to",
+          "prevent lapses in"
+        ],
+        "level_4": [
+          "oneself and others",
+          "Recognizes and utilizes",
+          "appropriate resources",
+          "for managing and",
+          "resolving ethical",
+          "dilemmas as needed,",
+          "and identifies system-",
+          "level issues that induce",
+          "or exacerbate ethical",
+          "problems"
+        ],
+        "level_5": [
+          "Coaches others when",
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Seeks to address system-",
+          "level factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_prof2",
+      "number": 22,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Responds promptly to",
+          "requests to complete",
+          "tasks; takes ownership",
+          "for completion of tasks",
+          "and responsibilities",
+          "Takes responsibility to"
+        ],
+        "level_2": [
+          "complete tasks with",
+          "appropriate attention to",
+          "detail in routine situations;",
+          "recognizes situations that",
+          "may impact timely",
+          "completion"
+        ],
+        "level_3": [
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_4": [
+          "Recognizes and takes",
+          "steps to mitigate",
+          "situations that may",
+          "impact others’ ability to",
+          "complete tasks and",
+          "responsibilities in a"
+        ],
+        "level_5": [
+          "timely manner",
+          "Mentors/coaches other",
+          "team members to ensure",
+          "prioritization and",
+          "completion of tasks"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_prof3",
+      "number": 23,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes status of",
+          "personal and",
+          "professional well-being,",
+          "with assistance"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "With assistance, proposes"
+        ],
+        "level_3": [
+          "a plan to optimize",
+          "personal and professional",
+          "well-being",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Coaches others in"
+        ],
+        "level_5": [
+          "optimizing personal and",
+          "professional well-being"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_ics1",
+      "number": 24,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication and Shared Decision Making",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes a basic",
+          "therapeutic relationship",
+          "with patients and",
+          "patients’ families and",
+          "answers basic questions"
+        ],
+        "level_2": [
+          "about treatment planning",
+          "Identifies and reflects on",
+          "biases related to",
+          "communications with",
+          "patients and patients’",
+          "families"
+        ],
+        "level_3": [
+          "Establishes therapeutic",
+          "relationships in",
+          "challenging patient and",
+          "patient family encounters",
+          "and counsels patients",
+          "through shared decision"
+        ],
+        "level_4": [
+          "making",
+          "Facilitates difficult",
+          "discussions while",
+          "attempting to proactively",
+          "minimize",
+          "communication barriers"
+        ],
+        "level_5": [
+          "Mentors others to",
+          "establish therapeutic",
+          "relationships in",
+          "challenging encounters"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_ics2",
+      "number": 25,
+      "domain_number": 2,
+      "name": "Critical Cancer Conversations",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Elicits pre-existing",
+          "preferences related to",
+          "code status, advance",
+          "care planning, and",
+          "medical power of"
+        ],
+        "level_2": [
+          "attorney",
+          "Assesses patients’",
+          "understanding of illness,",
+          "including prognostic",
+          "awareness"
+        ],
+        "level_3": [
+          "Elicits patients’ goals and",
+          "values and delivers basic",
+          "prognostic information",
+          "Makes goal-concordant",
+          "treatment and code"
+        ],
+        "level_4": [
+          "status",
+          "recommendations",
+          "Reaches consensus on",
+          "goal-concordant treatment",
+          "plans in high complexity"
+        ],
+        "level_5": [
+          "circumstances"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_ics3",
+      "number": 26,
+      "domain_number": 3,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Understands and",
+          "respects the role and",
+          "function of",
+          "multidisciplinary and",
+          "interprofessional team",
+          "members",
+          "Solicits and integrates"
+        ],
+        "level_2": [
+          "insights from and uses",
+          "language that values all",
+          "multidisciplinary and",
+          "interprofessional team",
+          "members",
+          "Actively manages and",
+          "coordinates"
+        ],
+        "level_3": [
+          "communications between",
+          "multidisciplinary and",
+          "interprofessional team",
+          "members to ensure",
+          "completion of tasks",
+          "Mediates and",
+          "addresses conflict and"
+        ],
+        "level_4": [
+          "distress among the",
+          "multidisciplinary and",
+          "interprofessional team",
+          "members",
+          "Fosters a culture of open",
+          "communication and",
+          "effective teamwork"
+        ],
+        "level_5": [
+          "among multidisciplinary",
+          "and interprofessional",
+          "team members and",
+          "prevents conflict and",
+          "distress"
+        ]
+      }
+    },
+    {
+      "id": "obstetrics_and_gynecology__gynecologic_oncology_ics4",
+      "number": 27,
+      "domain_number": 4,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records and",
+          "safeguards patient health",
+          "information in the",
+          "electronic health record",
+          "Documents diagnostic"
+        ],
+        "level_2": [
+          "information and",
+          "therapeutic reasoning",
+          "through notes in the",
+          "patient record in an",
+          "efficient manner"
+        ],
+        "level_3": [
+          "Appropriately selects",
+          "direct and indirect forms",
+          "of communication based",
+          "on context",
+          "Provides written or"
+        ],
+        "level_4": [
+          "verbal communication",
+          "that is clear, concise,",
+          "timely, organized, and",
+          "includes anticipatory",
+          "guidance"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "improve written and",
+          "verbal communication"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "obstetrics-and-gynecology",
+  "primary_name": "Obstetrics and Gynecology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/gynecologiconcologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/gynecologiconcologysupplementalguide.pdf"
+  }
+}

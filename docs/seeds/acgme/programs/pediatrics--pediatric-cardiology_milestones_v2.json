@@ -1,0 +1,1147 @@
+{
+  "framework_key": "pediatrics--pediatric-cardiology",
+  "specialty": "Pediatric Cardiology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Cardiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "pediatrics__pediatric_cardiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Clinical Reasoning for Diagnosis",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recites relevant clinical",
+          "facts (e.g., history, exam,",
+          "tests, consultations) in",
+          "the order they were",
+          "elicited"
+        ],
+        "level_2": [
+          "Generates a differential",
+          "diagnosis based on the",
+          "clinical facts",
+          "Organizes clinical facts to",
+          "compare and contrast"
+        ],
+        "level_3": [
+          "diagnoses being",
+          "considered, resulting in a",
+          "prioritized differential",
+          "diagnosis",
+          "Integrates clinical facts"
+        ],
+        "level_4": [
+          "into a unifying",
+          "diagnosis(es);",
+          "reappraises in real time",
+          "to avoid diagnostic error",
+          "Models diagnostic"
+        ],
+        "level_5": [
+          "reasoning for junior",
+          "learners"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Patient Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists management",
+          "options for common",
+          "clinical presentations",
+          "Identifies advantages and"
+        ],
+        "level_2": [
+          "drawbacks of standard",
+          "management options",
+          "Develops and adapts a",
+          "patient-specific"
+        ],
+        "level_3": [
+          "management plan for",
+          "patients with common and",
+          "typical presentation",
+          "Develops and adapts a"
+        ],
+        "level_4": [
+          "patient-specific",
+          "management plan for",
+          "patients with",
+          "complicated and"
+        ],
+        "level_5": [
+          "atypical presentation",
+          "Models the development",
+          "and adaptation of",
+          "management plans"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Organization and Prioritization of Patient Care",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Organizes patient care",
+          "for an individual patient",
+          "when prompted",
+          "Organizes patient care",
+          "responsibilities by"
+        ],
+        "level_2": [
+          "focusing on individual",
+          "(rather than multiple)",
+          "patients",
+          "Organizes and prioritizes",
+          "the simultaneous care of"
+        ],
+        "level_3": [
+          "patients with efficiency;",
+          "anticipates and triages",
+          "urgent and emergent",
+          "issues",
+          "Organizes, prioritizes,"
+        ],
+        "level_4": [
+          "and delegates patient",
+          "care responsibilities,",
+          "even when patient",
+          "volume approaches the",
+          "capacity of the"
+        ],
+        "level_5": [
+          "individual or facility",
+          "Coaches junior learners in",
+          "organizing patient care",
+          "responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Transthoracic Echocardiography",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Lists the elements of a",
+          "complete transthoracic",
+          "echocardiogram",
+          "Obtains and identifies",
+          "standard views for",
+          "transthoracic",
+          "echocardiogram",
+          "Distinguishes normal from"
+        ],
+        "level_2": [
+          "abnormal findings",
+          "Performs a complete",
+          "transthoracic",
+          "echocardiogram for",
+          "normal and simple heart",
+          "disease",
+          "Interprets anatomic,",
+          "hemodynamic, and"
+        ],
+        "level_3": [
+          "functional data in simple",
+          "heart disease",
+          "Performs transthoracic",
+          "echocardiogram for",
+          "complex heart disease",
+          "and adapts the study to",
+          "patient needs",
+          "Interprets anatomic,"
+        ],
+        "level_4": [
+          "hemodynamic, and",
+          "functional data in",
+          "complex heart disease",
+          "Serves as a resource for",
+          "other learners in",
+          "performing a transthoracic",
+          "echocardiogram for",
+          "complex heart disease"
+        ],
+        "level_5": [
+          "Serves as a resource for",
+          "other learners in",
+          "interpreting a",
+          "transthoracic",
+          "echocardiogram for",
+          "complex heart disease"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_mk1",
+      "number": 5,
+      "domain_number": 1,
+      "name": "Anatomy, Physiology, and Natural (and Modified) History of Cardiac Conditions",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes anatomy and",
+          "physiology of a",
+          "structurally normal heart",
+          "Describes anatomy and",
+          "physiology of simple",
+          "cardiac conditions",
+          "Discusses natural history"
+        ],
+        "level_2": [
+          "of common or simple",
+          "heart conditions",
+          "Describes anatomy and",
+          "physiology of complex",
+          "cardiac conditions",
+          "Discusses the impact of",
+          "intervention on the natural"
+        ],
+        "level_3": [
+          "history of common or",
+          "simple heart conditions",
+          "Integrates anatomy and",
+          "physiology to predict",
+          "clinical presentation and",
+          "progression with a high",
+          "level of detail"
+        ],
+        "level_4": [
+          "Discusses anticipated",
+          "course of uncommon or",
+          "complex heart",
+          "conditions, with or",
+          "without treatment",
+          "Appraises and applies",
+          "evidence to challenging"
+        ],
+        "level_5": [
+          "treatment decisions for",
+          "anatomic and physiologic",
+          "variants",
+          "Discusses anticipated",
+          "course of rare heart",
+          "conditions, with or without",
+          "treatment"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_mk2",
+      "number": 6,
+      "domain_number": 2,
+      "name": "Diagnostic Cardiac Catheterization",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Describes data available",
+          "from cardiac",
+          "catheterization",
+          "Reports angiographic",
+          "findings and calculates"
+        ],
+        "level_2": [
+          "hemodynamic data from a",
+          "cardiac catheterization",
+          "Interprets and synthesizes",
+          "angiographic and",
+          "hemodynamic data from a"
+        ],
+        "level_3": [
+          "straightforward cardiac",
+          "catheterization",
+          "Interprets and",
+          "synthesizes",
+          "angiographic and"
+        ],
+        "level_4": [
+          "hemodynamic data from",
+          "a complex cardiac",
+          "catheterization",
+          "Coaches others to",
+          "interpret and synthesize"
+        ],
+        "level_5": [
+          "angiographic and",
+          "hemodynamic data from a",
+          "complex cardiac",
+          "catheterization"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_mk3",
+      "number": 7,
+      "domain_number": 3,
+      "name": "Electrophysiologic Testing",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Recognizes features of a",
+          "normal",
+          "electrocardiogram (ECG)",
+          "Interprets ECG patterns",
+          "for common conditions",
+          "using simple testing (e.g.,"
+        ],
+        "level_2": [
+          "12-lead ECG, telemetry)",
+          "Interprets abnormalities of",
+          "increasing complexity",
+          "using a wider array of",
+          "electrophysiologic testing",
+          "(e.g., Holter monitor,"
+        ],
+        "level_3": [
+          "event recorder, stress",
+          "testing)",
+          "Interprets subtle and",
+          "more complex",
+          "abnormalities of non-",
+          "invasive and common"
+        ],
+        "level_4": [
+          "abnormalities of",
+          "invasive",
+          "electrophysiologic",
+          "testing",
+          "Coaches others to",
+          "interpret and act on more"
+        ],
+        "level_5": [
+          "complex abnormalities of",
+          "non-invasive",
+          "electrophysiologic testing"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_sbp1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Patient Safety",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Participates in analysis of"
+        ],
+        "level_3": [
+          "patient safety events",
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and families",
+          "(simulated or actual)",
+          "Conducts analysis of",
+          "patient safety events"
+        ],
+        "level_4": [
+          "and offers error",
+          "prevention strategies",
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "families (simulated or",
+          "actual)",
+          "Actively engages teams"
+        ],
+        "level_5": [
+          "and processes to modify",
+          "systems to prevent",
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_sbp2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Describes local quality",
+          "improvement initiatives",
+          "(e.g., community",
+          "vaccination rate, infection",
+          "rate, smoking cessation)"
+        ],
+        "level_3": [
+          "Participates in local",
+          "quality improvement",
+          "initiatives",
+          "Demonstrates the skills",
+          "required to identify,"
+        ],
+        "level_4": [
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Creates, implements, and",
+          "assesses quality"
+        ],
+        "level_5": [
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_sbp3",
+      "number": 10,
+      "domain_number": 3,
+      "name": "System Navigation for Patient Centered Care – Coordination of Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Lists the various",
+          "interprofessional",
+          "individuals involved in",
+          "the patient’s care",
+          "coordination",
+          "Coordinates care of",
+          "patients in routine clinical"
+        ],
+        "level_2": [
+          "situations, incorporating",
+          "interprofessional teams",
+          "with consideration of",
+          "patient and family needs",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,"
+        ],
+        "level_3": [
+          "effectively utilizing the",
+          "roles of interprofessional",
+          "teams, and incorporating",
+          "patient and family needs",
+          "and goals",
+          "Coordinates",
+          "interprofessional,"
+        ],
+        "level_4": [
+          "patient-centered care",
+          "among different",
+          "disciplines and",
+          "specialties, actively",
+          "assisting families in",
+          "navigating the health",
+          "care system"
+        ],
+        "level_5": [
+          "Coaches others in",
+          "interprofessional, patient-",
+          "centered care",
+          "coordination"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_sbp4",
+      "number": 11,
+      "domain_number": 4,
+      "name": "System Navigation for Patient-Centered Care – Transitions in Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Uses a standard",
+          "template for transitions",
+          "of care/hand-offs",
+          "Adapts a standard",
+          "template, recognizing key",
+          "elements for safe and"
+        ],
+        "level_2": [
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex"
+        ],
+        "level_3": [
+          "clinical situations, and",
+          "ensures closed-loop",
+          "communication",
+          "Performs and",
+          "advocates for safe and",
+          "effective transitions of"
+        ],
+        "level_4": [
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems,",
+          "including transitions to",
+          "adult care",
+          "Coaches others in"
+        ],
+        "level_5": [
+          "improving transitions of",
+          "care within and across",
+          "health care delivery",
+          "systems to optimize",
+          "patient outcomes"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_sbp5",
+      "number": 12,
+      "domain_number": 5,
+      "name": "Population and Community Health",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "awareness of population",
+          "and community health",
+          "needs",
+          "Identifies specific"
+        ],
+        "level_2": [
+          "population and",
+          "community health needs;",
+          "identifies local resources",
+          "Uses local resources",
+          "effectively to meet the"
+        ],
+        "level_3": [
+          "needs of a patient",
+          "population and",
+          "community",
+          "Adapts practice to",
+          "provide for the needs of"
+        ],
+        "level_4": [
+          "of a specific population",
+          "Advocates at the local,",
+          "regional, or national level",
+          "for populations and",
+          "communities with health"
+        ],
+        "level_5": [
+          "care needs"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_sbp6",
+      "number": 13,
+      "domain_number": 6,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Engages with patients",
+          "and other providers in",
+          "discussions about cost-",
+          "conscious care and key",
+          "components of the",
+          "health care delivery"
+        ],
+        "level_2": [
+          "system",
+          "Identifies the relationships",
+          "between the delivery",
+          "system and cost-",
+          "conscious care and the",
+          "impact on the patient care"
+        ],
+        "level_3": [
+          "Discusses the need for",
+          "changes in clinical",
+          "approaches based on",
+          "evidence, outcomes, and",
+          "cost-effectiveness to",
+          "improve care for patients"
+        ],
+        "level_4": [
+          "and families",
+          "Advocates for the",
+          "promotion of safe,",
+          "quality, and high-value",
+          "care",
+          "Coaches others to"
+        ],
+        "level_5": [
+          "promote safe, quality, and",
+          "high-value care across",
+          "health care systems"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Develops an answerable",
+          "clinical question and",
+          "demonstrates how to",
+          "access available",
+          "evidence, with guidance"
+        ],
+        "level_2": [
+          "Independently articulates",
+          "clinical question and",
+          "accesses available",
+          "evidence",
+          "Locates and applies the"
+        ],
+        "level_3": [
+          "evidence, integrated with",
+          "patient preference, to the",
+          "care of patients",
+          "Critically appraises and",
+          "applies evidence, even"
+        ],
+        "level_4": [
+          "in the face of",
+          "uncertainty and",
+          "conflicting evidence to",
+          "guide care tailored to",
+          "the individual patient"
+        ],
+        "level_5": [
+          "Coaches others to",
+          "critically appraise and",
+          "apply evidence for",
+          "complex patients"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Participates in feedback",
+          "sessions",
+          "Develops personal and",
+          "professional goals, with",
+          "assistance",
+          "Demonstrates openness",
+          "to feedback and",
+          "performance data",
+          "Designs a learning plan"
+        ],
+        "level_2": [
+          "based on established",
+          "goals, feedback, and",
+          "performance data, with",
+          "assistance",
+          "Seeks and incorporates",
+          "feedback and",
+          "performance data",
+          "episodically",
+          "Designs and implements"
+        ],
+        "level_3": [
+          "a learning plan by",
+          "analyzing and reflecting",
+          "on the factors which",
+          "contribute to gap(s)",
+          "between performance",
+          "expectations and actual",
+          "performance",
+          "Seeks and incorporates",
+          "feedback and"
+        ],
+        "level_4": [
+          "performance data",
+          "consistently",
+          "Adapts a learning plan",
+          "using long-term",
+          "professional goals, self-",
+          "reflection, and",
+          "performance data to",
+          "measure its",
+          "effectiveness"
+        ],
+        "level_5": [
+          "Role models and coaches",
+          "others in seeking and",
+          "incorporating feedback",
+          "and performance data",
+          "Demonstrates continuous",
+          "self-reflection and",
+          "coaching of others on",
+          "reflective practice"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies expected",
+          "professional behaviors",
+          "and potential triggers for",
+          "lapses",
+          "Identifies the value and",
+          "role of pediatric",
+          "cardiology as a",
+          "vocation/career",
+          "Demonstrates"
+        ],
+        "level_2": [
+          "professional behavior with",
+          "occasional lapses",
+          "Demonstrates",
+          "accountability for patient",
+          "care as a pediatric",
+          "cardiologist, with",
+          "guidance",
+          "Maintains professional",
+          "behavior in increasingly"
+        ],
+        "level_3": [
+          "complex or stressful",
+          "situations",
+          "Fully engages in patient",
+          "care and holds oneself",
+          "accountable",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to"
+        ],
+        "level_4": [
+          "prevent lapses in self",
+          "and others",
+          "Exhibits a sense of duty",
+          "to patient care and",
+          "professional",
+          "responsibilities",
+          "Models professional",
+          "behavior and coaches",
+          "others when their"
+        ],
+        "level_5": [
+          "behavior fails to meet",
+          "professional expectations",
+          "Extends the role of the",
+          "pediatric cardiologist",
+          "beyond the care of",
+          "patients by engaging with",
+          "the community, specialty,",
+          "and medical profession as",
+          "a whole"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "informed consent,",
+          "surrogate decision",
+          "making, advance",
+          "directives, confidentiality,",
+          "error disclosure,"
+        ],
+        "level_2": [
+          "stewardship of limited",
+          "resources, and related",
+          "topics",
+          "Applies ethical principles",
+          "in common situations",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles to address"
+        ],
+        "level_3": [
+          "conflict/controversy;",
+          "seeks help when needed",
+          "to manage and resolve",
+          "complex ethical situations",
+          "Manages and seeks to",
+          "resolve ethical",
+          "dilemmas using",
+          "appropriate resources"
+        ],
+        "level_4": [
+          "(e.g., ethics",
+          "consultations, literature",
+          "review, risk",
+          "management/legal",
+          "consultation)",
+          "Called upon by others to",
+          "consult in cases of",
+          "complex ethical"
+        ],
+        "level_5": [
+          "dilemmas; identifies and",
+          "seeks to address system-",
+          "level factors that induce",
+          "or exacerbate"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Performs tasks and",
+          "responsibilities, with",
+          "prompting",
+          "Performs tasks and",
+          "responsibilities in a timely"
+        ],
+        "level_2": [
+          "manner in routine",
+          "situations",
+          "Performs tasks and",
+          "responsibilities in a",
+          "thorough and timely"
+        ],
+        "level_3": [
+          "manner in complex or",
+          "stressful situations",
+          "Coaches others to",
+          "ensure tasks and",
+          "responsibilities are"
+        ],
+        "level_4": [
+          "completed in a thorough",
+          "and timely manner in",
+          "complex or stressful",
+          "situations",
+          "Creates strategies to"
+        ],
+        "level_5": [
+          "enhance others’ ability to",
+          "efficiently complete tasks",
+          "and responsibilities"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_prof4",
+      "number": 19,
+      "domain_number": 4,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote well-being",
+          "Recognizes institutional"
+        ],
+        "level_3": [
+          "and personal factors that",
+          "impact well-being",
+          "Describes interactions",
+          "between institutional"
+        ],
+        "level_4": [
+          "and personal factors",
+          "that impact well-being",
+          "Coaches and supports",
+          "colleagues to optimize"
+        ],
+        "level_5": [
+          "well-being at the team,",
+          "program, or institutional",
+          "level"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_ics1",
+      "number": 20,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and attempts to establish",
+          "rapport",
+          "Attempts to adjust",
+          "communication",
+          "strategies based upon",
+          "patient/family",
+          "expectations",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in",
+          "straightforward",
+          "encounters",
+          "Adjusts communication",
+          "strategies as needed to",
+          "mitigate barriers and meet",
+          "patient/family",
+          "expectations",
+          "Establishes a culturally"
+        ],
+        "level_3": [
+          "aware and therapeutic",
+          "relationship in most",
+          "encounters",
+          "Communicates with",
+          "sensitivity and",
+          "compassion, elicits",
+          "patient/family values, and",
+          "acknowledges uncertainty",
+          "and conflict"
+        ],
+        "level_4": [
+          "Establishes a",
+          "therapeutic relationship",
+          "in straightforward and",
+          "complex encounters,",
+          "including those with",
+          "ambiguity and/or conflict",
+          "Uses shared decision",
+          "making with",
+          "patient/family to make a"
+        ],
+        "level_5": [
+          "personalized care plan",
+          "Mentors others to develop",
+          "positive therapeutic",
+          "relationships",
+          "Models and coaches",
+          "others in patient- and",
+          "family-centered",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_ics2",
+      "number": 21,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests a",
+          "consultation, with",
+          "guidance",
+          "Identifies the members",
+          "of the interprofessional",
+          "team",
+          "Clearly and concisely"
+        ],
+        "level_2": [
+          "requests consultation by",
+          "communicating patient",
+          "information",
+          "Participates within the",
+          "interprofessional team",
+          "Formulates a specific",
+          "question for consultation"
+        ],
+        "level_3": [
+          "and tailors communication",
+          "strategy",
+          "Uses bi-directional",
+          "communication within the",
+          "interprofessional team",
+          "Coordinates consultant",
+          "recommendations to"
+        ],
+        "level_4": [
+          "optimize patient care",
+          "Facilitates",
+          "interprofessional team",
+          "communication",
+          "Maintains a collaborative",
+          "relationship with referring",
+          "providers that maximizes"
+        ],
+        "level_5": [
+          "adherence to practice",
+          "recommendations",
+          "Coaches others in",
+          "effective communication",
+          "within the",
+          "interprofessional team"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_ics3",
+      "number": 22,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Records accurate",
+          "information in the patient",
+          "record",
+          "Identifies the importance",
+          "of and responds to",
+          "multiple forms of",
+          "communication (e.g., in-",
+          "person, electronic health",
+          "record (EHR), telephone,"
+        ],
+        "level_2": [
+          "email)",
+          "Records accurate and",
+          "timely information in the",
+          "patient record",
+          "Selects appropriate",
+          "method of",
+          "communication, with",
+          "prompting",
+          "Concisely documents"
+        ],
+        "level_3": [
+          "updated, prioritized,",
+          "diagnostic and",
+          "therapeutic reasoning in",
+          "the patient record",
+          "Aligns type of",
+          "communication with",
+          "message to be delivered",
+          "(e.g., direct and indirect)",
+          "based on urgency and"
+        ],
+        "level_4": [
+          "complexity",
+          "Documents diagnostic",
+          "and therapeutic",
+          "reasoning, including",
+          "anticipatory guidance",
+          "Demonstrates",
+          "exemplary written and",
+          "verbal communication",
+          "Models and coaches"
+        ],
+        "level_5": [
+          "others in documenting",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "Coaches others in written",
+          "and verbal",
+          "communication"
+        ]
+      }
+    },
+    {
+      "id": "pediatrics__pediatric_cardiology_ics4",
+      "number": 23,
+      "domain_number": 4,
+      "name": "Complex Communication Around Serious Illness and Prognosis",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Recognizes when a topic",
+          "may elicit emotional",
+          "responses from patients",
+          "and patients’ families",
+          "Delivers challenging"
+        ],
+        "level_2": [
+          "information in a scripted",
+          "manner to patients and",
+          "patients’ families",
+          "Delivers challenging",
+          "information and responds"
+        ],
+        "level_3": [
+          "to emotional cues of",
+          "patients and patients’",
+          "families",
+          "Anticipates patient and",
+          "family needs; plans for"
+        ],
+        "level_4": [
+          "and adapts",
+          "communication",
+          "according to the",
+          "situation, emotional",
+          "response, and medical"
+        ],
+        "level_5": [
+          "uncertainty",
+          "Coaches others in the",
+          "communication of",
+          "challenging information"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "pediatrics",
+  "primary_name": "Pediatrics",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatriccardiologysupplementalguide.pdf"
+  }
+}

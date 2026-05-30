@@ -1,0 +1,1472 @@
+{
+  "framework_key": "internal-medicine--advanced-heart-failure-and-transplant-cardiology",
+  "specialty": "Advanced Heart Failure and Transplant Cardiology",
+  "version": "2.0",
+  "source": "ACGME Advanced Heart Failure and Transplant Cardiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Transplant",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patients who",
+          "may benefit from",
+          "advanced therapies",
+          "Evaluates patients using",
+          "program selection criteria",
+          "Participates in the",
+          "evaluation of donors",
+          "using program selection",
+          "criteria and performs",
+          "ongoing reassessment of",
+          "the patient for continued",
+          "eligibility for transplant",
+          "Uses institutional protocol"
+        ],
+        "level_2": [
+          "to care for patients post-",
+          "transplant",
+          "Formulates a plan based",
+          "on hemodynamics, risk",
+          "assessment, and",
+          "comorbidities",
+          "and benefits of continued",
+          "medical therapy",
+          "Manages patients peri-",
+          "operatively and selects",
+          "immunosuppressive",
+          "therapy based on",
+          "institutional protocol"
+        ],
+        "level_3": [
+          "Identifies complications of",
+          "immunosuppression and",
+          "comorbidities post-",
+          "transplant",
+          "Determines whether to",
+          "list a patient for",
+          "transplant and selects",
+          "optimal timing based on",
+          "a complete evaluation",
+          "Manages donor",
+          "selection prior to",
+          "transplant and manages",
+          "early post-transplant"
+        ],
+        "level_4": [
+          "complications (e.g.,",
+          "primary graft failure,",
+          "rejection)",
+          "Manages complications",
+          "of immunosuppression",
+          "and comorbidities post-",
+          "transplant",
+          "Optimizes selection of",
+          "patients to meet the",
+          "fiduciary responsibility to",
+          "the patient, the program,",
+          "and the community",
+          "Manages the"
+        ],
+        "level_5": [
+          "interdisciplinary team to",
+          "formulate a care plan to",
+          "achieve the best possible",
+          "outcome",
+          "Integrates patient and",
+          "program specific",
+          "characteristics to estimate",
+          "and optimize expected",
+          "outcomes"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Mechanical Circulatory Support (Temporary and Durable)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patients at",
+          "various stages of",
+          "cardiogenic shock in",
+          "need of temporary",
+          "mechanical support",
+          "Recognizes the patient",
+          "with chronic heart failure",
+          "(Stage D) in need of a",
+          "durable left ventricular",
+          "assist device",
+          "Demonstrates the ability"
+        ],
+        "level_2": [
+          "to evaluate a patient for",
+          "temporary mechanical",
+          "support device",
+          "Demonstrates the ability",
+          "to assess suitability of a",
+          "patient for durable left",
+          "ventricular assist device",
+          "support based on current",
+          "guidelines and",
+          "institutional protocols",
+          "Manages patients on"
+        ],
+        "level_3": [
+          "temporary mechanical",
+          "support devices",
+          "Manages patients on",
+          "durable left ventricular",
+          "assist device support",
+          "devices",
+          "Manages the intra- and",
+          "early post-operative",
+          "complications",
+          "associated with",
+          "temporary mechanical"
+        ],
+        "level_4": [
+          "circulatory support",
+          "devices",
+          "Manages complications",
+          "of patients on durable",
+          "mechanical circulatory",
+          "devices including, but",
+          "not limited to, bleeding,",
+          "pump thrombosis, pump",
+          "failure, and stroke",
+          "Optimizes patient care by",
+          "negotiating the complex"
+        ],
+        "level_5": [
+          "care of patients on",
+          "temporary mechanical",
+          "support devices",
+          "during the weaning",
+          "process and recognizes",
+          "futility of further treatment",
+          "Manages end-of-life care",
+          "for patients on durable",
+          "mechanical circulatory",
+          "devices"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Acutely Decompensated Heart Failure",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Identifies patients with",
+          "new onset heart failure",
+          "based on signs,",
+          "symptoms, and other",
+          "given variables",
+          "Recognizes acutely",
+          "decompensated heart",
+          "failure without shock",
+          "(heart failure profiles)",
+          "Recognizes acutely",
+          "decompensated heart",
+          "failure with shock",
+          "Evaluates differential",
+          "diagnosis and selects",
+          "testing necessary for",
+          "diagnosis according to",
+          "guidelines"
+        ],
+        "level_2": [
+          "Evaluates the etiology for",
+          "readmission and works to",
+          "improve cardiac, medical,",
+          "or patient-related",
+          "etiologies",
+          "Distinguishes various",
+          "levels of shock based on",
+          "clinical, lab, and",
+          "diagnostic variables as",
+          "described by clinical",
+          "expert consensus",
+          "Formulates plan based on",
+          "diagnosis for optimizing",
+          "guideline-directed medical",
+          "therapy and device",
+          "therapy",
+          "Optimizes inpatient"
+        ],
+        "level_3": [
+          "management with diuretic",
+          "protocols/algorithms and",
+          "optimization of guideline-",
+          "directed medical therapy",
+          "to assure compensation",
+          "and response to",
+          "management before",
+          "discharge",
+          "Manages each level of",
+          "shock as indicated by",
+          "guidelines/consensus and",
+          "internal protocol",
+          "Recognizes the",
+          "significance of heart",
+          "failure education for",
+          "newly diagnosed heart",
+          "failure and educates the"
+        ],
+        "level_4": [
+          "patient on self-care,",
+          "warning signs, and",
+          "action plans",
+          "Evaluates barriers,",
+          "including social",
+          "determinants, that might",
+          "lead to high risk of",
+          "readmission",
+          "Recognizes time and",
+          "indication for temporary",
+          "support device and",
+          "escalation of care",
+          "Discusses long-term",
+          "prognosis and outcomes",
+          "associated with guideline-",
+          "directed medical therapy,",
+          "including basic data and"
+        ],
+        "level_5": [
+          "risk assessment models",
+          "to increase patient",
+          "understanding/awareness",
+          "Plans for patient-specific",
+          "transitions of care to",
+          "maintain outpatient follow",
+          "up and prevent",
+          "readmissions using all",
+          "available resources",
+          "Uses multidisciplinary",
+          "team for early patient",
+          "assessment; integrates",
+          "program-specific",
+          "guidelines to initiate",
+          "evaluation for advanced",
+          "therapies"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Management of Chronic Heart Failure",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Recognizes clinical signs",
+          "and symptoms of chronic",
+          "heart failure with",
+          "reduced ejection fraction",
+          "Recognizes clinical signs",
+          "and symptoms of chronic",
+          "heart failure with",
+          "preserved ejection",
+          "fraction",
+          "Monitors patients for",
+          "complications or changes",
+          "related to chronic heart",
+          "failure with reduced",
+          "ejection fraction",
+          "Monitors patients for",
+          "complications or changes"
+        ],
+        "level_2": [
+          "related to chronic heart",
+          "failure with preserved",
+          "ejection fraction",
+          "With direct supervision,",
+          "effectively participates in",
+          "team-based care in",
+          "management of common",
+          "chronic heart failure with",
+          "reduced ejection fraction",
+          "and heart failure with",
+          "preserved ejection",
+          "fraction",
+          "Manages patients with",
+          "stable chronic heart",
+          "failure with reduced",
+          "ejection fraction"
+        ],
+        "level_3": [
+          "Manages patients with",
+          "stable chronic heart",
+          "failure with preserved",
+          "ejection fraction",
+          "With indirect supervision,",
+          "effectively participates in",
+          "team-based care in",
+          "management of common",
+          "chronic heart failure with",
+          "reduced ejection fraction",
+          "and heart failure with",
+          "preserved ejection",
+          "fraction",
+          "Manages patients with",
+          "advanced and end-",
+          "stage chronic heart"
+        ],
+        "level_4": [
+          "failure with reduced",
+          "ejection fraction",
+          "Manages patients with",
+          "advanced and end-",
+          "stage chronic heart",
+          "failure with preserved",
+          "ejection fraction",
+          "Effectively participates",
+          "in team-based care,",
+          "including palliative care,",
+          "in management of",
+          "advanced or end-stage",
+          "chronic heart failure",
+          "with reduced ejection",
+          "fraction and heart failure",
+          "with preserved ejection"
+        ],
+        "level_5": [
+          "fraction",
+          "Manages an outpatient",
+          "chronic heart failure",
+          "program",
+          "Advances quality of",
+          "clinical practice in the",
+          "treatment strategies for",
+          "chronic heart failure",
+          "Effectively develops and",
+          "implements team-based",
+          "care models in",
+          "management of chronic",
+          "heart failure"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Pulmonary Hypertension",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Discusses the clinical",
+          "features of pulmonary",
+          "hypertension",
+          "Discusses risk factors,",
+          "outcomes, and survival",
+          "of patients with",
+          "pulmonary hypertension",
+          "Identifies the basic",
+          "evaluation of the patient"
+        ],
+        "level_2": [
+          "with pulmonary",
+          "hypertension, including",
+          "history and physical,",
+          "echocardiogram,",
+          "hemodynamic evaluation,",
+          "and laboratory evaluation",
+          "Discusses options for",
+          "therapy for pulmonary",
+          "hypertension"
+        ],
+        "level_3": [
+          "Selects tests for the",
+          "evaluation and monitoring",
+          "of the patient with",
+          "pulmonary hypertension",
+          "Develops team-based",
+          "care and treatment",
+          "strategies for pulmonary",
+          "hypertension, with",
+          "supervision"
+        ],
+        "level_4": [
+          "Independently interprets",
+          "testing results to",
+          "develop individual",
+          "treatment strategies for",
+          "pulmonary hypertension",
+          "Independently develops",
+          "individual treatment",
+          "strategies for pulmonary",
+          "hypertension, including"
+        ],
+        "level_5": [
+          "lung or heart-lung",
+          "transplant referral",
+          "Advances quality of",
+          "clinical practice in the",
+          "treatment strategies for",
+          "pulmonary hypertension",
+          "Identifies strategies to",
+          "develop a pulmonary",
+          "hypertension program"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_mk1",
+      "number": 6,
+      "domain_number": 1,
+      "name": "Transplant",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "indications for and",
+          "contraindications to heart",
+          "transplantation",
+          "Knows the principles of",
+          "immunology pertinent to",
+          "heart transplantation",
+          "Knows the intra- and early"
+        ],
+        "level_2": [
+          "post-operative",
+          "complications of heart",
+          "transplantation",
+          "Knows the mechanism of",
+          "action, adverse effects,",
+          "and drug-drug",
+          "interactions of",
+          "immunosuppressant",
+          "therapies"
+        ],
+        "level_3": [
+          "Knows the long-term",
+          "complications of heart",
+          "transplantation",
+          "Knows the strengths and",
+          "limitations of strategies",
+          "used to detect, monitor,",
+          "and treat transplant",
+          "rejection",
+          "Applies knowledge of"
+        ],
+        "level_4": [
+          "potential complications",
+          "after heart",
+          "transplantation to",
+          "optimize patient",
+          "outcomes",
+          "Applies knowledge of",
+          "transplant immunology",
+          "and pharmacology to",
+          "optimize patient"
+        ],
+        "level_5": [
+          "outcomes",
+          "Demonstrates knowledge",
+          "of the pillars of a",
+          "successful heart",
+          "transplant program,",
+          "including outcomes and",
+          "resource allocation"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_mk2",
+      "number": 7,
+      "domain_number": 2,
+      "name": "Mechanical Circulatory Support",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of the",
+          "characteristics of",
+          "temporary mechanical",
+          "support devices",
+          "Demonstrates",
+          "knowledge of the",
+          "characteristics of durable",
+          "mechanical support",
+          "devices"
+        ],
+        "level_2": [
+          "Knows the indications for",
+          "and contraindications for",
+          "temporary mechanical",
+          "circulatory support",
+          "Knows the indications for",
+          "and contraindications for",
+          "durable mechanical",
+          "circulatory support",
+          "Knows intra- and early",
+          "post-operative"
+        ],
+        "level_3": [
+          "complications of",
+          "temporary mechanical",
+          "circulatory support",
+          "Knows the clinical",
+          "determinants favoring left",
+          "ventricular assist device",
+          "versus transplantation as",
+          "long-term durable",
+          "strategies",
+          "Applies knowledge of"
+        ],
+        "level_4": [
+          "selection and use of",
+          "temporary mechanical",
+          "circulatory assist",
+          "devices to optimize",
+          "patient outcomes",
+          "Applies knowledge of",
+          "selection and use of",
+          "durable mechanical",
+          "circulatory assist",
+          "devices to optimize"
+        ],
+        "level_5": [
+          "patient outcomes",
+          "Demonstrates knowledge",
+          "of the pillars of a",
+          "successful mechanical",
+          "circulatory support",
+          "program, including",
+          "outcomes and resource",
+          "allocation"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_mk3",
+      "number": 8,
+      "domain_number": 3,
+      "name": "Heart Failure",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Lists a differential",
+          "diagnosis for common",
+          "clinical presentations for",
+          "heart failure patients",
+          "Lists therapeutic options",
+          "for common clinical",
+          "presentations for heart",
+          "failure patients",
+          "Provides a"
+        ],
+        "level_2": [
+          "comprehensive",
+          "differential diagnosis for a",
+          "wide range of clinical",
+          "heart failure presentations",
+          "Explains risks and",
+          "benefits of standard",
+          "therapeutic options for",
+          "heart failure",
+          "Provides a focused"
+        ],
+        "level_3": [
+          "differential diagnosis",
+          "based on individual heart",
+          "failure patient",
+          "presentation",
+          "Justifies optimal",
+          "therapeutic option based",
+          "on individual heart failure",
+          "patient presentation",
+          "Diagnoses patients with"
+        ],
+        "level_4": [
+          "challenging heart failure",
+          "presentations and",
+          "uncommon disorders",
+          "Develops therapeutic",
+          "plan for patients with",
+          "challenging heart failure",
+          "presentations and",
+          "uncommon disorders",
+          "Advances knowledge in"
+        ],
+        "level_5": [
+          "pathophysiology and",
+          "treatment of heart failure",
+          "Disseminates knowledge",
+          "of challenging heart",
+          "failure presentations and",
+          "uncommon disorders"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_mk4",
+      "number": 9,
+      "domain_number": 4,
+      "name": "Advanced Heart Failure Diagnostics",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Knows types of",
+          "advanced heart failure",
+          "diagnostics",
+          "Demonstrates knowledge",
+          "of indications and",
+          "contraindications of",
+          "advanced heart failure",
+          "diagnostics",
+          "Knows the basic"
+        ],
+        "level_2": [
+          "measurements and data",
+          "output from the various",
+          "advanced heart failure",
+          "diagnostics",
+          "Demonstrates knowledge",
+          "of appropriate selection",
+          "and use of diagnostics for",
+          "the routine advanced",
+          "heart failure population"
+        ],
+        "level_3": [
+          "Identifies key diagnostic",
+          "findings in common",
+          "advanced heart failure",
+          "conditions",
+          "Applies knowledge of",
+          "appropriate selection",
+          "and use of diagnostics",
+          "for patients with",
+          "complex advanced"
+        ],
+        "level_4": [
+          "heart failure patients",
+          "Identifies key diagnostic",
+          "findings in complex",
+          "advanced heart failure",
+          "conditions",
+          "Advances knowledge in",
+          "indications,",
+          "contraindications, and",
+          "appropriate use for"
+        ],
+        "level_5": [
+          "advanced heart failure",
+          "diagnostics",
+          "Advances knowledge in",
+          "defining the role of",
+          "advanced heart failure",
+          "diagnostics"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_mk5",
+      "number": 10,
+      "domain_number": 5,
+      "name": "Pulmonary Hypertension",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Discusses the World",
+          "Health Organization",
+          "(WHO) classifications of",
+          "pulmonary hypertension",
+          "Discusses the types of",
+          "drugs used to treat",
+          "pulmonary hypertension",
+          "Discusses physiology of"
+        ],
+        "level_2": [
+          "the right ventricle and",
+          "distinction between and",
+          "pre- and post-capillary",
+          "pulmonary hypertension",
+          "Identifies drugs used to",
+          "treat different classes of",
+          "pulmonary hypertension",
+          "Discusses the"
+        ],
+        "level_3": [
+          "pathophysiology of",
+          "pulmonary hypertension",
+          "Discusses the",
+          "pharmacology of the",
+          "drugs used in pulmonary",
+          "hypertension",
+          "Assesses prognosis in",
+          "pulmonary hypertension"
+        ],
+        "level_4": [
+          "Identifies treatment",
+          "modalities, including",
+          "investigational agents",
+          "and multi-drug regimens",
+          "Demonstrates knowledge",
+          "of the pillars of a",
+          "multidisciplinary",
+          "pulmonary hypertension"
+        ],
+        "level_5": [
+          "program",
+          "Integrates all options in",
+          "the treatment of",
+          "pulmonary hypertension",
+          "including drugs, surgical",
+          "procedures, and lung",
+          "transplantation"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_sbp1",
+      "number": 11,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "patient safety events",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics",
+          "Identifies system factors"
+        ],
+        "level_2": [
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "departmental level",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and their families",
+          "(simulated or actual)",
+          "Participates in quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "departmental level",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "their families (simulated",
+          "or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional or",
+          "community level"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_sbp2",
+      "number": 12,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for effective transitions of",
+          "care",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations, effectively",
+          "using the roles of the",
+          "interprofessional teams"
+        ],
+        "level_2": [
+          "Performs effective",
+          "transitions of care in",
+          "routine clinical situations",
+          "Demonstrates general",
+          "knowledge of barriers to",
+          "adherence to care",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations,",
+          "effectively using the roles",
+          "of the interprofessional"
+        ],
+        "level_3": [
+          "teams",
+          "Performs effective",
+          "transitions of care in",
+          "complex clinical situations",
+          "Identifies barriers to",
+          "adherence of care to",
+          "specific populations",
+          "Role models effective",
+          "coordination of patient-",
+          "centered care among",
+          "different disciplines and"
+        ],
+        "level_4": [
+          "specialties",
+          "Role models and",
+          "advocates for effective",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems",
+          "Adapts practice to",
+          "address barriers to",
+          "adherence of care",
+          "Analyzes the process of",
+          "care coordination and"
+        ],
+        "level_5": [
+          "leads in the design and",
+          "implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Leads innovations and",
+          "advocates for populations",
+          "with health care barriers"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_sbp3",
+      "number": 13,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Identifies key",
+          "components of the",
+          "health care system (e.g.,",
+          "hospital, skilled nursing",
+          "facility, finance,",
+          "personnel, technology)",
+          "Describes basic health",
+          "payment systems, (e.g.,",
+          "government, private,",
+          "public, uninsured care)",
+          "and practice models",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how this"
+        ],
+        "level_2": [
+          "impacts patient care",
+          "Delivers care with",
+          "consideration of each",
+          "patient’s payment model",
+          "(e.g., insurance type)",
+          "Demonstrates essential",
+          "skills for documentation",
+          "required for independent",
+          "practice (e.g., electronic",
+          "health record,",
+          "documentation required",
+          "for billing and coding)",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,"
+        ],
+        "level_3": [
+          "length of stay,",
+          "readmission rates, clinical",
+          "efficiency)",
+          "Engages with patients in",
+          "shared decision making,",
+          "informed by each",
+          "patient’s payment models",
+          "Seeks knowledge in non-",
+          "clinical topics needed for",
+          "independent practice",
+          "(e.g., malpractice",
+          "insurance, government",
+          "regulation, compliance)",
+          "Manages various",
+          "components of the"
+        ],
+        "level_4": [
+          "complex health care",
+          "system to provide",
+          "efficient and effective",
+          "patient care and",
+          "transition of care",
+          "Advocates for patient",
+          "care needs (e.g.,",
+          "community resources,",
+          "patient assistance",
+          "resources) with",
+          "consideration of the",
+          "limitations of each",
+          "patient’s payment",
+          "model",
+          "Applies knowledge in"
+        ],
+        "level_5": [
+          "non-clinical topics",
+          "needed for independent",
+          "practice",
+          "Advocates for or leads",
+          "systems change that",
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care and transition",
+          "of care",
+          "Participates in health",
+          "policy advocacy activities",
+          "Educates others in non-",
+          "clinical topics to prepare",
+          "them for independent",
+          "practice"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pbli1",
+      "number": 14,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Demonstrates how to",
+          "access and use available",
+          "evidence to manage a",
+          "patient with cardiac",
+          "disease",
+          "Articulates clinical"
+        ],
+        "level_2": [
+          "questions and elicits",
+          "patient preferences to",
+          "guide evidence-based",
+          "care",
+          "Locates and applies the",
+          "best available evidence to"
+        ],
+        "level_3": [
+          "the care of patients with",
+          "complex cardiac disease",
+          "while integrating patient",
+          "preference",
+          "Critically appraises and",
+          "applies available,"
+        ],
+        "level_4": [
+          "potentially conflicting",
+          "evidence to guide care",
+          "of an individual patient",
+          "Develops initiatives to",
+          "educate others to critically",
+          "appraise and apply"
+        ],
+        "level_5": [
+          "evidence for complex",
+          "patients and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_pbli2",
+      "number": 15,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Acknowledges limits and",
+          "gaps between",
+          "expectations and"
+        ],
+        "level_2": [
+          "performance;",
+          "demonstrates self-",
+          "awareness",
+          "Demonstrates openness",
+          "to feedback and",
+          "performance data to form",
+          "goals",
+          "Analyzes the factors"
+        ],
+        "level_3": [
+          "which contribute to limits",
+          "and gaps; demonstrates",
+          "appropriate help-seeking",
+          "behaviors",
+          "Occasionally seeks",
+          "feedback and",
+          "performance data with",
+          "adaptability and humility"
+        ],
+        "level_4": [
+          "Creates and implements",
+          "a learning plan",
+          "Systematically seeks",
+          "feedback and",
+          "performance data with",
+          "adaptability and humility",
+          "Uses performance data",
+          "to assess learning plan"
+        ],
+        "level_5": [
+          "and improves it when",
+          "necessary",
+          "Coaches others to seek",
+          "feedback and",
+          "performance data",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_prof1",
+      "number": 16,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Identifies and describes",
+          "potential triggers for",
+          "professionalism lapses",
+          "Demonstrates",
+          "knowledge of ethical",
+          "principles (e.g., informed",
+          "consent, advance",
+          "directives, confidentiality,",
+          "patient autonomy)"
+        ],
+        "level_2": [
+          "Demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Applies knowledge of",
+          "ethical principles to",
+          "routine situations",
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful"
+        ],
+        "level_3": [
+          "situations",
+          "Recognizes the need to",
+          "seek help in managing",
+          "and resolving complex",
+          "ethical situations",
+          "Recognizes situations",
+          "that may trigger",
+          "professionalism lapses",
+          "and intervenes to"
+        ],
+        "level_4": [
+          "prevent lapses in",
+          "oneself and others",
+          "Uses appropriate",
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas (e.g., ethics",
+          "consultations, risk",
+          "management)",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Identifies and seeks to",
+          "address system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_prof2",
+      "number": 17,
+      "domain_number": 2,
+      "name": "Accountability",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Takes responsibility for",
+          "failure to complete tasks",
+          "and responsibilities,",
+          "identifies potential",
+          "contributing factors, and",
+          "describes strategies for",
+          "ensuring timely task",
+          "completion in the future",
+          "Recognizes the",
+          "principles of conflict of"
+        ],
+        "level_2": [
+          "interest in relationships",
+          "with industry and other",
+          "entities",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Recognizes personal",
+          "potential conflicts with"
+        ],
+        "level_3": [
+          "industry",
+          "Performs tasks and",
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "complex or stressful",
+          "situations",
+          "Seeks assistance in",
+          "managing personal",
+          "relationships with industry"
+        ],
+        "level_4": [
+          "and other entities to",
+          "minimize bias and undue",
+          "influence in practice",
+          "Recognizes situations",
+          "that may impact others’",
+          "ability to complete tasks",
+          "and responsibilities in a",
+          "timely manner",
+          "Identifies, discloses,",
+          "and manages"
+        ],
+        "level_5": [
+          "relationships with",
+          "industry and other",
+          "entities to minimize bias",
+          "and undue influence in",
+          "practice",
+          "Engages with the system",
+          "to improve outcomes"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_prof3",
+      "number": 18,
+      "domain_number": 3,
+      "name": "Self-Awareness and Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of personal",
+          "and professional well-",
+          "being"
+        ],
+        "level_2": [
+          "Independently recognizes",
+          "status of personal and",
+          "professional well-being",
+          "With assistance,"
+        ],
+        "level_3": [
+          "proposes a plan to",
+          "optimize personal and",
+          "professional well-being",
+          "Independently develops"
+        ],
+        "level_4": [
+          "a plan to optimize",
+          "personal and",
+          "professional well-being",
+          "Participates in a system"
+        ],
+        "level_5": [
+          "change to improve well-",
+          "being in self and others"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_ics1",
+      "number": 19,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Demonstrates respect",
+          "and establishes rapport",
+          "in patient encounters",
+          "Knows barriers to",
+          "effective communication",
+          "(e.g., language,",
+          "disability, health literacy)",
+          "Identifies the need to",
+          "adjust communication",
+          "strategies to achieve",
+          "shared decision making",
+          "Establishes a therapeutic"
+        ],
+        "level_2": [
+          "relationship in routine",
+          "patient encounters",
+          "Identifies barriers to",
+          "effective communication",
+          "in patient encounters",
+          "Organizes and initiates",
+          "communication with",
+          "patient/patient’s family to",
+          "facilitate shared decision",
+          "making",
+          "With guidance,",
+          "establishes a therapeutic"
+        ],
+        "level_3": [
+          "relationship",
+          "in challenging patient",
+          "encounters",
+          "Attempts to minimize",
+          "communication barriers,",
+          "including reflection on any",
+          "biases",
+          "With guidance, uses",
+          "shared decision making to",
+          "implement a personalized",
+          "care plan",
+          "Independently"
+        ],
+        "level_4": [
+          "establishes a",
+          "therapeutic relationship",
+          "in challenging patient",
+          "encounters",
+          "Proactively minimizes",
+          "communication barriers",
+          "and independently",
+          "manages biases",
+          "Independently uses",
+          "shared decision",
+          "making to implement a",
+          "personalized care plan"
+        ],
+        "level_5": [
+          "Mentors others in",
+          "situational awareness and",
+          "critical self-reflection to",
+          "consistently develop",
+          "positive therapeutic",
+          "relationships",
+          "Role models self-",
+          "awareness to minimize",
+          "communication barriers",
+          "Role models shared",
+          "decision making"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_ics2",
+      "number": 20,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully receives a",
+          "consultation request",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "With direct supervision,",
+          "respectfully and",
+          "thoroughly completes",
+          "consultations with",
+          "effective documentation",
+          "and communication in"
+        ],
+        "level_2": [
+          "common cases",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Participates in team-",
+          "based discussions to",
+          "optimize team",
+          "performance",
+          "With indirect supervision,",
+          "completes consultations"
+        ],
+        "level_3": [
+          "with effective",
+          "documentation and",
+          "communication in",
+          "common cases",
+          "Adapts communication",
+          "style to fit team needs",
+          "Initiates team-based",
+          "discussions to optimize",
+          "team performance",
+          "Completes",
+          "consultations with"
+        ],
+        "level_4": [
+          "effective documentation",
+          "and communication in",
+          "complex cases",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care",
+          "Facilitates team-based",
+          "discussions to optimize",
+          "team performance"
+        ],
+        "level_5": [
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving",
+          "conflict when needed",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "internal_medicine__advanced_heart_failure_and_transplant_cardiology_ics3",
+      "number": 21,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record and safeguards",
+          "patient personal health",
+          "information",
+          "Demonstrates organized",
+          "diagnostic and",
+          "therapeutic reasoning",
+          "through notes in the"
+        ],
+        "level_2": [
+          "patient record",
+          "Identifies appropriate",
+          "communication channels",
+          "(e.g., cell phone/pager",
+          "usage, medical record,",
+          "email) as required by",
+          "institutional policy",
+          "Concisely reports",
+          "diagnostic and"
+        ],
+        "level_3": [
+          "therapeutic reasoning in",
+          "the patient record",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Independently",
+          "communicates timely",
+          "information in a written",
+          "format and verbally"
+        ],
+        "level_4": [
+          "when appropriate",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system",
+          "Models written",
+          "communication to",
+          "improve others’"
+        ],
+        "level_5": [
+          "performance",
+          "Guides departmental or",
+          "institutional",
+          "communication around",
+          "policies and procedures"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "internal-medicine",
+  "primary_name": "Internal Medicine",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/advancedheartfailureandtransplantcardiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/advancedheartfailureandtransplantcardiologysupplementalguide.pdf"
+  }
+}

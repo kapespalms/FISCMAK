@@ -1,0 +1,1191 @@
+{
+  "framework_key": "anesthesiology--pediatric-anesthesiology",
+  "specialty": "Pediatric Anesthesiology",
+  "version": "2.0",
+  "source": "ACGME Pediatric Anesthesiology Milestones 2.0",
+  "subcompetencies": [
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc1",
+      "number": 1,
+      "domain_number": 1,
+      "name": "Pediatric Pre-Anesthetic Patient Evaluation, Assessment, and Preparation",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Conducts and interprets",
+          "a history and physical",
+          "examination, with direct",
+          "supervision",
+          "Conducts a focused"
+        ],
+        "level_2": [
+          "history and physical",
+          "examination, with indirect",
+          "supervision",
+          "Identifies comorbidities on",
+          "a history and physical"
+        ],
+        "level_3": [
+          "examination that may",
+          "require further evaluation,",
+          "with indirect supervision",
+          "Independently identifies",
+          "concerning history and"
+        ],
+        "level_4": [
+          "physical exam findings",
+          "that require further",
+          "evaluation",
+          "Independently identifies a",
+          "previously undiagnosed"
+        ],
+        "level_5": [
+          "condition"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc2",
+      "number": 2,
+      "domain_number": 2,
+      "name": "Technical Skills – Airway Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Performs basic pediatric",
+          "airway assessment",
+          "Prepares age-/size-",
+          "appropriate equipment",
+          "for an uncomplicated",
+          "pediatric/neonatal airway",
+          "Uses the airway exam",
+          "and identifiable risk"
+        ],
+        "level_2": [
+          "factors to formulate a",
+          "patient-specific plan",
+          "Manages an",
+          "uncomplicated",
+          "pediatric/neonatal airway",
+          "Devises airway",
+          "management plans that",
+          "address contingencies,"
+        ],
+        "level_3": [
+          "with supervision",
+          "Prepares and",
+          "incorporates advanced",
+          "equipment in the",
+          "management of a",
+          "complicated airway, with",
+          "supervision",
+          "Independently devises"
+        ],
+        "level_4": [
+          "airway management",
+          "plans that address",
+          "contingencies",
+          "Independently prepares",
+          "and incorporates",
+          "advanced equipment in",
+          "the management of a",
+          "complicated airway"
+        ],
+        "level_5": [
+          "Collaborates with the",
+          "interdisciplinary team to",
+          "develop an airway plan",
+          "for a complex pediatric",
+          "airway",
+          "Functions as an expert in",
+          "an airway crisis for",
+          "complicated airways"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc3",
+      "number": 3,
+      "domain_number": 3,
+      "name": "Technical Skills – Pediatric Vascular Access (including Peripheral, Arterial, and Central Lines)",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Obtains vascular access",
+          "in older children and",
+          "adolescents"
+        ],
+        "level_2": [
+          "Obtains vascular access",
+          "in neonates, with",
+          "guidance"
+        ],
+        "level_3": [
+          "Obtains difficult vascular",
+          "access, with guidance",
+          "Independently obtains"
+        ],
+        "level_4": [
+          "difficult vascular access",
+          "Functions as an expert for",
+          "vascular access"
+        ],
+        "level_5": []
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc4",
+      "number": 4,
+      "domain_number": 4,
+      "name": "Technical Skills – Pediatric Regional (Peripheral and Neuraxial) Anesthesia",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Describes anatomy",
+          "relevant to regional",
+          "anesthesia",
+          "Prepares a patient and",
+          "the equipment for",
+          "common regional",
+          "anesthesia techniques",
+          "Describes potential",
+          "complications of regional",
+          "anesthesia"
+        ],
+        "level_2": [
+          "Describes indications and",
+          "contraindications for",
+          "regional anesthesia",
+          "Performs regional",
+          "anesthesia techniques,",
+          "with direct supervision",
+          "Recognizes and manages",
+          "complications of regional",
+          "anesthesia, with direct",
+          "supervision"
+        ],
+        "level_3": [
+          "Develops a patient- and",
+          "procedure-specific",
+          "regional anesthesia plan,",
+          "with supervision",
+          "Performs regional",
+          "anesthesia techniques,",
+          "with indirect supervision",
+          "Recognizes and manages",
+          "complications of regional",
+          "anesthesia, with indirect"
+        ],
+        "level_4": [
+          "supervision",
+          "Independently develops",
+          "a patient- and",
+          "procedure-specific",
+          "regional anesthesia",
+          "plan",
+          "Independently performs",
+          "regional anesthesia",
+          "techniques",
+          "Independently"
+        ],
+        "level_5": [
+          "recognizes and",
+          "manages complications",
+          "of regional anesthesia",
+          "Serves as a consultant on",
+          "advanced or difficult",
+          "regional techniques",
+          "Develops institutional",
+          "protocol for using regional",
+          "anesthesia and managing",
+          "complications"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc5",
+      "number": 5,
+      "domain_number": 5,
+      "name": "Peri-Operative Planning for Pediatric Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Formulates an",
+          "anesthetic plan for an",
+          "uncomplicated patient or",
+          "procedure",
+          "Develops an anesthetic"
+        ],
+        "level_2": [
+          "plan for a healthy patient",
+          "undergoing uncomplicated",
+          "procedures",
+          "Develops an anesthetic",
+          "plan for patients with well-"
+        ],
+        "level_3": [
+          "controlled comorbidities or",
+          "undergoing complicated",
+          "procedures",
+          "Develops an anesthetic",
+          "plan for patients with"
+        ],
+        "level_4": [
+          "multiple, uncontrolled",
+          "comorbidities, and",
+          "undergoing complicated",
+          "procedures",
+          "Develops a peri-, intra-,"
+        ],
+        "level_5": [
+          "and post-operative plan",
+          "for a medically complex",
+          "patient as the leader of a",
+          "collaborative team of",
+          "specialists"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc6",
+      "number": 6,
+      "domain_number": 6,
+      "name": "Peri-Operative Management for Pediatric Patients",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Implements an",
+          "anesthetic plan for a",
+          "healthy pediatric patient",
+          "undergoing",
+          "uncomplicated"
+        ],
+        "level_2": [
+          "procedures",
+          "Implements an anesthetic",
+          "plan for an uncomplicated",
+          "procedure in a neonate",
+          "Implements an anesthetic"
+        ],
+        "level_3": [
+          "plan for pediatric patients",
+          "with comorbidities for",
+          "uncomplicated",
+          "procedures",
+          "Implements an"
+        ],
+        "level_4": [
+          "anesthetic plan for",
+          "pediatric patients with",
+          "comorbidities for",
+          "complicated procedures",
+          "Implements a peri-, intra-,"
+        ],
+        "level_5": [
+          "and post-operative plan",
+          "for a medically complex",
+          "patient as the leader of a",
+          "collaborative team of",
+          "specialists"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pc7",
+      "number": 7,
+      "domain_number": 7,
+      "name": "Situational Awareness and Crisis Management",
+      "acgme_competency_key": "pc",
+      "levels": {
+        "level_1": [
+          "Demonstrates vigilance",
+          "during clinical care",
+          "Articulates causes of",
+          "common peri-operative",
+          "crisis situations",
+          "Responds to crisis",
+          "situations as a reliable",
+          "team member",
+          "Demonstrates awareness",
+          "of clinical care and"
+        ],
+        "level_2": [
+          "developments throughout",
+          "a procedure",
+          "Recognizes crisis",
+          "situations; calls for help",
+          "Participates in",
+          "management during crisis",
+          "situations",
+          "Demonstrates awareness",
+          "of clinical care and",
+          "developments throughout"
+        ],
+        "level_3": [
+          "a procedure, including",
+          "those outside of one’s",
+          "immediate control, with",
+          "supervision",
+          "Anticipates an impending",
+          "crisis and identifies",
+          "possible etiologies, with",
+          "supervision",
+          "Initiates management and",
+          "resolves crisis situations,"
+        ],
+        "level_4": [
+          "with supervision",
+          "Independently",
+          "demonstrates",
+          "awareness of clinical",
+          "care and developments",
+          "throughout a procedure,",
+          "including those outside",
+          "of one’s immediate",
+          "control",
+          "Independently"
+        ],
+        "level_5": [
+          "anticipates an",
+          "impending crisis and",
+          "identifies possible",
+          "etiologies",
+          "Independently initiates",
+          "management and",
+          "resolves crisis situations",
+          "Leads the health care",
+          "team in the management",
+          "of crisis situations"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_mk1",
+      "number": 8,
+      "domain_number": 1,
+      "name": "Foundational Knowledge of Pediatric Anesthesiology",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of normal",
+          "anatomic and",
+          "physiologic features of",
+          "pediatric patients, from",
+          "neonates to adolescents",
+          "Demonstrates knowledge"
+        ],
+        "level_2": [
+          "of common medical and",
+          "surgical conditions in",
+          "pediatric patients, from",
+          "neonates to adolescents",
+          "Demonstrates",
+          "comprehensive",
+          "knowledge of common"
+        ],
+        "level_3": [
+          "medical and surgical",
+          "conditions in pediatric",
+          "patients and related",
+          "anesthetic considerations",
+          "Demonstrates",
+          "comprehensive",
+          "knowledge of complex"
+        ],
+        "level_4": [
+          "medical and surgical",
+          "conditions in pediatric",
+          "patients and related",
+          "anesthetic",
+          "considerations",
+          "Serves as an expert",
+          "consultant for children"
+        ],
+        "level_5": [
+          "with complex and/or",
+          "uncommon physiology",
+          "and related anesthetic",
+          "and surgical",
+          "considerations"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_mk2",
+      "number": 9,
+      "domain_number": 2,
+      "name": "Clinical Reasoning",
+      "acgme_competency_key": "mk",
+      "levels": {
+        "level_1": [
+          "Accurately describes",
+          "basic elements of a",
+          "clinical scenario",
+          "Analyzes simple (or",
+          "common) clinical",
+          "scenarios using an",
+          "organized, systematic",
+          "approach with direct"
+        ],
+        "level_2": [
+          "guidance",
+          "Retrospectively",
+          "recognizes clinical",
+          "reasoning errors, with",
+          "guidance",
+          "Analyzes simple (or",
+          "common) clinical",
+          "scenarios using an"
+        ],
+        "level_3": [
+          "organized, systematic",
+          "approach, with indirect",
+          "guidance",
+          "Retrospectively",
+          "recognizes clinical",
+          "reasoning errors",
+          "independently",
+          "Independently"
+        ],
+        "level_4": [
+          "analyzes complex",
+          "clinical scenarios using",
+          "an organized,",
+          "systematic approach",
+          "Identifies and actively",
+          "avoids clinical",
+          "reasoning errors",
+          "Teaches others how to"
+        ],
+        "level_5": [
+          "analyze complex clinical",
+          "scenarios using an",
+          "organized, systematic",
+          "approach",
+          "Models and teaches",
+          "approaches to avoid",
+          "clinical reasoning errors"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_sbp1",
+      "number": 10,
+      "domain_number": 1,
+      "name": "Patient Safety and Quality Improvement",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of common",
+          "events that impact",
+          "patient safety",
+          "Demonstrates",
+          "knowledge of how to",
+          "report patient safety",
+          "events",
+          "Demonstrates",
+          "knowledge of basic",
+          "quality improvement",
+          "methodologies and",
+          "metrics"
+        ],
+        "level_2": [
+          "Identifies system factors",
+          "that lead to patient safety",
+          "events",
+          "Reports patient safety",
+          "events through",
+          "institutional reporting",
+          "systems (simulated or",
+          "actual)",
+          "Describes departmental",
+          "quality improvement",
+          "initiatives",
+          "Participates in analysis of",
+          "patient safety events"
+        ],
+        "level_3": [
+          "(simulated or actual)",
+          "Participates in disclosure",
+          "of patient safety events to",
+          "patients and patients’",
+          "families (simulated or",
+          "actual)",
+          "Participates in department",
+          "quality improvement",
+          "initiatives",
+          "Conducts analysis of",
+          "patient safety events",
+          "and offers error",
+          "prevention strategies"
+        ],
+        "level_4": [
+          "(simulated or actual)",
+          "Discloses patient safety",
+          "events to patients and",
+          "patients’ families",
+          "(simulated or actual)",
+          "Demonstrates the skills",
+          "required to identify,",
+          "develop, implement,",
+          "and analyze a quality",
+          "improvement project",
+          "Actively engages teams",
+          "and processes to modify",
+          "systems to prevent"
+        ],
+        "level_5": [
+          "patient safety events",
+          "Role models or mentors",
+          "others in the disclosure of",
+          "patient safety events",
+          "Creates, implements, and",
+          "assesses quality",
+          "improvement initiatives at",
+          "the institutional level or",
+          "above"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_sbp2",
+      "number": 11,
+      "domain_number": 2,
+      "name": "System Navigation for Patient-Centered Care",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "Demonstrates",
+          "knowledge of care",
+          "coordination",
+          "Identifies key elements",
+          "for safe and effective",
+          "transitions of care and",
+          "hand-offs",
+          "Demonstrates",
+          "knowledge of population",
+          "and community health",
+          "needs",
+          "Coordinates care of",
+          "patients in routine clinical",
+          "situations effectively using"
+        ],
+        "level_2": [
+          "the roles of",
+          "interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in routine",
+          "clinical situations",
+          "Identifies specific",
+          "population and",
+          "community health needs",
+          "for their local population",
+          "Coordinates care of",
+          "patients in complex",
+          "clinical situations"
+        ],
+        "level_3": [
+          "effectively using the roles",
+          "of interprofessional team",
+          "members",
+          "Performs safe and",
+          "effective transitions of",
+          "care/hand-offs in complex",
+          "clinical situations",
+          "Uses institutional",
+          "resources effectively to",
+          "meet the needs of a",
+          "patient population and",
+          "community",
+          "Role models effective",
+          "coordination of patient-"
+        ],
+        "level_4": [
+          "centered care among",
+          "different disciplines and",
+          "specialties",
+          "Role models and",
+          "advocates for safe and",
+          "effective transitions of",
+          "care/hand-offs within",
+          "and across health care",
+          "delivery systems",
+          "Participates in changing",
+          "and adapting practice to",
+          "provide for the needs of",
+          "specific populations",
+          "Analyzes the process of"
+        ],
+        "level_5": [
+          "care coordination and",
+          "participates in the design",
+          "and implementation of",
+          "improvements",
+          "Improves quality of",
+          "transitions of care within",
+          "and across health care",
+          "delivery systems to",
+          "optimize patient outcomes",
+          "Advocates for populations",
+          "and communities with",
+          "specific health care needs",
+          "in the peri-operative",
+          "setting"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_sbp3",
+      "number": 12,
+      "domain_number": 3,
+      "name": "Physician Role in Health Care Systems",
+      "acgme_competency_key": "sbp",
+      "levels": {
+        "level_1": [
+          "States factors impacting",
+          "the costs of anesthetic",
+          "care",
+          "Describes how",
+          "components of a complex",
+          "health care system are",
+          "interrelated, and how they",
+          "impact patient care"
+        ],
+        "level_2": [
+          "Documents anesthetic",
+          "detail to facilitate accurate",
+          "billing and reimbursement",
+          "Discusses how individual",
+          "practice affects the",
+          "broader system (e.g.,",
+          "length of stay,",
+          "readmission rates, clinical"
+        ],
+        "level_3": [
+          "efficiency)",
+          "Explains the impact of",
+          "documentation on billing",
+          "and reimbursement",
+          "Manages various",
+          "components of the",
+          "complex health care",
+          "system to provide"
+        ],
+        "level_4": [
+          "efficient and effective",
+          "patient care and",
+          "transitions of care",
+          "Practices and",
+          "advocates for cost-",
+          "effective patient care",
+          "Advocates for or leads",
+          "systems change that"
+        ],
+        "level_5": [
+          "enhances high-value,",
+          "efficient, and effective",
+          "patient care",
+          "Engages in external",
+          "activities related to",
+          "advocacy for cost-",
+          "effective care"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pbli1",
+      "number": 13,
+      "domain_number": 1,
+      "name": "Evidence-Based and Informed Practice",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accesses and uses",
+          "evidence in routine",
+          "patient care",
+          "Articulates clinical",
+          "questions and elicits the",
+          "patient’s and patient’s"
+        ],
+        "level_2": [
+          "family's preferences and",
+          "values to guide evidence-",
+          "based care",
+          "Locates and applies the",
+          "best available evidence,",
+          "integrated with the"
+        ],
+        "level_3": [
+          "patient’s and patient’s",
+          "family’s preference, to the",
+          "care of complex patients",
+          "Appraises and applies",
+          "evidence, even in the",
+          "face of uncertainty and"
+        ],
+        "level_4": [
+          "conflicting evidence, to",
+          "guide individualized",
+          "care",
+          "Mentors others to",
+          "appraise and apply",
+          "evidence for complex"
+        ],
+        "level_5": [
+          "patients and/or",
+          "participates in the",
+          "development of guidelines"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_pbli2",
+      "number": 14,
+      "domain_number": 2,
+      "name": "Reflective Practice and Commitment to Personal Growth",
+      "acgme_competency_key": "pbli",
+      "levels": {
+        "level_1": [
+          "Accepts responsibility for",
+          "personal and",
+          "professional",
+          "development by",
+          "establishing goals",
+          "Identifies the factors that",
+          "contribute to",
+          "performance deficits",
+          "Actively seeks",
+          "opportunities to improve"
+        ],
+        "level_2": [
+          "Demonstrates openness",
+          "to performance data",
+          "(feedback and other",
+          "input) to inform goals",
+          "Analyzes and",
+          "acknowledges the factors",
+          "that contribute to",
+          "performance deficits",
+          "Designs and implements",
+          "a learning plan, with"
+        ],
+        "level_3": [
+          "prompting",
+          "Seeks performance data",
+          "episodically, with",
+          "adaptability and humility",
+          "Institutes behavioral",
+          "change(s) to improve",
+          "performance",
+          "Independently creates",
+          "and implements a",
+          "learning plan"
+        ],
+        "level_4": [
+          "Intentionally seeks",
+          "performance data",
+          "consistently, with",
+          "adaptability and humility",
+          "Considers alternatives",
+          "to improve performance",
+          "Integrates performance",
+          "data to adapt the",
+          "learning plan",
+          "Role models consistently"
+        ],
+        "level_5": [
+          "seeking performance data",
+          "with adaptability and",
+          "humility",
+          "Models reflective practice",
+          "Facilitates the design and",
+          "implementation of",
+          "learning plans for others"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_prof1",
+      "number": 15,
+      "domain_number": 1,
+      "name": "Professional Behavior and Ethical Principles",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Describes when and how",
+          "to report lapses in",
+          "professionalism and",
+          "demonstrates insight into",
+          "professional behavior in",
+          "routine situations",
+          "Demonstrates",
+          "knowledge of the ethical",
+          "principles underlying",
+          "patient care"
+        ],
+        "level_2": [
+          "Uses insight into",
+          "professional behavior to",
+          "take responsibility in",
+          "professionalism lapses,",
+          "as well as to identify",
+          "potential areas for self-",
+          "improvement",
+          "Analyzes complex",
+          "situations using ethical",
+          "principles"
+        ],
+        "level_3": [
+          "Demonstrates",
+          "professional behavior in",
+          "complex or stressful",
+          "situations",
+          "Recognizes need to seek",
+          "help in managing and",
+          "resolving complex",
+          "interpersonal situations",
+          "Serves as a model for",
+          "professionalism among"
+        ],
+        "level_4": [
+          "colleagues; actively",
+          "solicits help and acts on",
+          "recommendations to",
+          "resolve complex",
+          "interpersonal situations",
+          "Recognizes and utilizes",
+          "resources for managing",
+          "and resolving ethical",
+          "dilemmas",
+          "Coaches others when"
+        ],
+        "level_5": [
+          "their behavior fails to",
+          "meet professional",
+          "expectations",
+          "Addresses system-level",
+          "factors that induce or",
+          "exacerbate ethical",
+          "problems or impede their",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_prof2",
+      "number": 16,
+      "domain_number": 2,
+      "name": "Accountability/Conscientiousness",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes situations",
+          "that may impact one’s",
+          "own ability to complete",
+          "tasks and responsibilities",
+          "in a timely manner",
+          "Performs most tasks and"
+        ],
+        "level_2": [
+          "responsibilities in a timely",
+          "manner with appropriate",
+          "attention to detail in",
+          "routine situations",
+          "Takes responsibility for",
+          "the rare occurrence in"
+        ],
+        "level_3": [
+          "which tasks are not",
+          "completed in a timely",
+          "manner and identifies",
+          "strategies to prevent",
+          "recurrence",
+          "Prioritizes tasks and"
+        ],
+        "level_4": [
+          "responsibilities in a",
+          "timely manner with",
+          "appropriate attention to",
+          "detail in even the most",
+          "complex or stressful",
+          "situations"
+        ],
+        "level_5": [
+          "Designs and implements",
+          "an institutional systems",
+          "approach to ensure timely",
+          "task completion and",
+          "shared responsibility"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_prof3",
+      "number": 17,
+      "domain_number": 3,
+      "name": "Well-Being",
+      "acgme_competency_key": "prof",
+      "levels": {
+        "level_1": [
+          "Recognizes the",
+          "importance of",
+          "addressing personal and",
+          "professional well-being",
+          "Lists available resources",
+          "for personal and",
+          "professional well-being"
+        ],
+        "level_2": [
+          "Describes institutional",
+          "resources that are meant",
+          "to promote well-being",
+          "With assistance,",
+          "proposes a plan to",
+          "promote personal and",
+          "professional well-being"
+        ],
+        "level_3": [
+          "Recognizes which",
+          "institutional factors affect",
+          "well-being",
+          "Independently develops",
+          "a plan to promote",
+          "personal and",
+          "professional well-being"
+        ],
+        "level_4": [
+          "Describes institutional",
+          "factors that positively",
+          "and/or negatively affect",
+          "well-being",
+          "Creates institutional-level",
+          "interventions that promote",
+          "colleagues’ well-being"
+        ],
+        "level_5": [
+          "Describes institutional",
+          "programs designed to",
+          "examine systemic",
+          "contributors to burnout"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_ics1",
+      "number": 18,
+      "domain_number": 1,
+      "name": "Patient- and Family-Centered Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Communicates with",
+          "patients and their",
+          "families in an",
+          "understandable and",
+          "respectful manner",
+          "Customizes",
+          "communication in the"
+        ],
+        "level_2": [
+          "setting of biases and",
+          "barriers with patients and",
+          "patients’ families",
+          "Actively listens to patients",
+          "and patients’ families to",
+          "elicit patient preferences",
+          "and expectations"
+        ],
+        "level_3": [
+          "Explains complex and",
+          "difficult information to",
+          "patients and patients’",
+          "families",
+          "Uses shared decision-",
+          "making to make a",
+          "personalized care plan"
+        ],
+        "level_4": [
+          "Facilitates difficult",
+          "discussions with",
+          "patients and patients’",
+          "families",
+          "Effectively negotiates",
+          "and manages conflict",
+          "among patients,"
+        ],
+        "level_5": [
+          "patients’ families, and",
+          "the health care team",
+          "Mentors others in the",
+          "facilitation of crucial",
+          "conversations",
+          "Mentors others in conflict",
+          "resolution"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_ics2",
+      "number": 19,
+      "domain_number": 2,
+      "name": "Interprofessional and Team Communication",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Respectfully requests or",
+          "receives consultations",
+          "Uses language that",
+          "values all members of",
+          "the health care team",
+          "Respectfully receives",
+          "feedback from the health",
+          "care team",
+          "Clearly, concisely, and",
+          "promptly requests or",
+          "responds to a"
+        ],
+        "level_2": [
+          "consultation",
+          "Communicates",
+          "information effectively",
+          "with all health care team",
+          "members",
+          "Solicits feedback on",
+          "performance as a",
+          "member of the health",
+          "care team",
+          "Uses closed-loop",
+          "communication to verify"
+        ],
+        "level_3": [
+          "understanding",
+          "Adapts communication",
+          "style to fit team needs",
+          "Communicates concerns",
+          "and provides feedback to",
+          "peers and learners",
+          "Coordinates",
+          "recommendations from",
+          "different members of",
+          "the health care team to",
+          "optimize patient care"
+        ],
+        "level_4": [
+          "Maintains effective",
+          "communication in crisis",
+          "situations",
+          "Communicates",
+          "constructive feedback to",
+          "superiors",
+          "Role models flexible",
+          "communication strategies",
+          "that value input from all",
+          "health care team",
+          "members, resolving"
+        ],
+        "level_5": [
+          "conflict when needed",
+          "Leads an after-event",
+          "debrief of the health care",
+          "team",
+          "Facilitates regular health",
+          "care team-based",
+          "feedback in complex",
+          "situations"
+        ]
+      }
+    },
+    {
+      "id": "anesthesiology__pediatric_anesthesiology_ics3",
+      "number": 20,
+      "domain_number": 3,
+      "name": "Communication within Health Care Systems",
+      "acgme_competency_key": "ics",
+      "levels": {
+        "level_1": [
+          "Accurately records",
+          "information in the patient",
+          "record; demonstrates",
+          "judicious use of",
+          "documentation shortcuts",
+          "Safeguards patient",
+          "personal health",
+          "information",
+          "Communicates through",
+          "appropriate channels as",
+          "required by institutional",
+          "policy",
+          "Accurately records"
+        ],
+        "level_2": [
+          "information in the",
+          "anesthetic record for",
+          "basic cases",
+          "Documents required data",
+          "in formats specified by",
+          "institutional policy",
+          "Respectfully",
+          "communicates concerns",
+          "about the system",
+          "Accurately records",
+          "information in the",
+          "anesthetic record and",
+          "communicates complex"
+        ],
+        "level_3": [
+          "care decisions for",
+          "complex cases",
+          "Appropriately selects",
+          "direct and indirect forms",
+          "of communication based",
+          "on context",
+          "Respectfully",
+          "communicates concerns",
+          "about the system and",
+          "contributes to solutions",
+          "Uses medical record",
+          "functionality to highlight",
+          "challenges in anesthetic"
+        ],
+        "level_4": [
+          "care to facilitate future",
+          "peri-operative",
+          "management",
+          "Models exemplary",
+          "written or verbal",
+          "communication",
+          "Uses appropriate",
+          "channels to offer clear",
+          "and constructive",
+          "suggestions to improve",
+          "the system",
+          "Explores innovative uses",
+          "of the medical record to"
+        ],
+        "level_5": [
+          "facilitate peri-operative",
+          "management",
+          "Guides departmental or",
+          "institutional policies and",
+          "procedures around",
+          "communication",
+          "Initiates difficult",
+          "conversations with",
+          "appropriate stakeholders",
+          "to improve the system"
+        ]
+      }
+    }
+  ],
+  "program_type": "subspecialty",
+  "primary_slug": "anesthesiology",
+  "primary_name": "Anesthesiology",
+  "sources": {
+    "milestone_pdf_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricanesthesiologymilestones.pdf",
+    "supplemental_guide_url": "https://www.acgme.org/globalassets/pdfs/milestones/pediatricanesthesiologysupplementalguide.pdf"
+  }
+}
