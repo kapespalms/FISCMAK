@@ -35,6 +35,14 @@ npm run db:migrate
 
 Verifies tables: `evaluation_imports`, `rotation_evaluations`, `milestone_self_ratings`, `ilp_goals`, `in_training_exams`, `medhub_sync_runs`, `pilot_coordinator_surveys`.
 
+Also creates the **`user-documents` storage bucket** (required for PDF/DOCX upload). Confirm:
+
+```bash
+npm run db:verify
+```
+
+You should see `✓ storage bucket user-documents`. Without it, CV upload fails with “Bucket not found”.
+
 ## 4. Pilot validation
 
 ```bash
@@ -50,6 +58,8 @@ npm run db:seed-mak-profile -- --email resident@example.com --initials YD --name
 
 ## 6. Smoke test checklist
 
+- [ ] **Login** — `/login` with pilot account
+- [ ] **Document upload** — onboarding or `/app/objective` → upload a `.pdf` or `.docx` CV (must succeed before cohort onboarding)
 - [ ] `/join/uh-psychiatry` — institutional signup
 - [ ] `/app/kp-admin` — MedHub CSV import, cohort heatmap, batch PDF
 - [ ] `/app/output` — trainee pre-CCC, self-ratings, ILP draft

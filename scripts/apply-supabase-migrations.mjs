@@ -260,6 +260,17 @@ async function main() {
     requiresTable: "app_users",
   });
 
+  steps.push({
+    file: "docs/migrations/20260533_reconciliation_confidence.sql",
+    label: "Reconciliation confidence tier column",
+    requiresTable: "reconciliation_items",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260535_user_documents_storage.sql",
+    label: "User documents storage bucket (PDF/DOCX uploads)",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {
@@ -299,6 +310,13 @@ async function main() {
     );
     console.log(`  ✓ ontology_invisible_work_activities (active): ${rows[0]?.n ?? 0}`);
   }
+
+  const { rows: docBucketRows } = await client.query(
+    `SELECT id FROM storage.buckets WHERE id = 'user-documents'`,
+  );
+  console.log(
+    `  ${docBucketRows[0] ? "✓" : "✗"} storage bucket user-documents (PDF/DOCX uploads)`,
+  );
 
   await client.end();
 

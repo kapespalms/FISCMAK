@@ -113,7 +113,16 @@ async function uploadViaStorage(
     });
 
   if (storageError) {
-    throw new Error(storageError.message || "Could not upload file to storage.");
+    const msg = storageError.message || "Could not upload file to storage.";
+    if (/bucket not found/i.test(msg)) {
+      throw new Error(
+        "Document storage is not set up on this environment. Ask your admin to run npm run db:migrate on production Supabase.",
+      );
+    }
+    if (/row-level security|policy/i.test(msg)) {
+      throw new Error("Upload blocked by storage permissions. Sign out and sign in again, then retry.");
+    }
+    throw new Error(msg);
   }
 
   onProgress?.(65);

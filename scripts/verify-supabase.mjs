@@ -44,6 +44,19 @@ async function main() {
     console.log(`activity_entries rows: ${rows[0]?.n ?? 0}`);
   }
 
+  const { rows: bucketRows } = await client.query(
+    `SELECT id, public, file_size_limit
+     FROM storage.buckets
+     WHERE id = 'user-documents'`,
+  );
+  if (bucketRows[0]) {
+    console.log(
+      `\n✓ storage bucket user-documents (private, limit ${bucketRows[0].file_size_limit ?? "?"} bytes)`,
+    );
+  } else {
+    console.log("\n✗ storage bucket user-documents — run npm run db:migrate (required for PDF/DOCX upload)");
+  }
+
   await client.end();
 }
 
