@@ -117,6 +117,7 @@ export type OnboardingMetadata = {
   other_industries?: string[];
   extracurricular_interests?: string[];
   academic_rank_other?: string;
+  academic_rank_selection?: string;
   uh_psych_enrichment_tracks?: string[];
   call_schedule_note?: string | null;
   schedule_color_overrides?: Record<string, string>;

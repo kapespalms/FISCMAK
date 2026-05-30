@@ -16,6 +16,7 @@ import {
   requiresAcademicRank,
   requiresGmePlacementFields,
   PRIMARY_CAREER_TRACKS,
+  academicRankForStorage,
   type AcademicRank,
   type CareerLevel,
   type PracticeSetting,
@@ -47,6 +48,8 @@ import { syncProgramMembership } from "@/lib/v2/programs/sync-program-membership
 import { seedNarrativeAnchorFromOrigin } from "@/lib/v2/trainee-origin";
 import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
 import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
+import { createClient } from "@/lib/supabase/server";
+import { ensureAppUser } from "@/lib/v2/ensure-app-user";
 
 export async function POST(request: Request) {
   try {
@@ -295,6 +298,26 @@ async function handleProfilePost(request: Request) {
     trainee_initials?.trim().toUpperCase() ??
     null;
 
+  const storedAcademicRank =
+    requiresAcademicRank(resolvedPracticeSetting ?? null, career_stage) && academic_rank
+      ? academicRankForStorage(academic_rank)
+      : { column: null, selection: null };
+
+  if (!auth.demo) {
+    try {
+      const supabase = await createClient();
+      const {
+        data: { user: authUserRecord },
+      } = await supabase.auth.getUser();
+      if (authUserRecord) {
+        await ensureAppUser(supabase, authUserRecord);
+      }
+    } catch (ensureError) {
+      console.warn("[onboarding/profile] ensureAppUser skipped:", ensureError);
+    }
+  }
+
+  let saveErrorMessage: string | null = null;
   const user = await upsertAppUser(
     auth.userId,
     auth.email,
@@ -304,10 +327,7 @@ async function handleProfilePost(request: Request) {
       career_stage,
       practice_setting: medStudent ? null : resolvedPracticeSetting,
       institution: resolvedInstitution,
-      academic_rank:
-        requiresAcademicRank(resolvedPracticeSetting ?? null, career_stage) && academic_rank
-          ? academic_rank
-          : null,
+      academic_rank: storedAcademicRank.column,
       primary_career_track: resolvedPrimaryTrack,
       pgy_level: requiresGmePlacementFields(career_stage) ? (pgy_level ?? null) : null,
       current_rotation: null,
@@ -337,6 +357,9 @@ async function handleProfilePost(request: Request) {
           : {}),
         ...(extracurricular_interests?.length
           ? { extracurricular_interests: extracurricular_interests.filter(Boolean) }
+          : {}),
+        ...(storedAcademicRank.selection && !storedAcademicRank.column
+          ? { academic_rank_selection: storedAcademicRank.selection }
           : {}),
         ...(academic_rank_other ? { academic_rank_other } : {}),
         ...(uh_psych_enrichment_tracks?.length
@@ -368,13 +391,18 @@ async function handleProfilePost(request: Request) {
     },
     auth.demo,
   ).catch((err: unknown) => {
+    saveErrorMessage =
+      err instanceof Error ? err.message : "Could not save profile to database.";
     console.error("[onboarding/profile] upsertAppUser failed:", err);
     return null;
   });
 
   if (!user) {
     return jsonOk(
-      { error: "save_error", message: "Could not save profile. Please try again." },
+      {
+        error: "save_error",
+        message: saveErrorMessage ?? "Could not save profile. Please try again.",
+      },
       500,
     );
   }

@@ -682,6 +682,8 @@ export function Touchpoint1Onboarding() {
       if (data.profile?.academic_rank) {
         const rank = data.profile.academic_rank as AcademicRank;
         setAcademicRank(rank);
+      } else if (data.onboarding_metadata?.academic_rank_selection) {
+        setAcademicRank(data.onboarding_metadata.academic_rank_selection as AcademicRank);
       }
       if (data.profile?.primary_career_track || data.onboarding_metadata?.career_track_rankings) {
         setCareerTrackRankings(

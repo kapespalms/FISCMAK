@@ -138,6 +138,21 @@ export function isValidAcademicRank(value: string): value is AcademicRank {
   );
 }
 
+/** Values allowed on app_users.academic_rank (narrower than UI options). */
+const DB_ACADEMIC_RANKS = new Set<string>(ACADEMIC_RANKS);
+
+/** Map UI academic rank to the app_users column; store extended labels in metadata. */
+export function academicRankForStorage(rank: string | null | undefined): {
+  column: (typeof ACADEMIC_RANKS)[number] | null;
+  selection: AcademicRank | null;
+} {
+  if (!rank) return { column: null, selection: null };
+  if (DB_ACADEMIC_RANKS.has(rank)) {
+    return { column: rank as (typeof ACADEMIC_RANKS)[number], selection: rank as AcademicRank };
+  }
+  return { column: null, selection: rank as AcademicRank };
+}
+
 export function isAttendingCareerLevel(level: string | null | undefined): boolean {
   return (
     level === "Early Career (0–7 yr)" ||
