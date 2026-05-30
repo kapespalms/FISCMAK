@@ -20,6 +20,7 @@ type SubspecialtyInterestsFieldsProps = {
   onChange: (next: string[]) => void;
   careerStage?: CareerStage;
   maxSelections?: number;
+  variant?: "default" | "luxury";
 };
 
 function interestsLabel(careerStage?: CareerStage): string {
@@ -34,6 +35,7 @@ export function SubspecialtyInterestsFields({
   onChange,
   careerStage,
   maxSelections = MAX_SPECIALTY_INTERESTS,
+  variant = "default",
 }: SubspecialtyInterestsFieldsProps) {
   const bases = baseSpecialties?.length ? baseSpecialties : [baseSpecialty];
   const baseOptions = [
@@ -55,6 +57,7 @@ export function SubspecialtyInterestsFields({
       suggestions={suggestions}
       maxTags={maxSelections}
       formatSuggestion={formatSpecialtyDisplayLabel}
+      variant={variant === "luxury" ? "luxury" : "default"}
     />
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { cn } from "@/lib/utils";
 import {
   filterBaseSpecialties,
   filterSubspecialties,
@@ -12,6 +13,7 @@ import { isAttendingCareerLevel, isMedicalStudent } from "@/lib/v2/onboarding-op
 import { MAX_SPECIALTY_INTERESTS } from "@/lib/v2/onboarding-profile-fields";
 import { TagTypeaheadInput } from "@/components/onboarding/TagTypeaheadInput";
 import { OnboardingProfileHint } from "@/components/onboarding/OnboardingProfileSection";
+import { LuxuryHint } from "@/components/onboarding/OnboardingLuxuryUi";
 
 type SpecialtyIntakeFieldsProps = {
   baseSpecialty: string;
@@ -26,6 +28,7 @@ type SpecialtyIntakeFieldsProps = {
   /** Medical student — multi-select specialties of interest */
   specialtyInterests?: string[];
   onSpecialtyInterestsChange?: (next: string[]) => void;
+  variant?: "default" | "luxury";
 };
 
 function baseSpecialtyLabel(careerStage: CareerStage): string {
@@ -40,6 +43,53 @@ function subspecialtyLabel(careerStage: CareerStage): string {
   return "Fellowship / subspecialty";
 }
 
+function TrainingCheckbox({
+  checked,
+  onChange,
+  title,
+  description,
+  luxury,
+}: {
+  checked: boolean;
+  onChange: (value: boolean) => void;
+  title: string;
+  description: string;
+  luxury: boolean;
+}) {
+  return (
+    <label
+      className={cn(
+        "flex cursor-pointer items-start gap-3 rounded-xl border px-4 py-3",
+        luxury
+          ? checked
+            ? "border-[#A3E635]/40 bg-[#0A0C10]"
+            : "border-white/5 bg-[#0A0C10] hover:border-white/10"
+          : "border-cx-forest-dark/15 bg-cx-forest-dark/[0.03]",
+      )}
+    >
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        className={cn("mt-1", luxury && "accent-[#A3E635]")}
+      />
+      <span className={cn("font-futura-book text-base", luxury ? "text-gray-300" : "text-black")}>
+        <span
+          className={cn(
+            "font-futura-medium",
+            luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+          )}
+        >
+          {title}
+        </span>
+        <span className={cn("mt-0.5 block", luxury ? "text-gray-500" : "text-black")}>
+          {description}
+        </span>
+      </span>
+    </label>
+  );
+}
+
 export function SpecialtyIntakeFields({
   baseSpecialty,
   onPickBase,
@@ -51,7 +101,9 @@ export function SpecialtyIntakeFields({
   hideBaseSpecialtyPicker = false,
   specialtyInterests = [],
   onSpecialtyInterestsChange,
+  variant = "default",
 }: SpecialtyIntakeFieldsProps) {
+  const luxury = variant === "luxury";
   const isFellow = careerStage === "Fellow";
   const isMedStudent = isMedicalStudent(careerStage);
   const showSubspecialty =
@@ -69,6 +121,9 @@ export function SpecialtyIntakeFields({
     return filterSubspecialties(baseSpecialty, "", careerStage);
   }, [baseSpecialty, careerStage]);
 
+  const tagVariant = luxury ? "luxury" : "default";
+  const Hint = luxury ? LuxuryHint : OnboardingProfileHint;
+
   if (isMedStudent && !hideBaseSpecialtyPicker) {
     return (
       <div className="space-y-5 font-futura-book">
@@ -81,6 +136,7 @@ export function SpecialtyIntakeFields({
           suggestions={baseSuggestions}
           maxTags={MAX_SPECIALTY_INTERESTS}
           formatSuggestion={formatSpecialtyDisplayLabel}
+          variant={tagVariant}
         />
       </div>
     );
@@ -98,6 +154,7 @@ export function SpecialtyIntakeFields({
           suggestions={baseSuggestions}
           maxTags={1}
           formatSuggestion={formatSpecialtyDisplayLabel}
+          variant={tagVariant}
         />
       )}
 
@@ -116,50 +173,33 @@ export function SpecialtyIntakeFields({
             suggestions={subspecialtySuggestions}
             maxTags={1}
             formatSuggestion={formatSpecialtyDisplayLabel}
+            variant={tagVariant}
           />
 
           {subspecialty && !isFellow && (
-            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-4 py-3">
-              <input
-                type="checkbox"
-                checked={trainingComplete}
-                onChange={(e) => onTrainingCompleteChange(e.target.checked)}
-                className="mt-1"
-              />
-              <span className="font-futura-book text-base text-black">
-                <span className="font-futura-medium text-cx-forest-dark">
-                  Fellowship training complete
-                </span>
-                <span className="mt-0.5 block text-black">
-                  Check when you are board-eligible or certified in this subspecialty.
-                </span>
-              </span>
-            </label>
+            <TrainingCheckbox
+              luxury={luxury}
+              checked={trainingComplete}
+              onChange={onTrainingCompleteChange}
+              title="Fellowship training complete"
+              description="Check when you are board-eligible or certified in this subspecialty."
+            />
           )}
 
           {subspecialty && isFellow && (
-            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-4 py-3">
-              <input
-                type="checkbox"
-                checked={trainingComplete}
-                onChange={(e) => onTrainingCompleteChange(e.target.checked)}
-                className="mt-1"
-              />
-              <span className="font-futura-book text-base text-black">
-                <span className="font-futura-medium text-cx-forest-dark">
-                  Fellowship training complete
-                </span>
-                <span className="mt-0.5 block text-black">
-                  Leave unchecked while you are still in fellowship.
-                </span>
-              </span>
-            </label>
+            <TrainingCheckbox
+              luxury={luxury}
+              checked={trainingComplete}
+              onChange={onTrainingCompleteChange}
+              title="Fellowship training complete"
+              description="Leave unchecked while you are still in fellowship."
+            />
           )}
         </>
       )}
 
       {isMedStudent && hideBaseSpecialtyPicker && (
-        <OnboardingProfileHint>Select your fellowship subspecialty below.</OnboardingProfileHint>
+        <Hint>Select your fellowship subspecialty below.</Hint>
       )}
     </div>
   );
