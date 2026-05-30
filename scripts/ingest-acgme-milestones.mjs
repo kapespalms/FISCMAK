@@ -1,505 +1,638 @@
 #!/usr/bin/env node
 /**
- * ACGME Milestones 2.0 ingest — catalog, download, parse, index.
+ * Ingest ACGME Milestones 2.0 PDFs for all specialties and subspecialties.
+ *
  * Usage:
- *   node scripts/ingest-acgme-milestones.mjs --index
- *   node scripts/ingest-acgme-milestones.mjs --download [--slug=x] [--limit=N]
- *   node scripts/ingest-acgme-milestones.mjs --parse [--slug=x] [--limit=N]
- *   node scripts/ingest-acgme-milestones.mjs --all [--limit=N]
+ *   node scripts/ingest-acgme-milestones.mjs --all
+ *   node scripts/ingest-acgme-milestones.mjs --download --parse --index
+ *   node scripts/ingest-acgme-milestones.mjs --slug=anesthesiology --parse
+ *   node scripts/ingest-acgme-milestones.mjs --limit=5 --all
  */
 
 import fs from "node:fs";
 import path from "node:path";
+import { createRequire } from "node:module";
+import { pathToFileURL } from "node:url";
 import { fileURLToPath } from "node:url";
-import { PDFParse } from "pdf-parse";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const SEEDS = path.join(ROOT, "docs/seeds/acgme");
-const PROGRAMS_DIR = path.join(SEEDS, "programs");
-const CACHE_DIR = path.join(SEEDS, "_cache/pdfs");
-const CATALOG_SRC = path.join(SEEDS, "acgme_specialties_complete.json");
-const CATALOG_OUT = path.join(SEEDS, "milestone_catalog.json");
-const FRAMEWORKS_OUT = path.join(SEEDS, "milestone_frameworks.json");
-const BUNDLE_OUT = path.join(SEEDS, "all_program_milestones.json");
-const REPORT_OUT = path.join(SEEDS, "_cache/ingest_report.json");
-const APPENDIX_B = path.join(SEEDS, "appendix_b_2024_2025.json");
-const PSYCH_SEED = path.join(SEEDS, "psychiatry_milestones_v2.json");
-const PSYCH_SOURCES = path.join(SEEDS, "psychiatry_official_sources.json");
+const SEEDS_DIR = path.join(ROOT, "docs/seeds/acgme");
+const CACHE_DIR = path.join(SEEDS_DIR, "_cache/pdfs");
+const PROGRAMS_DIR = path.join(SEEDS_DIR, "programs");
+const REPORT_PATH = path.join(SEEDS_DIR, "_cache/ingest_report.json");
 
-const SKIP_PARSE_PRIMARY_SLUGS = new Set(["psychiatry"]);
+const PSYCHIATRY_PRIMARY_SLUG = "psychiatry";
+const SKIP_PARSE_PRIMARY_SLUGS = new Set([PSYCHIATRY_PRIMARY_SLUG]);
 
-const COMPETENCY_DOMAINS = [
-  { label: "Patient Care", key: "pc" },
-  { label: "Medical Knowledge", key: "mk" },
-  { label: "Systems-Based Practice", key: "sbp" },
-  { label: "Practice-Based Learning and Improvement", key: "pbli" },
-  { label: "Professionalism", key: "prof" },
-  { label: "Interpersonal and Communication Skills", key: "ics" },
+const DOMAIN_PATTERNS = [
+  { regex: /^Patient Care\s+(\d+):\s*(.+)$/i, key: "pc" },
+  { regex: /^Medical Knowledge\s+(\d+):\s*(.+)$/i, key: "mk" },
+  { regex: /^Systems-Based Practice\s+(\d+):\s*(.+)$/i, key: "sbp" },
+  { regex: /^System-Based Practice\s+(\d+):\s*(.+)$/i, key: "sbp" },
+  {
+    regex: /^Practice-Based Learning and Improvement\s+(\d+):\s*(.+)$/i,
+    key: "pbli",
+  },
+  { regex: /^Professionalism\s+(\d+):\s*(.+)$/i, key: "prof" },
+  {
+    regex: /^Interpersonal and Communication Skills\s+(\d+):\s*(.+)$/i,
+    key: "ics",
+  },
 ];
 
-const DOMAIN_ALT = COMPETENCY_DOMAINS.map((d) => d.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|");
-const SUBCOMPETENCY_RE = new RegExp(
-  `(?:^|\\n)\\s*(${DOMAIN_ALT})\\s+(\\d+):\\s*(.+?)(?=\\n\\s*(?:${DOMAIN_ALT})\\s+\\d+:|\\nComments:|$)`,
-  "gs",
-);
+/** Appendix B slug → website catalog slug */
+const SLUG_ALIASES = {
+  "pathology-anatomic-and-clinical": "pathology",
+  "public-health-and-general-preventive-medicine": "preventive-medicine",
+  "radiology-diagnostic": "radiology",
+  "otolaryngology-head-and-neck-surgery": "otolaryngology---head-and-neck-surgery",
+};
+
+function readJson(relPath) {
+  return JSON.parse(fs.readFileSync(path.join(SEEDS_DIR, relPath), "utf8"));
+}
+
+function writeJson(relPath, data) {
+  const full = path.join(SEEDS_DIR, relPath);
+  fs.mkdirSync(path.dirname(full), { recursive: true });
+  fs.writeFileSync(full, `${JSON.stringify(data, null, 2)}\n`);
+}
 
 function slugify(value) {
   return value
     .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u2013\u2014]/g, "-")
+    .replace(/['"]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
-    .replace(/-+/g, "-");
-}
-
-function readJson(file) {
-  return JSON.parse(fs.readFileSync(file, "utf8"));
-}
-
-function writeJson(file, data) {
-  fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
+    .slice(0, 80);
 }
 
 function parseArgs(argv) {
   const flags = {
-    index: false,
     download: false,
     parse: false,
+    index: false,
     all: false,
     slug: null,
-    limit: Infinity,
+    limit: null,
   };
   for (const arg of argv) {
-    if (arg === "--index") flags.index = true;
-    else if (arg === "--download") flags.download = true;
+    if (arg === "--download") flags.download = true;
     else if (arg === "--parse") flags.parse = true;
+    else if (arg === "--index") flags.index = true;
     else if (arg === "--all") flags.all = true;
     else if (arg.startsWith("--slug=")) flags.slug = arg.slice("--slug=".length);
     else if (arg.startsWith("--limit=")) flags.limit = Number(arg.slice("--limit=".length));
   }
   if (flags.all) {
-    flags.index = true;
     flags.download = true;
     flags.parse = true;
+    flags.index = true;
   }
-  if (!flags.index && !flags.download && !flags.parse) flags.index = true;
   return flags;
 }
 
-function buildProgramList(catalogSrc) {
+function buildProgramList(specialtiesData) {
   const programs = [];
-  for (const primary of catalogSrc.specialties) {
+  for (const primary of specialtiesData.specialties) {
     programs.push({
       slug: primary.slug,
       name: primary.name,
       program_type: "primary",
-      primary_slug: primary.slug,
-      primary_name: primary.name,
+      parent_slug: primary.slug,
+      parent_name: primary.name,
+      milestone_pdf_url: primary.milestone_pdf_url,
+      supplemental_guide_url: primary.supplemental_guide_url,
       milestones_page_url: primary.milestones_page_url ?? null,
-      milestone_pdf_url: primary.milestone_pdf_url ?? null,
-      supplemental_guide_url: primary.supplemental_guide_url ?? null,
     });
     for (const sub of primary.subspecialties) {
-      const subSlug = `${primary.slug}--${slugify(sub.name)}`;
       programs.push({
-        slug: subSlug,
+        slug: slugify(sub.name),
         name: sub.name,
         program_type: "subspecialty",
-        primary_slug: primary.slug,
-        primary_name: primary.name,
-        milestones_page_url: primary.milestones_page_url ?? null,
-        milestone_pdf_url: sub.milestone_pdf_url ?? null,
-        supplemental_guide_url: sub.supplemental_guide_url ?? null,
+        parent_slug: primary.slug,
+        parent_name: primary.name,
+        milestone_pdf_url: sub.milestone_pdf_url,
+        supplemental_guide_url: sub.supplemental_guide_url,
+        milestones_page_url: null,
       });
     }
   }
   return programs;
 }
 
-function buildCatalog(catalogSrc, programs) {
-  return {
-    generated_at: new Date().toISOString().slice(0, 10),
-    source: catalogSrc.source,
-    total_programs: programs.length,
-    programs: programs.map((p) => ({
-      ...p,
-      parse_status: "pending",
-      subcompetency_count: 0,
-      seed_file: null,
-    })),
-    global_supplemental_refs: readJson(PSYCH_SOURCES).milestones_and_pbl ?? [],
-  };
-}
-
-function mergeParseStatus(catalog, report) {
-  for (const program of catalog.programs) {
-    const row = report.by_slug[program.slug];
-    if (!row) continue;
-    program.parse_status = row.parse_status;
-    program.subcompetency_count = row.subcompetency_count ?? 0;
-    program.seed_file = row.seed_file ?? null;
-    program.download_errors = row.download_errors ?? [];
-    program.parse_error = row.parse_error ?? null;
+function pdfFilenameFromUrl(url) {
+  try {
+    return path.basename(new URL(url).pathname);
+  } catch {
+    return "document.pdf";
   }
-  return catalog;
 }
 
-function competencyKeyFromLabel(label) {
-  const found = COMPETENCY_DOMAINS.find((d) => d.label === label.trim());
-  return found?.key ?? "pc";
+async function ensurePdfParse() {
+  const { PDFParse } = await import("pdf-parse");
+  const req = createRequire(import.meta.url);
+  try {
+    const workerPath = req.resolve("pdfjs-dist/legacy/build/pdf.worker.mjs");
+    PDFParse.setWorker(pathToFileURL(workerPath).href);
+  } catch {
+    // dev fallback
+  }
+  return PDFParse;
 }
 
-function cleanLevelText(text) {
-  return text
-    .replace(/\s+/g, " ")
-    .replace(/\u0000/g, "")
-    .trim();
+async function downloadPdf(url, destPath) {
+  const res = await fetch(url, {
+    headers: { "User-Agent": "fiscmak-acgme-ingest/1.0" },
+    redirect: "follow",
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} for ${url}`);
+  }
+  const contentType = res.headers.get("content-type") ?? "";
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (!contentType.includes("pdf") && !buf.subarray(0, 4).toString("ascii").startsWith("%PDF")) {
+    throw new Error(`Not a PDF (${contentType || "unknown"}) for ${url}`);
+  }
+  fs.mkdirSync(path.dirname(destPath), { recursive: true });
+  fs.writeFileSync(destPath, buf);
+  return buf;
 }
 
-function parseLevels(block) {
-  const levels = { level_1: [], level_2: [], level_3: [], level_4: [], level_5: [] };
-  const headerIdx = block.search(/Level\s+1\s+Level\s+2\s+Level\s+3\s+Level\s+4\s+Level\s+5/i);
-  if (headerIdx < 0) return levels;
+async function extractPdfText(buffer, PDFParse) {
+  const parser = new PDFParse({ data: buffer });
+  const result = await parser.getText();
+  return result.text ?? "";
+}
 
-  let body = block.slice(headerIdx).replace(/Level\s+1\s+Level\s+2\s+Level\s+3\s+Level\s+4\s+Level\s+5/i, "");
-  const stopIdx = body.search(/\nComments:|Not Yet Assessable|Version \d|©\d{4} Accreditation/i);
-  if (stopIdx >= 0) body = body.slice(0, stopIdx);
+function mergeLinesIntoCells(lines) {
+  const cells = [];
+  let current = "";
+  for (const line of lines) {
+    if (!current) {
+      current = line;
+      continue;
+    }
+    const continues =
+      /[,-]$/.test(current.trim()) ||
+      /^[a-z(]/.test(line) ||
+      /^with /.test(line) ||
+      /^and /.test(line) ||
+      /^or /.test(line);
+    if (continues) {
+      current += ` ${line}`;
+    } else {
+      cells.push(current.trim());
+      current = line;
+    }
+  }
+  if (current) cells.push(current.trim());
+  return cells;
+}
 
-  const chunks = body
-    .split(/\n+/)
-    .map((l) => cleanLevelText(l))
-    .filter(Boolean)
-    .filter((l) => !/^Level [1-5]$/.test(l));
-
-  if (chunks.length === 0) return levels;
-
-  const perLevel = Math.max(1, Math.ceil(chunks.length / 5));
-  for (let i = 0; i < chunks.length; i++) {
-    const level = Math.min(5, Math.floor(i / perLevel) + 1);
-    levels[`level_${level}`].push(chunks[i]);
+function parseLevelDescriptions(body) {
+  const lines = body
+    .split(/\n/)
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const cells = mergeLinesIntoCells(lines);
+  const levels = {
+    level_1: [],
+    level_2: [],
+    level_3: [],
+    level_4: [],
+    level_5: [],
+  };
+  for (let i = 0; i < cells.length; i++) {
+    const col = i % 5;
+    levels[`level_${col + 1}`].push(cells[i]);
   }
   return levels;
 }
 
-function parseMilestoneText(text, frameworkKey, programName) {
+function normalizePdfText(text) {
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/\u00a0/g, " ")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n");
+}
+
+function findDomainHeader(line) {
+  for (const pattern of DOMAIN_PATTERNS) {
+    const match = line.trim().match(pattern.regex);
+    if (match) {
+      return {
+        number: Number(match[1]),
+        name: match[2].trim(),
+        acgme_competency_key: pattern.key,
+      };
+    }
+  }
+  return null;
+}
+
+function parseMilestonePdfText(text, slug) {
+  const normalized = normalizePdfText(text);
+  const lines = normalized.split("\n");
   const subcompetencies = [];
-  let match;
-  SUBCOMPETENCY_RE.lastIndex = 0;
-  while ((match = SUBCOMPETENCY_RE.exec(text)) !== null) {
-    const domainLabel = match[1].trim();
-    const number = Number(match[2]);
-    const nameLine = match[3].split("\n")[0].trim();
-    const block = match[0];
-    const key = competencyKeyFromLabel(domainLabel);
-    const id = `${frameworkKey.replace(/-/g, "_")}_${key}${number}`;
+  let i = 0;
+  let globalNumber = 0;
+
+  while (i < lines.length) {
+    const header = findDomainHeader(lines[i]);
+    if (!header) {
+      i++;
+      continue;
+    }
+
+    const blockStart = i;
+    i++;
+    const blockLines = [lines[blockStart]];
+
+    while (i < lines.length) {
+      const trimmed = lines[i].trim();
+      if (findDomainHeader(trimmed)) break;
+      if (/^Comments:\s*$/i.test(trimmed)) {
+        blockLines.push(lines[i]);
+        i++;
+        break;
+      }
+      blockLines.push(lines[i]);
+      i++;
+    }
+
+    const block = blockLines.join("\n");
+    const levelHeaderMatch = block.match(/Level 1[\s\t]+Level 2[\s\t]+Level 3[\s\t]+Level 4[\s\t]+Level 5/i);
+    if (!levelHeaderMatch) continue;
+
+    const headerEnd = block.indexOf(levelHeaderMatch[0]) + levelHeaderMatch[0].length;
+    let body = block.slice(headerEnd);
+    body = body.replace(/\nComments:\s*[\s\S]*$/i, "").trim();
+    if (!body) continue;
+
+    globalNumber++;
+    const idPrefix = slug.replace(/-/g, "_").slice(0, 40);
     subcompetencies.push({
-      id,
-      number: subcompetencies.length + 1,
-      domain_number: number,
-      name: nameLine,
-      acgme_competency_key: key,
-      levels: parseLevels(block),
+      id: `${idPrefix}_${header.acgme_competency_key}${header.number}`,
+      number: globalNumber,
+      name: header.name,
+      acgme_competency_key: header.acgme_competency_key,
+      levels: parseLevelDescriptions(body),
     });
   }
 
+  return subcompetencies;
+}
+
+function loadPsychiatryHandSeed() {
+  const seed = readJson("psychiatry_milestones_v2.json");
   return {
-    framework_key: frameworkKey,
-    specialty: programName,
-    version: "2.0",
-    source: `ACGME ${programName} Milestones 2.0`,
-    subcompetencies,
+    framework_key: seed.framework_key,
+    specialty: seed.specialty,
+    version: seed.version ?? "2.0",
+    source: seed.source,
+    program_type: "primary",
+    subcompetencies: seed.subcompetencies,
+    sources: {
+      milestone_pdf_url:
+        "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrymilestones.pdf",
+      supplemental_guide_url:
+        "https://www.acgme.org/globalassets/pdfs/milestones/psychiatrysupplementalguide.pdf",
+    },
   };
 }
 
-async function extractPdfText(filePath) {
-  const buf = fs.readFileSync(filePath);
-  const parser = new PDFParse({ data: buf });
-  await parser.load();
-  const result = await parser.getText();
-  return result.text ?? String(result);
+function buildProgramSeed(program, subcompetencies, sources) {
+  return {
+    framework_key: program.slug,
+    specialty: program.name,
+    version: "2.0",
+    source: `ACGME ${program.name} Milestones 2.0`,
+    program_type: program.program_type,
+    parent_slug: program.parent_slug,
+    parent_name: program.parent_name,
+    subcompetencies,
+    sources,
+  };
 }
 
-async function downloadFile(url, dest) {
-  const res = await fetch(url, { redirect: "follow" });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
-  fs.writeFileSync(dest, buf);
-  return dest;
-}
+async function processProgram(program, flags, PDFParse, report) {
+  const entry = {
+    slug: program.slug,
+    name: program.name,
+    program_type: program.program_type,
+    parent_slug: program.parent_slug,
+    milestone_pdf_url: program.milestone_pdf_url,
+    supplemental_guide_url: program.supplemental_guide_url,
+    parse_status: "pending",
+    subcompetency_count: 0,
+    download_errors: [],
+    parse_errors: [],
+  };
 
-function pdfUrlCandidates(url) {
-  if (!url) return [];
-  const candidates = [url];
-  const variants = [
-    url.replace(/fimmunology/i, "immunology"),
-    url.replace(/milestonesannotated/i, "milestones"),
-    url.replace(/milestonesmilestones/i, "milestones"),
-    url.replace(/milestonesa\.pdf/i, "milestones.pdf"),
-    url.replace(/milestones\.pdf/i, "milestones2.0.pdf"),
-    url.replace(/milestones2\.0\.pdf/i, "milestones.pdf"),
-  ];
-  for (const v of variants) {
-    if (v && !candidates.includes(v)) candidates.push(v);
+  const cacheDir = path.join(CACHE_DIR, program.slug);
+  const milestonePdfPath = path.join(
+    cacheDir,
+    pdfFilenameFromUrl(program.milestone_pdf_url),
+  );
+  const supplementalPdfPath = path.join(
+    cacheDir,
+    pdfFilenameFromUrl(program.supplemental_guide_url),
+  );
+  const programSeedPath = path.join(PROGRAMS_DIR, `${program.slug}_milestones_v2.json`);
+
+  if (program.slug === PSYCHIATRY_PRIMARY_SLUG && program.program_type === "primary") {
+    const handSeed = loadPsychiatryHandSeed();
+    if (flags.index || flags.parse) {
+      fs.mkdirSync(PROGRAMS_DIR, { recursive: true });
+      fs.writeFileSync(programSeedPath, `${JSON.stringify(handSeed, null, 2)}\n`);
+    }
+    entry.parse_status = "hand_seed";
+    entry.subcompetency_count = handSeed.subcompetencies.length;
+    report.programs.push(entry);
+    return handSeed;
   }
-  return candidates;
-}
 
-function seedPathFor(slug) {
-  return path.join(PROGRAMS_DIR, `${slug}_milestones_v2.json`);
-}
+  if (SKIP_PARSE_PRIMARY_SLUGS.has(program.slug) && program.program_type === "primary") {
+    entry.parse_status = "skipped";
+    report.programs.push(entry);
+    return null;
+  }
 
-function loadExistingSeed(slug) {
-  const file = seedPathFor(slug);
-  if (!fs.existsSync(file)) return null;
-  return readJson(file);
-}
+  let milestoneBuffer = null;
 
-async function downloadProgram(program, report) {
-  const row = { slug: program.slug, download_errors: [] };
-  const dir = path.join(CACHE_DIR, program.slug);
-  fs.mkdirSync(dir, { recursive: true });
+  if (flags.download) {
+    for (const [label, url, dest] of [
+      ["milestone", program.milestone_pdf_url, milestonePdfPath],
+      ["supplemental", program.supplemental_guide_url, supplementalPdfPath],
+    ]) {
+      try {
+        await downloadPdf(url, dest);
+      } catch (err) {
+        entry.download_errors.push({
+          type: label,
+          url,
+          error: err instanceof Error ? err.message : String(err),
+        });
+        report.download_failures.push({
+          slug: program.slug,
+          type: label,
+          url,
+          error: err instanceof Error ? err.message : String(err),
+        });
+      }
+    }
+  }
 
-  for (const [kind, url] of [
-    ["milestone", program.milestone_pdf_url],
-    ["supplemental", program.supplemental_guide_url],
-  ]) {
-    if (!url) continue;
-    const ext = url.toLowerCase().includes(".doc") ? "docx" : "pdf";
-    const dest = path.join(dir, `${kind}.${ext}`);
+  if (fs.existsSync(milestonePdfPath)) {
+    milestoneBuffer = fs.readFileSync(milestonePdfPath);
+  }
+
+  if (flags.parse && milestoneBuffer) {
     try {
-      if (fs.existsSync(dest)) {
-        row[`${kind}_file`] = dest;
-        continue;
+      const text = await extractPdfText(milestoneBuffer, PDFParse);
+      const subcompetencies = parseMilestonePdfText(text, program.slug);
+      if (subcompetencies.length === 0) {
+        throw new Error("No subcompetencies extracted from milestone PDF");
       }
-      const candidates = kind === "milestone" ? pdfUrlCandidates(url) : [url];
-      let lastError;
-      for (const candidate of candidates) {
-        try {
-          await downloadFile(candidate, dest);
-          row[`${kind}_file`] = dest;
-          if (candidate !== url) row[`${kind}_resolved_url`] = candidate;
-          lastError = null;
-          break;
-        } catch (err) {
-          lastError = err;
-        }
-      }
-      if (lastError) throw lastError;
+      const seed = buildProgramSeed(program, subcompetencies, {
+        milestone_pdf_url: program.milestone_pdf_url,
+        supplemental_guide_url: program.supplemental_guide_url,
+      });
+      fs.mkdirSync(PROGRAMS_DIR, { recursive: true });
+      fs.writeFileSync(programSeedPath, `${JSON.stringify(seed, null, 2)}\n`);
+      entry.parse_status = "parsed";
+      entry.subcompetency_count = subcompetencies.length;
+      report.programs.push(entry);
+      return seed;
     } catch (err) {
-      row.download_errors.push({ kind, url, error: String(err.message ?? err) });
+      entry.parse_status = "parse_failed";
+      entry.parse_errors.push(err instanceof Error ? err.message : String(err));
+      report.parse_failures.push({
+        slug: program.slug,
+        error: err instanceof Error ? err.message : String(err),
+      });
     }
+  } else if (fs.existsSync(programSeedPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(programSeedPath, "utf8"));
+      entry.parse_status = "cached";
+      entry.subcompetency_count = existing.subcompetencies?.length ?? 0;
+    } catch {
+      entry.parse_status = "url_only";
+    }
+  } else if (entry.download_errors.some((e) => e.type === "milestone")) {
+    entry.parse_status = "download_failed";
+  } else {
+    entry.parse_status = milestoneBuffer ? "not_parsed" : "url_only";
   }
-  report.by_slug[program.slug] = { ...report.by_slug[program.slug], ...row };
+
+  report.programs.push(entry);
+  return null;
 }
 
-async function parseProgram(program, report) {
-  if (
-    program.program_type === "primary" &&
-    SKIP_PARSE_PRIMARY_SLUGS.has(program.slug)
-  ) {
-    const psych = readJson(PSYCH_SEED);
-    writeJson(seedPathFor(program.slug), {
-      ...psych,
-      program_type: "primary",
-      sources: {
-        milestone_pdf_url: program.milestone_pdf_url,
-        supplemental_guide_url: program.supplemental_guide_url,
-      },
-    });
-    report.by_slug[program.slug] = {
-      ...report.by_slug[program.slug],
-      parse_status: "seeded_manual",
-      subcompetency_count: psych.subcompetencies.length,
-      seed_file: `programs/${program.slug}_milestones_v2.json`,
-    };
-    return;
-  }
-
-  const cached = report.by_slug[program.slug];
-  const milestoneFile = cached?.milestone_file;
-  if (!milestoneFile || !fs.existsSync(milestoneFile)) {
-    report.by_slug[program.slug] = {
-      ...report.by_slug[program.slug],
-      parse_status: program.milestone_pdf_url ? "download_missing" : "no_milestone_url",
-      subcompetency_count: 0,
-    };
-    return;
-  }
-
-  try {
-    const text = await extractPdfText(milestoneFile);
-    const parsed = parseMilestoneText(text, program.slug, program.name);
-    if (parsed.subcompetencies.length === 0) {
-      throw new Error("No subcompetencies extracted");
-    }
-    const seed = {
-      ...parsed,
-      program_type: program.program_type,
-      primary_slug: program.primary_slug,
-      primary_name: program.primary_name,
-      sources: {
-        milestone_pdf_url: program.milestone_pdf_url,
-        supplemental_guide_url: program.supplemental_guide_url,
-      },
-    };
-    writeJson(seedPathFor(program.slug), seed);
-    report.by_slug[program.slug] = {
-      ...report.by_slug[program.slug],
-      parse_status: "parsed",
-      subcompetency_count: parsed.subcompetencies.length,
-      seed_file: `programs/${program.slug}_milestones_v2.json`,
-    };
-  } catch (err) {
-    report.by_slug[program.slug] = {
-      ...report.by_slug[program.slug],
-      parse_status: "parse_failed",
-      parse_error: String(err.message ?? err),
-      subcompetency_count: 0,
-    };
-  }
+function catalogSlugForAppendixPrimary(appendixSlug, catalogBySlug) {
+  const direct = catalogBySlug.get(appendixSlug);
+  if (direct) return appendixSlug;
+  const alias = SLUG_ALIASES[appendixSlug];
+  if (alias && catalogBySlug.has(alias)) return alias;
+  return null;
 }
 
-function buildFrameworks(catalog, appendixB) {
-  const byPrimarySlug = new Map();
-  for (const p of catalog.programs) {
-    if (p.program_type !== "primary") continue;
-    byPrimarySlug.set(p.slug, p);
+function generateCatalog(programs, report) {
+  const catalog = {
+    generated_at: new Date().toISOString().slice(0, 10),
+    source: "docs/seeds/acgme/acgme_specialties_complete.json",
+    total_programs: programs.length,
+    programs: report.programs.map((p) => ({
+      slug: p.slug,
+      name: p.name,
+      program_type: p.program_type,
+      parent_slug: p.parent_slug,
+      milestone_pdf_url: p.milestone_pdf_url,
+      supplemental_guide_url: p.supplemental_guide_url,
+      parse_status: p.parse_status,
+      subcompetency_count: p.subcompetency_count,
+      download_errors: p.download_errors,
+      parse_errors: p.parse_errors,
+    })),
+  };
+  writeJson("milestone_catalog.json", catalog);
+  return catalog;
+}
+
+function generateProgramIndex(report) {
+  const index = {
+    generated_at: new Date().toISOString().slice(0, 10),
+    programs: {},
+  };
+  for (const p of report.programs) {
+    index.programs[p.slug] = {
+      name: p.name,
+      program_type: p.program_type,
+      parent_slug: p.parent_slug,
+      seed_file:
+        p.parse_status === "hand_seed" || p.parse_status === "parsed" || p.parse_status === "cached"
+          ? `${p.slug}_milestones_v2.json`
+          : null,
+      subcompetency_count: p.subcompetency_count,
+      parse_status: p.parse_status,
+    };
   }
+  writeJson("program_milestones_index.json", index);
+}
+
+function generateAllProgramMilestonesBundle() {
+  const bundle = { generated_at: new Date().toISOString().slice(0, 10), programs: {} };
+  if (!fs.existsSync(PROGRAMS_DIR)) return bundle;
+
+  for (const file of fs.readdirSync(PROGRAMS_DIR).sort()) {
+    if (!file.endsWith("_milestones_v2.json")) continue;
+    const slug = file.replace(/_milestones_v2\.json$/, "");
+    const data = JSON.parse(fs.readFileSync(path.join(PROGRAMS_DIR, file), "utf8"));
+    bundle.programs[slug] = {
+      subcompetencies: data.subcompetencies ?? [],
+      sources: data.sources ?? {},
+      program_type: data.program_type ?? "primary",
+      parent_slug: data.parent_slug ?? slug,
+      specialty: data.specialty ?? slug,
+      version: data.version ?? "2.0",
+    };
+  }
+
+  writeJson("all_program_milestones.json", bundle);
+  return bundle;
+}
+
+function generateMilestoneFrameworks(catalog, appendixB, officialSources) {
+  const catalogBySlug = new Map(catalog.programs.map((p) => [p.slug, p]));
+  const primaryCatalogEntries = catalog.programs.filter((p) => p.program_type === "primary");
+  const primaryBySlug = new Map(primaryCatalogEntries.map((p) => [p.slug, p]));
 
   const frameworks = {};
   for (const primary of appendixB.primary_specialties) {
-    const cat = byPrimarySlug.get(primary.slug);
-    const seedFile = catalog.programs.find(
-      (p) => p.slug === primary.slug && p.seed_file,
-    )?.seed_file;
-    const parsed = catalog.programs.find((p) => p.slug === primary.slug);
+    const catalogSlug = catalogSlugForAppendixPrimary(primary.slug, primaryBySlug);
+    const catalogEntry = catalogSlug ? catalogBySlug.get(catalogSlug) : null;
+    const parsedEntry = catalogSlug ? primaryBySlug.get(catalogSlug) : null;
+
     let status = "universal_only";
-    if (seedFile || primary.slug === "psychiatry") status = "seeded";
-    else if (cat?.milestone_pdf_url) status = "catalog_only";
+    if (parsedEntry?.parse_status === "hand_seed" || parsedEntry?.parse_status === "parsed") {
+      status = "seeded";
+    } else if (catalogEntry || parsedEntry) {
+      status = "catalog_only";
+    }
+
+    const citationUrl =
+      catalogEntry?.milestone_pdf_url ??
+      parsedEntry?.milestone_pdf_url ??
+      (catalogSlug ? primaryBySlug.get(catalogSlug)?.milestone_pdf_url : null);
 
     frameworks[primary.slug] = {
       primary_slug: primary.slug,
       primary_name: primary.name,
       status,
-      milestone_version: cat?.milestone_pdf_url ? "2.0" : undefined,
-      subcompetency_seed: seedFile ?? (primary.slug === "psychiatry" ? "psychiatry_milestones_v2.json" : undefined),
-      citation: cat?.milestone_pdf_url ? `ACGME ${primary.name} Milestones 2.0` : undefined,
-      citation_url: cat?.milestone_pdf_url ?? cat?.milestones_page_url ?? undefined,
-      supplemental_guide_url: cat?.supplemental_guide_url ?? undefined,
-      milestones_page_url: cat?.milestones_page_url ?? undefined,
+      milestone_version: status === "seeded" ? "2.0" : undefined,
+      subcompetency_seed:
+        status === "seeded" && catalogSlug
+          ? `${catalogSlug}_milestones_v2.json`
+          : undefined,
+      catalog_slug: catalogSlug ?? undefined,
+      citation: citationUrl ? `ACGME ${primary.name} Milestones 2.0` : undefined,
+      citation_url: citationUrl ?? undefined,
+      supplemental_guide_url:
+        catalogEntry?.supplemental_guide_url ?? parsedEntry?.supplemental_guide_url ?? undefined,
     };
   }
 
-  return {
+  const payload = {
     source_note:
-      "Specialty-specific ACGME Milestones 2.0. Unlisted primaries use universal six only until seeded.",
-    global_supplemental_refs: catalog.global_supplemental_refs,
+      "Specialty-specific ACGME Milestones 2.0 seeds. Unlisted primaries use universal six only until seeded.",
+    global_supplemental_references: officialSources.milestones_and_pbl ?? [],
     frameworks,
   };
-}
-
-function buildBundle(catalog) {
-  const bundle = {};
-  for (const program of catalog.programs) {
-    if (!program.seed_file) continue;
-    const file = path.join(SEEDS, program.seed_file);
-    if (!fs.existsSync(file)) continue;
-    const seed = readJson(file);
-    bundle[program.slug] = {
-      name: program.name,
-      program_type: program.program_type,
-      primary_slug: program.primary_slug,
-      subcompetency_count: seed.subcompetencies?.length ?? 0,
-      sources: seed.sources ?? {},
-      subcompetencies: seed.subcompetencies ?? [],
-    };
-  }
-  return {
-    generated_at: new Date().toISOString(),
-    program_count: Object.keys(bundle).length,
-    programs: bundle,
-  };
-}
-
-function filterPrograms(programs, flags) {
-  let list = programs.filter((p) => p.milestone_pdf_url || p.program_type === "primary");
-  if (flags.slug) list = list.filter((p) => p.slug === flags.slug || p.slug.startsWith(`${flags.slug}--`));
-  if (Number.isFinite(flags.limit)) list = list.slice(0, flags.limit);
-  return list;
+  writeJson("milestone_frameworks.json", payload);
+  return payload;
 }
 
 async function main() {
   const flags = parseArgs(process.argv.slice(2));
-  const catalogSrc = readJson(CATALOG_SRC);
-  const programs = buildProgramList(catalogSrc);
-  let catalog = buildCatalog(catalogSrc, programs);
+  if (!flags.download && !flags.parse && !flags.index) {
+    console.error(
+      "Usage: node scripts/ingest-acgme-milestones.mjs [--download] [--parse] [--index] [--all] [--slug=slug] [--limit=N]",
+    );
+    process.exit(1);
+  }
 
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  fs.mkdirSync(PROGRAMS_DIR, { recursive: true });
+
+  const specialtiesData = readJson("acgme_specialties_complete.json");
+  const appendixB = readJson("appendix_b_2024_2025.json");
+  const officialSources = readJson("psychiatry_official_sources.json");
+
+  let programs = buildProgramList(specialtiesData);
+  if (flags.slug) {
+    programs = programs.filter(
+      (p) => p.slug === flags.slug || p.parent_slug === flags.slug,
+    );
+  }
+  if (flags.limit != null && Number.isFinite(flags.limit)) {
+    programs = programs.slice(0, flags.limit);
+  }
+
+  const PDFParse = flags.parse ? await ensurePdfParse() : null;
   const report = {
     started_at: new Date().toISOString(),
     flags,
-    by_slug: {},
-    summary: {},
+    total_programs: programs.length,
+    programs: [],
+    download_failures: [],
+    parse_failures: [],
   };
 
-  fs.mkdirSync(PROGRAMS_DIR, { recursive: true });
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  console.log(`Processing ${programs.length} ACGME programs...`);
 
-  const selected = filterPrograms(programs, flags);
+  for (const program of programs) {
+    process.stdout.write(`  ${program.slug} (${program.program_type})...`);
+    await processProgram(program, flags, PDFParse, report);
+    console.log(" done");
+  }
 
   if (flags.index) {
-    writeJson(CATALOG_OUT, catalog);
-    console.log(`Wrote catalog: ${catalog.total_programs} programs → ${CATALOG_OUT}`);
+    const catalog = generateCatalog(programs, report);
+    generateProgramIndex(report);
+    const bundle = generateAllProgramMilestonesBundle();
+    generateMilestoneFrameworks(catalog, appendixB, officialSources);
+
+    report.finished_at = new Date().toISOString();
+    report.summary = {
+      total_programs: catalog.total_programs,
+      parsed: report.programs.filter((p) => p.parse_status === "parsed").length,
+      hand_seed: report.programs.filter((p) => p.parse_status === "hand_seed").length,
+      cached: report.programs.filter((p) => p.parse_status === "cached").length,
+      url_only: report.programs.filter((p) =>
+        ["url_only", "not_parsed", "pending"].includes(p.parse_status),
+      ).length,
+      download_failed: report.programs.filter((p) => p.parse_status === "download_failed").length,
+      parse_failed: report.programs.filter((p) => p.parse_status === "parse_failed").length,
+      bundled_programs: Object.keys(bundle.programs).length,
+      download_failure_events: report.download_failures.length,
+    };
+
+    fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
+    fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`);
+
+    console.log("\nIngest summary:");
+    console.log(JSON.stringify(report.summary, null, 2));
+    console.log(`\nWrote milestone_catalog.json (${catalog.total_programs} programs)`);
+    console.log(`Wrote all_program_milestones.json (${report.summary.bundled_programs} bundled)`);
+    console.log(`Report: ${path.relative(ROOT, REPORT_PATH)}`);
   }
-
-  if (flags.download) {
-    console.log(`Downloading ${selected.length} program PDFs…`);
-    for (const program of selected) {
-      await downloadProgram(program, report);
-      const row = report.by_slug[program.slug];
-      const ok = row?.milestone_file ? "✓" : row?.download_errors?.length ? "✗" : "–";
-      console.log(`  ${ok} ${program.slug}`);
-    }
-  }
-
-  if (flags.parse) {
-    console.log(`Parsing ${selected.length} milestone PDFs…`);
-    for (const program of selected) {
-      await parseProgram(program, report);
-      const row = report.by_slug[program.slug];
-      console.log(
-        `  ${row?.parse_status ?? "?"} ${program.slug} (${row?.subcompetency_count ?? 0} subcompetencies)`,
-      );
-    }
-  }
-
-  catalog = mergeParseStatus(catalog, report);
-  writeJson(CATALOG_OUT, catalog);
-  writeJson(FRAMEWORKS_OUT, buildFrameworks(catalog, readJson(APPENDIX_B)));
-  writeJson(BUNDLE_OUT, buildBundle(catalog));
-
-  const statuses = {};
-  for (const p of catalog.programs) {
-    statuses[p.parse_status] = (statuses[p.parse_status] ?? 0) + 1;
-  }
-  report.summary = {
-    total_programs: catalog.total_programs,
-    with_milestone_url: catalog.programs.filter((p) => p.milestone_pdf_url).length,
-    with_supplemental_url: catalog.programs.filter((p) => p.supplemental_guide_url).length,
-    parse_status_counts: statuses,
-    download_failures: Object.values(report.by_slug).filter((r) => r.download_errors?.length).length,
-  };
-  report.finished_at = new Date().toISOString();
-  writeJson(REPORT_OUT, report);
-
-  console.log("\nSummary:", JSON.stringify(report.summary, null, 2));
-  console.log(`Report: ${REPORT_OUT}`);
 }
 
 main().catch((err) => {
   console.error(err);
-  process.exitCode = 1;
+  process.exit(1);
 });

@@ -20,30 +20,36 @@ function main() {
   const appendixB = readJson("appendix_b_2024_2025.json");
   const milestoneFrameworks = readJson("milestone_frameworks.json");
   const psychiatryMilestones = readJson("psychiatry_milestones_v2.json");
-  let milestoneCatalog = { programs: [] };
-  let catalogPath = path.join(seedsDir, "milestone_catalog.json");
-  if (fs.existsSync(catalogPath)) {
-    milestoneCatalog = readJson("milestone_catalog.json");
-  }
+  const milestoneCatalog = readJson("milestone_catalog.json");
+  const allProgramMilestones = readJson("all_program_milestones.json");
 
   const primaries = appendixB.primary_specialties;
   const subspecialtyToPrimary = appendixB.subspecialty_to_primary;
   const primaryByName = new Map(primaries.map((p) => [p.name, p]));
   const onboardingNames = new Set(primaries.map((p) => p.name));
 
-  const seededSlugs = new Set(
-    Object.values(milestoneFrameworks.frameworks)
-      .filter((f) => f.status === "seeded")
-      .map((f) => f.primary_slug),
+  const catalogPrograms = milestoneCatalog.programs ?? [];
+  const parsedStatuses = new Set(["parsed", "hand_seed", "cached"]);
+  const catalogParsed = catalogPrograms.filter((p) => parsedStatuses.has(p.parse_status));
+  const catalogUrlOnly = catalogPrograms.filter(
+    (p) => !parsedStatuses.has(p.parse_status) && p.milestone_pdf_url,
   );
 
-  const subcompetencyCounts = {
-    psychiatry: psychiatryMilestones.subcompetencies?.length ?? 0,
-  };
+  const subcompetencyCounts = { psychiatry: psychiatryMilestones.subcompetencies?.length ?? 0 };
+  for (const [slug, program] of Object.entries(allProgramMilestones.programs ?? {})) {
+    if (slug === "psychiatry") continue;
+    subcompetencyCounts[slug] = program.subcompetencies?.length ?? 0;
+  }
 
   const rows = primaries.map((p) => {
     const meta = milestoneFrameworks.frameworks[p.slug];
-    const milestone_status = meta?.status === "seeded" ? "seeded" : "universal_only";
+    const milestone_status =
+      meta?.status === "seeded"
+        ? "seeded"
+        : meta?.status === "catalog_only"
+          ? "catalog_only"
+          : "universal_only";
+    const catalogSlug = meta?.catalog_slug ?? p.slug;
     return {
       primary_name: p.name,
       slug: p.slug,
@@ -51,7 +57,7 @@ function main() {
       subspecialty_count: p.subspecialties.length,
       in_onboarding: onboardingNames.has(p.name),
       milestone_status,
-      subcompetency_count: subcompetencyCounts[p.slug] ?? 0,
+      subcompetency_count: subcompetencyCounts[catalogSlug] ?? subcompetencyCounts[p.slug] ?? 0,
     };
   });
 
@@ -91,11 +97,9 @@ function main() {
     primary_count: primaries.length,
     subspecialty_count: Object.keys(subspecialtyToPrimary).length,
     seeded_framework_count: rows.filter((r) => r.milestone_status === "seeded").length,
-    catalog_program_count: milestoneCatalog.programs?.length ?? 0,
-    catalog_parsed_count: (milestoneCatalog.programs ?? []).filter(
-      (p) => p.parse_status === "parsed" || p.parse_status === "seeded_manual",
-    ).length,
-    catalog_url_only_count: (milestoneCatalog.programs ?? []).filter((p) => p.milestone_pdf_url).length,
+    catalog_total_programs: catalogPrograms.length,
+    catalog_parsed_programs: catalogParsed.length,
+    catalog_url_only_programs: catalogUrlOnly.length,
     rows,
     gaps,
     milestone_seed_pending,
@@ -106,11 +110,9 @@ function main() {
   console.log(`Subspecialty programs: ${audit.subspecialty_count}`);
   console.log(`Onboarding primary list: ${onboardingNames.size}`);
   console.log(`Seeded milestone frameworks: ${audit.seeded_framework_count}`);
-  if (audit.catalog_program_count) {
-    console.log(`Milestone catalog programs: ${audit.catalog_program_count}`);
-    console.log(`  Parsed / manual seeds: ${audit.catalog_parsed_count}`);
-    console.log(`  With milestone PDF URL: ${audit.catalog_url_only_count}`);
-  }
+  console.log(`Milestone catalog programs: ${audit.catalog_total_programs}`);
+  console.log(`  Parsed milestones: ${audit.catalog_parsed_programs}`);
+  console.log(`  URL-only / pending: ${audit.catalog_url_only_programs}`);
   console.log("");
 
   console.log(`Pending specialty milestone seeds: ${milestone_seed_pending.length}`);

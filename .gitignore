@@ -19,6 +19,7 @@
 /build
 
 # misc
+docs/seeds/acgme/_cache/
 .DS_Store
 *.pem
 .venv-img/

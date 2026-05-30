@@ -26,6 +26,10 @@ describe("ACGME specialty registry", () => {
 
   it("maps psychiatry subspecialties to psychiatry", () => {
     expect(isAcgmeSubspecialtyForPrimary("Psychiatry", "Addiction psychiatry")).toBe(true);
+    expect(isAcgmeSubspecialtyForPrimary("Psychiatry", "Addiction Medicine")).toBe(true);
+    expect(isAcgmeSubspecialtyForPrimary("Psychiatry", "Consultation-Liaison Psychiatry")).toBe(
+      true,
+    );
     expect(isAcgmePrimarySpecialty("Psychiatry")).toBe(true);
   });
 });
