@@ -14,6 +14,7 @@ type OnboardingTermsAcceptanceCardProps = {
   onAccept: () => void;
   loading?: boolean;
   disabled?: boolean;
+  error?: string;
 };
 
 function AcceptanceCheckbox({
@@ -60,6 +61,7 @@ export function OnboardingTermsAcceptanceCard({
   onAccept,
   loading = false,
   disabled = false,
+  error,
 }: OnboardingTermsAcceptanceCardProps) {
   const allChecked = chatConfidential && summativeReports && documentOwnership;
 
@@ -120,6 +122,12 @@ export function OnboardingTermsAcceptanceCard({
         </Link>
         .
       </p>
+
+      {error ? (
+        <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+          {error}
+        </p>
+      ) : null}
 
       <button
         type="button"
