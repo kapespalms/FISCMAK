@@ -1,10 +1,11 @@
 "use client";
 
-import { Shield } from "lucide-react";
+import { Shield, LogOut } from "lucide-react";
 import { CardSection } from "@/components/ui/CardSection";
 import { PageShell } from "@/components/layout/PageShell";
 import { PremiumUpgradePanel } from "@/components/settings/PremiumUpgradePanel";
 import { KpAdminSettingsLink } from "@/components/admin/KpAdminSettingsLink";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 import { SETTINGS_MAK } from "@/lib/card-mak-prompts";
 
 export default function SettingsPage() {
@@ -17,6 +18,14 @@ export default function SettingsPage() {
     >
       <PremiumUpgradePanel />
       <KpAdminSettingsLink />
+      <CardSection
+        eyebrow="Session"
+        title="Sign out"
+        description="End your session on this device."
+        icon={LogOut}
+      >
+        <SignOutButton variant="settings" />
+      </CardSection>
       <CardSection
         eyebrow="Privacy"
         title="Institution data sharing"

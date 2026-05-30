@@ -1,20 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageShell } from "@/components/layout/PageShell";
-import { CheckCircle2, ChevronLeft, Circle } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   CAREER_LEVELS,
   PGY_LEVELS,
   PRACTICE_SETTINGS,
   ACADEMIC_RANKS,
+  ACADEMIC_RANK_SPECIAL,
+  ACADEMIC_RANK_HELPER,
   requiresAcademicRank,
   isTraineeCareerLevel,
+  isMedicalStudent,
   requiresGmePlacementFields,
   allowsSubspecialtyInterests,
   type AcademicRank,
@@ -22,11 +25,19 @@ import {
   type PgyLevel,
   type PracticeSetting,
 } from "@/lib/v2/onboarding-options";
-import { buildSpecialtyOriginQuestion } from "@/lib/v2/trainee-origin";
+import { buildNarrativePrompt, NARRATIVE_HELPER, showNarrativeField } from "@/lib/v2/narrative-prompts";
+import {
+  MEDICAL_STUDENT_YEARS,
+  CURRENT_GOAL_OPTIONS,
+  type AdditionalDegreeEntry,
+  type CurrentGoal,
+  type MedicalStudentYear,
+} from "@/lib/v2/onboarding-profile-fields";
 import { combineName, splitTrustedName, type TrustedName } from "@/lib/auth/trusted-name";
 import type { OnboardingPath } from "@/lib/v2/onboarding-path";
 import type { ProgramRotation } from "@/lib/v2/programs/registry";
 import { getProgramBySlug } from "@/lib/v2/programs/registry";
+import type { InstitutionalTokenPrefill } from "@/lib/v2/programs/institutional-onboarding-tokens";
 import { OnboardingPathSelect } from "@/components/onboarding/OnboardingPathSelect";
 import {
   defaultTrainingComplete,
@@ -35,6 +46,8 @@ import {
 } from "@/lib/v2/specialty-hierarchy";
 import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
 import { OnboardingWelcome } from "@/components/onboarding/OnboardingWelcome";
+import { OnboardingMilestoneTimeline } from "@/components/onboarding/OnboardingMilestoneTimeline";
+import { OnboardingResumeBanner } from "@/components/onboarding/OnboardingResumeBanner";
 import { ProgramJoinHeadline } from "@/components/onboarding/ProgramJoinHeadline";
 import { OnboardingDocumentsStep } from "@/components/onboarding/OnboardingDocumentsStep";
 import { ReconciliationItemCard } from "@/components/onboarding/ReconciliationItemCard";
@@ -45,16 +58,34 @@ import {
   primaryTrackFromRankings,
   type CareerTrackRanking,
 } from "@/components/onboarding/CareerTrackRankingFields";
-import { RotationSelectFields } from "@/components/onboarding/RotationSelectFields";
-import {
-  OnboardingProfileSection,
-  OnboardingProfileHint,
-  OnboardingFieldLabel,
-  OnboardingChoiceButton,
-} from "@/components/onboarding/OnboardingProfileSection";
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
+import { AdditionalDegreesFields } from "@/components/onboarding/AdditionalDegreesFields";
+import {
+  OnboardingProfileCarousel,
+  type ProfileCarouselCard,
+} from "@/components/onboarding/OnboardingProfileCarousel";
+import { OnboardingTermsAcceptanceCard } from "@/components/onboarding/OnboardingTermsAcceptanceCard";
+import { ACCEPTANCE_CARD_COPY } from "@/lib/onboarding/acceptance-card-copy";
+import {
+  LuxuryWorkspace,
+  LuxuryCardHeader,
+  LuxuryBlock,
+  LuxuryChoiceButton,
+  LuxuryTextInput,
+  LuxuryTextarea,
+  LuxuryHint,
+  LuxuryInfoPanel,
+  LuxuryDivider,
+} from "@/components/onboarding/OnboardingLuxuryUi";
+import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
+import { MAK_DISPLAY_NAME } from "@/lib/brand-assets";
+import { milestoneIndexForStep } from "@/lib/v2/onboarding-milestones";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
 import type { NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
+import {
+  resolveOnboardingWizardStep,
+} from "@/lib/v2/onboarding-progress";
+import type { AppUser } from "@/lib/v2/types";
 
 type OnboardingStep = "path" | "welcome" | "profile" | "documents" | "reconcile" | "instruments";
 
@@ -74,24 +105,25 @@ type OnboardingProgramConfig = {
 
 const STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[] = [
   { id: "welcome", label: "Welcome" },
-  { id: "profile", label: "Profile" },
+  { id: "profile", label: "Demographics" },
   { id: "documents", label: "Documents" },
   { id: "reconcile", label: "Confirm data" },
   { id: "instruments", label: "Self-assessment" },
 ];
 
+const INSTITUTIONAL_STEPS_AFTER_PATH: { id: Exclude<OnboardingStep, "path">; label: string }[] =
+  [
+    { id: "welcome", label: "Welcome" },
+    { id: "profile", label: "Identity" },
+    { id: "documents", label: "Evidence" },
+    { id: "reconcile", label: "Confirm data" },
+    { id: "instruments", label: "Inventory" },
+  ];
+
 const STEPS: { id: OnboardingStep; label: string }[] = [
   { id: "path", label: "Path" },
   ...STEPS_AFTER_PATH,
 ];
-
-type BlockLookupHint = {
-  matched: boolean;
-  block_id?: string;
-  rotation_label?: string;
-  days_remaining?: number;
-  message?: string;
-};
 
 type InstrumentSpec = {
   id: string;
@@ -110,6 +142,12 @@ type ReconcileItem = {
 };
 
 const ONBOARDING_NEXT_KEY = "fiscmak_onboarding_next";
+
+function resolveInitialStep(searchParams: URLSearchParams): OnboardingStep {
+  const param = searchParams.get("step");
+  if (param && STEPS.some((s) => s.id === param)) return param as OnboardingStep;
+  return "welcome";
+}
 
 function rememberOnboardingEntry(search: string) {
   if (typeof window === "undefined") return;
@@ -132,60 +170,114 @@ function clearStoredOnboardingEntry() {
 export function Touchpoint1Onboarding() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [step, setStep] = useState<OnboardingStep>("path");
+  const [step, setStep] = useState<OnboardingStep>(() => resolveInitialStep(searchParams));
+  const [bootstrapped, setBootstrapped] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [onboardingPath, setOnboardingPath] = useState<OnboardingPath | null>(null);
   const [pathChosen, setPathChosen] = useState(false);
   const [programConfig, setProgramConfig] = useState<OnboardingProgramConfig | null>(null);
   const [traineeInitials, setTraineeInitials] = useState("");
-  const [blockHint, setBlockHint] = useState<BlockLookupHint | null>(null);
-  const [blockLookupLoading, setBlockLookupLoading] = useState(false);
   const [inviteProgramSlug, setInviteProgramSlug] = useState<string | null>(null);
   const [bootstrappingPath, setBootstrappingPath] = useState(false);
   const [pendingInviteToken, setPendingInviteToken] = useState<string | null>(
     () => searchParams.get("token"),
   );
   const [inviteTokenFromMeta, setInviteTokenFromMeta] = useState<string | null>(null);
+  const [welcomeToken, setWelcomeToken] = useState("");
+  const [welcomeTokenLabel, setWelcomeTokenLabel] = useState<string | null>(null);
+  const [welcomeTokenError, setWelcomeTokenError] = useState<string | null>(null);
+  const [welcomeTokenLoading, setWelcomeTokenLoading] = useState(false);
+  const [resumeProfileStep, setResumeProfileStep] = useState(false);
+  const [resumeDocumentsStep, setResumeDocumentsStep] = useState(false);
+  const [resumeInstrumentsStep, setResumeInstrumentsStep] = useState(false);
+  const [documentsProcessing, setDocumentsProcessing] = useState(false);
+  const [coachMakConversationId, setCoachMakConversationId] = useState<string | null>(null);
 
   const isInstitutional = onboardingPath === "institutional" && Boolean(programConfig);
-  const visibleSteps = pathChosen ? STEPS_AFTER_PATH : STEPS;
+  const stepsAfterPath = isInstitutional ? INSTITUTIONAL_STEPS_AFTER_PATH : STEPS_AFTER_PATH;
+  const visibleSteps = pathChosen ? stepsAfterPath : STEPS;
 
   // Profile fields
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [namePrefilled, setNamePrefilled] = useState(false);
   const [baseSpecialty, setBaseSpecialty] = useState("");
-  const [baseQuery, setBaseQuery] = useState("");
-  const [baseListOpen, setBaseListOpen] = useState(false);
   const [subspecialty, setSubspecialty] = useState("");
-  const [subspecialtyQuery, setSubspecialtyQuery] = useState("");
-  const [subspecialtyListOpen, setSubspecialtyListOpen] = useState(false);
   const [trainingComplete, setTrainingComplete] = useState(false);
   const [careerLevel, setCareerLevel] = useState<CareerLevel>("Fellow");
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
-  const [academicRank, setAcademicRank] = useState<AcademicRank>("Assistant Professor");
+  const [academicRank, setAcademicRank] = useState<AcademicRank | "">("");
+  const [academicRankOther, setAcademicRankOther] = useState("");
+  const [medicalStudentYear, setMedicalStudentYear] = useState<MedicalStudentYear | "">("");
+  const [medicalStudentYearOther, setMedicalStudentYearOther] = useState("");
+  const [specialtyInterests, setSpecialtyInterests] = useState<string[]>([]);
+  const [additionalDegrees, setAdditionalDegrees] = useState<AdditionalDegreeEntry[]>([]);
+  const [currentGoal, setCurrentGoal] = useState<CurrentGoal | "">("");
+  const [otherIndustries, setOtherIndustries] = useState<string[]>([]);
+  const [extracurricularInterests, setExtracurricularInterests] = useState<string[]>([]);
   const [careerTrackRankings, setCareerTrackRankings] = useState<CareerTrackRanking[]>(
     buildDefaultCareerTrackRankings(),
   );
   const [subspecialtyInterests, setSubspecialtyInterests] = useState<string[]>([]);
   const [uhPsychEnrichmentTracks, setUhPsychEnrichmentTracks] = useState<string[]>([]);
   const [pgyLevel, setPgyLevel] = useState<PgyLevel | "">("");
-  const [currentRotation, setCurrentRotation] = useState("");
   const [specialtyOrigin, setSpecialtyOrigin] = useState("");
+  const [profileCardIndex, setProfileCardIndex] = useState(0);
+  const [termsChatConfidential, setTermsChatConfidential] = useState(false);
+  const [termsSummativeReports, setTermsSummativeReports] = useState(false);
+  const [termsDocumentOwnership, setTermsDocumentOwnership] = useState(false);
 
+  const profileCarouselCards = useMemo((): ProfileCarouselCard[] => {
+    const cards: ProfileCarouselCard[] = [
+      {
+        id: "about",
+        label: "Name",
+        sectionLabel: "",
+        title: "Name",
+      },
+      {
+        id: "specialty",
+        label: "Clinical profile",
+        sectionLabel: "",
+        title: "Clinical Profile",
+      },
+      {
+        id: "career",
+        label: "Career direction",
+        sectionLabel: "",
+        title: "Career Direction",
+        description:
+          "Rank the career tracks from most energizing to least energizing. Estimate the number of hours you spend in each every week.",
+      },
+      {
+        id: "acceptance",
+        label: "Account initialization",
+        sectionLabel: "",
+        title: ACCEPTANCE_CARD_COPY.title,
+      },
+    ];
+    return cards;
+  }, []);
+
+  const activeProfileCardId = profileCarouselCards[profileCardIndex]?.id ?? "about";
   const showGmeFields = requiresGmePlacementFields(careerLevel);
-  const showOriginField = isTraineeCareerLevel(careerLevel);
+  const showMedStudentFields = isMedicalStudent(careerLevel);
+  const showNarrative = showNarrativeField(careerLevel);
   const showSubspecialtyInterests = allowsSubspecialtyInterests(careerLevel);
+  const showPracticeSetting = !isInstitutional && !showMedStudentFields;
+  const showAcademicRankField =
+    !isInstitutional && requiresAcademicRank(practiceSetting, careerLevel);
+  const narrativePrompt = buildNarrativePrompt(
+    careerLevel,
+    showMedStudentFields ? specialtyInterests[0] : baseSpecialty,
+    subspecialty || null,
+  );
   const careerLevelOptions = isInstitutional
     ? (programConfig?.career_stages_allowed ?? (["Resident", "Fellow"] as CareerLevel[]))
     : CAREER_LEVELS;
   const institutionalCareerStageLocked =
     isInstitutional && careerLevelOptions.length === 1;
-  const originPrompt =
-    baseSpecialty && showOriginField
-      ? buildSpecialtyOriginQuestion(baseSpecialty, subspecialty || null, careerLevel)
-      : "What drew you to your specialty? Even one sentence.";
 
   function applyTrustedName(trusted: TrustedName | null | undefined) {
     if (!trusted?.first) return;
@@ -194,9 +286,101 @@ export function Touchpoint1Onboarding() {
     setNamePrefilled(true);
   }
 
+  function applyInstitutionalPrefill(prefill: InstitutionalTokenPrefill | null | undefined) {
+    if (!prefill) return;
+    if (prefill.first_name?.trim()) {
+      setFirstName(prefill.first_name.trim());
+      setNamePrefilled(false);
+    }
+    if (prefill.last_name?.trim()) setLastName(prefill.last_name.trim());
+    if (prefill.career_stage) setCareerLevel(prefill.career_stage);
+    if (prefill.base_specialty) {
+      setBaseSpecialty(prefill.base_specialty);
+    }
+    if (prefill.subspecialty) {
+      setSubspecialty(prefill.subspecialty);
+      setTrainingComplete(defaultTrainingComplete(prefill.career_stage ?? careerLevel, prefill.subspecialty));
+    }
+    if (prefill.practice_setting) setPracticeSetting(prefill.practice_setting);
+    if (prefill.pgy_level) setPgyLevel(prefill.pgy_level as PgyLevel);
+  }
+
+  async function reloadOnboardingProgram() {
+    const res = await fetch("/api/v1/onboarding/touchpoint1");
+    const data = await res.json();
+    if (data.onboarding?.path) setOnboardingPath(data.onboarding.path);
+    if (data.onboarding?.path_chosen) setPathChosen(true);
+    if (data.onboarding?.program) {
+      const program = data.onboarding.program as OnboardingProgramConfig;
+      setProgramConfig(program);
+      if (data.onboarding.path === "institutional" && !data.profile?.base_specialty) {
+        applyInstitutionalDefaults(program);
+      }
+    }
+  }
+
+  async function handleApplyInstitutionalToken() {
+    const token = welcomeToken.trim();
+    if (!token) return;
+    setWelcomeTokenLoading(true);
+    setWelcomeTokenError(null);
+    setWelcomeTokenLabel(null);
+    setError("");
+    try {
+      const res = await fetch(
+        `/api/v1/onboarding/institutional-token?token=${encodeURIComponent(token)}`,
+      );
+      const preview = await res.json();
+      if (!preview.valid) {
+        setWelcomeTokenError(preview.message ?? "Token not recognized.");
+        return;
+      }
+
+      if (preview.roster_redeem) {
+        const ok = await redeemInviteFromUrl(token);
+        if (!ok) {
+          setWelcomeTokenError("Could not activate this roster invite.");
+          return;
+        }
+        setWelcomeTokenLabel(preview.program_title ?? preview.label ?? "Program linked.");
+        await reloadOnboardingProgram();
+        return;
+      }
+
+      const ok = await saveOnboardingPath({
+        onboarding_path: "institutional",
+        program_slug: preview.program_slug ?? undefined,
+      });
+      if (!ok) return;
+
+      applyInstitutionalPrefill(preview.prefill);
+      const program = preview.program_slug ? getProgramBySlug(preview.program_slug) : null;
+      if (program && !preview.prefill?.base_specialty) {
+        applyInstitutionalDefaults({
+          slug: program.slug,
+          display_title: program.display_title,
+          institution_name: program.institution_name,
+          program_name: program.program_name,
+          base_specialty: program.base_specialty,
+          specialty_locked: program.specialty_locked,
+          default_career_stage: program.default_career_stage,
+          career_stages_allowed: program.career_stages_allowed,
+          default_practice_setting: program.default_practice_setting,
+          academic_year: program.academic_year,
+          rotations: program.rotations,
+        });
+      }
+      await reloadOnboardingProgram();
+      setWelcomeTokenLabel(preview.label ?? preview.program_title ?? "Institutional program linked.");
+    } catch {
+      setWelcomeTokenError("Could not verify token. Try again.");
+    } finally {
+      setWelcomeTokenLoading(false);
+    }
+  }
+
   function applyInstitutionalDefaults(program: OnboardingProgramConfig) {
     setBaseSpecialty(program.base_specialty);
-    setBaseQuery(program.base_specialty);
     const stage =
       program.career_stages_allowed?.length === 1
         ? program.career_stages_allowed[0]!
@@ -207,10 +391,7 @@ export function Touchpoint1Onboarding() {
 
   async function lookupBlockSchedule(programSlug?: string, token?: string | null) {
     const slug = programSlug ?? programConfig?.slug;
-    if (!slug) {
-      setBlockHint(null);
-      return;
-    }
+    if (!slug) return;
 
     const tokenParam = token ?? inviteTokenFromMeta ?? pendingInviteToken;
     const query = tokenParam
@@ -218,39 +399,18 @@ export function Touchpoint1Onboarding() {
       : traineeInitials.trim()
         ? `initials=${encodeURIComponent(traineeInitials.trim().toUpperCase())}`
         : "";
-    if (!query) {
-      setBlockHint(null);
-      return;
-    }
+    if (!query) return;
 
-    setBlockLookupLoading(true);
-    setError("");
     try {
       const res = await fetch(
         `/api/v1/onboarding/block-lookup?${query}&program=${encodeURIComponent(slug)}`,
       );
       const data = await res.json();
-      if (!res.ok) {
-        setBlockHint({ matched: false, message: data.message ?? "Could not load rotation suggestion." });
-        return;
-      }
-      if (data.matched) {
-        if (data.suggested_pgy) setPgyLevel(data.suggested_pgy as PgyLevel);
-        if (data.rotation_label) setCurrentRotation(data.rotation_label);
-        setBlockHint({
-          matched: true,
-          block_id: data.block_id,
-          rotation_label: data.rotation_label,
-          days_remaining: data.days_remaining,
-        });
-      } else {
-        if (data.suggested_pgy) setPgyLevel(data.suggested_pgy as PgyLevel);
-        setBlockHint(null);
+      if (res.ok && data.suggested_pgy) {
+        setPgyLevel(data.suggested_pgy as PgyLevel);
       }
     } catch {
-      setBlockHint(null);
-    } finally {
-      setBlockLookupLoading(false);
+      /* optional PGY prefill */
     }
   }
 
@@ -296,11 +456,9 @@ export function Touchpoint1Onboarding() {
 
     if (normalized.base_specialty) {
       setBaseSpecialty(normalized.base_specialty);
-      setBaseQuery(normalized.base_specialty);
     }
     if (normalized.subspecialty) {
       setSubspecialty(normalized.subspecialty);
-      setSubspecialtyQuery(normalized.subspecialty);
       setTrainingComplete(
         profile.subspecialty_training_complete ??
           defaultTrainingComplete(profile.career_stage ?? careerLevel, normalized.subspecialty),
@@ -314,36 +472,110 @@ export function Touchpoint1Onboarding() {
   const [savedNpi, setSavedNpi] = useState("");
   const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
 
+  async function saveOnboardingProgress(input: {
+    current_onboarding_step?: number | null;
+    coach_mak_conversation_id?: string | null;
+    profile_draft?: Record<string, unknown>;
+  }) {
+    try {
+      await fetch("/api/v1/onboarding/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(input),
+      });
+    } catch {
+      /* best-effort autosave */
+    }
+  }
+
+  async function saveProfileDraft() {
+    await saveOnboardingProgress({
+      current_onboarding_step: 1,
+      profile_draft: {
+        firstName,
+        lastName,
+        baseSpecialty,
+        subspecialty,
+        careerLevel,
+        practiceSetting,
+        pgyLevel,
+        specialtyOrigin,
+      },
+    });
+  }
+
+  async function beginOnboarding() {
+    await saveOnboardingProgress({ current_onboarding_step: 1 });
+    setStep("profile");
+    router.replace("/app/onboarding?step=profile");
+  }
+
   const resolveStep = useCallback(
-    (u: {
-      tier1_complete?: boolean;
-      tier2_complete?: boolean;
-      tier3_complete?: boolean;
-      cv_uploaded?: boolean;
-      pending_reconcile_count?: number;
-      path_chosen?: boolean;
-    }, options?: { pathResolved?: boolean }) => {
-      if (u.tier3_complete) {
+    (
+      u: {
+        tier1_complete?: boolean;
+        tier2_complete?: boolean;
+        tier3_complete?: boolean;
+        cv_uploaded?: boolean;
+        pending_reconcile_count?: number;
+        path_chosen?: boolean;
+        onboarding_status?: string;
+        current_onboarding_step?: number | null;
+        coach_mak_conversation_id?: string | null;
+        enrichment_pending?: boolean;
+        profile_name?: string | null;
+        profile_base_specialty?: string | null;
+      },
+      options?: { pathResolved?: boolean },
+    ) => {
+      if (u.coach_mak_conversation_id) setCoachMakConversationId(u.coach_mak_conversation_id);
+      setDocumentsProcessing(Boolean(u.enrichment_pending));
+
+      if (u.tier3_complete || u.onboarding_status === "FULLY_ONBOARDED") {
         router.replace("/app/dashboard");
         return;
       }
+
       const param = searchParams.get("step") as OnboardingStep | null;
       if (param && STEPS.some((s) => s.id === param)) {
         setStep(param);
+        setResumeProfileStep(
+          param === "profile" &&
+            !u.tier1_complete &&
+            (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED"),
+        );
+        setResumeDocumentsStep(param === "documents");
+        setResumeInstrumentsStep(param === "instruments");
         return;
       }
-      if (!u.tier1_complete) {
-        if (!u.path_chosen && !options?.pathResolved) {
-          setStep("path");
-          return;
-        }
-        setStep("welcome");
+
+      if (!u.path_chosen && !options?.pathResolved) {
+        setStep("path");
         return;
       }
-      if (u.cv_uploaded && (u.pending_reconcile_count ?? 0) > 0 && !u.tier2_complete) {
-        setStep("reconcile");
-      } else if (!u.tier2_complete) setStep("documents");
-      else setStep("instruments");
+
+      const resolved = resolveOnboardingWizardStep(
+        {
+          tier1_complete: Boolean(u.tier1_complete),
+          tier2_complete: Boolean(u.tier2_complete),
+          tier3_complete: Boolean(u.tier3_complete),
+          onboarding_status: u.onboarding_status as AppUser["onboarding_status"],
+          current_onboarding_step: u.current_onboarding_step ?? null,
+          cv_uploaded: Boolean(u.cv_uploaded),
+          name: u.profile_name ?? null,
+          base_specialty: u.profile_base_specialty ?? null,
+        },
+        u.pending_reconcile_count ?? 0,
+      );
+      setStep(resolved);
+      setResumeProfileStep(
+        resolved === "profile" &&
+          !u.tier1_complete &&
+          (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED"),
+      );
+      setResumeDocumentsStep(resolved === "documents");
+      setResumeInstrumentsStep(resolved === "instruments");
+      router.replace(`/app/onboarding?step=${resolved}`);
     },
     [router, searchParams],
   );
@@ -434,7 +666,12 @@ export function Touchpoint1Onboarding() {
       }
       if (data.profile?.career_stage) setCareerLevel(data.profile.career_stage);
       if (data.profile?.practice_setting) setPracticeSetting(data.profile.practice_setting);
-      if (data.profile?.academic_rank) setAcademicRank(data.profile.academic_rank);
+      if (data.profile?.academic_rank) {
+        const rank = data.profile.academic_rank as AcademicRank;
+        setAcademicRank(rank);
+      } else if (data.onboarding_metadata?.academic_rank_selection) {
+        setAcademicRank(data.onboarding_metadata.academic_rank_selection as AcademicRank);
+      }
       if (data.profile?.primary_career_track || data.onboarding_metadata?.career_track_rankings) {
         setCareerTrackRankings(
           hydrateCareerTrackRankings(
@@ -446,11 +683,37 @@ export function Touchpoint1Onboarding() {
       if (data.onboarding_metadata?.subspecialty_interests) {
         setSubspecialtyInterests(data.onboarding_metadata.subspecialty_interests);
       }
+      if (data.onboarding_metadata?.specialty_interests) {
+        setSpecialtyInterests(data.onboarding_metadata.specialty_interests);
+      }
+      if (data.onboarding_metadata?.medical_student_year) {
+        const year = data.onboarding_metadata.medical_student_year as string;
+        if ((MEDICAL_STUDENT_YEARS as readonly string[]).includes(year)) {
+          setMedicalStudentYear(year as MedicalStudentYear);
+        } else {
+          setMedicalStudentYear("Other");
+          setMedicalStudentYearOther(year);
+        }
+      }
+      if (data.onboarding_metadata?.additional_degrees) {
+        setAdditionalDegrees(data.onboarding_metadata.additional_degrees);
+      }
+      if (data.onboarding_metadata?.current_goal) {
+        setCurrentGoal(data.onboarding_metadata.current_goal as CurrentGoal);
+      }
+      if (data.onboarding_metadata?.other_industries) {
+        setOtherIndustries(data.onboarding_metadata.other_industries);
+      }
+      if (data.onboarding_metadata?.extracurricular_interests) {
+        setExtracurricularInterests(data.onboarding_metadata.extracurricular_interests);
+      }
+      if (data.onboarding_metadata?.academic_rank_other) {
+        setAcademicRankOther(data.onboarding_metadata.academic_rank_other);
+      }
       if (data.onboarding_metadata?.uh_psych_enrichment_tracks) {
         setUhPsychEnrichmentTracks(data.onboarding_metadata.uh_psych_enrichment_tracks);
       }
       if (data.profile?.pgy_level) setPgyLevel(data.profile.pgy_level as PgyLevel);
-      if (data.profile?.current_rotation) setCurrentRotation(data.profile.current_rotation);
       if (data.profile?.specialty_origin) setSpecialtyOrigin(data.profile.specialty_origin);
       if (data.onboarding?.path) setOnboardingPath(data.onboarding.path);
       if (data.onboarding?.path_chosen) setPathChosen(true);
@@ -483,12 +746,27 @@ export function Touchpoint1Onboarding() {
         {
           ...data,
           path_chosen: pathChosenFromServer || pathResolved,
+          onboarding_status: data.onboarding_status,
+          current_onboarding_step: data.current_onboarding_step,
+          coach_mak_conversation_id: data.coach_mak_conversation_id,
+          profile_name: data.profile?.name ?? null,
+          profile_base_specialty: data.profile?.base_specialty ?? null,
+          enrichment_pending: Boolean(
+            data.cv_uploaded &&
+              !data.tier2_complete &&
+              (data.reconciliation ?? []).some(
+                (r: { status?: string }) => r.status === "pending",
+              ) &&
+              !data.onboarding_metadata?.enrichment_snapshot,
+          ),
         },
         { pathResolved: pathResolved || pathChosenFromServer },
       );
       setBootstrappingPath(false);
+      setBootstrapped(true);
     })().catch(() => {
       setBootstrappingPath(false);
+      setBootstrapped(true);
     });
   }, [resolveStep, searchParams]);
 
@@ -517,64 +795,165 @@ export function Touchpoint1Onboarding() {
     }
   }, [step]);
 
+  async function validateProfileCard(cardId: string): Promise<boolean> {
+    setError("");
+    const fullName = combineName(firstName, lastName);
+    if (cardId === "about") {
+      if (!fullName.trim() || fullName.trim().length < 2) {
+        setError("Enter your first and last name.");
+        return false;
+      }
+      return true;
+    }
+    if (cardId === "specialty") {
+      const resolvedBase = showMedStudentFields
+        ? specialtyInterests[0] ?? baseSpecialty
+        : baseSpecialty;
+      if (!showMedStudentFields && (!resolvedBase || !isValidBaseSpecialty(resolvedBase))) {
+        setError("Select a base specialty from the list.");
+        return false;
+      }
+      if (showMedStudentFields && specialtyInterests.length === 0) {
+        setError("Add at least one specialty of interest.");
+        return false;
+      }
+      if (showMedStudentFields && !medicalStudentYear) {
+        setError("Select your medical school year.");
+        return false;
+      }
+      if (requiresGmePlacementFields(careerLevel) && !pgyLevel) {
+        setError("Select your PGY level.");
+        return false;
+      }
+      return true;
+    }
+    return true;
+  }
+
+  async function goToNextProfileCard() {
+    const cardId = profileCarouselCards[profileCardIndex]?.id;
+    if (!cardId) return;
+    const ok = await validateProfileCard(cardId);
+    if (!ok) return;
+    setProfileCardIndex((i) => Math.min(i + 1, profileCarouselCards.length - 1));
+  }
+
+  function goToPrevProfileCard() {
+    setError("");
+    setProfileCardIndex((i) => Math.max(i - 1, 0));
+  }
+
   async function submitProfile() {
+    const acceptanceCardId = profileCarouselCards[profileCarouselCards.length - 1]?.id;
+    if (acceptanceCardId === "acceptance") {
+      for (const card of profileCarouselCards) {
+        if (card.id === "acceptance") break;
+        const ok = await validateProfileCard(card.id);
+        if (!ok) {
+          setProfileCardIndex(profileCarouselCards.findIndex((c) => c.id === card.id));
+          return;
+        }
+      }
+    }
+    if (!termsChatConfidential || !termsSummativeReports || !termsDocumentOwnership) {
+      setError("Please confirm all privacy and ownership items before continuing.");
+      setProfileCardIndex(profileCarouselCards.findIndex((c) => c.id === "acceptance"));
+      return;
+    }
     const fullName = combineName(firstName, lastName);
     if (!fullName.trim() || fullName.trim().length < 2) {
       setError("Enter your first and last name.");
       return;
     }
-    if (!baseSpecialty || !isValidBaseSpecialty(baseSpecialty)) {
+    const resolvedBase = showMedStudentFields
+      ? specialtyInterests[0] ?? baseSpecialty
+      : baseSpecialty;
+    if (!showMedStudentFields && (!resolvedBase || !isValidBaseSpecialty(resolvedBase))) {
       setError("Select a base specialty from the list.");
       return;
     }
-    if (requiresGmePlacementFields(careerLevel)) {
-      if (!pgyLevel) {
-        setError("Select your PGY level.");
-        return;
-      }
-      if (!currentRotation.trim()) {
-        setError("Enter your current rotation.");
-        return;
-      }
+    if (showMedStudentFields && !medicalStudentYear) {
+      setError("Select your medical school year.");
+      return;
     }
-    if (isTraineeCareerLevel(careerLevel) && !specialtyOrigin.trim()) {
-      setError("Share what drew you to your specialty — even one sentence.");
+    if (requiresGmePlacementFields(careerLevel) && !pgyLevel) {
+      setError("Select your PGY level.");
       return;
     }
     setLoading(true);
     setError("");
-    const res = await fetch("/api/v1/onboarding/profile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: fullName.trim(),
-        base_specialty: baseSpecialty,
-        subspecialty: subspecialty || null,
-        subspecialty_training_complete: subspecialty ? trainingComplete : false,
-        career_stage: careerLevel,
-        practice_setting: practiceSetting,
-        academic_rank: requiresAcademicRank(practiceSetting) ? academicRank : null,
-        primary_career_track: primaryTrackFromRankings(careerTrackRankings),
-        career_track_rankings: careerTrackRankings,
-        subspecialty_interests: showSubspecialtyInterests ? subspecialtyInterests : [],
-        uh_psych_enrichment_tracks:
-          isInstitutional && programConfig?.slug === "uh-psych-cmc"
-            ? uhPsychEnrichmentTracks
-            : [],
-        pgy_level: showGmeFields ? pgyLevel : null,
-        current_rotation: showGmeFields ? currentRotation.trim() : null,
-        specialty_origin: showOriginField ? specialtyOrigin.trim() : null,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.message ?? "Could not save profile");
+
+    const resolvedAcademicRank =
+      academicRank === "Other" ? "Other" : academicRank || null;
+
+    const resolvedMsYear =
+      medicalStudentYear === "Other"
+        ? medicalStudentYearOther.trim() || "Other"
+        : medicalStudentYear || null;
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 90_000);
+
+      const res = await fetch("/api/v1/onboarding/profile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          name: fullName.trim(),
+          base_specialty: resolvedBase || null,
+          subspecialty: showMedStudentFields ? null : subspecialty || null,
+          subspecialty_training_complete: subspecialty ? trainingComplete : false,
+          career_stage: careerLevel,
+          practice_setting: showMedStudentFields ? null : practiceSetting,
+          academic_rank: showAcademicRankField ? resolvedAcademicRank : null,
+          academic_rank_other: academicRank === "Other" ? academicRankOther.trim() : null,
+          primary_career_track: primaryTrackFromRankings(careerTrackRankings),
+          career_track_rankings: careerTrackRankings,
+          subspecialty_interests: showSubspecialtyInterests ? subspecialtyInterests : [],
+          specialty_interests: showMedStudentFields ? specialtyInterests : [],
+          medical_student_year: showMedStudentFields ? resolvedMsYear : null,
+          additional_degrees: additionalDegrees,
+          current_goal: currentGoal || null,
+          other_industries: otherIndustries,
+          extracurricular_interests: extracurricularInterests,
+          uh_psych_enrichment_tracks:
+            isInstitutional && programConfig?.slug === "uh-psych-cmc"
+              ? uhPsychEnrichmentTracks
+              : [],
+          pgy_level: showGmeFields ? pgyLevel : null,
+          specialty_origin: specialtyOrigin.trim() || null,
+          terms_accepted: true,
+          terms_version: FISCMAK_TERMS_VERSION,
+        }),
+      });
+
+      window.clearTimeout(timeoutId);
+
+      let data: { message?: string; error?: string };
+      try {
+        data = (await res.json()) as { message?: string; error?: string };
+      } catch {
+        setError("Server error — refresh the page and try again.");
+        return;
+      }
+
+      if (!res.ok) {
+        setError(data.message ?? "Could not save profile");
+        return;
+      }
+
+      setStep("documents");
+      router.replace("/app/onboarding?step=documents");
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") {
+        setError("Request timed out. Please try again.");
+      } else {
+        setError("Could not save profile. Check your connection and try again.");
+      }
+    } finally {
       setLoading(false);
-      return;
     }
-    setLoading(false);
-    setStep("documents");
-    router.replace("/app/onboarding?step=documents");
   }
 
   function goToReconcile() {
@@ -632,6 +1011,15 @@ export function Touchpoint1Onboarding() {
     setLoading(true);
     setError("");
     try {
+      const conversationId = coachMakConversationId ?? crypto.randomUUID();
+      if (!coachMakConversationId) {
+        await saveOnboardingProgress({
+          current_onboarding_step: 3,
+          coach_mak_conversation_id: conversationId,
+        });
+        setCoachMakConversationId(conversationId);
+      }
+
       const res = await fetch("/api/v1/onboarding/compute", { method: "POST" });
       const data = await res.json();
       if (!res.ok) {
@@ -649,10 +1037,7 @@ export function Touchpoint1Onboarding() {
 
   function pickBaseSpecialty(value: string) {
     setBaseSpecialty(value);
-    setBaseQuery(value);
-    setBaseListOpen(false);
     setSubspecialty("");
-    setSubspecialtyQuery("");
     setTrainingComplete(false);
     setSpecialtyOrigin("");
     setError("");
@@ -660,8 +1045,6 @@ export function Touchpoint1Onboarding() {
 
   function pickSubspecialty(value: string) {
     setSubspecialty(value);
-    setSubspecialtyQuery(value);
-    setSubspecialtyListOpen(false);
     setTrainingComplete(defaultTrainingComplete(careerLevel, value || null));
     setSpecialtyOrigin("");
     setError("");
@@ -671,13 +1054,11 @@ export function Touchpoint1Onboarding() {
     setCareerLevel(next);
     if (next !== "Fellow" && subspecialty) {
       setSubspecialty("");
-      setSubspecialtyQuery("");
       setTrainingComplete(false);
     }
-    if (!isTraineeCareerLevel(next)) {
-      setSpecialtyOrigin("");
-    } else if (next !== "Fellow") {
-      setSpecialtyOrigin("");
+    if (isMedicalStudent(next)) {
+      setBaseSpecialty("");
+      setSubspecialty("");
     }
     if (subspecialty) {
       setTrainingComplete(defaultTrainingComplete(next, subspecialty));
@@ -688,7 +1069,12 @@ export function Touchpoint1Onboarding() {
 
   function navigateToStep(target: OnboardingStep) {
     const targetIdx = visibleSteps.findIndex((s) => s.id === target);
-    if (targetIdx < 0 || targetIdx >= stepIndex) return;
+    if (targetIdx < 0) return;
+
+    const targetMilestone = milestoneIndexForStep(target);
+    const currentMilestone = milestoneIndexForStep(step);
+    if (targetIdx >= stepIndex && targetMilestone >= currentMilestone) return;
+
     setError("");
     setStep(target);
     router.replace(`/app/onboarding?step=${target}`);
@@ -707,48 +1093,57 @@ export function Touchpoint1Onboarding() {
     }
   }
 
+  const showProgressStepper = pathChosen && step !== "path";
+  const timelineDark =
+    step === "profile" ||
+    step === "documents" ||
+    step === "reconcile" ||
+    step === "instruments";
+
   return (
-    <PageShell
-      title="Onboarding"
-      maxWidth="md"
-      className="py-4"
-    >
-      <div className="mb-6 flex gap-1 overflow-x-auto">
-        {visibleSteps.map((s, i) => {
-          const completed = i < stepIndex;
-          const current = i === stepIndex;
-          const pillClass = cn(
-            "cx-nav-pill flex shrink-0 items-center gap-1.5 text-xs",
-            current
-              ? "cx-nav-pill-active"
-              : completed
-                ? "cx-nav-pill-inactive bg-cx-forest-dark/10"
-                : "cx-nav-pill-inactive opacity-60",
-          );
-
-          if (completed) {
-            return (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => navigateToStep(s.id)}
-                className={cn(pillClass, "cursor-pointer hover:opacity-90")}
-              >
-                <CheckCircle2 size={14} />
-                {s.label}
-              </button>
-            );
-          }
-
-          return (
-            <div key={s.id} className={pillClass}>
-              {completed ? <CheckCircle2 size={14} /> : <Circle size={14} />}
-              {s.label}
+    <>
+      {!bootstrapped ? (
+        <div className="flex flex-1 items-center justify-center p-8">
+          <p className="font-futura-book text-gray-400">Loading onboarding…</p>
+        </div>
+      ) : showProgressStepper ? (
+        <div
+          className={cn(
+            "-mx-4 -mt-4 flex min-h-[calc(100vh-2rem)] flex-col md:-mx-8 md:-mt-8",
+            timelineDark ? "bg-[#0A0C10]" : "bg-slate-50/50",
+          )}
+        >
+          <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6">
+            <div
+              className={cn(
+                "sticky top-0 z-50 -mx-6 border-b px-6 pb-1 pt-2",
+                timelineDark ? "border-white/10 bg-[#0A0C10]" : "border-slate-200/80 bg-white",
+              )}
+            >
+              <OnboardingMilestoneTimeline
+                currentStep={step}
+                cardIndex={step === "profile" ? profileCardIndex : undefined}
+                cardCount={step === "profile" ? profileCarouselCards.length : undefined}
+                variant={timelineDark ? "dark" : "light"}
+                onNavigate={(target) => navigateToStep(target as OnboardingStep)}
+              />
             </div>
-          );
-        })}
-      </div>
+            <main className="flex-1 py-6">
+              {renderOnboardingSteps()}
+            </main>
+          </div>
+        </div>
+      ) : (
+        <PageShell title="Onboarding" maxWidth="md" className="py-4">
+          {renderOnboardingSteps()}
+        </PageShell>
+      )}
+    </>
+  );
 
+  function renderOnboardingSteps() {
+    return (
+      <>
       {step === "path" && bootstrappingPath && (
         <Card>
           <p className="text-sm text-cx-forest-dark/70">
@@ -809,21 +1204,30 @@ export function Touchpoint1Onboarding() {
               ? getProgramBySlug(programConfig.slug) ?? undefined
               : undefined
           }
-          onBegin={() => {
-            setStep("profile");
-            router.replace("/app/onboarding?step=profile");
-          }}
+          institutionalToken={welcomeToken}
+          onInstitutionalTokenChange={setWelcomeToken}
+          onApplyInstitutionalToken={handleApplyInstitutionalToken}
+          tokenPreviewLabel={welcomeTokenLabel}
+          tokenLoading={welcomeTokenLoading}
+          tokenError={welcomeTokenError}
+          onBegin={() => void beginOnboarding()}
         />
         </>
       )}
 
       {step === "profile" && (
-        <Card className="font-futura-book">
+        <div className="space-y-8 font-futura-book text-white">
+          {resumeProfileStep ? (
+            <OnboardingResumeBanner
+              message="Welcome back. Finish your Core Profile."
+              storageKey="fiscmak_onboarding_resume_profile"
+            />
+          ) : null}
           {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
@@ -833,433 +1237,465 @@ export function Touchpoint1Onboarding() {
             <ProgramJoinHeadline
               program={programConfig}
               variant="onboarding"
-              className="mb-2 text-2xl"
+              className="mb-2 text-2xl !text-white [&_span]:!text-white"
             />
           )}
-          <h1 className="text-page-title">
-            {isInstitutional ? "Resident profile" : "Your profile"}
-          </h1>
-          {!isInstitutional && (
-            <p className="font-futura-book mt-2 text-base text-black">
-              Career level and specialty drive benchmarks and document requirements.
-            </p>
-          )}
 
-          <div className="mt-6 space-y-6">
-            <OnboardingProfileSection
-              step="Section 1"
-              title="About you"
-              description="How your name appears across FISCMAK."
-            >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <OnboardingFieldLabel htmlFor="onboarding-first-name">First name</OnboardingFieldLabel>
-                  <input
-                    id="onboarding-first-name"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    placeholder="Jane"
-                    className="cx-field mt-2 text-base text-black"
-                    autoComplete="given-name"
-                    readOnly={namePrefilled}
-                  />
-                </div>
-                <div>
-                  <OnboardingFieldLabel htmlFor="onboarding-last-name">Last name</OnboardingFieldLabel>
-                  <input
-                    id="onboarding-last-name"
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    placeholder="Smith"
-                    className="cx-field mt-2 text-base text-black"
-                    autoComplete="family-name"
-                    readOnly={namePrefilled}
-                  />
-                </div>
-              </div>
-              <OnboardingProfileHint>
-                {namePrefilled
-                  ? "Pre-filled from your sign-in or program invite. Contact your program admin to change."
-                  : "Enter your name as you would like it displayed."}
-              </OnboardingProfileHint>
-            </OnboardingProfileSection>
-
-            <OnboardingProfileSection
-              step="Section 2"
-              title="Specialty & placement"
-              description={
-                isInstitutional
-                  ? "Your program, training year, and current rotation."
-                  : "Specialty, career stage, and where you are in training."
-              }
-            >
-              {isInstitutional && programConfig?.specialty_locked ? (
-                <div className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-4">
-                  <p className="font-futura-medium text-base text-cx-forest-dark">Specialty</p>
-                  <p className="font-futura-book mt-1 text-base text-black">{programConfig.base_specialty}</p>
-                  {careerLevel === "Fellow" && (
-                    <OnboardingProfileHint>Select your fellowship subspecialty below.</OnboardingProfileHint>
-                  )}
-                  <div className="mt-4">
-                    <SpecialtyIntakeFields
-                      baseSpecialty={baseSpecialty}
-                      baseQuery={baseQuery}
-                      onBaseQueryChange={setBaseQuery}
-                      onPickBase={pickBaseSpecialty}
-                      baseListOpen={baseListOpen}
-                      onBaseListOpenChange={setBaseListOpen}
-                      subspecialty={subspecialty}
-                      subspecialtyQuery={subspecialtyQuery}
-                      onSubspecialtyQueryChange={setSubspecialtyQuery}
-                      onPickSubspecialty={pickSubspecialty}
-                      subspecialtyListOpen={subspecialtyListOpen}
-                      onSubspecialtyListOpenChange={setSubspecialtyListOpen}
-                      trainingComplete={trainingComplete}
-                      onTrainingCompleteChange={setTrainingComplete}
-                      careerStage={careerLevel}
-                      hideBaseSpecialtyPicker
-                    />
-                  </div>
-                </div>
-              ) : (
-                <SpecialtyIntakeFields
-                  baseSpecialty={baseSpecialty}
-                  baseQuery={baseQuery}
-                  onBaseQueryChange={setBaseQuery}
-                  onPickBase={pickBaseSpecialty}
-                  baseListOpen={baseListOpen}
-                  onBaseListOpenChange={setBaseListOpen}
-                  subspecialty={subspecialty}
-                  subspecialtyQuery={subspecialtyQuery}
-                  onSubspecialtyQueryChange={setSubspecialtyQuery}
-                  onPickSubspecialty={pickSubspecialty}
-                  subspecialtyListOpen={subspecialtyListOpen}
-                  onSubspecialtyListOpenChange={setSubspecialtyListOpen}
-                  trainingComplete={trainingComplete}
-                  onTrainingCompleteChange={setTrainingComplete}
-                  careerStage={careerLevel}
-                />
-              )}
-
-              {institutionalCareerStageLocked ? (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-book text-base text-black">
-                    <span className="font-futura-medium text-cx-forest-dark">Career level:</span>{" "}
-                    {careerLevel}
-                  </p>
-                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
-                </div>
-              ) : (
-                <div>
-                  <OnboardingFieldLabel>Career level</OnboardingFieldLabel>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {careerLevelOptions.map((s) => (
-                      <OnboardingChoiceButton
-                        key={s}
-                        active={careerLevel === s}
-                        onClick={() => handleCareerLevelChange(s)}
-                      >
-                        {s}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {showGmeFields && (
+          <OnboardingProfileCarousel
+            cards={profileCarouselCards}
+            index={profileCardIndex}
+            onIndexChange={(i) => {
+              setError("");
+              setProfileCardIndex(i);
+            }}
+            onNext={() => void goToNextProfileCard()}
+            onPrev={goToPrevProfileCard}
+            error={error}
+            hideNav={activeProfileCardId === "acceptance"}
+          >
+            <LuxuryWorkspace>
+              {activeProfileCardId === "about" && (
                 <>
-                  <div>
-                    <OnboardingFieldLabel>PGY level</OnboardingFieldLabel>
-                    <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-5">
-                      {PGY_LEVELS.map((level) => (
-                        <OnboardingChoiceButton
-                          key={level}
-                          active={pgyLevel === level}
-                          onClick={() => setPgyLevel(level)}
-                          className="text-center"
-                        >
-                          {level}
-                        </OnboardingChoiceButton>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    {isInstitutional && programConfig?.rotations?.length ? (
-                      <RotationSelectFields
-                        rotations={programConfig.rotations}
-                        pgyLevel={pgyLevel || ""}
-                        value={currentRotation}
-                        onChange={setCurrentRotation}
-                        blockHint={blockHint}
-                        lookupLoading={blockLookupLoading}
+                  <LuxuryBlock label="Name">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <LuxuryTextInput
+                        id="onboarding-first-name"
+                        value={firstName}
+                        onChange={setFirstName}
+                        onBlur={() => void saveProfileDraft()}
+                        placeholder="Jane"
                       />
-                    ) : (
-                      <>
-                        <OnboardingFieldLabel htmlFor="current-rotation">
-                          Current rotation
-                        </OnboardingFieldLabel>
-                        <input
-                          id="current-rotation"
-                          type="text"
-                          value={currentRotation}
-                          onChange={(e) => setCurrentRotation(e.target.value)}
-                          placeholder="e.g., Inpatient Psychiatry, VA CT6, Consult-Liaison"
-                          className="cx-field mt-2 text-base text-black"
-                          autoComplete="off"
-                        />
-                      </>
-                    )}
-                  </div>
+                      <LuxuryTextInput
+                        id="onboarding-last-name"
+                        value={lastName}
+                        onChange={setLastName}
+                        onBlur={() => void saveProfileDraft()}
+                        placeholder="Smith"
+                      />
+                    </div>
+                  </LuxuryBlock>
 
-                  {isInstitutional && blockHint?.matched && currentRotation && (
-                    <OnboardingProfileHint>
-                      We suggested your current rotation — change it below if it&apos;s not right.
-                    </OnboardingProfileHint>
+                  {!isInstitutional && (
+                    <>
+                      <LuxuryDivider />
+                      <LuxuryBlock label="Additional Degrees">
+                        <LuxuryHint className="mb-4">
+                          Optional — other degrees beyond your MD/DO.
+                        </LuxuryHint>
+                        <AdditionalDegreesFields
+                          value={additionalDegrees}
+                          onChange={setAdditionalDegrees}
+                          variant="luxury"
+                        />
+                      </LuxuryBlock>
+                    </>
                   )}
                 </>
               )}
 
-              {!isInstitutional ? (
-                <div>
-                  <OnboardingFieldLabel>Practice setting</OnboardingFieldLabel>
-                  <div className="mt-2 grid grid-cols-2 gap-2">
-                    {PRACTICE_SETTINGS.map((s) => (
-                      <OnboardingChoiceButton
-                        key={s}
-                        active={practiceSetting === s}
-                        onClick={() => setPracticeSetting(s)}
-                      >
-                        {s}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-book text-base text-black">
-                    <span className="font-futura-medium text-cx-forest-dark">Practice setting:</span>{" "}
-                    {programConfig?.default_practice_setting ?? practiceSetting}
-                  </p>
-                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
-                </div>
+              {activeProfileCardId === "specialty" && (
+                <>
+                  {institutionalCareerStageLocked ? (
+                    <LuxuryInfoPanel>
+                      <span className="font-futura-medium text-[#D4AF37]">Career level:</span>{" "}
+                      {careerLevel}
+                      <LuxuryHint className="mt-2">
+                        Set by your program affiliation.
+                      </LuxuryHint>
+                    </LuxuryInfoPanel>
+                  ) : (
+                    <LuxuryBlock label="Career Level">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {careerLevelOptions.map((s) => (
+                          <LuxuryChoiceButton
+                            key={s}
+                            active={careerLevel === s}
+                            onClick={() => handleCareerLevelChange(s)}
+                          >
+                            {s}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
+                  )}
+
+                  {showMedStudentFields && (
+                    <LuxuryBlock label="Medical School Year">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {MEDICAL_STUDENT_YEARS.map((year) => (
+                          <LuxuryChoiceButton
+                            key={year}
+                            active={medicalStudentYear === year}
+                            onClick={() => setMedicalStudentYear(year)}
+                          >
+                            {year}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                      {medicalStudentYear === "Other" && (
+                        <LuxuryTextInput
+                          value={medicalStudentYearOther}
+                          onChange={setMedicalStudentYearOther}
+                          placeholder="Describe your year"
+                          className="mt-3"
+                        />
+                      )}
+                    </LuxuryBlock>
+                  )}
+
+                  {showGmeFields && (
+                    <LuxuryBlock label="PGY Level">
+                      <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+                        {PGY_LEVELS.map((level) => (
+                          <LuxuryChoiceButton
+                            key={level}
+                            active={pgyLevel === level}
+                            onClick={() => setPgyLevel(level)}
+                            className="text-center"
+                            mono
+                          >
+                            {level}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
+                  )}
+
+                  {showPracticeSetting && (
+                    <LuxuryBlock label="Practice Setting">
+                      <div className="grid grid-cols-2 gap-2">
+                        {PRACTICE_SETTINGS.map((s) => (
+                          <LuxuryChoiceButton
+                            key={s}
+                            active={practiceSetting === s}
+                            onClick={() => setPracticeSetting(s)}
+                          >
+                            {s}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
+                  )}
+
+                  {isInstitutional && (
+                    <LuxuryInfoPanel>
+                      <span className="font-futura-medium text-[#D4AF37]">Practice setting:</span>{" "}
+                      {programConfig?.default_practice_setting ?? practiceSetting}
+                      <LuxuryHint className="mt-2">
+                        Set by your program affiliation.
+                      </LuxuryHint>
+                    </LuxuryInfoPanel>
+                  )}
+
+                  {showAcademicRankField && (
+                    <LuxuryBlock label="Academic Rank (Optional)">
+                      <LuxuryHint className="mb-4">{ACADEMIC_RANK_HELPER}</LuxuryHint>
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        <LuxuryChoiceButton
+                          active={!academicRank}
+                          onClick={() => setAcademicRank("")}
+                        >
+                          No rank selected
+                        </LuxuryChoiceButton>
+                        {ACADEMIC_RANKS.map((r) => (
+                          <LuxuryChoiceButton
+                            key={r}
+                            active={academicRank === r}
+                            onClick={() => setAcademicRank(r)}
+                          >
+                            {r}
+                          </LuxuryChoiceButton>
+                        ))}
+                        {ACADEMIC_RANK_SPECIAL.map((r) => (
+                          <LuxuryChoiceButton
+                            key={r}
+                            active={academicRank === r}
+                            onClick={() => setAcademicRank(r)}
+                          >
+                            {r}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                      {academicRank === "Other" && (
+                        <LuxuryTextInput
+                          value={academicRankOther}
+                          onChange={setAcademicRankOther}
+                          placeholder="Describe your academic title"
+                          className="mt-3"
+                        />
+                      )}
+                    </LuxuryBlock>
+                  )}
+
+                  {isInstitutional && programConfig?.specialty_locked ? (
+                    <LuxuryBlock label="Specialty">
+                      <p className="mb-4 text-base text-white">{programConfig.base_specialty}</p>
+                      <SpecialtyIntakeFields
+                        baseSpecialty={baseSpecialty}
+                        onPickBase={pickBaseSpecialty}
+                        subspecialty={subspecialty}
+                        onPickSubspecialty={pickSubspecialty}
+                        trainingComplete={trainingComplete}
+                        onTrainingCompleteChange={setTrainingComplete}
+                        careerStage={careerLevel}
+                        hideBaseSpecialtyPicker
+                        variant="luxury"
+                      />
+                    </LuxuryBlock>
+                  ) : (
+                    <SpecialtyIntakeFields
+                      baseSpecialty={baseSpecialty}
+                      onPickBase={pickBaseSpecialty}
+                      subspecialty={subspecialty}
+                      onPickSubspecialty={pickSubspecialty}
+                      trainingComplete={trainingComplete}
+                      onTrainingCompleteChange={setTrainingComplete}
+                      careerStage={careerLevel}
+                      specialtyInterests={specialtyInterests}
+                      onSpecialtyInterestsChange={setSpecialtyInterests}
+                      variant="luxury"
+                    />
+                  )}
+
+                  {showSubspecialtyInterests &&
+                    (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
+                      <OnboardingInterestsBlock
+                        baseSpecialty={
+                          showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
+                        }
+                        baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
+                        careerStage={careerLevel}
+                        subspecialtyInterests={subspecialtyInterests}
+                        onSubspecialtyInterestsChange={setSubspecialtyInterests}
+                        showUhPsychTracks={
+                          isInstitutional && programConfig?.slug === "uh-psych-cmc"
+                        }
+                        uhPsychTracks={uhPsychEnrichmentTracks}
+                        onUhPsychTracksChange={setUhPsychEnrichmentTracks}
+                        variant="luxury"
+                      />
+                    )}
+
+                  {showNarrative && (
+                    <>
+                      <LuxuryDivider />
+                      <LuxuryBlock label={narrativePrompt}>
+                        <LuxuryTextarea
+                          id="specialty-origin"
+                          value={specialtyOrigin}
+                          onChange={setSpecialtyOrigin}
+                          placeholder="Optional — one sentence is enough."
+                        />
+                        <LuxuryHint className="mt-3">{NARRATIVE_HELPER}</LuxuryHint>
+                      </LuxuryBlock>
+                    </>
+                  )}
+
+                  {isInstitutional && (
+                    <LuxuryBlock label="Call Schedule">
+                      <LuxuryHint>
+                        CMC call coverage is seeded in FISCMAK (initials + shift). Use QGenda for live
+                        assignments and switch rules.
+                      </LuxuryHint>
+                      <div className="mt-3 flex flex-wrap gap-3 text-sm">
+                        <Link
+                          href="/app/contacts#staff-directory"
+                          className="font-medium text-[#A3E635] underline-offset-2 hover:underline"
+                        >
+                          Program contacts
+                        </Link>
+                        <Link
+                          href="/app/schedule?tab=blocks"
+                          className="font-medium text-[#A3E635] underline-offset-2 hover:underline"
+                        >
+                          Block schedule
+                        </Link>
+                      </div>
+                    </LuxuryBlock>
+                  )}
+                </>
               )}
 
-              {!isInstitutional && requiresAcademicRank(practiceSetting) && (
-                <div>
-                  <OnboardingFieldLabel>Academic rank</OnboardingFieldLabel>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {ACADEMIC_RANKS.map((r) => (
-                      <OnboardingChoiceButton
-                        key={r}
-                        active={academicRank === r}
-                        onClick={() => setAcademicRank(r)}
-                      >
-                        {r}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {isInstitutional && (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-medium text-base text-cx-forest-dark">Call schedule</p>
-                  <OnboardingProfileHint>
-                    CMC call coverage is seeded in FISCMAK (initials + shift). Use QGenda for live
-                    assignments and switch rules.
-                  </OnboardingProfileHint>
-                  <div className="mt-2 flex flex-wrap gap-3 text-sm">
-                    <Link
-                      href="/app/residency/contacts-calendars#staff-directory"
-                      className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
-                    >
-                      Program contacts
-                    </Link>
-                    <Link
-                      href="/app/calendar"
-                      className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
-                    >
-                      Block schedule
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </OnboardingProfileSection>
-
-            {showOriginField && baseSpecialty && (
-              <OnboardingProfileSection
-                step="Section 3"
-                title="Your story"
-                description="One sentence is enough — this anchors your training narrative with Mak."
-              >
-                <div>
-                  <OnboardingFieldLabel htmlFor="specialty-origin">{originPrompt}</OnboardingFieldLabel>
-                  <textarea
-                    id="specialty-origin"
-                    value={specialtyOrigin}
-                    onChange={(e) => setSpecialtyOrigin(e.target.value)}
-                    placeholder="Even one sentence is enough — this becomes part of your training narrative."
-                    className="cx-field mt-2 min-h-[96px] resize-y text-base text-black"
-                    rows={3}
+              {activeProfileCardId === "career" && (
+                <>
+                  <CareerTrackRankingFields
+                    careerLevel={careerLevel}
+                    value={careerTrackRankings}
+                    onChange={setCareerTrackRankings}
+                    variant="luxury"
                   />
-                </div>
-              </OnboardingProfileSection>
-            )}
 
-            {showSubspecialtyInterests && baseSpecialty && (
-              <OnboardingProfileSection
-                step={showOriginField ? "Section 4" : "Section 3"}
-                title="Interests"
-                description="Optional — what you want to explore beyond your current rotation."
-              >
-                <OnboardingInterestsBlock
-                  baseSpecialty={baseSpecialty}
-                  subspecialtyInterests={subspecialtyInterests}
-                  onSubspecialtyInterestsChange={setSubspecialtyInterests}
-                  showUhPsychTracks={
-                    isInstitutional && programConfig?.slug === "uh-psych-cmc"
-                  }
-                  uhPsychTracks={uhPsychEnrichmentTracks}
-                  onUhPsychTracksChange={setUhPsychEnrichmentTracks}
+                  {!isInstitutional && (
+                    <>
+                      <LuxuryDivider />
+                      <LuxuryBlock label="Current Goal">
+                        <LuxuryHint className="mb-4">
+                          What do you most want FISCMAK to help with right now?
+                        </LuxuryHint>
+                        <div className="grid gap-2">
+                          {CURRENT_GOAL_OPTIONS.map((option) => (
+                            <LuxuryChoiceButton
+                              key={option}
+                              active={currentGoal === option}
+                              onClick={() => setCurrentGoal(option)}
+                            >
+                              {option}
+                            </LuxuryChoiceButton>
+                          ))}
+                        </div>
+                      </LuxuryBlock>
+                    </>
+                  )}
+                </>
+              )}
+
+              {activeProfileCardId === "acceptance" && (
+                <OnboardingTermsAcceptanceCard
+                  chatConfidential={termsChatConfidential}
+                  summativeReports={termsSummativeReports}
+                  documentOwnership={termsDocumentOwnership}
+                  onChatConfidentialChange={setTermsChatConfidential}
+                  onSummativeReportsChange={setTermsSummativeReports}
+                  onDocumentOwnershipChange={setTermsDocumentOwnership}
+                  onAccept={() => void submitProfile()}
+                  loading={loading}
+                  error={error}
                 />
-              </OnboardingProfileSection>
-            )}
-
-            <OnboardingProfileSection
-              step={
-                showSubspecialtyInterests && baseSpecialty
-                  ? showOriginField
-                    ? "Section 5"
-                    : "Section 4"
-                  : showOriginField
-                    ? "Section 4"
-                    : "Section 3"
-              }
-              title="Career direction"
-              description="Rank the eight FISCMAK career tracks — Mak uses this for goals and your lattice."
-            >
-              <CareerTrackRankingFields
-                careerLevel={careerLevel}
-                value={careerTrackRankings}
-                onChange={setCareerTrackRankings}
-              />
-            </OnboardingProfileSection>
-
-            <Button className="w-full" onClick={submitProfile} disabled={loading}>
-              {loading ? "Saving…" : "Continue to documents"}
-            </Button>
-          </div>
-          {error && (
-            <p className="cx-alert-banner mt-3 px-4 py-3 text-base">{error}</p>
-          )}
-        </Card>
+              )}
+            </LuxuryWorkspace>
+          </OnboardingProfileCarousel>
+        </div>
       )}
 
       {step === "documents" && (
-        <>
+        <div className="space-y-8 font-futura-book text-white">
+          {resumeDocumentsStep ? (
+            <OnboardingResumeBanner
+              message={
+                documentsProcessing
+                  ? "Resuming file processing... Your secure evidence dossier is updating."
+                  : "Welcome back. Continue your Evidence Vault."
+              }
+              storageKey="fiscmak_onboarding_resume_documents"
+            />
+          ) : null}
           {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <OnboardingDocumentsStep onContinue={goToReconcile} continueDisabled={loading} />
-        </>
+          <OnboardingDocumentsStep variant="luxury" onContinue={goToReconcile} continueDisabled={loading} />
+        </div>
       )}
 
       {step === "reconcile" && (
-        <Card>
+        <div className="space-y-8 font-futura-book text-white">
           {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <h1 className="text-page-title">Confirm your career data</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            We found these items in your documents. Confirm what looks right.
-          </p>
+          <LuxuryWorkspace>
+            <LuxuryCardHeader
+              title="Evidence Vault"
+              description="Confirm parsed data from your uploaded artifacts."
+            />
 
-          <ul className="mt-6 space-y-4">
-            {reconcileItems.map((item) => (
-              <ReconciliationItemCard
-                key={item.id}
-                item={item}
-                initialNpi={savedNpi}
-                npiStatus={isNpiReconcileItem(item) ? npiStatus : null}
-                onToggle={toggleReconcile}
-                onNpiVerified={handleNpiVerified}
-                onNpiSkipped={handleNpiSkipped}
-              />
-            ))}
-          </ul>
+            <ul className="space-y-4">
+              {reconcileItems.map((item) => (
+                <ReconciliationItemCard
+                  key={item.id}
+                  item={item}
+                  variant="luxury"
+                  initialNpi={savedNpi}
+                  npiStatus={isNpiReconcileItem(item) ? npiStatus : null}
+                  onToggle={toggleReconcile}
+                  onNpiVerified={handleNpiVerified}
+                  onNpiSkipped={handleNpiSkipped}
+                />
+              ))}
+            </ul>
 
-          <div className="mt-6">
-            <Button
-              className="w-full"
-              onClick={submitReconciliation}
-              disabled={loading || !canContinueReconcile()}
-            >
-              {loading ? "Saving…" : "Continue to self-assessment"}
-            </Button>
-          </div>
-          {error && (
-            <p className="cx-alert-banner mt-3 px-4 py-3 text-sm">
-              {error}
-            </p>
-          )}
-        </Card>
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={submitReconciliation}
+                disabled={loading || !canContinueReconcile()}
+                className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+              >
+                {loading ? "Saving…" : "Continue to Career Chat"}
+              </button>
+            </div>
+            {error && (
+              <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                {error}
+              </p>
+            )}
+          </LuxuryWorkspace>
+        </div>
       )}
 
       {step === "instruments" && (
-        <Card>
+        <div className="space-y-8 font-futura-book text-white">
+          {resumeInstrumentsStep && coachMakConversationId ? (
+            <OnboardingResumeBanner
+              message={`Welcome back. Resume your Career Chat with ${MAK_DISPLAY_NAME}.`}
+              storageKey="fiscmak_onboarding_resume_instruments"
+            />
+          ) : null}
           {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <h1 className="text-page-title">Self-assessment</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
-            Finish setup now. Complete these instruments from Coach Mak on your dashboard when you are
-            ready.
-          </p>
+          <LuxuryWorkspace>
+            <LuxuryCardHeader
+              title="Career Chat"
+              description={`Initiate an intake chat for career exploration and empowerment with ${MAK_DISPLAY_NAME}.`}
+            />
 
-          <ul className="mt-4 space-y-2">
-            {instruments.map((inst) => (
-              <li
-                key={inst.id}
-                className="rounded-md border border-cx-forest-dark/15 px-3 py-2 text-sm"
-              >
-                <span className="font-semibold">{inst.name}</span>
-                <span className="text-cx-forest-dark/70">
-                  {" "}
-                  · {inst.items} items · ~{inst.minutes} min — {inst.description}
-                </span>
-              </li>
-            ))}
-          </ul>
+            <ul className="space-y-2">
+              {instruments.map((inst) => (
+                <li
+                  key={inst.id}
+                  className="rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-gray-300"
+                >
+                  <span className="font-futura-bold text-white">{inst.name}</span>
+                  <span className="text-gray-500">
+                    {" "}
+                    · {inst.items} items · ~{inst.minutes} min — {inst.description}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-          <Button className="mt-6 w-full" onClick={startMakConversation} disabled={loading}>
-            {loading ? "Finishing…" : "Go to dashboard"}
-          </Button>
-        </Card>
+            <button
+              type="button"
+              onClick={startMakConversation}
+              disabled={loading}
+              className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+            >
+              {loading ? "Finishing…" : "Go to dashboard"}
+            </button>
+          </LuxuryWorkspace>
+        </div>
       )}
-    </PageShell>
-  );
+      </>
+    );
+  }
 }

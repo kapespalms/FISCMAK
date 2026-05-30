@@ -1,198 +1,205 @@
 "use client";
 
 import { useMemo } from "react";
+import { cn } from "@/lib/utils";
 import {
   filterBaseSpecialties,
   filterSubspecialties,
   hasSubspecialtyOptions,
-  isTraineeCareerLevel,
 } from "@/lib/v2/specialty-hierarchy";
 import { formatSpecialtyDisplayLabel } from "@/lib/v2/specialty-display-label";
 import type { CareerStage } from "@/lib/v2/onboarding-options";
-import { cn } from "@/lib/utils";
+import { isAttendingCareerLevel, isMedicalStudent } from "@/lib/v2/onboarding-options";
+import { MAX_SPECIALTY_INTERESTS } from "@/lib/v2/onboarding-profile-fields";
+import { TagTypeaheadInput } from "@/components/onboarding/TagTypeaheadInput";
+import { OnboardingProfileHint } from "@/components/onboarding/OnboardingProfileSection";
+import { LuxuryHint } from "@/components/onboarding/OnboardingLuxuryUi";
 
 type SpecialtyIntakeFieldsProps = {
   baseSpecialty: string;
-  baseQuery: string;
-  onBaseQueryChange: (value: string) => void;
   onPickBase: (value: string) => void;
-  baseListOpen: boolean;
-  onBaseListOpenChange: (open: boolean) => void;
   subspecialty: string;
-  subspecialtyQuery: string;
-  onSubspecialtyQueryChange: (value: string) => void;
   onPickSubspecialty: (value: string) => void;
-  subspecialtyListOpen: boolean;
-  onSubspecialtyListOpenChange: (open: boolean) => void;
   trainingComplete: boolean;
   onTrainingCompleteChange: (value: boolean) => void;
   careerStage: CareerStage;
   /** Institutional program onboarding — base specialty is pre-set */
   hideBaseSpecialtyPicker?: boolean;
+  /** Medical student — multi-select specialties of interest */
+  specialtyInterests?: string[];
+  onSpecialtyInterestsChange?: (next: string[]) => void;
+  variant?: "default" | "luxury";
 };
+
+function baseSpecialtyLabel(careerStage: CareerStage): string {
+  if (isMedicalStudent(careerStage)) return "Specialties of interest";
+  if (careerStage === "Resident" || careerStage === "Fellow") return "Specialty";
+  return "Specialty";
+}
+
+function subspecialtyLabel(careerStage: CareerStage): string {
+  if (careerStage === "Fellow") return "Subspecialty";
+  if (isAttendingCareerLevel(careerStage)) return "Subspecialty";
+  return "Fellowship / subspecialty";
+}
+
+function TrainingCheckbox({
+  checked,
+  onChange,
+  title,
+  description,
+  luxury,
+}: {
+  checked: boolean;
+  onChange: (value: boolean) => void;
+  title: string;
+  description: string;
+  luxury: boolean;
+}) {
+  return (
+    <label
+      className={cn(
+        "flex cursor-pointer items-start gap-3 rounded-xl border px-4 py-3",
+        luxury
+          ? checked
+            ? "border-[#A3E635]/40 bg-[#0A0C10]"
+            : "border-white/5 bg-[#0A0C10] hover:border-white/10"
+          : "border-cx-forest-dark/15 bg-cx-forest-dark/[0.03]",
+      )}
+    >
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        className={cn("mt-1", luxury && "accent-[#A3E635]")}
+      />
+      <span className={cn("font-futura-book text-base", luxury ? "text-gray-300" : "text-black")}>
+        <span
+          className={cn(
+            "font-futura-medium",
+            luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+          )}
+        >
+          {title}
+        </span>
+        <span className={cn("mt-0.5 block", luxury ? "text-gray-500" : "text-black")}>
+          {description}
+        </span>
+      </span>
+    </label>
+  );
+}
 
 export function SpecialtyIntakeFields({
   baseSpecialty,
-  baseQuery,
-  onBaseQueryChange,
   onPickBase,
-  baseListOpen,
-  onBaseListOpenChange,
   subspecialty,
-  subspecialtyQuery,
-  onSubspecialtyQueryChange,
   onPickSubspecialty,
-  subspecialtyListOpen,
-  onSubspecialtyListOpenChange,
   trainingComplete,
   onTrainingCompleteChange,
   careerStage,
   hideBaseSpecialtyPicker = false,
+  specialtyInterests = [],
+  onSpecialtyInterestsChange,
+  variant = "default",
 }: SpecialtyIntakeFieldsProps) {
-  const filteredBases = useMemo(
-    () => filterBaseSpecialties(baseQuery, careerStage),
-    [baseQuery, careerStage],
-  );
-  const isTrainee = isTraineeCareerLevel(careerStage);
+  const luxury = variant === "luxury";
   const isFellow = careerStage === "Fellow";
+  const isMedStudent = isMedicalStudent(careerStage);
   const showSubspecialty =
+    !isMedStudent &&
     baseSpecialty &&
-    (isFellow || hasSubspecialtyOptions(baseSpecialty)) &&
-    (!isTrainee || isFellow);
-  const filteredSubs = useMemo(
-    () => (baseSpecialty ? filterSubspecialties(baseSpecialty, subspecialtyQuery, careerStage) : []),
-    [baseSpecialty, subspecialtyQuery, careerStage],
+    (isFellow || hasSubspecialtyOptions(baseSpecialty));
+
+  const baseSuggestions = useMemo(
+    () => filterBaseSpecialties("", careerStage),
+    [careerStage],
   );
+
+  const subspecialtySuggestions = useMemo(() => {
+    if (!baseSpecialty) return [];
+    return filterSubspecialties(baseSpecialty, "", careerStage);
+  }, [baseSpecialty, careerStage]);
+
+  const tagVariant = luxury ? "luxury" : "default";
+  const Hint = luxury ? LuxuryHint : OnboardingProfileHint;
+
+  if (isMedStudent && !hideBaseSpecialtyPicker) {
+    return (
+      <div className="space-y-5 font-futura-book">
+        <TagTypeaheadInput
+          id="specialty-interests"
+          label={baseSpecialtyLabel(careerStage)}
+          placeholder="Start typing, e.g. Internal Medicine…"
+          value={specialtyInterests}
+          onChange={(next) => onSpecialtyInterestsChange?.(next)}
+          suggestions={baseSuggestions}
+          maxTags={MAX_SPECIALTY_INTERESTS}
+          formatSuggestion={formatSpecialtyDisplayLabel}
+          variant={tagVariant}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-5 font-futura-book">
       {!hideBaseSpecialtyPicker && (
-      <div className="relative">
-        <label htmlFor="base-specialty-search" className="cx-field-label">
-          Base specialty
-        </label>
-        <p className="font-futura-book mt-0.5 text-base text-black">
-          {isTrainee
-            ? "ACGME-accredited residency program (Appendix B primary specialty)."
-            : "Residency training program (e.g. Internal Medicine, Pediatrics)."}
-        </p>
-        <input
-          id="base-specialty-search"
-          type="text"
-          value={baseQuery}
-          onChange={(e) => {
-            onBaseQueryChange(e.target.value);
-            onBaseListOpenChange(true);
-          }}
-          onFocus={() => onBaseListOpenChange(true)}
+        <TagTypeaheadInput
+          id="base-specialty"
+          label={baseSpecialtyLabel(careerStage)}
           placeholder="Start typing, e.g. Internal Medicine…"
-          className="cx-field mt-2"
-          autoComplete="off"
+          value={baseSpecialty ? [baseSpecialty] : []}
+          onChange={(tags) => onPickBase(tags[0] ?? "")}
+          suggestions={baseSuggestions}
+          maxTags={1}
+          formatSuggestion={formatSpecialtyDisplayLabel}
+          variant={tagVariant}
         />
-        {baseListOpen && (
-          <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md">
-            {filteredBases.length === 0 ? (
-              <li className="px-4 py-3 text-base text-black">No matches</li>
-            ) : (
-              filteredBases.map((s) => (
-                <li key={s}>
-                  <button
-                    type="button"
-                    onClick={() => onPickBase(s)}
-                    className={cn(
-                      "font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5",
-                      baseSpecialty === s && "bg-cx-forest-dark/10 font-futura-medium",
-                    )}
-                  >
-                    {formatSpecialtyDisplayLabel(s)}
-                  </button>
-                </li>
-              ))
-            )}
-          </ul>
-        )}
-      </div>
       )}
 
       {showSubspecialty && (
         <>
-          <div className="relative">
-            <label htmlFor="subspecialty-search" className="cx-field-label">
-              Fellowship / subspecialty{" "}
-              {isFellow ? (
-                <span className="font-normal text-cx-forest-dark/70">(required)</span>
-              ) : (
-                <span className="font-normal text-cx-forest-dark/70">(optional)</span>
-              )}
-            </label>
-            <p className="font-futura-book mt-0.5 text-base text-black">
-              {isFellow
-                ? "Select your ACGME-accredited fellowship program — evaluation mapping uses this subspecialty."
-                : "e.g. Interventional Cardiology after Internal Medicine residency."}
-            </p>
-            <input
-              id="subspecialty-search"
-              type="text"
-              value={subspecialtyQuery}
-              onChange={(e) => {
-                onSubspecialtyQueryChange(e.target.value);
-                onSubspecialtyListOpenChange(true);
-              }}
-              onFocus={() => onSubspecialtyListOpenChange(true)}
-              placeholder="Start typing subspecialty…"
-              className="cx-field mt-2"
-              autoComplete="off"
-            />
-            {subspecialtyListOpen && (
-              <ul className="absolute z-10 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md">
-                {!isFellow && (
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => onPickSubspecialty("")}
-                      className="font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5"
-                    >
-                      None — practicing in base specialty only
-                    </button>
-                  </li>
-                )}
-                {filteredSubs.map((s) => (
-                  <li key={s}>
-                    <button
-                      type="button"
-                      onClick={() => onPickSubspecialty(s)}
-                      className={cn(
-                        "font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5",
-                        subspecialty === s && "bg-cx-forest-dark/10 font-futura-medium",
-                      )}
-                    >
-                      {formatSpecialtyDisplayLabel(s)}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <TagTypeaheadInput
+            id="subspecialty"
+            label={
+              isFellow
+                ? `${subspecialtyLabel(careerStage)} (required)`
+                : `${subspecialtyLabel(careerStage)} (optional)`
+            }
+            placeholder="Start typing subspecialty…"
+            value={subspecialty ? [subspecialty] : []}
+            onChange={(tags) => onPickSubspecialty(tags[0] ?? "")}
+            suggestions={subspecialtySuggestions}
+            maxTags={1}
+            formatSuggestion={formatSpecialtyDisplayLabel}
+            variant={tagVariant}
+          />
 
-          {subspecialty && (
-            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-4 py-3">
-              <input
-                type="checkbox"
-                checked={trainingComplete}
-                onChange={(e) => onTrainingCompleteChange(e.target.checked)}
-                className="mt-1"
-              />
-              <span className="font-futura-book text-base text-black">
-                <span className="font-futura-medium text-cx-forest-dark">Fellowship training complete</span>
-                <span className="mt-0.5 block text-black">
-                  {careerStage === "Fellow"
-                    ? "Leave unchecked while you are still in fellowship."
-                    : "Check when you are board-eligible or certified in this subspecialty."}
-                </span>
-              </span>
-            </label>
+          {subspecialty && !isFellow && (
+            <TrainingCheckbox
+              luxury={luxury}
+              checked={trainingComplete}
+              onChange={onTrainingCompleteChange}
+              title="Fellowship training complete"
+              description="Check when you are board-eligible or certified in this subspecialty."
+            />
+          )}
+
+          {subspecialty && isFellow && (
+            <TrainingCheckbox
+              luxury={luxury}
+              checked={trainingComplete}
+              onChange={onTrainingCompleteChange}
+              title="Fellowship training complete"
+              description="Leave unchecked while you are still in fellowship."
+            />
           )}
         </>
+      )}
+
+      {isMedStudent && hideBaseSpecialtyPicker && (
+        <Hint>Select your fellowship subspecialty below.</Hint>
       )}
     </div>
   );

@@ -1,4 +1,5 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { PFI_ANCHORS } from "@/lib/v2/pfi-scale";
 import {
   ANNUAL_REFRESH_MODULES,
   type AnnualRefreshModule,
@@ -83,14 +84,11 @@ Rate each from 1 (never) to 7 (always):
 Share your responses or a brief summary of your current work engagement.`,
 
   pfi_full: () =>
-    `Professional Fulfillment Index — full reassessment (S-1):
+    `Baseline well-being — professional fulfillment (published PFI items):
 
-Briefly describe:
-- How fulfilling is your work overall? (1–5)
-- Burnout indicators this year (1–5)
-- Work exhaustion level (1–5)
+We'll use the standard 0–4 scale (${PFI_ANCHORS}).
 
-This informs your Career Health Score and sustainability goals.`,
+Share how you've been feeling this year — or we'll walk through fulfillment and exhaustion items one at a time in the next messages.`,
 
   bits_full: () =>
     `Task Burden review (S-2 / BITS):
@@ -139,13 +137,13 @@ export function buildAnnualMakSystemContext(meta: OnboardingMetadata): string {
   const session = meta.annual_refresh_session;
   if (!session) return "";
 
-  const module = currentAnnualModule(meta);
-  if (!module) return "";
+  const activeModule = currentAnnualModule(meta);
+  if (!activeModule) return "";
 
   const completed = session.completed_module_ids.length;
   const total = ANNUAL_REFRESH_MODULES.length;
 
-  return `Annual refresh in progress (${completed}/${total} modules complete). Current module: ${module.name} (${module.conversation_id}). Guide the physician through this module conversationally. When the module is sufficiently captured, offer to continue to the next module. Modules remaining after this: ${ANNUAL_REFRESH_MODULES.slice(session.current_module_index + 1).map((m) => m.name).join(", ") || "none"}.`;
+  return `Annual refresh in progress (${completed}/${total} modules complete). Current module: ${activeModule.name} (${activeModule.conversation_id}). Guide the physician through this module conversationally. When the module is sufficiently captured, offer to continue to the next module. Modules remaining after this: ${ANNUAL_REFRESH_MODULES.slice(session.current_module_index + 1).map((m) => m.name).join(", ") || "none"}.`;
 }
 
 export function isAnnualModuleAdvanceMessage(message: string): boolean {

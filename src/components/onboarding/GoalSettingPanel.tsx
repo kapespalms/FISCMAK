@@ -211,7 +211,7 @@ export function GoalSettingPanel({
                     className="text-xs"
                     onClick={() => onModifyWithMak?.(goal.type)}
                   >
-                    Refine with Coach Mak
+                    Refine with Mak
                   </Button>
                   <Button
                     variant="secondary"
@@ -232,7 +232,7 @@ export function GoalSettingPanel({
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         {onWalkthroughWithMak && (
           <Button variant="secondary" className="flex-1" onClick={onWalkthroughWithMak}>
-            Walk through with Coach Mak
+            Walk through with Mak
           </Button>
         )}
         <Button className="flex-1" disabled={loading} onClick={() => onConfirm(goals)}>

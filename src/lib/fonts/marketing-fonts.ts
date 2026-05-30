@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 
+/** Site-wide Futura PT from src/assets/fonts/futura — do not swap for system or serif stacks. */
+
 export const futuraPtBold = localFont({
   src: [
     {
@@ -15,6 +17,7 @@ export const futuraPtBold = localFont({
   ],
   variable: "--font-futura-pt-bold",
   display: "swap",
+  fallback: ["Futura PT", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
 export const futuraCondensedMedium = localFont({
@@ -32,6 +35,7 @@ export const futuraCondensedMedium = localFont({
   ],
   variable: "--font-futura-condensed-medium",
   display: "swap",
+  fallback: ["Futura PT", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
 export const futuraPtBook = localFont({
@@ -49,6 +53,7 @@ export const futuraPtBook = localFont({
   ],
   variable: "--font-futura-pt-book",
   display: "swap",
+  fallback: ["Futura PT", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
 export const futuraPtMedium = localFont({
@@ -66,11 +71,19 @@ export const futuraPtMedium = localFont({
   ],
   variable: "--font-futura-pt-medium",
   display: "swap",
+  fallback: ["Futura PT", "Helvetica Neue", "Arial", "sans-serif"],
 });
 
-/** Apply on site root: className={marketingFontVariables} */
-export const marketingFontVariables = [
+/** CSS variable classes — apply on <html> once. */
+export const siteFontVariables = [
   futuraPtBold.variable,
   futuraPtBook.variable,
   futuraPtMedium.variable,
+  futuraCondensedMedium.variable,
 ].join(" ");
+
+/** @deprecated Use siteFontVariables */
+export const marketingFontVariables = siteFontVariables;
+
+/** Default body face (Book 400) — apply on <body> so the app always loads hosted Futura. */
+export const siteBodyFont = futuraPtBook;

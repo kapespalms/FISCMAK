@@ -1,26 +1,6 @@
 "use client";
 
 import Link from "next/link";
-
-function DashboardProgramLink({
-  href,
-  title,
-  detail,
-}: {
-  href: string;
-  title: string;
-  detail: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="rounded-xl border border-white/15 bg-white/10 px-3 py-2.5 transition hover:border-[#5FD65F]/40 hover:bg-white/15"
-    >
-      <span className="block text-sm font-semibold text-white">{title}</span>
-      <span className="mt-0.5 block text-xs text-white/70">{detail}</span>
-    </Link>
-  );
-}
 import { DashboardDueNow, type DashboardDueItem } from "@/components/dashboard/DashboardDueNow";
 import { CoachingCadencePanel } from "@/components/dashboard/CoachingCadencePanel";
 import { DashboardAlerts } from "@/components/dashboard/DashboardAlerts";
@@ -90,12 +70,21 @@ export function DashboardWelcome({
       )}
 
       {institutionalProgramSlug === "uh-psych-cmc" && (
-        <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-          <DashboardProgramLink href="/app/residency/call-schedule" title="Call schedule" detail="CMC coverage grid" />
-          <DashboardProgramLink href="/app/residency/contacts-calendars" title="Contacts" detail="MedHub + QGenda" />
-          <DashboardProgramLink href="/app/education" title="Education hub" detail="Articles, pharm, handouts" />
-          <DashboardProgramLink href="/app/calendar" title="Block schedule" detail="Full calendar view" />
-          <DashboardProgramLink href="/app/rotations" title="Rotation catalog" detail="All rotation codes" />
+        <div className="mt-4">
+          <Link
+            href="/app/uh-psych"
+            className="inline-flex w-full items-center justify-between rounded-xl border border-[#5FD65F]/35 bg-[#5FD65F]/10 px-4 py-3.5 transition hover:border-[#5FD65F]/55 hover:bg-[#5FD65F]/15 sm:w-auto sm:min-w-[280px]"
+          >
+            <span>
+              <span className="block text-base font-semibold text-white">UH Psych Hub</span>
+              <span className="mt-0.5 block text-xs text-white/75">
+                Rotations, schedule, readings, semi-annual prep
+              </span>
+            </span>
+            <span className="text-lg text-[#5FD65F]" aria-hidden>
+              →
+            </span>
+          </Link>
         </div>
       )}
 

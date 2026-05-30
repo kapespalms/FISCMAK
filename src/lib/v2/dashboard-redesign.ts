@@ -75,10 +75,14 @@ function shortStrain(summary: string): string {
 }
 
 function shortAlignment(summary: string, percent?: number): string {
-  if (percent != null) return `${percent}%`;
-  const match = summary.match(/(\d+)%/);
-  if (match) return `${match[1]}%`;
   if (/pending/i.test(summary)) return "Pending";
+  const match = summary.match(/(\d+)%/);
+  if (match) {
+    const value = Number(match[1]);
+    if (value >= 70) return "Strong";
+    if (value >= 45) return "Mixed";
+    return "Low";
+  }
   return summary.length > 24 ? `${summary.slice(0, 21)}…` : summary;
 }
 
@@ -110,7 +114,7 @@ export function buildProfileRows(metrics: DashboardBandMetric[]): ProfileRow[] {
   if (strain) {
     rows.push({
       id: "strain",
-      label: "Strain",
+      label: "Work felt",
       value: shortStrain(strain.summary),
       status: strain.status,
     });

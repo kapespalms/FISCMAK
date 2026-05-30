@@ -1,6 +1,29 @@
 /** OAuth redirect helpers for Supabase Auth (Google, Apple, etc.) */
 
-const DEFAULT_NEXT = "/app";
+const DEFAULT_NEXT = "/app/onboarding";
+const CANONICAL_APP_ORIGIN = "https://www.fiscmak.com";
+
+/** Production app origin — prefer env, then canonical www host. */
+export function getAppOrigin(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "");
+  if (fromEnv) return fromEnv;
+  if (typeof window !== "undefined") {
+    const { hostname, origin } = window.location;
+    if (hostname === "fiscmak.com" || hostname === "www.fiscmak.com") {
+      return CANONICAL_APP_ORIGIN;
+    }
+    return origin;
+  }
+  return CANONICAL_APP_ORIGIN;
+}
+
+/** Full-page navigation to an internal app path on the canonical origin. */
+export function navigateToAppPath(path: string) {
+  if (typeof window === "undefined") return;
+  const safe = sanitizeNextPath(path);
+  const origin = getAppOrigin();
+  window.location.assign(`${origin}${safe}`);
+}
 
 /** Safe internal path only — blocks open redirects. */
 export function sanitizeNextPath(next: string | null | undefined): string {
@@ -59,10 +82,7 @@ export function rememberOnboardingNextPath(next: string) {
 
 /** Callback URL passed to Supabase signInWithOAuth redirectTo. */
 export function getAuthCallbackUrl(next: string, origin?: string): string {
-  const base =
-    process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") ??
-    origin ??
-    (typeof window !== "undefined" ? window.location.origin : "");
+  const base = origin ?? getAppOrigin();
   const safeNext = sanitizeNextPath(next);
   return `${base}/auth/callback?next=${encodeURIComponent(safeNext)}`;
 }

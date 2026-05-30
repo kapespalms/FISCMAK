@@ -12,6 +12,7 @@ import { resolveCachedDocumentEvidence } from "@/lib/v2/lattice/document-cache";
 import type { LatticeDocumentCache } from "@/lib/v2/lattice/document-cache";
 import { buildScheduleLatticeEvidence } from "@/lib/v2/lattice/schedule-lattice-evidence";
 import { buildProfileLatticeEvidence } from "@/lib/v2/lattice/profile-lattice-evidence";
+import { buildConfirmedDocumentLatticeEvidence } from "@/lib/v2/lattice/confirmed-document-evidence";
 import { dedupeLatticeEvidence } from "@/lib/v2/lattice/evidence-dedup";
 import type {
   LatticeCellMetrics,
@@ -48,8 +49,17 @@ function energyBucket(energy: string | null): "energizing" | "draining" | "neutr
   return "neutral";
 }
 
+/** Mak chat captures stay off the lattice until explicitly confirmed. */
+function isConfirmedActivity(a: ActivityEntry): boolean {
+  const source = a.input_source ?? "";
+  if (source === "chat" || source === "mak_capture") {
+    return a.evidence_strength === "confirmed";
+  }
+  return true;
+}
+
 function activitiesToEvidence(activities: ActivityEntry[]): LatticeEvidence[] {
-  return activities.map((a) => {
+  return activities.filter(isConfirmedActivity).map((a) => {
     const resolved = resolveActivityLatticePlacement(a);
     return {
       id: a.id,
@@ -67,6 +77,8 @@ function activitiesToEvidence(activities: ActivityEntry[]): LatticeEvidence[] {
     };
   });
 }
+
+export { isConfirmedActivity };
 
 function aggregateFiscmak(evidence: LatticeEvidence[]): LatticeGridModel {
   const cells: LatticeCellMetrics[] = [];
@@ -101,6 +113,30 @@ function aggregateAcgme(evidence: LatticeEvidence[]): LatticeGridModel {
   return { kind: "acgme", rowLabels, colLabels, cells };
 }
 
+/** Representative level: mode across evidence items, falling back to max.
+ *  Prevents a single "led" keyword in a CV snippet from inflating an entire
+ *  cell to Level 4 when the bulk of evidence is Level 2–3. */
+function representativeDevelopmentLevel(matched: LatticeEvidence[]): number {
+  if (matched.length === 0) return 0;
+  const freq: Record<number, number> = {};
+  let maxLevel = 0;
+  for (const e of matched) {
+    freq[e.developmentLevel] = (freq[e.developmentLevel] ?? 0) + 1;
+    if (e.developmentLevel > maxLevel) maxLevel = e.developmentLevel;
+  }
+  // Find the mode; ties broken by higher level
+  let modeLevel = 0;
+  let modeCount = 0;
+  for (const [lvlStr, count] of Object.entries(freq)) {
+    const lvl = Number(lvlStr);
+    if (count > modeCount || (count === modeCount && lvl > modeLevel)) {
+      modeLevel = lvl;
+      modeCount = count;
+    }
+  }
+  return modeLevel;
+}
+
 function buildCellMetrics(
   rowIndex: number,
   colIndex: number,
@@ -127,7 +163,7 @@ function buildCellMetrics(
     energizingCount,
     drainingCount,
     neutralCount,
-    maxDevelopmentLevel: matched.reduce((m, e) => Math.max(m, e.developmentLevel), 0),
+    maxDevelopmentLevel: representativeDevelopmentLevel(matched),
     evidence: matched,
   };
 }
@@ -155,10 +191,11 @@ export function buildLatticeDashboard(input: {
   documentCache: LatticeDocumentCache;
   documentCacheHit: boolean;
 } {
-  const { evidence: docEvidence, cache, fromCache } = resolveCachedDocumentEvidence(
+  const { cache, fromCache } = resolveCachedDocumentEvidence(
     input.documents,
     input.documentCache,
   );
+  const docEvidence = input.meta ? buildConfirmedDocumentLatticeEvidence(input.meta) : [];
   const activityEvidence = activitiesToEvidence(input.activities);
   const scheduleEvidence = buildScheduleLatticeEvidence({
     scheduleEvents: input.scheduleEvents ?? [],

@@ -3,8 +3,11 @@
 /** Default user profile — physician silhouette (not Coach Mak). */
 export const DEFAULT_PROFILE_AVATAR_SRC = "/brands/default-profile.png";
 
-/** Coach Mak — green M inside the silent-C ring (chat + marketing). */
-export const MAK_AVATAR_SRC = "/brands/logo-cm.png";
+/** Mak — chat avatar and display name. */
+export const MAK_DISPLAY_NAME = "Mak";
+
+/** Mak wordmark avatar (lime on black). */
+export const MAK_AVATAR_SRC = "/brands/mak-logo.png";
 
 export const HERO_CHESS_SRC = "/brands/hero-chess.png";
 /** @deprecated Use MAK_AVATAR_SRC */
@@ -30,9 +33,11 @@ export const LANDING_CHESS_QUEEN_SRC = "/marketing/landing/fiscmak-chess-queen.p
 
 /** @deprecated Glitchy 520px export — use LANDING_HERO_KING_SRC */
 export const LANDING_HERO_QUEEN_SRC = LANDING_HERO_KING_SRC;
+/** Hero lightbox — FISCMAK wordmark on landing film screen. */
+export const LANDING_HERO_LOGO_SRC = "/marketing/landing/fiscmak-wordmark.png";
 /** @deprecated Use MAK_AVATAR_SRC */
 export const LANDING_LOGO_CM_SRC = MAK_AVATAR_SRC;
 export const LANDING_CROWN_AVATAR_SRC = "/marketing/landing/fiscmak-crown-avatar.png";
 
-/** @deprecated Legacy Mak silhouette — use MAK_AVATAR_SRC (logo-cm) */
+/** @deprecated Legacy Mak silhouette — use MAK_AVATAR_SRC */
 export const LEGACY_MAK_AVATAR_SRC = "/brands/mak-avatar.png";

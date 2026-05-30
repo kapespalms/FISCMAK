@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { ScheduleCalendarView, type ScheduleBlock } from "@/components/calendar/ScheduleCalendarView";
+import { BlockScheduleLegend } from "@/components/uh-psych/BlockScheduleLegend";
 import type { UserScheduleEvent } from "@/lib/v2/schedule-calendar/types";
 
-export function ScheduleCalendarWorkspace() {
+export function ScheduleCalendarWorkspace({ embedded = false }: { embedded?: boolean }) {
   const [blocks, setBlocks] = useState<ScheduleBlock[]>([]);
   const [userEvents, setUserEvents] = useState<UserScheduleEvent[]>([]);
   const [programLabel, setProgramLabel] = useState<string | null>(null);
@@ -48,24 +49,27 @@ export function ScheduleCalendarWorkspace() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
-            Schedule
-          </p>
-          <h1 className="text-page-title">Your calendar</h1>
-          <p className="font-futura-book mt-1 text-base text-black">
-            Month, week, and day views. Add events with Coach Mak, customize colors, and export to
-            iCal, Google, or Outlook.
-          </p>
+      {!embedded && (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
+              Schedule
+            </p>
+            <h1 className="text-page-title">Your calendar</h1>
+            <p className="font-futura-book mt-1 text-base text-black">
+              Month, week, and day views. Add events with Mak, customize colors, and export to
+              iCal, Google, or Outlook.
+            </p>
+          </div>
+          <Link
+            href="/app/dashboard"
+            className="font-futura-medium text-sm text-cx-forest-dark underline-offset-2 hover:underline"
+          >
+            ← Dashboard
+          </Link>
         </div>
-        <Link
-          href="/app/dashboard"
-          className="font-futura-medium text-sm text-cx-forest-dark underline-offset-2 hover:underline"
-        >
-          ← Dashboard
-        </Link>
-      </div>
+      )}
+      <BlockScheduleLegend />
       <ScheduleCalendarView
         blocks={blocks}
         userEvents={userEvents}

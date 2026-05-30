@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { getServerDemo } from "@/lib/v2/demo-store";
-import { fetchAssessments, fetchDocuments, fetchLatestMemPalace } from "@/lib/v2/db";
+import { fetchAssessments, fetchActivities, fetchDocuments, fetchLatestMemPalace } from "@/lib/v2/db";
 import {
   getAppUser,
   isErrorResponse,
@@ -26,6 +26,22 @@ import {
   processReconcileTurn,
 } from "@/lib/v2/reconcile-mak-flow";
 import { computeTouchpoint1Dashboard, getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
+import { deployedInstruments } from "@/lib/v2/onboarding-touchpoint1";
+import { instrumentProgress } from "@/lib/v2/onboarding-instruments";
+import {
+  buildBaselineCheckinSummaryBullets,
+  formatSummaryConfirmPrompt,
+  isCheckinSummaryConfirmed,
+  parseSummaryConfirmIntent,
+  tier3CompleteGate,
+} from "@/lib/v2/checkin-summary-confirm";
+import {
+  buildLatticeMakContext,
+  buildLightweightLatticeForMak,
+} from "@/lib/v2/lattice/lattice-mak-context";
+import { buildConfirmedEvidenceList } from "@/lib/v2/confirmed-evidence";
+import { buildConfirmedEvidenceMakContext } from "@/lib/v2/mak-coaching-prompts";
 import { onboardingPathFromMetadata } from "@/lib/v2/onboarding-path";
 import { buildProgramMakContext } from "@/lib/v2/programs/registry";
 import { buildUhResidencyMakContext } from "@/lib/v2/uh-residency-mak-context";
@@ -67,6 +83,10 @@ import {
   buildMakPhysicianMentorDadBundle,
   buildPhysicianMentorDadCoachingContextBlock,
 } from "@/lib/v2/mak-coaching-engine";
+import {
+  buildBaselineCheckinIntro,
+  likertScaleForCluster,
+} from "@/lib/v2/mak-likert-scale";
 import {
   buildOnboardingSuggestedActions,
   buildSelfAssessmentIntro,
@@ -111,6 +131,7 @@ import {
   buildNarrativeAnchorIntro,
   buildStageAwareCapturePrompt,
 } from "@/lib/v2/mak-conversation-models";
+import { localVocabularyFollowUpHint } from "@/lib/v2/career-pathway-architecture";
 import {
   buildAttendingQuarterlyIntro,
   buildPromotionContextIntro,
@@ -251,6 +272,7 @@ export async function POST(request: Request) {
   let reconcileCaptured = false;
   let reconcileCompleteFlag = false;
   let reconcileNextPrompt: string | undefined;
+  let summaryConfirmPrompt: string | null = null;
 
   if (
     user &&
@@ -278,10 +300,109 @@ export async function POST(request: Request) {
       pendingCount = turn.pendingCount;
       touchpointComplete = turn.complete;
     } else if (user.tier2_complete && !user.tier3_complete) {
-      const inst = await processInstrumentTurn(user, auth.userId, auth.demo, message);
-      instrumentCaptured = inst.captured;
-      pendingCount = inst.pendingCluster ? 1 : 0;
-      touchpointComplete = inst.instrumentsComplete;
+      const baselineMeta = getOnboardingMetadata(user);
+      const confirmIntent = parseSummaryConfirmIntent(message);
+
+      if (
+        baselineMeta.pending_checkin_summary_kind === "baseline" &&
+        baselineMeta.pending_checkin_summary?.length
+      ) {
+        const instrumentIds =
+          baselineMeta.instrument_ids ??
+          deployedInstruments(user.career_stage, user.practice_setting).map((i) => i.id);
+        const progress = instrumentProgress(instrumentIds, baselineMeta.instrument_answers ?? []);
+        const instrumentsDone =
+          progress.total === 0 || progress.answered >= progress.total;
+        const cv = docs.find((d) => d.document_type === "CV");
+        const reconcItems = baselineMeta.reconciliation ?? [];
+        const reconcileDone = cv
+          ? reconcItems.length === 0 || reconcItems.every((r) => r.status !== "pending")
+          : true;
+
+        if (confirmIntent === "yes" && instrumentsDone && reconcileDone) {
+          const computed = computeTouchpoint1Dashboard(user, cv?.extracted_text);
+          await upsertAppUser(
+            auth.userId,
+            auth.email,
+            {
+              tier3_complete: true,
+              ...onboardingProgressPatch({ tier3_complete: true }),
+              onboarding_metadata: {
+                ...(user.onboarding_metadata ?? {}),
+                ...computed,
+                checkin_summary_confirmed_at: new Date().toISOString(),
+                pending_checkin_summary: undefined,
+                pending_checkin_summary_kind: undefined,
+              } as Record<string, unknown>,
+            },
+            auth.demo,
+          );
+          touchpointComplete = true;
+        } else if (confirmIntent === "change" || confirmIntent === "not_quite") {
+          await upsertAppUser(
+            auth.userId,
+            auth.email,
+            {
+              onboarding_metadata: {
+                ...(user.onboarding_metadata ?? {}),
+                pending_checkin_summary: undefined,
+                pending_checkin_summary_kind: undefined,
+              } as Record<string, unknown>,
+            },
+            auth.demo,
+          );
+          summaryConfirmPrompt =
+            confirmIntent === "change"
+              ? "Tell me what to change — I'll read the summary back when we're aligned."
+              : "What should I adjust before we save your baseline check-in?";
+        }
+      } else {
+        const inst = await processInstrumentTurn(user, auth.userId, auth.demo, message);
+        instrumentCaptured = inst.captured;
+        pendingCount = inst.pendingCluster ? 1 : 0;
+
+        if (inst.instrumentsComplete) {
+          const refreshedUser = await getAppUser(auth.userId, auth.demo);
+          const afterMeta = refreshedUser
+            ? getOnboardingMetadata(refreshedUser)
+            : baselineMeta;
+          const instrumentIds =
+            afterMeta.instrument_ids ??
+            deployedInstruments(user.career_stage, user.practice_setting).map((i) => i.id);
+          const progress = instrumentProgress(instrumentIds, afterMeta.instrument_answers ?? []);
+          const instrumentsDone =
+            progress.total === 0 || progress.answered >= progress.total;
+          const cv = docs.find((d) => d.document_type === "CV");
+          const reconcItems = afterMeta.reconciliation ?? [];
+          const reconcileDone = cv
+            ? reconcItems.length === 0 || reconcItems.every((r) => r.status !== "pending")
+            : true;
+
+          if (instrumentsDone && reconcileDone && !isCheckinSummaryConfirmed(afterMeta)) {
+            const bullets = buildBaselineCheckinSummaryBullets(user, afterMeta);
+            summaryConfirmPrompt = formatSummaryConfirmPrompt(bullets);
+            await upsertAppUser(
+              auth.userId,
+              auth.email,
+              {
+                onboarding_metadata: {
+                  ...afterMeta,
+                  pending_checkin_summary: bullets,
+                  pending_checkin_summary_kind: "baseline",
+                } as Record<string, unknown>,
+              },
+              auth.demo,
+            );
+            touchpointComplete = false;
+          } else {
+            touchpointComplete = tier3CompleteGate({
+              instrumentsComplete: instrumentsDone,
+              reconcileComplete: reconcileDone,
+              meta: afterMeta,
+            });
+          }
+        }
+      }
     } else if (!user.tier3_complete) {
       const turn = await processConversationalTurn(
         user,
@@ -298,28 +419,60 @@ export async function POST(request: Request) {
     if (touchpointComplete && onboarding) {
       const refreshedUser = await getAppUser(auth.userId, auth.demo);
       if (refreshedUser) {
-        const cv = docs.find((d) => d.document_type === "CV");
-        const computed = computeTouchpoint1Dashboard(refreshedUser, cv?.extracted_text);
-        await upsertAppUser(
-          auth.userId,
-          auth.email,
-          {
-            tier3_complete: true,
-            onboarding_metadata: {
-              ...(refreshedUser.onboarding_metadata ?? {}),
-              ...computed,
-            } as Record<string, unknown>,
-          },
-          auth.demo,
+        const refreshedMeta = getOnboardingMetadata(refreshedUser);
+        const refreshedInstrumentIds =
+          refreshedMeta.instrument_ids ??
+          deployedInstruments(refreshedUser.career_stage, refreshedUser.practice_setting).map(
+            (i) => i.id,
+          );
+        const refreshedProgress = instrumentProgress(
+          refreshedInstrumentIds,
+          refreshedMeta.instrument_answers ?? [],
         );
+        const instrumentsDone =
+          refreshedProgress.total === 0 || refreshedProgress.answered >= refreshedProgress.total;
+
+        const cv = docs.find((d) => d.document_type === "CV");
+        const reconcItems = refreshedMeta.reconciliation ?? [];
+        const reconcileDone = cv
+          ? reconcItems.length === 0 || reconcItems.every((r) => r.status !== "pending")
+          : true;
+
+        const canComplete = tier3CompleteGate({
+          instrumentsComplete: instrumentsDone,
+          reconcileComplete: reconcileDone,
+          meta: refreshedMeta,
+        });
+        touchpointComplete = canComplete;
+
+        if (canComplete) {
+          const computed = computeTouchpoint1Dashboard(refreshedUser, cv?.extracted_text);
+          await upsertAppUser(
+            auth.userId,
+            auth.email,
+            {
+              tier3_complete: true,
+              ...onboardingProgressPatch({ tier3_complete: true }),
+              onboarding_metadata: {
+                ...(refreshedUser.onboarding_metadata ?? {}),
+                ...computed,
+                checkin_summary_confirmed_at:
+                  refreshedMeta.checkin_summary_confirmed_at ?? new Date().toISOString(),
+              } as Record<string, unknown>,
+            },
+            auth.demo,
+          );
+        }
       } else {
-        await upsertAppUser(auth.userId, auth.email, { tier3_complete: true }, auth.demo);
+        touchpointComplete = false;
       }
     }
   }
 
   const refreshedAssessments = await fetchAssessments(auth.userId, auth.demo);
-  const pendingTp1 = user ? getPendingQuestions(1, refreshedAssessments) : [];
+  const pendingTp1 = user
+    ? getPendingQuestions(1, refreshedAssessments, getOnboardingMetadata(user))
+    : [];
 
   const cvDoc = docs.find((d) => d.document_type === "CV");
   const cvMetricsForCoach =
@@ -342,11 +495,13 @@ export async function POST(request: Request) {
   const quarterlyPulseDue = touchpointReady ? quarterlyPulseStatus(metaParsed).due : false;
   const annualRefreshDue = touchpointReady ? annualRefreshStatus(metaParsed).due : false;
   const annualSessionActive = Boolean(
-    activeMeta.annual_refresh_session ||
+    (activeMeta.annual_refresh_session &&
+      (context?.annual_refresh === true || activeMeta.touchpoint_session_mode === "annual")) ||
       (annualRefreshDue && context?.annual_refresh === true),
   );
   const quarterlySessionActive = Boolean(
-    activeMeta.quarterly_pulse_session ||
+    (activeMeta.quarterly_pulse_session &&
+      (context?.quarterly_pulse === true || activeMeta.touchpoint_session_mode === "quarterly")) ||
       (quarterlyPulseDue && context?.quarterly_pulse === true),
   );
 
@@ -1313,7 +1468,7 @@ export async function POST(request: Request) {
     const initials = activeMeta.trainee_initials?.trim().toUpperCase() ?? "";
     const programBlocks = initials ? listBlocksForTrainee(initials) : [];
     response = buildScheduleEventsIntro(programBlocks.length > 0);
-    suggested_actions = [{ action: "Open calendar", url: "/app/calendar" }];
+    suggested_actions = [{ action: "Open calendar", url: "/app/schedule" }];
   } else if (
     user &&
     (message === "__schedule_review__" || isReviewEventToken(message))
@@ -1328,7 +1483,7 @@ export async function POST(request: Request) {
     if (!review) {
       response =
         "No grouped events are ready for review yet. Add calendar events with + Events, or check back after your next rotation block.";
-      suggested_actions = [{ action: "Add events", url: "/app/calendar" }];
+      suggested_actions = [{ action: "Add events", url: "/app/schedule" }];
     } else {
       const focusMatch = message.match(/^__review_event:([a-zA-Z0-9_-]+)__$/);
       const focusId = focusMatch?.[1];
@@ -1386,7 +1541,7 @@ export async function POST(request: Request) {
     }).rotation_touchpoint;
     if (!touchpoint) {
       response = "No rotation touchpoint is due on your block schedule right now.";
-      suggested_actions = [{ action: "View calendar", url: "/app/calendar" }];
+      suggested_actions = [{ action: "View calendar", url: "/app/schedule" }];
     } else {
       activeMeta = initRotationDebriefSession(activeMeta, touchpoint.rotation_label, {
         phase: touchpoint.phase,
@@ -1519,6 +1674,9 @@ export async function POST(request: Request) {
       } else if (touchpointComplete) {
         response += `\n\nYour dashboard is ready — open Perspective and Insights to continue with Coach Mak.`;
       }
+      if (summaryConfirmPrompt) {
+        response = summaryConfirmPrompt;
+      }
       suggested_actions = buildOnboardingSuggestedActions();
     } else {
       suggested_actions =
@@ -1639,6 +1797,38 @@ export async function POST(request: Request) {
       }
     }
 
+    // Build lightweight lattice for Mak context (uses docs + metadata already fetched).
+    const latticeDashboardForMak =
+      user && user.tier3_complete
+        ? buildLightweightLatticeForMak({
+            user,
+            docs,
+            meta: activeMeta,
+            assessments: refreshedAssessments,
+          })
+        : null;
+    const latticeMakContext = buildLatticeMakContext(latticeDashboardForMak);
+
+    const makActivities =
+      user && user.tier3_complete
+        ? await fetchActivities(auth.userId, auth.demo, 100)
+        : [];
+    const confirmedEvidenceMakContext =
+      user && user.tier3_complete
+        ? buildConfirmedEvidenceMakContext(
+            buildConfirmedEvidenceList({
+              meta: activeMeta,
+              activities: makActivities,
+              latticeDashboard: latticeDashboardForMak,
+            }),
+          )
+        : "";
+
+    const localVocabHint =
+      typeof message === "string" && !isReviewEventToken(message)
+        ? localVocabularyFollowUpHint(message)
+        : null;
+
     const contextBlock = [
       user ? `Physician: ${user.name}, ${user.specialty}, ${user.career_stage}` : "",
       buildScheduleMemoryContext(activeMeta),
@@ -1651,6 +1841,8 @@ export async function POST(request: Request) {
         ? buildRotationDebriefMakSystemContext(activeMeta, user?.career_stage)
         : "",
       buildConversationModelContext({
+        user: user ?? undefined,
+        onboardingMeta: activeMeta,
         careerStage: user?.career_stage,
         specialty: user?.specialty,
         baseSpecialty: user?.base_specialty,
@@ -1670,6 +1862,9 @@ export async function POST(request: Request) {
         rotationName: activeMeta.rotation_debrief_session?.rotation_name ?? rotationName,
         debriefLayer: activeMeta.rotation_debrief_session?.layer,
       }),
+      localVocabHint
+        ? `Local vocabulary follow-up (if program-specific meaning is unclear — ask ONE question): ${localVocabHint}`
+        : "",
       debriefSummary,
       activeMeta.promotion_context_session
         ? buildPromotionContextMakSystemContext(activeMeta)
@@ -1734,6 +1929,8 @@ export async function POST(request: Request) {
         : "",
       pendingTp1.length ? `Still to learn in conversation: ${pendingTp1.map((q) => q.q_id).join(", ")}` : "",
       coachingBrief ? recommendationsContextForMak(coachingBrief) : "",
+      latticeMakContext,
+      confirmedEvidenceMakContext,
       buildPhysicianMentorDadCoachingContextBlock(coachingBundle),
       annualSessionActive ? buildAnnualMakSystemContext(activeMeta) : "",
       quarterlySessionActive ? buildQuarterlyMakSystemContext(activeMeta) : "",
@@ -1874,8 +2071,8 @@ export async function POST(request: Request) {
   } else if (scheduleEventSaved) {
     response = `${response}${buildScheduleEventSavedAck(scheduleEventSaved)}`;
     suggested_actions = [
-      { action: "Open calendar", url: "/app/calendar" },
-      { action: "Add another event", url: "/app/calendar" },
+      { action: "Open calendar", url: "/app/schedule" },
+      { action: "Add another event", url: "/app/schedule" },
     ];
   } else if (touchpointNextPrompt) {
     response = `${response}\n\n---\n\n${touchpointNextPrompt}`;
@@ -1933,6 +2130,17 @@ export async function POST(request: Request) {
     }
   }
 
+  let likert_scale: ReturnType<typeof likertScaleForCluster> = null;
+  if (user && user.tier2_complete && !user.tier3_complete) {
+    const latestUser = (await getAppUser(auth.userId, auth.demo)) ?? user;
+    const instMeta = getOnboardingMetadata(latestUser);
+    const instrumentIds =
+      instMeta.instrument_ids ??
+      deployedInstruments(latestUser.career_stage, latestUser.practice_setting).map((i) => i.id);
+    const progress = instrumentProgress(instrumentIds, instMeta.instrument_answers ?? []);
+    likert_scale = likertScaleForCluster(progress.pendingCluster);
+  }
+
   return jsonOk({
     message_id: messageId,
     response,
@@ -1941,6 +2149,7 @@ export async function POST(request: Request) {
     memory_updated: Boolean(mp),
     auto_answered: autoAnswered,
     instrument_captured: instrumentCaptured,
+    likert_scale,
     pending_questions: pendingCount,
     touchpoint_complete: touchpointComplete,
     context,

@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "description": "Ten username-only demo accounts for QA. Maps to test.fiscmak.local emails when seeded.",
+  "password_env": "FISCMAK_TEST_PASSWORD",
+  "accounts": [
+    {
+      "username": "demo1",
+      "battery_username": "TESTGEN1",
+      "label": "PGY-1 · Individual",
+      "hint": "First-year resident, general path"
+    },
+    {
+      "username": "demo2",
+      "battery_username": "TESTGEN3",
+      "label": "PGY-3 · Individual",
+      "hint": "Senior resident, general path"
+    },
+    {
+      "username": "demo3",
+      "battery_username": "TESTGEN6",
+      "label": "Early Career · Individual",
+      "hint": "Attending 0–7 years, Family Medicine"
+    },
+    {
+      "username": "demo4",
+      "battery_username": "TESTGEN7",
+      "label": "Mid Career · Individual",
+      "hint": "Attending 8–20 years, Emergency Medicine"
+    },
+    {
+      "username": "demo5",
+      "battery_username": "TESTGEN9",
+      "label": "Retired · Individual",
+      "hint": "Emeritus physician, legacy focus"
+    },
+    {
+      "username": "demo6",
+      "battery_username": "TEST1",
+      "label": "PGY-1 · UH Psych",
+      "hint": "Institutional intern, UH Psychiatry"
+    },
+    {
+      "username": "demo7",
+      "battery_username": "TEST2",
+      "label": "PGY-2 · UH Psych",
+      "hint": "Institutional resident, VA inpatient"
+    },
+    {
+      "username": "demo8",
+      "battery_username": "TEST3",
+      "label": "PGY-3 · UH Psych",
+      "hint": "Institutional senior resident"
+    },
+    {
+      "username": "demo9",
+      "battery_username": "TESTGEN0",
+      "label": "MS4 · Individual",
+      "hint": "Fourth-year medical student, Match prep"
+    },
+    {
+      "username": "demo10",
+      "battery_username": "TESTGEN5",
+      "label": "Fellow · Individual",
+      "hint": "Long-training subspecialty fellow"
+    }
+  ]
+}

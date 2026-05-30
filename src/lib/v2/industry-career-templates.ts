@@ -234,7 +234,7 @@ export const INDUSTRY_STAGE_POSITIONING: Record<
     bestIndustries: ["pharma_biotech", "medical_devices", "ai_health_tech", "venture_capital_pe"],
   },
   early_attending: {
-    label: "Early-Career Attending (0–5 Years)",
+    label: "Early-Career Attending (0–7 Years)",
     strengths: [
       "Board certification and active clinical practice",
       "Fresh training with up-to-date knowledge",
@@ -258,7 +258,7 @@ export const INDUSTRY_STAGE_POSITIONING: Record<
     ],
   },
   mid_career: {
-    label: "Mid-Career Attending (5–15 Years)",
+    label: "Mid-Career Attending (8–20 Years)",
     strengths: [
       "Established reputation and referral network",
       "Leadership (department, committee, institutional)",
@@ -288,7 +288,7 @@ export const INDUSTRY_STAGE_POSITIONING: Record<
     ],
   },
   legacy_attending: {
-    label: "Legacy Attending (15+ Years)",
+    label: "Legacy Attending (20+ Years)",
     strengths: [
       "National or international reputation",
       "Society leadership and guideline authorship",

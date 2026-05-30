@@ -7,6 +7,10 @@ import {
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { quarterlyPulseStatus, type PulseAnswer } from "@/lib/v2/quarterly-pulse";
 import { submitQuarterlyPulse } from "@/lib/v2/touchpoint-submit";
+import {
+  buildQuarterlyCheckinSummaryBullets,
+  formatSummaryConfirmPrompt,
+} from "@/lib/v2/checkin-summary-confirm";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -27,18 +31,34 @@ export async function POST(request: Request) {
   if (!user) return jsonOk({ error: "not_found" }, 404);
 
   const body = await request.json();
-  const { answers } = body as { answers?: PulseAnswer[] };
+  const { answers, summary_confirmed } = body as {
+    answers?: PulseAnswer[];
+    summary_confirmed?: boolean;
+  };
   if (!answers?.length) {
     return jsonOk({ error: "validation_error", message: "Pulse answers required." }, 400);
   }
 
   const meta = getOnboardingMetadata(user);
+  const bullets = buildQuarterlyCheckinSummaryBullets(user, answers);
+
+  if (!summary_confirmed) {
+    return jsonOk({
+      requires_confirm: true,
+      bullets,
+      confirm_prompt: formatSummaryConfirmPrompt(bullets),
+    });
+  }
+
   const result = await submitQuarterlyPulse({
     userId: auth.userId,
     email: auth.email,
     demo: auth.demo,
     user,
-    meta,
+    meta: {
+      ...meta,
+      checkin_summary_confirmed_at: new Date().toISOString(),
+    },
     answers,
   });
 

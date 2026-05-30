@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { ResidencyRotationWorkspace } from "@/components/workspace/ResidencyRotationWorkspace";
 import { getResidencyPage } from "@/lib/v2/programs/uh-residency-content";
@@ -9,6 +9,9 @@ type PageProps = {
 
 export default async function ResidencyDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  if (slug === "contacts-calendars") {
+    redirect("/app/contacts");
+  }
   const page = getResidencyPage(slug);
   if (!page) notFound();
 

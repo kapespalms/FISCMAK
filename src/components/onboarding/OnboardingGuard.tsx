@@ -1,53 +1,70 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function OnboardingGuard({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const stepParam = searchParams.get("step");
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    if (pathname.startsWith("/app/onboarding")) {
-      setReady(true);
-      return;
-    }
-
     let cancelled = false;
 
-    fetch("/api/v1/users/me")
-      .then(async (response) => {
+    async function ensureReady() {
+      if (pathname.startsWith("/app/onboarding")) {
+        if (!stepParam) {
+          try {
+            const response = await fetch("/api/v1/onboarding/progress");
+            if (response.ok) {
+              const data = (await response.json()) as { path?: string };
+              if (!cancelled && data.path?.includes("step=")) {
+                router.replace(data.path);
+              }
+            }
+          } catch {
+            /* fall through */
+          }
+        }
+        if (!cancelled) setReady(true);
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/v1/onboarding/progress");
         if (!response.ok) {
           if (response.status === 401) {
-            window.location.assign("/login");
-            return null;
+            router.replace("/login");
+            return;
           }
-          throw new Error("Could not load profile");
+          throw new Error("Could not load onboarding progress");
         }
-        return response.json();
-      })
-      .then((user) => {
-        if (cancelled || !user) return;
+        const data = (await response.json()) as { path?: string };
+        if (cancelled) return;
 
-        if (!user.tier1_complete) {
+        if (data.path?.startsWith("/app/onboarding")) {
           const pending =
             typeof sessionStorage !== "undefined"
               ? sessionStorage.getItem("fiscmak_onboarding_next")
               : null;
-          window.location.assign(pending ?? "/app/onboarding");
+          router.replace(pending ?? data.path);
           return;
         }
 
         setReady(true);
-      })
-      .catch(() => {
+      } catch {
         if (!cancelled) setReady(true);
-      });
+      }
+    }
+
+    void ensureReady();
 
     return () => {
       cancelled = true;
     };
-  }, [pathname]);
+  }, [pathname, router, stepParam]);
 
   if (!ready) {
     return (

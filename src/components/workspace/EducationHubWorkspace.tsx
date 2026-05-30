@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Download, FileText } from "lucide-react";
+import { ChevronLeft, Download, FileText } from "lucide-react";
 import { HubSearch } from "@/components/uh-psych/HubSearch";
 import { MakHelpChip } from "@/components/uh-psych/MakHelpChip";
 import {
@@ -14,9 +14,13 @@ import { makMessageForEducationCategory } from "@/lib/v2/uh-residency-mak-contex
 
 export function EducationHubWorkspace() {
   const [query, setQuery] = useState("");
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
   const program = uhPsychProgram();
   const searchResults = useMemo(() => searchEducationDocuments(query), [query]);
   const isSearching = query.trim().length > 0;
+  const selectedCategory = selectedCategoryId
+    ? EDUCATION_CATEGORIES.find((c) => c.id === selectedCategoryId) ?? null
+    : null;
 
   return (
     <div className="space-y-8">
@@ -25,10 +29,10 @@ export function EducationHubWorkspace() {
           <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
             {program?.institution_name ?? "University Hospitals"}
           </p>
-          <h1 className="text-page-title">Psychiatry education hub</h1>
+          <h1 className="text-page-title">Read</h1>
           <p className="mt-2 max-w-2xl text-sm text-cx-forest-dark/75">
-            {EDUCATION_CATEGORIES.reduce((n, c) => n + c.documents.length, 0)} documents across landmark
-            articles, psychopharmacology, patient handouts, core readings, and electives.
+            {EDUCATION_CATEGORIES.reduce((n, c) => n + c.documents.length, 0)} documents — landmark
+            articles, psychopharmacology, patient handouts, and core readings.
           </p>
         </div>
         <Link
@@ -43,16 +47,19 @@ export function EducationHubWorkspace() {
         <div className="min-w-[200px] flex-1">
           <HubSearch
             value={query}
-            onChange={setQuery}
+            onChange={(value) => {
+              setQuery(value);
+              if (value.trim()) setSelectedCategoryId(null);
+            }}
             placeholder="Search articles, handouts, pharm…"
             id="education-hub-search"
           />
         </div>
         <Link
-          href="/app/residency"
+          href="/app/uh-psych"
           className="shrink-0 rounded-lg border border-cx-forest-dark/15 px-3 py-2 text-sm font-medium text-cx-forest-dark hover:bg-white/80"
         >
-          Residency hub
+          Rotations
         </Link>
       </div>
 
@@ -73,28 +80,52 @@ export function EducationHubWorkspace() {
             }))}
           />
         </section>
-      ) : (
-        EDUCATION_CATEGORIES.map((category) => (
-          <section
-            key={category.id}
-            id={category.id}
-            className="scroll-mt-24 rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5"
+      ) : selectedCategory ? (
+        <section className="space-y-4">
+          <button
+            type="button"
+            onClick={() => setSelectedCategoryId(null)}
+            className="inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
           >
+            <ChevronLeft className="h-4 w-4" aria-hidden />
+            All categories
+          </button>
+          <div className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h2 className="text-lg font-semibold text-cx-forest-dark">{category.title}</h2>
-                <p className="mt-1 text-sm text-cx-forest-dark/70">{category.description}</p>
+                <h2 className="text-lg font-semibold text-cx-forest-dark">{selectedCategory.title}</h2>
+                <p className="mt-1 text-sm text-cx-forest-dark/70">{selectedCategory.description}</p>
+                <p className="mt-1 text-xs text-cx-forest-dark/50">
+                  {selectedCategory.documents.length} documents
+                </p>
               </div>
               <MakHelpChip
                 label="Ask Mak"
-                message={makMessageForEducationCategory(category.title)}
+                message={makMessageForEducationCategory(selectedCategory.title)}
               />
             </div>
             <div className="mt-4">
-              <CategoryDocuments category={category} />
+              <CategoryDocuments category={selectedCategory} />
             </div>
-          </section>
-        ))
+          </div>
+        </section>
+      ) : (
+        <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {EDUCATION_CATEGORIES.map((category) => (
+            <button
+              key={category.id}
+              type="button"
+              onClick={() => setSelectedCategoryId(category.id)}
+              className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5 text-left transition hover:border-cx-forest-dark/25 hover:shadow-sm"
+            >
+              <h2 className="text-base font-semibold text-cx-forest-dark">{category.title}</h2>
+              <p className="mt-1 line-clamp-2 text-sm text-cx-forest-dark/70">{category.description}</p>
+              <p className="mt-2 text-xs font-medium text-cx-forest-dark/55">
+                {category.documents.length} documents →
+              </p>
+            </button>
+          ))}
+        </section>
       )}
     </div>
   );

@@ -41,6 +41,9 @@ function freshUser(userId: string, email = ""): AppUser {
     tier1_complete: false,
     tier2_complete: false,
     tier3_complete: false,
+    onboarding_status: "NOT_STARTED",
+    current_onboarding_step: null,
+    coach_mak_conversation_id: null,
     practice_setting: null,
     academic_rank: null,
     primary_career_track: null,
@@ -182,4 +185,22 @@ export function addServerDemoActivity(userId: string, entry: ActivityEntry) {
   const state = getServerDemo(userId);
   state.activities = [entry, ...state.activities];
   serverDemo.set(userId, state);
+}
+
+export function updateServerDemoActivity(
+  userId: string,
+  activityId: string,
+  patch: Partial<ActivityEntry>,
+): ActivityEntry | null {
+  const state = getServerDemo(userId);
+  const index = state.activities.findIndex((a) => a.id === activityId);
+  if (index < 0) return null;
+  const updated = { ...state.activities[index]!, ...patch };
+  state.activities = [
+    ...state.activities.slice(0, index),
+    updated,
+    ...state.activities.slice(index + 1),
+  ];
+  serverDemo.set(userId, state);
+  return updated;
 }

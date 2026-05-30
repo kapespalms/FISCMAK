@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Upload, FileUp, Trash2, FolderOpen } from "lucide-react";
 import { CardSection } from "@/components/ui/CardSection";
 import { Button } from "@/components/ui/Button";
-import { ACCEPTED_CV_ACCEPT, ACCEPTED_CV_LABEL } from "@/lib/v2/document-upload";
+import { ACCEPTED_CV_ACCEPT, ACCEPTED_CV_LABEL } from "@/lib/v2/document-upload-types";
 import { MakDiscussLink } from "@/components/ui/MakDiscussLink";
 import { OUTPUT_MAK } from "@/lib/card-mak-prompts";
 import { OUTPUT_TEMPLATE_TYPE_SESSION_KEY } from "@/lib/v2/output-user-templates";

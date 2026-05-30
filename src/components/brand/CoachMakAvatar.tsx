@@ -13,7 +13,7 @@ export function CoachMakAvatar({ size = 32, className, framed = false }: CoachMa
     // Native img avoids Next/Image issues with uploaded brand assets
     <img
       src={MAK_AVATAR_SRC}
-      alt="Coach Mak"
+      alt="Mak"
       width={size}
       height={size}
       className={cn(

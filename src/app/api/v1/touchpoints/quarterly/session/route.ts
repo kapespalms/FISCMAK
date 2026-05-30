@@ -24,15 +24,15 @@ export async function GET() {
 
   const meta = getOnboardingMetadata(user);
   const session = getQuarterlyPulseSession(meta);
-  const module = currentQuarterlyModule(meta);
+  const activeModule = currentQuarterlyModule(meta);
   const pulseDue = quarterlyPulseStatus(meta).due;
 
   return jsonOk({
     due: pulseDue,
     session,
-    current_module: module,
-    prompt: module
-      ? buildQuarterlyModulePrompt(module, user.practice_setting ?? "Academic")
+    current_module: activeModule,
+    prompt: activeModule
+      ? buildQuarterlyModulePrompt(activeModule, user.practice_setting ?? "Academic")
       : null,
   });
 }
@@ -67,12 +67,12 @@ export async function POST(request: Request) {
     auth.demo,
   );
 
-  const module = currentQuarterlyModule(meta);
+  const activeModule = currentQuarterlyModule(meta);
   return jsonOk({
     session: getQuarterlyPulseSession(meta),
-    current_module: module,
-    prompt: module
-      ? buildQuarterlyModulePrompt(module, user.practice_setting ?? "Academic")
+    current_module: activeModule,
+    prompt: activeModule
+      ? buildQuarterlyModulePrompt(activeModule, user.practice_setting ?? "Academic")
       : null,
   });
 }

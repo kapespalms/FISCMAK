@@ -3,6 +3,7 @@
  */
 
 import type { ResidencyPageContent, RotationSectionId } from "@/lib/v2/programs/uh-residency-content";
+import { listElectiveCatalogEntries } from "@/lib/v2/programs/elective-catalog";
 import {
   EDUCATION_CATEGORIES,
   listAllEducationDocuments,
@@ -30,18 +31,17 @@ export const UH_RESIDENT_VOCABULARY = [
 ];
 
 const RESIDENCY_ROUTES: Array<{ label: string; path: string }> = [
-  { label: "Residency hub", path: "/app/residency" },
+  { label: "UH Psych Hub", path: "/app/uh-psych" },
+  { label: "Schedule (blocks + call)", path: "/app/schedule" },
   { label: "Education hub", path: "/app/education" },
-  { label: "Call", path: "/app/residency/call" },
+  { label: "Contacts directory", path: "/app/contacts" },
+  { label: "Call rotation guide", path: "/app/residency/call" },
   { label: "Extra duty", path: "/app/residency/extra_duty" },
-  { label: "Contacts & calendars", path: "/app/residency/contacts-calendars" },
   { label: "Clinical skills verification", path: "/app/residency/clinical-skills" },
-  { label: "Electives", path: "/app/residency/electives" },
+  { label: "Electives catalog", path: "/app/residency/electives" },
   { label: "Consult-liaison (CL)", path: "/app/residency/cl" },
   { label: "CAPU", path: "/app/residency/capu" },
   { label: "VA inpatient (CT6)", path: "/app/residency/va_ct6" },
-  { label: "Block schedule calendar", path: "/app/calendar" },
-  { label: "All rotations catalog", path: "/app/rotations" },
 ];
 
 export function buildUhResidencyMakContext(input?: {
@@ -71,11 +71,21 @@ export function buildUhResidencyMakContext(input?: {
     "### Education hub categories",
     ...EDUCATION_CATEGORIES.map((c) => `- ${c.title}: /app/education (${c.documents.length} docs seeded)`),
     "",
+    "### Elective catalog (internal summary)",
+    `- ${listElectiveCatalogEntries().length} catalogued electives at /app/residency/electives — searchable table with PGY coordination block.`,
+    "- Hub search also surfaces elective matches alongside rotations and education docs.",
+    "- Rotation pages may show a Catalog match card when an elective row maps to that rotation_code.",
+    "",
+    "### Content pipeline (maintainer)",
+    "- Rotation drive files: docs/seeds/uh-rotation-orientations/index.json → UI Downloads block.",
+    "- Run `node scripts/sync-uh-psych-content.mjs` after adding repo PDFs (manifest only, no Drive download).",
+    "- Pending Drive files shown as Content gaps on hub/electives — honest coming-soon labels for residents.",
+    "",
     "### Vocabulary",
     ...UH_RESIDENT_VOCABULARY.map((v) => `- ${v}`),
   ];
 
-  if (input?.pathname?.startsWith("/app/residency")) {
+  if (input?.pathname?.startsWith("/app/uh-psych") || input?.pathname?.startsWith("/app/residency")) {
     lines.push("", "### Current page", `- Path: ${input.pathname}`);
     if (input.page) {
       lines.push(`- Rotation/topic: ${input.page.title}`);

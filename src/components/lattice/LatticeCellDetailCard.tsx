@@ -93,7 +93,7 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
           </div>
         ) : (
           <p className="mt-4 text-sm text-cx-forest-dark/75">
-            No evidence mapped here yet. Log activities, add calendar events with Coach Mak,
+            No evidence mapped here yet. Log activities, add calendar events with Mak,
             complete self-assessment, or upload career documents — mapped skills and tasks will
             appear when they match this cell.
           </p>

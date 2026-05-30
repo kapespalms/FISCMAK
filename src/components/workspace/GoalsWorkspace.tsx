@@ -318,7 +318,7 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
         <CardSection
           eyebrow="Career strategy"
           title="No goals yet"
-          description="Coach Mak walks you through Development, Maintenance, and Sustainability goals — or edit the template directly."
+          description="Mak walks you through Development, Maintenance, and Sustainability goals — or edit the template directly."
           mak={PLAN_MAK.setup}
           footer={<Button onClick={startGoalSettingWithMak}>Set up with Mak</Button>}
         />

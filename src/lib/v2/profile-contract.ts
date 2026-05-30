@@ -229,7 +229,7 @@ export function resolveProfileContract(spec: AuditScenarioSpec): ProfileContract
     doc_count: docs.length,
     requires_gme_placement_fields: requiresGmePlacementFields(spec.career_stage),
     uses_fte_for_career_tracks: usesFteForCareerTracks(spec.career_stage),
-    requires_academic_rank: requiresAcademicRank(spec.practice_setting),
+    requires_academic_rank: requiresAcademicRank(spec.practice_setting, spec.career_stage),
     api_enrichment: apiEnrichmentPlan(spec.practice_setting, spec.career_stage),
     evaluation_framework: evaluationFramework
       ? {

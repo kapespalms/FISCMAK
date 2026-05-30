@@ -2,6 +2,8 @@ import { createClient } from "@/lib/supabase/server";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ensureAppUser } from "@/lib/v2/ensure-app-user";
 import { sanitizeNextPath } from "@/lib/auth/oauth";
+import { resolvePostLoginPath } from "@/lib/v2/onboarding-progress";
+import type { AppUser } from "@/lib/v2/types";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
@@ -39,13 +41,13 @@ export async function GET(request: Request) {
 
     const { data: appUser } = await supabase
       .from("app_users")
-      .select("tier1_complete")
+      .select("*")
       .eq("user_id", user.id)
       .maybeSingle();
 
-    if (!appUser?.tier1_complete) {
-      const onboardingTarget = next.startsWith("/app/onboarding") ? next : "/app/onboarding";
-      return NextResponse.redirect(`${origin}${onboardingTarget}`);
+    if (appUser) {
+      const target = resolvePostLoginPath(appUser as AppUser, next);
+      return NextResponse.redirect(`${origin}${target}`);
     }
   }
 

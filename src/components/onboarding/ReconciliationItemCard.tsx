@@ -17,6 +17,7 @@ type ReconciliationItemCardProps = {
   item: ReconcileItemView;
   initialNpi?: string;
   npiStatus?: NpiRegistryStatus | null;
+  variant?: "default" | "luxury";
   onToggle: (id: string, status: "confirmed" | "rejected") => void;
   onNpiVerified: (id: string, status: "confirmed" | "rejected") => void;
   onNpiSkipped?: () => void;
@@ -26,21 +27,42 @@ export function ReconciliationItemCard({
   item,
   initialNpi = "",
   npiStatus,
+  variant = "default",
   onToggle,
   onNpiVerified,
   onNpiSkipped,
 }: ReconciliationItemCardProps) {
   const isNpi = isNpiReconcileItem(item);
   const verified = Boolean(npiStatus?.npi_verified && npiStatus?.npi);
+  const luxury = variant === "luxury";
 
   return (
-    <li className="relative rounded-xl border border-cx-forest-dark/15 bg-white p-5 shadow-sm">
-      {!isNpi && <p className="text-cx-label uppercase">{item.source}</p>}
-      <p className={cn("text-cx-h3", !isNpi && "mt-2", isNpi && !verified && "pr-28")}>
+    <li
+      className={cn(
+        "relative rounded-xl border p-5",
+        luxury
+          ? "border-white/5 bg-[#0A0C10] shadow-none"
+          : "border-cx-forest-dark/15 bg-white shadow-sm",
+      )}
+    >
+      {!isNpi && (
+        <p className={cn(luxury ? "font-futura-bold text-xs uppercase tracking-[0.15em] text-[#D4AF37]" : "text-cx-label uppercase")}>
+          {item.source}
+        </p>
+      )}
+      <p
+        className={cn(
+          luxury ? "font-futura-bold text-lg text-white" : "text-cx-h3",
+          !isNpi && "mt-2",
+          isNpi && !verified && "pr-28",
+        )}
+      >
         {verified && npiStatus?.npi ? `NPI ${npiStatus.npi} verified` : item.label}
       </p>
       {!verified && (
-        <p className="mt-2 text-sm text-cx-forest-dark/80">{item.detail}</p>
+        <p className={cn("mt-2 text-sm", luxury ? "text-gray-400" : "text-cx-forest-dark/80")}>
+          {item.detail}
+        </p>
       )}
 
       {isNpi ? (

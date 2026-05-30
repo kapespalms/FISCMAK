@@ -10,6 +10,10 @@ import {
   type AnnualRefreshAnswer,
 } from "@/lib/v2/annual-refresh";
 import { submitAnnualRefresh } from "@/lib/v2/touchpoint-submit";
+import {
+  buildAnnualCheckinSummaryBullets,
+  formatSummaryConfirmPrompt,
+} from "@/lib/v2/checkin-summary-confirm";
 
 export async function GET() {
   const auth = await requireApiUser();
@@ -28,18 +32,34 @@ export async function POST(request: Request) {
   if (!user) return jsonOk({ error: "not_found" }, 404);
 
   const body = await request.json();
-  const { answers } = body as { answers?: AnnualRefreshAnswer[] };
+  const { answers, summary_confirmed } = body as {
+    answers?: AnnualRefreshAnswer[];
+    summary_confirmed?: boolean;
+  };
   if (!answers?.length) {
     return jsonOk({ error: "validation_error", message: "Annual refresh answers required." }, 400);
   }
 
   const meta = getOnboardingMetadata(user);
+  const bullets = buildAnnualCheckinSummaryBullets(user, answers);
+
+  if (!summary_confirmed) {
+    return jsonOk({
+      requires_confirm: true,
+      bullets,
+      confirm_prompt: formatSummaryConfirmPrompt(bullets),
+    });
+  }
+
   const result = await submitAnnualRefresh({
     userId: auth.userId,
     email: auth.email,
     demo: auth.demo,
     user,
-    meta,
+    meta: {
+      ...meta,
+      checkin_summary_confirmed_at: new Date().toISOString(),
+    },
     answers,
   });
 

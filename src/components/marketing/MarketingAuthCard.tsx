@@ -17,7 +17,7 @@ export function MarketingAuthCard({ children, className }: MarketingAuthCardProp
   return (
     <div
       className={cn(
-        "w-full max-w-md rounded-2xl border border-white/10 bg-[#1a2419] px-8 py-10",
+        "w-full max-w-md rounded-2xl border border-white/10 bg-[#141722] px-8 py-10 shadow-[0_30px_60px_rgba(0,0,0,0.6)]",
         className,
       )}
     >

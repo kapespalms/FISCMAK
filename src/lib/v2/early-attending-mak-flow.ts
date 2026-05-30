@@ -130,7 +130,7 @@ export function processPromotionContextTurn(input: {
   message: string;
   meta: OnboardingMetadata;
 }): AttendingFlowTurnResult {
-  let session = input.meta.promotion_context_session;
+  const session = input.meta.promotion_context_session;
   if (!session) {
     return {
       meta: input.meta,

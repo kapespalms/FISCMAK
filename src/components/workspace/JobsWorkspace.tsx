@@ -119,7 +119,7 @@ export function JobsWorkspace({ embedded = false }: JobsWorkspaceProps) {
           title={tab === "saved" ? "No saved positions" : "No matches yet"}
           description={
             tab === "saved"
-              ? "Save positions from your match feed to compare them with Coach Mak."
+              ? "Save positions from your match feed to compare them with Mak."
               : "Matches appear as your Career Profile and goals are populated."
           }
           icon={Briefcase}

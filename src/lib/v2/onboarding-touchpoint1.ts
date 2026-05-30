@@ -74,11 +74,7 @@ export function documentRequirements(
   const docs: OnboardingDocumentSpec[] = [];
 
   // CV matrix from spec
-  if (level === "Medical Student") {
-    docs.push(req("CV", "optional"));
-  } else {
-    docs.push(req("CV", "required"));
-  }
+  docs.push(req("CV", "optional"));
 
   if (isAcademic(setting) && isEarlyOrMid(level)) {
     docs.push(req("NIH_Biosketch", level === "Early Career (0–7 yr)" ? "optional" : "optional"));

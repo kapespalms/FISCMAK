@@ -2,8 +2,11 @@ import type { CareerGoal } from "@/lib/goals";
 import type { EnrichmentSnapshot } from "@/lib/v2/api-enrichment";
 import { resolveAcademicProfile, isAcademicContext } from "@/lib/v2/academic-profiles";
 import type { CareerVaultModel } from "@/lib/v2/career-vault";
-import type { CareerHealthView } from "@/lib/v2/career-health-view";
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
+import {
+  formatConfirmedEvidenceForPrompt,
+  type ConfirmedEvidenceItem,
+} from "@/lib/v2/confirmed-evidence";
 import {
   buildCareerNarrativeMakContext,
   buildSectionPrompts,
@@ -70,8 +73,9 @@ export type OutputGenerationContext = {
   enrichmentDelta: string | null;
   reconciliationPending: number;
   goals: CareerGoal[];
-  health: CareerHealthView | null;
-  developmentGaps: string[];
+  /** Confirmed facts only — never proposed reconcile or composite scores. */
+  confirmedEvidence: ConfirmedEvidenceItem[];
+  developmentThemes: string[];
   cvExcerpt: string | null;
   cvEvidence: CvEvidence | null;
   invisibleWorkHours: number | null;
@@ -116,7 +120,7 @@ export async function buildOutputGenerationContext(input: {
   templateType: string;
   vault: CareerVaultModel | null;
   goals: CareerGoal[];
-  health: CareerHealthView | null;
+  confirmedEvidence?: ConfirmedEvidenceItem[];
   cvText?: string | null;
   cvEvidence?: CvEvidence | null;
   readiness?: OutputGenerationContext["readiness"];
@@ -128,7 +132,7 @@ export async function buildOutputGenerationContext(input: {
     templateType,
     vault,
     goals,
-    health,
+    confirmedEvidence = [],
     cvText,
     cvEvidence,
     readiness,
@@ -140,8 +144,11 @@ export async function buildOutputGenerationContext(input: {
     meta.previous_enrichment_snapshot,
   );
 
-  const weakDomains =
-    health?.domains.slice().sort((a, b) => a.score - b.score).slice(0, 2) ?? [];
+  const activeGoals = goals.filter((g) => g.status === "active");
+  const developmentThemes = activeGoals
+    .filter((g) => g.goal_type === "development" || g.goal_type === "sustainability")
+    .slice(0, 3)
+    .map((g) => g.goal_title);
 
   const program =
     getProgramById(meta.program_id) ?? getProgramBySlug(meta.program_slug) ?? null;
@@ -178,9 +185,9 @@ export async function buildOutputGenerationContext(input: {
     vault,
     enrichmentDelta: delta ?? vault?.changes_since_quarter ?? null,
     reconciliationPending: vault?.pending_review ?? 0,
-    goals: goals.filter((g) => g.status === "active"),
-    health,
-    developmentGaps: weakDomains.map((d) => `${d.label} (${d.score})`),
+    goals: activeGoals,
+    confirmedEvidence,
+    developmentThemes,
     cvExcerpt: cvText ? cvText.slice(0, 2500) : null,
     cvEvidence: cvEvidence ?? null,
     invisibleWorkHours: meta.pulse_history?.[0]?.invisible_hours ?? null,
@@ -203,6 +210,10 @@ function goalLines(goals: CareerGoal[]): string {
 function vaultSection(ctx: OutputGenerationContext): string {
   if (!ctx.vault?.sections.length) return "Career Data vault pending — upload CV and run enrichment.";
   return ctx.vault.sections.map((s) => `${s.label}: ${s.count}`).join(" · ");
+}
+
+function confirmedEvidenceSection(ctx: OutputGenerationContext): string {
+  return formatConfirmedEvidenceForPrompt(ctx.confirmedEvidence);
 }
 
 export function buildOutputPrefill(ctx: OutputGenerationContext): string {
@@ -279,8 +290,11 @@ function buildCvPrefill(ctx: OutputGenerationContext, docLabel: string): string 
     );
   }
   lines.push("", "ACTIVE CAREER GOALS", goalLines(ctx.goals));
-  if (ctx.developmentGaps.length) {
-    lines.push("", "DEVELOPMENT PRIORITIES", ctx.developmentGaps.map((g) => `- ${g}`).join("\n"));
+  if (ctx.confirmedEvidence.length) {
+    lines.push("", "CONFIRMED EVIDENCE (cite evidence_id)", confirmedEvidenceSection(ctx));
+  }
+  if (ctx.developmentThemes.length) {
+    lines.push("", "DEVELOPMENT PRIORITIES", ctx.developmentThemes.map((g) => `- ${g}`).join("\n"));
   }
   lines.push(
     "",
@@ -377,11 +391,11 @@ function buildAnnualReviewPrefill(ctx: OutputGenerationContext): string {
     "",
     "Goal progress",
     goalLines(ctx.goals),
-    ctx.health
-      ? `\nCareer Health Score: ${ctx.health.career_health_score}/100`
+    ctx.confirmedEvidence.length
+      ? `\nConfirmed evidence:\n${confirmedEvidenceSection(ctx)}`
       : "",
     "",
-    "[Expand each section with Mak using evidence from Career Data vault.]",
+    "[Expand each section with Mak using confirmed evidence only.]",
   ]
     .filter(Boolean)
     .join("\n");
@@ -652,16 +666,18 @@ function buildCareerSnapshotPrefill(ctx: OutputGenerationContext): string {
     "Career Snapshot",
     "",
     `${ctx.name} · ${ctx.profileLine}`,
-    ctx.health ? `Career Health Score: ${ctx.health.career_health_score}/100` : "",
     `Objective: ${ctx.careerObjective}`,
     "",
     vaultSection(ctx),
     ctx.enrichmentDelta ? `Recent: ${ctx.enrichmentDelta}` : "",
+    ctx.confirmedEvidence.length
+      ? `\nConfirmed evidence:\n${confirmedEvidenceSection(ctx)}`
+      : "",
     "",
     "Active goals",
     goalLines(ctx.goals),
-    ctx.developmentGaps.length
-      ? `\nDevelopment areas: ${ctx.developmentGaps.join("; ")}`
+    ctx.developmentThemes.length
+      ? `\nDevelopment priorities: ${ctx.developmentThemes.join("; ")}`
       : "",
   ]
     .filter(Boolean)
@@ -679,14 +695,17 @@ Profile: ${ctx.profileLine}
 Career objective: ${ctx.careerObjective}
 Career Data vault: ${vaultSection(ctx)}
 ${ctx.enrichmentDelta ? `Changes since last quarter: ${ctx.enrichmentDelta}` : ""}
-${ctx.health ? `Career Health Score: ${ctx.health.career_health_score}/100` : ""}
-Development gaps: ${ctx.developmentGaps.join("; ") || "none identified"}
+
+CONFIRMED EVIDENCE (every factual claim must cite an evidence_id from this list, or mark [needs source]):
+${confirmedEvidenceSection(ctx)}
+
+Development themes: ${ctx.developmentThemes.join("; ") || "none identified"}
 
 Active goals:
 ${goalLines(ctx.goals)}
 
-${ctx.makTraineeBackground ? `${ctx.makTraineeBackground}\n\n` : ""}${userTemplateBlock}Use ONLY evidence from the Career Data vault and context above. Do not invent publications or grants.
-${ctx.userOutputTemplate ? "Populate the user's uploaded template structure — preserve their headings and section order." : "Expand this draft into polished prose appropriate for academic medicine:"}
+RULES: Do not invent publications, roles, or metrics. Never mention Career Health Score, percentiles, or wellbeing scores. Cite facts with [evidence_id] inline (e.g. [recon-pubmed-publications]) matching the CONFIRMED EVIDENCE list.
+${ctx.makTraineeBackground ? `${ctx.makTraineeBackground}\n\n` : ""}${userTemplateBlock}${ctx.userOutputTemplate ? "Populate the user's uploaded template structure — preserve their headings and section order." : "Expand this draft into polished prose appropriate for academic medicine:"}
 
 ${prefill}`;
 }

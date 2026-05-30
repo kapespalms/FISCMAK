@@ -19,6 +19,7 @@ import {
   resolveAcgmeFromDomainIndex,
 } from "@/lib/v2/lattice/ontology-registry";
 import type { LatticeEvidence } from "@/lib/v2/lattice/types";
+import { isCheckinSummaryConfirmed } from "@/lib/v2/checkin-summary-confirm";
 
 const CAREER_TRACK_TO_INDEX: Record<PrimaryCareerTrack, number> = {
   Clinician: 0,
@@ -365,12 +366,13 @@ export function buildProfileLatticeEvidence(input: {
   assessments?: CareerAssessment[];
 }): LatticeEvidence[] {
   const fallbackTrack = primaryTrackIndex(input.user, input.meta);
+  const confirmed = isCheckinSummaryConfirmed(input.meta);
   const answers = input.meta.instrument_answers ?? [];
   return [
     ...profileEvidence(input.user, input.meta),
-    ...instrumentEvidence(input.user, input.meta, answers),
+    ...(confirmed ? instrumentEvidence(input.user, input.meta, answers) : []),
     ...goalEvidence(input.meta, fallbackTrack),
-    ...careerAssessmentEvidence(input.assessments ?? [], fallbackTrack),
+    ...(confirmed ? careerAssessmentEvidence(input.assessments ?? [], fallbackTrack) : []),
   ];
 }
 

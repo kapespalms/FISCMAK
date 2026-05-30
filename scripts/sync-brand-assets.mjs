@@ -10,6 +10,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { knockoutWhiteBackground } from "./knockout-panel-backgrounds.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const drop = path.join(root, "docs/canva-exports");
@@ -25,7 +26,7 @@ const MAP = [
   { from: "logo-cm.png", to: "public/marketing/landing/fiscmak-logo-cm.png" },
 ];
 
-function main() {
+async function main() {
   if (!fs.existsSync(drop)) {
     fs.mkdirSync(drop, { recursive: true });
     console.log(`Created ${drop}`);
@@ -40,6 +41,9 @@ function main() {
     if (!fs.existsSync(src)) continue;
     fs.mkdirSync(path.dirname(dest), { recursive: true });
     fs.copyFileSync(src, dest);
+    if (to.includes("panel-") && to.endsWith(".png")) {
+      await knockoutWhiteBackground(dest);
+    }
     console.log(`✓ ${from} → ${to}`);
     copied += 1;
   }
@@ -53,4 +57,7 @@ function main() {
   console.log(`\nSynced ${copied} file(s). Hard-refresh the browser to see updates.`);
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

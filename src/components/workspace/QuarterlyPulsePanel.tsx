@@ -4,7 +4,9 @@ import { useState } from "react";
 import { HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { CardSection } from "@/components/ui/CardSection";
+import { CheckinSummaryConfirm } from "@/components/checkin/CheckinSummaryConfirm";
 import type { QuarterlyPulseStatus } from "@/lib/v2/quarterly-pulse";
+import type { PulseAnswer } from "@/lib/v2/quarterly-pulse";
 import { filterTouchpointAnswers } from "@/lib/v2/touchpoint-eligibility";
 import { postTouchpointJson } from "@/lib/v2/touchpoint-fetch";
 
@@ -12,6 +14,12 @@ type Props = {
   status: QuarterlyPulseStatus;
   onComplete?: () => void;
   onBeginWithMak?: () => void;
+};
+
+type PreviewResponse = {
+  requires_confirm?: boolean;
+  bullets?: string[];
+  summary?: string;
 };
 
 export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Props) {
@@ -24,15 +32,15 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
   const [cvUpdate, setCvUpdate] = useState("");
   const [loading, setLoading] = useState(false);
   const [summary, setSummary] = useState<string | null>(null);
+  const [pendingAnswers, setPendingAnswers] = useState<PulseAnswer[] | null>(null);
+  const [confirmBullets, setConfirmBullets] = useState<string[] | null>(null);
   const [error, setError] = useState("");
 
-  if (!status.due && !summary) return null;
+  if (!status.due && !summary && !confirmBullets) return null;
 
-  async function submit() {
-    setLoading(true);
-    setError("");
+  function buildAnswers(): PulseAnswer[] {
     const now = new Date().toISOString();
-    const answers = filterTouchpointAnswers([
+    return filterTouchpointAnswers([
       { module_id: "pfi_screen", question_id: "exhaustion", value: exhaustion === "" ? "" : Number(exhaustion), captured_at: now },
       { module_id: "pfi_screen", question_id: "depersonalization", value: depersonalization === "" ? "" : Number(depersonalization), captured_at: now },
       { module_id: "invisible_pulse", question_id: "weekly_hours", value: invisibleHours === "" ? "" : Number(invisibleHours), captured_at: now },
@@ -40,14 +48,19 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       { module_id: "career_momentum", question_id: "track_energy", value: trackEnergy === "" ? "" : Number(trackEnergy), captured_at: now },
       { module_id: "cv_update", question_id: "updates", value: cvUpdate.trim(), captured_at: now },
     ]);
+  }
 
+  async function submitPreview() {
+    setLoading(true);
+    setError("");
+    const answers = buildAnswers();
     if (answers.length === 0) {
       setError("Add at least one field before submitting the pulse.");
       setLoading(false);
       return;
     }
 
-    const result = await postTouchpointJson<{ summary: string }>(
+    const result = await postTouchpointJson<PreviewResponse>(
       "/api/v1/touchpoints/quarterly",
       { answers },
     );
@@ -56,9 +69,43 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       setLoading(false);
       return;
     }
+    if (result.data.requires_confirm && result.data.bullets?.length) {
+      setPendingAnswers(answers);
+      setConfirmBullets(result.data.bullets);
+      setLoading(false);
+      return;
+    }
+    if (result.data.summary) {
+      setSummary(result.data.summary);
+      onComplete?.();
+    }
+    setLoading(false);
+  }
+
+  async function confirmSave() {
+    if (!pendingAnswers?.length) return;
+    setLoading(true);
+    setError("");
+    const result = await postTouchpointJson<{ summary: string }>(
+      "/api/v1/touchpoints/quarterly",
+      { answers: pendingAnswers, summary_confirmed: true },
+    );
+    if (!result.ok || !result.data) {
+      setError(result.error ?? "Could not save pulse");
+      setLoading(false);
+      return;
+    }
     setSummary(result.data.summary);
+    setConfirmBullets(null);
+    setPendingAnswers(null);
     setLoading(false);
     onComplete?.();
+  }
+
+  function resetConfirm() {
+    setConfirmBullets(null);
+    setPendingAnswers(null);
+    setError("");
   }
 
   if (summary) {
@@ -66,7 +113,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       <CardSection
         accent="green"
         eyebrow={status.quarter_label}
-        title="Pulse complete"
+        title="Check-in complete"
         icon={HeartPulse}
       >
         <pre className="whitespace-pre-wrap text-sm text-cx-forest-dark/80">{summary}</pre>
@@ -77,12 +124,36 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
     );
   }
 
+  if (confirmBullets) {
+    return (
+      <CardSection
+        accent="amber"
+        eyebrow={status.quarter_label}
+        title="Review your summary"
+        icon={HeartPulse}
+      >
+        <CheckinSummaryConfirm
+          bullets={confirmBullets}
+          loading={loading}
+          onConfirm={() => void confirmSave()}
+          onChangeWithMak={onBeginWithMak}
+          onNotQuite={resetConfirm}
+        />
+        {error && (
+          <p className="mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+            {error}
+          </p>
+        )}
+      </CardSection>
+    );
+  }
+
   return (
     <CardSection
       accent="amber"
       eyebrow="Quarterly pulse"
       title={`${status.quarter_label} check-in`}
-      description="Coach Mak walks you through four quick modules (~5–8 min). Your answers save to your dashboard and Career Data vault automatically."
+      description="Mak walks you through four quick modules (~5–8 min). Your answers save to your dashboard and Career Data vault after you confirm the summary."
       icon={HeartPulse}
       footer={
         status.days_since_last != null ? (
@@ -95,7 +166,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       {!showFallback ? (
         <div className="flex flex-wrap gap-2">
           {onBeginWithMak && (
-            <Button onClick={onBeginWithMak}>Begin with Coach Mak</Button>
+            <Button onClick={onBeginWithMak}>Begin with Mak</Button>
           )}
           <Button variant="secondary" onClick={() => setShowFallback(true)}>
             Use form instead
@@ -105,22 +176,22 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
         <div className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-sm text-cx-forest-dark">
-              <span className="font-semibold">Emotional exhaustion (0–6)</span>
+              <span className="font-semibold">Emotional exhaustion (0–4)</span>
               <input
                 type="number"
                 min={0}
-                max={6}
+                max={4}
                 value={exhaustion}
                 onChange={(e) => setExhaustion(e.target.value)}
                 className="cx-field mt-1 w-full"
               />
             </label>
             <label className="text-sm text-cx-forest-dark">
-              <span className="font-semibold">Depersonalization (0–6)</span>
+              <span className="font-semibold">Depersonalization (0–4)</span>
               <input
                 type="number"
                 min={0}
-                max={6}
+                max={4}
                 value={depersonalization}
                 onChange={(e) => setDepersonalization(e.target.value)}
                 className="cx-field mt-1 w-full"
@@ -170,8 +241,8 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
             />
           </label>
           <div className="flex gap-2">
-            <Button onClick={() => void submit()} disabled={loading}>
-              {loading ? "Saving…" : "Submit pulse"}
+            <Button onClick={() => void submitPreview()} disabled={loading}>
+              {loading ? "Saving…" : "Review summary"}
             </Button>
             <Button variant="secondary" onClick={() => setShowFallback(false)}>
               Back to Mak

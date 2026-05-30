@@ -25,7 +25,7 @@ export function CreditLimitModal({ open, onClose, upgradePrompt }: CreditLimitMo
         </h2>
         <p className="mt-2 text-sm text-cx-forest-dark/80">
           {upgradePrompt ??
-            "You've used your free AI coaching messages for now. Upgrade to Premium for unlimited Coach Mak conversations."}
+            "You've used your free AI coaching messages for now. Upgrade to Premium for unlimited Mak conversations."}
         </p>
         <div className="mt-6 flex flex-col gap-2 sm:flex-row">
           <Link

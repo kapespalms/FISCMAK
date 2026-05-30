@@ -40,6 +40,9 @@ export async function GET() {
     tier1_complete: user.tier1_complete,
     tier2_complete: user.tier2_complete,
     tier3_complete: user.tier3_complete,
+    onboarding_status: user.onboarding_status ?? null,
+    current_onboarding_step: user.current_onboarding_step ?? null,
+    coach_mak_conversation_id: user.coach_mak_conversation_id ?? null,
     last_active: user.last_active,
     created_at: user.created_at,
   });

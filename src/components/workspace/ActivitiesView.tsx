@@ -11,6 +11,7 @@ import { fetchActivities } from "@/lib/activities-storage";
 import { cn } from "@/lib/utils";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { ClassificationResult } from "@/lib/types/database";
+import { isUnconfirmedMakCapture } from "@/lib/v2/activity-confirm";
 
 export function ActivitiesView() {
   const [activities, setActivities] = useState<ActivityEntry[]>([]);
@@ -21,6 +22,7 @@ export function ActivitiesView() {
   const [lastClassification, setLastClassification] =
     useState<ClassificationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [confirmingId, setConfirmingId] = useState<string | null>(null);
 
   const loadActivities = useCallback(async () => {
     const data = await fetchActivities();
@@ -74,6 +76,28 @@ export function ActivitiesView() {
       setError(err instanceof Error ? err.message : "Failed to save activity");
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function confirmActivity(id: string) {
+    setConfirmingId(id);
+    setError(null);
+    try {
+      const res = await fetch(`/api/v1/activities/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ confirm: true }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message ?? "Could not confirm activity");
+      }
+      await loadActivities();
+      window.dispatchEvent(new CustomEvent("fiscmak:activity-logged"));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not confirm activity");
+    } finally {
+      setConfirmingId(null);
     }
   }
 
@@ -188,8 +212,20 @@ export function ActivitiesView() {
               {a.primary_domain && <Badge>{a.primary_domain}</Badge>}
               {a.primary_track && <Badge>{a.primary_track}</Badge>}
               {a.input_source === "mak_capture" && <Badge>Mak</Badge>}
+              {isUnconfirmedMakCapture(a) && <Badge>Needs confirm</Badge>}
               <span className="text-xs text-cx-forest-dark/70">{a.activity_date}</span>
             </div>
+            {isUnconfirmedMakCapture(a) && (
+              <Button
+                variant="secondary"
+                className="mt-3"
+                disabled={confirmingId === a.id}
+                onClick={() => void confirmActivity(a.id)}
+                aria-label="Confirm this activity looks right"
+              >
+                {confirmingId === a.id ? "Saving…" : "This looks right"}
+              </Button>
+            )}
           </div>
         ))}
         </div>

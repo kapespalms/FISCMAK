@@ -1,5 +1,7 @@
 import type { AppUser, CareerAssessment, QuestionDef } from "@/lib/v2/types";
 import { QUESTION_BANK, questionsForTouchpoint } from "@/lib/v2/question-bank";
+import { applyPfiQuestionDedupe } from "@/lib/v2/question-bank-dedupe";
+import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import type { CareerStage } from "@/lib/v2/onboarding-options";
 import { formatSpecialtyLine, normalizeSpecialtyProfile } from "@/lib/v2/specialty-hierarchy";
 
@@ -36,9 +38,11 @@ export function getGloballyAnsweredIds(assessments: CareerAssessment[]): string[
 export function getPendingQuestions(
   touchpoint: number,
   assessments: CareerAssessment[],
+  meta?: OnboardingMetadata | null,
 ): QuestionDef[] {
   const answered = new Set(getGloballyAnsweredIds(assessments));
-  return questionsForTouchpoint(touchpoint).filter((q) => !answered.has(q.q_id));
+  const pending = questionsForTouchpoint(touchpoint).filter((q) => !answered.has(q.q_id));
+  return applyPfiQuestionDedupe(pending, meta);
 }
 
 export function seedAnswersFromProfile(user: AppUser): ExtractedAnswer[] {

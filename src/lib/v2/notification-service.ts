@@ -33,12 +33,16 @@ async function sendEmail(input: {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const from = process.env.RESEND_FROM_EMAIL?.trim();
   if (!apiKey || !from) {
-    console.log(`[notifications] Would email ${input.to}: ${input.subject}`);
+    if (process.env.NODE_ENV === "development") {
+      console.info(`[notifications] Would email ${input.to}: ${input.subject}`);
+      if (input.to === getContactInboxEmail()) {
+        console.info("[notifications] Contact inquiry (email not configured):", {
+          replyTo: input.replyTo,
+          subject: input.subject,
+        });
+      }
+    }
     if (input.to === getContactInboxEmail()) {
-      console.log("[notifications] Contact inquiry (email not configured):", {
-        replyTo: input.replyTo,
-        subject: input.subject,
-      });
       return { sent: true, reason: "logged_only" };
     }
     return { sent: false, reason: "email_not_configured" };

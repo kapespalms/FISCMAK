@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { ContactFormPopover } from "@/components/marketing/ContactFormPopover";
 
 type FooterLink = {
@@ -15,24 +16,26 @@ const footerLinks: FooterLink[] = [
   { label: "Security", href: "/security" },
 ];
 
-export function MarketingFooter() {
+export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
   return (
     <footer id="contact" aria-label="Footer navigation" className="relative z-[1] border-t border-white/10">
       <ContactFormPopover />
 
       <div className="px-6 py-10 md:px-10 md:py-12">
-        <nav
-          aria-label="Footer links"
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400"
-        >
-          {footerLinks.map((item) => (
-            <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {!hideNav ? (
+          <nav
+            aria-label="Footer links"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400"
+          >
+            {footerLinks.map((item) => (
+              <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
 
-        <div className="mt-10 flex items-end justify-between gap-6">
+        <div className={cn("flex items-end justify-between gap-6", !hideNav && "mt-10")}>
           <Link
             href="/"
             aria-label="FISCMAK home"

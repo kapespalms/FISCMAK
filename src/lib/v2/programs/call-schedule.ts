@@ -106,3 +106,63 @@ export function weekDatesContaining(isoDate: string): string[] {
     return x.toISOString().slice(0, 10);
   });
 }
+
+export function monthBounds(year: number, monthIndex: number): { start: string; end: string } {
+  const start = new Date(year, monthIndex, 1);
+  const end = new Date(year, monthIndex + 1, 0);
+  return {
+    start: start.toISOString().slice(0, 10),
+    end: end.toISOString().slice(0, 10),
+  };
+}
+
+export function datesInMonth(year: number, monthIndex: number): string[] {
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  return Array.from({ length: daysInMonth }, (_, i) => {
+    const d = new Date(year, monthIndex, i + 1);
+    return d.toISOString().slice(0, 10);
+  });
+}
+
+export type MonthGridCell = {
+  date: string;
+  assignee_abbr: string;
+  shift: string | null;
+};
+
+export type MonthGridRow = {
+  role: string;
+  cells: Map<string, MonthGridCell | null>;
+};
+
+/** Resident roles × days in month for coverage grid. */
+export function callCoverageGridForMonth(year: number, monthIndex: number): {
+  dates: string[];
+  rows: MonthGridRow[];
+} {
+  const dates = datesInMonth(year, monthIndex);
+  const dateSet = new Set(dates);
+  const roles = residentCallRoles();
+
+  const rows: MonthGridRow[] = roles.map((role) => {
+    const cells = new Map<string, MonthGridCell | null>();
+    for (const date of dates) cells.set(date, null);
+    for (const assignment of role.assignments) {
+      if (!dateSet.has(assignment.date)) continue;
+      cells.set(assignment.date, {
+        date: assignment.date,
+        assignee_abbr: assignment.assignee_abbr,
+        shift: assignment.shift,
+      });
+    }
+    return { role: role.role, cells };
+  });
+
+  return { dates, rows };
+}
+
+export function addMonthsIso(isoDate: string, months: number): string {
+  const d = new Date(`${isoDate}T12:00:00`);
+  d.setMonth(d.getMonth() + months);
+  return d.toISOString().slice(0, 10);
+}

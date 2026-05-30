@@ -7,16 +7,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "vitest run",
     "db:migrate": "node scripts/apply-supabase-migrations.mjs",
     "db:invite-tokens": "node scripts/generate-program-invite-tokens.mjs",
     "db:verify": "node scripts/verify-supabase.mjs",
     "audit:acgme": "node scripts/audit-acgme-onboarding.mjs",
     "audit:profiles": "npx tsx scripts/audit-profile-scenarios.ts",
     "content:education-manifest": "node scripts/generate-education-manifest.mjs",
+    "content:uh-psych-sync": "node scripts/sync-uh-psych-content.mjs",
     "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs",
     "db:seed-mak-profile": "node scripts/seed-mak-profile.mjs",
+    "db:seed-test-profiles": "node scripts/seed-test-profile-battery.mjs --all",
+    "db:seed-demo-accounts": "node scripts/seed-test-profile-battery.mjs --demo-pack",
     "pilot:dry-run": "node scripts/pilot-dry-run.mjs",
-    "brand:sync": "node scripts/sync-brand-assets.mjs"
+    "brand:sync": "node scripts/sync-brand-assets.mjs",
+    "brand:panels": "node scripts/knockout-panel-backgrounds.mjs"
   },
   "dependencies": {
     "@lexical/link": "^0.44.0",
@@ -37,6 +42,7 @@
     "pdf-parse": "^2.4.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "server-only": "^0.0.1",
     "stripe": "^22.1.1"
   },
   "devDependencies": {
@@ -48,8 +54,10 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "pg": "^8.21.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vitest": "^4.1.7",
     "xlsx": "^0.18.5"
   }
 }

@@ -13,6 +13,7 @@ import {
 import { mergedAssignmentByDay, personalEventCode } from "@/lib/v2/schedule-calendar/event-expansion";
 import {
   resolveRotationColors,
+  rotationAbbreviation,
   textColorForBackground,
 } from "@/lib/v2/schedule-calendar/colors";
 import {
@@ -37,6 +38,8 @@ import type {
   ScheduleBlock,
   UserScheduleEvent,
 } from "@/lib/v2/schedule-calendar/types";
+import { ScheduleCategoryLegend } from "@/components/calendar/ScheduleCategoryLegend";
+import { SchedulePositionBanner } from "@/components/calendar/SchedulePositionBanner";
 import { ScheduleKey } from "@/components/calendar/ScheduleKey";
 
 export type { ScheduleBlock };
@@ -58,6 +61,7 @@ function MonthMiniGrid({
   colors,
   onSelectDay,
   selectedIso,
+  todayIso,
 }: {
   grid: ReturnType<typeof buildMonthGrids>[number];
   span: number;
@@ -65,6 +69,7 @@ function MonthMiniGrid({
   colors: Record<string, string>;
   onSelectDay?: (iso: string) => void;
   selectedIso?: string;
+  todayIso?: string;
 }) {
   const cellClass = cellSizeClass(span, variant);
   return (
@@ -86,18 +91,28 @@ function MonthMiniGrid({
           const bg = code ? colors[code] : "#F3F4F6";
           const fg = code ? textColorForBackground(bg) : "#111111";
           const selected = selectedIso === cell.iso;
+          const isToday = todayIso === cell.iso;
+          const abbr =
+            cell.assignment && span > 1
+              ? rotationAbbreviation(cell.assignment.rotation_label, cell.assignment.rotation_code)
+              : null;
           return (
             <button
               key={cell.iso}
               type="button"
               title={cell.assignment?.rotation_label}
               onClick={() => onSelectDay?.(cell.iso)}
-              className={`${cellClass} rounded-sm border font-futura-book leading-none transition-opacity ${
+              className={`${cellClass} relative rounded-sm border font-futura-book leading-none transition-opacity ${
                 onSelectDay ? "cursor-pointer hover:opacity-90" : "cursor-default"
-              } ${selected ? "ring-2 ring-cx-forest-dark ring-offset-1" : "border-transparent"}`}
+              } ${selected ? "ring-2 ring-cx-forest-dark ring-offset-1" : isToday ? "ring-2 ring-[#5FD65F] ring-offset-1" : "border-transparent"}`}
               style={{ backgroundColor: bg, color: fg }}
             >
-              {cell.day}
+              <span className="block text-[10px] font-semibold">{cell.day}</span>
+              {abbr && span > 1 ? (
+                <span className="mt-0.5 block truncate text-[8px] font-medium leading-none opacity-90">
+                  {abbr}
+                </span>
+              ) : null}
             </button>
           );
         })}
@@ -172,9 +187,11 @@ export function ScheduleCalendarView({
     return [...new Set([...programCodes, ...eventCodes])];
   }, [blocks, userEvents]);
   const colors = useMemo(
-    () => resolveRotationColors(codes, colorOverrides),
+    () => resolveRotationColors(codes, colorOverrides, "category"),
     [codes, colorOverrides],
   );
+
+  const todayIso = toIsoDate(new Date());
 
   const effectiveSpan = variant === "page" && pageView !== "month" ? 1 : span;
   const monthGrids = useMemo(
@@ -235,19 +252,40 @@ export function ScheduleCalendarView({
             {hasProgramBlocks
               ? "Program rotations and your saved events — never includes patient information."
               : hasCalendarContent
-                ? "Your saved events — add more with + Events or Coach Mak."
-                : "Add events with Coach Mak, or your program schedule will appear here when linked."}
+                ? "Your saved events — add more with + Events or Mak."
+                : "Add events with Mak, or your program schedule will appear here when linked."}
           </p>
         </div>
         {variant === "dashboard" && (
           <Link
-            href="/app/calendar"
+            href="/app/schedule?tab=blocks"
             className="font-futura-medium shrink-0 text-sm text-cx-forest-dark underline-offset-2 hover:underline"
           >
             Open full calendar →
           </Link>
         )}
       </div>
+
+      <SchedulePositionBanner compact={variant === "dashboard"} />
+
+      {selectedAssignment && (variant === "dashboard" || pageView === "month") && (
+        <div className="mt-3 rounded-lg border border-cx-forest-dark/12 bg-white px-3 py-2">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+            Selected day
+          </p>
+          <p className="text-sm font-medium text-cx-forest-dark">
+            {parseIsoDate(selectedDay).toLocaleDateString(undefined, {
+              weekday: "long",
+              month: "short",
+              day: "numeric",
+            })}
+            {selectedDay === todayIso ? " · Today" : ""}
+          </p>
+          <p className="text-sm text-cx-forest-dark/75">
+            {selectedAssignment.rotation_label}
+          </p>
+        </div>
+      )}
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
@@ -411,26 +449,36 @@ export function ScheduleCalendarView({
               span={effectiveSpan}
               variant={variant}
               colors={colors}
+              todayIso={todayIso}
               onSelectDay={
                 variant === "page"
                   ? (iso) => {
                       setSelectedDay(iso);
                       setPageView("day");
                     }
-                  : undefined
+                  : (iso) => setSelectedDay(iso)
               }
-              selectedIso={variant === "page" ? selectedDay : undefined}
+              selectedIso={selectedDay}
             />
           ))}
         </div>
       )}
 
-      <ScheduleKey
-        programBlocks={blocks}
-        userEvents={userEvents}
-        colors={colors}
-        onColorChange={handleColorChange}
-      />
+      {variant === "dashboard" ? (
+        <ScheduleCategoryLegend />
+      ) : (
+        <details className="mt-3 border-t border-cx-forest-dark/10 pt-3">
+          <summary className="cursor-pointer font-futura-medium text-xs text-cx-forest-dark/70">
+            Customize colors
+          </summary>
+          <ScheduleKey
+            programBlocks={blocks}
+            userEvents={userEvents}
+            colors={colors}
+            onColorChange={handleColorChange}
+          />
+        </details>
+      )}
 
       {(hasProgramBlocks || userEvents.length > 0) && (
         <div className="mt-4 border-t border-cx-forest-dark/10 pt-4">

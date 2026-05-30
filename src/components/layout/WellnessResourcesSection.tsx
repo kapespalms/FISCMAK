@@ -44,7 +44,7 @@ export function WellnessResourcesSection({ preferOhio }: WellnessResourcesSectio
       className="mt-6"
       eyebrow="Support"
       title="Crisis & wellness resources"
-      description="Free, confidential human support. Coach Mak is not a substitute for professional crisis care."
+      description="Free, confidential human support. Mak is not a substitute for professional crisis care."
       icon={Phone}
     >
       <div className="space-y-4">

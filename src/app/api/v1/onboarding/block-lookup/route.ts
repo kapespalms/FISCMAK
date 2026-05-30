@@ -3,6 +3,7 @@ import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import {
   normalizePgyForOnboarding,
   resolveCurrentBlock,
+  resolveNextBlock,
 } from "@/lib/v2/programs/block-schedule";
 import { lookupInviteTokenRecord } from "@/lib/v2/programs/invite-tokens";
 import { getProgramBySlug } from "@/lib/v2/programs/registry";
@@ -59,14 +60,18 @@ export async function GET(request: Request) {
     });
   }
 
-  const block = resolveCurrentBlock({ trainee_initials: initials });
+  const current = resolveCurrentBlock({ trainee_initials: initials });
+  const next = resolveNextBlock({ trainee_initials: initials });
   const suggestedPgy =
-    normalizePgyForOnboarding(block.pgy_level) ??
-    normalizePgyForOnboarding(block.roster_pgy_level);
+    normalizePgyForOnboarding(current.pgy_level) ??
+    normalizePgyForOnboarding(current.roster_pgy_level);
 
   return jsonOk({
     program_slug: program.slug,
-    ...block,
+    ...current,
+    current,
+    next,
+    pgy_level: current.roster_pgy_level ?? current.pgy_level ?? suggestedPgy,
     trainee_initials: initials,
     suggested_pgy: suggestedPgy,
   });

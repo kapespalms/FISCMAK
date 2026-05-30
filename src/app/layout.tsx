@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
-import { marketingFontVariables } from "@/lib/fonts/marketing-fonts";
+import { siteBodyFont, siteFontVariables } from "@/lib/fonts/marketing-fonts";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "FISCMAK — Understand your career",
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full ${marketingFontVariables}`} suppressHydrationWarning>
+    <html lang="en" className={cn("h-full", siteFontVariables)} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -23,7 +24,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col font-sans antialiased">
+      <body className={cn("min-h-full flex flex-col antialiased", siteBodyFont.className)}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

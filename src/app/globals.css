@@ -132,13 +132,17 @@
   --color-marketing-accent: #a9ff5c;
   --color-marketing-cream: #f1fbe7;
   --color-marketing-gold: #d4c574;
-  --font-sans: var(--font-futura-pt-book), "Futura PT", sans-serif;
+  --font-sans: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  font-family: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   background: var(--cx-gradient-from);
   color: var(--cx-text);
-  font-family: var(--font-sans);
+  font-family: inherit;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -147,7 +151,7 @@ input:not([type="checkbox"]):not([type="radio"]),
 textarea,
 select,
 button {
-  font-family: var(--font-sans);
+  font-family: inherit;
 }
 
 :focus-visible {
@@ -336,14 +340,157 @@ button {
     0 24px 48px rgba(36, 59, 49, 0.08);
 }
 
-/* Marketing site — black hero, lime accent, Futura (see MarketingFontShell) */
+/* Marketing site — light canvas, lime accent, Futura PT Bold (headline font) */
 .marketing-page {
   --marketing-accent: #a9ff5c;
   --marketing-cream: #f1fbe7;
   --marketing-gold: #d4c574;
-  background-color: #000;
-  color: var(--marketing-cream);
-  font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
+  background-color: transparent;
+  color: var(--cx-forest-dark);
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
+  font-weight: 700;
+}
+
+.marketing-page p,
+.marketing-page li,
+.marketing-page a:not(.cx-btn) {
+  color: var(--cx-forest-dark);
+}
+
+/* Auth routes (/login, /forgot-password) — dark canvas, white copy in header + card */
+.marketing-page.marketing-auth-zone {
+  color: #ffffff;
+}
+
+.marketing-page.marketing-auth-zone p,
+.marketing-page.marketing-auth-zone li,
+.marketing-page.marketing-auth-zone a:not(.cx-btn),
+.marketing-page.marketing-auth-zone label,
+.marketing-page.marketing-auth-zone h1,
+.marketing-page.marketing-auth-zone h2,
+.marketing-page.marketing-auth-zone h3,
+.marketing-page.marketing-auth-zone span:not(.text-marketing-accent):not(.text-black) {
+  color: inherit;
+}
+
+.marketing-page.marketing-auth-zone .auth-muted {
+  color: rgb(156 163 175);
+}
+
+.marketing-page.marketing-auth-zone .auth-subtle {
+  color: rgb(209 213 219);
+}
+
+.marketing-dark-zone {
+  background: #030303;
+  color: #ffffff;
+}
+
+.marketing-dark-zone p,
+.marketing-dark-zone li,
+.marketing-dark-zone a:not(.cx-btn) {
+  color: #ffffff;
+}
+
+.marketing-site-footer {
+  background: #030303;
+  color: #ffffff;
+}
+
+.marketing-site-footer p,
+.marketing-site-footer li,
+.marketing-site-footer a:not(.cx-btn) {
+  color: #ffffff;
+}
+
+/* Mak landing console — app-style bubbles need forest text, not marketing white */
+.marketing-page .landing-mak-bubble {
+  background-color: #e4e4e7;
+  border-color: rgb(39 59 49 / 0.12);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.08);
+}
+
+.marketing-page .landing-mak-bubble,
+.marketing-page .landing-mak-bubble p,
+.marketing-page .landing-mak-bubble li {
+  color: var(--cx-forest-dark);
+}
+
+.marketing-page .landing-mak-bubble .font-futura-medium {
+  font-weight: 500;
+}
+
+.marketing-page .landing-mak-bubble .landing-mak-info-card,
+.marketing-page .landing-mak-bubble .landing-mak-info-card p,
+.marketing-page .landing-mak-bubble .landing-mak-info-card li {
+  color: #ffffff;
+}
+
+.marketing-page .landing-mak-bubble .landing-mak-info-card .font-mono {
+  color: rgb(255 255 255 / 0.75);
+}
+
+.landing-mak-avatar-glass {
+  background: linear-gradient(
+    145deg,
+    rgb(161 161 170 / 0.72) 0%,
+    rgb(113 113 122 / 0.58) 100%
+  );
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgb(255 255 255 / 0.28);
+  box-shadow:
+    0 4px 16px rgb(0 0 0 / 0.35),
+    inset 0 1px 0 rgb(255 255 255 / 0.35),
+    inset 0 -1px 0 rgb(0 0 0 / 0.12);
+}
+
+.marketing-page .landing-mak-user-bubble {
+  background-color: var(--cx-forest-dark);
+  border-color: rgb(39 59 49 / 0.35);
+  color: #ffffff;
+}
+
+.landing-mak-panel-footer.cx-mak-panel-footer {
+  background: #0a0c10;
+  border-color: rgb(39 39 42 / 0.8);
+}
+
+.landing-mak-panel-body {
+  background: #0a0c10;
+}
+
+.landing-mak-panel-rail {
+  background: #0a0c10;
+}
+
+.landing-mak-panel-chat.cx-mak-panel-chat {
+  background: #fafbfa;
+}
+
+.landing-mak-console.cx-mak-panel {
+  background: #0a0c10;
+  color: #ffffff;
+}
+
+.landing-mak-panel-header {
+  color: #ffffff;
+}
+
+.marketing-page .landing-mak-panel-header p {
+  color: inherit;
+}
+
+.marketing-page .landing-mak-bubble .mak-mini-chat-preview p,
+.marketing-page .mak-mini-chat-preview p {
+  color: rgb(255 255 255 / 0.8);
+}
+
+/* Body copy uses the same Futura PT Bold as the hero headline */
+.marketing-page .font-futura-medium,
+.marketing-page .font-futura-book {
+  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
+  font-weight: 700;
 }
 
 .font-futura-bold {
@@ -400,13 +547,13 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: var(--marketing-gold);
 }
 
-/* Marketing glassmorphism — dark canvas + frosted panels */
-.marketing-canvas {
-  background: #030303;
-  color: var(--marketing-cream);
+/* Marketing glassmorphism — light canvas + frosted panels (marketing routes only) */
+.marketing-page .marketing-canvas {
+  background: #f7f8f6;
+  color: var(--cx-forest-dark);
 }
 
-.marketing-canvas-glow {
+.marketing-page .marketing-canvas-glow {
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -584,29 +731,33 @@ input[type="reset"]:not([data-preserve-radius]) {
 .cx-main-shell {
   margin-top: 10px;
   border-top-left-radius: 32px;
-  background: var(--cx-page-muted);
+  background: transparent;
   overflow: hidden;
   box-shadow:
     inset 1px 1px 0 color-mix(in srgb, #ffffff 40%, transparent),
     -1px -1px 0 color-mix(in srgb, #ffffff 6%, var(--cx-forest-dark));
 }
 
-/* Top nav — light header + grey rounded tab rail */
-.cx-app-top-bar {
+.cx-main-shell > main {
   background: var(--cx-page-muted);
-  border-bottom: 1px solid #e2e8e6;
-  color: var(--fm-primary);
+}
+
+/* Top nav — forest chrome + white labels (not marketing lime/forest on light) */
+.cx-app-top-bar {
+  background: var(--cx-forest-dark);
+  border-bottom: 1px solid color-mix(in srgb, #ffffff 10%, transparent);
+  color: #ffffff;
 }
 
 .cx-app-top-bar-icon-btn {
-  color: var(--fm-neutral);
+  color: color-mix(in srgb, #ffffff 72%, transparent);
   border-radius: var(--radius-button);
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .cx-app-top-bar-icon-btn:hover {
-  background: #ffffff;
-  color: var(--cx-forest-dark);
+  background: color-mix(in srgb, #ffffff 12%, transparent);
+  color: #ffffff;
 }
 
 .cx-top-nav-strip {
@@ -615,10 +766,10 @@ input[type="reset"]:not([data-preserve-radius]) {
   flex: 1 1 auto;
   gap: 2px;
   padding: 3px;
-  background: color-mix(in srgb, #787880 14%, transparent);
+  background: color-mix(in srgb, #ffffff 12%, transparent);
   border: none;
   border-radius: 9999px;
-  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, #000000 6%, transparent);
+  box-shadow: inset 0 0 0 0.5px color-mix(in srgb, #ffffff 10%, transparent);
 }
 
 .cx-top-nav-tab {
@@ -644,23 +795,22 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-top-nav-tab-active {
-  background: #ffffff;
-  color: var(--cx-forest-dark);
+  background: color-mix(in srgb, #ffffff 18%, var(--cx-forest-dark));
+  color: #ffffff;
   font-weight: 600;
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.06),
-    0 0.5px 1px rgba(0, 0, 0, 0.04),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.8);
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 0.5px color-mix(in srgb, #ffffff 22%, transparent);
 }
 
 .cx-top-nav-tab-inactive {
   background: transparent;
-  color: color-mix(in srgb, var(--cx-forest-dark) 55%, #6b7280);
+  color: color-mix(in srgb, #ffffff 68%, transparent);
 }
 
 .cx-top-nav-tab-inactive:hover {
-  background: color-mix(in srgb, #ffffff 45%, transparent);
-  color: var(--cx-forest-dark);
+  background: color-mix(in srgb, #ffffff 10%, transparent);
+  color: #ffffff;
 }
 
 .cx-top-nav-tab:active {
@@ -674,20 +824,20 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-mak-panel {
-  background: #ffffff;
-  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
-  color: var(--cx-forest-dark);
+  background: #0a0c10;
+  border-color: rgb(255 255 255 / 0.1);
+  color: #ffffff;
   box-shadow: none;
 }
 
 .cx-mak-panel-header {
-  background: #ffffff;
-  color: var(--cx-forest-dark);
-  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
+  background: #141722;
+  color: #ffffff;
+  border-color: rgb(255 255 255 / 0.1);
 }
 
 .cx-mak-panel-chat {
-  background: #fafbfa;
+  background: #0a0c10;
 }
 
 @keyframes mak-convo-fade-in {
@@ -706,27 +856,27 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-mak-panel-footer {
-  background: #ffffff;
-  border-color: color-mix(in srgb, var(--cx-forest-dark) 10%, #ffffff);
+  background: #141722;
+  border-color: rgb(255 255 255 / 0.1);
 }
 
 .cx-mak-panel-icon-btn {
-  color: color-mix(in srgb, var(--cx-forest-dark) 70%, #6b7280);
+  color: rgb(156 163 175);
   border-radius: var(--radius-button);
 }
 
 .cx-mak-panel-icon-btn:hover {
-  background: color-mix(in srgb, var(--cx-forest-dark) 6%, #ffffff);
-  color: var(--cx-forest-dark);
+  background: rgb(255 255 255 / 0.05);
+  color: #ffffff;
 }
 
 .cx-mak-panel-input {
   font-family: var(--font-futura-pt-book), "Futura PT", sans-serif;
-  color: var(--cx-forest-dark);
+  color: #ffffff;
 }
 
 .cx-mak-panel-input::placeholder {
-  color: color-mix(in srgb, var(--cx-forest-dark) 45%, #9ca3af);
+  color: rgb(107 114 128);
 }
 
 .cx-forest-pill {
@@ -820,7 +970,9 @@ input[type="reset"]:not([data-preserve-radius]) {
 
 /* Dark mode — shell chrome */
 .dark .cx-app-top-bar {
-  border-bottom-color: #2a3d32;
+  background: var(--cx-forest-dark);
+  border-bottom-color: color-mix(in srgb, #ffffff 10%, transparent);
+  color: #ffffff;
 }
 
 .dark .cx-top-nav-strip {
@@ -845,15 +997,23 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: #e8f4ec;
 }
 
+.dark .cx-app-top-bar-icon-btn {
+  color: color-mix(in srgb, #ffffff 72%, transparent);
+}
+
 .dark .cx-app-top-bar-icon-btn:hover {
-  background: #243b31;
-  color: #e8f4ec;
+  background: color-mix(in srgb, #ffffff 12%, transparent);
+  color: #ffffff;
 }
 
 .dark .cx-main-shell {
   box-shadow:
     inset 1px 1px 0 color-mix(in srgb, #ffffff 6%, transparent),
     -1px -1px 0 color-mix(in srgb, #000000 20%, transparent);
+}
+
+.dark .cx-main-shell > main {
+  background: var(--cx-page-muted);
 }
 
 .dark .cx-main-shell .text-cx-forest-dark {
@@ -950,10 +1110,6 @@ input[type="reset"]:not([data-preserve-radius]) {
   border-color: color-mix(in srgb, var(--fm-attention) 35%, transparent);
 }
 
-.dark .cx-app-top-bar {
-  color: #e8f4ec;
-}
-
 .dark .cx-nav-pill-inactive:hover {
   color: #e2ece6;
 }
@@ -970,4 +1126,105 @@ input[type="reset"]:not([data-preserve-radius]) {
   border: 1px solid color-mix(in srgb, var(--fm-attention) 35%, transparent);
   background: color-mix(in srgb, var(--fm-attention) 8%, var(--fm-surface));
   color: var(--cx-text);
+}
+
+/* Glass polymorphism — marketing cx-btn links and buttons only (not the in-app UI) */
+.marketing-page button.cx-btn,
+.marketing-page a.cx-btn {
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 0.12) 0%,
+    rgb(255 255 255 / 0.05) 100%
+  ) !important;
+  backdrop-filter: blur(16px) saturate(165%);
+  -webkit-backdrop-filter: blur(16px) saturate(165%);
+  border: 1px solid rgb(255 255 255 / 0.2) !important;
+  box-shadow:
+    0 4px 18px rgb(0 0 0 / 0.32),
+    inset 0 1px 0 rgb(255 255 255 / 0.14);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.marketing-page button.cx-btn:hover,
+.marketing-page a.cx-btn:hover {
+  border-color: rgb(169 255 92 / 0.38) !important;
+  box-shadow:
+    0 6px 22px rgb(0 0 0 / 0.38),
+    0 0 18px rgb(169 255 92 / 0.12),
+    inset 0 1px 0 rgb(255 255 255 / 0.18);
+}
+
+.marketing-page button.cx-btn.bg-marketing-accent,
+.marketing-page a.cx-btn.bg-marketing-accent {
+  background: linear-gradient(
+    145deg,
+    rgb(169 255 92 / 0.9) 0%,
+    rgb(169 255 92 / 0.58) 100%
+  ) !important;
+  border-color: rgb(169 255 92 / 0.48) !important;
+  box-shadow:
+    0 0 28px rgb(169 255 92 / 0.32),
+    inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+.marketing-page button.cx-btn.bg-marketing-accent:hover,
+.marketing-page a.cx-btn.bg-marketing-accent:hover {
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 0.92) 0%,
+    rgb(255 255 255 / 0.72) 100%
+  ) !important;
+  border-color: rgb(255 255 255 / 0.55) !important;
+  box-shadow:
+    0 6px 22px rgb(0 0 0 / 0.28),
+    inset 0 1px 0 rgb(255 255 255 / 0.65);
+}
+
+.marketing-page button.cx-btn.bg-black,
+.marketing-page a.cx-btn.bg-black {
+  background: linear-gradient(145deg, rgb(0 0 0 / 0.82) 0%, rgb(0 0 0 / 0.58) 100%) !important;
+  border-color: rgb(255 255 255 / 0.18) !important;
+}
+
+.marketing-page button.cx-btn[class*="border-white"],
+.marketing-page a.cx-btn[class*="border-white"] {
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 0.14) 0%,
+    rgb(255 255 255 / 0.06) 100%
+  ) !important;
+}
+
+.marketing-page button.cx-btn[class*="border-cx-forest-dark"],
+.marketing-page a.cx-btn[class*="border-cx-forest-dark"] {
+  background: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 0.88) 0%,
+    rgb(255 255 255 / 0.62) 100%
+  ) !important;
+  border-color: rgb(36 59 49 / 0.18) !important;
+  box-shadow:
+    0 2px 10px rgb(36 59 49 / 0.08),
+    inset 0 1px 0 rgb(255 255 255 / 0.95);
+}
+
+/* Marketing page — native buttons get glass unless opted out */
+.marketing-page button:not([data-no-glass]):not([type="checkbox"]):not([type="radio"]) {
+  backdrop-filter: blur(16px) saturate(165%);
+  -webkit-backdrop-filter: blur(16px) saturate(165%);
+}
+
+a.landing-mak-page-link-btn {
+  background: #1a2419 !important;
+  border: 1px solid var(--marketing-accent) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 0.45);
+}
+
+a.landing-mak-page-link-btn:hover {
+  background: #243028 !important;
+  border-color: var(--marketing-accent) !important;
 }

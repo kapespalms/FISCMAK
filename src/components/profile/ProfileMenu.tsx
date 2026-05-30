@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Camera, LogOut, Settings, User } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Camera, Home, Settings, User } from "lucide-react";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 import { useAppShell } from "@/components/layout/AppShell";
 import { UserAvatar } from "@/components/profile/UserAvatar";
 import {
@@ -58,7 +58,7 @@ export function ProfileMenu() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="rounded-full transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cx-forest-dark"
+        className="rounded-full transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label="Account menu"
@@ -105,16 +105,16 @@ export function ProfileMenu() {
             Change photo
           </button>
           <Link
-            href="/login"
+            href="/"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className={cn(
-              "flex w-full items-center gap-2.5 border-t border-cx-forest-dark/10 px-4 py-2.5 text-sm text-cx-forest-dark/70 transition-colors hover:bg-cx-forest-dark/5 hover:text-cx-forest-dark",
-            )}
+            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-forest-dark transition-colors hover:bg-cx-forest-dark/5"
           >
-            <LogOut size={16} />
-            Sign out
+            <Home size={16} className="text-cx-forest-dark/60" />
+            Back to home
+            <span className="sr-only"> (stays signed in)</span>
           </Link>
+          <SignOutButton />
         </div>
       )}
 

@@ -23,7 +23,7 @@ export function TraineeRotationLogCard() {
   return (
     <RotationLogPanel
       title="Current rotation"
-      description="Log your block rotation — this feeds your training timeline and Coach Mak context for CCC prep."
+      description="Log your block rotation — this feeds your training timeline and Mak context for CCC prep."
     />
   );
 }

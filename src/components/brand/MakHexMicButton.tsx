@@ -6,6 +6,7 @@ type MakHexMicButtonProps = {
   disabled?: boolean;
   onClick: () => void;
   className?: string;
+  iconVariant?: "default" | "dark-accent";
 };
 
 export function MakHexMicButton({
@@ -13,6 +14,7 @@ export function MakHexMicButton({
   disabled,
   onClick,
   className,
+  iconVariant = "default",
 }: MakHexMicButtonProps) {
   return (
     <button
@@ -29,7 +31,11 @@ export function MakHexMicButton({
         className,
       )}
     >
-      <CoachMakVoiceIcon recording={recording} className="h-[50px] w-[50px]" />
+      <CoachMakVoiceIcon
+        recording={recording}
+        variant={iconVariant}
+        className="h-[50px] w-[50px]"
+      />
     </button>
   );
 }
