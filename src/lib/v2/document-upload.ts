@@ -39,12 +39,77 @@ export function detectDocumentFormat(
   return null;
 }
 
+function detectDocumentFormatFromBuffer(
+  buffer: Buffer,
+  fileName: string,
+  mimeType?: string | null,
+): DocumentFormat | null {
+  const fromMeta = detectDocumentFormat(fileName, mimeType);
+  if (fromMeta) return fromMeta;
+
+  if (buffer.length >= 4 && buffer.subarray(0, 4).toString("ascii") === "%PDF") {
+    return "pdf";
+  }
+  if (
+    buffer.length >= 2 &&
+    buffer[0] === 0x50 &&
+    buffer[1] === 0x4b &&
+    (fileName.toLowerCase().endsWith(".docx") ||
+      mimeType ===
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+  ) {
+    return "docx";
+  }
+  return null;
+}
+
+let pdfWorkerReady = false;
+
+async function ensurePdfWorker(): Promise<void> {
+  if (pdfWorkerReady) return;
+
+  const { createRequire } = await import("node:module");
+  const { pathToFileURL } = await import("node:url");
+  const require = createRequire(import.meta.url);
+  const { PDFParse } = await import("pdf-parse");
+
+  try {
+    const workerPath = require.resolve("pdfjs-dist/legacy/build/pdf.worker.mjs");
+    PDFParse.setWorker(pathToFileURL(workerPath).href);
+  } catch {
+    // Fall back to pdf-parse defaults when the worker bundle is unavailable.
+  }
+
+  pdfWorkerReady = true;
+}
+
+async function extractPdfText(buffer: Buffer): Promise<string> {
+  await ensurePdfWorker();
+  const { PDFParse } = await import("pdf-parse");
+  const parser = new PDFParse({ data: buffer });
+  try {
+    const result = await parser.getText();
+    return result.text ?? "";
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "PDF parsing failed";
+    throw new DocumentExtractError(
+      message.includes("Invalid PDF")
+        ? "This PDF could not be opened. Try re-exporting it or upload a .docx / .txt copy."
+        : `Could not read this PDF: ${message}`,
+      "pdf_parse_failed",
+    );
+  } finally {
+    await parser.destroy();
+  }
+}
+
 export async function extractDocumentText(
   buffer: Buffer,
   fileName: string,
   mimeType?: string | null,
 ): Promise<{ text: string; format: DocumentFormat; wordCount: number }> {
-  const format = detectDocumentFormat(fileName, mimeType);
+  const format = detectDocumentFormatFromBuffer(buffer, fileName, mimeType);
   if (!format) {
     throw new DocumentExtractError(
       `Unsupported file type. Upload ${ACCEPTED_CV_LABEL}.`,
@@ -54,18 +119,20 @@ export async function extractDocumentText(
 
   let text = "";
   if (format === "pdf") {
-    const { PDFParse } = await import("pdf-parse");
-    const parser = new PDFParse({ data: buffer });
-    try {
-      const result = await parser.getText();
-      text = result.text ?? "";
-    } finally {
-      await parser.destroy();
-    }
+    text = await extractPdfText(buffer);
   } else if (format === "docx") {
-    const mammoth = await import("mammoth");
-    const result = await mammoth.extractRawText({ buffer });
-    text = result.value ?? "";
+    try {
+      const mammoth = await import("mammoth");
+      const result = await mammoth.extractRawText({ buffer });
+      text = result.value ?? "";
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "DOCX parsing failed";
+      throw new DocumentExtractError(
+        `Could not read this Word document: ${message}`,
+        "docx_parse_failed",
+      );
+    }
   } else {
     text = buffer.toString("utf8");
   }
