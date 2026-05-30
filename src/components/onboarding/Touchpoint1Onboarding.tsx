@@ -1113,7 +1113,8 @@ export function Touchpoint1Onboarding() {
         >
           <header
             className={cn(
-              "sticky top-0 z-50 w-full border-b",
+              "sticky top-0 z-50 w-screen max-w-[100vw] border-b",
+              "relative left-1/2 -translate-x-1/2",
               timelineDark ? "border-white/10 bg-[#0A0C10]" : "border-slate-200/80 bg-white",
             )}
           >

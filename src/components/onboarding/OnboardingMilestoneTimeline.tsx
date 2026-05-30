@@ -9,14 +9,13 @@ import {
 
 type OnboardingMilestoneTimelineProps = {
   currentStep: string;
-  /** 0-based card index within Step 1 profile carousel */
   cardIndex?: number;
   cardCount?: number;
   variant?: "light" | "dark";
   onNavigate?: (step: string) => void;
 };
 
-/** 0–100 progress for the rising timeline fill. */
+/** 0–100 progress for the horizontal timeline fill. */
 export function computeMilestoneTimelineProgress(
   currentStep: string,
   cardIndex?: number,
@@ -52,50 +51,67 @@ export function OnboardingMilestoneTimeline({
   const dark = variant === "dark";
   const activeMilestone = milestoneIndexForStep(currentStep);
   const fillPercent = computeMilestoneTimelineProgress(currentStep, cardIndex, cardCount);
+  const showCardBadge =
+    activeMilestone === 0 &&
+    cardCount &&
+    cardCount > 0 &&
+    typeof cardIndex === "number";
 
   return (
     <nav
       aria-label="Onboarding milestone timeline"
       className={cn(
-        "mx-auto w-full max-w-4xl px-4 py-5 md:px-6",
+        "w-full px-4 py-4 md:px-8 md:py-5",
         dark ? "bg-[#0A0C10] text-white" : "bg-white text-cx-forest-dark",
       )}
     >
-      {/* FISCMAK wordmark — all caps */}
-      <p className="font-futura-bold text-lg tracking-[0.18em] md:text-xl">
-        <span className={dark ? "text-white" : "text-cx-forest-dark"}>FISC</span>
-        <span className="text-[#A3E635]">MAK</span>
-      </p>
-
-      <div className="mt-5 flex gap-5 md:gap-8">
-        {/* Rising vertical timeline track */}
-        <div className="relative flex w-3 shrink-0 justify-center pt-1">
-          <div
+      {/* Top row: wordmark + card badge */}
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4">
+        <p className="font-futura-bold text-base tracking-[0.18em] md:text-lg">
+          <span className={dark ? "text-white" : "text-cx-forest-dark"}>FISC</span>
+          <span className="text-[#A3E635]">MAK</span>
+        </p>
+        {showCardBadge ? (
+          <span
             className={cn(
-              "absolute bottom-0 top-0 w-0.5 rounded-full",
-              dark ? "bg-white/10" : "bg-cx-forest-dark/15",
+              "rounded-lg border px-3 py-1 font-futura-medium text-xs uppercase tracking-wider md:text-sm",
+              dark
+                ? "border-white/10 bg-[#141722] text-gray-500"
+                : "border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] text-cx-forest-dark/60",
             )}
-            aria-hidden
-          />
-          <div
-            className="absolute top-0 w-0.5 rounded-full bg-[#A3E635] transition-[height] duration-700 ease-out"
-            style={{ height: `${fillPercent}%` }}
-            aria-hidden
-          />
-        </div>
+          >
+            Card {cardIndex + 1} of {cardCount}
+          </span>
+        ) : null}
+      </div>
 
-        {/* Step nodes */}
-        <ol className="flex flex-1 flex-col gap-5 md:gap-6">
+      {/* Horizontal progress track — full width, rises left → right */}
+      <div className="relative mx-auto mt-4 max-w-[1400px">
+        <div
+          className={cn(
+            "absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full",
+            dark ? "bg-white/10" : "bg-cx-forest-dark/12",
+          )}
+          aria-hidden
+        />
+        <div
+          className="absolute left-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-[#A3E635] transition-[width] duration-700 ease-out"
+          style={{ width: `${fillPercent}%` }}
+          aria-hidden
+        />
+
+        {/* Step nodes — evenly spaced across top */}
+        <ol className="relative flex items-start justify-between gap-2 md:gap-4">
           {ONBOARDING_MILESTONES.map((milestone, idx) => {
             const isActive = activeMilestone === idx;
             const isCompleted = activeMilestone > idx;
             const canNavigate = isCompleted && onNavigate;
 
             const node = (
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-center text-center">
                 <div
                   className={cn(
-                    "relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-xs font-futura-bold transition-all duration-500",
+                    "relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-xs font-futura-bold transition-all duration-500 md:h-9 md:w-9",
                     isCompleted && "border-[#A3E635] bg-[#A3E635] text-[#0A0C10]",
                     isActive &&
                       !isCompleted &&
@@ -109,16 +125,21 @@ export function OnboardingMilestoneTimeline({
                 >
                   {isCompleted ? (
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="3">
-                      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
                     </svg>
                   ) : (
                     milestone.id
                   )}
                 </div>
-                <div className="min-w-0 pt-0.5">
+                <div className="mt-2 min-w-0 max-w-[7rem] md:max-w-[9rem]">
                   <p
                     className={cn(
-                      "font-futura-bold text-sm uppercase tracking-wide md:text-base",
+                      "font-futura-bold text-[10px] uppercase leading-tight tracking-wide md:text-xs",
                       isActive && (dark ? "text-white" : "text-cx-forest-dark"),
                       isCompleted && (dark ? "text-gray-300" : "text-cx-forest-dark/80"),
                       !isActive && !isCompleted && (dark ? "text-white/40" : "text-cx-forest-dark/40"),
@@ -128,34 +149,24 @@ export function OnboardingMilestoneTimeline({
                   </p>
                   <p
                     className={cn(
-                      "font-futura-book mt-0.5 text-xs md:text-sm",
-                      isActive && (dark ? "text-[#A3E635]" : "text-cx-forest-dark/70"),
-                      !isActive && (dark ? "text-white/35" : "text-cx-forest-dark/45"),
+                      "font-futura-book mt-0.5 hidden text-[10px] leading-tight md:block",
+                      isActive && (dark ? "text-[#A3E635]" : "text-cx-forest-dark/65"),
+                      !isActive && (dark ? "text-white/30" : "text-cx-forest-dark/45"),
                     )}
                   >
                     {milestone.subtitle}
                   </p>
-                  {isActive && cardCount && cardCount > 0 && typeof cardIndex === "number" && idx === 0 ? (
-                    <p
-                      className={cn(
-                        "font-futura-medium mt-1.5 text-xs uppercase tracking-wider",
-                        dark ? "text-gray-500" : "text-cx-forest-dark/55",
-                      )}
-                    >
-                      Card {cardIndex + 1} of {cardCount}
-                    </p>
-                  ) : null}
                 </div>
               </div>
             );
 
             if (canNavigate) {
               return (
-                <li key={milestone.id}>
+                <li key={milestone.id} className="flex flex-1 justify-center">
                   <button
                     type="button"
                     onClick={() => onNavigate(firstStepInMilestone(idx))}
-                    className="w-full text-left transition hover:opacity-90"
+                    className="transition hover:opacity-90"
                   >
                     {node}
                   </button>
@@ -164,7 +175,11 @@ export function OnboardingMilestoneTimeline({
             }
 
             return (
-              <li key={milestone.id} aria-current={isActive ? "step" : undefined}>
+              <li
+                key={milestone.id}
+                className="flex flex-1 justify-center"
+                aria-current={isActive ? "step" : undefined}
+              >
                 {node}
               </li>
             );
