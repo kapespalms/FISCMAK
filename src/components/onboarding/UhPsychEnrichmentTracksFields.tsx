@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import {
   UH_PSYCH_ENRICHMENT_TRACKS,
   type UhPsychEnrichmentTrack,
@@ -9,32 +10,64 @@ type UhPsychEnrichmentTracksFieldsProps = {
   selected: string[];
   onChange: (next: string[]) => void;
   embedded?: boolean;
+  variant?: "default" | "luxury";
 };
 
 function TrackCard({
   track,
   active,
   onToggle,
+  luxury,
 }: {
   track: UhPsychEnrichmentTrack;
   active: boolean;
   onToggle: () => void;
+  luxury: boolean;
 }) {
   return (
     <label
-      className={`flex cursor-pointer gap-3 rounded-xl border px-4 py-3 ${
-        active
-          ? "border-cx-forest-dark bg-cx-forest-dark/10"
-          : "border-cx-forest-dark/15 hover:bg-cx-forest-dark/5"
-      }`}
+      className={cn(
+        "flex cursor-pointer gap-3 rounded-xl border px-4 py-3",
+        luxury
+          ? active
+            ? "border-[#A3E635]/40 bg-[#0A0C10]"
+            : "border-white/5 bg-[#0A0C10] hover:border-white/10"
+          : active
+            ? "border-cx-forest-dark bg-cx-forest-dark/10"
+            : "border-cx-forest-dark/15 hover:bg-cx-forest-dark/5",
+      )}
     >
-      <input type="checkbox" checked={active} onChange={onToggle} className="mt-1 shrink-0" />
+      <input
+        type="checkbox"
+        checked={active}
+        onChange={onToggle}
+        className={cn("mt-1 shrink-0", luxury && "accent-[#A3E635]")}
+      />
       <span className="min-w-0">
-        <span className="font-futura-medium block text-base text-cx-forest-dark">{track.title}</span>
-        <span className="font-futura-book mt-1 block text-sm leading-relaxed text-black">
+        <span
+          className={cn(
+            "font-futura-medium block text-base",
+            luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+          )}
+        >
+          {track.title}
+        </span>
+        <span
+          className={cn(
+            "font-futura-book mt-1 block text-sm leading-relaxed",
+            luxury ? "text-gray-400" : "text-black",
+          )}
+        >
           {track.description}
         </span>
-        <span className="font-futura-book mt-1 block text-sm text-black">{track.eligibility}</span>
+        <span
+          className={cn(
+            "font-futura-book mt-1 block text-sm",
+            luxury ? "text-gray-500" : "text-black",
+          )}
+        >
+          {track.eligibility}
+        </span>
       </span>
     </label>
   );
@@ -44,7 +77,10 @@ export function UhPsychEnrichmentTracksFields({
   selected,
   onChange,
   embedded = false,
+  variant = "default",
 }: UhPsychEnrichmentTracksFieldsProps) {
+  const luxury = variant === "luxury";
+
   function toggle(id: string) {
     if (selected.includes(id)) {
       onChange(selected.filter((s) => s !== id));
@@ -57,8 +93,20 @@ export function UhPsychEnrichmentTracksFields({
     <div className="space-y-2">
       {!embedded && (
         <div className="mb-3">
-          <p className="font-futura-medium text-base text-cx-forest-dark">UH Psychiatry program tracks</p>
-          <p className="font-futura-book mt-1 text-base text-black">
+          <p
+            className={cn(
+              "font-futura-medium text-base",
+              luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+            )}
+          >
+            UH Psychiatry program tracks
+          </p>
+          <p
+            className={cn(
+              "font-futura-book mt-1 text-base",
+              luxury ? "text-gray-500" : "text-black",
+            )}
+          >
             Optional enrichment pathways offered by your program.
           </p>
         </div>
@@ -69,6 +117,7 @@ export function UhPsychEnrichmentTracksFields({
           track={track}
           active={selected.includes(track.id)}
           onToggle={() => toggle(track.id)}
+          luxury={luxury}
         />
       ))}
     </div>

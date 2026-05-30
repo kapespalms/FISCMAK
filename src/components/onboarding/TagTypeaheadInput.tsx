@@ -18,6 +18,7 @@ type TagTypeaheadInputProps = {
   formatSuggestion?: (raw: string) => string;
   disabled?: boolean;
   className?: string;
+  variant?: "default" | "luxury";
 };
 
 export function TagTypeaheadInput({
@@ -32,7 +33,9 @@ export function TagTypeaheadInput({
   formatSuggestion = (raw) => raw,
   disabled = false,
   className,
+  variant = "default",
 }: TagTypeaheadInputProps) {
+  const luxury = variant === "luxury";
   const autoId = useId();
   const inputId = idProp ?? autoId;
   const listId = `${inputId}-suggestions`;
@@ -93,11 +96,18 @@ export function TagTypeaheadInput({
 
   return (
     <div className={cn("relative font-futura-book", className)}>
-      <OnboardingFieldLabel htmlFor={inputId}>{label}</OnboardingFieldLabel>
+      {luxury ? (
+        <h3 className="font-futura-bold text-xs uppercase tracking-[0.15em] text-[#D4AF37]">{label}</h3>
+      ) : (
+        <OnboardingFieldLabel htmlFor={inputId}>{label}</OnboardingFieldLabel>
+      )}
 
       <div
         className={cn(
-          "mt-2 flex min-h-[2.75rem] flex-wrap items-center gap-2 rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-2",
+          "mt-2 flex min-h-[3.5rem] flex-wrap items-center gap-2 px-3 py-2",
+          luxury
+            ? "rounded-xl border border-white/5 bg-[#0A0C10]"
+            : "min-h-[2.75rem] rounded-lg border border-cx-forest-dark/20 bg-white",
           disabled && "opacity-60",
         )}
         onClick={() => inputRef.current?.focus()}
@@ -105,7 +115,12 @@ export function TagTypeaheadInput({
         {value.map((tag) => (
           <span
             key={tag}
-            className="font-futura-medium inline-flex items-center gap-1 rounded-full border border-cx-forest-dark bg-cx-forest-dark/10 px-2.5 py-1 text-sm text-black"
+            className={cn(
+              "inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-futura-medium tracking-wide",
+              luxury
+                ? "rounded-lg border border-[#A3E635]/30 bg-[#14532D]/40 text-[#A3E635]"
+                : "rounded-full border border-cx-forest-dark bg-cx-forest-dark/10 text-sm text-black",
+            )}
           >
             {formatSuggestion(tag)}
             {!disabled && (
@@ -115,7 +130,12 @@ export function TagTypeaheadInput({
                   e.stopPropagation();
                   removeTag(tag);
                 }}
-                className="rounded-full p-0.5 text-cx-forest-dark/70 hover:bg-cx-forest-dark/10 hover:text-cx-forest-dark"
+                className={cn(
+                  "rounded-full p-0.5 transition-colors",
+                  luxury
+                    ? "text-[#A3E635] hover:text-white"
+                    : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/10 hover:text-cx-forest-dark",
+                )}
                 aria-label={`Remove ${tag}`}
               >
                 <X size={14} aria-hidden />
@@ -140,7 +160,12 @@ export function TagTypeaheadInput({
             }}
             onKeyDown={handleKeyDown}
             placeholder={value.length === 0 ? placeholder : ""}
-            className="min-w-[8rem] flex-1 border-0 bg-transparent py-1 text-base text-black outline-none placeholder:text-cx-forest-dark/45"
+            className={cn(
+              "min-w-[8rem] flex-1 border-0 bg-transparent p-1 py-1 outline-none focus:ring-0",
+              luxury
+                ? "text-sm text-white placeholder:text-gray-600"
+                : "text-base text-black placeholder:text-cx-forest-dark/45",
+            )}
             autoComplete="off"
             role="combobox"
             aria-expanded={open}
@@ -154,7 +179,12 @@ export function TagTypeaheadInput({
         <ul
           id={listId}
           role="listbox"
-          className="absolute z-20 mt-1 max-h-48 w-full overflow-y-auto rounded-md border border-cx-forest-dark/15 bg-white shadow-md"
+          className={cn(
+            "absolute z-20 mt-1 max-h-48 w-full overflow-y-auto rounded-md border shadow-md",
+            luxury
+              ? "border-white/10 bg-[#141722]"
+              : "border-cx-forest-dark/15 bg-white",
+          )}
         >
           {filteredSuggestions.map((suggestion) => (
             <li key={suggestion} role="option">
@@ -162,7 +192,10 @@ export function TagTypeaheadInput({
                 type="button"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => addTag(suggestion)}
-                className="font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5"
+                className={cn(
+                  "font-futura-book w-full px-4 py-2.5 text-left text-base hover:bg-white/5",
+                  luxury ? "text-gray-200" : "text-black hover:bg-cx-forest-dark/5",
+                )}
               >
                 {formatSuggestion(suggestion)}
               </button>
@@ -174,7 +207,10 @@ export function TagTypeaheadInput({
                 type="button"
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => addTag(trimmedQuery)}
-                className="font-futura-book w-full px-4 py-2.5 text-left text-base text-black hover:bg-cx-forest-dark/5"
+                className={cn(
+                  "font-futura-book w-full px-4 py-2.5 text-left text-base hover:bg-white/5",
+                  luxury ? "text-gray-200" : "text-black hover:bg-cx-forest-dark/5",
+                )}
               >
                 Add &ldquo;{formatTag(trimmedQuery)}&rdquo;
               </button>
@@ -184,7 +220,7 @@ export function TagTypeaheadInput({
       )}
 
       {maxTags > 1 && (
-        <p className="mt-1.5 text-sm text-black">
+        <p className={cn("mt-1.5 text-sm", luxury ? "text-gray-500" : "text-black")}>
           {value.length} of {maxTags} selected
         </p>
       )}

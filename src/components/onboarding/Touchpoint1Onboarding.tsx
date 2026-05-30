@@ -59,12 +59,6 @@ import {
   type CareerTrackRanking,
 } from "@/components/onboarding/CareerTrackRankingFields";
 import { OnboardingBeyondPhysicianFields } from "@/components/onboarding/OnboardingBeyondPhysicianFields";
-import {
-  OnboardingProfileSection,
-  OnboardingProfileHint,
-  OnboardingFieldLabel,
-  OnboardingChoiceButton,
-} from "@/components/onboarding/OnboardingProfileSection";
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
 import { AdditionalDegreesFields } from "@/components/onboarding/AdditionalDegreesFields";
 import {
@@ -72,6 +66,17 @@ import {
   type ProfileCarouselCard,
 } from "@/components/onboarding/OnboardingProfileCarousel";
 import { OnboardingTermsAcceptanceCard } from "@/components/onboarding/OnboardingTermsAcceptanceCard";
+import { ACCEPTANCE_CARD_COPY } from "@/lib/onboarding/acceptance-card-copy";
+import {
+  LuxuryWorkspace,
+  LuxuryBlock,
+  LuxuryChoiceButton,
+  LuxuryTextInput,
+  LuxuryTextarea,
+  LuxuryHint,
+  LuxuryInfoPanel,
+  LuxuryDivider,
+} from "@/components/onboarding/OnboardingLuxuryUi";
 import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
 import { milestoneIndexForStep } from "@/lib/v2/onboarding-milestones";
 import { isNpiReconcileItem } from "@/lib/v2/npi-registry";
@@ -224,14 +229,47 @@ export function Touchpoint1Onboarding() {
 
   const profileCarouselCards = useMemo((): ProfileCarouselCard[] => {
     const cards: ProfileCarouselCard[] = [
-      { id: "about", label: "About you" },
-      { id: "specialty", label: "Specialty & placement" },
-      { id: "career", label: "Career direction" },
+      {
+        id: "about",
+        label: "About you",
+        sectionLabel: "Core Profile",
+        title: "About You",
+        description: "How your name appears across FISCMAK.",
+      },
+      {
+        id: "specialty",
+        label: "Specialty & placement",
+        sectionLabel: isInstitutional ? "Program Identity" : "Clinical Profile",
+        title: "Specialty & Placement",
+        description: isInstitutional
+          ? "Your program, training year, and specialty pathway."
+          : "Career stage drives which fields appear below.",
+      },
+      {
+        id: "career",
+        label: "Career direction",
+        sectionLabel: "Career Architecture",
+        title: "Career Direction",
+        description:
+          "Rank the career tracks from most energizing to least energizing. Estimate the number of hours you spend in each every week.",
+      },
     ];
     if (!isInstitutional) {
-      cards.push({ id: "beyond", label: "Beyond the physician" });
+      cards.push({
+        id: "beyond",
+        label: "Beyond the physician",
+        sectionLabel: "Personal Lens",
+        title: "Beyond The Physician",
+        description: "Industries and interests outside clinical medicine.",
+      });
     }
-    cards.push({ id: "acceptance", label: "Account initialization" });
+    cards.push({
+      id: "acceptance",
+      label: "Account initialization",
+      sectionLabel: "Governance",
+      title: "Account Initialization",
+      description: ACCEPTANCE_CARD_COPY.intro,
+    });
     return cards;
   }, [isInstitutional]);
 
@@ -1044,7 +1082,7 @@ export function Touchpoint1Onboarding() {
   }
 
   const showProgressStepper = pathChosen && step !== "path";
-  const timelineDark = step === "profile" && activeProfileCardId === "acceptance";
+  const timelineDark = step === "profile";
 
   return (
     <>
@@ -1162,37 +1200,7 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "profile" && (
-        activeProfileCardId === "acceptance" ? (
-          <div className="-mx-6 -mt-6 flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center bg-[#0A0C10] px-6 py-16 font-sans text-white md:-mx-6 md:py-24">
-            <div className="w-full max-w-4xl space-y-12">
-            <OnboardingProfileCarousel
-              cards={profileCarouselCards}
-              index={profileCardIndex}
-              onIndexChange={(i) => {
-                setError("");
-                setProfileCardIndex(i);
-              }}
-              onNext={() => void goToNextProfileCard()}
-              onPrev={goToPrevProfileCard}
-              error={error}
-              hideNav
-              variant="elevated"
-            >
-              <OnboardingTermsAcceptanceCard
-                chatConfidential={termsChatConfidential}
-                summativeReports={termsSummativeReports}
-                documentOwnership={termsDocumentOwnership}
-                onChatConfidentialChange={setTermsChatConfidential}
-                onSummativeReportsChange={setTermsSummativeReports}
-                onDocumentOwnershipChange={setTermsDocumentOwnership}
-                onAccept={() => void submitProfile()}
-                loading={loading}
-              />
-            </OnboardingProfileCarousel>
-            </div>
-          </div>
-        ) : (
-        <Card className="font-futura-book">
+        <div className="space-y-8 font-futura-book text-white">
           {resumeProfileStep ? (
             <OnboardingResumeBanner
               message="Welcome back. Finish your Core Profile."
@@ -1203,7 +1211,7 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
             >
               <ChevronLeft size={16} />
               Back
@@ -1213,243 +1221,219 @@ export function Touchpoint1Onboarding() {
             <ProgramJoinHeadline
               program={programConfig}
               variant="onboarding"
-              className="mb-2 text-2xl"
+              className="mb-2 text-2xl !text-white [&_span]:!text-white"
             />
           )}
-          <h1 className="text-page-title">Core Profile</h1>
-          {!isInstitutional && (
-            <p className="font-futura-book mt-2 text-base text-black">
-              Specialty, career stage, and practice structure.
-            </p>
-          )}
 
-          <div className="mt-6">
-            <OnboardingProfileCarousel
-              cards={profileCarouselCards}
-              index={profileCardIndex}
-              onIndexChange={(i) => {
-                setError("");
-                setProfileCardIndex(i);
-              }}
-              onNext={() => void goToNextProfileCard()}
-              onPrev={goToPrevProfileCard}
-              error={error}
-            >
+          <OnboardingProfileCarousel
+            cards={profileCarouselCards}
+            index={profileCardIndex}
+            onIndexChange={(i) => {
+              setError("");
+              setProfileCardIndex(i);
+            }}
+            onNext={() => void goToNextProfileCard()}
+            onPrev={goToPrevProfileCard}
+            error={error}
+            hideNav={activeProfileCardId === "acceptance"}
+          >
+            <LuxuryWorkspace>
               {activeProfileCardId === "about" && (
-            <OnboardingProfileSection
-              step="Section 1"
-              title="About you"
-              description="How your name appears across FISCMAK."
-            >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <OnboardingFieldLabel htmlFor="onboarding-first-name">First name</OnboardingFieldLabel>
-                  <input
-                    id="onboarding-first-name"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    onBlur={() => void saveProfileDraft()}
-                    placeholder="Jane"
-                    className="cx-field mt-2 text-base text-black"
-                    autoComplete="given-name"
-                    readOnly={namePrefilled}
-                  />
-                </div>
-                <div>
-                  <OnboardingFieldLabel htmlFor="onboarding-last-name">Last name</OnboardingFieldLabel>
-                  <input
-                    id="onboarding-last-name"
-                    type="text"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    onBlur={() => void saveProfileDraft()}
-                    placeholder="Smith"
-                    className="cx-field mt-2 text-base text-black"
-                    autoComplete="family-name"
-                    readOnly={namePrefilled}
-                  />
-                </div>
-              </div>
-              <OnboardingProfileHint>
-                {namePrefilled
-                  ? "Pre-filled from your sign-in or program invite. Contact your program admin to change."
-                  : "Enter your name as you would like it displayed."}
-              </OnboardingProfileHint>
+                <>
+                  <LuxuryBlock label="Legal Name">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <LuxuryTextInput
+                        id="onboarding-first-name"
+                        value={firstName}
+                        onChange={setFirstName}
+                        onBlur={() => void saveProfileDraft()}
+                        placeholder="Jane"
+                        readOnly={namePrefilled}
+                      />
+                      <LuxuryTextInput
+                        id="onboarding-last-name"
+                        value={lastName}
+                        onChange={setLastName}
+                        onBlur={() => void saveProfileDraft()}
+                        placeholder="Smith"
+                        readOnly={namePrefilled}
+                      />
+                    </div>
+                    <LuxuryHint>
+                      {namePrefilled
+                        ? "Pre-filled from your sign-in or program invite. Contact your program admin to change."
+                        : "Enter your name as you would like it displayed."}
+                    </LuxuryHint>
+                  </LuxuryBlock>
 
-              {!isInstitutional && (
-                <div className="border-t border-cx-forest-dark/10 pt-4">
-                  <p className="font-futura-medium text-base text-cx-forest-dark">Additional degrees</p>
-                  <p className="font-futura-book mt-1 text-sm text-black">
-                    Optional — other degrees beyond your MD/DO.
-                  </p>
-                  <div className="mt-3">
-                    <AdditionalDegreesFields
-                      value={additionalDegrees}
-                      onChange={setAdditionalDegrees}
-                    />
-                  </div>
-                </div>
-              )}
-            </OnboardingProfileSection>
+                  {!isInstitutional && (
+                    <>
+                      <LuxuryDivider />
+                      <LuxuryBlock label="Additional Degrees">
+                        <LuxuryHint className="mb-4">
+                          Optional — other degrees beyond your MD/DO.
+                        </LuxuryHint>
+                        <AdditionalDegreesFields
+                          value={additionalDegrees}
+                          onChange={setAdditionalDegrees}
+                          variant="luxury"
+                        />
+                      </LuxuryBlock>
+                    </>
+                  )}
+                </>
               )}
 
               {activeProfileCardId === "specialty" && (
-            <OnboardingProfileSection
-              step="Section 2"
-              title="Specialty & placement"
-              description={
-                isInstitutional
-                  ? "Your program, training year, and current rotation."
-                  : "Career stage drives which fields appear below."
-              }
-            >
-              {institutionalCareerStageLocked ? (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-book text-base text-black">
-                    <span className="font-futura-medium text-cx-forest-dark">Career level:</span>{" "}
-                    {careerLevel}
-                  </p>
-                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
-                </div>
-              ) : (
-                <div>
-                  <OnboardingFieldLabel>Career level</OnboardingFieldLabel>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {careerLevelOptions.map((s) => (
-                      <OnboardingChoiceButton
-                        key={s}
-                        active={careerLevel === s}
-                        onClick={() => handleCareerLevelChange(s)}
-                      >
-                        {s}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {showMedStudentFields && (
-                <div>
-                  <OnboardingFieldLabel>Medical school year</OnboardingFieldLabel>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {MEDICAL_STUDENT_YEARS.map((year) => (
-                      <OnboardingChoiceButton
-                        key={year}
-                        active={medicalStudentYear === year}
-                        onClick={() => setMedicalStudentYear(year)}
-                      >
-                        {year}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                  {medicalStudentYear === "Other" && (
-                    <input
-                      type="text"
-                      value={medicalStudentYearOther}
-                      onChange={(e) => setMedicalStudentYearOther(e.target.value)}
-                      placeholder="Describe your year"
-                      className="cx-field mt-3 text-base text-black"
-                    />
+                <>
+                  {institutionalCareerStageLocked ? (
+                    <LuxuryInfoPanel>
+                      <span className="font-futura-medium text-[#D4AF37]">Career level:</span>{" "}
+                      {careerLevel}
+                      <LuxuryHint className="mt-2">
+                        Set by your program affiliation.
+                      </LuxuryHint>
+                    </LuxuryInfoPanel>
+                  ) : (
+                    <LuxuryBlock label="Career Level">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {careerLevelOptions.map((s) => (
+                          <LuxuryChoiceButton
+                            key={s}
+                            active={careerLevel === s}
+                            onClick={() => handleCareerLevelChange(s)}
+                          >
+                            {s}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
                   )}
-                </div>
-              )}
 
-              {showGmeFields && (
-                <div>
-                  <OnboardingFieldLabel>PGY level</OnboardingFieldLabel>
-                  <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-5">
-                    {PGY_LEVELS.map((level) => (
-                      <OnboardingChoiceButton
-                        key={level}
-                        active={pgyLevel === level}
-                        onClick={() => setPgyLevel(level)}
-                        className="text-center"
-                      >
-                        {level}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {showPracticeSetting && (
-                <div>
-                  <OnboardingFieldLabel>Practice setting</OnboardingFieldLabel>
-                  <div className="mt-2 grid grid-cols-2 gap-2">
-                    {PRACTICE_SETTINGS.map((s) => (
-                      <OnboardingChoiceButton
-                        key={s}
-                        active={practiceSetting === s}
-                        onClick={() => setPracticeSetting(s)}
-                      >
-                        {s}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {isInstitutional && (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-book text-base text-black">
-                    <span className="font-futura-medium text-cx-forest-dark">Practice setting:</span>{" "}
-                    {programConfig?.default_practice_setting ?? practiceSetting}
-                  </p>
-                  <OnboardingProfileHint>Set by your program affiliation.</OnboardingProfileHint>
-                </div>
-              )}
-
-              {showAcademicRankField && (
-                <div>
-                  <OnboardingFieldLabel>
-                    Academic rank{" "}
-                    <span className="font-normal text-cx-forest-dark/70">(optional)</span>
-                  </OnboardingFieldLabel>
-                  <OnboardingProfileHint>{ACADEMIC_RANK_HELPER}</OnboardingProfileHint>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    <OnboardingChoiceButton
-                      active={!academicRank}
-                      onClick={() => setAcademicRank("")}
-                    >
-                      No rank selected
-                    </OnboardingChoiceButton>
-                    {ACADEMIC_RANKS.map((r) => (
-                      <OnboardingChoiceButton
-                        key={r}
-                        active={academicRank === r}
-                        onClick={() => setAcademicRank(r)}
-                      >
-                        {r}
-                      </OnboardingChoiceButton>
-                    ))}
-                    {ACADEMIC_RANK_SPECIAL.map((r) => (
-                      <OnboardingChoiceButton
-                        key={r}
-                        active={academicRank === r}
-                        onClick={() => setAcademicRank(r)}
-                      >
-                        {r}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                  {academicRank === "Other" && (
-                    <input
-                      type="text"
-                      value={academicRankOther}
-                      onChange={(e) => setAcademicRankOther(e.target.value)}
-                      placeholder="Describe your academic title"
-                      className="cx-field mt-3 text-base text-black"
-                    />
+                  {showMedStudentFields && (
+                    <LuxuryBlock label="Medical School Year">
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        {MEDICAL_STUDENT_YEARS.map((year) => (
+                          <LuxuryChoiceButton
+                            key={year}
+                            active={medicalStudentYear === year}
+                            onClick={() => setMedicalStudentYear(year)}
+                          >
+                            {year}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                      {medicalStudentYear === "Other" && (
+                        <LuxuryTextInput
+                          value={medicalStudentYearOther}
+                          onChange={setMedicalStudentYearOther}
+                          placeholder="Describe your year"
+                          className="mt-3"
+                        />
+                      )}
+                    </LuxuryBlock>
                   )}
-                </div>
-              )}
 
-              {isInstitutional && programConfig?.specialty_locked ? (
-                <div className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-4">
-                  <p className="font-futura-medium text-base text-cx-forest-dark">Specialty</p>
-                  <p className="font-futura-book mt-1 text-base text-black">{programConfig.base_specialty}</p>
-                  <div className="mt-4">
+                  {showGmeFields && (
+                    <LuxuryBlock label="PGY Level">
+                      <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+                        {PGY_LEVELS.map((level) => (
+                          <LuxuryChoiceButton
+                            key={level}
+                            active={pgyLevel === level}
+                            onClick={() => setPgyLevel(level)}
+                            className="text-center"
+                            mono
+                          >
+                            {level}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
+                  )}
+
+                  {showPracticeSetting && (
+                    <LuxuryBlock label="Practice Setting">
+                      <div className="grid grid-cols-2 gap-2">
+                        {PRACTICE_SETTINGS.map((s) => (
+                          <LuxuryChoiceButton
+                            key={s}
+                            active={practiceSetting === s}
+                            onClick={() => setPracticeSetting(s)}
+                          >
+                            {s}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
+                  )}
+
+                  {isInstitutional && (
+                    <LuxuryInfoPanel>
+                      <span className="font-futura-medium text-[#D4AF37]">Practice setting:</span>{" "}
+                      {programConfig?.default_practice_setting ?? practiceSetting}
+                      <LuxuryHint className="mt-2">
+                        Set by your program affiliation.
+                      </LuxuryHint>
+                    </LuxuryInfoPanel>
+                  )}
+
+                  {showAcademicRankField && (
+                    <LuxuryBlock label="Academic Rank (Optional)">
+                      <LuxuryHint className="mb-4">{ACADEMIC_RANK_HELPER}</LuxuryHint>
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        <LuxuryChoiceButton
+                          active={!academicRank}
+                          onClick={() => setAcademicRank("")}
+                        >
+                          No rank selected
+                        </LuxuryChoiceButton>
+                        {ACADEMIC_RANKS.map((r) => (
+                          <LuxuryChoiceButton
+                            key={r}
+                            active={academicRank === r}
+                            onClick={() => setAcademicRank(r)}
+                          >
+                            {r}
+                          </LuxuryChoiceButton>
+                        ))}
+                        {ACADEMIC_RANK_SPECIAL.map((r) => (
+                          <LuxuryChoiceButton
+                            key={r}
+                            active={academicRank === r}
+                            onClick={() => setAcademicRank(r)}
+                          >
+                            {r}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                      {academicRank === "Other" && (
+                        <LuxuryTextInput
+                          value={academicRankOther}
+                          onChange={setAcademicRankOther}
+                          placeholder="Describe your academic title"
+                          className="mt-3"
+                        />
+                      )}
+                    </LuxuryBlock>
+                  )}
+
+                  {isInstitutional && programConfig?.specialty_locked ? (
+                    <LuxuryBlock label="Specialty">
+                      <p className="mb-4 text-base text-white">{programConfig.base_specialty}</p>
+                      <SpecialtyIntakeFields
+                        baseSpecialty={baseSpecialty}
+                        onPickBase={pickBaseSpecialty}
+                        subspecialty={subspecialty}
+                        onPickSubspecialty={pickSubspecialty}
+                        trainingComplete={trainingComplete}
+                        onTrainingCompleteChange={setTrainingComplete}
+                        careerStage={careerLevel}
+                        hideBaseSpecialtyPicker
+                        variant="luxury"
+                      />
+                    </LuxuryBlock>
+                  ) : (
                     <SpecialtyIntakeFields
                       baseSpecialty={baseSpecialty}
                       onPickBase={pickBaseSpecialty}
@@ -1458,135 +1442,129 @@ export function Touchpoint1Onboarding() {
                       trainingComplete={trainingComplete}
                       onTrainingCompleteChange={setTrainingComplete}
                       careerStage={careerLevel}
-                      hideBaseSpecialtyPicker
+                      specialtyInterests={specialtyInterests}
+                      onSpecialtyInterestsChange={setSpecialtyInterests}
+                      variant="luxury"
                     />
-                  </div>
-                </div>
-              ) : (
-                <SpecialtyIntakeFields
-                  baseSpecialty={baseSpecialty}
-                  onPickBase={pickBaseSpecialty}
-                  subspecialty={subspecialty}
-                  onPickSubspecialty={pickSubspecialty}
-                  trainingComplete={trainingComplete}
-                  onTrainingCompleteChange={setTrainingComplete}
-                  careerStage={careerLevel}
-                  specialtyInterests={specialtyInterests}
-                  onSpecialtyInterestsChange={setSpecialtyInterests}
-                />
-              )}
+                  )}
 
-              {showSubspecialtyInterests &&
-                (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
-                  <OnboardingInterestsBlock
-                    baseSpecialty={
-                      showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
-                    }
-                    baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
-                    careerStage={careerLevel}
-                    subspecialtyInterests={subspecialtyInterests}
-                    onSubspecialtyInterestsChange={setSubspecialtyInterests}
-                    showUhPsychTracks={
-                      isInstitutional && programConfig?.slug === "uh-psych-cmc"
-                    }
-                    uhPsychTracks={uhPsychEnrichmentTracks}
-                    onUhPsychTracksChange={setUhPsychEnrichmentTracks}
-                  />
-                )}
+                  {showSubspecialtyInterests &&
+                    (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
+                      <OnboardingInterestsBlock
+                        baseSpecialty={
+                          showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
+                        }
+                        baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
+                        careerStage={careerLevel}
+                        subspecialtyInterests={subspecialtyInterests}
+                        onSubspecialtyInterestsChange={setSubspecialtyInterests}
+                        showUhPsychTracks={
+                          isInstitutional && programConfig?.slug === "uh-psych-cmc"
+                        }
+                        uhPsychTracks={uhPsychEnrichmentTracks}
+                        onUhPsychTracksChange={setUhPsychEnrichmentTracks}
+                        variant="luxury"
+                      />
+                    )}
 
-              {showNarrative && (
-                <div className="border-t border-cx-forest-dark/10 pt-4">
-                  <OnboardingFieldLabel htmlFor="specialty-origin">{narrativePrompt}</OnboardingFieldLabel>
-                  <textarea
-                    id="specialty-origin"
-                    value={specialtyOrigin}
-                    onChange={(e) => setSpecialtyOrigin(e.target.value)}
-                    placeholder="Optional — one sentence is enough."
-                    className="cx-field mt-2 min-h-[96px] resize-y text-base text-black"
-                    rows={3}
-                  />
-                  <OnboardingProfileHint>{NARRATIVE_HELPER}</OnboardingProfileHint>
-                </div>
-              )}
+                  {showNarrative && (
+                    <>
+                      <LuxuryDivider />
+                      <LuxuryBlock label={narrativePrompt}>
+                        <LuxuryTextarea
+                          id="specialty-origin"
+                          value={specialtyOrigin}
+                          onChange={setSpecialtyOrigin}
+                          placeholder="Optional — one sentence is enough."
+                        />
+                        <LuxuryHint className="mt-3">{NARRATIVE_HELPER}</LuxuryHint>
+                      </LuxuryBlock>
+                    </>
+                  )}
 
-              {isInstitutional && (
-                <div className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="font-futura-medium text-base text-cx-forest-dark">Call schedule</p>
-                  <OnboardingProfileHint>
-                    CMC call coverage is seeded in FISCMAK (initials + shift). Use QGenda for live
-                    assignments and switch rules.
-                  </OnboardingProfileHint>
-                  <div className="mt-2 flex flex-wrap gap-3 text-sm">
-                    <Link
-                      href="/app/contacts#staff-directory"
-                      className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
-                    >
-                      Program contacts
-                    </Link>
-                    <Link
-                      href="/app/schedule?tab=blocks"
-                      className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
-                    >
-                      Block schedule
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </OnboardingProfileSection>
+                  {isInstitutional && (
+                    <LuxuryBlock label="Call Schedule">
+                      <LuxuryHint>
+                        CMC call coverage is seeded in FISCMAK (initials + shift). Use QGenda for live
+                        assignments and switch rules.
+                      </LuxuryHint>
+                      <div className="mt-3 flex flex-wrap gap-3 text-sm">
+                        <Link
+                          href="/app/contacts#staff-directory"
+                          className="font-medium text-[#A3E635] underline-offset-2 hover:underline"
+                        >
+                          Program contacts
+                        </Link>
+                        <Link
+                          href="/app/schedule?tab=blocks"
+                          className="font-medium text-[#A3E635] underline-offset-2 hover:underline"
+                        >
+                          Block schedule
+                        </Link>
+                      </div>
+                    </LuxuryBlock>
+                  )}
+                </>
               )}
 
               {activeProfileCardId === "career" && (
-            <OnboardingProfileSection
-              step="Section 3"
-              title="Career direction"
-              description="Rank the career tracks from most energizing to least energizing. Estimate the number of hours you spend in each every week."
-            >
-              <CareerTrackRankingFields
-                careerLevel={careerLevel}
-                value={careerTrackRankings}
-                onChange={setCareerTrackRankings}
-              />
+                <>
+                  <CareerTrackRankingFields
+                    careerLevel={careerLevel}
+                    value={careerTrackRankings}
+                    onChange={setCareerTrackRankings}
+                    variant="luxury"
+                  />
 
-              {!isInstitutional && (
-                <div className="border-t border-cx-forest-dark/10 pt-4">
-                  <OnboardingFieldLabel>Current goal</OnboardingFieldLabel>
-                  <p className="font-futura-book mt-1 text-sm text-black">
-                    What do you most want FISCMAK to help with right now?
-                  </p>
-                  <div className="mt-3 grid gap-2">
-                    {CURRENT_GOAL_OPTIONS.map((option) => (
-                      <OnboardingChoiceButton
-                        key={option}
-                        active={currentGoal === option}
-                        onClick={() => setCurrentGoal(option)}
-                      >
-                        {option}
-                      </OnboardingChoiceButton>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </OnboardingProfileSection>
+                  {!isInstitutional && (
+                    <>
+                      <LuxuryDivider />
+                      <LuxuryBlock label="Current Goal">
+                        <LuxuryHint className="mb-4">
+                          What do you most want FISCMAK to help with right now?
+                        </LuxuryHint>
+                        <div className="grid gap-2">
+                          {CURRENT_GOAL_OPTIONS.map((option) => (
+                            <LuxuryChoiceButton
+                              key={option}
+                              active={currentGoal === option}
+                              onClick={() => setCurrentGoal(option)}
+                            >
+                              {option}
+                            </LuxuryChoiceButton>
+                          ))}
+                        </div>
+                      </LuxuryBlock>
+                    </>
+                  )}
+                </>
               )}
 
               {activeProfileCardId === "beyond" && !isInstitutional && (
-              <OnboardingProfileSection
-                step="Section 4"
-                title="Beyond the physician"
-              >
                 <OnboardingBeyondPhysicianFields
                   otherIndustries={otherIndustries}
                   onOtherIndustriesChange={setOtherIndustries}
                   extracurricularInterests={extracurricularInterests}
                   onExtracurricularInterestsChange={setExtracurricularInterests}
+                  variant="luxury"
                 />
-              </OnboardingProfileSection>
               )}
 
-            </OnboardingProfileCarousel>
-          </div>
-        </Card>
-        )
+              {activeProfileCardId === "acceptance" && (
+                <OnboardingTermsAcceptanceCard
+                  chatConfidential={termsChatConfidential}
+                  summativeReports={termsSummativeReports}
+                  documentOwnership={termsDocumentOwnership}
+                  onChatConfidentialChange={setTermsChatConfidential}
+                  onSummativeReportsChange={setTermsSummativeReports}
+                  onDocumentOwnershipChange={setTermsDocumentOwnership}
+                  onAccept={() => void submitProfile()}
+                  loading={loading}
+                />
+              )}
+            </LuxuryWorkspace>
+          </OnboardingProfileCarousel>
+        </div>
       )}
 
       {step === "documents" && (

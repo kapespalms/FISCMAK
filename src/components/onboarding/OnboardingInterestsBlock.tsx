@@ -3,6 +3,7 @@
 import { SubspecialtyInterestsFields } from "@/components/onboarding/SubspecialtyInterestsFields";
 import { UhPsychEnrichmentTracksFields } from "@/components/onboarding/UhPsychEnrichmentTracksFields";
 import { OnboardingProfileSubheading } from "@/components/onboarding/OnboardingProfileSection";
+import { LuxuryBlock, LuxuryDivider } from "@/components/onboarding/OnboardingLuxuryUi";
 import type { CareerLevel } from "@/lib/v2/onboarding-options";
 
 type OnboardingInterestsBlockProps = {
@@ -14,6 +15,7 @@ type OnboardingInterestsBlockProps = {
   showUhPsychTracks: boolean;
   uhPsychTracks: string[];
   onUhPsychTracksChange: (next: string[]) => void;
+  variant?: "default" | "luxury";
 };
 
 export function OnboardingInterestsBlock({
@@ -25,7 +27,10 @@ export function OnboardingInterestsBlock({
   showUhPsychTracks,
   uhPsychTracks,
   onUhPsychTracksChange,
+  variant = "default",
 }: OnboardingInterestsBlockProps) {
+  const luxury = variant === "luxury";
+
   return (
     <>
       <SubspecialtyInterestsFields
@@ -34,23 +39,37 @@ export function OnboardingInterestsBlock({
         selected={subspecialtyInterests}
         onChange={onSubspecialtyInterestsChange}
         careerStage={careerStage}
+        variant={variant}
       />
 
-      {showUhPsychTracks && (
-        <div className="border-t border-cx-forest-dark/10 pt-5">
-          <OnboardingProfileSubheading
-            title="UH Psychiatry program tracks"
-            description="Optional enrichment pathways offered by your program."
-          />
-          <div className="mt-3">
-            <UhPsychEnrichmentTracksFields
-              selected={uhPsychTracks}
-              onChange={onUhPsychTracksChange}
-              embedded
+      {showUhPsychTracks &&
+        (luxury ? (
+          <>
+            <LuxuryDivider />
+            <LuxuryBlock label="UH Psychiatry Program Tracks">
+              <UhPsychEnrichmentTracksFields
+                selected={uhPsychTracks}
+                onChange={onUhPsychTracksChange}
+                embedded
+                variant="luxury"
+              />
+            </LuxuryBlock>
+          </>
+        ) : (
+          <div className="border-t border-cx-forest-dark/10 pt-5">
+            <OnboardingProfileSubheading
+              title="UH Psychiatry program tracks"
+              description="Optional enrichment pathways offered by your program."
             />
+            <div className="mt-3">
+              <UhPsychEnrichmentTracksFields
+                selected={uhPsychTracks}
+                onChange={onUhPsychTracksChange}
+                embedded
+              />
+            </div>
           </div>
-        </div>
-      )}
+        ))}
     </>
   );
 }

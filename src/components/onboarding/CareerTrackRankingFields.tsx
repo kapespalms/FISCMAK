@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { GripVertical } from "lucide-react";
+import { cn } from "@/lib/utils";
 import {
   PRIMARY_CAREER_TRACKS,
   usesFteForCareerTracks,
@@ -20,6 +21,7 @@ type CareerTrackRankingFieldsProps = {
   careerLevel: CareerLevel;
   value: CareerTrackRanking[];
   onChange: (next: CareerTrackRanking[]) => void;
+  variant?: "default" | "luxury";
 };
 
 function defaultRankings(): CareerTrackRanking[] {
@@ -79,6 +81,7 @@ type TrackRowProps = {
   index: number;
   useFte: boolean;
   dragIndex: number | null;
+  luxury: boolean;
   onDragStart: (index: number) => void;
   onDragOver: (index: number) => void;
   onDrop: (index: number) => void;
@@ -91,6 +94,7 @@ function TrackRow({
   index,
   useFte,
   dragIndex,
+  luxury,
   onDragStart,
   onDragOver,
   onDrop,
@@ -112,24 +116,44 @@ function TrackRow({
         onDrop(index);
       }}
       onDragEnd={onDragEnd}
-      className={`flex items-center gap-2 rounded-xl border px-2 py-2 ${
-        dragging
-          ? "border-cx-forest-dark/40 bg-cx-forest-dark/10 opacity-80"
-          : "border-cx-forest-dark/15 bg-white"
-      }`}
+      className={cn(
+        "flex items-center gap-2 rounded-xl border px-2 py-2",
+        luxury
+          ? dragging
+            ? "border-[#A3E635]/50 bg-[#1C2030] opacity-90"
+            : "border-white/5 bg-[#0A0C10]"
+          : dragging
+            ? "border-cx-forest-dark/40 bg-cx-forest-dark/10 opacity-80"
+            : "border-cx-forest-dark/15 bg-white",
+      )}
     >
       <button
         type="button"
-        className="cursor-grab touch-none px-1 text-cx-forest-dark/45 active:cursor-grabbing"
+        className={cn(
+          "cursor-grab touch-none px-1 active:cursor-grabbing",
+          luxury ? "text-gray-500" : "text-cx-forest-dark/45",
+        )}
         aria-label={`Drag to reorder ${row.track}`}
         onMouseDown={(e) => e.stopPropagation()}
       >
         <GripVertical size={16} aria-hidden />
       </button>
-      <span className="font-futura-bold w-8 shrink-0 text-center text-base tabular-nums text-cx-forest-dark">
+      <span
+        className={cn(
+          "font-futura-bold w-8 shrink-0 text-center text-base tabular-nums",
+          luxury ? "text-[#A3E635]" : "text-cx-forest-dark",
+        )}
+      >
         {row.rank}
       </span>
-      <span className="font-futura-medium min-w-0 flex-1 text-base text-black">{row.track}</span>
+      <span
+        className={cn(
+          "font-futura-medium min-w-0 flex-1 text-base",
+          luxury ? "text-white" : "text-black",
+        )}
+      >
+        {row.track}
+      </span>
       <div className="flex shrink-0 items-center gap-1">
         <input
           type="number"
@@ -139,10 +163,22 @@ function TrackRow({
           placeholder={useFte ? "FTE" : "hrs"}
           value={useFte ? (row.fte ?? "") : (row.hours_per_week ?? "")}
           onChange={(e) => onAllocation(row.track, e.target.value)}
-          className="cx-field w-[4.75rem] py-1.5 text-base text-black"
+          className={cn(
+            "w-[4.75rem] py-1.5 text-base",
+            luxury
+              ? "rounded-lg border border-white/5 bg-[#141722] px-2 text-white placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
+              : "cx-field text-black",
+          )}
           aria-label={`${useFte ? "FTE" : "Hours per week"} for ${row.track}`}
         />
-        <span className="font-futura-book w-9 text-sm text-black">{useFte ? "FTE" : "hrs/wk"}</span>
+        <span
+          className={cn(
+            "font-futura-book w-9 text-sm",
+            luxury ? "text-gray-500" : "text-black",
+          )}
+        >
+          {useFte ? "FTE" : "hrs/wk"}
+        </span>
       </div>
     </div>
   );
@@ -152,7 +188,9 @@ export function CareerTrackRankingFields({
   careerLevel,
   value,
   onChange,
+  variant = "default",
 }: CareerTrackRankingFieldsProps) {
+  const luxury = variant === "luxury";
   const useFte = usesFteForCareerTracks(careerLevel);
   const sorted = useMemo(
     () => [...value].sort((a, b) => a.rank - b.rank),
@@ -197,6 +235,7 @@ export function CareerTrackRankingFields({
           row={row}
           index={index}
           useFte={useFte}
+          luxury={luxury}
           dragIndex={dragIndex}
           onDragStart={setDragIndex}
           onDragOver={setOverIndex}
@@ -211,25 +250,26 @@ export function CareerTrackRankingFields({
     });
   }
 
+  const columnLabelClass = cn(
+    "font-futura-medium text-sm uppercase tracking-wide",
+    luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+  );
+
   return (
     <div className="space-y-4 font-futura-book">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2" aria-label="Career tracks ranks 1 through 4">
-          <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
-            Most energizing
-          </p>
+          <p className={columnLabelClass}>Most energizing</p>
           {renderColumn(left, 0)}
         </div>
         <div className="space-y-2" aria-label="Career tracks ranks 5 through 8">
-          <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
-            Least energizing
-          </p>
+          <p className={columnLabelClass}>Least energizing</p>
           {renderColumn(right, 4)}
         </div>
       </div>
 
       {overIndex !== null && dragIndex !== null && overIndex !== dragIndex && (
-        <p className="text-sm text-black" aria-live="polite">
+        <p className={cn("text-sm", luxury ? "text-gray-500" : "text-black")} aria-live="polite">
           Drop to move {sorted[dragIndex]?.track} to rank {overIndex + 1}.
         </p>
       )}
