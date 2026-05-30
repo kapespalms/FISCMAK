@@ -1,16 +1,106 @@
 import "server-only";
 
 import * as mammoth from "mammoth";
-import { PDFParse } from "pdf-parse";
+import type { PDFParse as PDFParseClass } from "pdf-parse";
 import {
   ACCEPTED_CV_LABEL,
   detectDocumentFormat,
   type DocumentFormat,
 } from "@/lib/v2/document-upload-types";
 
-// NOTE: Do NOT import from "pdf-parse/worker". That submodule pulls in
-// @napi-rs/canvas (native .node binaries) which are only needed for page
-// rendering (screenshots). Text extraction works fine with just PDFParse.
+// NOTE: pdf-parse v2 / pdfjs-dist v5 require DOMMatrix, Path2D, and ImageData
+// globals that exist in browsers but are absent in Node.js / Vercel Lambdas.
+// We apply minimal polyfills and then LAZILY import pdf-parse so the polyfills
+// are guaranteed to be in place before pdfjs-dist module code evaluates.
+// Do NOT convert this back to a static import — it will break on Vercel.
+
+// ---------------------------------------------------------------------------
+// DOM polyfills required by pdfjs-dist v5 in a Node.js environment
+// ---------------------------------------------------------------------------
+
+function applyPdfjsPolyfills(): void {
+  if (typeof globalThis.DOMMatrix === "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (globalThis as any).DOMMatrix = class DOMMatrix {
+      a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
+      m11 = 1; m12 = 0; m13 = 0; m14 = 0;
+      m21 = 0; m22 = 1; m23 = 0; m24 = 0;
+      m31 = 0; m32 = 0; m33 = 1; m34 = 0;
+      m41 = 0; m42 = 0; m43 = 0; m44 = 1;
+      is2D = true; isIdentity = true;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      static fromMatrix() { return new (globalThis as any).DOMMatrix(); }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      static fromFloat64Array() { return new (globalThis as any).DOMMatrix(); }
+      translate() { return this; }
+      scale() { return this; }
+      rotate() { return this; }
+      rotateAxisAngle() { return this; }
+      skewX() { return this; }
+      skewY() { return this; }
+      multiply() { return this; }
+      flipX() { return this; }
+      flipY() { return this; }
+      inverse() { return this; }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      transformPoint(p: any) { return { x: p?.x ?? 0, y: p?.y ?? 0, z: 0, w: 1 }; }
+      toFloat32Array() { return new Float32Array(16); }
+      toFloat64Array() { return new Float64Array(16); }
+      toJSON() { return {}; }
+      toString() { return "matrix(1, 0, 0, 1, 0, 0)"; }
+    };
+  }
+  if (typeof globalThis.Path2D === "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (globalThis as any).Path2D = class Path2D {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      addPath(_path: any, _transform?: any) {}
+      closePath() {}
+      moveTo(_x: number, _y: number) {}
+      lineTo(_x: number, _y: number) {}
+      bezierCurveTo() {}
+      quadraticCurveTo() {}
+      arc() {}
+      arcTo() {}
+      ellipse() {}
+      rect() {}
+    };
+  }
+  if (typeof globalThis.ImageData === "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (globalThis as any).ImageData = class ImageData {
+      width: number;
+      height: number;
+      data: Uint8ClampedArray;
+      colorSpace = "srgb" as const;
+      constructor(widthOrData: number | Uint8ClampedArray, width: number, height?: number) {
+        if (typeof widthOrData === "number") {
+          this.width = widthOrData;
+          this.height = width;
+          this.data = new Uint8ClampedArray(widthOrData * width * 4);
+        } else {
+          this.data = widthOrData;
+          this.width = width;
+          this.height = height ?? widthOrData.length / (width * 4);
+        }
+      }
+    };
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Lazy pdf-parse loader — polyfills applied before first import
+// ---------------------------------------------------------------------------
+
+let _PDFParse: typeof PDFParseClass | null = null;
+
+async function getPDFParse(): Promise<typeof PDFParseClass> {
+  if (_PDFParse) return _PDFParse;
+  applyPdfjsPolyfills();
+  const mod = await import("pdf-parse");
+  _PDFParse = mod.PDFParse;
+  return _PDFParse;
+}
 
 export class DocumentExtractError extends Error {
   code: string;
@@ -48,9 +138,8 @@ function detectDocumentFormatFromBuffer(
 
 // One-time setup: point pdfjs-dist to its bundled worker script so serverless
 // environments (Vercel, Lambda) don't fall back to a broken default URL.
-// Uses the JS-only pdfjs-dist worker — no native binaries involved.
 let pdfWorkerReady = false;
-async function ensurePdfWorker(): Promise<void> {
+async function ensurePdfWorker(PDFParse: typeof PDFParseClass): Promise<void> {
   if (pdfWorkerReady) return;
   try {
     const { createRequire } = await import("node:module");
@@ -66,7 +155,8 @@ async function ensurePdfWorker(): Promise<void> {
 }
 
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  await ensurePdfWorker();
+  const PDFParse = await getPDFParse();
+  await ensurePdfWorker(PDFParse);
   const parser = new PDFParse({ data: buffer });
   try {
     const result = await parser.getText();
