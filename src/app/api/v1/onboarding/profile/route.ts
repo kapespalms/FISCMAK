@@ -49,6 +49,18 @@ import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
 import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
 
 export async function POST(request: Request) {
+  try {
+    return await handleProfilePost(request);
+  } catch (error) {
+    console.error("[onboarding/profile] POST failed:", error);
+    return jsonOk(
+      { error: "internal_error", message: "Could not save profile. Please try again." },
+      500,
+    );
+  }
+}
+
+async function handleProfilePost(request: Request) {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
   const body = await request.json();
@@ -355,7 +367,17 @@ export async function POST(request: Request) {
       },
     },
     auth.demo,
-  );
+  ).catch((err: unknown) => {
+    console.error("[onboarding/profile] upsertAppUser failed:", err);
+    return null;
+  });
+
+  if (!user) {
+    return jsonOk(
+      { error: "save_error", message: "Could not save profile. Please try again." },
+      500,
+    );
+  }
 
   if (updatedMembership) {
     await syncProgramMembership({
@@ -365,10 +387,14 @@ export async function POST(request: Request) {
     });
   }
 
-  const assessment = await ensureTouchpointAssessment(auth.userId, auth.demo, 1, "INTRO");
-  const seeds = seedAnswersFromProfile(user);
-  if (seeds.length > 0) {
-    await applyExtractedAnswers(auth.userId, auth.demo, assessment, seeds);
+  try {
+    const assessment = await ensureTouchpointAssessment(auth.userId, auth.demo, 1, "INTRO");
+    const seeds = seedAnswersFromProfile(user);
+    if (seeds.length > 0) {
+      await applyExtractedAnswers(auth.userId, auth.demo, assessment, seeds);
+    }
+  } catch (seedError) {
+    console.warn("[onboarding/profile] assessment seed skipped:", seedError);
   }
 
   return jsonOk({

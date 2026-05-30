@@ -902,46 +902,69 @@ export function Touchpoint1Onboarding() {
         ? medicalStudentYearOther.trim() || "Other"
         : medicalStudentYear || null;
 
-    const res = await fetch("/api/v1/onboarding/profile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: fullName.trim(),
-        base_specialty: resolvedBase || null,
-        subspecialty: showMedStudentFields ? null : subspecialty || null,
-        subspecialty_training_complete: subspecialty ? trainingComplete : false,
-        career_stage: careerLevel,
-        practice_setting: showMedStudentFields ? null : practiceSetting,
-        academic_rank: showAcademicRankField ? resolvedAcademicRank : null,
-        academic_rank_other: academicRank === "Other" ? academicRankOther.trim() : null,
-        primary_career_track: primaryTrackFromRankings(careerTrackRankings),
-        career_track_rankings: careerTrackRankings,
-        subspecialty_interests: showSubspecialtyInterests ? subspecialtyInterests : [],
-        specialty_interests: showMedStudentFields ? specialtyInterests : [],
-        medical_student_year: showMedStudentFields ? resolvedMsYear : null,
-        additional_degrees: additionalDegrees,
-        current_goal: currentGoal || null,
-        other_industries: otherIndustries,
-        extracurricular_interests: extracurricularInterests,
-        uh_psych_enrichment_tracks:
-          isInstitutional && programConfig?.slug === "uh-psych-cmc"
-            ? uhPsychEnrichmentTracks
-            : [],
-        pgy_level: showGmeFields ? pgyLevel : null,
-        specialty_origin: specialtyOrigin.trim() || null,
-        terms_accepted: true,
-        terms_version: FISCMAK_TERMS_VERSION,
-      }),
-    });
-    const data = await res.json();
-    if (!res.ok) {
-      setError(data.message ?? "Could not save profile");
+    try {
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), 90_000);
+
+      const res = await fetch("/api/v1/onboarding/profile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          name: fullName.trim(),
+          base_specialty: resolvedBase || null,
+          subspecialty: showMedStudentFields ? null : subspecialty || null,
+          subspecialty_training_complete: subspecialty ? trainingComplete : false,
+          career_stage: careerLevel,
+          practice_setting: showMedStudentFields ? null : practiceSetting,
+          academic_rank: showAcademicRankField ? resolvedAcademicRank : null,
+          academic_rank_other: academicRank === "Other" ? academicRankOther.trim() : null,
+          primary_career_track: primaryTrackFromRankings(careerTrackRankings),
+          career_track_rankings: careerTrackRankings,
+          subspecialty_interests: showSubspecialtyInterests ? subspecialtyInterests : [],
+          specialty_interests: showMedStudentFields ? specialtyInterests : [],
+          medical_student_year: showMedStudentFields ? resolvedMsYear : null,
+          additional_degrees: additionalDegrees,
+          current_goal: currentGoal || null,
+          other_industries: otherIndustries,
+          extracurricular_interests: extracurricularInterests,
+          uh_psych_enrichment_tracks:
+            isInstitutional && programConfig?.slug === "uh-psych-cmc"
+              ? uhPsychEnrichmentTracks
+              : [],
+          pgy_level: showGmeFields ? pgyLevel : null,
+          specialty_origin: specialtyOrigin.trim() || null,
+          terms_accepted: true,
+          terms_version: FISCMAK_TERMS_VERSION,
+        }),
+      });
+
+      window.clearTimeout(timeoutId);
+
+      let data: { message?: string; error?: string };
+      try {
+        data = (await res.json()) as { message?: string; error?: string };
+      } catch {
+        setError("Server error — refresh the page and try again.");
+        return;
+      }
+
+      if (!res.ok) {
+        setError(data.message ?? "Could not save profile");
+        return;
+      }
+
+      setStep("documents");
+      router.replace("/app/onboarding?step=documents");
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") {
+        setError("Request timed out. Please try again.");
+      } else {
+        setError("Could not save profile. Check your connection and try again.");
+      }
+    } finally {
       setLoading(false);
-      return;
     }
-    setLoading(false);
-    setStep("documents");
-    router.replace("/app/onboarding?step=documents");
   }
 
   function goToReconcile() {
@@ -1560,6 +1583,7 @@ export function Touchpoint1Onboarding() {
                   onDocumentOwnershipChange={setTermsDocumentOwnership}
                   onAccept={() => void submitProfile()}
                   loading={loading}
+                  error={error}
                 />
               )}
             </LuxuryWorkspace>
