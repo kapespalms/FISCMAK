@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  serverExternalPackages: ["pdf-parse", "pdfjs-dist", "mammoth"],
+  serverExternalPackages: ["pdf-parse", "@napi-rs/canvas", "pdfjs-dist", "mammoth"],
+  outputFileTracingIncludes: {
+    "/api/v1/documents": [
+      "./node_modules/pdf-parse/**/*",
+      "./node_modules/pdfjs-dist/**/*",
+      "./node_modules/@napi-rs/canvas/**/*",
+    ],
+  },
 };
 
 export default nextConfig;

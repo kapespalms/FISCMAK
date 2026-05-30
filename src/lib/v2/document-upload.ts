@@ -63,51 +63,26 @@ function detectDocumentFormatFromBuffer(
   return null;
 }
 
-let pdfWorkerReady = false;
+let pdfParseReady = false;
+let pdfCanvasFactory: Object | undefined;
 
-async function ensurePdfWorker(): Promise<void> {
-  if (pdfWorkerReady) return;
+async function ensurePdfParse(): Promise<void> {
+  if (pdfParseReady) return;
 
-  const path = await import("node:path");
-  const { pathToFileURL } = await import("node:url");
-  const { createRequire } = await import("node:module");
-  let require: NodeRequire;
-  try {
-    require = createRequire(import.meta.url);
-  } catch {
-    require = createRequire(`${process.cwd()}/package.json`);
-  }
+  const worker = await import("pdf-parse/worker");
   const { PDFParse } = await import("pdf-parse");
-
-  const workerCandidates: string[] = [];
-  try {
-    const pdfParseDir = path.dirname(require.resolve("pdf-parse"));
-    workerCandidates.push(path.join(pdfParseDir, "pdf.worker.mjs"));
-  } catch {
-    /* pdf-parse entry not resolvable */
-  }
-  try {
-    workerCandidates.push(require.resolve("pdfjs-dist/legacy/build/pdf.worker.mjs"));
-  } catch {
-    /* pdfjs-dist worker not resolvable */
-  }
-
-  for (const workerPath of workerCandidates) {
-    try {
-      PDFParse.setWorker(pathToFileURL(workerPath).href);
-      break;
-    } catch {
-      /* try next candidate */
-    }
-  }
-
-  pdfWorkerReady = true;
+  PDFParse.setWorker(worker.getData());
+  pdfCanvasFactory = worker.CanvasFactory;
+  pdfParseReady = true;
 }
 
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  await ensurePdfWorker();
+  await ensurePdfParse();
   const { PDFParse } = await import("pdf-parse");
-  const parser = new PDFParse({ data: buffer });
+  const parser = new PDFParse({
+    data: buffer,
+    CanvasFactory: pdfCanvasFactory,
+  });
   try {
     const result = await parser.getText();
     return result.text ?? "";
