@@ -14,8 +14,8 @@ import {
 import {
   DocumentExtractError,
   extractDocumentText,
-  isAcceptedCvFileName,
 } from "@/lib/v2/document-upload";
+import { isAcceptedCvFileName } from "@/lib/v2/document-upload-types";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import {
   getUserOutputTemplate,

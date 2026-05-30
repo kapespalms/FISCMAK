@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MAK_DISPLAY_NAME } from "@/lib/brand-assets";
-import { ACCEPTED_CV_ACCEPT } from "@/lib/v2/document-upload-constants";
+import { ACCEPTED_CV_ACCEPT } from "@/lib/v2/document-upload-types";
 import { DASHBOARD_MECE_OPTIONS } from "@/lib/v2/dashboard-mak-menu";
 
 export type MakActionMenuItem = {

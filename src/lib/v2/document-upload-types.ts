@@ -1,3 +1,19 @@
+// Client-safe exports only — safe to import from "use client" components.
+
+export type DocumentUploadInput = {
+  file: Buffer;
+  documentType: string;
+  subtype: string;
+  label: string;
+};
+
+export const ACCEPTED_MIME_TYPES = [
+  "application/pdf",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "text/plain",
+  "text/markdown",
+] as const;
+
 export const ACCEPTED_CV_EXTENSIONS = [".txt", ".md", ".pdf", ".docx"] as const;
 
 export const ACCEPTED_CV_ACCEPT =

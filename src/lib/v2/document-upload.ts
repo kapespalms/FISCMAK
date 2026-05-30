@@ -1,17 +1,13 @@
+import "server-only";
+
+import * as mammoth from "mammoth";
+import { CanvasFactory, getData } from "pdf-parse/worker";
+import { PDFParse } from "pdf-parse";
 import {
   ACCEPTED_CV_LABEL,
   detectDocumentFormat,
   type DocumentFormat,
-} from "@/lib/v2/document-upload-constants";
-
-export {
-  ACCEPTED_CV_ACCEPT,
-  ACCEPTED_CV_EXTENSIONS,
-  ACCEPTED_CV_LABEL,
-  detectDocumentFormat,
-  isAcceptedCvFileName,
-  type DocumentFormat,
-} from "@/lib/v2/document-upload-constants";
+} from "@/lib/v2/document-upload-types";
 
 export class DocumentExtractError extends Error {
   code: string;
@@ -21,6 +17,14 @@ export class DocumentExtractError extends Error {
     this.name = "DocumentExtractError";
     this.code = code;
   }
+}
+
+let pdfParseReady = false;
+
+function ensurePdfParse(): void {
+  if (pdfParseReady) return;
+  PDFParse.setWorker(getData());
+  pdfParseReady = true;
 }
 
 function detectDocumentFormatFromBuffer(
@@ -47,25 +51,11 @@ function detectDocumentFormatFromBuffer(
   return null;
 }
 
-let pdfParseReady = false;
-let pdfCanvasFactory: Object | undefined;
-
-async function ensurePdfParse(): Promise<void> {
-  if (pdfParseReady) return;
-
-  const worker = await import("pdf-parse/worker");
-  const { PDFParse } = await import("pdf-parse");
-  PDFParse.setWorker(worker.getData());
-  pdfCanvasFactory = worker.CanvasFactory;
-  pdfParseReady = true;
-}
-
 async function extractPdfText(buffer: Buffer): Promise<string> {
-  await ensurePdfParse();
-  const { PDFParse } = await import("pdf-parse");
+  ensurePdfParse();
   const parser = new PDFParse({
     data: buffer,
-    CanvasFactory: pdfCanvasFactory,
+    CanvasFactory,
   });
   try {
     const result = await parser.getText();
@@ -102,7 +92,6 @@ export async function extractDocumentText(
     text = await extractPdfText(buffer);
   } else if (format === "docx") {
     try {
-      const mammoth = await import("mammoth");
       const result = await mammoth.extractRawText({ buffer });
       text = result.value ?? "";
     } catch (error) {
