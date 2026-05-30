@@ -202,9 +202,6 @@ export async function POST(request: Request) {
     if (!pgy_level || !isValidPgyLevel(pgy_level)) {
       return jsonOk({ error: "validation_error", message: "Select your PGY level." }, 400);
     }
-    if (!current_rotation?.trim()) {
-      return jsonOk({ error: "validation_error", message: "Enter your current rotation." }, 400);
-    }
   }
   if (current_goal && !isValidCurrentGoal(current_goal)) {
     return jsonOk({ error: "validation_error", message: "Select a valid current goal." }, 400);
@@ -256,7 +253,6 @@ export async function POST(request: Request) {
       };
 
   const trimmedOrigin = specialty_origin?.trim() ?? null;
-  const trimmedRotation = current_rotation?.trim() ?? null;
   const narrativeAnchor =
     trimmedOrigin
       ? seedNarrativeAnchorFromOrigin({
@@ -302,7 +298,7 @@ export async function POST(request: Request) {
           : null,
       primary_career_track: resolvedPrimaryTrack,
       pgy_level: requiresGmePlacementFields(career_stage) ? (pgy_level ?? null) : null,
-      current_rotation: requiresGmePlacementFields(career_stage) ? trimmedRotation : null,
+      current_rotation: null,
       specialty_origin: trimmedOrigin,
       primary_program_id: institutionalProgram?.id ?? authUser?.primary_program_id ?? null,
       content_pack: contentPack,

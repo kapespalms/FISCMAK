@@ -58,7 +58,7 @@ import {
   primaryTrackFromRankings,
   type CareerTrackRanking,
 } from "@/components/onboarding/CareerTrackRankingFields";
-import { RotationSelectFields } from "@/components/onboarding/RotationSelectFields";
+import { OnboardingBeyondPhysicianFields } from "@/components/onboarding/OnboardingBeyondPhysicianFields";
 import {
   OnboardingProfileSection,
   OnboardingProfileHint,
@@ -67,7 +67,6 @@ import {
 } from "@/components/onboarding/OnboardingProfileSection";
 import { OnboardingInterestsBlock } from "@/components/onboarding/OnboardingInterestsBlock";
 import { AdditionalDegreesFields } from "@/components/onboarding/AdditionalDegreesFields";
-import { OnboardingBeyondPhysicianFields } from "@/components/onboarding/OnboardingBeyondPhysicianFields";
 import {
   OnboardingProfileCarousel,
   type ProfileCarouselCard,
@@ -119,14 +118,6 @@ const STEPS: { id: OnboardingStep; label: string }[] = [
   { id: "path", label: "Path" },
   ...STEPS_AFTER_PATH,
 ];
-
-type BlockLookupHint = {
-  matched: boolean;
-  block_id?: string;
-  rotation_label?: string;
-  days_remaining?: number;
-  message?: string;
-};
 
 type InstrumentSpec = {
   id: string;
@@ -181,8 +172,6 @@ export function Touchpoint1Onboarding() {
   const [pathChosen, setPathChosen] = useState(false);
   const [programConfig, setProgramConfig] = useState<OnboardingProgramConfig | null>(null);
   const [traineeInitials, setTraineeInitials] = useState("");
-  const [blockHint, setBlockHint] = useState<BlockLookupHint | null>(null);
-  const [blockLookupLoading, setBlockLookupLoading] = useState(false);
   const [inviteProgramSlug, setInviteProgramSlug] = useState<string | null>(null);
   const [bootstrappingPath, setBootstrappingPath] = useState(false);
   const [pendingInviteToken, setPendingInviteToken] = useState<string | null>(
@@ -227,7 +216,6 @@ export function Touchpoint1Onboarding() {
   const [subspecialtyInterests, setSubspecialtyInterests] = useState<string[]>([]);
   const [uhPsychEnrichmentTracks, setUhPsychEnrichmentTracks] = useState<string[]>([]);
   const [pgyLevel, setPgyLevel] = useState<PgyLevel | "">("");
-  const [currentRotation, setCurrentRotation] = useState("");
   const [specialtyOrigin, setSpecialtyOrigin] = useState("");
   const [profileCardIndex, setProfileCardIndex] = useState(0);
   const [termsChatConfidential, setTermsChatConfidential] = useState(false);
@@ -290,7 +278,6 @@ export function Touchpoint1Onboarding() {
     }
     if (prefill.practice_setting) setPracticeSetting(prefill.practice_setting);
     if (prefill.pgy_level) setPgyLevel(prefill.pgy_level as PgyLevel);
-    if (prefill.current_rotation) setCurrentRotation(prefill.current_rotation);
   }
 
   async function reloadOnboardingProgram() {
@@ -379,10 +366,7 @@ export function Touchpoint1Onboarding() {
 
   async function lookupBlockSchedule(programSlug?: string, token?: string | null) {
     const slug = programSlug ?? programConfig?.slug;
-    if (!slug) {
-      setBlockHint(null);
-      return;
-    }
+    if (!slug) return;
 
     const tokenParam = token ?? inviteTokenFromMeta ?? pendingInviteToken;
     const query = tokenParam
@@ -390,39 +374,18 @@ export function Touchpoint1Onboarding() {
       : traineeInitials.trim()
         ? `initials=${encodeURIComponent(traineeInitials.trim().toUpperCase())}`
         : "";
-    if (!query) {
-      setBlockHint(null);
-      return;
-    }
+    if (!query) return;
 
-    setBlockLookupLoading(true);
-    setError("");
     try {
       const res = await fetch(
         `/api/v1/onboarding/block-lookup?${query}&program=${encodeURIComponent(slug)}`,
       );
       const data = await res.json();
-      if (!res.ok) {
-        setBlockHint({ matched: false, message: data.message ?? "Could not load rotation suggestion." });
-        return;
-      }
-      if (data.matched) {
-        if (data.suggested_pgy) setPgyLevel(data.suggested_pgy as PgyLevel);
-        if (data.rotation_label) setCurrentRotation(data.rotation_label);
-        setBlockHint({
-          matched: true,
-          block_id: data.block_id,
-          rotation_label: data.rotation_label,
-          days_remaining: data.days_remaining,
-        });
-      } else {
-        if (data.suggested_pgy) setPgyLevel(data.suggested_pgy as PgyLevel);
-        setBlockHint(null);
+      if (res.ok && data.suggested_pgy) {
+        setPgyLevel(data.suggested_pgy as PgyLevel);
       }
     } catch {
-      setBlockHint(null);
-    } finally {
-      setBlockLookupLoading(false);
+      /* optional PGY prefill */
     }
   }
 
@@ -511,7 +474,6 @@ export function Touchpoint1Onboarding() {
         careerLevel,
         practiceSetting,
         pgyLevel,
-        currentRotation,
         specialtyOrigin,
       },
     });
@@ -725,7 +687,6 @@ export function Touchpoint1Onboarding() {
         setUhPsychEnrichmentTracks(data.onboarding_metadata.uh_psych_enrichment_tracks);
       }
       if (data.profile?.pgy_level) setPgyLevel(data.profile.pgy_level as PgyLevel);
-      if (data.profile?.current_rotation) setCurrentRotation(data.profile.current_rotation);
       if (data.profile?.specialty_origin) setSpecialtyOrigin(data.profile.specialty_origin);
       if (data.onboarding?.path) setOnboardingPath(data.onboarding.path);
       if (data.onboarding?.path_chosen) setPathChosen(true);
@@ -833,15 +794,9 @@ export function Touchpoint1Onboarding() {
         setError("Select your medical school year.");
         return false;
       }
-      if (requiresGmePlacementFields(careerLevel)) {
-        if (!pgyLevel) {
-          setError("Select your PGY level.");
-          return false;
-        }
-        if (!currentRotation.trim()) {
-          setError("Enter your current rotation.");
-          return false;
-        }
+      if (requiresGmePlacementFields(careerLevel) && !pgyLevel) {
+        setError("Select your PGY level.");
+        return false;
       }
       return true;
     }
@@ -894,15 +849,9 @@ export function Touchpoint1Onboarding() {
       setError("Select your medical school year.");
       return;
     }
-    if (requiresGmePlacementFields(careerLevel)) {
-      if (!pgyLevel) {
-        setError("Select your PGY level.");
-        return;
-      }
-      if (!currentRotation.trim()) {
-        setError("Enter your current rotation.");
-        return;
-      }
+    if (requiresGmePlacementFields(careerLevel) && !pgyLevel) {
+      setError("Select your PGY level.");
+      return;
     }
     setLoading(true);
     setError("");
@@ -941,7 +890,6 @@ export function Touchpoint1Onboarding() {
             ? uhPsychEnrichmentTracks
             : [],
         pgy_level: showGmeFields ? pgyLevel : null,
-        current_rotation: showGmeFields ? currentRotation.trim() : null,
         specialty_origin: specialtyOrigin.trim() || null,
         terms_accepted: true,
         terms_version: FISCMAK_TERMS_VERSION,
@@ -1408,57 +1356,21 @@ export function Touchpoint1Onboarding() {
               )}
 
               {showGmeFields && (
-                <>
-                  <div>
-                    <OnboardingFieldLabel>PGY level</OnboardingFieldLabel>
-                    <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-5">
-                      {PGY_LEVELS.map((level) => (
-                        <OnboardingChoiceButton
-                          key={level}
-                          active={pgyLevel === level}
-                          onClick={() => setPgyLevel(level)}
-                          className="text-center"
-                        >
-                          {level}
-                        </OnboardingChoiceButton>
-                      ))}
-                    </div>
+                <div>
+                  <OnboardingFieldLabel>PGY level</OnboardingFieldLabel>
+                  <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-5">
+                    {PGY_LEVELS.map((level) => (
+                      <OnboardingChoiceButton
+                        key={level}
+                        active={pgyLevel === level}
+                        onClick={() => setPgyLevel(level)}
+                        className="text-center"
+                      >
+                        {level}
+                      </OnboardingChoiceButton>
+                    ))}
                   </div>
-
-                  <div>
-                    {isInstitutional && programConfig?.rotations?.length ? (
-                      <RotationSelectFields
-                        rotations={programConfig.rotations}
-                        pgyLevel={pgyLevel || ""}
-                        value={currentRotation}
-                        onChange={setCurrentRotation}
-                        blockHint={blockHint}
-                        lookupLoading={blockLookupLoading}
-                      />
-                    ) : (
-                      <>
-                        <OnboardingFieldLabel htmlFor="current-rotation">
-                          Current rotation
-                        </OnboardingFieldLabel>
-                        <input
-                          id="current-rotation"
-                          type="text"
-                          value={currentRotation}
-                          onChange={(e) => setCurrentRotation(e.target.value)}
-                          placeholder="e.g., Inpatient Psychiatry, VA CT6, Consult-Liaison"
-                          className="cx-field mt-2 text-base text-black"
-                          autoComplete="off"
-                        />
-                      </>
-                    )}
-                  </div>
-
-                  {isInstitutional && blockHint?.matched && currentRotation && (
-                    <OnboardingProfileHint>
-                      We suggested your current rotation — change it below if it&apos;s not right.
-                    </OnboardingProfileHint>
-                  )}
-                </>
+                </div>
               )}
 
               {showPracticeSetting && (
