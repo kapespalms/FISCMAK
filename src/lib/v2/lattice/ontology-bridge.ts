@@ -36,6 +36,11 @@ export const KEYWORD_FISCMAK: Array<{
   acgmeKey: string;
   baseLevel: number;
 }> = [
+  // Teaching and mentoring rules come before residency/rotation so that
+  // "residency curriculum" or "trainee supervision" text is not swallowed
+  // by the broad clinical training keywords.
+  { keywords: ["teach", "lecture", "curriculum", "learner"], domainIndex: 4, trackIndex: 1, acgmeKey: "pbli", baseLevel: 3 },
+  { keywords: ["mentor", "coaching", "sponsor", "trainee"], domainIndex: 7, trackIndex: 1, acgmeKey: "ics", baseLevel: 3 },
   { keywords: ["patient", "clinical", "diagnosis", "treatment", "rounds"], domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 3 },
   {
     keywords: [
@@ -45,16 +50,12 @@ export const KEYWORD_FISCMAK: Array<{
       "outpatient",
       "clerkship",
       "hospitalist",
-      "psychiatry",
-      "psychiatric",
     ],
     domainIndex: 0,
     trackIndex: 0,
     acgmeKey: "pc",
     baseLevel: 3,
   },
-  { keywords: ["teach", "lecture", "curriculum", "learner"], domainIndex: 4, trackIndex: 1, acgmeKey: "pbli", baseLevel: 3 },
-  { keywords: ["mentor", "coaching", "sponsor", "trainee"], domainIndex: 7, trackIndex: 1, acgmeKey: "ics", baseLevel: 3 },
   { keywords: ["research", "publication", "grant", "manuscript", "scholar"], domainIndex: 4, trackIndex: 2, acgmeKey: "mk", baseLevel: 3 },
   { keywords: ["committee", "lead", "director", "chair", "administration"], domainIndex: 6, trackIndex: 3, acgmeKey: "sbp", baseLevel: 4 },
   { keywords: ["quality", "safety", "qi", "improvement", "protocol"], domainIndex: 3, trackIndex: 6, acgmeKey: "sbp", baseLevel: 3 },

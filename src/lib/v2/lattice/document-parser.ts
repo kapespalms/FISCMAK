@@ -251,13 +251,17 @@ function snippetToEvidence(
   const ontology = matchTextToActivityPlacement(snippet);
   const keyword = keywordPlacement(snippet);
 
-  // CV section heading → ontology activity → keyword (section beats weak "psychiatry" token hits).
-  const placement = sectionHint
+  // Keyword → ontology activity → CV section heading (last resort).
+  // Keywords are purpose-tuned for domain routing in dense CV text.
+  // The ontology phrase scorer is designed for short Mak activity statements
+  // and is too noisy to lead on multi-sentence CV snippets.
+  // Section hints are the broadest signal and serve only as a final fallback.
+  const placement = keyword
     ? {
-        domainIndex: sectionHint.domainIndex,
-        trackIndex: sectionHint.trackIndex,
-        acgmeKey: sectionHint.acgmeKey,
-        developmentLevel: sectionHint.baseLevel,
+        domainIndex: keyword.domainIndex,
+        trackIndex: keyword.trackIndex,
+        acgmeKey: keyword.acgmeKey,
+        developmentLevel: keyword.developmentLevel,
       }
     : ontology
       ? {
@@ -266,12 +270,12 @@ function snippetToEvidence(
           acgmeKey: ontology.acgmeKey,
           developmentLevel: ontology.defaultDevelopmentLevel,
         }
-      : keyword
+      : sectionHint
         ? {
-            domainIndex: keyword.domainIndex,
-            trackIndex: keyword.trackIndex,
-            acgmeKey: keyword.acgmeKey,
-            developmentLevel: keyword.developmentLevel,
+            domainIndex: sectionHint.domainIndex,
+            trackIndex: sectionHint.trackIndex,
+            acgmeKey: sectionHint.acgmeKey,
+            developmentLevel: sectionHint.baseLevel,
           }
         : null;
 

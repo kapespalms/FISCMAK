@@ -660,6 +660,30 @@
         "active": true,
         "created_at": "2026-05-24T03:54:33.528889+00:00",
         "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "subcompetency_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        "domain_id": "bd0da5a7-b397-41fd-b4d2-10c54940eab8",
+        "subcompetency_key": "innovation_tool_building",
+        "name": "Innovation and Tool Building",
+        "description": "Creating systems, tools, or technology to improve care or education",
+        "acgme_competency_key": "pbli",
+        "source_id": "dda0e3a6-35f8-4b92-9b71-33cfb944c284",
+        "active": true,
+        "created_at": "2026-05-31T00:00:00.000000+00:00",
+        "updated_at": "2026-05-31T00:00:00.000000+00:00"
+      },
+      {
+        "subcompetency_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+        "domain_id": "c9dc8b4b-67d8-45cf-aaea-a4e7ff475137",
+        "subcompetency_key": "advocacy_social_change",
+        "name": "Advocacy and Social Change",
+        "description": "Speaking up for learners, patients, or systems; advocating for equity and change",
+        "acgme_competency_key": "sbp",
+        "source_id": "dda0e3a6-35f8-4b92-9b71-33cfb944c284",
+        "active": true,
+        "created_at": "2026-05-31T00:00:00.000000+00:00",
+        "updated_at": "2026-05-31T00:00:00.000000+00:00"
       }
     ],
     "ontology_development_levels": [
@@ -1448,14 +1472,14 @@
       {
         "mapping_id": "c333585b-bb99-4c8b-9e8c-7704fd24c7b1",
         "activity_id": "0a4c1eba-0511-4bc9-96b0-3797e2a5cdba",
-        "subcompetency_id": "2f0446ef-4736-49fd-bdfe-e3d1567f1700",
+        "subcompetency_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
         "track_id": "45af14bc-53e5-41fb-b268-7097c3af302e",
         "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
         "confidence_default": 0.85,
         "weight": 1,
         "active": true,
         "created_at": "2026-05-24T03:54:33.528889+00:00",
-        "updated_at": "2026-05-24T03:54:33.528889+00:00"
+        "updated_at": "2026-05-31T00:00:00.000000+00:00"
       },
       {
         "mapping_id": "63a145ec-56c4-43c4-979c-ae21faf4dae9",
@@ -1508,14 +1532,14 @@
       {
         "mapping_id": "431c576f-7c3a-43d8-a54c-6244dd5de9f2",
         "activity_id": "5d491b72-6adc-4f23-85ae-6c3c9e7e4423",
-        "subcompetency_id": "d32060d2-57f0-4e2d-9665-a7259c2db4da",
+        "subcompetency_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
         "track_id": "df4ea9b0-6508-49b1-af26-1ab4f0d40569",
         "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
         "confidence_default": 0.8,
         "weight": 1,
         "active": true,
         "created_at": "2026-05-30T10:56:53.000000+00:00",
-        "updated_at": "2026-05-30T10:56:53.000000+00:00"
+        "updated_at": "2026-05-31T00:00:00.000000+00:00"
       }
     ],
     "ontology_output_templates": [

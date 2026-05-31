@@ -179,7 +179,7 @@ const SUBSPECIALTY_ALIASES: Record<string, string> = {
 
 type ProgramMilestoneBundleEntry = {
   subcompetencies: AcgmeSubcompetency[];
-  sources?: { milestone_pdf_url?: string; supplemental_guide_url?: string };
+  sources?: { milestone_pdf_url?: string; supplemental_guide_url?: string | null };
   program_type?: "primary" | "subspecialty";
   parent_slug?: string;
   specialty?: string;
