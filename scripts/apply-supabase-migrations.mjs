@@ -76,6 +76,10 @@ const VERIFY_TABLES = [
   "signal_categories",
   "job_sources",
   "user_subscriptions",
+  "energy_rankings",
+  "goal_records",
+  "narrative_evidence",
+  "transfer_pathways",
 ];
 
 async function main() {
@@ -269,6 +273,39 @@ async function main() {
   steps.push({
     file: "docs/migrations/20260535_user_documents_storage.sql",
     label: "User documents storage bucket (PDF/DOCX uploads)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260536_v3_evidence_fields.sql",
+    label: "v3 evidence fields: recognition_quadrant, energy_score, sentiment, transfer_targets, time_class",
+    requiresTable: "activity_entries",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260537_v3_physician_profile.sql",
+    label: "v3 physician profile: onet_soc_code, fte columns, mak_memory_summary",
+    requiresTable: "app_users",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260538_energy_rankings.sql",
+    label: "Energy rankings table (domain energy 1–8 per user)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260539_goal_records.sql",
+    label: "Goal records table (WOOP + SMART + Implementation Intentions)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260540_narrative_evidence.sql",
+    label: "Narrative evidence table (Coach Mak SI probe responses)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260541_transfer_pathways.sql",
+    label: "Transfer pathways table (F7 — SI/OI → visible artifact routing)",
+    requiresTable: "narrative_evidence",
   });
 
   let failures = 0;
