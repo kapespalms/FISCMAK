@@ -64,7 +64,7 @@ export const KEYWORD_FISCMAK: Array<{
   { keywords: ["ethics", "professional", "consent", "confidential"], domainIndex: 2, trackIndex: 0, acgmeKey: "prof", baseLevel: 3 },
   { keywords: ["innovation", "informatic", "digital", "technology"], domainIndex: 3, trackIndex: 5, acgmeKey: "pbli", baseLevel: 4 },
   { keywords: ["wellness", "burnout", "self-care", "resilience"], domainIndex: 7, trackIndex: 7, acgmeKey: "prof", baseLevel: 2 },
-  { keywords: ["team", "interdisciplinary", "collaborat"], domainIndex: 5, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
+  { keywords: ["team", "interdisciplinary", "multidisciplinary", "collaborat"], domainIndex: 5, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
 ];
 
 export function normalizeFiscmakDomain(value: string | null | undefined): number {
@@ -94,16 +94,16 @@ export function normalizeFiscmakTrack(value: string | null | undefined): number 
 
 export function inferDevelopmentLevel(text: string, baseLevel = 2): number {
   const lower = text.toLowerCase();
-  if (/\b(created|designed|led department|program director|national|expert|role model)\b/.test(lower)) {
+  if (/\b(created|designed|led department|program director|national|expert|role model|founded|co-founded|established|pioneered|spearheaded|launched|chaired|chair of)\b/.test(lower)) {
     return 5;
   }
-  if (/\b(led|managed|directed|supervised|taught|presented|published)\b/.test(lower)) {
+  if (/\b(led|managed|directed|supervised|taught|presented|published|co-authored|co-led|co-developed|co-chaired|oversaw|developed|coordinated|delivered)\b/.test(lower)) {
     return 4;
   }
-  if (/\b(independently|performed|conducted|evaluated|implemented)\b/.test(lower)) {
+  if (/\b(independently|performed|conducted|evaluated|implemented|completed|achieved|piloted|contributed|authored)\b/.test(lower)) {
     return 3;
   }
-  if (/\b(participated|assisted|observed|with guidance)\b/.test(lower)) {
+  if (/\b(participated|assisted|observed|with guidance|supported|helped|shadowed)\b/.test(lower)) {
     return 2;
   }
   return Math.min(5, Math.max(1, baseLevel));

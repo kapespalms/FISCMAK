@@ -13,7 +13,7 @@ import { matchTextToActivityPlacement } from "@/lib/v2/lattice/ontology-registry
 
 const SNIPPET_MIN = 30;
 const SNIPPET_MAX = 480;
-const MAX_SNIPPETS_PER_DOC = 60;
+const MAX_SNIPPETS_PER_DOC = 150;
 
 // ---------------------------------------------------------------------------
 // CV section detection
@@ -73,6 +73,21 @@ const CV_SECTION_RULES: SectionRule[] = [
   {
     pattern: /\b(teaching|teach|educat|curriculum|pedagog|didactic|clerkship director|course director)\b/i,
     hint: { domainIndex: 4, trackIndex: 1, acgmeKey: "pbli", baseLevel: 3 },
+  },
+  // Presentations / Invited talks (before generic research rule to avoid swallowing talks)
+  {
+    pattern: /\b(presentations?|invited talks?|grand rounds|visiting professor|keynote|plenary|conference|seminars?)\b/i,
+    hint: { domainIndex: 4, trackIndex: 2, acgmeKey: "mk", baseLevel: 3 },
+  },
+  // Communication / Interpersonal (domain 1)
+  {
+    pattern: /\b(communication|interpersonal|patient communication|family meeting|health literacy|shared decision|difficult conversation|interpreter)\b/i,
+    hint: { domainIndex: 1, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
+  },
+  // Collaboration / Teamwork (domain 5)
+  {
+    pattern: /\b(interprofessional|interdisciplinary|multidisciplinary|collaborative practice|teamwork|care team|collaborative care)\b/i,
+    hint: { domainIndex: 5, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
   },
   // Mentoring track
   {
@@ -251,33 +266,32 @@ function snippetToEvidence(
   const ontology = matchTextToActivityPlacement(snippet);
   const keyword = keywordPlacement(snippet);
 
-  // Keyword → ontology activity → CV section heading (last resort).
-  // Keywords are purpose-tuned for domain routing in dense CV text.
-  // The ontology phrase scorer is designed for short Mak activity statements
-  // and is too noisy to lead on multi-sentence CV snippets.
-  // Section hints are the broadest signal and serve only as a final fallback.
-  const placement = keyword
-    ? {
-        domainIndex: keyword.domainIndex,
-        trackIndex: keyword.trackIndex,
-        acgmeKey: keyword.acgmeKey,
-        developmentLevel: keyword.developmentLevel,
-      }
-    : ontology
-      ? {
-          domainIndex: ontology.domainIndex,
-          trackIndex: ontology.trackIndex,
-          acgmeKey: ontology.acgmeKey,
-          developmentLevel: ontology.defaultDevelopmentLevel,
-        }
-      : sectionHint
-        ? {
-            domainIndex: sectionHint.domainIndex,
-            trackIndex: sectionHint.trackIndex,
-            acgmeKey: sectionHint.acgmeKey,
-            developmentLevel: sectionHint.baseLevel,
-          }
-        : null;
+  // Placement priority: specific keyword → ontology → section heading → clinical keyword.
+  //
+  // Exception — clinical (domain 0) keywords yield to non-clinical section hints:
+  // "rounds", "patient", "treatment" appear in almost any medical text and are
+  // too broad to override a heading like PRESENTATIONS or COMMUNICATION.
+  // When this yield fires, also skip the ontology scorer (which is equally noisy
+  // on dense CV text) and use the heading directly.
+  const clinicalKeywordYields =
+    keyword?.domainIndex === 0 && sectionHint != null && sectionHint.domainIndex !== 0;
+
+  let placement;
+  if (clinicalKeywordYields) {
+    // Section heading wins; clinical keyword kept as last-resort fallback in case
+    // sectionHint is somehow absent (guard only — structurally it can't be null here).
+    placement = sectionHint
+      ? { domainIndex: sectionHint.domainIndex, trackIndex: sectionHint.trackIndex, acgmeKey: sectionHint.acgmeKey, developmentLevel: sectionHint.baseLevel }
+      : { domainIndex: keyword!.domainIndex, trackIndex: keyword!.trackIndex, acgmeKey: keyword!.acgmeKey, developmentLevel: keyword!.developmentLevel };
+  } else {
+    placement = keyword
+      ? { domainIndex: keyword.domainIndex, trackIndex: keyword.trackIndex, acgmeKey: keyword.acgmeKey, developmentLevel: keyword.developmentLevel }
+      : ontology
+        ? { domainIndex: ontology.domainIndex, trackIndex: ontology.trackIndex, acgmeKey: ontology.acgmeKey, developmentLevel: ontology.defaultDevelopmentLevel }
+        : sectionHint
+          ? { domainIndex: sectionHint.domainIndex, trackIndex: sectionHint.trackIndex, acgmeKey: sectionHint.acgmeKey, developmentLevel: sectionHint.baseLevel }
+          : null;
+  }
 
   if (!placement) return null;
 

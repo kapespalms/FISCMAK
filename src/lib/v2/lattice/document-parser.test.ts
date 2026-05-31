@@ -47,6 +47,70 @@ describe("parseDocumentsToLatticeEvidence — psychiatry CV", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Improvements: snippet cap, verb list, missing section rules
+// ---------------------------------------------------------------------------
+
+describe("improvements — snippet cap, verb levels, missing sections", () => {
+  it("parses more than 60 entries from a long CV", () => {
+    const entries = Array.from({ length: 100 }, (_, i) =>
+      `2020  Led workshop ${i + 1} on clinical skills for medical students.`,
+    ).join("\n");
+    const evidence = parseDocumentsToLatticeEvidence([cvDoc(entries)]);
+    expect(evidence.length).toBeGreaterThan(60);
+  });
+
+  it("PRESENTATIONS section routes to Researcher", () => {
+    const text = [
+      "PRESENTATIONS",
+      "Palmer K. Moral distress in psychiatry training. Grand Rounds, University Hospitals, 2025.",
+    ].join("\n");
+    const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
+    const entry = evidence.find((e) => e.rawText.includes("Grand Rounds"));
+    expect(entry).toBeDefined();
+    expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Researcher");
+    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Scholarship & Learning");
+  });
+
+  it("COMMUNICATION section routes to Communication domain", () => {
+    const text = [
+      "COMMUNICATION SKILLS",
+      "Developed patient communication training module for PGY-1 residents; evaluated shared decision-making competency.",
+    ].join("\n");
+    const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
+    const entry = evidence.find((e) => e.rawText.includes("training module"));
+    expect(entry).toBeDefined();
+    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Communication");
+  });
+
+  it("INTERPROFESSIONAL section routes to Collaboration & Teamwork domain", () => {
+    const text = [
+      "INTERPROFESSIONAL COLLABORATION",
+      "Co-led multidisciplinary case conferences integrating psychiatry, social work, pharmacy, and nursing.",
+    ].join("\n");
+    const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
+    const entry = evidence.find((e) => e.rawText.includes("case conferences"));
+    expect(entry).toBeDefined();
+    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Collaboration & Teamwork");
+  });
+
+  it("founding/pioneer verbs infer level 5", () => {
+    const text = "LEADERSHIP\nFounded the department wellness committee; pioneered peer support program adopted nationally.";
+    const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
+    const entry = evidence.find((e) => e.rawText.includes("wellness committee"));
+    expect(entry).toBeDefined();
+    expect(entry!.developmentLevel).toBe(5);
+  });
+
+  it("co-authored infers level 4", () => {
+    const text = "PUBLICATIONS\nCo-authored guidelines on trauma-informed care; delivered at regional conference.";
+    const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
+    const entry = evidence.find((e) => e.rawText.includes("guidelines"));
+    expect(entry).toBeDefined();
+    expect(entry!.developmentLevel).toBeGreaterThanOrEqual(4);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Bug #1 — Section hint must not override ontology/keyword when content
 // clearly belongs to a different domain than the section heading implies.
 // ---------------------------------------------------------------------------
