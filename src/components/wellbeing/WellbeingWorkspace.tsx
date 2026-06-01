@@ -4,55 +4,83 @@ import { useCallback, useEffect, useState } from "react";
 import { PageShell } from "@/components/layout/PageShell";
 import { CardSection } from "@/components/ui/CardSection";
 import { FcwiForm } from "@/components/wellbeing/FcwiForm";
+import { WeeklyPulseForm } from "@/components/wellbeing/WeeklyPulseForm";
 
-type FcwiStatus = { latest: { recorded_at: string; frequency_tier: string } | null; due: boolean };
+type CheckInStatus = {
+  latest: { recorded_at: string } | null;
+  due: boolean;
+};
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString(undefined, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
 
 export function WellbeingWorkspace() {
-  const [fcwiStatus, setFcwiStatus] = useState<FcwiStatus | null>(null);
+  const [fcwiStatus, setFcwiStatus] = useState<CheckInStatus | null>(null);
+  const [pulseStatus, setPulseStatus] = useState<CheckInStatus | null>(null);
   const [loading, setLoading] = useState(true);
 
   const loadStatus = useCallback(async () => {
-    try {
-      const res = await fetch("/api/v1/wellbeing/fcwi");
-      const data = (await res.json()) as FcwiStatus;
-      setFcwiStatus(data);
-    } catch {
-      setFcwiStatus({ latest: null, due: true });
-    } finally {
-      setLoading(false);
-    }
+    const [fcwiRes, pulseRes] = await Promise.allSettled([
+      fetch("/api/v1/wellbeing/fcwi").then((r) => r.json() as Promise<CheckInStatus>),
+      fetch("/api/v1/wellbeing/pulse").then((r) => r.json() as Promise<CheckInStatus>),
+    ]);
+    setFcwiStatus(fcwiRes.status === "fulfilled" ? fcwiRes.value : { latest: null, due: true });
+    setPulseStatus(pulseRes.status === "fulfilled" ? pulseRes.value : { latest: null, due: true });
+    setLoading(false);
   }, []);
 
   useEffect(() => {
     void loadStatus();
   }, [loadStatus]);
 
-  function handleFcwiSaved() {
-    void loadStatus();
-  }
+  // "What's due now" subtitle
+  const dueItems = [
+    fcwiStatus?.due && "monthly check-in",
+    pulseStatus?.due && "weekly pulse",
+  ].filter(Boolean);
 
-  const lastFcwiDate = fcwiStatus?.latest?.recorded_at
-    ? new Date(fcwiStatus.latest.recorded_at).toLocaleDateString(undefined, {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      })
-    : null;
-
-  // "What's due now" summary — expands in 3.2 with weekly pulse logic
-  const dueNow = fcwiStatus?.due;
   const subtitle = loading
     ? undefined
-    : dueNow
-      ? "Your monthly check-in is ready."
-      : lastFcwiDate
-        ? `Last check-in: ${lastFcwiDate}`
-        : undefined;
+    : dueItems.length > 0
+      ? `Ready now: ${dueItems.join(" · ")}`
+      : "You're up to date — check back soon.";
 
   return (
     <PageShell eyebrow="Well-Being" title="Your Well-Being" subtitle={subtitle} maxWidth="lg">
 
-      {/* B1 — Monthly check-in (FCWI, 3.1) */}
+      {/* B1 — Weekly pulse (most frequent — shown first) */}
+      <CardSection
+        className="mb-6"
+        title="Weekly pulse"
+        description={
+          loading
+            ? undefined
+            : pulseStatus?.due
+              ? "Four questions, about 1 minute."
+              : pulseStatus?.latest
+                ? `Completed ${formatDate(pulseStatus.latest.recorded_at)}.`
+                : undefined
+        }
+      >
+        {loading ? (
+          <p className="text-sm text-cx-forest-dark/50">Loading…</p>
+        ) : pulseStatus?.due ? (
+          <WeeklyPulseForm onSaved={() => void loadStatus()} />
+        ) : (
+          <p className="text-sm text-cx-forest-dark/60">
+            {pulseStatus?.latest
+              ? `Completed ${formatDate(pulseStatus.latest.recorded_at)}. Your next pulse will be ready in about a week.`
+              : "No pulse check-ins yet."}
+          </p>
+        )}
+      </CardSection>
+
+      {/* B1 — Monthly check-in (FCWI) */}
       <CardSection
         className="mb-6"
         title="Monthly check-in"
@@ -61,29 +89,22 @@ export function WellbeingWorkspace() {
             ? undefined
             : fcwiStatus?.due
               ? "Nine questions, about 2 minutes."
-              : "You're up to date. Check back next month."
+              : fcwiStatus?.latest
+                ? `Completed ${formatDate(fcwiStatus.latest.recorded_at)}.`
+                : undefined
         }
       >
         {loading ? (
           <p className="text-sm text-cx-forest-dark/50">Loading…</p>
         ) : fcwiStatus?.due ? (
-          <FcwiForm onSaved={handleFcwiSaved} frequencyTier="monthly" />
+          <FcwiForm onSaved={() => void loadStatus()} frequencyTier="monthly" />
         ) : (
           <p className="text-sm text-cx-forest-dark/60">
-            Completed {lastFcwiDate}. Your next check-in will be available in about a month.
+            {fcwiStatus?.latest
+              ? `Completed ${formatDate(fcwiStatus.latest.recorded_at)}. Your next check-in will be ready in about a month.`
+              : "No monthly check-ins yet."}
           </p>
         )}
-      </CardSection>
-
-      {/* B1 — Weekly pulse (placeholder, 3.2) */}
-      <CardSection
-        className="mb-6"
-        title="Weekly pulse"
-        description="A one-minute check on how this week felt."
-      >
-        <p className="text-sm text-cx-forest-dark/50">
-          Weekly pulse check-in coming soon.
-        </p>
       </CardSection>
 
       {/* B2 — Well-being picture (placeholder, Phase 5) */}
