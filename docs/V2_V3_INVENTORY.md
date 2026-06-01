@@ -99,6 +99,42 @@ the v3 attending tables.
 at the auth/connection level — RLS policies on individual tables do the boundary enforcement.
 **What depends on it:** Every API route and server component.
 
+### `physicians` (enrichment-artifact store — *not* a profile table)
+**What:** NPI, ORCID, demographic fields (gender, race/ethnicity, year of birth, terminal degree,
+medical school), name variants for publication matching. 14 columns; PK = `app_users.user_id`.
+**Why v3 still uses it:** The API enrichment pipeline (`persistEnrichmentSnapshot` in
+`career-data-repo.ts`) writes verified NPI and ORCID here after external API lookups. Only
+2 code call sites, both in the enrichment pipeline — v3 profile code never reads this table.
+**Scope boundary:** `app_users` is the canonical v3 profile (SOC, FTE, Mak memory — all on
+`app_users` per 20260537). `physicians` = enrichment-artifact store only. V3 feature code
+must not read `physicians` for profile context.
+**What depends on it:** `career-data-repo.ts` enrichment path only.
+
+### Enrichment pipeline tables (`publications`, `grants`, `presentations`, `scholarly_metrics`, `clinical_productivity`, `scope_of_practice`, `compensation`, `api_enrichment_runs`, `reconciliation_items`)
+**What:** Structured career history populated by the API enrichment pipeline (PubMed, NIH
+Reporter, ORCID, Open Payments, NPPES). `api_enrichment_runs` logs pipeline executions;
+`reconciliation_items` holds pending/confirmed/rejected items awaiting physician review.
+**Why v3 still uses it:** The enrichment pipeline is still active and feeds confirmed career
+data into `reconciliation_items`. Founder decision 2026-06-01: keep these tables live; they
+will eventually feed `evidence_unit` via source FK columns added in a later migration.
+V3 code must not bypass the physician-confirmation step before writing to `evidence_unit`.
+**What depends on it:** `career-data-repo.ts`, `/api/v1/enrichment/run`, `/api/v1/onboarding/reconciliation`.
+
+### `activity_patterns`
+**What:** Pre-aggregated user activity patterns (activity_frequency, signal_trend, energy_trend,
+competency_growth, track_alignment) over 7/30/90-day rolling windows. Computed from
+`activity_entries`.
+**Why v3 still uses it:** Founder decision 2026-06-01: keep as live reused infrastructure.
+Feeds Mak context window and resident heatmap until the v3 intelligence layer (Phase 5,
+F1–F7 formulas) can replace it. V3 code may read but should not write to this table.
+**What depends on it:** Mak context assembly; resident heatmap (GME pilot).
+
+### `chat_feedback`
+**What:** Thumbs up/down log on individual Mak messages (message_id, user_id, rating, optional note).
+**Why v3 still uses it:** Founder decision 2026-06-01: keep. Lightweight quality signal for
+Mak response improvement. No v3 replacement needed — it is not superseded by `narrative_evidence`.
+**What depends on it:** Mak message rating UI.
+
 ---
 
 ## SECTION 3 — V2 TABLES / MODULES SUPERSEDED BY V3
@@ -118,62 +154,23 @@ to these; read access for migration/backfill only, and only when a ticket explic
 | `invisible_work_quotient` (IWQ) | BITS composite + logged hours component + minority tax flag | Replaced by v3 Recognition Gap (F5, internal only — never shown as a number per Part IX); `evidence_unit` OI/SI quadrant density |
 | `professional_identity` | PIF stage, identity clarity, career satisfaction 1–10 | `narrative_evidence` (SI probe responses capture identity themes via Coach Mak) + `goal_records` 10yr legacy horizon |
 | `src/lib/v2/lattice/` modules (domain scoring, track alignment, lattice views) | Computed lattice scores from `activity_entries` → `lattice_positioning` | v3 intelligence layer (F1–F7 formulas, Part IX) writing to `lattice_cell` and `evidence_unit` — not yet built (Phase 5) |
+| `career_assessments` | Generic conversational assessment records from pre-v3 Mak (structured instrument Q&A) | `narrative_evidence` (SI probe responses) + `goal_records` (structured goals). Founder decision 2026-06-01: superseded. |
+| `jobs` / `job_sources` / `user_career_preferences` / `job_matches` / `user_saved_jobs` | Full v2 job-search and career-fit matching engine | **PARKED** — v2 out of scope for v3 core. Wire nothing to it. No v3 equivalent planned. Do not reference from v3 code. |
 
 ---
 
 ## SECTION 4 — NEEDS FOUNDER DECISION
 
-Ambiguous cases where the inventory cannot determine status from code inspection alone.
+*All items resolved 2026-06-01. See decisions recorded below in Sections 2 and 3.*
 
-### `physicians` table
-**What:** Core physician profile (NPI, ORCID, terminal degree, employment); 1:1 with `app_users`.
-**Ambiguity:** Migration 20260537 (`v3_physician_profile`) adds v3 fields (`onet_soc_code`,
-FTE columns, `mak_memory_summary`) directly to `app_users`, not to `physicians`. It's unclear
-whether `physicians` will be merged into `app_users`, kept as a join table, or eventually retired.
-Several v2 career-data modules query `physicians` directly; v3 code does not — yet.
-**Decision needed:** Will v3 read `physicians` for FTE / specialty context, or will
-`app_users` (with v3 columns) be the sole profile source going forward?
-
-### `publications`, `grants`, `presentations`, `scholarly_metrics`, `clinical_productivity`, `scope_of_practice`, `compensation`
-**What:** Granular v2 career data tables populated by the API enrichment pipeline
-(PubMed, NIH Reporter, ORCID, Open Payments, NPPES).
-**Ambiguity:** These tables hold structured career history that logically belongs in the
-v3 evidence layer as `evidence_unit` rows (e.g. each publication = one OV evidence unit,
-domain=scholarship). However, no migration or spec section explicitly maps them to `evidence_unit`.
-The enrichment pipeline (`api_enrichment_runs`, `reconciliation_items`) that populates them
-is still active.
-**Decision needed:** Will the v3 CV parser + `evidence_unit` eventually replace these, or
-will they remain as a separate structured data layer alongside `evidence_unit`?
-
-### `career_assessments`
-**What:** Generic conversational assessment records written by `conversational-assessment-service.ts`.
-**Ambiguity:** No v3 table covers this. May be vestigial (replaced by `narrative_evidence`
-+ `goal_records` for v3 Mak sessions), or may still be active for some onboarding flows.
-Code inspection found the service exists but couldn't confirm active callers.
-**Decision needed:** Is this table still being written to? If yes, does it get retired when
-v3 Mak (narrative_evidence + goal_records) goes live?
-
-### `activity_patterns`
-**What:** Aggregated user activity patterns (activity_frequency, signal_trend, energy_trend,
-competency_growth, track_alignment) over 7/30/90-day windows.
-**Ambiguity:** This is a v2 pre-computation layer. The v3 equivalent would be computed
-on-the-fly from `evidence_unit` + `energy_rankings` + `lattice_cell`. But `activity_patterns`
-may still feed the current Mak context window or resident heatmap.
-**Decision needed:** Does `activity_patterns` stay alive until v3 intelligence layer (Phase 5)
-is built, or can it be ignored by v3 code now?
-
-### `jobs` / `job_sources` / `user_career_preferences` / `job_matches` / `user_saved_jobs`
-**What:** Full v2 job search and career-fit matching engine.
-**Ambiguity:** No v3 equivalent exists. Not mentioned in the Master Review or BUILD_ORDER.
-May be a separate product track, may be deferred, or may be retired.
-**Decision needed:** Is the jobs layer in scope for v3 at all? If not, flag it explicitly
-so agents don't accidentally wire v3 features into it.
-
-### `chat_feedback`
-**What:** Thumbs up/down on individual Mak messages.
-**Ambiguity:** Lightweight signal. No v3 equivalent named. Could feed `narrative_evidence`
-energy_signal or could be retired. Currently writes to a standalone table.
-**Decision needed:** Does this survive into v3 Mak, or is feedback captured differently?
+| Item | Resolution | Now in |
+|---|---|---|
+| `physicians` vs `app_users` profile split | `app_users` is canonical v3 profile (SOC, FTE, Mak memory). `physicians` = enrichment-artifact store (NPI/ORCID), 2 code touches, v3 never reads it. | Section 2 |
+| Enrichment tables (`publications`, `grants`, etc.) | Keep live + will feed `evidence_unit` via source FK columns in a later migration. Physician confirmation step required before writing to `evidence_unit`. | Section 2 |
+| `career_assessments` | Superseded by `narrative_evidence` + `goal_records`. | Section 3 |
+| `activity_patterns` | Keep as reused infra until Phase 5 intelligence layer replaces it. | Section 2 |
+| `jobs` layer | PARKED — v2 out of scope for v3 core. Wire nothing to it. | Section 3 |
+| `chat_feedback` | Keep — lightweight Mak quality signal, not superseded. | Section 2 |
 
 ---
 
