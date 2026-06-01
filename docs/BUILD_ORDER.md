@@ -46,10 +46,12 @@
 
 *Source: **Part X** (context vars), **Part V Step 1–2** (SOC), **Part XVI** (setting). Deep ref: Annex Appendix G (SOC×NAICS), Appendix F (setting).*
 
-- [ ] **2.1 Specialty → SOC selector.** Dropdown → auto-assign primary SOC (29-1211…29-1249). Store on profile. *(Annex Appendix G.1 has the full 22-code table.)*
-- [ ] **2.2 Setting → NAICS selector.** academic/community/hybrid/government/industry → NAICS + clinical-setting modifier (inpatient/outpatient/hybrid/non-clinical). *(Annex Appendix G.2 + F.)*
-- [ ] **2.3 Career-context form.** Stage, subspecialty, role composition (% clinical/teaching/research/admin), years in practice.
-- [ ] **2.4 Domain energy ranking.** 8 domains, 1–5 scale → `energy_rankings`.
+- [x] **2.1 Specialty → SOC selector.** Dropdown → auto-assign primary SOC (29-1211…29-1249). Store on profile. *(Annex Appendix G.1 has the full 22-code table.)*
+- [x] **2.2 Setting → NAICS selector.** academic/community/hybrid/government/industry → NAICS + clinical-setting modifier (inpatient/outpatient/hybrid/non-clinical). *(Annex Appendix G.2 + F.)*
+- [x] **2.3 Career-context form.** Stage, subspecialty, role composition (% clinical/teaching/research/admin), years in practice.
+- [x] **2.4 Domain energy ranking.** 8 domains, 1–5 scale → `energy_rankings`.
+
+> **Phase 2 complete 2026-06-01.** Known polish gap: role composition + years-in-practice don't prefill on reload (see KNOWN_ISSUES.md).
 
 ---
 
