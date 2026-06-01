@@ -311,6 +311,12 @@ async function main() {
   });
 
   steps.push({
+    file: "docs/migrations/20260550_goal_records_horizon_constraint.sql",
+    label: "Fix goal_records horizon: ('6mo','1yr','5yr') → ('3mo','1yr','5yr','10yr') (founder decision 2026-06-01)",
+    requiresTable: "goal_records",
+  });
+
+  steps.push({
     file: "docs/migrations/20260540_narrative_evidence.sql",
     label: "Narrative evidence table (Coach Mak SI probe responses)",
   });

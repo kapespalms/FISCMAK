@@ -32,6 +32,9 @@
   - 20260538 had `rank BETWEEN 1–8` (wrong). Corrected by forward migration 20260544 — do not edit 20260538.
 - [ ] **1.3 Well-being tables.** `fcwi_responses` (user_id, timestamp, items 1–9, frequency_tier); `weekly_pulse` (ee, dp, qol, mdt, energy_boost_task, energy_drain_task, invisible_flag).
 - [ ] **1.4 Goals + narrative.** `goal_records` (4-horizon fields); `narrative_evidence` (domain_index, distress_flag, energy_signal, invisible_work_flag, mak_session_id); `transfer_pathways`.
+  - **Founder decision 2026-06-01 — 4 horizons are: 3mo SMART, 1yr SMART+II, 5yr WOOP, 10yr legacy** (Part X).
+  - 20260539 had `horizon IN ('6mo','1yr','5yr')` — wrong (6mo→3mo, missing 10yr). Corrected by forward migration 20260550. Do not edit 20260539.
+  - `framework` CHECK in 20260539 (`SMART`, `SMART_II`, `WOOP`) does not include `LEGACY` for the 10yr horizon — may need a follow-on ALTER if the app enforces framework per horizon.
 - [ ] **1.5 Profile + config.** `riasec_profile` (R,I,A,S,E,C); `onet_fingerprint` (descriptor_vector, adjacent_soc_weights); `specialty_config` (soc_code + 6 JSON cols).
 - [ ] **1.6 Confirm fixed track/domain axes** match Master Review Part IV (8 domains, 8 tasks, correct order). *(Resolves the open domain-renumber item.)*
 
