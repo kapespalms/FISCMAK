@@ -84,6 +84,9 @@ const VERIFY_TABLES = [
   "lattice_cell",
   "fcwi_responses",
   "weekly_pulse",
+  "riasec_profile",
+  "onet_fingerprint",
+  "specialty_config",
 ];
 
 async function main() {
@@ -338,6 +341,22 @@ async function main() {
   steps.push({
     file: "docs/migrations/20260546_weekly_pulse.sql",
     label: "Weekly pulse table (EE + DP + QoL + MDT + energy prompts — Part VIII)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260547_riasec_profile.sql",
+    label: "RIASEC profile table (O*NET Interest Profiler scores — Part XXIV)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260548_onet_fingerprint.sql",
+    label: "O*NET fingerprint table (descriptor vector + adjacent SOC weights — Part XXIV)",
+    requiresTable: "riasec_profile",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260549_specialty_config.sql",
+    label: "Specialty config table (soc_code + 6 JSON cols — Part XII/XXIV)",
   });
 
   let failures = 0;
