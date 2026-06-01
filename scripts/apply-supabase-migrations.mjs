@@ -295,6 +295,12 @@ async function main() {
   });
 
   steps.push({
+    file: "docs/migrations/20260544_energy_rankings_rank_constraint.sql",
+    label: "Fix energy_rankings rank constraint: 1–8 → 1–5 Likert (founder decision 2026-06-01)",
+    requiresTable: "energy_rankings",
+  });
+
+  steps.push({
     file: "docs/migrations/20260539_goal_records.sql",
     label: "Goal records table (WOOP + SMART + Implementation Intentions)",
   });

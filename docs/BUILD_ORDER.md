@@ -26,6 +26,10 @@
 
 - [ ] **1.1 Core evidence schema.** `evidence_unit` table: `recognition_quadrant` ENUM(OV/OI/SV/SI), `energy_score` INT(1–5), `sentiment` FLOAT, `transfer_targets` ARRAY, `time_class`. *(Founder-gated migration.)*
 - [ ] **1.2 Lattice + ranking tables.** `lattice_cell` (`fte_discrepancy_flag` BOOL, `transfer_potential_score` FLOAT); `energy_rankings` (user_id, domain_index 0–7, rank 1–5, updated_at).
+  - **Founder decision 2026-06-01 — energy is two separate concepts:**
+    - `energy_rankings` = 1–5 Likert, each domain rated independently (1=very draining, 5=very energizing). This table.
+    - 1–8 ordinal force-ranking (most → least energizing) belongs to a future `domain_priority_order` table, built with F6 Person-Occupation Fit. NOT part of this phase.
+  - 20260538 had `rank BETWEEN 1–8` (wrong). Corrected by forward migration 20260544 — do not edit 20260538.
 - [ ] **1.3 Well-being tables.** `fcwi_responses` (user_id, timestamp, items 1–9, frequency_tier); `weekly_pulse` (ee, dp, qol, mdt, energy_boost_task, energy_drain_task, invisible_flag).
 - [ ] **1.4 Goals + narrative.** `goal_records` (4-horizon fields); `narrative_evidence` (domain_index, distress_flag, energy_signal, invisible_work_flag, mak_session_id); `transfer_pathways`.
 - [ ] **1.5 Profile + config.** `riasec_profile` (R,I,A,S,E,C); `onet_fingerprint` (descriptor_vector, adjacent_soc_weights); `specialty_config` (soc_code + 6 JSON cols).
