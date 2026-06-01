@@ -45,6 +45,7 @@ import {
 } from "@/lib/v2/conversational-assessment-service";
 import { deployedInstruments, apiEnrichmentPlan } from "@/lib/v2/onboarding-touchpoint1";
 import { deriveContentPack } from "@/lib/v2/programs/program-membership";
+import { lookupNaicsCode, isValidClinicalSetting } from "@/lib/v2/setting-naics-map";
 import { syncProgramMembership } from "@/lib/v2/programs/sync-program-membership";
 import { seedNarrativeAnchorFromOrigin } from "@/lib/v2/trainee-origin";
 import { onboardingProgressPatch } from "@/lib/v2/onboarding-progress";
@@ -92,6 +93,7 @@ async function handleProfilePost(request: Request) {
     other_industries,
     extracurricular_interests,
     academic_rank_other,
+    clinical_setting,
     terms_accepted,
     terms_version,
   } = body as {
@@ -123,6 +125,7 @@ async function handleProfilePost(request: Request) {
     other_industries?: string[];
     extracurricular_interests?: string[];
     academic_rank_other?: string | null;
+    clinical_setting?: string | null;
     terms_accepted?: boolean;
     terms_version?: string | null;
   };
@@ -341,6 +344,10 @@ async function handleProfilePost(request: Request) {
         ...priorMeta,
         instrument_ids: instrumentIds,
         api_enrichment_plan: apiEnrichmentPlan(resolvedPracticeSetting ?? "Academic", career_stage),
+        naics_code: resolvedPracticeSetting ? lookupNaicsCode(resolvedPracticeSetting) : undefined,
+        ...(clinical_setting && isValidClinicalSetting(clinical_setting)
+          ? { clinical_setting }
+          : {}),
         instrument_answers: priorMeta.instrument_answers ?? [],
         ...(resolvedInitials ? { trainee_initials: resolvedInitials } : {}),
         ...(rankings.length ? { career_track_rankings: rankings } : {}),

@@ -63,9 +63,12 @@ export function isValidPgyLevel(value: string): value is PgyLevel {
 export const PRACTICE_SETTINGS = [
   "Academic",
   "Community",
-  "Industry",
   "Hybrid",
+  "Government",
+  "Industry",
 ] as const;
+// NOTE: "Government" requires migration 20260551 to be applied before it can
+// be saved to app_users.practice_setting (DB CHECK constraint update).
 
 export type PracticeSetting = (typeof PRACTICE_SETTINGS)[number];
 

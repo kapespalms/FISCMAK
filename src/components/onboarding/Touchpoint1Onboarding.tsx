@@ -26,6 +26,7 @@ import {
   type PracticeSetting,
 } from "@/lib/v2/onboarding-options";
 import { buildNarrativePrompt, NARRATIVE_HELPER, showNarrativeField } from "@/lib/v2/narrative-prompts";
+import { CLINICAL_SETTINGS, type ClinicalSetting } from "@/lib/v2/setting-naics-map";
 import {
   MEDICAL_STUDENT_YEARS,
   CURRENT_GOAL_OPTIONS,
@@ -207,6 +208,7 @@ export function Touchpoint1Onboarding() {
   const [trainingComplete, setTrainingComplete] = useState(false);
   const [careerLevel, setCareerLevel] = useState<CareerLevel>("Fellow");
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
+  const [clinicalSetting, setClinicalSetting] = useState<ClinicalSetting | "">("");
   const [academicRank, setAcademicRank] = useState<AcademicRank | "">("");
   const [academicRankOther, setAcademicRankOther] = useState("");
   const [medicalStudentYear, setMedicalStudentYear] = useState<MedicalStudentYear | "">("");
@@ -906,6 +908,7 @@ export function Touchpoint1Onboarding() {
           subspecialty_training_complete: subspecialty ? trainingComplete : false,
           career_stage: careerLevel,
           practice_setting: showMedStudentFields ? null : practiceSetting,
+          clinical_setting: showPracticeSetting ? clinicalSetting || null : null,
           academic_rank: showAcademicRankField ? resolvedAcademicRank : null,
           academic_rank_other: academicRank === "Other" ? academicRankOther.trim() : null,
           primary_career_track: primaryTrackFromRankings(careerTrackRankings),
@@ -1385,6 +1388,25 @@ export function Touchpoint1Onboarding() {
                         Set by your program affiliation.
                       </LuxuryHint>
                     </LuxuryInfoPanel>
+                  )}
+
+                  {showPracticeSetting && (
+                    <LuxuryBlock label="Clinical Site (Optional)">
+                      <LuxuryHint className="mb-3">
+                        Where you primarily practice — helps calibrate your career lattice.
+                      </LuxuryHint>
+                      <div className="grid grid-cols-2 gap-2">
+                        {CLINICAL_SETTINGS.map((s) => (
+                          <LuxuryChoiceButton
+                            key={s}
+                            active={clinicalSetting === s}
+                            onClick={() => setClinicalSetting(s)}
+                          >
+                            {s}
+                          </LuxuryChoiceButton>
+                        ))}
+                      </div>
+                    </LuxuryBlock>
                   )}
 
                   {showAcademicRankField && (

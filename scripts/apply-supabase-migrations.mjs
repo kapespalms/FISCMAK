@@ -365,6 +365,12 @@ async function main() {
     label: "Specialty config table (soc_code + 6 JSON cols — Part XII/XXIV)",
   });
 
+  steps.push({
+    file: "docs/migrations/20260551_practice_setting_government.sql",
+    label: "Add Government to app_users.practice_setting CHECK constraint (BUILD_ORDER 2.2)",
+    requiresTable: "app_users",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {
