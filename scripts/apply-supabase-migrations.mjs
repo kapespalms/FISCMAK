@@ -82,6 +82,8 @@ const VERIFY_TABLES = [
   "transfer_pathways",
   "evidence_unit",
   "lattice_cell",
+  "fcwi_responses",
+  "weekly_pulse",
 ];
 
 async function main() {
@@ -326,6 +328,16 @@ async function main() {
     file: "docs/migrations/20260543_lattice_cell.sql",
     label: "Lattice cell table (8×8 FTE discrepancy + transfer potential — Part XXIV)",
     requiresTable: "evidence_unit",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260545_fcwi_responses.sql",
+    label: "FCWI responses table (monthly 9-item well-being instrument — Part VIII)",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260546_weekly_pulse.sql",
+    label: "Weekly pulse table (EE + DP + QoL + MDT + energy prompts — Part VIII)",
   });
 
   let failures = 0;
