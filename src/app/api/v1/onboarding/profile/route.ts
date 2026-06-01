@@ -94,6 +94,8 @@ async function handleProfilePost(request: Request) {
     extracurricular_interests,
     academic_rank_other,
     clinical_setting,
+    fte_expected,
+    years_in_practice,
     terms_accepted,
     terms_version,
   } = body as {
@@ -126,6 +128,8 @@ async function handleProfilePost(request: Request) {
     extracurricular_interests?: string[];
     academic_rank_other?: string | null;
     clinical_setting?: string | null;
+    fte_expected?: Record<string, number> | null;
+    years_in_practice?: number | null;
     terms_accepted?: boolean;
     terms_version?: string | null;
   };
@@ -330,6 +334,7 @@ async function handleProfilePost(request: Request) {
       ...specialtyFields,
       career_stage,
       practice_setting: medStudent ? null : resolvedPracticeSetting,
+      ...(fte_expected != null ? { fte_expected } : {}),
       institution: resolvedInstitution,
       academic_rank: storedAcademicRank.column,
       primary_career_track: resolvedPrimaryTrack,
@@ -345,6 +350,7 @@ async function handleProfilePost(request: Request) {
         instrument_ids: instrumentIds,
         api_enrichment_plan: apiEnrichmentPlan(resolvedPracticeSetting ?? "Academic", career_stage),
         naics_code: resolvedPracticeSetting ? lookupNaicsCode(resolvedPracticeSetting) : undefined,
+        ...(years_in_practice != null ? { years_in_practice } : {}),
         ...(clinical_setting && isValidClinicalSetting(clinical_setting)
           ? { clinical_setting }
           : {}),

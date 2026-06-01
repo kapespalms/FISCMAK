@@ -42,6 +42,16 @@ export type AppUser = {
   message_balance?: number | null;
   /** O*NET SOC code auto-assigned from specialty (v3 — 20260537) */
   onet_soc_code?: string | null;
+  /** Cached O*NET Work Activities profile for this SOC (v3 — 20260537) */
+  onet_profile_json?: Record<string, unknown> | null;
+  /** Expected FTE per role: {clinical, teaching, research, admin} as 0–1 fractions (v3 — 20260537) */
+  fte_expected?: Record<string, number> | null;
+  /** Physician's belief of what institution expects, structured self-report (v3 — 20260537) */
+  fte_perceived?: Record<string, number> | null;
+  /** Self-reported actual FTE effort (v3 — 20260537) */
+  fte_actual?: Record<string, number> | null;
+  /** Coaching theme summary from Mak sessions — never raw transcripts (v3 — 20260537) */
+  mak_memory_summary?: string | null;
   preferred_location: string | null;
   salary_min: number | null;
   salary_max: number | null;

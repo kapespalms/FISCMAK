@@ -18,6 +18,7 @@ import {
   requiresAcademicRank,
   isTraineeCareerLevel,
   isMedicalStudent,
+  isAttendingCareerLevel,
   requiresGmePlacementFields,
   allowsSubspecialtyInterests,
   type AcademicRank,
@@ -209,6 +210,11 @@ export function Touchpoint1Onboarding() {
   const [careerLevel, setCareerLevel] = useState<CareerLevel>("Fellow");
   const [practiceSetting, setPracticeSetting] = useState<PracticeSetting>("Academic");
   const [clinicalSetting, setClinicalSetting] = useState<ClinicalSetting | "">("");
+  const [clinicalPct, setClinicalPct] = useState("");
+  const [teachingPct, setTeachingPct] = useState("");
+  const [researchPct, setResearchPct] = useState("");
+  const [adminPct, setAdminPct] = useState("");
+  const [yearsInPractice, setYearsInPractice] = useState("");
   const [academicRank, setAcademicRank] = useState<AcademicRank | "">("");
   const [academicRankOther, setAcademicRankOther] = useState("");
   const [medicalStudentYear, setMedicalStudentYear] = useState<MedicalStudentYear | "">("");
@@ -909,6 +915,20 @@ export function Touchpoint1Onboarding() {
           career_stage: careerLevel,
           practice_setting: showMedStudentFields ? null : practiceSetting,
           clinical_setting: showPracticeSetting ? clinicalSetting || null : null,
+          fte_expected:
+            isAttendingCareerLevel(careerLevel) &&
+            (clinicalPct || teachingPct || researchPct || adminPct)
+              ? {
+                  clinical: parseFloat(clinicalPct) / 100 || 0,
+                  teaching: parseFloat(teachingPct) / 100 || 0,
+                  research: parseFloat(researchPct) / 100 || 0,
+                  admin:    parseFloat(adminPct)    / 100 || 0,
+                }
+              : null,
+          years_in_practice:
+            isAttendingCareerLevel(careerLevel) && yearsInPractice
+              ? parseInt(yearsInPractice, 10) || null
+              : null,
           academic_rank: showAcademicRankField ? resolvedAcademicRank : null,
           academic_rank_other: academicRank === "Other" ? academicRankOther.trim() : null,
           primary_career_track: primaryTrackFromRankings(careerTrackRankings),
@@ -1406,6 +1426,65 @@ export function Touchpoint1Onboarding() {
                           </LuxuryChoiceButton>
                         ))}
                       </div>
+                    </LuxuryBlock>
+                  )}
+
+                  {isAttendingCareerLevel(careerLevel) && !isInstitutional && (
+                    <LuxuryBlock label="Role Composition % (Optional)">
+                      <LuxuryHint className="mb-3">
+                        Approximate time in each area — helps calibrate your career lattice.
+                      </LuxuryHint>
+                      <div className="grid grid-cols-2 gap-3">
+                        {(
+                          [
+                            ["Clinical",  clinicalPct,  setClinicalPct],
+                            ["Teaching",  teachingPct,  setTeachingPct],
+                            ["Research",  researchPct,  setResearchPct],
+                            ["Admin",     adminPct,     setAdminPct],
+                          ] as [string, string, (v: string) => void][]
+                        ).map(([label, value, setter]) => (
+                          <div key={label}>
+                            <p className="mb-1 text-xs text-gray-500">{label}</p>
+                            <input
+                              type="number"
+                              min={0}
+                              max={100}
+                              value={value}
+                              onChange={(e) => setter(e.target.value)}
+                              placeholder="0"
+                              className="w-full rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      {[clinicalPct, teachingPct, researchPct, adminPct].some(Boolean) && (() => {
+                        const total = [clinicalPct, teachingPct, researchPct, adminPct]
+                          .map((v) => parseFloat(v) || 0)
+                          .reduce((a, b) => a + b, 0);
+                        return (
+                          <p className="mt-2 text-xs text-gray-500">
+                            Total:{" "}
+                            <span className={Math.abs(total - 100) > 1 ? "text-amber-400" : "text-[#A3E635]"}>
+                              {total}%
+                            </span>
+                            {" "}(should equal 100%)
+                          </p>
+                        );
+                      })()}
+                    </LuxuryBlock>
+                  )}
+
+                  {isAttendingCareerLevel(careerLevel) && !isInstitutional && (
+                    <LuxuryBlock label="Years in Practice (Optional)">
+                      <input
+                        type="number"
+                        min={0}
+                        max={60}
+                        value={yearsInPractice}
+                        onChange={(e) => setYearsInPractice(e.target.value)}
+                        placeholder="e.g. 12"
+                        className="w-full rounded-xl border border-white/5 bg-[#0A0C10] px-5 py-4 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
+                      />
                     </LuxuryBlock>
                   )}
 
