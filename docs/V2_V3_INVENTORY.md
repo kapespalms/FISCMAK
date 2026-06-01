@@ -1,0 +1,197 @@
+# FISCMAK — V2 / V3 Table & Module Inventory
+
+**Date:** 2026-06-01 · **Branch:** v3-build · **Status:** Reference only — no code changes.
+**Purpose:** Authoritative boundary map for agents and the founder. Use this to decide
+which table/module to wire before writing any v3 feature.
+
+---
+
+## SECTION 1 — V3 TABLES (canonical new layer)
+
+All 11 tables defined in migrations 20260538–20260550. None applied to the database yet
+(founder-gated). Master Review Part XXIV is the schema source of truth for all of them.
+
+| Table | Stores | Defined by |
+|---|---|---|
+| `evidence_unit` | Confirmed, lattice-ready evidence rows (domain × track × quadrant OV/OI/SV/SI, energy score, sentiment, time class). The single source of truth for F1 Evidence Density. | Part XXIV · Part IX (F1) |
+| `lattice_cell` | One row per (user, domain, track) intersection — computed FTE discrepancy flag and F7 Transfer Potential score. Drives the 8×8 heat map. | Part XXIV · Part IV · Part XVII |
+| `energy_rankings` | Physician's 1–5 Likert energy rating per domain (independent, not ordinal). One row per (user, domain). | Part XXIV · Part VIII |
+| `goal_records` | Attending career goals across 4 horizons: 3mo SMART, 1yr SMART+II, 5yr WOOP, 10yr legacy. Separate from GME `ilp_goals`. | Part XXIV · Part X |
+| `narrative_evidence` | Coach Mak SI probe responses — physician-only, never institution-facing. distress_flag triggers resource link only. | Part XXIV · Part X |
+| `transfer_pathways` | F7 Transfer Potential routing: maps SI/OI evidence toward visible career artifacts. Physician-initiated only. | Part XXIV · Part IX (F7) |
+| `fcwi_responses` | Monthly FCWI 9-item responses (0–4 Likert). No composite score stored — items only (Part XIX governance). | Part XXIV · Part VIII · Part XXIII |
+| `weekly_pulse` | Weekly single-item EE + DP + QoL + MDT (0–10) + 2 free-text energy prompts + invisible flag. | Part XXIV · Part VIII |
+| `riasec_profile` | O*NET Interest Profiler RIASEC scores per physician. Multiple rows allowed to track changes over time. | Part XXIV · Part V |
+| `onet_fingerprint` | Personalized O*NET descriptor vector (FLOAT[]) + adjacent SOC weights (JSONB). Powers F6/F8 (Phase 2+). | Part XXIV · Part V |
+| `specialty_config` | Per-SOC reference config (admin-loaded): onet_descriptors, acgme_milestones, crosswalk, adjacent_socs, activity_ontology, setting_modifiers. | Part XXIV · Part XII |
+
+---
+
+## SECTION 2 — V2 TABLES / MODULES INTENTIONALLY REUSED BY V3
+
+These are pre-v3 components that v3 still depends on deliberately. **Do not remove or bypass
+these unless a ticket explicitly says to migrate away.**
+
+### `auth.users` + `app_users`
+**What:** Supabase auth identity (`auth.users`) and the FISCMAK application user record
+(`app_users` — name, email, onboarding_status, message_balance, specialty, base_specialty).
+**Why v3 still uses it:** Every v3 table's RLS policy is `auth.uid() = user_id`; `app_users`
+is the anchor for onboarding state, message credits, and specialty context. There is no v3
+replacement — it's shared infrastructure, not a v2 concept.
+**What depends on it:** All 11 v3 tables FK to `auth.users(id)`; `ensure-app-user.ts` syncs
+auth sign-in to `app_users` for all flows.
+
+### `activity_entries`
+**What:** The v2 activity event stream — every user-logged activity, CV-parsed line, and
+Mak-captured snippet. Extended with v3 coordinates (`recognition_quadrant`, `energy_score`,
+`sentiment`, `transfer_targets`, `time_class`) via migration 20260536.
+**Why v3 still uses it:** The CV upload pipeline (Part XXIV "Evidence Vault") routes
+parsed CV lines through `activity_entries` first, then confirms them into `evidence_unit`
+(`evidence_unit.source_activity_id` FKs back here). This is an explicit deliberate reuse
+per the ticket and the pipeline spec — `activity_entries` is the staging layer; `evidence_unit`
+is the confirmed layer.
+**What depends on it:** `evidence_unit.source_activity_id`, `src/lib/v2/lattice/` NLP pipeline,
+`runCvEnrichmentAfterUpload`.
+
+### `user-documents` storage bucket
+**What:** Supabase Storage bucket for CV and document uploads (`PDF`/`DOCX`).
+**Why v3 still uses it:** The Evidence Vault pipeline (`POST /api/v1/documents/init` →
+browser pdf.js → `POST /api/v1/documents/{id}/process`) uses this bucket. There is no v3
+replacement bucket — same bucket, v3 just adds the downstream `evidence_unit` creation step.
+**What depends on it:** CV upload flow → `activity_entries` staging → `evidence_unit` confirmation.
+
+### `ontology_*` tables (11 tables, migration 20260523)
+**What:** `ontology_sources`, `ontology_specialties`, `ontology_subspecialties`,
+`ontology_competency_domains`, `ontology_subcompetencies`, `ontology_development_levels`,
+`ontology_career_tracks`, `ontology_activity_categories`, `ontology_invisible_work_activities`,
+`ontology_activity_mappings`, `ontology_output_templates`.
+**Why v3 still uses it:** The v3 NLP pipeline (Part XIII, Layer L2) reads
+`ontology_invisible_work_activities` and `ontology_activity_mappings` to route parsed CV
+lines to the correct `domain_index` / `track_index` before inserting into `evidence_unit`.
+These are read-only reference tables (public SELECT RLS); v3 does not write to them.
+**What depends on it:** CV parser classification step; `evidence_unit.domain_index` and
+`track_index` assignments; `specialty_config.activity_ontology` will eventually supersede
+some of these per specialty — but the base tables remain until that migration is built.
+
+### `signal_*` tables (6 tables, migration 20260523)
+**What:** `signal_detection_sources`, `signal_categories`, `signal_indicators`,
+`signal_conversational_routes`, `signal_user_context`, `signal_pattern_summaries`.
+**Why v3 still uses it:** Signal detection feeds the activity classifier that populates
+`activity_entries.detected_signal_keys`. These signals are the upstream input that drives
+`energy_score` and `recognition_quadrant` assignment for eventual `evidence_unit` rows.
+**What depends on it:** `activity_entries` enrichment → `evidence_unit` staging.
+
+### `programs` / GME tables (migrations 20260525–20260535)
+**What:** `programs`, `program_memberships`, `program_invite_tokens`, `evaluation_imports`,
+`rotation_evaluations`, `milestone_self_ratings`, `ilp_goals`, `in_training_exams`,
+`medhub_sync_runs`, and related GME infrastructure.
+**Why v3 still uses it:** The UH Psychiatry GME pilot is the current launch priority. The
+entire GME layer (resident onboarding, eval imports, milestone heatmap, pre-CCC) runs on
+these v2 tables. AGENTS.md is explicit: "Do not break attending flows while fixing GME."
+The GME tables are not superseded — they serve a different population (trainees, PDs) than
+the v3 attending tables.
+**What depends on it:** `/app/residency`, `/app/kp-admin`, `/app/output` pilot routes;
+`fiscmak-gme-domain` subagent.
+
+### `src/lib/supabase/` client layer
+**What:** `client.ts`, `server.ts`, `admin.ts`, `env.ts`, `ensure-user.ts`, `middleware.ts`.
+**Why v3 still uses it:** Single Supabase client shared by all tables. No v2/v3 split needed
+at the auth/connection level — RLS policies on individual tables do the boundary enforcement.
+**What depends on it:** Every API route and server component.
+
+---
+
+## SECTION 3 — V2 TABLES / MODULES SUPERSEDED BY V3
+
+These served purposes now covered by v3 tables or the v3 spec. **V3 code should not write
+to these; read access for migration/backfill only, and only when a ticket explicitly permits.**
+
+| V2 Table / Module | What it did | V3 replacement |
+|---|---|---|
+| `lattice_positioning` | Stored computed lattice coordinates, primary/secondary track, alignment score, burnout/growth cell flags | `lattice_cell` (canonical 8×8 grid with FTE discrepancy and Transfer Potential per cell) |
+| `career_development_index` (CDI) | Composite 0–100 score with component weights and percentile | v3 formula system F1–F7 (evidence density, discrepancy, perception gap, recognition gap, transfer potential). No composite score in v3 — by design. |
+| `benchmarking_snapshots` | Metric snapshots at raw / specialty percentile / setting percentile | `lattice_cell` + `energy_rankings` (ipsative model, no external benchmarking in v3 by design — Part XIX) |
+| `career_recommendations` | AI-generated strength / gap / risk / opportunity recommendations | `transfer_pathways` (physician-initiated F7 routing; no AI-generated recommendations in v3 without physician confirmation) |
+| `wellbeing_assessments` | PFI, mMBI, burnout classification, fulfillment, work-life satisfaction scores | `fcwi_responses` + `weekly_pulse` (FCWI replaces PFI/MBI per Part VIII — "no PFI/SVS/MBI/UWES") |
+| `invisible_work_log` + `invisible_work_questionnaire` | After-hours EHR, prior auth, BITS scores, IWQ composite | `evidence_unit` (OI/SI quadrant rows); `weekly_pulse.invisible_flag`; `narrative_evidence` (SI probe responses) |
+| `career_aspirations` | Desired tracks, domains, barriers, energizers, setting-change interest | `goal_records` (structured 4-horizon goals) + `energy_rankings` (domain energy) |
+| `invisible_work_quotient` (IWQ) | BITS composite + logged hours component + minority tax flag | Replaced by v3 Recognition Gap (F5, internal only — never shown as a number per Part IX); `evidence_unit` OI/SI quadrant density |
+| `professional_identity` | PIF stage, identity clarity, career satisfaction 1–10 | `narrative_evidence` (SI probe responses capture identity themes via Coach Mak) + `goal_records` 10yr legacy horizon |
+| `src/lib/v2/lattice/` modules (domain scoring, track alignment, lattice views) | Computed lattice scores from `activity_entries` → `lattice_positioning` | v3 intelligence layer (F1–F7 formulas, Part IX) writing to `lattice_cell` and `evidence_unit` — not yet built (Phase 5) |
+
+---
+
+## SECTION 4 — NEEDS FOUNDER DECISION
+
+Ambiguous cases where the inventory cannot determine status from code inspection alone.
+
+### `physicians` table
+**What:** Core physician profile (NPI, ORCID, terminal degree, employment); 1:1 with `app_users`.
+**Ambiguity:** Migration 20260537 (`v3_physician_profile`) adds v3 fields (`onet_soc_code`,
+FTE columns, `mak_memory_summary`) directly to `app_users`, not to `physicians`. It's unclear
+whether `physicians` will be merged into `app_users`, kept as a join table, or eventually retired.
+Several v2 career-data modules query `physicians` directly; v3 code does not — yet.
+**Decision needed:** Will v3 read `physicians` for FTE / specialty context, or will
+`app_users` (with v3 columns) be the sole profile source going forward?
+
+### `publications`, `grants`, `presentations`, `scholarly_metrics`, `clinical_productivity`, `scope_of_practice`, `compensation`
+**What:** Granular v2 career data tables populated by the API enrichment pipeline
+(PubMed, NIH Reporter, ORCID, Open Payments, NPPES).
+**Ambiguity:** These tables hold structured career history that logically belongs in the
+v3 evidence layer as `evidence_unit` rows (e.g. each publication = one OV evidence unit,
+domain=scholarship). However, no migration or spec section explicitly maps them to `evidence_unit`.
+The enrichment pipeline (`api_enrichment_runs`, `reconciliation_items`) that populates them
+is still active.
+**Decision needed:** Will the v3 CV parser + `evidence_unit` eventually replace these, or
+will they remain as a separate structured data layer alongside `evidence_unit`?
+
+### `career_assessments`
+**What:** Generic conversational assessment records written by `conversational-assessment-service.ts`.
+**Ambiguity:** No v3 table covers this. May be vestigial (replaced by `narrative_evidence`
++ `goal_records` for v3 Mak sessions), or may still be active for some onboarding flows.
+Code inspection found the service exists but couldn't confirm active callers.
+**Decision needed:** Is this table still being written to? If yes, does it get retired when
+v3 Mak (narrative_evidence + goal_records) goes live?
+
+### `activity_patterns`
+**What:** Aggregated user activity patterns (activity_frequency, signal_trend, energy_trend,
+competency_growth, track_alignment) over 7/30/90-day windows.
+**Ambiguity:** This is a v2 pre-computation layer. The v3 equivalent would be computed
+on-the-fly from `evidence_unit` + `energy_rankings` + `lattice_cell`. But `activity_patterns`
+may still feed the current Mak context window or resident heatmap.
+**Decision needed:** Does `activity_patterns` stay alive until v3 intelligence layer (Phase 5)
+is built, or can it be ignored by v3 code now?
+
+### `jobs` / `job_sources` / `user_career_preferences` / `job_matches` / `user_saved_jobs`
+**What:** Full v2 job search and career-fit matching engine.
+**Ambiguity:** No v3 equivalent exists. Not mentioned in the Master Review or BUILD_ORDER.
+May be a separate product track, may be deferred, or may be retired.
+**Decision needed:** Is the jobs layer in scope for v3 at all? If not, flag it explicitly
+so agents don't accidentally wire v3 features into it.
+
+### `chat_feedback`
+**What:** Thumbs up/down on individual Mak messages.
+**Ambiguity:** Lightweight signal. No v3 equivalent named. Could feed `narrative_evidence`
+energy_signal or could be retired. Currently writes to a standalone table.
+**Decision needed:** Does this survive into v3 Mak, or is feedback captured differently?
+
+---
+
+## Quick-reference: "which table do I use?"
+
+| I need to store… | Use this |
+|---|---|
+| A confirmed piece of physician evidence (CV line, Mak response) | `evidence_unit` |
+| A raw, unconfirmed activity captured from Mak chat or CV staging | `activity_entries` (v2, deliberate reuse) |
+| Domain energy rating | `energy_rankings` |
+| A career goal | `goal_records` (attending) or `ilp_goals` (GME trainee) |
+| A Mak SI probe response | `narrative_evidence` |
+| A monthly well-being check | `fcwi_responses` |
+| A weekly burnout pulse | `weekly_pulse` |
+| Lattice cell scores (FTE flag, transfer potential) | `lattice_cell` |
+| A transfer/bridge plan for invisible work | `transfer_pathways` |
+| RIASEC interest scores | `riasec_profile` |
+| O*NET fit vector | `onet_fingerprint` |
+| Specialty reference data | `specialty_config` |
+| User identity / auth | `auth.users` + `app_users` |
+| GME program / resident data | `programs`, `program_memberships`, `evaluation_imports`, etc. |
