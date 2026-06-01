@@ -5,11 +5,10 @@ import { PageShell } from "@/components/layout/PageShell";
 import { CardSection } from "@/components/ui/CardSection";
 import { FcwiForm } from "@/components/wellbeing/FcwiForm";
 import { WeeklyPulseForm } from "@/components/wellbeing/WeeklyPulseForm";
+import { QuarterlySnapshotForm } from "@/components/wellbeing/QuarterlySnapshotForm";
 
-type CheckInStatus = {
-  latest: { recorded_at: string } | null;
-  due: boolean;
-};
+type CheckInStatus = { latest: { recorded_at: string } | null; due: boolean };
+type SnapshotStatus = { due: boolean; last_completed: string | null };
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString(undefined, {
@@ -22,15 +21,18 @@ function formatDate(iso: string) {
 export function WellbeingWorkspace() {
   const [fcwiStatus, setFcwiStatus] = useState<CheckInStatus | null>(null);
   const [pulseStatus, setPulseStatus] = useState<CheckInStatus | null>(null);
+  const [snapshotStatus, setSnapshotStatus] = useState<SnapshotStatus | null>(null);
   const [loading, setLoading] = useState(true);
 
   const loadStatus = useCallback(async () => {
-    const [fcwiRes, pulseRes] = await Promise.allSettled([
+    const [fcwiRes, pulseRes, snapshotRes] = await Promise.allSettled([
       fetch("/api/v1/wellbeing/fcwi").then((r) => r.json() as Promise<CheckInStatus>),
       fetch("/api/v1/wellbeing/pulse").then((r) => r.json() as Promise<CheckInStatus>),
+      fetch("/api/v1/wellbeing/quarterly-snapshot").then((r) => r.json() as Promise<SnapshotStatus>),
     ]);
     setFcwiStatus(fcwiRes.status === "fulfilled" ? fcwiRes.value : { latest: null, due: true });
     setPulseStatus(pulseRes.status === "fulfilled" ? pulseRes.value : { latest: null, due: true });
+    setSnapshotStatus(snapshotRes.status === "fulfilled" ? snapshotRes.value : { due: true, last_completed: null });
     setLoading(false);
   }, []);
 
@@ -38,8 +40,9 @@ export function WellbeingWorkspace() {
     void loadStatus();
   }, [loadStatus]);
 
-  // "What's due now" subtitle
+  // "What's due now" subtitle — most urgent items first
   const dueItems = [
+    snapshotStatus?.due && "quarterly snapshot",
     fcwiStatus?.due && "monthly check-in",
     pulseStatus?.due && "weekly pulse",
   ].filter(Boolean);
@@ -53,7 +56,34 @@ export function WellbeingWorkspace() {
   return (
     <PageShell eyebrow="Well-Being" title="Your Well-Being" subtitle={subtitle} maxWidth="lg">
 
-      {/* B1 — Weekly pulse (most frequent — shown first) */}
+      {/* Quarterly snapshot (most infrequent — show at top when due) */}
+      {(snapshotStatus?.due || snapshotStatus?.last_completed) && (
+        <CardSection
+          className="mb-6"
+          title="Quarterly snapshot"
+          description={
+            loading
+              ? undefined
+              : snapshotStatus?.due
+                ? "A 5-minute recalibration: energy, role, goals, and setting."
+                : snapshotStatus?.last_completed
+                  ? `Completed ${formatDate(snapshotStatus.last_completed)}.`
+                  : undefined
+          }
+        >
+          {loading ? (
+            <p className="text-sm text-cx-forest-dark/50">Loading…</p>
+          ) : snapshotStatus?.due ? (
+            <QuarterlySnapshotForm onSaved={() => void loadStatus()} />
+          ) : (
+            <p className="text-sm text-cx-forest-dark/60">
+              Completed {snapshotStatus?.last_completed ? formatDate(snapshotStatus.last_completed) : ""}. Next snapshot due in about 3 months.
+            </p>
+          )}
+        </CardSection>
+      )}
+
+      {/* Weekly pulse */}
       <CardSection
         className="mb-6"
         title="Weekly pulse"
@@ -80,7 +110,7 @@ export function WellbeingWorkspace() {
         )}
       </CardSection>
 
-      {/* B1 — Monthly check-in (FCWI) */}
+      {/* Monthly check-in */}
       <CardSection
         className="mb-6"
         title="Monthly check-in"
