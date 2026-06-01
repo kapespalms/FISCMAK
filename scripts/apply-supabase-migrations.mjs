@@ -80,6 +80,7 @@ const VERIFY_TABLES = [
   "goal_records",
   "narrative_evidence",
   "transfer_pathways",
+  "evidence_unit",
 ];
 
 async function main() {
@@ -306,6 +307,12 @@ async function main() {
     file: "docs/migrations/20260541_transfer_pathways.sql",
     label: "Transfer pathways table (F7 — SI/OI → visible artifact routing)",
     requiresTable: "narrative_evidence",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260542_evidence_unit.sql",
+    label: "Evidence unit table (canonical v3 evidence store — Part XXIV)",
+    requiresTable: "activity_entries",
   });
 
   let failures = 0;
