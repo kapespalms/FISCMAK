@@ -130,7 +130,7 @@ const CAPTURE_TAG_LATTICE: Record<string, Array<{ domain: string; track: string 
   "psychiatric emergency": [{ domain: "Clinical Expertise", track: "Clinician" }],
   "neurology consult": [
     { domain: "Clinical Expertise", track: "Clinician" },
-    { domain: "Scholarship & Learning", track: "Clinician" },
+    { domain: "Practice-Based Learning", track: "Clinician" },
   ],
   "med-psych interface": [
     { domain: "Clinical Expertise", track: "Clinician" },
@@ -151,14 +151,14 @@ const CAPTURE_TAG_LATTICE: Record<string, Array<{ domain: string; track: string 
   "medication management": [{ domain: "Clinical Expertise", track: "Clinician" }],
   "medical toxicology": [
     { domain: "Clinical Expertise", track: "Clinician" },
-    { domain: "Scholarship & Learning", track: "Researcher" },
+    { domain: "Practice-Based Learning", track: "Researcher" },
   ],
   MAT: [{ domain: "Clinical Expertise", track: "Clinician" }],
   "addiction psychiatry": [{ domain: "Clinical Expertise", track: "Clinician" }],
-  "case presentation": [{ domain: "Scholarship & Learning", track: "Educator" }],
+  "case presentation": [{ domain: "Practice-Based Learning", track: "Educator" }],
   "internal medicine wards": [
     { domain: "Clinical Expertise", track: "Clinician" },
-    { domain: "Scholarship & Learning", track: "Clinician" },
+    { domain: "Practice-Based Learning", track: "Clinician" },
   ],
   "admission H&P": [{ domain: "Clinical Expertise", track: "Clinician" }],
   "differential diagnosis": [{ domain: "Clinical Expertise", track: "Clinician" }],
@@ -185,7 +185,7 @@ const CAPTURE_TAG_LATTICE: Record<string, Array<{ domain: string; track: string 
   polypharmacy: [{ domain: "Systems Thinking", track: "Quality/Safety" }],
   ECT: [
     { domain: "Clinical Expertise", track: "Clinician" },
-    { domain: "Scholarship & Learning", track: "Researcher" },
+    { domain: "Practice-Based Learning", track: "Researcher" },
   ],
   neuromodulation: [{ domain: "Clinical Expertise", track: "Clinician" }],
   "treatment-resistant depression": [{ domain: "Clinical Expertise", track: "Clinician" }],
@@ -209,7 +209,7 @@ const CATEGORY_LATTICE_DEFAULTS: Record<
   psychiatry_core: [{ domain: "Clinical Expertise", track: "Clinician" }],
   off_service: [
     { domain: "Clinical Expertise", track: "Clinician" },
-    { domain: "Scholarship & Learning", track: "Clinician" },
+    { domain: "Practice-Based Learning", track: "Clinician" },
   ],
   operational: [{ domain: "Clinical Expertise", track: "Clinician" }],
   elective: [{ domain: "Personal & Professional Development", track: "Clinician" }],

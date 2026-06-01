@@ -24,9 +24,9 @@ const EVENT_KIND_PLACEMENTS: Record<
 > = {
   personal: { domain: "Personal & Professional Development", track: "Clinician", level: 2 },
   call: { domain: "Clinical Expertise", track: "Clinician", level: 3 },
-  conference: { domain: "Scholarship & Learning", track: "Researcher", level: 3 },
-  admin: { domain: "Leadership & Management", track: "Administrator/Leader", level: 3 },
-  learning: { domain: "Scholarship & Learning", track: "Educator", level: 3 },
+  conference: { domain: "Medical Knowledge", track: "Researcher", level: 3 },
+  admin: { domain: "Systems Thinking", track: "Administrator/Leader", level: 3 },
+  learning: { domain: "Practice-Based Learning", track: "Educator", level: 3 },
 };
 
 function timeframeStart(tf: LatticeTimeframe): Date | null {

@@ -60,69 +60,69 @@ const CV_SECTION_RULES: SectionRule[] = [
     pattern: /\b(psychotherapy|psychopharmacology|inpatient psychiatry|emergency psychiatry)\b/i,
     hint: { domainIndex: 0, trackIndex: 0, acgmeKey: "pc", baseLevel: 3 },
   },
-  // Scholarship / Research track
+  // Medical Knowledge / Research track (mk → 1)
   {
     pattern: /\b(publications?|manuscripts?|papers?|peer.reviewed|abstracts?|posters?)\b/i,
-    hint: { domainIndex: 4, trackIndex: 2, acgmeKey: "mk", baseLevel: 4 },
+    hint: { domainIndex: 1, trackIndex: 2, acgmeKey: "mk", baseLevel: 4 },
   },
   {
     pattern: /\b(research|grant|funded project|investigat|scholarly work)\b/i,
-    hint: { domainIndex: 4, trackIndex: 2, acgmeKey: "mk", baseLevel: 3 },
+    hint: { domainIndex: 1, trackIndex: 2, acgmeKey: "mk", baseLevel: 3 },
   },
-  // Education / Teaching track
+  // Practice-Based Learning / Teaching track (pbli → 2)
   {
     pattern: /\b(teaching|teach|educat|curriculum|pedagog|didactic|clerkship director|course director)\b/i,
-    hint: { domainIndex: 4, trackIndex: 1, acgmeKey: "pbli", baseLevel: 3 },
+    hint: { domainIndex: 2, trackIndex: 1, acgmeKey: "pbli", baseLevel: 3 },
   },
-  // Presentations / Invited talks (before generic research rule to avoid swallowing talks)
+  // Presentations / Invited talks (mk → 1)
   {
     pattern: /\b(presentations?|invited talks?|grand rounds|visiting professor|keynote|plenary|conference|seminars?)\b/i,
-    hint: { domainIndex: 4, trackIndex: 2, acgmeKey: "mk", baseLevel: 3 },
+    hint: { domainIndex: 1, trackIndex: 2, acgmeKey: "mk", baseLevel: 3 },
   },
-  // Communication / Interpersonal (domain 1)
+  // Communication / Interpersonal (ics → 3)
   {
     pattern: /\b(communication|interpersonal|patient communication|family meeting|health literacy|shared decision|difficult conversation|interpreter)\b/i,
-    hint: { domainIndex: 1, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
+    hint: { domainIndex: 3, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
   },
-  // Collaboration / Teamwork (domain 5)
+  // Collaboration & Teamwork (ics → 6)
   {
     pattern: /\b(interprofessional|interdisciplinary|multidisciplinary|collaborative practice|teamwork|care team|collaborative care)\b/i,
-    hint: { domainIndex: 5, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
+    hint: { domainIndex: 6, trackIndex: 0, acgmeKey: "ics", baseLevel: 3 },
   },
-  // Mentoring track
+  // Mentoring track (ppd → 7)
   {
     pattern: /\b(mentor|coach|sponsor|career advising)\b/i,
     hint: { domainIndex: 7, trackIndex: 1, acgmeKey: "ics", baseLevel: 3 },
   },
-  // Leadership / Administration track
+  // Leadership / Administration (sbp → 5, Systems Thinking)
   {
     pattern: /\b(leadership|administration|administrative|committees?|director|chair|officer|board|governance)\b/i,
-    hint: { domainIndex: 6, trackIndex: 3, acgmeKey: "sbp", baseLevel: 4 },
+    hint: { domainIndex: 5, trackIndex: 3, acgmeKey: "sbp", baseLevel: 4 },
   },
-  // Quality Improvement / Patient Safety track
+  // Quality Improvement / Patient Safety (sbp → 5)
   {
     pattern: /\b(quality improvement|patient safety|qi\b|quality initiative|safety initiative|improvement project)\b/i,
-    hint: { domainIndex: 3, trackIndex: 6, acgmeKey: "sbp", baseLevel: 3 },
+    hint: { domainIndex: 5, trackIndex: 6, acgmeKey: "sbp", baseLevel: 3 },
   },
-  // Advocacy / Policy track
+  // Advocacy / Policy (sbp → 5)
   {
     pattern: /\b(advocacy|policy|community health|global health|equity|diversity|inclusion|underserved|public health)\b/i,
-    hint: { domainIndex: 3, trackIndex: 4, acgmeKey: "sbp", baseLevel: 3 },
+    hint: { domainIndex: 5, trackIndex: 4, acgmeKey: "sbp", baseLevel: 3 },
   },
-  // Innovation / Technology track
+  // Innovation / Technology (pbli → 2)
   {
     pattern: /\b(innovation|technology|digital health|informatics|health tech|app|platform)\b/i,
-    hint: { domainIndex: 3, trackIndex: 5, acgmeKey: "pbli", baseLevel: 3 },
+    hint: { domainIndex: 2, trackIndex: 5, acgmeKey: "pbli", baseLevel: 3 },
   },
-  // Wellness track
+  // Wellness (ppd → 7)
   {
     pattern: /\b(wellness|wellbeing|well-being|resilience|burnout|self.care|mindfulness)\b/i,
     hint: { domainIndex: 7, trackIndex: 7, acgmeKey: "prof", baseLevel: 2 },
   },
-  // Awards / Professionalism
+  // Awards / Professionalism (prof → 4)
   {
     pattern: /\b(award|honor|recognition|prize|certificate|certification|distinction)\b/i,
-    hint: { domainIndex: 2, trackIndex: 0, acgmeKey: "prof", baseLevel: 3 },
+    hint: { domainIndex: 4, trackIndex: 0, acgmeKey: "prof", baseLevel: 3 },
   },
   // Clinical experience (lowest priority — very broad)
   {

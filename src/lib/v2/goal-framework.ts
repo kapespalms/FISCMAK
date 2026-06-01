@@ -280,7 +280,7 @@ export function defaultStructuredGoals(input: {
       progress: 60,
       latticeCells: [
         "Educator × Leadership/Management",
-        "Educator × Scholarship & Learning",
+        "Educator × Practice-Based Learning",
       ],
       milestones: [
         {
@@ -515,7 +515,7 @@ export function defaultSkillTranslation(): SkillTranslationProfile {
     ],
     gaps: [
       {
-        name: "Leadership & Management",
+        name: "Systems Thinking",
         current: 45,
         target: 75,
         need: "formal leadership training, administrative experience",
@@ -527,7 +527,7 @@ export function defaultSkillTranslation(): SkillTranslationProfile {
         need: "accreditation experience, curriculum administration",
       },
       {
-        name: "Scholarship & Learning",
+        name: "Practice-Based Learning",
         current: 56,
         target: 65,
         need: "education scholarship (publications on teaching/curriculum)",

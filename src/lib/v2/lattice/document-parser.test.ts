@@ -68,7 +68,7 @@ describe("improvements — snippet cap, verb levels, missing sections", () => {
     const entry = evidence.find((e) => e.rawText.includes("Grand Rounds"));
     expect(entry).toBeDefined();
     expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Researcher");
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Scholarship & Learning");
+    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Medical Knowledge");
   });
 
   it("COMMUNICATION section routes to Communication domain", () => {
@@ -132,7 +132,7 @@ describe("Bug #1 — section hint must not override ontology match", () => {
     expect(TRACKS[entry!.fiscmak.trackIndex]).not.toBe("Clinician");
   });
 
-  it("teaching content under EDUCATION routes to Scholarship & Learning, not Clinical", () => {
+  it("teaching content under EDUCATION routes to Practice-Based Learning, not Clinical", () => {
     const text = [
       "EDUCATION",
       "Designed and taught a 12-session psychotherapy curriculum for PGY-2 residents; developed case-based didactic materials.",
@@ -142,12 +142,11 @@ describe("Bug #1 — section hint must not override ontology match", () => {
     const entry = evidence.find((e) => e.rawText.includes("curriculum"));
 
     expect(entry).toBeDefined();
-    // Domain 4 = Scholarship & Learning (teaching/education)
-    // Bug: currently routes to domain 0 (Clinical) because EDUCATION section hint wins
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Scholarship & Learning");
+    // Domain 2 = Practice-Based Learning (teaching/education, v3 PCRS)
+    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Practice-Based Learning");
   });
 
-  it("leadership content under RESEARCH routes to Leadership & Management, not Scholarship", () => {
+  it("leadership content under RESEARCH routes to Systems Thinking, not Medical Knowledge", () => {
     const text = [
       "RESEARCH",
       "Directed a 6-person multidisciplinary team; chaired the department quality committee for 3 years.",
@@ -157,9 +156,8 @@ describe("Bug #1 — section hint must not override ontology match", () => {
     const entry = evidence.find((e) => e.rawText.includes("Directed"));
 
     expect(entry).toBeDefined();
-    // Domain 6 = Leadership & Management
-    // Bug: currently routes to domain 4 (Scholarship) because RESEARCH section hint wins
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Leadership & Management");
+    // Domain 5 = Systems Thinking (leadership/admin, v3 PCRS)
+    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Systems Thinking");
   });
 });
 

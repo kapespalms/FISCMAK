@@ -1,11 +1,11 @@
 export const DOMAINS = [
   "Clinical Expertise",
+  "Medical Knowledge",
+  "Practice-Based Learning",
   "Communication",
   "Professionalism & Ethics",
   "Systems Thinking",
-  "Scholarship & Learning",
   "Collaboration & Teamwork",
-  "Leadership & Management",
   "Personal & Professional Development",
 ] as const;
 

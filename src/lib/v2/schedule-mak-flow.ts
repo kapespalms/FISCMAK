@@ -211,7 +211,7 @@ Never store or ask for patient identifiers or PHI. Rotations and call only for p
 When the user explicitly confirms (yes, save, add it, looks good, that's correct), append EXACTLY ONE LINE at the very end of your response:
 @@SCHEDULE_EVENT@@{"title":"...","start_date":"YYYY-MM-DD or ISO datetime","end_date":"...","all_day":true|false,"kind":"personal|conference|admin|learning|call","recurrence":{...}|null,"lattice_domain":"optional","lattice_track":"optional"}
 Only append after confirmation when title and start_date are known. Omit the marker until confirmed.
-Saved events appear on the user's calendar and feed their Career Map lattice (FISCMAK and ACGME for trainees). Tag lattice_domain and lattice_track when the event clearly maps to a domain×track (e.g. journal club → Scholarship & Learning × Educator).`;
+Saved events appear on the user's calendar and feed their Career Map lattice (FISCMAK and ACGME for trainees). Tag lattice_domain and lattice_track when the event clearly maps to a domain×track (e.g. journal club → Medical Knowledge × Educator).`;
 }
 
 /** Persistent calendar memory for goals, lattice, and general coaching */

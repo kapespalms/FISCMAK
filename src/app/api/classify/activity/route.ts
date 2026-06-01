@@ -20,7 +20,7 @@ export async function POST(request: Request) {
           messages: [
             {
               role: "system",
-              content: `Classify physician activity. Return JSON: primary_domain, primary_track, primary_domain_confidence, primary_track_confidence, scope, evidence_strength, confidence_score, rationale. Domains: Clinical Expertise, Communication, Professionalism & Ethics, Systems Thinking, Scholarship & Learning, Collaboration & Teamwork, Leadership & Management, Personal & Professional Development. Tracks: Clinician, Educator, Researcher, Administrator/Leader, Advocate, Innovator, Quality/Safety, Wellness Champion.`,
+              content: `Classify physician activity. Return JSON: primary_domain, primary_track, primary_domain_confidence, primary_track_confidence, scope, evidence_strength, confidence_score, rationale. Domains: Clinical Expertise, Medical Knowledge, Practice-Based Learning, Communication, Professionalism & Ethics, Systems Thinking, Collaboration & Teamwork, Personal & Professional Development. Tracks: Clinician, Educator, Researcher, Administrator/Leader, Advocate, Innovator, Quality/Safety, Wellness Champion.`,
             },
             {
               role: "user",

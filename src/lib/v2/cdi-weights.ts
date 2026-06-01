@@ -176,7 +176,7 @@ export function cdiDomainDisplayLabels(setting: PracticeSetting | null): Record<
       wellbeing: "Well-being",
       professional_growth: null,
       therapeutic_expertise: "Therapeutic Expertise",
-      leadership_management: "Leadership & Management",
+      leadership_management: "Systems Thinking",
       innovation_impact: "Innovation & Impact",
       network_influence: "Network & Influence",
       clinical_maintenance: "Clinical Practice Maintenance",

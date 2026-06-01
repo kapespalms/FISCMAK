@@ -3,10 +3,10 @@ import type { ClassificationResult } from "@/lib/types/database";
 
 const DOMAIN_KEYWORDS: Record<string, string[]> = {
   [DOMAINS[0]]: ["clinical", "patient", "diagnosis", "treatment", "care"],
-  [DOMAINS[1]]: ["communication", "conversation", "family", "meeting"],
-  [DOMAINS[5]]: ["team", "collaborat", "committee", "partner"],
-  [DOMAINS[6]]: ["lead", "director", "chair", "manage", "admin"],
-  [DOMAINS[4]]: [
+  [DOMAINS[3]]: ["communication", "conversation", "family", "meeting"],
+  [DOMAINS[6]]: ["team", "collaborat", "committee", "partner"],
+  [DOMAINS[5]]: ["lead", "director", "chair", "manage", "admin"],
+  [DOMAINS[2]]: [
     "teach",
     "mentor",
     "curriculum",
@@ -26,7 +26,7 @@ const TRACK_KEYWORDS: Record<string, string[]> = {
 
 export function classifyActivityFallback(text: string): ClassificationResult {
   const lower = text.toLowerCase();
-  let domain: string = DOMAINS[4];
+  let domain: string = DOMAINS[2];
   let track: string = TRACKS[0];
   let bestDomainScore = 0;
   let bestTrackScore = 0;
@@ -49,7 +49,7 @@ export function classifyActivityFallback(text: string): ClassificationResult {
 
   if (lower.includes("mentor") || lower.includes("teach")) {
     track = TRACKS[1];
-    domain = DOMAINS[4];
+    domain = DOMAINS[2];
   }
 
   const confidence = 0.55 + Math.min(bestDomainScore + bestTrackScore, 3) * 0.1;
