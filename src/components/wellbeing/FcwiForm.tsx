@@ -2,7 +2,12 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { FCWI_ITEMS, FCWI_LIKERT, type FcwiFrequencyTier } from "@/lib/v2/fcwi";
+import { FCWI_ITEMS, scaleLabels, type FcwiFrequencyTier, type FcwiScale } from "@/lib/v2/fcwi";
+
+const SCALE_HEADER: Record<FcwiScale, string> = {
+  frequency: "How often does this apply?",
+  agreement: "How much do you agree?",
+};
 
 type Props = {
   frequencyTier?: FcwiFrequencyTier;
@@ -47,33 +52,51 @@ export function FcwiForm({ frequencyTier = "monthly", onSaved }: Props) {
     }
   }
 
+  let prevScale: FcwiScale | null = null;
+
   return (
     <div className="space-y-6">
-      {FCWI_ITEMS.map((item) => (
-        <div key={item.item} className="space-y-2">
-          <p className="text-sm text-cx-forest-dark">{item.text}</p>
-          <div className="flex flex-wrap gap-2">
-            {FCWI_LIKERT.map(({ value, label }) => {
-              const selected = ratings[item.item] === value;
-              return (
-                <button
-                  key={value}
-                  type="button"
-                  onClick={() => setRating(item.item, value)}
-                  className={cn(
-                    "rounded-lg border px-3 py-1.5 text-xs font-medium transition-all",
-                    selected
-                      ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                      : "border-cx-forest-dark/20 text-cx-forest-dark/60 hover:border-cx-forest-dark/50 hover:text-cx-forest-dark",
-                  )}
-                >
-                  {label}
-                </button>
-              );
-            })}
+      {FCWI_ITEMS.map((item) => {
+        const labels = scaleLabels(item.scale);
+        const scaleChanged = item.scale !== prevScale;
+        prevScale = item.scale;
+
+        return (
+          <div key={item.item}>
+            {/* Visual divider + scale header when scale type changes */}
+            {scaleChanged && (
+              <div className={cn("mb-4", item.item !== 1 && "border-t border-cx-forest-dark/10 pt-5")}>
+                <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/50">
+                  {SCALE_HEADER[item.scale]}
+                </p>
+              </div>
+            )}
+            <div className="space-y-2">
+              <p className="text-sm text-cx-forest-dark">{item.text}</p>
+              <div className="flex flex-wrap gap-2">
+                {labels.map(({ value, label }) => {
+                  const selected = ratings[item.item] === value;
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => setRating(item.item, value)}
+                      className={cn(
+                        "rounded-lg border px-3 py-1.5 text-xs font-medium transition-all",
+                        selected
+                          ? "border-cx-forest-dark bg-cx-forest-dark text-white"
+                          : "border-cx-forest-dark/20 text-cx-forest-dark/60 hover:border-cx-forest-dark/50 hover:text-cx-forest-dark",
+                      )}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
       {error && <p className="text-sm text-red-600">{error}</p>}
 

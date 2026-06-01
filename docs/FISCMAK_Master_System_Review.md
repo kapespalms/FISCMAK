@@ -119,17 +119,22 @@ Total annual burden ≈ 2 hours/year.
 
 **The FCWI — 9 items** (0–4 Likert):
 
-| # | Item | Construct | O*NET link | ACGME link | Quadrant |
-|---|---|---|---|---|---|
-| 1 | "work I spend most time on depletes my energy" | Work Exhaustion | Work Context: Time Pressure | PC workload | OI |
-| 2 | "disconnected from people I work with/care for" | Interpersonal Disengagement | Work Activities: Establishing Relationships | ICS | SV |
-| 3 | "work feels meaningful, aligned with why I entered medicine" | Meaningfulness | Work Values: Achievement | PROF identity | SI |
-| 4 | "satisfied with what I've accomplished" | Satisfaction | Work Activities: Evaluating Info | PBLI reflective | OV |
-| 5 | "in control of my professional direction" | Autonomy/Control | Work Values: Independence | SBP | OI |
-| 6 | "work I spend most time on gives me energy" | Domain-Specific Energy | Work Values + RIASEC | NEW | SI |
-| 7 | "work that matters most is recognized by my institution" | Recognition | Work Values: Recognition | NEW | OI→OV |
-| 8 | "after a mistake I learn rather than feel shame" | Growth Mindset | Work Styles: Adaptability | PROF/PBLI | SI |
-| 9 | "I prioritize my health under high demand" | Self-Care | Work Styles: Stress Tolerance | PROF | SI |
+**Split scale (scoring 0–4 preserved across both):**
+- *Frequency* (items 1, 2, 6, 8, 9): Never · Rarely · Sometimes · Often · Always
+- *Agreement* (items 3, 4, 5, 7): Strongly disagree · Disagree · Neutral · Agree · Strongly agree
+- Numeric scoring 0–4 is identical across both scales; PFI cross-walk is preserved.
+
+| # | Scale | Item | Construct | O*NET link | ACGME link | Quadrant |
+|---|---|---|---|---|---|---|
+| 1 | Frequency | "work I spend most time on depletes my energy" | Work Exhaustion | Work Context: Time Pressure | PC workload | OI |
+| 2 | Frequency | "disconnected from people I work with/care for" | Interpersonal Disengagement | Work Activities: Establishing Relationships | ICS | SV |
+| 3 | Agreement | "work feels meaningful, aligned with why I entered medicine" | Meaningfulness | Work Values: Achievement | PROF identity | SI |
+| 4 | Agreement | "satisfied with what I've accomplished" | Satisfaction | Work Activities: Evaluating Info | PBLI reflective | OV |
+| 5 | Agreement | "in control of my professional direction" | Autonomy/Control | Work Values: Independence | SBP | OI |
+| 6 | Frequency | "Even on demanding days, the work I do most leaves me energized." | Domain-Specific Energy | Work Values + RIASEC | NEW | SI |
+| 7 | Agreement | "work that matters most is recognized by my institution" | Recognition | Work Values: Recognition | NEW | OI→OV |
+| 8 | Frequency | "after a mistake I learn rather than feel shame" | Growth Mindset | Work Styles: Adaptability | PROF/PBLI | SI |
+| 9 | Frequency | "I prioritize my health under high demand" | Self-Care | Work Styles: Stress Tolerance | PROF | SI |
 
 ## PART IX — Formula System
 

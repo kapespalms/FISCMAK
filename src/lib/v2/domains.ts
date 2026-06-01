@@ -4,6 +4,8 @@
  *
  * ⚠️ Code note: founder "Career Domains" (columns) = code TRACKS.
  *    These are the domain labels shown to physicians in the energy-ranking form.
+ *    name values match Part IV canonical labels (may differ from PRIMARY_CAREER_TRACKS
+ *    short-forms, e.g. "Administrator / Leader" vs "Leader").
  */
 export const CAREER_DOMAINS = [
   {
@@ -23,7 +25,7 @@ export const CAREER_DOMAINS = [
   },
   {
     index: 3,
-    name: "Leader",
+    name: "Administrator / Leader",
     description: "Organizational leadership, strategy, operations, policy",
   },
   {
