@@ -40,6 +40,8 @@ export type AppUser = {
   onboarding_metadata: Record<string, unknown> | null;
   /** Remaining free AI messages when not on Premium */
   message_balance?: number | null;
+  /** O*NET SOC code auto-assigned from specialty (v3 — 20260537) */
+  onet_soc_code?: string | null;
   preferred_location: string | null;
   salary_min: number | null;
   salary_max: number | null;
