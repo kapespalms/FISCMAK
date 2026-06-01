@@ -89,3 +89,10 @@ POST /api/v1/documents/init
 - Respect page MECE — see `docs/page-ownership.md` before adding UI to a route.
 - Only create git commits when the user asks.
 - Prefer minimal diffs that unblock real users over architecture debates during pilot.
+
+## v2 / v3 boundary — preventing stale integration
+
+- **v3 features read/write v3 tables:** `evidence_unit`, `lattice_cell`, `fcwi_responses`, `weekly_pulse`, `energy_rankings`, `goal_records`, `narrative_evidence`, `transfer_pathways`, `riasec_profile`, `onet_fingerprint`, `specialty_config`.
+- **Do NOT read from or write to v2 tables** (`activity_entries`, `physicians`, etc.) from v3 code UNLESS the ticket explicitly says to reuse one (e.g. the CV parser still uses `activity_entries` — that's deliberate).
+- **Before wiring any feature to a table or module, confirm it's the v3 one named in the ticket.** If a v2 path seems needed and the ticket didn't mention it, STOP and flag it — don't integrate it silently.
+- **The Master Review is the source of truth for what's current.** If code references something not in the Master Review, treat it as suspect.
