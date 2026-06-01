@@ -13,6 +13,7 @@ Each page answers **one primary question**. Edit data in one place; other pages 
 | Strategy | `/app/plan` | What am I working toward? |
 | Outputs | `/app/output` | What documents do I produce? |
 | Account | `/app/profile`, `/app/settings` | Who am I in the system? |
+| Well-Being | `/app/wellbeing` | What do my check-ins show? |
 | Onboarding | `/app/onboarding` | First-time setup only |
 
 Satellite: `/app/jobs` → `/app/plan?tab=jobs` (linked from Strategy, not top nav).
@@ -110,6 +111,16 @@ Satellite: `/app/jobs` → `/app/plan?tab=jobs` (linked from Strategy, not top n
 | Dashboard due-now + strip | Orient + CTA to continue |
 | Perspective | Annual/quarterly **input** |
 | Insights | Seven touchpoint **status** cards |
+
+---
+
+## Well-Being (`/app/wellbeing`)
+
+**Owns:** monthly check-in form (FCWI); weekly pulse form; well-being origami plot + trend lines (Phase 5); "what's due now" banner for well-being instruments.
+
+**Never:** composite scores, instrument names (no "FCWI", "MDT", "MBI" in physician UI), career pattern analysis (Insights), goal editing. MDT ≥4 → resource link only, never auto-reported.
+
+**Architectural decision (2026-06-01):** dedicated zone because FCWI/pulse are standardized instruments, not Mak conversations. Distinct from `/app/subjective` (conversational) by design.
 
 ---
 
