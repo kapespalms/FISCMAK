@@ -82,6 +82,7 @@ const VERIFY_TABLES = [
   "transfer_pathways",
   "evidence_unit",
   "lattice_cell",
+  "evidence_cell_weights",
   "fcwi_responses",
   "weekly_pulse",
   "riasec_profile",
@@ -369,6 +370,18 @@ async function main() {
     file: "docs/migrations/20260551_practice_setting_government.sql",
     label: "Add Government to app_users.practice_setting CHECK constraint (BUILD_ORDER 2.2)",
     requiresTable: "app_users",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260552_activity_entries_cv_columns.sql",
+    label: "Add source_document_id + user_confirmed to activity_entries (CV pipeline — BUILD_ORDER 4.1)",
+    requiresTable: "activity_entries",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260553_evidence_cell_weights.sql",
+    label: "evidence_cell_weights table — multi-domain lattice distribution (§8.2 resolved model)",
+    requiresTable: "evidence_unit",
   });
 
   let failures = 0;
