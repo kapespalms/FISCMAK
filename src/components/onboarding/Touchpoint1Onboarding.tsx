@@ -28,6 +28,7 @@ import {
 } from "@/lib/v2/onboarding-options";
 import { buildNarrativePrompt, NARRATIVE_HELPER, showNarrativeField } from "@/lib/v2/narrative-prompts";
 import { CLINICAL_SETTINGS, type ClinicalSetting } from "@/lib/v2/setting-naics-map";
+import { CAREER_DOMAINS } from "@/lib/v2/domains";
 import {
   MEDICAL_STUDENT_YEARS,
   CURRENT_GOAL_OPTIONS,
@@ -215,6 +216,7 @@ export function Touchpoint1Onboarding() {
   const [researchPct, setResearchPct] = useState("");
   const [adminPct, setAdminPct] = useState("");
   const [yearsInPractice, setYearsInPractice] = useState("");
+  const [energyRankings, setEnergyRankings] = useState<Record<number, number>>({});
   const [academicRank, setAcademicRank] = useState<AcademicRank | "">("");
   const [academicRankOther, setAcademicRankOther] = useState("");
   const [medicalStudentYear, setMedicalStudentYear] = useState<MedicalStudentYear | "">("");
@@ -966,6 +968,20 @@ export function Touchpoint1Onboarding() {
         return;
       }
 
+      const ratedDomains = Object.entries(energyRankings);
+      if (ratedDomains.length > 0) {
+        fetch("/api/v1/onboarding/energy-ranking", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            rankings: ratedDomains.map(([idx, rank]) => ({
+              domain_index: Number(idx),
+              rank,
+            })),
+          }),
+        }).catch(console.error);
+      }
+
       setStep("documents");
       router.replace("/app/onboarding?step=documents");
     } catch (err) {
@@ -1485,6 +1501,45 @@ export function Touchpoint1Onboarding() {
                         placeholder="e.g. 12"
                         className="w-full rounded-xl border border-white/5 bg-[#0A0C10] px-5 py-4 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
                       />
+                    </LuxuryBlock>
+                  )}
+
+                  {!showMedStudentFields && (
+                    <LuxuryBlock label="Domain Energy (Optional)">
+                      <LuxuryHint className="mb-3">
+                        Rate each area: 1 = very draining · 5 = very energizing. Skip any you&apos;re unsure about.
+                      </LuxuryHint>
+                      <div className="space-y-3">
+                        {CAREER_DOMAINS.map((domain) => (
+                          <div key={domain.index} className="flex items-center gap-3">
+                            <span className="w-36 shrink-0 text-sm text-gray-300">
+                              {domain.name}
+                            </span>
+                            <div className="flex gap-1.5">
+                              {([1, 2, 3, 4, 5] as const).map((n) => (
+                                <button
+                                  key={n}
+                                  type="button"
+                                  onClick={() =>
+                                    setEnergyRankings((prev) => ({
+                                      ...prev,
+                                      [domain.index]: prev[domain.index] === n ? 0 : n,
+                                    }))
+                                  }
+                                  className={cn(
+                                    "h-8 w-8 rounded-lg border text-xs font-medium transition-all",
+                                    energyRankings[domain.index] === n
+                                      ? "border-[#A3E635] bg-[#A3E635]/10 text-[#A3E635]"
+                                      : "border-white/10 bg-[#0A0C10] text-gray-500 hover:border-white/20",
+                                  )}
+                                >
+                                  {n}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </LuxuryBlock>
                   )}
 
