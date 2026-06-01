@@ -25,21 +25,25 @@ export const FREE_ACTIVITY_ALIASES: Record<string, string> = {
   improved_process: "improved_workflow",
 };
 
+// Domain rows aligned to the v3 spec (§2.2, AAMC PCRS), in spec order:
+//   0 Clinical Expertise · 1 Medical Knowledge · 2 Practice-Based Learning ·
+//   3 Communication · 4 Professionalism & Ethics · 5 Systems Thinking ·
+//   6 Collaboration & Teamwork · 7 Personal & Professional Development
 const FISCMAK_DOMAIN_TO_LATTICE: Record<string, number> = {
   pc: 0,
-  mk: 4,
-  pbli: 4,
-  ics: 1,
-  prof: 2,
-  sbp: 3,
-  teaching: 4,
-  mentorship: 7,
+  mk: 1,
+  pbli: 2,
+  ics: 3,
+  prof: 4,
+  sbp: 5,
+  scholarship: 1,
+  teaching: 2,
+  mentorship: 6,
   leadership: 6,
-  admin: 6,
+  admin: 5,
+  advocacy: 5,
+  innovation: 2,
   wellbeing: 7,
-  scholarship: 4,
-  innovation: 3,
-  advocacy: 3,
   identity: 7,
 };
 
@@ -60,10 +64,13 @@ const TRACK_KEY_TO_INDEX: Record<string, number> = {
   clinician_educator: 1,
   researcher: 2,
   program_leader: 3,
-  systems_leader: 6,
+  systems_leader: 3,
   administrator: 3,
-  innovator: 5,
+  consultant: 3,
+  executive: 3,
   advocate: 4,
+  innovator: 5,
+  quality_safety: 6,
   wellness_champion: 7,
 };
 

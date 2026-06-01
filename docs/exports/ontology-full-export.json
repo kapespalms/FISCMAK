@@ -837,6 +837,13 @@
         "active": true,
         "created_at": "2026-05-24T03:54:33.528889+00:00",
         "updated_at": "2026-05-24T03:54:33.528889+00:00"
+      },
+      {
+        "track_id": "c7f3a2b1-9d4e-4a6f-8b21-0c1d2e3f4a5b",
+        "track_key": "quality_safety",
+        "name": "Quality / Safety",
+        "display_order": 6,
+        "description": "Patient safety, quality improvement, systems analysis, and protocol maintenance"
       }
     ],
     "ontology_activity_categories": [
@@ -1413,7 +1420,7 @@
         "mapping_id": "5b403128-daa7-49d1-b83b-3ba219b715a8",
         "activity_id": "9883b5b3-5c5a-4860-8801-d66aab0fd4e8",
         "subcompetency_id": "d6caedfd-cf83-4ecc-a2e9-6c7755fd5779",
-        "track_id": "1fdc5af7-17c3-49fd-b225-f83ab5d9268e",
+        "track_id": "c7f3a2b1-9d4e-4a6f-8b21-0c1d2e3f4a5b",
         "default_level_id": "20684255-978a-45a6-a1d3-1e7f5b26f037",
         "confidence_default": 0.8,
         "weight": 1,
@@ -3080,7 +3087,7 @@
         "indicator_id": "07c61e50-a2b0-4627-b2ac-d1d948268063",
         "route_name": "Systems thinking deepening",
         "route_type": "reflection_prompt",
-        "route_template": "You identified something broken and fixed it\u2014that's systems thinking in action. Do you see yourself in a systems-leader role?",
+        "route_template": "You identified something broken and fixed it—that's systems thinking in action. Do you see yourself in a systems-leader role?",
         "conditional_logic": null,
         "confidence_adjustment": 0,
         "active": true,

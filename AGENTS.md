@@ -1,3 +1,18 @@
+<!-- BEGIN:fiscmak-team-rules -->
+# FISCMAK — Rules for every agent (read before any work)
+
+These rules come from the FISCMAK Core Team Charter. They are non-negotiable.
+
+1. **One branch.** Work ONLY on `v3-build`. Never create or switch branches unless the Founder explicitly asks. Run `git branch --show-current` and confirm `v3-build` before doing anything.
+2. **One vision: the v3 spec** (`fiscmak_v3_spec.docx`). Build to spec — not beyond it. If you think of something not in the spec, FLAG it; do not add it.
+3. **Founder approval gate.** NEVER merge to `main`, deploy, or run a database/Supabase migration on your own. These are separate steps the Founder approves. Flag anything that touches auth, user data, RLS policies, or the schema.
+4. **Return changed files only**, each with a one-line summary. Don't touch unrelated files or architecture.
+5. **One agent at a time.** If you hit a `.git` lock error, STOP and tell the Founder — do not force or delete locks blindly.
+6. **Pull before you start; preserve existing patterns** (naming, components, file structure). Smallest change that meets the acceptance criteria.
+
+For each task, output: Interpretation · Implementation Plan · Changed Files · Database Impact · Edge Cases Flagged · QA Checklist (non-developer-testable) · What Was NOT Built.
+<!-- END:fiscmak-team-rules -->
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
