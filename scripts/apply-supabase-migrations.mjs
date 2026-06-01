@@ -81,6 +81,7 @@ const VERIFY_TABLES = [
   "narrative_evidence",
   "transfer_pathways",
   "evidence_unit",
+  "lattice_cell",
 ];
 
 async function main() {
@@ -313,6 +314,12 @@ async function main() {
     file: "docs/migrations/20260542_evidence_unit.sql",
     label: "Evidence unit table (canonical v3 evidence store — Part XXIV)",
     requiresTable: "activity_entries",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260543_lattice_cell.sql",
+    label: "Lattice cell table (8×8 FTE discrepancy + transfer potential — Part XXIV)",
+    requiresTable: "evidence_unit",
   });
 
   let failures = 0;
