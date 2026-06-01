@@ -59,9 +59,11 @@
 
 *Source: **Part VIII** (canonical FCWI wording), **Part XXIII** (validation). Deep ref: Annex Appendix J.*
 
-- [ ] **3.1 FCWI monthly form.** 9 items, exact Part VIII wording, 0–4 Likert → `fcwi_responses`. **No composite score shown** (governance, Part XIX).
-- [ ] **3.2 Weekly pulse form.** 4 items (EE + DP + QoL + MDT) + 2 free-text energy prompts + invisible flag → `weekly_pulse`. MDT ≥4 → resource link, no auto-report.
-- [ ] **3.3 Quarterly snapshot flow.** Re-run energy ranking + FTE update + goal review + setting update.
+- [x] **3.1 FCWI monthly form.** 9 items, exact Part VIII wording, 0–4 Likert → `fcwi_responses`. **No composite score shown** (governance, Part XIX).
+- [x] **3.2 Weekly pulse form.** 4 items (EE + DP + QoL + MDT) + 2 free-text energy prompts + invisible flag → `weekly_pulse`. MDT ≥4 → resource link, no auto-report.
+- [x] **3.3 Quarterly snapshot flow.** Re-run energy ranking + FTE update + goal review + setting update.
+
+> **Phase 3 complete 2026-06-01.** `/app/wellbeing` live with all three instruments. Split-scale FCWI (frequency/agreement per item), MDT ≥4 resource trigger, 4-step quarterly wizard. Nav link to `/app/wellbeing` not yet wired (separate ticket).
 
 ---
 
