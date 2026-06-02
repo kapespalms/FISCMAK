@@ -75,7 +75,27 @@ ADVOCACY
 Testified before state legislature on mental health parity legislation.
 `.trim();
 
-const FAKE_DOC_ID = randomUUID();
+const FAKE_DOC_ID   = randomUUID();
+const FAKE_DOC_ID_B = randomUUID();
+
+// ── Fixture B — designed to stress multi-cell splitting and density accumulation
+//
+//  Line 1 (cross-domain): under a heading that pulls in a third signal so
+//  keyword + ontology + section hint each aim at different (domain,track) cells.
+//  Expect: the confirmed evidence_unit has >1 ecw row, no cell at weight 1.0.
+//
+//  Lines 2+3 (shared cell): two distinct clinical-care lines that both route
+//  to Clinician × domain 0.  Expect: F1 density at (0,0) measurably > 0.50
+//  (which is the maximum density a single fully-weighted line can produce).
+
+const SAMPLE_CV_B = `
+RESEARCH AND TEACHING INNOVATION
+Led a quality-improvement project, published the outcomes in a peer-reviewed journal, and designed the curriculum to train residents on the new protocol.
+
+CLINICAL EXPERIENCE
+Performed comprehensive psychiatric evaluations and provided direct patient care for 30 inpatients daily.
+Conducted outpatient psychiatric consultations and managed psychopharmacology for 25 patients per clinic session.
+`.trim();
 
 // ── inline helpers (pure JS, no TS imports) ────────────────────────────────
 
@@ -301,6 +321,183 @@ async function stage4F1(supabase, userId) {
     console.log(`    ${domainName(c.domain_index)} × ${trackName(c.track_index)} [${c.quadrant}]  ${c.density.toFixed(4)}`);
 }
 
+// ── Fixture B — inline F1 for a specific set of evidence_unit IDs ─────────
+
+function computeInlineF1(cellWeights, confirmedEuIds) {
+  const densityMap = new Map();
+  for (const ecw of cellWeights) {
+    if (!confirmedEuIds.has(ecw.evidence_unit_id)) continue;
+    const key = `${ecw.domain_index}:${ecw.track_index}:${ecw.recognition_quadrant}`;
+    densityMap.set(key, (densityMap.get(key) ?? 0) + 0.50 * ecw.weight); // cv_document weight
+  }
+  return [...densityMap.entries()]
+    .map(([key, density]) => { const [d,t,q] = key.split(":"); return { domain_index: +d, track_index: +t, quadrant: q, density }; })
+    .filter(c => c.density > 0)
+    .sort((a, b) => b.density - a.density);
+}
+
+async function runFixtureB(supabase, userId) {
+  console.log("\n\n════════════════════════════════════════════════════════════");
+  console.log("  FIXTURE B — multi-cell splitting + density accumulation");
+  console.log("════════════════════════════════════════════════════════════");
+
+  // ── B-Stage 1: parse ──────────────────────────────────────────────────────
+  sec("B-Stage 1 — parse Fixture B CV");
+
+  const tmpFile = path.join(ROOT, "scripts", "_pipeline_parser_tmpB.ts");
+  const escaped = JSON.stringify(SAMPLE_CV_B);
+  fs.writeFileSync(tmpFile, [
+    `import { parseDocumentToCvRows } from "@/lib/v2/lattice/document-parser";`,
+    `const rows = parseDocumentToCvRows(${escaped});`,
+    `process.stdout.write(JSON.stringify(rows));`,
+  ].join("\n"));
+
+  let parsedRows = [];
+  try {
+    const res = spawnSync("npx", ["tsx", tmpFile], { cwd: ROOT, encoding: "utf8", timeout: 30_000 });
+    if (res.error) throw res.error;
+    if (res.status !== 0) throw new Error(res.stderr || "tsx exited non-zero");
+    parsedRows = JSON.parse(res.stdout);
+  } finally {
+    fs.unlinkSync(tmpFile);
+  }
+
+  if (!parsedRows.length) { fail("Fixture B parser produced 0 rows"); return; }
+  ok(`Parsed ${parsedRows.length} rows`);
+
+  // Print full cell distributions for every row (this is the point of Fixture B)
+  console.log("\n  Cell distributions for all Fixture B rows:");
+  for (const row of parsedRows) {
+    console.log(`\n    [${row.confidence_score.toFixed(2)} ${row.placement_method}] ${row.raw_text.slice(0, 70)}`);
+    for (const c of row.cells)
+      console.log(`      ${domainName(c.domain_index)} × ${trackName(c.track_index)}  w=${c.weight.toFixed(4)}  q=${c.quadrant}`);
+  }
+
+  // ── B-Stage 2: seed ───────────────────────────────────────────────────────
+  sec("B-Stage 2 — seed Fixture B staging rows");
+
+  const today = new Date().toISOString().slice(0, 10);
+  const seedRows = parsedRows.map(row => {
+    const primary = row.cells[0];
+    return {
+      user_id:                   userId,
+      activity_date:             today,
+      raw_text:                  row.raw_text,
+      input_source:              "cv_document",
+      primary_domain:            domainName(primary.domain_index),
+      primary_track:             trackName(primary.track_index),
+      confidence_score:          row.confidence_score,
+      primary_domain_confidence: row.confidence_score,
+      primary_track_confidence:  row.confidence_score,
+      evidence_strength:         row.confidence_score >= 0.80 ? "high" : row.confidence_score >= 0.60 ? "medium" : "low",
+      recognition_quadrant:      primary.quadrant,
+      source_document_id:        FAKE_DOC_ID_B,
+      user_confirmed:            false,
+      mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.domain_index, t: c.track_index, w: c.weight, q: c.quadrant })) }),
+    };
+  });
+
+  const { data: inserted, error: seedErr } = await supabase
+    .from("activity_entries").insert(seedRows).select("id");
+  if (seedErr) { fail(`B seed failed: ${seedErr.message}`); return; }
+  const activityIds = inserted.map(r => r.id);
+  ok(`Inserted ${activityIds.length} staging rows`);
+
+  // ── B-Stage 3: confirm ────────────────────────────────────────────────────
+  sec("B-Stage 3 — confirm Fixture B rows");
+
+  const { data: staged } = await supabase
+    .from("activity_entries")
+    .select("id, raw_text, mak_rationale")
+    .in("id", activityIds)
+    .eq("user_confirmed", false);
+
+  const now = new Date().toISOString();
+  const bEuIds = [];
+
+  for (const row of staged ?? []) {
+    const cells = unpackCells(row.mak_rationale);
+    if (!cells.length) continue;
+    const primary = cells[0];
+
+    const { data: eu, error: euErr } = await supabase
+      .from("evidence_unit")
+      .insert({ user_id: userId, domain_index: primary.domain_index, track_index: primary.track_index, recognition_quadrant: primary.quadrant, raw_text: row.raw_text, physician_confirmed: true, source_activity_id: row.id, created_at: now, updated_at: now })
+      .select("id").single();
+    if (euErr || !eu) { fail(`B evidence_unit insert: ${euErr?.message}`); continue; }
+    bEuIds.push(eu.id);
+
+    const ecwRows = cells.map(c => ({ evidence_unit_id: eu.id, user_id: userId, domain_index: c.domain_index, track_index: c.track_index, weight: c.weight, recognition_quadrant: c.quadrant }));
+    const { error: ecwErr } = await supabase.from("evidence_cell_weights").insert(ecwRows);
+    if (ecwErr) { fail(`B evidence_cell_weights insert: ${ecwErr.message}`); }
+  }
+  ok(`Confirmed ${bEuIds.length} evidence_unit rows for Fixture B`);
+
+  await supabase.from("activity_entries")
+    .update({ user_confirmed: true }).in("id", activityIds).eq("user_id", userId);
+
+  // ── B-Stage 4: assertions ─────────────────────────────────────────────────
+  sec("B-Stage 4 — Fixture B assertions");
+
+  // Fetch all ecw rows for Fixture B EUs
+  const { data: bCellWeights } = await supabase
+    .from("evidence_cell_weights")
+    .select("evidence_unit_id, domain_index, track_index, weight, recognition_quadrant")
+    .in("evidence_unit_id", bEuIds);
+
+  if (!bCellWeights?.length) { fail("No evidence_cell_weights rows for Fixture B"); return; }
+
+  // Group ecw rows by EU
+  const ecwByEu = new Map();
+  for (const ecw of bCellWeights) {
+    const arr = ecwByEu.get(ecw.evidence_unit_id) ?? [];
+    arr.push(ecw);
+    ecwByEu.set(ecw.evidence_unit_id, arr);
+  }
+
+  console.log("\n  Evidence_cell_weights per EU:");
+  for (const [euId, ecws] of ecwByEu) {
+    const short = euId.slice(0, 8);
+    for (const ecw of ecws)
+      console.log(`    EU ${short}…  ${domainName(ecw.domain_index)} × ${trackName(ecw.track_index)}  w=${ecw.weight.toFixed(4)}  q=${ecw.recognition_quadrant}`);
+  }
+
+  // Assertion 1: at least one EU has >1 ecw row with NO cell at weight 1.0
+  const multiCellEus = [...ecwByEu.entries()].filter(([, ecws]) =>
+    ecws.length > 1 && ecws.every(e => e.weight < 1.0 - 1e-9)
+  );
+  if (multiCellEus.length === 0) {
+    fail("No evidence_unit has >1 ecw rows with all weights < 1.0 — multi-cell splitting not observed");
+    console.log("  Finding: parser may have routed the cross-domain line to a single cell.");
+    console.log("  This is a real finding about the parser's weighting, not a bug in the pipeline.");
+  } else {
+    ok(`${multiCellEus.length} evidence_unit(s) have >1 ecw rows with no cell at weight 1.0 (real multi-cell split)`);
+  }
+
+  // Assertion 2: shared-cell F1 density > 0.50 (proves accumulation from 2+ lines)
+  // 0.50 = max density a single fully-weighted cv_document line can produce (source_weight × 1.0)
+  const confirmedBIds = new Set(bEuIds);
+  const bF1 = computeInlineF1(bCellWeights, confirmedBIds);
+
+  console.log("\n  Fixture B F1 top cells (isolated to Fixture B evidence):");
+  for (const c of bF1.slice(0, 8))
+    console.log(`    ${domainName(c.domain_index)} × ${trackName(c.track_index)} [${c.quadrant}]  density=${c.density.toFixed(4)}`);
+
+  const maxDensityCell = bF1[0];
+  const SINGLE_LINE_MAX = 0.50; // source_weight(cv_document) × max_cell_weight(1.0)
+
+  if (!maxDensityCell) {
+    fail("F1 returned no cells for Fixture B");
+  } else if (maxDensityCell.density > SINGLE_LINE_MAX) {
+    ok(`Max density cell ${domainName(maxDensityCell.domain_index)} × ${trackName(maxDensityCell.track_index)} = ${maxDensityCell.density.toFixed(4)} > ${SINGLE_LINE_MAX} — accumulation confirmed (2+ lines contributed)`);
+  } else {
+    fail(`Max density cell = ${maxDensityCell.density.toFixed(4)} ≤ ${SINGLE_LINE_MAX} — the two clinical lines did NOT accumulate to the same cell`);
+    console.log(`  Finding: the two clinical lines may have been routed to different (domain,track) cells.`);
+    console.log(`  Check the cell distribution printout above for where they actually landed.`);
+    console.log(`  This is a real finding about the parser's clinical routing, not a pipeline bug.`);
+  }
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────
 
 async function main() {
@@ -328,6 +525,9 @@ async function main() {
 
     await stage3Confirm(supabase, userId, activityIds);
     await stage4F1(supabase, userId);
+
+    // Fixture B — stress multi-cell splitting and density accumulation
+    await runFixtureB(supabase, userId);
 
   } finally {
     sec("Cleanup");
