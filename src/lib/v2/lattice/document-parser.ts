@@ -366,3 +366,164 @@ export function parseDocumentsToLatticeEvidence(
 
   return evidence;
 }
+
+// ---------------------------------------------------------------------------
+// CV → multi-cell weighted evidence rows (BUILD_ORDER 4.1 new model §8.2)
+// ---------------------------------------------------------------------------
+
+/**
+ * Confidence tiers drive the confidence-triage UX (§8.3):
+ *   ≥0.80  high   → auto-accept candidate (~85% of lines)
+ *   0.60–0.79  medium → surface for physician review
+ *   <0.60  low    → always surface for review
+ *
+ * Placement method → confidence:
+ *   keyword + ontology agree on same domain  0.90
+ *   keyword (ontology differs or absent)     0.85
+ *   clinical keyword yielded to section hint 0.65
+ *   ontology only                            0.70
+ *   section hint only                        0.55
+ */
+
+/**
+ * One cell in the multi-domain distribution for a CV line.
+ * quadrant is always OV or SV — CV = visible work only; OI/SI
+ * never appear here (invisible work is captured live, not parsed from a CV).
+ */
+export type CvCellWeight = {
+  domain_index: number;
+  track_index: number;
+  /** Normalized weight ∈ [0.15, 1.0]; all cells for one row sum to 1.0. */
+  weight: number;
+  /** OV for objective career records; SV for subjective/reflective sections. */
+  quadrant: "OV" | "SV";
+};
+
+export type ParsedCvRow = {
+  raw_text: string;
+  confidence_score: number;
+  placement_method: "keyword" | "ontology" | "section_hint" | "keyword_yielded";
+  /** Multi-cell distribution. Top ~3 cells, min weight 0.15, sum ≈ 1.0. */
+  cells: CvCellWeight[];
+};
+
+/**
+ * Base signal weights before normalization.
+ * Keyword is the most specific signal; section hint the broadest.
+ * When clinicalKeywordYields, the clinical keyword is suppressed and the
+ * section hint dominates (0.70) with ontology as secondary (0.30).
+ */
+const BASE_WEIGHTS = { keyword: 0.50, ontology: 0.30, section_hint: 0.20 } as const;
+const CLINICAL_YIELD_WEIGHTS = { section_hint: 0.70, ontology: 0.30 } as const;
+const MIN_CELL_WEIGHT = 0.15;
+const MAX_CELLS = 3;
+
+type RawCell = { domainIndex: number; trackIndex: number; rawWeight: number };
+
+function buildWeightedCells(
+  keyword:  { domainIndex: number; trackIndex: number } | null,
+  ontology: { domainIndex: number; trackIndex: number } | null,
+  sectionHint: SectionHint | null,
+  clinicalKeywordYields: boolean,
+): Array<{ domainIndex: number; trackIndex: number; weight: number }> {
+  const signals: RawCell[] = [];
+
+  if (clinicalKeywordYields && sectionHint) {
+    signals.push({ domainIndex: sectionHint.domainIndex, trackIndex: sectionHint.trackIndex, rawWeight: CLINICAL_YIELD_WEIGHTS.section_hint });
+    if (ontology) signals.push({ domainIndex: ontology.domainIndex, trackIndex: ontology.trackIndex, rawWeight: CLINICAL_YIELD_WEIGHTS.ontology });
+  } else {
+    if (keyword)     signals.push({ domainIndex: keyword.domainIndex,     trackIndex: keyword.trackIndex,     rawWeight: BASE_WEIGHTS.keyword });
+    if (ontology)    signals.push({ domainIndex: ontology.domainIndex,    trackIndex: ontology.trackIndex,    rawWeight: BASE_WEIGHTS.ontology });
+    if (sectionHint) signals.push({ domainIndex: sectionHint.domainIndex, trackIndex: sectionHint.trackIndex, rawWeight: BASE_WEIGHTS.section_hint });
+  }
+
+  if (signals.length === 0) return [];
+
+  // Merge cells with same (domain, track) by summing weights
+  const cellMap = new Map<string, RawCell>();
+  for (const sig of signals) {
+    const key = `${sig.domainIndex}:${sig.trackIndex}`;
+    const existing = cellMap.get(key);
+    if (existing) {
+      existing.rawWeight += sig.rawWeight;
+    } else {
+      cellMap.set(key, { ...sig });
+    }
+  }
+
+  // Sort descending by weight, cap at MAX_CELLS, normalize
+  let cells = Array.from(cellMap.values())
+    .sort((a, b) => b.rawWeight - a.rawWeight)
+    .slice(0, MAX_CELLS);
+
+  const total = cells.reduce((s, c) => s + c.rawWeight, 0);
+  cells = cells.map((c) => ({ ...c, rawWeight: c.rawWeight / total }));
+
+  // Filter below minimum weight and renormalize
+  cells = cells.filter((c) => c.rawWeight >= MIN_CELL_WEIGHT);
+  if (cells.length === 0) return [];
+
+  const finalTotal = cells.reduce((s, c) => s + c.rawWeight, 0);
+  return cells.map(({ domainIndex, trackIndex, rawWeight }) => ({
+    domainIndex,
+    trackIndex,
+    weight: rawWeight / finalTotal,
+  }));
+}
+
+/**
+ * Parse a document's extracted text into multi-cell weighted rows per the new
+ * evidence model (§8.2). Each row carries a distribution across lattice cells;
+ * all quadrants are OV or SV — no OI/SI ever produced from a CV (invisible work
+ * is captured live via the weekly-pulse stream, not parsed from documents).
+ */
+export function parseDocumentToCvRows(text: string): ParsedCvRow[] {
+  const snippets = splitIntoAnnotatedSnippets(text.trim());
+  const rows: ParsedCvRow[] = [];
+
+  for (const { text: snippet, sectionHint } of snippets) {
+    const ontology = matchTextToActivityPlacement(snippet);
+    const keyword  = keywordPlacement(snippet);
+
+    const clinicalKeywordYields =
+      keyword?.domainIndex === 0 && sectionHint != null && sectionHint.domainIndex !== 0;
+
+    let method: ParsedCvRow["placement_method"];
+    let confidence: number;
+
+    if (clinicalKeywordYields) {
+      method = "keyword_yielded";
+      confidence = 0.65;
+    } else if (keyword) {
+      method = "keyword";
+      confidence = (ontology && ontology.domainIndex === keyword.domainIndex) ? 0.90 : 0.85;
+    } else if (ontology) {
+      method = "ontology";
+      confidence = 0.70;
+    } else if (sectionHint) {
+      method = "section_hint";
+      confidence = 0.55;
+    } else {
+      continue; // no placement possible — skip snippet
+    }
+
+    const weightedCells = buildWeightedCells(keyword, ontology, sectionHint, clinicalKeywordYields);
+    if (weightedCells.length === 0) continue;
+
+    rows.push({
+      raw_text: snippet,
+      confidence_score: confidence,
+      placement_method: method,
+      cells: weightedCells.map(({ domainIndex, trackIndex, weight }) => ({
+        domain_index: domainIndex,
+        track_index:  trackIndex,
+        weight,
+        // CV work is always objective-visible; SV (subjective-visible) is a
+        // possible refinement for personal-statement sections but deferred.
+        quadrant: "OV" as const,
+      })),
+    });
+  }
+
+  return rows;
+}

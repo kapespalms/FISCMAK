@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 import type { DocumentRecord } from "@/lib/v2/types";
-import { parseDocumentsToLatticeEvidence } from "@/lib/v2/lattice/document-parser";
+import {
+  parseDocumentsToLatticeEvidence,
+  parseDocumentToCvRows,
+  type ParsedCvRow,
+} from "@/lib/v2/lattice/document-parser";
 import { DOMAINS, TRACKS } from "@/lib/constants";
 
 function cvDoc(text: string): DocumentRecord {
@@ -211,5 +215,104 @@ describe("Bug #2 — psychiatry/psychiatric must not override context", () => {
     // Bug: "psychiatry" keyword fires before "quality/safety" rule
     // Correct: QI section + safety content → Quality/Safety track
     expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Quality/Safety");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// New evidence model — parseDocumentToCvRows (§8.2)
+// Invariants that must hold for every row produced from ANY CV text:
+//   1. cells array is non-empty
+//   2. weights sum to ≈ 1.0 (floating-point tolerance 1e-9)
+//   3. no cell has weight < 0.15
+//   4. no cell has quadrant OI or SI  (CV = visible work only)
+// ---------------------------------------------------------------------------
+
+function allRows(text: string): ParsedCvRow[] {
+  return parseDocumentToCvRows(text);
+}
+
+function assertInvariants(rows: ParsedCvRow[]) {
+  for (const row of rows) {
+    expect(row.cells.length).toBeGreaterThan(0);
+
+    const weightSum = row.cells.reduce((s, c) => s + c.weight, 0);
+    expect(weightSum).toBeCloseTo(1.0, 9);
+
+    for (const cell of row.cells) {
+      expect(cell.weight).toBeGreaterThanOrEqual(0.15);
+      expect(["OV", "SV"]).toContain(cell.quadrant);
+      expect(["OI", "SI"]).not.toContain(cell.quadrant);
+    }
+  }
+}
+
+describe("parseDocumentToCvRows — new model invariants (§8.2)", () => {
+  it("weights sum to ~1.0 and no cell below 0.15 for a publication line", () => {
+    const rows = allRows(
+      "PUBLICATIONS\nPalmer K, Smith J. Moral distress in psychiatry training. Am J Psychiatry. 2024.",
+    );
+    expect(rows.length).toBeGreaterThan(0);
+    assertInvariants(rows);
+  });
+
+  it("no OI or SI quadrant ever produced from a CV", () => {
+    const text = [
+      "LEADERSHIP",
+      "Directed department quality committee; chaired 3-person policy subgroup.",
+      "ADVOCACY",
+      "Testified before state legislature on mental health parity policy.",
+      "QUALITY IMPROVEMENT",
+      "Led initiative to reduce seclusion and restraint use by 40%.",
+      "WELLNESS",
+      "Founded peer support program; trained 12 faculty facilitators.",
+    ].join("\n");
+    const rows = allRows(text);
+    expect(rows.length).toBeGreaterThan(0);
+    assertInvariants(rows); // catches any OI/SI assignment
+  });
+
+  it("publication line has a cell at Researcher (track 2)", () => {
+    const rows = allRows(
+      "PUBLICATIONS\nSmith J et al. Lancet Psychiatry. 2024; randomised trial design.",
+    );
+    const pub = rows[0];
+    expect(pub).toBeDefined();
+    const hasResearcher = pub!.cells.some((c) => c.track_index === 2);
+    expect(hasResearcher).toBe(true);
+  });
+
+  it("multi-cell distribution when keyword and section hint disagree", () => {
+    // "mentored" keyword → PPD×Educator, section hint EDUCATION → Clinical
+    const rows = allRows(
+      "EDUCATION\nMentored 3 medical students through longitudinal research projects.",
+    );
+    expect(rows.length).toBeGreaterThan(0);
+    assertInvariants(rows);
+    // Should produce ≥ 1 cell (distribution may single-cell if signals agree,
+    // but invariants must hold regardless)
+    expect(rows[0]!.cells.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("confidence score is within expected tiers", () => {
+    const rows = allRows(
+      "PUBLICATIONS\nHigh-confidence: published peer-reviewed research manuscript in psychiatry.",
+    );
+    expect(rows.length).toBeGreaterThan(0);
+    const conf = rows[0]!.confidence_score;
+    expect(conf).toBeGreaterThanOrEqual(0.55);
+    expect(conf).toBeLessThanOrEqual(0.90);
+  });
+
+  it("handles a full multi-section CV without OI/SI", () => {
+    const text = [
+      "EDUCATION", "Psychiatry Residency, University Hospitals, 2020–2024",
+      "PUBLICATIONS", "Palmer K. Am J Psychiatry. 2024.",
+      "TEACHING", "Designed psychotherapy curriculum for PGY-2 residents.",
+      "LEADERSHIP", "Chaired department wellness committee.",
+      "QUALITY IMPROVEMENT", "Led seclusion-reduction initiative.",
+    ].join("\n");
+    const rows = allRows(text);
+    expect(rows.length).toBeGreaterThan(0);
+    assertInvariants(rows);
   });
 });

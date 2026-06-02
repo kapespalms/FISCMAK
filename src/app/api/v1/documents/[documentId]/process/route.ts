@@ -10,6 +10,8 @@ import {
 import { processDocumentFromStorage } from "@/lib/v2/document-process";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { invalidateLatticeDocumentCache } from "@/lib/v2/lattice/invalidate-cache";
+// TODO(4.1): import seedCvEvidenceRows from the new-model document-activities
+// module once it is built to §8.2 (multi-cell weighted, OV/SV only).
 
 export const runtime = "nodejs";
 
@@ -86,5 +88,9 @@ export async function POST(request: Request, context: RouteContext) {
 
   void clearLatticeDocumentCache(auth.userId, auth.email, auth.demo);
 
-  return jsonOk(result.response, 200);
+  // pending_cv_lines: will be populated by the new-model seed function (§8.2).
+  // Stubbed at 0 until document-activities.ts is rebuilt to the multi-cell model.
+  const pendingCvLines = 0;
+
+  return jsonOk({ ...result.response, pending_cv_lines: pendingCvLines }, 200);
 }
