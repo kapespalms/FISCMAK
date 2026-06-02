@@ -391,8 +391,10 @@ export function parseDocumentsToLatticeEvidence(
  * never appear here (invisible work is captured live, not parsed from a CV).
  */
 export type CvCellWeight = {
+  /** Skill/task axis (0–7): indexes SKILLS array (Clinical Expertise…). */
+  skill_index:  number;
+  /** Domain identity axis (0–7): indexes DOMAINS array (Clinician…). */
   domain_index: number;
-  track_index: number;
   /** Normalized weight ∈ [0.15, 1.0]; all cells for one row sum to 1.0. */
   weight: number;
   /** OV for objective career records; SV for subjective/reflective sections. */
@@ -515,8 +517,8 @@ export function parseDocumentToCvRows(text: string): ParsedCvRow[] {
       confidence_score: confidence,
       placement_method: method,
       cells: weightedCells.map(({ domainIndex, trackIndex, weight }) => ({
-        domain_index: domainIndex,
-        track_index:  trackIndex,
+        skill_index:  domainIndex,   // skill axis (Clinical Expertise…)
+        domain_index: trackIndex,    // identity axis (Clinician…)
         weight,
         // CV work is always objective-visible; SV (subjective-visible) is a
         // possible refinement for personal-statement sections but deferred.

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { CAREER_DOMAINS } from "@/lib/v2/domains";
+import { DOMAIN_IDENTITIES } from "@/lib/v2/domains";
 import { PRACTICE_SETTINGS, type PracticeSetting } from "@/lib/v2/onboarding-options";
 import { CLINICAL_SETTINGS, type ClinicalSetting } from "@/lib/v2/setting-naics-map";
 
@@ -147,7 +147,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
           <p className="text-sm text-cx-forest-dark/70">
             How is each area of your work feeling right now? 1 = very draining · 5 = very energizing.
           </p>
-          {CAREER_DOMAINS.map((domain) => (
+          {DOMAIN_IDENTITIES.map((domain) => (
             <div key={domain.index} className="flex items-center gap-3">
               <span className="w-40 shrink-0 text-sm text-cx-forest-dark">{domain.name}</span>
               <div className="flex gap-1.5">

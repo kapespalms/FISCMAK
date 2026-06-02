@@ -1,6 +1,6 @@
 import {
+  SKILLS,
   DOMAINS,
-  TRACKS,
   type EnergyValue,
   type LatticeCellState,
 } from "@/lib/constants";
@@ -32,8 +32,8 @@ export function activitiesToLatticeCells(
   }
 
   const cells: LatticeCellState[] = [];
-  for (let d = 0; d < DOMAINS.length; d++) {
-    for (let t = 0; t < TRACKS.length; t++) {
+  for (let d = 0; d < SKILLS.length; d++) {
+    for (let t = 0; t < DOMAINS.length; t++) {
       const key = `${d}-${t}`;
       const data = map.get(key);
       cells.push({

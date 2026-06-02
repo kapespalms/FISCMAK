@@ -1,0 +1,66 @@
+{
+  "name": "FISCMAK Domain→Skill Rank Matrix",
+  "version": "1.0",
+  "date": "2026-06-02",
+  "owner": "Kristen Palmer, MD",
+  "status": "CANONICAL. Each Career Domain (column) ranks all 8 Skills/Tasks 1=most-relevant primary evidence … 8=least. Ranks 1–3 = that domain's PRIMARY evidence skills (top-3 cutoff). Keyed by full canonical NAME (not index) so it is robust to the DOMAINS/TRACKS code rename in flight.",
+  "vocabulary_note": "Founder canonical vocabulary: DOMAINS = the 8 career identities (columns, Clinician…Wellness Champion); SKILLS = the 8 tasks (Clinical Expertise…Personal & Professional Development). The word TRACKS is retired. NOTE: current code still maps domain_index→SKILLS and track_index→DOMAINS (the legacy flip); the un-flip rename will align code to this vocabulary. Assert by NAME, not by index, until that rename lands.",
+
+  "skills": [
+    "Clinical Expertise",
+    "Medical Knowledge",
+    "Practice-Based Learning",
+    "Communication",
+    "Professionalism & Ethics",
+    "Systems Thinking",
+    "Collaboration & Teamwork",
+    "Personal & Professional Development"
+  ],
+
+  "domains": [
+    "Clinician",
+    "Educator",
+    "Researcher",
+    "Administrator / Leader",
+    "Advocate",
+    "Innovator",
+    "Quality / Safety",
+    "Wellness Champion"
+  ],
+
+  "primary_cutoff_rank": 3,
+
+  "matrix_by_domain": {
+    "Clinician": ["Clinical Expertise", "Medical Knowledge", "Communication", "Professionalism & Ethics", "Collaboration & Teamwork", "Practice-Based Learning", "Systems Thinking", "Personal & Professional Development"],
+    "Educator": ["Communication", "Practice-Based Learning", "Collaboration & Teamwork", "Personal & Professional Development", "Clinical Expertise", "Medical Knowledge", "Professionalism & Ethics", "Systems Thinking"],
+    "Researcher": ["Medical Knowledge", "Practice-Based Learning", "Personal & Professional Development", "Communication", "Clinical Expertise", "Collaboration & Teamwork", "Systems Thinking", "Professionalism & Ethics"],
+    "Administrator / Leader": ["Systems Thinking", "Collaboration & Teamwork", "Professionalism & Ethics", "Communication", "Practice-Based Learning", "Clinical Expertise", "Medical Knowledge", "Personal & Professional Development"],
+    "Advocate": ["Systems Thinking", "Professionalism & Ethics", "Communication", "Collaboration & Teamwork", "Clinical Expertise", "Medical Knowledge", "Practice-Based Learning", "Personal & Professional Development"],
+    "Innovator": ["Practice-Based Learning", "Systems Thinking", "Medical Knowledge", "Communication", "Clinical Expertise", "Collaboration & Teamwork", "Professionalism & Ethics", "Personal & Professional Development"],
+    "Quality / Safety": ["Practice-Based Learning", "Systems Thinking", "Clinical Expertise", "Collaboration & Teamwork", "Communication", "Professionalism & Ethics", "Medical Knowledge", "Personal & Professional Development"],
+    "Wellness Champion": ["Personal & Professional Development", "Collaboration & Teamwork", "Professionalism & Ethics", "Communication", "Clinical Expertise", "Practice-Based Learning", "Systems Thinking", "Medical Knowledge"]
+  },
+
+  "primary_skills_by_domain": {
+    "Clinician": ["Clinical Expertise", "Medical Knowledge", "Communication"],
+    "Educator": ["Communication", "Practice-Based Learning", "Collaboration & Teamwork"],
+    "Researcher": ["Medical Knowledge", "Practice-Based Learning", "Personal & Professional Development"],
+    "Administrator / Leader": ["Systems Thinking", "Collaboration & Teamwork", "Professionalism & Ethics"],
+    "Advocate": ["Systems Thinking", "Professionalism & Ethics", "Communication"],
+    "Innovator": ["Practice-Based Learning", "Systems Thinking", "Medical Knowledge"],
+    "Quality / Safety": ["Practice-Based Learning", "Systems Thinking", "Clinical Expertise"],
+    "Wellness Champion": ["Personal & Professional Development", "Collaboration & Teamwork", "Professionalism & Ethics"]
+  },
+
+  "rank_refs": {
+    "1": ["1", "2"],
+    "2": ["1", "2"],
+    "3": ["1", "2", "3"],
+    "4": ["1", "4"],
+    "5": ["1", "4"],
+    "6": ["1", "5"],
+    "7": ["1", "5"],
+    "8": ["1", "5", "3"]
+  },
+  "refs_note": "Numeric refs are the rank-matrix's own source markers as supplied by the founder; reconcile to the Master Review citation list (R1–R25) when integrating. Not yet cross-walked."
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
-import { DOMAINS, TRACKS, type LatticeCellState } from "@/lib/constants";
+import { SKILLS, DOMAINS, type LatticeCellState } from "@/lib/constants";
 import { cn, energyCellClass } from "@/lib/utils";
 import { Card } from "@/components/ui/Card";
 
@@ -31,31 +31,31 @@ export function LatticeGrid({ cells }: { cells: LatticeCellState[] }) {
         <div
           className="inline-grid gap-1"
           style={{
-            gridTemplateColumns: `120px repeat(${TRACKS.length}, minmax(48px, 1fr))`,
+            gridTemplateColumns: `120px repeat(${DOMAINS.length}, minmax(48px, 1fr))`,
           }}
         >
           <div />
-          {TRACKS.map((track) => (
+          {DOMAINS.map((domain) => (
             <div
-              key={track}
+              key={domain}
               className="px-1 py-2 text-center text-[10px] font-semibold leading-tight text-cx-forest-dark/60"
             >
-              {track.split("/")[0]}
+              {domain.split("/")[0]}
             </div>
           ))}
-          {DOMAINS.map((domain, di) => (
-            <Fragment key={domain}>
+          {SKILLS.map((skill, di) => (
+            <Fragment key={skill}>
               <div className="flex items-center pr-2 text-right text-[10px] font-medium text-cx-forest-dark/60">
-                {domain.split(" ")[0]}
+                {skill.split(" ")[0]}
               </div>
-              {TRACKS.map((_, ti) => {
+              {DOMAINS.map((_, ti) => {
                 const cell = getCell(di, ti);
                 return (
                   <button
                     key={`${di}-${ti}`}
                     type="button"
                     onClick={() => setSelected(cell)}
-                    title={`${domain} × ${TRACKS[ti]}: ${cell.activityCount} activities`}
+                    title={`${skill} × ${DOMAINS[ti]}: ${cell.activityCount} activities`}
                     className={cn(
                       "flex h-12 min-w-12 items-center justify-center rounded-lg border text-xs font-semibold transition-shadow hover:border-cx-forest-dark hover:shadow-md",
                       energyCellClass(cell.energy, cell.activityCount),
@@ -73,7 +73,7 @@ export function LatticeGrid({ cells }: { cells: LatticeCellState[] }) {
       {selected && selected.activityCount > 0 && (
         <Card>
           <h3 className="text-lg font-semibold text-cx-forest-dark">
-            {DOMAINS[selected.domainIndex]} × {TRACKS[selected.trackIndex]}
+            {SKILLS[selected.domainIndex]} × {DOMAINS[selected.trackIndex]}
           </h3>
           <p className="mt-2 text-sm text-cx-forest-dark/70">
             {selected.activityCount} activities · Energy:{" "}

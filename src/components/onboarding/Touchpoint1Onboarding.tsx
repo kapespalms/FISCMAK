@@ -28,7 +28,7 @@ import {
 } from "@/lib/v2/onboarding-options";
 import { buildNarrativePrompt, NARRATIVE_HELPER, showNarrativeField } from "@/lib/v2/narrative-prompts";
 import { CLINICAL_SETTINGS, type ClinicalSetting } from "@/lib/v2/setting-naics-map";
-import { CAREER_DOMAINS } from "@/lib/v2/domains";
+import { DOMAIN_IDENTITIES } from "@/lib/v2/domains";
 import {
   MEDICAL_STUDENT_YEARS,
   CURRENT_GOAL_OPTIONS,
@@ -1510,7 +1510,7 @@ export function Touchpoint1Onboarding() {
                         Rate each area: 1 = very draining · 5 = very energizing. Skip any you&apos;re unsure about.
                       </LuxuryHint>
                       <div className="space-y-3">
-                        {CAREER_DOMAINS.map((domain) => (
+                        {DOMAIN_IDENTITIES.map((domain) => (
                           <div key={domain.index} className="flex items-center gap-3">
                             <span className="w-36 shrink-0 text-sm text-gray-300">
                               {domain.name}

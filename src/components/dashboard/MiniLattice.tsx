@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronRight, Grid3x3 } from "lucide-react";
-import { DOMAINS, TRACKS, type LatticeCellState } from "@/lib/constants";
+import { SKILLS, DOMAINS, type LatticeCellState } from "@/lib/constants";
 import { cn, energyCellClass } from "@/lib/utils";
 
 type MiniLatticeProps = {
@@ -75,15 +75,15 @@ export function MiniLattice({
                 cell.activityCount === 0
                   ? 0.35
                   : Math.min(1, 0.55 + cell.activityCount * 0.06);
-              const domain = DOMAINS[d]?.slice(0, 14) ?? "Domain";
-              const track = TRACKS[t]?.slice(0, 12) ?? "Track";
+              const skill  = SKILLS[d]?.slice(0, 14) ?? "Skill";
+              const domain = DOMAINS[t]?.slice(0, 12) ?? "Domain";
               return (
                 <div
                   key={`${d}-${t}`}
                   title={
                     cell.activityCount > 0
-                      ? `${domain} × ${track}: ${cell.activityCount} activities`
-                      : `${domain} × ${track}: no activity`
+                      ? `${skill} × ${domain}: ${cell.activityCount} activities`
+                      : `${skill} × ${domain}: no activity`
                   }
                   className={cn(
                     "rounded-[2px] border transition-opacity group-hover:opacity-100",

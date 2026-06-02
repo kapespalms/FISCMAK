@@ -94,13 +94,16 @@ Led a quality-improvement project, published the outcomes in a peer-reviewed jou
 
 CLINICAL EXPERIENCE
 Performed comprehensive psychiatric evaluations and provided direct patient care for 30 inpatients daily.
+
 Conducted outpatient psychiatric consultations and managed psychopharmacology for 25 patients per clinic session.
 `.trim();
 
 // ── inline helpers (pure JS, no TS imports) ────────────────────────────────
 
-const TRACK_NAMES = ["Clinician","Educator","Researcher","Leader","Advocate","Innovator","Quality-Safety","Wellness Champion"];
-const DOMAIN_NAMES = ["Clinician","Educator","Researcher","Administrator / Leader","Advocate","Innovator","Quality / Safety","Wellness Champion"];
+// TRACK_NAMES = Career Domain identities (founder "Career Domains" = code TRACKS)
+const TRACK_NAMES  = ["Clinician","Educator","Researcher","Administrator/Leader","Advocate","Innovator","Quality/Safety","Wellness Champion"];
+// DOMAIN_NAMES = Career Task/Skills (founder "Career Tasks/Skills" = code DOMAINS)
+const DOMAIN_NAMES = ["Clinical Expertise","Medical Knowledge","Practice-Based Learning","Communication","Professionalism & Ethics","Systems Thinking","Collaboration & Teamwork","Personal & Professional Development"];
 
 function domainName(i) { return DOMAIN_NAMES[i] ?? `domain_${i}`; }
 function trackName(i)  { return TRACK_NAMES[i]  ?? `track_${i}`;  }
@@ -111,7 +114,7 @@ function unpackCells(mak_rationale) {
   try {
     const p = JSON.parse(mak_rationale);
     return (p.cv_cells ?? []).map(({ d, t, w, q }) => ({
-      domain_index: d, track_index: t, weight: w,
+      skill_index: d, domain_index: t, weight: w,
       quadrant: (q === "OV" || q === "SV") ? q : "OV",
     }));
   } catch { return []; }
@@ -165,9 +168,9 @@ async function stage1Parser() {
   for (const row of parsedRows.slice(0, 3)) {
     const p = row.cells[0];
     console.log(`    [${row.confidence_score.toFixed(2)} ${row.placement_method}] ${row.raw_text.slice(0, 65)}`);
-    console.log(`      primary: ${domainName(p.domain_index)} × ${trackName(p.track_index)} w=${p.weight.toFixed(2)} q=${p.quadrant}`);
+    console.log(`      primary: ${domainName(p.skill_index)} × ${trackName(p.domain_index)} w=${p.weight.toFixed(2)} q=${p.quadrant}`);
     for (const c of row.cells.slice(1))
-      console.log(`      also:    ${domainName(c.domain_index)} × ${trackName(c.track_index)} w=${c.weight.toFixed(2)}`);
+      console.log(`      also:    ${domainName(c.skill_index)} × ${trackName(c.domain_index)} w=${c.weight.toFixed(2)}`);
   }
 
   return parsedRows;
@@ -186,8 +189,8 @@ async function stage2Seed(supabase, userId, parsedRows) {
       activity_date:             today,
       raw_text:                  row.raw_text,
       input_source:              "cv_document",
-      primary_domain:            domainName(primary.domain_index),
-      primary_track:             trackName(primary.track_index),
+      primary_domain:            domainName(primary.skill_index),
+      primary_track:             trackName(primary.domain_index),
       confidence_score:          row.confidence_score,
       primary_domain_confidence: row.confidence_score,
       primary_track_confidence:  row.confidence_score,
@@ -195,7 +198,7 @@ async function stage2Seed(supabase, userId, parsedRows) {
       recognition_quadrant:      primary.quadrant,
       source_document_id:        FAKE_DOC_ID,
       user_confirmed:            false,
-      mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.domain_index, t: c.track_index, w: c.weight, q: c.quadrant })) }),
+      mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.skill_index, t: c.domain_index, w: c.weight, q: c.quadrant })) }),
     };
   });
 
@@ -246,13 +249,13 @@ async function stage3Confirm(supabase, userId, activityIds) {
 
     const { data: eu, error: euErr } = await supabase
       .from("evidence_unit")
-      .insert({ user_id: userId, domain_index: primary.domain_index, track_index: primary.track_index, recognition_quadrant: primary.quadrant, raw_text: row.raw_text, physician_confirmed: true, source_activity_id: row.id, created_at: now, updated_at: now })
+      .insert({ user_id: userId, skill_index: primary.skill_index, domain_index: primary.domain_index, recognition_quadrant: primary.quadrant, raw_text: row.raw_text, physician_confirmed: true, source_activity_id: row.id, created_at: now, updated_at: now })
       .select("id").single();
 
     if (euErr || !eu) { fail(`evidence_unit insert: ${euErr?.message}`); continue; }
     euCreated++;
 
-    const ecwRows = cells.map(c => ({ evidence_unit_id: eu.id, user_id: userId, domain_index: c.domain_index, track_index: c.track_index, weight: c.weight, recognition_quadrant: c.quadrant }));
+    const ecwRows = cells.map(c => ({ evidence_unit_id: eu.id, user_id: userId, skill_index: c.skill_index, domain_index: c.domain_index, weight: c.weight, recognition_quadrant: c.quadrant }));
     const { error: ecwErr } = await supabase.from("evidence_cell_weights").insert(ecwRows);
     if (ecwErr) { fail(`evidence_cell_weights insert: ${ecwErr.message}`); continue; }
     ecwCreated += ecwRows.length;
@@ -284,7 +287,7 @@ async function stage4F1(supabase, userId) {
   // Inline the F1 query (mirrors formulas-v3.ts computeF1Density)
   const { data: cellWeights } = await supabase
     .from("evidence_cell_weights")
-    .select("domain_index, track_index, recognition_quadrant, weight, evidence_unit_id")
+    .select("skill_index, domain_index, recognition_quadrant, weight, evidence_unit_id")
     .eq("user_id", userId);
 
   if (!cellWeights?.length) { fail("No evidence_cell_weights rows for test user"); return; }
@@ -303,13 +306,13 @@ async function stage4F1(supabase, userId) {
 
   for (const ecw of cellWeights) {
     if (!confirmedIds.has(ecw.evidence_unit_id)) continue;
-    const key = `${ecw.domain_index}:${ecw.track_index}:${ecw.recognition_quadrant}`;
+    const key = `${ecw.skill_index}:${ecw.domain_index}:${ecw.recognition_quadrant}`;
     const w = SOURCE_WEIGHTS.cv_document; // all test evidence is cv_document
     densityMap.set(key, (densityMap.get(key) ?? 0) + w * ecw.weight);
   }
 
   const cells = [...densityMap.entries()]
-    .map(([key, density]) => { const [d,t,q] = key.split(":"); return { domain_index: +d, track_index: +t, quadrant: q, density }; })
+    .map(([key, density]) => { const [d,t,q] = key.split(":"); return { skill_index: +d, domain_index: +t, quadrant: q, density }; })
     .filter(c => c.density > 0)
     .sort((a, b) => b.density - a.density);
 
@@ -318,7 +321,7 @@ async function stage4F1(supabase, userId) {
   ok(`Total density: ${cells.reduce((s,c)=>s+c.density,0).toFixed(4)}`);
   console.log("\n  Top 5 cells:");
   for (const c of cells.slice(0, 5))
-    console.log(`    ${domainName(c.domain_index)} × ${trackName(c.track_index)} [${c.quadrant}]  ${c.density.toFixed(4)}`);
+    console.log(`    ${domainName(c.skill_index)} × ${trackName(c.domain_index)} [${c.quadrant}]  ${c.density.toFixed(4)}`);
 }
 
 // ── Fixture B — inline F1 for a specific set of evidence_unit IDs ─────────
@@ -327,11 +330,11 @@ function computeInlineF1(cellWeights, confirmedEuIds) {
   const densityMap = new Map();
   for (const ecw of cellWeights) {
     if (!confirmedEuIds.has(ecw.evidence_unit_id)) continue;
-    const key = `${ecw.domain_index}:${ecw.track_index}:${ecw.recognition_quadrant}`;
+    const key = `${ecw.skill_index}:${ecw.domain_index}:${ecw.recognition_quadrant}`;
     densityMap.set(key, (densityMap.get(key) ?? 0) + 0.50 * ecw.weight); // cv_document weight
   }
   return [...densityMap.entries()]
-    .map(([key, density]) => { const [d,t,q] = key.split(":"); return { domain_index: +d, track_index: +t, quadrant: q, density }; })
+    .map(([key, density]) => { const [d,t,q] = key.split(":"); return { skill_index: +d, domain_index: +t, quadrant: q, density }; })
     .filter(c => c.density > 0)
     .sort((a, b) => b.density - a.density);
 }
@@ -370,7 +373,7 @@ async function runFixtureB(supabase, userId) {
   for (const row of parsedRows) {
     console.log(`\n    [${row.confidence_score.toFixed(2)} ${row.placement_method}] ${row.raw_text.slice(0, 70)}`);
     for (const c of row.cells)
-      console.log(`      ${domainName(c.domain_index)} × ${trackName(c.track_index)}  w=${c.weight.toFixed(4)}  q=${c.quadrant}`);
+      console.log(`      ${domainName(c.skill_index)} × ${trackName(c.domain_index)}  w=${c.weight.toFixed(4)}  q=${c.quadrant}`);
   }
 
   // ── B-Stage 2: seed ───────────────────────────────────────────────────────
@@ -384,8 +387,8 @@ async function runFixtureB(supabase, userId) {
       activity_date:             today,
       raw_text:                  row.raw_text,
       input_source:              "cv_document",
-      primary_domain:            domainName(primary.domain_index),
-      primary_track:             trackName(primary.track_index),
+      primary_domain:            domainName(primary.skill_index),
+      primary_track:             trackName(primary.domain_index),
       confidence_score:          row.confidence_score,
       primary_domain_confidence: row.confidence_score,
       primary_track_confidence:  row.confidence_score,
@@ -393,7 +396,7 @@ async function runFixtureB(supabase, userId) {
       recognition_quadrant:      primary.quadrant,
       source_document_id:        FAKE_DOC_ID_B,
       user_confirmed:            false,
-      mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.domain_index, t: c.track_index, w: c.weight, q: c.quadrant })) }),
+      mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.skill_index, t: c.domain_index, w: c.weight, q: c.quadrant })) }),
     };
   });
 
@@ -422,12 +425,12 @@ async function runFixtureB(supabase, userId) {
 
     const { data: eu, error: euErr } = await supabase
       .from("evidence_unit")
-      .insert({ user_id: userId, domain_index: primary.domain_index, track_index: primary.track_index, recognition_quadrant: primary.quadrant, raw_text: row.raw_text, physician_confirmed: true, source_activity_id: row.id, created_at: now, updated_at: now })
+      .insert({ user_id: userId, skill_index: primary.skill_index, domain_index: primary.domain_index, recognition_quadrant: primary.quadrant, raw_text: row.raw_text, physician_confirmed: true, source_activity_id: row.id, created_at: now, updated_at: now })
       .select("id").single();
     if (euErr || !eu) { fail(`B evidence_unit insert: ${euErr?.message}`); continue; }
     bEuIds.push(eu.id);
 
-    const ecwRows = cells.map(c => ({ evidence_unit_id: eu.id, user_id: userId, domain_index: c.domain_index, track_index: c.track_index, weight: c.weight, recognition_quadrant: c.quadrant }));
+    const ecwRows = cells.map(c => ({ evidence_unit_id: eu.id, user_id: userId, skill_index: c.skill_index, domain_index: c.domain_index, weight: c.weight, recognition_quadrant: c.quadrant }));
     const { error: ecwErr } = await supabase.from("evidence_cell_weights").insert(ecwRows);
     if (ecwErr) { fail(`B evidence_cell_weights insert: ${ecwErr.message}`); }
   }
@@ -442,7 +445,7 @@ async function runFixtureB(supabase, userId) {
   // Fetch all ecw rows for Fixture B EUs
   const { data: bCellWeights } = await supabase
     .from("evidence_cell_weights")
-    .select("evidence_unit_id, domain_index, track_index, weight, recognition_quadrant")
+    .select("evidence_unit_id, skill_index, domain_index, weight, recognition_quadrant")
     .in("evidence_unit_id", bEuIds);
 
   if (!bCellWeights?.length) { fail("No evidence_cell_weights rows for Fixture B"); return; }
@@ -459,7 +462,7 @@ async function runFixtureB(supabase, userId) {
   for (const [euId, ecws] of ecwByEu) {
     const short = euId.slice(0, 8);
     for (const ecw of ecws)
-      console.log(`    EU ${short}…  ${domainName(ecw.domain_index)} × ${trackName(ecw.track_index)}  w=${ecw.weight.toFixed(4)}  q=${ecw.recognition_quadrant}`);
+      console.log(`    EU ${short}…  ${domainName(ecw.skill_index)} × ${trackName(ecw.domain_index)}  w=${ecw.weight.toFixed(4)}  q=${ecw.recognition_quadrant}`);
   }
 
   // Assertion 1: at least one EU has >1 ecw row with NO cell at weight 1.0
@@ -481,7 +484,7 @@ async function runFixtureB(supabase, userId) {
 
   console.log("\n  Fixture B F1 top cells (isolated to Fixture B evidence):");
   for (const c of bF1.slice(0, 8))
-    console.log(`    ${domainName(c.domain_index)} × ${trackName(c.track_index)} [${c.quadrant}]  density=${c.density.toFixed(4)}`);
+    console.log(`    ${domainName(c.skill_index)} × ${trackName(c.domain_index)} [${c.quadrant}]  density=${c.density.toFixed(4)}`);
 
   const maxDensityCell = bF1[0];
   const SINGLE_LINE_MAX = 0.50; // source_weight(cv_document) × max_cell_weight(1.0)
@@ -489,7 +492,7 @@ async function runFixtureB(supabase, userId) {
   if (!maxDensityCell) {
     fail("F1 returned no cells for Fixture B");
   } else if (maxDensityCell.density > SINGLE_LINE_MAX) {
-    ok(`Max density cell ${domainName(maxDensityCell.domain_index)} × ${trackName(maxDensityCell.track_index)} = ${maxDensityCell.density.toFixed(4)} > ${SINGLE_LINE_MAX} — accumulation confirmed (2+ lines contributed)`);
+    ok(`Max density cell ${domainName(maxDensityCell.skill_index)} × ${trackName(maxDensityCell.domain_index)} = ${maxDensityCell.density.toFixed(4)} > ${SINGLE_LINE_MAX} — accumulation confirmed (2+ lines contributed)`);
   } else {
     fail(`Max density cell = ${maxDensityCell.density.toFixed(4)} ≤ ${SINGLE_LINE_MAX} — the two clinical lines did NOT accumulate to the same cell`);
     console.log(`  Finding: the two clinical lines may have been routed to different (domain,track) cells.`);

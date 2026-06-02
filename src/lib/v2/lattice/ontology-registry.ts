@@ -1,5 +1,5 @@
 import ontologyExport from "../../../../docs/exports/ontology-full-export.json";
-import { DOMAINS, TRACKS } from "@/lib/constants";
+import { SKILLS, DOMAINS } from "@/lib/constants";
 import { ACGME_TO_FISCMAK_DOMAIN } from "@/lib/v2/lattice/ontology-bridge";
 
 type OntologyTables = (typeof ontologyExport)["tables"];
@@ -174,12 +174,14 @@ export function lookupTrackKey(trackKey: string | null | undefined): number {
   return TRACK_KEY_TO_INDEX[trackKey.toLowerCase()] ?? -1;
 }
 
+/** Returns the skill/task name for a skill_index (task axis). */
 export function canonicalDomainLabel(domainIndex: number): string {
-  return DOMAINS[domainIndex] ?? DOMAINS[0]!;
+  return SKILLS[domainIndex] ?? SKILLS[0]!;
 }
 
+/** Returns the domain identity name for a domain_index (identity axis). */
 export function canonicalTrackLabel(trackIndex: number): string {
-  return TRACKS[trackIndex] ?? TRACKS[0]!;
+  return DOMAINS[trackIndex] ?? DOMAINS[0]!;
 }
 
 /** Match document/activity text to ontology activities via exported phrases */

@@ -1,4 +1,4 @@
-import { DOMAINS, TRACKS, type EnergyValue, type LatticeCellState } from "@/lib/constants";
+import { SKILLS, DOMAINS, type EnergyValue, type LatticeCellState } from "@/lib/constants";
 import type { CareerGoal } from "@/lib/goals";
 import { activitiesToLatticeCells } from "@/lib/lattice";
 import { computeGoalProgressWithHistory } from "@/lib/v2/goal-milestone-tracking";
@@ -368,9 +368,9 @@ export function findGlowCell(cells: DashboardLatticeCell[]): { domainIndex: numb
 }
 
 export function formatLatticeStrength(cell: DashboardLatticeCell): string {
-  const domain = DOMAINS[cell.domainIndex] ?? "Domain";
-  const track = TRACKS[cell.trackIndex] ?? "Track";
-  return `${domain} × ${track} (${cell.score ?? "—"})`;
+  const skill  = SKILLS[cell.domainIndex] ?? "Skill";
+  const domain = DOMAINS[cell.trackIndex] ?? "Domain";
+  return `${skill} × ${domain} (${cell.score ?? "—"})`;
 }
 
 export function advancementReadinessFromHealth(

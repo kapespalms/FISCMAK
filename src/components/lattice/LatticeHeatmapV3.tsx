@@ -2,21 +2,22 @@
 
 import { Fragment, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { CAREER_DOMAINS } from "@/lib/v2/domains";
+import { SKILLS, DOMAINS } from "@/lib/constants";
 import type { HeatmapCell, HeatmapResult } from "@/app/api/v1/lattice/heatmap/route";
 
 // ---------------------------------------------------------------------------
-// Domain and track labels
+// Axis labels (post vocabulary un-flip)
+//   SKILL_SHORT — row axis (skill_index) — abbreviated task/skill names
+//   DOMAIN_SHORT — column axis (domain_index) — abbreviated identity names
 // ---------------------------------------------------------------------------
 
-const TRACK_SHORT = [
-  "Clinician", "Educator", "Researcher", "Leader",
-  "Advocate", "Innovator", "Qual/Safety", "Wellness",
-] as const;
+const SKILL_SHORT  = SKILLS.map((s) =>
+  s.split(" ").slice(0, 2).join(" ").replace("&", "&"),
+) as string[];
 
-const DOMAIN_SHORT = CAREER_DOMAINS.map((d) =>
-  d.name.split(" ")[0]!.replace("/", ""),
-);
+const DOMAIN_SHORT = DOMAINS.map((d) =>
+  d.split("/")[0]!.trim(),
+) as string[];
 
 // ---------------------------------------------------------------------------
 // Cell color — density intensity × energy hue (ipsative)
@@ -96,13 +97,13 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
     );
   }
 
-  // Build cell lookup: "domain:track" → HeatmapCell
+  // Build cell lookup: "skill_index:domain_index" → HeatmapCell
   const cellMap = new Map(
-    data.cells.map((c) => [`${c.domain_index}:${c.track_index}`, c]),
+    data.cells.map((c) => [`${c.skill_index}:${c.domain_index}`, c]),
   );
 
-  const NUM_DOMAINS = 8;
-  const NUM_TRACKS  = 8;
+  const NUM_SKILLS  = 8;  // row axis
+  const NUM_DOMAINS = 8;  // column axis
 
   return (
     <div className="space-y-4">
@@ -112,44 +113,44 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
         Colour reflects how energizing that work is for you.
       </p>
 
-      {/* Grid */}
+      {/* Grid — rows = Skills (task axis), columns = Domains (identity axis) */}
       <div className="overflow-x-auto">
         <div
           className="inline-grid gap-0.5"
-          style={{ gridTemplateColumns: `80px repeat(${NUM_TRACKS}, minmax(40px, 1fr))` }}
+          style={{ gridTemplateColumns: `80px repeat(${NUM_DOMAINS}, minmax(40px, 1fr))` }}
         >
-          {/* Header row */}
+          {/* Header row — Domain identity names (column axis) */}
           <div />
-          {TRACK_SHORT.map((track) => (
-            <div key={track} className="px-0.5 py-1 text-center text-[9px] font-semibold leading-tight text-cx-forest-dark/50">
-              {track}
+          {DOMAIN_SHORT.map((domain) => (
+            <div key={domain} className="px-0.5 py-1 text-center text-[9px] font-semibold leading-tight text-cx-forest-dark/50">
+              {domain}
             </div>
           ))}
 
-          {/* Data rows */}
-          {Array.from({ length: NUM_DOMAINS }, (_, di) => (
-            <Fragment key={di}>
+          {/* Data rows — Skill names (row axis) */}
+          {Array.from({ length: NUM_SKILLS }, (_, si) => (
+            <Fragment key={si}>
               <div className="flex items-center pr-2 text-right text-[10px] font-medium text-cx-forest-dark/60">
-                {DOMAIN_SHORT[di]}
+                {SKILL_SHORT[si]}
               </div>
-              {Array.from({ length: NUM_TRACKS }, (_, ti) => {
-                const cell = cellMap.get(`${di}:${ti}`);
+              {Array.from({ length: NUM_DOMAINS }, (_, di) => {
+                const cell = cellMap.get(`${si}:${di}`);
                 const dn = cell?.density_normalized ?? 0;
                 const er = cell?.energy_rank ?? null;
                 return (
                   <button
-                    key={`${di}-${ti}`}
+                    key={`${si}-${di}`}
                     type="button"
                     onClick={() => setSelected(cell ?? null)}
                     title={
                       cell
-                        ? `${CAREER_DOMAINS[di]?.name} × ${TRACK_SHORT[ti]} · density ${cell.density.toFixed(3)} · energy ${cell.energy_rank ?? "unrated"}`
-                        : `${CAREER_DOMAINS[di]?.name} × ${TRACK_SHORT[ti]} · no evidence yet`
+                        ? `${SKILLS[si]} × ${DOMAINS[di]} · density ${cell.density.toFixed(3)} · energy ${cell.energy_rank ?? "unrated"}`
+                        : `${SKILLS[si]} × ${DOMAINS[di]} · no evidence yet`
                     }
                     className={cn(
                       "h-10 w-full rounded border text-[9px] font-semibold transition-all hover:ring-1 hover:ring-cx-forest-dark/40",
                       cellColorClass(dn, er),
-                      selected?.domain_index === di && selected?.track_index === ti && "ring-2 ring-cx-forest-dark",
+                      selected?.skill_index === si && selected?.domain_index === di && "ring-2 ring-cx-forest-dark",
                     )}
                   >
                     {dn > 0 ? dn.toFixed(2) : ""}
@@ -173,7 +174,7 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
       {selected && (
         <div className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-4 py-3">
           <p className="text-sm font-medium text-cx-forest-dark">
-            {CAREER_DOMAINS[selected.domain_index]?.name} × {TRACK_SHORT[selected.track_index]}
+            {SKILLS[selected.skill_index]} × {DOMAINS[selected.domain_index]}
           </p>
           <p className="mt-1 text-xs text-cx-forest-dark/60">
             Density {selected.density.toFixed(4)} · Ipsative {(selected.density_normalized * 100).toFixed(0)}% of your max ·{" "}

@@ -26,8 +26,8 @@ import { unpackCells } from "@/lib/v2/document-activities";
 import type { CvCellWeight } from "@/lib/v2/lattice/document-parser";
 
 type OverrideCell = {
+  skill_index:  number;
   domain_index: number;
-  track_index: number;
   weight: number;
   quadrant?: string;
 };
@@ -58,8 +58,8 @@ const MAX_CELLS = 3;
 function normalizeOverride(raw: OverrideCell[]): CvCellWeight[] | null {
   const valid = raw.filter(
     (c) =>
+      Number.isInteger(c.skill_index)  && c.skill_index  >= 0 && c.skill_index  <= 7 &&
       Number.isInteger(c.domain_index) && c.domain_index >= 0 && c.domain_index <= 7 &&
-      Number.isInteger(c.track_index)  && c.track_index  >= 0 && c.track_index  <= 7 &&
       typeof c.weight === "number" && c.weight > 0,
   );
   if (valid.length === 0) return null;
@@ -67,8 +67,8 @@ function normalizeOverride(raw: OverrideCell[]): CvCellWeight[] | null {
   const total = valid.reduce((s, c) => s + c.weight, 0);
   let cells: CvCellWeight[] = valid
     .map((c) => ({
+      skill_index:  c.skill_index,
       domain_index: c.domain_index,
-      track_index:  c.track_index,
       weight:       c.weight / total,
       quadrant:     (c.quadrant === "SV" ? "SV" : "OV") as "OV" | "SV",
     }))
@@ -148,13 +148,13 @@ export async function POST(request: Request, context: RouteContext) {
     // and by buildWeightedCells in the parser)
     const primary = cells[0]!;
 
-    // Insert evidence_unit (primary cell)
+    // Insert evidence_unit (primary cell — skill_index/domain_index after vocabulary un-flip)
     const { data: euRow, error: euError } = await supabase
       .from("evidence_unit")
       .insert({
         user_id:              auth.userId,
+        skill_index:          primary.skill_index,
         domain_index:         primary.domain_index,
-        track_index:          primary.track_index,
         recognition_quadrant: primary.quadrant,
         raw_text:             entry.raw_text,
         physician_confirmed:  true,
@@ -172,11 +172,11 @@ export async function POST(request: Request, context: RouteContext) {
     }
 
     // Insert evidence_cell_weights — full distribution, normalized weights intact
-    const weightRows = cells.map(({ domain_index, track_index, weight, quadrant }) => ({
+    const weightRows = cells.map(({ skill_index, domain_index, weight, quadrant }) => ({
       evidence_unit_id:     euRow.id,
       user_id:              auth.userId,
+      skill_index,
       domain_index,
-      track_index,
       weight,
       recognition_quadrant: quadrant,
     }));

@@ -13,7 +13,7 @@
  */
 
 import { createClient } from "@/lib/supabase/server";
-import { CAREER_DOMAINS } from "@/lib/v2/domains";
+import { SKILLS, DOMAINS } from "@/lib/constants";
 import {
   parseDocumentToCvRows,
   type CvCellWeight,
@@ -23,28 +23,26 @@ import {
 // Internal helpers
 // ---------------------------------------------------------------------------
 
-const TRACK_NAMES = [
-  "Clinician", "Educator", "Researcher", "Leader",
-  "Advocate", "Innovator", "Quality-Safety", "Wellness Champion",
-] as const;
-
-function domainName(i: number): string {
-  return CAREER_DOMAINS.find((d) => d.index === i)?.name ?? `domain_${i}`;
+/** skill_index → SKILLS name (task/skill axis). */
+function skillName(i: number): string {
+  return SKILLS[i] ?? `skill_${i}`;
 }
-function trackName(i: number): string {
-  return TRACK_NAMES[i] ?? `track_${i}`;
+/** domain_index → DOMAINS name (identity axis). */
+function domainName(i: number): string {
+  return DOMAINS[i] ?? `domain_${i}`;
 }
 function confidenceTier(score: number): string {
   return score >= 0.80 ? "high" : score >= 0.60 ? "medium" : "low";
 }
 
 /** Compact serialization stored in mak_rationale so the confirm route can
- *  reconstruct the full cell distribution without re-running the parser. */
+ *  reconstruct the full cell distribution without re-running the parser.
+ *  Keys: d=skill_index (task axis), t=domain_index (identity axis). */
 type PackedCell = { d: number; t: number; w: number; q: string };
 
 function packCells(cells: CvCellWeight[]): string {
-  const packed: PackedCell[] = cells.map(({ domain_index, track_index, weight, quadrant }) => ({
-    d: domain_index, t: track_index, w: weight, q: quadrant,
+  const packed: PackedCell[] = cells.map(({ skill_index, domain_index, weight, quadrant }) => ({
+    d: skill_index, t: domain_index, w: weight, q: quadrant,
   }));
   return JSON.stringify({ cv_cells: packed });
 }
@@ -54,8 +52,8 @@ export function unpackCells(mak_rationale: string | null): CvCellWeight[] {
   try {
     const parsed = JSON.parse(mak_rationale) as { cv_cells?: PackedCell[] };
     return (parsed.cv_cells ?? []).map(({ d, t, w, q }) => ({
-      domain_index: d,
-      track_index:  t,
+      skill_index:  d,   // d = skill_index (task axis)
+      domain_index: t,   // t = domain_index (identity axis)
       weight:       w,
       quadrant:     (q === "OV" || q === "SV") ? q : "OV",
     }));
@@ -100,8 +98,8 @@ export async function seedActivityEntriesFromCv(params: {
       activity_date:             today,
       raw_text:                  row.raw_text,
       input_source:              "cv_document",
-      primary_domain:            domainName(primary.domain_index),
-      primary_track:             trackName(primary.track_index),
+      primary_domain:            skillName(primary.skill_index),  // skill name (task axis)
+      primary_track:             domainName(primary.domain_index), // identity name (domain axis)
       confidence_score:          row.confidence_score,
       primary_domain_confidence: row.confidence_score,
       primary_track_confidence:  row.confidence_score,

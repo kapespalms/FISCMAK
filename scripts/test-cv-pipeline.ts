@@ -24,7 +24,8 @@ import { createClient } from "@supabase/supabase-js";
 import { parseDocumentToCvRows } from "@/lib/v2/lattice/document-parser";
 import { unpackCells } from "@/lib/v2/document-activities";
 import { computeF1Density } from "@/lib/v2/formulas-v3";
-import { CAREER_DOMAINS } from "@/lib/v2/domains";
+import { SKILLS } from "@/lib/constants";
+import { DOMAIN_IDENTITIES } from "@/lib/v2/domains";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -52,13 +53,8 @@ function pass(msg: string) { console.log(`  ✓ ${msg}`); }
 function fail(msg: string) { console.error(`  ✗ ${msg}`); }
 function section(title: string) { console.log(`\n── ${title} ${"─".repeat(Math.max(0, 56 - title.length))}`); }
 
-const TRACK_NAMES = [
-  "Clinician", "Educator", "Researcher", "Leader",
-  "Advocate", "Innovator", "Quality-Safety", "Wellness Champion",
-] as const;
-
-function domainName(i: number) { return CAREER_DOMAINS.find(d => d.index === i)?.name ?? `domain_${i}`; }
-function trackName(i: number)  { return TRACK_NAMES[i] ?? `track_${i}`; }
+function skillName(i: number)  { return SKILLS[i] ?? `skill_${i}`; }
+function domainName(i: number) { return DOMAIN_IDENTITIES.find(d => d.index === i)?.name ?? `domain_${i}`; }
 
 // ---------------------------------------------------------------------------
 // Sample CV text (representative attending psychiatric CV)
@@ -163,10 +159,10 @@ async function main() {
       for (const row of parsedRows.slice(0, 3)) {
         const primary = row.cells[0]!;
         console.log(`    [${row.confidence_score.toFixed(2)} ${row.placement_method}] ${row.raw_text.slice(0, 70)}`);
-        console.log(`      primary: ${domainName(primary.domain_index)} × ${trackName(primary.track_index)} (w=${primary.weight.toFixed(2)}, q=${primary.quadrant})`);
+        console.log(`      primary: ${skillName(primary.skill_index)} × ${domainName(primary.domain_index)} (w=${primary.weight.toFixed(2)}, q=${primary.quadrant})`);
         if (row.cells.length > 1) {
           for (const c of row.cells.slice(1)) {
-            console.log(`      also:    ${domainName(c.domain_index)} × ${trackName(c.track_index)} (w=${c.weight.toFixed(2)})`);
+            console.log(`      also:    ${skillName(c.skill_index)} × ${domainName(c.domain_index)} (w=${c.weight.toFixed(2)})`);
           }
         }
       }
@@ -183,8 +179,8 @@ async function main() {
         activity_date:             today,
         raw_text:                  row.raw_text,
         input_source:              "cv_document",
-        primary_domain:            domainName(primary.domain_index),
-        primary_track:             trackName(primary.track_index),
+        primary_domain:            skillName(primary.skill_index),
+        primary_track:             domainName(primary.domain_index),
         confidence_score:          row.confidence_score,
         primary_domain_confidence: row.confidence_score,
         primary_track_confidence:  row.confidence_score,
@@ -192,7 +188,7 @@ async function main() {
         recognition_quadrant:      primary.quadrant,
         source_document_id:        FAKE_DOCUMENT_ID,
         user_confirmed:            false,
-        mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.domain_index, t: c.track_index, w: c.weight, q: c.quadrant })) }),
+        mak_rationale:             JSON.stringify({ cv_cells: row.cells.map(c => ({ d: c.skill_index, t: c.domain_index, w: c.weight, q: c.quadrant })) }),
       };
     });
 
@@ -241,8 +237,8 @@ async function main() {
           .from("evidence_unit")
           .insert({
             user_id:              testUserId!,
+            skill_index:          primary.skill_index,
             domain_index:         primary.domain_index,
-            track_index:          primary.track_index,
             recognition_quadrant: primary.quadrant,
             raw_text:             row.raw_text,
             physician_confirmed:  true,
@@ -259,8 +255,8 @@ async function main() {
         const weightRows = cells.map(c => ({
           evidence_unit_id:     eu.id,
           user_id:              testUserId!,
+          skill_index:          c.skill_index,
           domain_index:         c.domain_index,
-          track_index:          c.track_index,
           weight:               c.weight,
           recognition_quadrant: c.quadrant,
         }));
@@ -303,7 +299,7 @@ async function main() {
       console.log("\n  Top 5 cells by density:");
       const sorted = [...f1Result.cells].sort((a, b) => b.density - a.density).slice(0, 5);
       for (const c of sorted) {
-        console.log(`    ${domainName(c.domain_index)} × ${trackName(c.track_index)} [${c.quadrant}]  density=${c.density.toFixed(4)}`);
+        console.log(`    ${skillName(c.skill_index)} × ${domainName(c.domain_index)} [${c.quadrant}]  density=${c.density.toFixed(4)}`);
       }
     }
 

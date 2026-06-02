@@ -1,5 +1,5 @@
 import type { ActivityEntry } from "@/lib/types/database";
-import { DOMAINS, TRACKS } from "@/lib/constants";
+import { SKILLS, DOMAINS } from "@/lib/constants";
 import {
   inferDevelopmentLevel,
   keywordPlacement,
@@ -84,7 +84,7 @@ export function resolveActivityLatticePlacement(
     textMatch?.acgmeKey ?? keyword?.acgmeKey ?? resolveAcgmeFromDomainIndex(domainIndex);
 
   const source =
-    domainIndex >= 0 && DOMAINS.includes(activity.primary_domain as (typeof DOMAINS)[number])
+    domainIndex >= 0 && SKILLS.includes(activity.primary_domain as (typeof SKILLS)[number])
       ? "canonical"
       : keyword || textMatch
         ? "keyword"

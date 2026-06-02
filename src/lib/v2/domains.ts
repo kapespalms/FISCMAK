@@ -2,12 +2,12 @@
  * The 8 FISCMAK Career Domains (Part IV). domain_index 0–7 is the canonical
  * lattice coordinate; name matches PRIMARY_CAREER_TRACKS order exactly.
  *
- * ⚠️ Code note: founder "Career Domains" (columns) = code TRACKS.
- *    These are the domain labels shown to physicians in the energy-ranking form.
- *    name values match Part IV canonical labels (may differ from PRIMARY_CAREER_TRACKS
- *    short-forms, e.g. "Administrator / Leader" vs "Leader").
+ * DOMAIN_IDENTITIES — the 8 career identity domains (columns of the 8×8 lattice).
+ * Vocabulary: DOMAINS = identities (Clinician…); SKILLS = tasks (Clinical Expertise…).
+ * Used by energy-ranking and quarterly-snapshot forms where the full object
+ * (name + description) is needed. Index matches DOMAINS array in constants.ts.
  */
-export const CAREER_DOMAINS = [
+export const DOMAIN_IDENTITIES = [
   {
     index: 0,
     name: "Clinician",

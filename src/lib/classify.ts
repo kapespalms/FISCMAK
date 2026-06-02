@@ -1,12 +1,12 @@
-import { DOMAINS, TRACKS } from "@/lib/constants";
+import { SKILLS, DOMAINS } from "@/lib/constants";
 import type { ClassificationResult } from "@/lib/types/database";
 
-const DOMAIN_KEYWORDS: Record<string, string[]> = {
-  [DOMAINS[0]]: ["clinical", "patient", "diagnosis", "treatment", "care"],
-  [DOMAINS[3]]: ["communication", "conversation", "family", "meeting"],
-  [DOMAINS[6]]: ["team", "collaborat", "committee", "partner"],
-  [DOMAINS[5]]: ["lead", "director", "chair", "manage", "admin"],
-  [DOMAINS[2]]: [
+const SKILL_KEYWORDS: Record<string, string[]> = {
+  [SKILLS[0]]: ["clinical", "patient", "diagnosis", "treatment", "care"],
+  [SKILLS[3]]: ["communication", "conversation", "family", "meeting"],
+  [SKILLS[6]]: ["team", "collaborat", "committee", "partner"],
+  [SKILLS[5]]: ["lead", "director", "chair", "manage", "admin"],
+  [SKILLS[2]]: [
     "teach",
     "mentor",
     "curriculum",
@@ -17,19 +17,27 @@ const DOMAIN_KEYWORDS: Record<string, string[]> = {
   ],
 };
 
-const TRACK_KEYWORDS: Record<string, string[]> = {
-  [TRACKS[0]]: ["clinical", "patient", "rounds"],
-  [TRACKS[1]]: ["teach", "mentor", "resident", "fellow", "education"],
-  [TRACKS[3]]: ["lead", "director", "chair", "committee"],
-  [TRACKS[6]]: ["quality", "safety", "improvement"],
+const DOMAIN_KEYWORDS: Record<string, string[]> = {
+  [DOMAINS[0]]: ["clinical", "patient", "rounds"],
+  [DOMAINS[1]]: ["teach", "mentor", "resident", "fellow", "education"],
+  [DOMAINS[3]]: ["lead", "director", "chair", "committee"],
+  [DOMAINS[6]]: ["quality", "safety", "improvement"],
 };
 
 export function classifyActivityFallback(text: string): ClassificationResult {
   const lower = text.toLowerCase();
-  let domain: string = DOMAINS[2];
-  let track: string = TRACKS[0];
+  let skill:  string = SKILLS[2]!;
+  let domain: string = DOMAINS[0]!;
+  let bestSkillScore  = 0;
   let bestDomainScore = 0;
-  let bestTrackScore = 0;
+
+  for (const [s, words] of Object.entries(SKILL_KEYWORDS)) {
+    const score = words.filter((w) => lower.includes(w)).length;
+    if (score > bestSkillScore) {
+      bestSkillScore = score;
+      skill = s;
+    }
+  }
 
   for (const [d, words] of Object.entries(DOMAIN_KEYWORDS)) {
     const score = words.filter((w) => lower.includes(w)).length;
@@ -39,26 +47,18 @@ export function classifyActivityFallback(text: string): ClassificationResult {
     }
   }
 
-  for (const [t, words] of Object.entries(TRACK_KEYWORDS)) {
-    const score = words.filter((w) => lower.includes(w)).length;
-    if (score > bestTrackScore) {
-      bestTrackScore = score;
-      track = t;
-    }
-  }
-
   if (lower.includes("mentor") || lower.includes("teach")) {
-    track = TRACKS[1];
-    domain = DOMAINS[2];
+    domain = DOMAINS[1]!;
+    skill  = SKILLS[2]!;
   }
 
-  const confidence = 0.55 + Math.min(bestDomainScore + bestTrackScore, 3) * 0.1;
+  const confidence = 0.55 + Math.min(bestSkillScore + bestDomainScore, 3) * 0.1;
 
   return {
-    primary_domain: domain,
-    primary_track: track,
+    primary_domain: skill,   // activity_entries.primary_domain = skill name
+    primary_track:  domain,  // activity_entries.primary_track  = domain/identity name
     primary_domain_confidence: confidence,
-    primary_track_confidence: confidence,
+    primary_track_confidence:  confidence,
     scope: "team",
     evidence_strength: "self_reported",
     confidence_score: confidence,

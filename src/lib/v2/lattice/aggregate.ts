@@ -3,8 +3,8 @@ import type { DocumentRecord } from "@/lib/v2/types";
 import {
   ACGME_COMPETENCIES,
   ACGME_LEVELS,
+  SKILLS,
   DOMAINS,
-  TRACKS,
   acgmeLevelIndex,
 } from "@/lib/v2/lattice/ontology-bridge";
 import { resolveActivityLatticePlacement } from "@/lib/v2/lattice/activity-normalize";
@@ -82,16 +82,16 @@ export { isConfirmedActivity };
 
 function aggregateFiscmak(evidence: LatticeEvidence[]): LatticeGridModel {
   const cells: LatticeCellMetrics[] = [];
-  for (let di = 0; di < DOMAINS.length; di++) {
-    for (let ti = 0; ti < TRACKS.length; ti++) {
+  for (let di = 0; di < SKILLS.length; di++) {
+    for (let ti = 0; ti < DOMAINS.length; ti++) {
       const matched = evidence.filter(
         (e) => e.fiscmak?.domainIndex === di && e.fiscmak?.trackIndex === ti,
       );
-      cells.push(buildCellMetrics(di, ti, DOMAINS[di]!, TRACKS[ti]!, matched));
+      cells.push(buildCellMetrics(di, ti, SKILLS[di]!, DOMAINS[ti]!, matched));
     }
   }
   applyRelativeIntensity(cells);
-  return { kind: "fiscmak", rowLabels: [...DOMAINS], colLabels: [...TRACKS], cells };
+  return { kind: "fiscmak", rowLabels: [...SKILLS], colLabels: [...DOMAINS], cells };
 }
 
 function aggregateAcgme(evidence: LatticeEvidence[]): LatticeGridModel {

@@ -42,8 +42,10 @@ function sourceWeight(inputSource: string | null | undefined): number {
 // ---------------------------------------------------------------------------
 
 export type DensityCell = {
+  /** Skill/task axis (0–7): indexes SKILLS array. */
+  skill_index:  number;
+  /** Domain identity axis (0–7): indexes DOMAINS array. */
   domain_index: number;
-  track_index: number;
   quadrant: "OV" | "OI" | "SV" | "SI";
   /** D(q,d,t) = Σ w_s · weight; physician-confirmed evidence only. */
   density: number;
@@ -77,7 +79,7 @@ export async function computeF1Density(
   // 1. Fetch all evidence_cell_weights for this user
   const { data: cellWeights, error: ecwError } = await supabase
     .from("evidence_cell_weights")
-    .select("domain_index, track_index, recognition_quadrant, weight, evidence_unit_id")
+    .select("skill_index, domain_index, recognition_quadrant, weight, evidence_unit_id")
     .eq("user_id", userId);
 
   if (ecwError || !cellWeights?.length) {
@@ -129,22 +131,22 @@ export async function computeF1Density(
     const inputSource = activityId ? activitySourceMap.get(activityId) : undefined;
     const w = sourceWeight(inputSource);
 
-    const key = `${ecw.domain_index}:${ecw.track_index}:${ecw.recognition_quadrant}`;
+    const key = `${ecw.skill_index}:${ecw.domain_index}:${ecw.recognition_quadrant}`;
     densityMap.set(key, (densityMap.get(key) ?? 0) + w * (ecw.weight as number));
   }
 
   const cells: DensityCell[] = Array.from(densityMap.entries())
     .map(([key, density]) => {
-      const [d, t, q] = key.split(":");
+      const [s, d, q] = key.split(":");
       return {
+        skill_index:  Number(s),
         domain_index: Number(d),
-        track_index:  Number(t),
         quadrant:     q as DensityCell["quadrant"],
         density,
       };
     })
     .filter((c) => c.density > 0)
-    .sort((a, b) => a.domain_index - b.domain_index || a.track_index - b.track_index);
+    .sort((a, b) => a.domain_index - b.domain_index || a.skill_index - b.skill_index);
 
   return { cells, computed_at: now };
 }

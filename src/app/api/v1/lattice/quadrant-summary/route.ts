@@ -50,6 +50,7 @@ export async function GET() {
   const totals: Record<string, number> = { OV: 0, OI: 0, SV: 0, SI: 0 };
   for (const cell of f1.cells) {
     totals[cell.quadrant] = (totals[cell.quadrant] ?? 0) + cell.density;
+    // skill_index and domain_index available if needed for future cell-level breakdown
   }
 
   const totalDensity = Object.values(totals).reduce((s, v) => s + v, 0);

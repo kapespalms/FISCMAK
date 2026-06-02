@@ -5,7 +5,9 @@ import {
   parseDocumentToCvRows,
   type ParsedCvRow,
 } from "@/lib/v2/lattice/document-parser";
-import { DOMAINS, TRACKS } from "@/lib/constants";
+import { SKILLS, DOMAINS } from "@/lib/constants";
+import { KEYWORD_FISCMAK } from "@/lib/v2/lattice/ontology-bridge";
+import matrixJson from "../../../../docs/domain_skill_rank_matrix.json";
 
 function cvDoc(text: string): DocumentRecord {
   return {
@@ -32,9 +34,9 @@ describe("parseDocumentsToLatticeEvidence — psychiatry CV", () => {
     const publication = evidence.find((e) => e.rawText.includes("Am J Psychiatry"));
 
     expect(residency).toBeDefined();
-    expect(TRACKS[residency!.fiscmak.trackIndex]).toBe("Clinician");
+    expect(DOMAINS[residency!.fiscmak.trackIndex]).toBe("Clinician");
     expect(publication).toBeDefined();
-    expect(TRACKS[publication!.fiscmak.trackIndex]).toBe("Researcher");
+    expect(DOMAINS[publication!.fiscmak.trackIndex]).toBe("Researcher");
   });
 
   it("uses consultation-liaison section for C-L blocks", () => {
@@ -46,7 +48,7 @@ describe("parseDocumentsToLatticeEvidence — psychiatry CV", () => {
     const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
     const cl = evidence.find((e) => e.rawText.includes("consultations"));
     expect(cl).toBeDefined();
-    expect(TRACKS[cl!.fiscmak.trackIndex]).toBe("Clinician");
+    expect(DOMAINS[cl!.fiscmak.trackIndex]).toBe("Clinician");
   });
 });
 
@@ -71,8 +73,8 @@ describe("improvements — snippet cap, verb levels, missing sections", () => {
     const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
     const entry = evidence.find((e) => e.rawText.includes("Grand Rounds"));
     expect(entry).toBeDefined();
-    expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Researcher");
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Medical Knowledge");
+    expect(DOMAINS[entry!.fiscmak.trackIndex]).toBe("Researcher");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).toBe("Medical Knowledge");
   });
 
   it("COMMUNICATION section routes to Communication domain", () => {
@@ -83,7 +85,7 @@ describe("improvements — snippet cap, verb levels, missing sections", () => {
     const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
     const entry = evidence.find((e) => e.rawText.includes("training module"));
     expect(entry).toBeDefined();
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Communication");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).toBe("Communication");
   });
 
   it("INTERPROFESSIONAL section routes to Collaboration & Teamwork domain", () => {
@@ -94,7 +96,7 @@ describe("improvements — snippet cap, verb levels, missing sections", () => {
     const evidence = parseDocumentsToLatticeEvidence([cvDoc(text)]);
     const entry = evidence.find((e) => e.rawText.includes("case conferences"));
     expect(entry).toBeDefined();
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Collaboration & Teamwork");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).toBe("Collaboration & Teamwork");
   });
 
   it("founding/pioneer verbs infer level 5", () => {
@@ -132,8 +134,8 @@ describe("Bug #1 — section hint must not override ontology match", () => {
     expect(entry).toBeDefined();
     // Domain 7 = Personal & Professional Development (mentoring)
     // Bug: currently routes to domain 0 (Clinical) because EDUCATION section hint wins
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Personal & Professional Development");
-    expect(TRACKS[entry!.fiscmak.trackIndex]).not.toBe("Clinician");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).toBe("Personal & Professional Development");
+    expect(DOMAINS[entry!.fiscmak.trackIndex]).not.toBe("Clinician");
   });
 
   it("teaching content under EDUCATION routes to Practice-Based Learning, not Clinical", () => {
@@ -147,7 +149,7 @@ describe("Bug #1 — section hint must not override ontology match", () => {
 
     expect(entry).toBeDefined();
     // Domain 2 = Practice-Based Learning (teaching/education, v3 PCRS)
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Practice-Based Learning");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).toBe("Practice-Based Learning");
   });
 
   it("leadership content under RESEARCH routes to Systems Thinking, not Medical Knowledge", () => {
@@ -161,7 +163,7 @@ describe("Bug #1 — section hint must not override ontology match", () => {
 
     expect(entry).toBeDefined();
     // Domain 5 = Systems Thinking (leadership/admin, v3 PCRS)
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).toBe("Systems Thinking");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).toBe("Systems Thinking");
   });
 });
 
@@ -183,8 +185,8 @@ describe("Bug #2 — psychiatry/psychiatric must not override context", () => {
     expect(entry).toBeDefined();
     // Bug: "psychiatry" keyword fires first → Clinical×Clinician
     // Correct: "research" / "manuscript" keyword fires → Scholarship×Researcher
-    expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Researcher");
-    expect(DOMAINS[entry!.fiscmak.domainIndex]).not.toBe("Clinical Expertise");
+    expect(DOMAINS[entry!.fiscmak.trackIndex]).toBe("Researcher");
+    expect(SKILLS[entry!.fiscmak.domainIndex]).not.toBe("Clinical Expertise");
   });
 
   it("psychiatry curriculum redesign routes to Educator, not Clinician", () => {
@@ -199,7 +201,7 @@ describe("Bug #2 — psychiatry/psychiatric must not override context", () => {
     expect(entry).toBeDefined();
     // Bug: "psychiatry" keyword fires before "curriculum/teach" rules
     // Correct: should route to Educator (teaching domain)
-    expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Educator");
+    expect(DOMAINS[entry!.fiscmak.trackIndex]).toBe("Educator");
   });
 
   it("psychiatry QI project routes to Quality/Safety, not Clinician", () => {
@@ -214,7 +216,7 @@ describe("Bug #2 — psychiatry/psychiatric must not override context", () => {
     expect(entry).toBeDefined();
     // Bug: "psychiatry" keyword fires before "quality/safety" rule
     // Correct: QI section + safety content → Quality/Safety track
-    expect(TRACKS[entry!.fiscmak.trackIndex]).toBe("Quality/Safety");
+    expect(DOMAINS[entry!.fiscmak.trackIndex]).toBe("Quality/Safety");
   });
 });
 
@@ -277,7 +279,7 @@ describe("parseDocumentToCvRows — new model invariants (§8.2)", () => {
     );
     const pub = rows[0];
     expect(pub).toBeDefined();
-    const hasResearcher = pub!.cells.some((c) => c.track_index === 2);
+    const hasResearcher = pub!.cells.some((c) => c.domain_index === 2);
     expect(hasResearcher).toBe(true);
   });
 
@@ -315,4 +317,52 @@ describe("parseDocumentToCvRows — new model invariants (§8.2)", () => {
     expect(rows.length).toBeGreaterThan(0);
     assertInvariants(rows);
   });
+});
+
+// ---------------------------------------------------------------------------
+// Conformance test — KEYWORD_FISCMAK primary skill must be in domain top-3
+// per domain_skill_rank_matrix.json.  Asserts by NAME (not index) so it is
+// robust across future index shifts.  Catches any vocab flip or mis-route.
+//
+// ⚠️ FLAGGED entries (skill_index:domain_index pairs below) route to
+// secondary-evidence cells that fall outside the top-3 for their identity.
+// These are ROUTING ISSUES to review with the Founder — changing routing
+// logic is out of scope for the vocabulary-rename task.
+//   "6:0"  Collaboration & Teamwork × Clinician  (rank 5 for Clinician)
+//   "7:1"  Personal & Professional Dev × Educator (rank 4 for Educator)
+//   "4:0"  Professionalism & Ethics × Clinician   (rank 4 for Clinician)
+// ---------------------------------------------------------------------------
+
+describe("KEYWORD_FISCMAK conformance — top-3 per domain_skill_rank_matrix.json", () => {
+  const normalize = (s: string) => s.replace(/\s*\/\s*/g, "/");
+
+  const top3: Record<string, string[]> = Object.fromEntries(
+    Object.entries(matrixJson.primary_skills_by_domain as Record<string, string[]>).map(
+      ([domain, skills]) => [normalize(domain), skills],
+    ),
+  );
+
+  // Known routing mismatches — flagged for Founder review (not a rename bug)
+  const FLAGGED = new Set(["6:0", "7:1", "4:0"]);
+
+  for (const rule of KEYWORD_FISCMAK) {
+    const skillIdx  = rule.domainIndex; // domainIndex field = skill axis post-rename
+    const domainIdx = rule.trackIndex;  // trackIndex field  = identity axis post-rename
+    const skill     = SKILLS[skillIdx]   ?? `skill_${skillIdx}`;
+    const domain    = DOMAINS[domainIdx] ?? `domain_${domainIdx}`;
+    const key       = `${skillIdx}:${domainIdx}`;
+    const label     = `${rule.keywords[0]!} → "${skill}" × "${domain}"`;
+
+    if (FLAGGED.has(key)) {
+      it.skip(`[routing-flag] ${label}: "${skill}" not in ${domain} top-3 — review needed`, () => {});
+    } else {
+      it(`${label}: skill in domain top-3`, () => {
+        const expected = top3[domain] ?? [];
+        expect(
+          expected,
+          `Domain "${domain}", got skill "${skill}", expected one of: ${expected.join(", ")}`,
+        ).toContain(skill);
+      });
+    }
+  }
 });

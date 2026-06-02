@@ -1,4 +1,4 @@
-import { DOMAINS, TRACKS, type LatticeCellState } from "@/lib/constants";
+import { DOMAINS, type LatticeCellState } from "@/lib/constants";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { CareerGoal } from "@/lib/goals";
 import { activitiesToLatticeCells } from "@/lib/lattice";

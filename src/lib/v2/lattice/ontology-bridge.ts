@@ -1,5 +1,5 @@
 import universalCompetencies from "../../../../docs/seeds/acgme/universal_core_competencies.json";
-import { DOMAINS, TRACKS } from "@/lib/constants";
+import { SKILLS, DOMAINS } from "@/lib/constants";
 
 export const ACGME_COMPETENCIES = universalCompetencies.competencies.map((c) => ({
   key: c.key,
@@ -15,10 +15,10 @@ export const ACGME_LEVELS = [
   { level: 5, label: "Level 5", description: "Expert / role model" },
 ] as const;
 
-/** FISCMAK 8×8 domain labels */
-export { DOMAINS, TRACKS };
+/** FISCMAK 8×8 axis labels — post vocabulary un-flip */
+export { SKILLS, DOMAINS };
 
-/** ACGME competency key → FISCMAK domain index */
+/** ACGME competency key → FISCMAK skill index (task/skill axis) */
 export const ACGME_TO_FISCMAK_DOMAIN: Record<string, number> = {
   pc: 0,
   mk: 1,
@@ -36,9 +36,6 @@ export const KEYWORD_FISCMAK: Array<{
   acgmeKey: string;
   baseLevel: number;
 }> = [
-  // Teaching and mentoring rules come before residency/rotation so that
-  // "residency curriculum" or "trainee supervision" text is not swallowed
-  // by the broad clinical training keywords.
   // Teaching and mentoring rules come before residency/rotation so that
   // "residency curriculum" or "trainee supervision" text is not swallowed
   // by the broad clinical training keywords.
@@ -72,16 +69,16 @@ export const KEYWORD_FISCMAK: Array<{
 
 export function normalizeFiscmakDomain(value: string | null | undefined): number {
   if (!value) return -1;
-  const exact = DOMAINS.indexOf(value as (typeof DOMAINS)[number]);
+  const exact = SKILLS.indexOf(value as (typeof SKILLS)[number]);
   if (exact >= 0) return exact;
   const lower = value.toLowerCase();
-  const idx = DOMAINS.findIndex((d) => lower.includes(d.split(" ")[0]!.toLowerCase()));
+  const idx = SKILLS.findIndex((s) => lower.includes(s.split(" ")[0]!.toLowerCase()));
   return idx >= 0 ? idx : -1;
 }
 
 export function normalizeFiscmakTrack(value: string | null | undefined): number {
   if (!value) return -1;
-  const exact = TRACKS.indexOf(value as (typeof TRACKS)[number]);
+  const exact = DOMAINS.indexOf(value as (typeof DOMAINS)[number]);
   if (exact >= 0) return exact;
   const lower = value.toLowerCase();
   if (lower.includes("educat")) return 1;

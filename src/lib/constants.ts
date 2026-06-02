@@ -1,4 +1,5 @@
-export const DOMAINS = [
+/** Career Task/Skills — the row axis of the 8×8 lattice (ACGME-rooted competencies). */
+export const SKILLS = [
   "Clinical Expertise",
   "Medical Knowledge",
   "Practice-Based Learning",
@@ -9,7 +10,8 @@ export const DOMAINS = [
   "Personal & Professional Development",
 ] as const;
 
-export const TRACKS = [
+/** Career Domain identities — the column axis of the 8×8 lattice. "TRACKS" retired. */
+export const DOMAINS = [
   "Clinician",
   "Educator",
   "Researcher",

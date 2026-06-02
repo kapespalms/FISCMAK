@@ -384,6 +384,12 @@ async function main() {
     requiresTable: "evidence_unit",
   });
 
+  steps.push({
+    file: "docs/migrations/20260554_rename_evidence_axes.sql",
+    label: "Rename evidence axes: domain_index→skill_index, track_index→domain_index (vocabulary un-flip)",
+    requiresTable: "evidence_unit",
+  });
+
   let failures = 0;
   for (const step of steps) {
     if (step.requiresTable && !(await tableExists(client, step.requiresTable))) {

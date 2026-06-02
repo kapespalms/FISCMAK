@@ -18,8 +18,10 @@ import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
 import { computeF1Density } from "@/lib/v2/formulas-v3";
 
 export type HeatmapCell = {
+  /** Skill/task axis (0–7): indexes SKILLS array. */
+  skill_index:  number;
+  /** Domain identity axis (0–7): indexes DOMAINS array. */
   domain_index: number;
-  track_index:  number;
   quadrant:     "OV" | "OI" | "SV" | "SI";
   density:      number;
   /** 0–1, ipsative: density / max_density across this user's cells. */
@@ -48,7 +50,9 @@ export async function GET() {
   // F1 density cells
   const f1 = await computeF1Density(auth.userId, supabase);
 
-  // Domain energy rankings (1–5 per domain 0–7)
+  // Domain energy rankings (1–5 per domain identity 0–7).
+  // energy_rankings.domain_index is the identity axis — matches DensityCell.domain_index
+  // after the vocabulary un-flip. No longer needs a translation.
   const { data: rankings } = await supabase
     .from("energy_rankings")
     .select("domain_index, rank")
@@ -64,11 +68,13 @@ export async function GET() {
     : 0;
 
   const cells: HeatmapCell[] = f1.cells.map((c) => ({
+    skill_index:        c.skill_index,
     domain_index:       c.domain_index,
-    track_index:        c.track_index,
     quadrant:           c.quadrant,
     density:            c.density,
     density_normalized: maxDensity > 0 ? c.density / maxDensity : 0,
+    // energy_rankings.domain_index and DensityCell.domain_index are now both
+    // the identity axis — the join is semantically correct after the un-flip.
     energy_rank:        energyByDomain.get(c.domain_index) ?? null,
   }));
 
