@@ -14,6 +14,7 @@
     "audit:acgme": "node scripts/audit-acgme-onboarding.mjs",
     "content:acgme-milestones": "node scripts/ingest-acgme-milestones.mjs --all",
     "audit:profiles": "npx tsx scripts/audit-profile-scenarios.ts",
+    "pipeline:test": "npx tsx scripts/test-cv-pipeline.ts",
     "content:education-manifest": "node scripts/generate-education-manifest.mjs",
     "content:uh-psych-sync": "node scripts/sync-uh-psych-content.mjs",
     "content:call-schedule": "node scripts/parse-cleveland-call-schedule.mjs",
