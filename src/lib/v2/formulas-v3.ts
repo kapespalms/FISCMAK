@@ -148,3 +148,176 @@ export async function computeF1Density(
 
   return { cells, computed_at: now };
 }
+
+// ---------------------------------------------------------------------------
+// F3 — Structural Discrepancy (Part IX + Annex F.4)
+// ---------------------------------------------------------------------------
+
+/**
+ * Setting-normed FTE expectations (Annex F.4 table midpoints).
+ * Ranges from the spec; midpoints used as Expected_d(setting).
+ * Values are 0–1 fractions (e.g. 0.40 = 40%).
+ */
+const FTE_NORMS: Record<string, Record<string, number>> = {
+  Academic:    { clinical: 0.40, teaching: 0.20, research: 0.30, admin: 0.125 },
+  Community:   { clinical: 0.90, teaching: 0.025, research: 0.025, admin: 0.10 },
+  Hybrid:      { clinical: 0.60, teaching: 0.125, research: 0.10, admin: 0.175 },
+  Government:  { clinical: 0.75, teaching: 0.10, research: 0.125, admin: 0.15 },
+  Industry:    { clinical: 0.10, teaching: 0.025, research: 0.25, admin: 0.45 },
+};
+
+const F3_DELTA = 0.01; // smoothing factor to avoid div-by-zero on tiny expected values
+const F3_FLAG_THRESHOLD = 0.20; // |Δ| > 20% → flagged as material discrepancy
+
+export type F3RoleDiscrepancy = {
+  role:     string;
+  actual:   number;   // 0–1
+  expected: number;   // setting-normed midpoint
+  delta:    number;   // (actual − expected) / (expected + δ)
+  flagged:  boolean;  // |delta| > threshold
+};
+
+export type F3Result = {
+  roles:       F3RoleDiscrepancy[];
+  setting:     string | null;
+  computed_at: string;
+  /** null when fte_actual or practice_setting not yet captured */
+  available:   boolean;
+};
+
+/**
+ * F3 Structural Discrepancy: Δ = (Actual − Expected(setting)) / (Expected(setting) + δ)
+ * Positive Δ = doing more than setting norm; negative = doing less.
+ * Returns available=false when required inputs are missing.
+ */
+export async function computeF3Discrepancy(
+  userId: string,
+  supabase: SupabaseClient,
+): Promise<F3Result> {
+  const now = new Date().toISOString();
+
+  const { data: user } = await supabase
+    .from("app_users")
+    .select("practice_setting, fte_actual")
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  const setting = (user?.practice_setting as string | null) ?? null;
+  const fteActual = (user?.fte_actual as Record<string, number> | null) ?? null;
+
+  if (!setting || !fteActual || Object.keys(fteActual).length === 0) {
+    return { roles: [], setting, computed_at: now, available: false };
+  }
+
+  const norms = FTE_NORMS[setting] ?? FTE_NORMS.Community!;
+  const roles: F3RoleDiscrepancy[] = Object.keys(norms).map((role) => {
+    const actual   = fteActual[role] ?? 0;
+    const expected = norms[role]!;
+    const delta    = (actual - expected) / (expected + F3_DELTA);
+    return { role, actual, expected, delta, flagged: Math.abs(delta) > F3_FLAG_THRESHOLD };
+  });
+
+  return { roles, setting, computed_at: now, available: true };
+}
+
+// ---------------------------------------------------------------------------
+// F4 — Perception Gap (Part IX)
+// ---------------------------------------------------------------------------
+
+export type F4RoleGap = {
+  role:      string;
+  perceived: number;   // what physician believes institution expects
+  expected:  number;   // what physician reported as institutional allocation
+  gap:       number;   // perceived − expected (positive = overestimates institutional demand)
+};
+
+export type F4Result = {
+  roles:       F4RoleGap[];
+  computed_at: string;
+  available:   boolean;
+};
+
+/**
+ * F4 Perception Gap: P_d = Perceived_d − Expected_d
+ * Positive gap = physician believes institution demands more than allocated.
+ * Returns available=false when either FTE field is missing.
+ */
+export async function computeF4PerceptionGap(
+  userId: string,
+  supabase: SupabaseClient,
+): Promise<F4Result> {
+  const now = new Date().toISOString();
+
+  const { data: user } = await supabase
+    .from("app_users")
+    .select("fte_perceived, fte_expected")
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  const perceived = (user?.fte_perceived as Record<string, number> | null) ?? null;
+  const expected  = (user?.fte_expected  as Record<string, number> | null) ?? null;
+
+  if (!perceived || !expected || Object.keys(perceived).length === 0) {
+    return { roles: [], computed_at: now, available: false };
+  }
+
+  const roles = Object.keys(expected).map((role) => ({
+    role,
+    perceived: perceived[role] ?? 0,
+    expected:  expected[role]  ?? 0,
+    gap:       (perceived[role] ?? 0) - (expected[role] ?? 0),
+  }));
+
+  return { roles, computed_at: now, available: true };
+}
+
+// ---------------------------------------------------------------------------
+// F5 — Recognition Gap (Part IX — internal/coaching only, never shown as a number)
+// ---------------------------------------------------------------------------
+
+export type F5Result = {
+  /** G = Σ(OI+SI) / Σ(OV+SV). G > 1.0 = predominantly unrecognized. */
+  G:           number;
+  oi_si_total: number;
+  ov_sv_total: number;
+  computed_at: string;
+  available:   boolean;
+  /**
+   * GOVERNANCE: F5 is for internal coaching context only.
+   * Never surface G as a headline number to the physician.
+   * Use it to shape Mak probes and transfer-pathway suggestions.
+   */
+  internal_only: true;
+};
+
+/**
+ * F5 Recognition Gap: G = Σ(OI+SI) / Σ(OV+SV)
+ * G > 1.0 means the physician has more unrecognized than recognized evidence.
+ * INTERNAL / COACHING ONLY — this value must never be shown as a raw number.
+ */
+export async function computeF5RecognitionGap(
+  userId: string,
+  supabase: SupabaseClient,
+): Promise<F5Result> {
+  const now = new Date().toISOString();
+  const f1  = await computeF1Density(userId, supabase);
+
+  const totals: Record<string, number> = { OV: 0, OI: 0, SV: 0, SI: 0 };
+  for (const cell of f1.cells) {
+    totals[cell.quadrant] = (totals[cell.quadrant] ?? 0) + cell.density;
+  }
+
+  const oi_si = (totals.OI ?? 0) + (totals.SI ?? 0);
+  const ov_sv = (totals.OV ?? 0) + (totals.SV ?? 0);
+
+  const G = ov_sv > 0 ? oi_si / ov_sv : 0;
+
+  return {
+    G,
+    oi_si_total: oi_si,
+    ov_sv_total: ov_sv,
+    computed_at: now,
+    available:   f1.cells.length > 0,
+    internal_only: true,
+  };
+}
