@@ -96,3 +96,4 @@ POST /api/v1/documents/init
 - **Do NOT read from or write to v2 tables** (`activity_entries`, `physicians`, etc.) from v3 code UNLESS the ticket explicitly says to reuse one (e.g. the CV parser still uses `activity_entries` — that's deliberate).
 - **Before wiring any feature to a table or module, confirm it's the v3 one named in the ticket.** If a v2 path seems needed and the ticket didn't mention it, STOP and flag it — don't integrate it silently.
 - **The Master Review is the source of truth for what's current.** If code references something not in the Master Review, treat it as suspect.
+- **Before integrating any table/module, check `docs/V2_V3_INVENTORY.md`.** Section 3 (superseded) = do NOT use. Section 4 (needs decision) = STOP and ask the founder before wiring v3 code to it.
