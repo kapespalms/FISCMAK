@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { CAREER_DOMAINS } from "@/lib/v2/domains";
 import type { HeatmapCell, HeatmapResult } from "@/app/api/v1/lattice/heatmap/route";
@@ -128,8 +128,8 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
 
           {/* Data rows */}
           {Array.from({ length: NUM_DOMAINS }, (_, di) => (
-            <>
-              <div key={`label-${di}`} className="flex items-center pr-2 text-right text-[10px] font-medium text-cx-forest-dark/60">
+            <Fragment key={di}>
+              <div className="flex items-center pr-2 text-right text-[10px] font-medium text-cx-forest-dark/60">
                 {DOMAIN_SHORT[di]}
               </div>
               {Array.from({ length: NUM_TRACKS }, (_, ti) => {
@@ -156,7 +156,7 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
                   </button>
                 );
               })}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

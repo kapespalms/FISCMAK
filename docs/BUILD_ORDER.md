@@ -15,8 +15,8 @@
 
 ## PHASE 0 — Repo hygiene (do first, unblocks everything)
 
-- [ ] **0.1 Commit the pending `v3-build` edits.** The track/quality_safety/domain work from the May 31 session is uncommitted. Get `v3-build` to a clean committed state. *(No spec ref — just `git status` → review → commit.)*
-- [ ] **0.2 Confirm clean build.** `npm run build` passes on `v3-build` before any new work.
+- [x] **0.1 Commit the pending `v3-build` edits.** The track/quality_safety/domain work from the May 31 session is uncommitted. Get `v3-build` to a clean committed state. *(No spec ref — just `git status` → review → commit.)*
+- [x] **0.2 Confirm clean build.** `npm run build` passes on `v3-build` before any new work.
 
 ---
 
@@ -71,9 +71,9 @@
 
 *Source: **Part XIII** (NLP), **Part IX** (F1), **Part XVII** (visualizations). Deep ref: Annex §4, Appendix K.*
 
-- [ ] **4.1 CV upload + parse.** Upload → Stanza → BioBERT → propose domain/track/quadrant per line → physician confirms/overrides. *(Much of this exists on the branch — verify + finish.)*
-- [ ] **4.2 Evidence Density (F1).** `D(q,d,t) = Σ w_s·n` using the Part VII reliability weights.
-- [ ] **4.3 8×8 lattice heat map.** Density intensity × energy hue × FTE border × transfer stars (D3). Ipsative.
+- [x] **4.1 CV upload + parse.** Upload → Stanza → BioBERT → propose domain/track/quadrant per line → physician confirms/overrides. *(Much of this exists on the branch — verify + finish.)* ⚠️ Confidence-triage UI (§8.3) deferred — backend (parser, seeder, confirm-lines endpoint) done.
+- [x] **4.2 Evidence Density (F1).** `D(q,d,t) = Σ w_s·n` using the Part VII reliability weights.
+- [x] **4.3 8×8 lattice heat map.** Density intensity × energy hue × FTE border × transfer stars (D3). Ipsative. ⚠️ FTE border + transfer stars deferred to Phase 5 (need F3/F7).
 - [ ] **4.4 2×2 quadrant summary.** Proportional OV/OI/SV/SI area chart — the onboarding "aha."
 
 ---
