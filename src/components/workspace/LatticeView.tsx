@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Grid3x3 } from "lucide-react";
 import { CardSection } from "@/components/ui/CardSection";
 import { DualLatticeGrid } from "@/components/lattice/DualLatticeGrid";
+import { LatticeHeatmapV3 } from "@/components/lattice/LatticeHeatmapV3";
 import { LATTICE_MAK } from "@/lib/card-mak-prompts";
 import type { LatticeDashboardResponse, LatticeTimeframe } from "@/lib/v2/lattice/types";
 import { cn } from "@/lib/utils";
@@ -84,6 +85,13 @@ export function LatticeView() {
 
   return (
     <div className="space-y-4">
+      <section>
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-cx-forest-dark/50">
+          Evidence Density (v3)
+        </p>
+        <LatticeHeatmapV3 />
+      </section>
+
       <CardSection
         compact
         eyebrow="Career Map"
