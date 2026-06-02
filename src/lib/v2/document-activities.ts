@@ -109,7 +109,11 @@ export async function seedActivityEntriesFromCv(params: {
       recognition_quadrant:      primary.quadrant,     // OV (v3 column, 20260536)
       source_document_id:        params.documentId,    // new column (20260552)
       user_confirmed:            false,                // new column (20260552)
-      mak_rationale:             packCells(row.cells), // full distribution for confirm step
+      // STAGING-ONLY: mak_rationale holds the packed multi-cell distribution
+      // until the physician confirms. At confirm time the distribution is
+      // promoted to evidence_cell_weights rows and this field is no longer read.
+      // Nothing else reads mak_rationale for input_source='cv_document' rows.
+      mak_rationale: packCells(row.cells),
     };
   });
 
