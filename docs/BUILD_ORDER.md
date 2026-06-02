@@ -74,7 +74,9 @@
 - [x] **4.1 CV upload + parse.** Upload → Stanza → BioBERT → propose domain/track/quadrant per line → physician confirms/overrides. *(Much of this exists on the branch — verify + finish.)* ⚠️ Confidence-triage UI (§8.3) deferred — backend (parser, seeder, confirm-lines endpoint) done.
 - [x] **4.2 Evidence Density (F1).** `D(q,d,t) = Σ w_s·n` using the Part VII reliability weights.
 - [x] **4.3 8×8 lattice heat map.** Density intensity × energy hue × FTE border × transfer stars (D3). Ipsative. ⚠️ FTE border + transfer stars deferred to Phase 5 (need F3/F7).
-- [ ] **4.4 2×2 quadrant summary.** Proportional OV/OI/SV/SI area chart — the onboarding "aha."
+- [x] **4.4 2×2 quadrant summary.** Proportional OV/OI/SV/SI area chart — the onboarding "aha."
+
+> **Phase 4 complete 2026-06-01.** Evidence pipeline backend done (parser, seeder, confirm-lines). Lattice heat map + 2×2 quadrant summary built. Deferred: confidence-triage UI (§8.3), FTE border, transfer stars (need Phase 5 formulas). `npm run pipeline:test` to verify pipeline end-to-end once migrations are applied.
 
 ---
 
