@@ -85,14 +85,14 @@ export const SEMI_ANNUAL_REVIEW_ITEMS: SemiAnnualReviewItem[] = [
   {
     id: "cv",
     label: "Updated CV",
-    href: "/app/career-data",
-    detail: "Upload or refresh your CV in Career Data before the meeting.",
+    href: "/app/output",
+    detail: "Build or refresh your CV in Output Studio before the meeting.",
   },
   {
     id: "smart_goals",
-    label: "SMART goals & ILP",
-    href: "/app/strategy",
-    detail: "Review individualized learning plan goals and career direction with Mak.",
+    label: "ILP & milestones",
+    href: "/app/objective?tab=ccc",
+    detail: "Review your ACGME milestone self-ratings and ILP goals with your PD at the CCC.",
   },
   {
     id: "portfolio",
