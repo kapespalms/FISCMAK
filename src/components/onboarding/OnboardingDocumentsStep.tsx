@@ -74,8 +74,20 @@ export function OnboardingDocumentsStep({
   const [savingEditId, setSavingEditId] = useState<string | null>(null);
   const [deletingDocumentId, setDeletingDocumentId] = useState<string | null>(null);
 
+  // Track HTTP uploads in flight separately from server-side extraction.
+  // After uploadUserDocument() resolves, extraction runs async on the server
+  // and refreshSavedDocuments() re-maps those docs as status:"uploading" —
+  // which would block Continue forever without this distinction.
+  const [clientInFlight, setClientInFlight] = useState(0);
+
   const selectedDocOption = getOnboardingUploadOption(selectedDocType);
-  const isUploadingAny = documents.some((doc) => isUploading(doc) && doc.status === "uploading");
+  // Only block Continue while a file HTTP POST is still in progress.
+  const isUploadingAny = clientInFlight > 0;
+
+  // Derived: true when server-side extraction is running but no HTTP upload is in flight.
+  const hasServerExtraction =
+    clientInFlight === 0 &&
+    documents.some((doc) => isUploading(doc) && doc.status === "uploading");
 
   const refreshSavedDocuments = useCallback(async () => {
     const res = await fetch("/api/v1/documents");
@@ -133,6 +145,14 @@ export function OnboardingDocumentsStep({
     void refreshSavedDocuments();
   }, [refreshSavedDocuments]);
 
+  // Poll every 3 s while server-side extraction is running so the card
+  // flips to ✓ once the pipeline finishes — without blocking Continue.
+  useEffect(() => {
+    if (!hasServerExtraction) return;
+    const id = setInterval(() => void refreshSavedDocuments(), 3000);
+    return () => clearInterval(id);
+  }, [hasServerExtraction, refreshSavedDocuments]);
+
   async function startUpload(file: File, typeId: string, customLabel?: string) {
     setError("");
 
@@ -168,6 +188,7 @@ export function OnboardingDocumentsStep({
       custom_label: customLabel?.trim(),
     };
 
+    setClientInFlight((n) => n + 1);
     try {
       await uploadUserDocument(file, formMeta, (progress) => {
         setDocuments((current) =>
@@ -190,6 +211,8 @@ export function OnboardingDocumentsStep({
         ),
       );
       setError(message);
+    } finally {
+      setClientInFlight((n) => n - 1);
     }
   }
 
