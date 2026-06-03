@@ -83,6 +83,9 @@ const VERIFY_TABLES = [
   "evidence_unit",
   "lattice_cell",
   "evidence_cell_weights",
+  "acgme_frameworks",
+  "acgme_subcompetencies",
+  "medhub_milestone_crosswalk",
   "fcwi_responses",
   "weekly_pulse",
   "riasec_profile",
@@ -388,6 +391,18 @@ async function main() {
     file: "docs/migrations/20260554_rename_evidence_axes.sql",
     label: "Rename evidence axes: domain_index→skill_index, track_index→domain_index (vocabulary un-flip)",
     requiresTable: "evidence_unit",
+  });
+
+  steps.push({
+    file: "docs/migrations/20260555_output_studio_wave1.sql",
+    label: "Output Studio Wave 1: cv_item_metadata + output_documents (snapshot editing, no-invention rule)",
+    requiresTable: "evidence_unit",  // cv_item_metadata FKs to evidence_unit
+  });
+
+  steps.push({
+    file: "docs/migrations/20260556_acgme_taxonomy.sql",
+    label: "ACGME taxonomy: frameworks + subcompetencies + MedHub crosswalk + lattice_skill_index (BUILD_ORDER 8.1 foundation)",
+    requiresTable: "milestone_self_ratings",
   });
 
   let failures = 0;

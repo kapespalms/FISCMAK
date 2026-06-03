@@ -52,6 +52,10 @@ Pilot launch is the current priority. Do not break attending flows while fixing 
 src/app/                    Next.js App Router pages + API routes
 src/app/api/v1/             BFF JSON API (requireApiUser on protected routes)
 src/lib/v2/                 Domain logic (documents, GME, onboarding, Mak)
+src/lib/v2/lattice/         Parser, document-parser.ts, ontology-bridge.ts, ontology-registry.ts
+src/lib/v2/formulas-v3.ts   F1/F3/F4/F5/F7 + SevenGap (Phase 5 complete)
+src/components/lattice/     LatticeHeatmapV3 (evidence density × energy, /app/objective?tab=lattice)
+src/components/wellbeing/   WellbeingOrigamiPlot (7-axis origami, /app/wellbeing)
 src/lib/supabase/           Auth client, middleware, server client
 docs/migrations/            SQL migrations (must register in scripts/apply-supabase-migrations.mjs)
 scripts/                    db:migrate, db:verify, pilot:dry-run, content sync
@@ -97,3 +101,35 @@ POST /api/v1/documents/init
 - **Before wiring any feature to a table or module, confirm it's the v3 one named in the ticket.** If a v2 path seems needed and the ticket didn't mention it, STOP and flag it — don't integrate it silently.
 - **The Master Review is the source of truth for what's current.** If code references something not in the Master Review, treat it as suspect.
 - **Before integrating any table/module, check `docs/V2_V3_INVENTORY.md`.** Section 3 (superseded) = do NOT use. Section 4 (needs decision) = STOP and ask the founder before wiring v3 code to it.
+
+## Vocabulary un-flip (canonical — commit 7430320, 2026-06-02)
+
+The lattice axis labels were historically inverted in code. The canonical vocabulary now matches the spec everywhere:
+
+| Constant | Meaning | Axis |
+|----------|---------|------|
+| `SKILLS` (8 items) | Task/competency labels: Clinical Expertise … Personal & Professional Development | **Row axis** |
+| `DOMAINS` (8 items) | Career identity labels: Clinician … Wellness Champion | **Column axis** |
+| ~~`TRACKS`~~ | **RETIRED.** Never use. |  |
+
+**DB column rename (migration 20260554 — founder-gated, not yet applied):**
+- `evidence_unit`, `evidence_cell_weights`, `lattice_cell`: old `domain_index` → `skill_index`; old `track_index` → `domain_index`
+- After migration: `skill_index` = task/competency axis (0–7 → SKILLS); `domain_index` = identity axis (0–7 → DOMAINS)
+- `energy_rankings`, `goal_records`, `narrative_evidence`: `domain_index` was always the identity axis — **no rename** on these tables
+- Code on v3-build already uses the post-rename column names; pipeline:verify will fail until migration is applied
+
+**FISCMAK domain→skill rank matrix:** `docs/domain_skill_rank_matrix.json` is the canonical authority for which skills are primary evidence for which identity domain. Assert by name, not by index.
+
+## Well-being governance (hard rules — Part XIX)
+
+- **NO composite well-being score ever stored or displayed.** `fcwi_responses` has no composite column by design.
+- **Plain language only** in physician UI — "FCWI," "EE," "DP," "MDT," "PFI," "MBI" never render.
+- **MDT ≥ 4 → resource link + gentle pause; never auto-reported.**
+- **Physician-owned at individual level.** Aggregate (N≥5) is institution-facing only.
+- **Well-being and career lattice are sibling surfaces, not nested.** Origami plot lives at `/app/wellbeing`; lattice heatmap at `/app/objective`. Do NOT cross-populate.
+
+## Phase status (v3-build, as of 2026-06-02)
+
+Phases 0–5 complete. Phase 6 (Coach Mak) is next.
+See `docs/BUILD_ORDER.md` for the authoritative checklist.
+Pending founder action: apply migration 20260554 (rename evidence axes) before running `pipeline:verify`.

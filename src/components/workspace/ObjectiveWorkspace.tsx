@@ -11,13 +11,15 @@ import { DocumentsView } from "@/components/workspace/DocumentsView";
 import { CareerDataVaultPanel } from "@/components/workspace/CareerDataVaultPanel";
 import { CareerDataReconcilePanel } from "@/components/workspace/CareerDataReconcilePanel";
 import { AcademicSoapSectionGate } from "@/components/layout/AcademicSoapSectionGate";
+import { MilestoneLatticeRollup } from "@/components/gme/MilestoneLatticeRollup";
 
 const TABS = [
-  { id: "lattice", label: "Lattice" },
-  { id: "vault", label: "Vault" },
+  { id: "lattice",   label: "Lattice" },
+  { id: "vault",     label: "Vault" },
   { id: "reconcile", label: "Reconcile" },
   { id: "activities", label: "Activities" },
   { id: "documents", label: "Documents" },
+  { id: "ccc",       label: "CCC prep" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -28,8 +30,9 @@ export function ObjectiveWorkspace() {
   const tab: TabId =
     tabParam === "activities" ||
     tabParam === "documents" ||
-    tabParam === "vault" ||
-    tabParam === "reconcile"
+    tabParam === "vault"      ||
+    tabParam === "reconcile"  ||
+    tabParam === "ccc"
       ? tabParam
       : "lattice";
   const [mounted, setMounted] = useState(false);
@@ -67,10 +70,11 @@ export function ObjectiveWorkspace() {
       </div>
 
       <div className="cx-section-surface">
-        {tab === "lattice" && <LatticeView />}
-        {tab === "vault" && <CareerDataVaultPanel />}
+        {tab === "lattice"   && <LatticeView />}
+        {tab === "vault"     && <CareerDataVaultPanel />}
         {tab === "reconcile" && <CareerDataReconcilePanel />}
         {tab === "activities" && <ActivitiesView />}
+        {tab === "ccc"       && <MilestoneLatticeRollup />}
         {tab === "documents" && (
           <>
             <DocumentsView />

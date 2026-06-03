@@ -39,6 +39,7 @@ import { TraineeMilestoneCard } from "@/components/gme/TraineeMilestoneCard";
 import { TraineeMilestoneHeatmapCard } from "@/components/gme/TraineeMilestoneHeatmapCard";
 import { TraineeRotationLogCard } from "@/components/gme/TraineeRotationLogCard";
 import { Database, FileText, TrendingUp } from "lucide-react";
+import { OutputStudioV3 } from "@/components/output-studio/OutputStudioV3";
 
 type ReadinessProfile = {
   target_track: string;
@@ -67,6 +68,7 @@ type OutputContext = {
 
 export function OutputStudioWorkspace() {
   const { startMakFlow } = useAppShell();
+  const [activeView, setActiveView] = useState<"v2" | "v3">("v3");
   const [selected, setSelected] = useState<string>(OUTPUT_TEMPLATES[0].id);
   const [generating, setGenerating] = useState(false);
   const [outputContext, setOutputContext] = useState<OutputContext | null>(null);
@@ -262,6 +264,30 @@ export function OutputStudioWorkspace() {
         </Button>
       }
     >
+      {/* View switcher: CV Studio (v3 TipTap) ↔ Document Library (v2 Lexical) */}
+      <div className="flex gap-1 rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-1 w-fit mb-2">
+        {([["v3", "CV Studio"], ["v2", "Document Library"]] as const).map(([view, label]) => (
+          <button
+            key={view}
+            type="button"
+            onClick={() => setActiveView(view)}
+            className={`rounded-md px-4 py-1.5 text-sm font-medium transition-colors ${
+              activeView === view
+                ? "bg-white text-cx-forest-dark shadow-sm"
+                : "text-cx-forest-dark/60 hover:text-cx-forest-dark"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {activeView === "v3" ? (
+        <div className="min-h-[600px] flex-1 overflow-hidden rounded-2xl border border-cx-forest-dark/10 bg-white">
+          <OutputStudioV3 />
+        </div>
+      ) : (
+      <>
       <AcademicSoapSectionGate intent="create" />
       <TraineePreCccCard />
       <TraineeRotationLogCard />
@@ -502,6 +528,8 @@ export function OutputStudioWorkspace() {
         )}
       </div>
       </div>
+      </> /* end v2 view */
+      )}
     </PageShell>
   );
 }

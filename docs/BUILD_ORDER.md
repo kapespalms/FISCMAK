@@ -84,12 +84,12 @@
 
 *Source: **Part IX**, **Part XV** (seven-gap). Deep ref: Annex Appendix C (composite fit, all weights), Appendix H (gap boundary).*
 
-- [ ] **5.1 F3 Structural Discrepancy** (actual vs expected FTE, setting-normed per Annex F.4).
-- [ ] **5.2 F4 Perception Gap.**
-- [ ] **5.3 F5 Recognition Gap** (internal only — never shown as a number).
-- [ ] **5.4 F7 Transfer Potential.**
-- [ ] **5.5 Seven-gap computation** on a stated goal (Part XV table).
-- [ ] **5.6 Well-being origami plot** (7 axes, Part XVII.4 — FCWI-based).
+- [x] **5.1 F3 Structural Discrepancy** (actual vs expected FTE, setting-normed per Annex F.4).
+- [x] **5.2 F4 Perception Gap.**
+- [x] **5.3 F5 Recognition Gap** (internal only — never shown as a number).
+- [x] **5.4 F7 Transfer Potential.**
+- [x] **5.5 Seven-gap computation** on a stated goal (Part XV table).
+- [x] **5.6 Well-being origami plot** (7 axes, Part XVII.4 — FCWI-based).
 - [ ] *Deferred to Phase 2+: F6 Person-Occupation Fit + F8 (the composite vector, Annex Appendix C). Needs O*NET descriptor import first.*
 
 ---

@@ -6,6 +6,7 @@ import { CardSection } from "@/components/ui/CardSection";
 import { FcwiForm } from "@/components/wellbeing/FcwiForm";
 import { WeeklyPulseForm } from "@/components/wellbeing/WeeklyPulseForm";
 import { QuarterlySnapshotForm } from "@/components/wellbeing/QuarterlySnapshotForm";
+import { WellbeingOrigamiPlot } from "@/components/wellbeing/WellbeingOrigamiPlot";
 
 type CheckInStatus = { latest: { recorded_at: string } | null; due: boolean };
 type SnapshotStatus = { due: boolean; last_completed: string | null };
@@ -137,14 +138,12 @@ export function WellbeingWorkspace() {
         )}
       </CardSection>
 
-      {/* B2 — Well-being picture (placeholder, Phase 5) */}
+      {/* B2 — Well-being origami plot + longitudinal trends (Phase 5.6) */}
       <CardSection
         title="Your well-being picture"
-        description="Patterns across your check-ins — available once you have a few months of data."
+        description="Seven independent dimensions across your recent check-ins. Each bar shows where you are; the marker shows the meaningful boundary."
       >
-        <p className="text-sm text-cx-forest-dark/50">
-          Trends and patterns will appear here as you complete regular check-ins.
-        </p>
+        <WellbeingOrigamiPlot />
       </CardSection>
 
     </PageShell>

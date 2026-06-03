@@ -323,3 +323,293 @@ export async function computeF5RecognitionGap(
     internal_only: true,
   };
 }
+
+// ---------------------------------------------------------------------------
+// F7 — Transfer Potential (Part IX + Intelligence Layer Spec §4)
+// ---------------------------------------------------------------------------
+
+// Prediger People–Things / Data–Ideas coordinates per domain identity (0–7).
+// [people_things, data_ideas] — People/Ideas = +, Things/Data = −
+// From FISCMAK RIASEC codes: Clinician I·S·R (center) … Wellness S·A·I (People+Ideas).
+const DOMAIN_CIRCUMPLEX: ReadonlyArray<readonly [number, number]> = [
+  [ 0.0,  0.0],  // 0 Clinician      (I·S·R — center)
+  [ 0.7,  0.7],  // 1 Educator       (S·I·A — People+Ideas)
+  [-0.3,  0.7],  // 2 Researcher     (I·A·C — Things+Ideas)
+  [ 0.3, -0.7],  // 3 Admin/Leader   (E·S·C — People+Data)
+  [ 0.7,  0.3],  // 4 Advocate       (S·E·A — People)
+  [-0.3,  0.3],  // 5 Innovator      (I·R·E — Things+Ideas)
+  [-0.7, -0.3],  // 6 Quality/Safety (C·I·S — Things+Data)
+  [ 0.7,  0.7],  // 7 Wellness Champ (S·A·I — same quadrant as Educator)
+];
+
+// max circumplex distance: Quality/Safety ↔ Educator ≈ √(1.4²+1.0²) ≈ 1.72
+const MAX_CIRCUMPLEX_DIST = Math.sqrt(1.4 ** 2 + 1.0 ** 2);
+
+// Top-3 primary skills per domain identity — from domain_skill_rank_matrix.json.
+// Used for DirCost (directional gap) without O*NET.
+const DOMAIN_PRIMARY_SKILLS: ReadonlyArray<ReadonlyArray<string>> = [
+  ["Clinical Expertise", "Medical Knowledge", "Communication"],                              // Clinician
+  ["Communication", "Practice-Based Learning", "Collaboration & Teamwork"],                  // Educator
+  ["Medical Knowledge", "Practice-Based Learning", "Personal & Professional Development"],   // Researcher
+  ["Systems Thinking", "Collaboration & Teamwork", "Professionalism & Ethics"],             // Admin/Leader
+  ["Systems Thinking", "Professionalism & Ethics", "Communication"],                        // Advocate
+  ["Practice-Based Learning", "Systems Thinking", "Medical Knowledge"],                     // Innovator
+  ["Practice-Based Learning", "Systems Thinking", "Clinical Expertise"],                    // Quality/Safety
+  ["Personal & Professional Development", "Collaboration & Teamwork", "Professionalism & Ethics"], // WC
+];
+
+export function circlumplexProximity(srcDomain: number, tgtDomain: number): number {
+  if (srcDomain === tgtDomain) return 1.0;
+  const [sx, sy] = DOMAIN_CIRCUMPLEX[srcDomain] ?? [0, 0];
+  const [tx, ty] = DOMAIN_CIRCUMPLEX[tgtDomain] ?? [0, 0];
+  const dist = Math.sqrt((sx - tx) ** 2 + (sy - ty) ** 2);
+  return Math.max(0, 1 - dist / MAX_CIRCUMPLEX_DIST);
+}
+
+// Directional gap: fraction of target's primary skills not in source's primary skills.
+// Dawson et al. 2021 — asymmetric. Moving A→B ≠ B→A.
+// Returns a raw cost (0 = all target skills already in source, 1 = all target skills new).
+// Applied in T as × (1 − dirCost): the spec writes "× DirCost" but defines it as a gap
+// (fraction lacking), so (1 − cost) converts it to the retained-fraction form. Behaviour:
+// adjacent domains (small cost) → high T; opposite domains (large cost) → low T.
+export function dirCost(srcDomain: number, tgtDomain: number): number {
+  if (srcDomain === tgtDomain) return 0;
+  const srcTop3 = new Set(DOMAIN_PRIMARY_SKILLS[srcDomain] ?? []);
+  const lacking = (DOMAIN_PRIMARY_SKILLS[tgtDomain] ?? []).filter((s) => !srcTop3.has(s)).length;
+  return lacking / 3;
+}
+
+export type F7TransferCell = {
+  skill_index:    number;
+  domain_index:   number;  // source domain identity
+  quadrant:       "OV" | "OI" | "SV" | "SI";
+  density:        number;
+  /** Circumplex proximity to goal domain (0–1, higher = closer). */
+  relevance:      number;
+  /** Fraction of goal's primary skills not in source's primary skills (0–1). */
+  dir_cost:       number;
+  /** density × relevance × (1 − dir_cost) */
+  transfer_score: number;
+};
+
+export type F7Result = {
+  goal_domain_index: number;
+  cells:             F7TransferCell[];
+  computed_at:       string;
+  available:         boolean;
+};
+
+/**
+ * F7 Transfer Potential: T(q,d,t) = D(q,d,t) · Relevance(d→goal) · (1 − DirCost(d→goal))
+ *
+ * Ranks evidence cells by transfer potential toward the stated goal domain.
+ * Relevance = RIASEC Prediger circumplex proximity (Part IX, Intelligence Layer Spec §4).
+ * DirCost = directional skill gap from source to target (Dawson et al. 2021).
+ * O*NET descriptor grounding for DirCost deferred to Phase 2+.
+ */
+export async function computeF7TransferPotential(
+  userId: string,
+  goalDomainIndex: number,
+  supabase: SupabaseClient,
+): Promise<F7Result> {
+  const now = new Date().toISOString();
+  const f1  = await computeF1Density(userId, supabase);
+
+  if (!f1.cells.length) {
+    return { goal_domain_index: goalDomainIndex, cells: [], computed_at: now, available: false };
+  }
+
+  const cells: F7TransferCell[] = f1.cells.map((cell) => {
+    const relevance = circlumplexProximity(cell.domain_index, goalDomainIndex);
+    const cost      = dirCost(cell.domain_index, goalDomainIndex);
+    return {
+      skill_index:    cell.skill_index,
+      domain_index:   cell.domain_index,
+      quadrant:       cell.quadrant,
+      density:        cell.density,
+      relevance,
+      dir_cost:       cost,
+      transfer_score: cell.density * relevance * (1 - cost),
+    };
+  });
+
+  cells.sort((a, b) => b.transfer_score - a.transfer_score);
+
+  return { goal_domain_index: goalDomainIndex, cells, computed_at: now, available: true };
+}
+
+// ---------------------------------------------------------------------------
+// Seven-gap computation (Part XV) — on a stated goal domain
+// ---------------------------------------------------------------------------
+
+// Skill index used for Knowledge gap proxy (post vocabulary un-flip)
+const SKILL_IDX_MEDICAL_KNOWLEDGE = 1;
+
+export type SevenGap = {
+  name:        string;
+  score:       number;   // 0–1, higher = larger gap
+  available:   boolean;
+  description: string;
+};
+
+export type SevenGapResult = {
+  goal_domain_index: number;
+  gaps:              SevenGap[];
+  computed_at:       string;
+  available:         boolean;
+};
+
+/**
+ * Seven-gap computation on a stated goal domain (Part XV + Appendix H).
+ *
+ * Computes all 7 gaps relative to the goal. Available counts per phase:
+ *   Phase 5 (now): Skill, Knowledge, Evidence, Identity — data-driven from F1 + energy_rankings.
+ *   Phase 5 (proposed, blocked): Credential — CIP-based estimate feasible IF founder provides
+ *     per-domain credential requirement table; see description below.
+ *   Phase 7: Language — vocabulary translation gap (Output Studio Rosetta Layer).
+ *   Phase 6: Network — Mak coaching-probe data.
+ *
+ * Gap        | Source
+ * -----------|--------------------------------------------------------------
+ * Skill      | F1 density deficit at goal domain's primary skills
+ * Knowledge  | Medical Knowledge density at goal domain
+ * Evidence   | OV-quadrant density at goal domain
+ * Identity   | Energy ranking alignment with goal domain
+ * Language   | Rosetta Layer vocabulary translation — deferred Phase 7
+ * Credential | CIP-based estimate possible (Phase 5, needs founder table) or O*NET Job Zones (Phase 2+)
+ * Network    | Mak probes — deferred Phase 6
+ */
+export async function computeSevenGap(
+  userId: string,
+  goalDomainIndex: number,
+  supabase: SupabaseClient,
+): Promise<SevenGapResult> {
+  const now = new Date().toISOString();
+  const f1  = await computeF1Density(userId, supabase);
+
+  if (!f1.cells.length) {
+    return {
+      goal_domain_index: goalDomainIndex,
+      gaps:              [],
+      computed_at:       now,
+      available:         false,
+    };
+  }
+
+  // Build lookup: (skill_index, domain_index, quadrant) → density
+  const densityAt = (si: number, di: number, quad?: string): number => {
+    return f1.cells
+      .filter((c) => c.skill_index === si && c.domain_index === di && (!quad || c.quadrant === quad))
+      .reduce((s, c) => s + c.density, 0);
+  };
+
+  // Max density across all cells — used to normalize gap scores (ipsative)
+  const maxDensity = f1.cells.reduce((m, c) => Math.max(m, c.density), 0.001);
+
+  // Goal domain's primary skill indices
+  const goalPrimaryNames = DOMAIN_PRIMARY_SKILLS[goalDomainIndex] ?? [];
+
+  // Skill names → indices (SKILLS array order in constants.ts)
+  const SKILL_NAMES = [
+    "Clinical Expertise", "Medical Knowledge", "Practice-Based Learning",
+    "Communication", "Professionalism & Ethics", "Systems Thinking",
+    "Collaboration & Teamwork", "Personal & Professional Development",
+  ];
+  const skillIndex = (name: string): number => SKILL_NAMES.indexOf(name);
+
+  // ── Gap 1: Skill ──────────────────────────────────────────────────────────
+  // How thin is the physician's density at the goal domain's primary skills?
+  const skillDensities = goalPrimaryNames.map((name) => {
+    const si = skillIndex(name);
+    return si >= 0 ? densityAt(si, goalDomainIndex) : 0;
+  });
+  const avgSkillDensity = skillDensities.length > 0
+    ? skillDensities.reduce((s, v) => s + v, 0) / skillDensities.length
+    : 0;
+  const skillGap = Math.min(1, Math.max(0, 1 - avgSkillDensity / maxDensity));
+
+  // ── Gap 2: Knowledge ─────────────────────────────────────────────────────
+  const knowledgeDensity = densityAt(SKILL_IDX_MEDICAL_KNOWLEDGE, goalDomainIndex);
+  const knowledgeGap = Math.min(1, Math.max(0, 1 - knowledgeDensity / maxDensity));
+
+  // ── Gap 3: Evidence ───────────────────────────────────────────────────────
+  // OV-quadrant density at goal domain (how documented is visible work there?)
+  const ovDensityAtGoal = f1.cells
+    .filter((c) => c.domain_index === goalDomainIndex && c.quadrant === "OV")
+    .reduce((s, c) => s + c.density, 0);
+  const evidenceGap = Math.min(1, Math.max(0, 1 - ovDensityAtGoal / maxDensity));
+
+  // ── Gap 4 (computed): Identity (energy ranking alignment) ─────────────────
+  const { data: rankings } = await supabase
+    .from("energy_rankings")
+    .select("domain_index, rank")
+    .eq("user_id", userId)
+    .eq("domain_index", goalDomainIndex)
+    .single();
+  const energyRank = rankings ? (rankings.rank as number) : null;
+  // rank 5 = very energizing → gap 0; rank 1 = very draining → gap 1
+  const identityGap = energyRank != null ? (5 - energyRank) / 4 : 0.5;
+
+  const gaps: SevenGap[] = [
+    {
+      name:        "Skill",
+      score:       skillGap,
+      available:   true,
+      description: `Evidence density at ${goalPrimaryNames.join(", ")} in the ${goalDomainIndex < 8 ? ["Clinician","Educator","Researcher","Administrator/Leader","Advocate","Innovator","Quality/Safety","Wellness Champion"][goalDomainIndex] ?? "" : ""} domain`,
+    },
+    {
+      name:        "Knowledge",
+      score:       knowledgeGap,
+      available:   true,
+      description: "Medical Knowledge evidence density at goal domain",
+    },
+    {
+      name:        "Evidence",
+      score:       evidenceGap,
+      available:   true,
+      description: "Visible (OV) evidence documented in goal domain",
+    },
+    {
+      name:        "Identity",
+      score:       identityGap,
+      available:   energyRank != null,
+      description: energyRank != null
+        ? `Energy alignment with goal domain: ${energyRank}/5`
+        : "Rate your energy for this domain to compute identity gap",
+    },
+    {
+      name:        "Language",
+      score:       0,
+      available:   false,
+      // Spec Appendix H: Language gap = vocabulary translation fit (can the physician's
+      // work be articulated in the TARGET field's terminology — roadmap, sprint, user story?).
+      // Source: Output Studio Rosetta Layer concept→field translation (Phase 7).
+      // NOTE: Communication skill density is NOT a proxy — communication competency ≠
+      // vocabulary translation. Do not substitute without founder approval.
+      description: "Vocabulary translation gap (Rosetta Layer — Output Studio, Phase 7)",
+    },
+    {
+      name:        "Credential",
+      score:       0,
+      available:   false,
+      // Spec lists CIP as "Phase 1 — CV + gap" source (Appendix D Rosetta table).
+      // A Phase 5 CIP-based estimate is feasible: parse CV credential signals +
+      // a per-domain credential requirement table. BLOCKED pending founder input
+      // on required credentials per domain. Full O*NET Job Zone grounding: Phase 2+.
+      description: "Credential gap: CIP-based Phase 5 estimate possible — needs per-domain credential table from founder. O*NET Job Zones: Phase 2+",
+    },
+    {
+      name:        "Network",
+      score:       0,
+      available:   false,
+      description: "Requires Mak coaching-probe data — deferred to Phase 6",
+    },
+  ];
+
+  return {
+    goal_domain_index: goalDomainIndex,
+    gaps,
+    computed_at:       now,
+    available:         true,
+  };
+}
