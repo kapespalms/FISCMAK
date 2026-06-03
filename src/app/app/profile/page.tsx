@@ -1,25 +1,28 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   BadgeCheck,
   BookOpen,
   Briefcase,
-  Camera,
   FlaskConical,
   GraduationCap,
   Heart,
   MapPin,
   Medal,
-  MessageCircle,
   Mic,
+  Pencil,
+  Plus,
   Shield,
   Star,
+  Trash2,
   Users,
 } from "lucide-react";
 import { NpiRegistryPanel, type NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import { UserAvatar } from "@/components/profile/UserAvatar";
-import { useAppShell } from "@/components/layout/AppShell";
+import { ItemFormModal } from "@/components/profile/ItemFormModal";
+import { PendingTray, type PendingItem } from "@/components/profile/PendingTray";
+import { CvUploadPanel } from "@/components/profile/CvUploadPanel";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import {
   AVATAR_CHANGED_EVENT,
@@ -32,83 +35,48 @@ import {
   combineName,
 } from "@/lib/auth/trusted-name";
 import type { Profile } from "@/lib/types/database";
-import type { CvItemType, BankItem } from "@/lib/v2/output-studio-bank";
+import { PROFILE_SECTIONS, ITEM_TYPE_LABELS, type ProfileSection } from "@/lib/v2/profile-cells";
+import type { BankItem, CvItemType } from "@/lib/v2/output-studio-bank";
 
-/** Groups of CV item types shown as section cards */
-const PROFILE_SECTIONS: {
-  title: string;
-  icon: React.ElementType;
-  types: CvItemType[];
-  emptyLabel: string;
-}[] = [
-  {
-    title: "Experience",
-    icon: Briefcase,
-    types: ["CV-LEAD", "CV-COMM-INST", "CV-COMM-NATL"],
-    emptyLabel: "Capture a clinical or leadership role",
-  },
-  {
-    title: "Education & Credentials",
-    icon: GraduationCap,
-    types: ["CV-DEG", "CV-LIC", "CV-CERT", "CV-SKILL"],
-    emptyLabel: "Add a degree, license, or certification",
-  },
-  {
-    title: "Publications",
-    icon: BookOpen,
-    types: ["CV-PUB-ORIG", "CV-PUB-REV", "CV-PUB-CASE", "CV-PUB-CHAP", "CV-PUB-EDIT", "CV-PUB-ABS"],
-    emptyLabel: "Add a publication or abstract",
-  },
-  {
-    title: "Presentations",
-    icon: Mic,
-    types: ["CV-PRES-NATL", "CV-PRES-REG", "CV-PRES-INST", "CV-PRES-POST", "CV-PRES-INV"],
-    emptyLabel: "Add a presentation or poster",
-  },
-  {
-    title: "Teaching",
-    icon: Users,
-    types: ["CV-TEACH-UME", "CV-TEACH-GME", "CV-TEACH-CME", "CV-CURR", "CV-CURR-MAT", "CV-MENTOR"],
-    emptyLabel: "Capture a teaching activity",
-  },
-  {
-    title: "Research & QI",
-    icon: FlaskConical,
-    types: ["CV-RES-PROJ", "CV-GRANT", "CV-QI"],
-    emptyLabel: "Add a research project, grant, or QI initiative",
-  },
-  {
-    title: "Service & Leadership",
-    icon: Heart,
-    types: ["CV-PEER", "CV-ADVOCACY"],
-    emptyLabel: "Capture a committee, peer review, or advocacy role",
-  },
-  {
-    title: "Recognition",
-    icon: Star,
-    types: ["CV-AWARD", "CV-MEDIA", "CV-MEM"],
-    emptyLabel: "Add an award, media mention, or membership",
-  },
-];
+// ── Icon map for section titles ───────────────────────────────────────────
+
+const SECTION_ICONS: Record<string, React.ElementType> = {
+  experience:    Briefcase,
+  education:     GraduationCap,
+  publications:  BookOpen,
+  presentations: Mic,
+  teaching:      Users,
+  research:      FlaskConical,
+  service:       Heart,
+  recognition:   Star,
+};
 
 function itemLabel(item: BankItem): string {
-  const sd = item.structured_data as Record<string, unknown> | null;
-  if (typeof sd?.title === "string" && sd.title) return sd.title;
-  if (item.display_label) return item.display_label;
-  return item.item_type;
+  const sd = item.structured_data as Record<string, unknown>;
+  return (
+    item.display_label ||
+    String(sd.title ?? sd.name_or_title ?? sd.role_title ?? sd.committee_name ?? sd.project_title ?? sd.name ?? "")
+  ) || item.item_type;
 }
 
 function itemSub(item: BankItem): string | null {
-  const sd = item.structured_data as Record<string, unknown> | null;
-  if (typeof sd?.organization === "string" && sd.organization) return sd.organization;
-  if (typeof sd?.journal === "string" && sd.journal) return sd.journal;
-  if (typeof sd?.venue === "string" && sd.venue) return sd.venue;
-  return null;
+  const sd = item.structured_data as Record<string, unknown>;
+  const org = String(sd.institution_or_org ?? sd.institution ?? sd.journal_or_book ?? sd.venue ?? sd.agency ?? "");
+  const year = sd.year ? String(sd.year) : "";
+  return [org, year].filter(Boolean).join(" · ") || null;
 }
 
-export default function ProfilePage() {
-  const { openMak } = useAppShell();
+// ── Drop-zone state per section ───────────────────────────────────────────
 
+type DropModal = {
+  sectionId: string;
+  activityId: string;
+  rawText: string;
+};
+
+// ── Main component ────────────────────────────────────────────────────────
+
+export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState<string | null>(null);
@@ -118,74 +86,69 @@ export default function ProfilePage() {
   const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
   const [npiLoading, setNpiLoading] = useState(true);
 
-  const [bankItems, setBankItems] = useState<BankItem[]>([]);
+  // Bank items keyed by section id
+  const [bankBySec, setBankBySec] = useState<Record<string, BankItem[]>>({});
   const [bankLoading, setBankLoading] = useState(true);
 
-  // Avatar
+  // Pending tray
+  const [pendingItems, setPendingItems] = useState<PendingItem[]>([]);
+
+  // Modal state
+  const [addModal, setAddModal] = useState<{ section: ProfileSection; initialType?: CvItemType } | null>(null);
+  const [editModal, setEditModal] = useState<{ section: ProfileSection; item: BankItem } | null>(null);
+  const [dropModal, setDropModal] = useState<DropModal | null>(null);
+
+  // Drop target hover
+  const [dragOverSec, setDragOverSec] = useState<string | null>(null);
+
+  // ── Load header data ────────────────────────────────────────────────────
+
   useEffect(() => {
     setAvatarUrl(getProfileAvatarUrl());
-    function onAvatarChange(e: Event) {
+    const onAvatarChange = (e: Event) => {
       const detail = (e as CustomEvent<string | null>).detail;
       setAvatarUrl(detail ?? getProfileAvatarUrl());
-    }
+    };
     window.addEventListener(AVATAR_CHANGED_EVENT, onAvatarChange);
     return () => window.removeEventListener(AVATAR_CHANGED_EVENT, onAvatarChange);
   }, []);
 
-  // Profile header data
   useEffect(() => {
     async function load() {
       try {
         const meRes = await fetch("/api/v1/users/me");
-        const me = await meRes.json() as Record<string, unknown>;
+        const me = (await meRes.json()) as Record<string, unknown>;
         const nameParts = typeof me.name === "string" ? me.name.trim() : "";
         if (nameParts) setDisplayName(nameParts);
-
-        const specialty = (me.base_specialty ?? me.specialty ?? "") as string;
-        const institution = (me.institution ?? "") as string;
-        if (specialty || institution) {
-          setHeadline([specialty, institution].filter(Boolean).join(" · "));
-        }
+        const specialty = String(me.base_specialty ?? me.specialty ?? "");
+        const institution = String(me.institution ?? "");
+        if (specialty || institution) setHeadline([specialty, institution].filter(Boolean).join(" · "));
 
         if (isSupabaseConfigured()) {
           const supabase = createClient();
           const { data: { user } } = await supabase.auth.getUser();
-          const oauthName = trustedNameFromOAuthMetadata(
-            user?.user_metadata as Record<string, unknown> | undefined,
-          );
-          if (oauthName?.first && !nameParts) {
-            setDisplayName(combineName(oauthName.first, oauthName.last));
-          }
+          const oauthName = trustedNameFromOAuthMetadata(user?.user_metadata as Record<string, unknown> | undefined);
+          if (oauthName?.first && !nameParts) setDisplayName(combineName(oauthName.first, oauthName.last));
           if (user) {
             const { data } = await supabase
               .from("profiles")
-              .select("first_name, last_name, institution_name, department_name, photo_url")
+              .select("first_name, last_name, institution_name, photo_url")
               .eq("id", user.id)
               .maybeSingle();
             if (data) {
               const p = data as Profile;
-              if (p.first_name?.trim()) {
-                setDisplayName(combineName(p.first_name ?? "", p.last_name ?? ""));
-              }
-              if (p.institution_name) {
-                setLocation(p.institution_name);
-              }
-              if (p.photo_url && !hasCustomProfileAvatar()) {
-                setAvatarUrl(resolveProfileAvatarUrl(p.photo_url));
-              }
+              if (p.first_name?.trim()) setDisplayName(combineName(p.first_name ?? "", p.last_name ?? ""));
+              if (p.institution_name) setLocation(p.institution_name);
+              if (p.photo_url && !hasCustomProfileAvatar()) setAvatarUrl(resolveProfileAvatarUrl(p.photo_url));
             }
           }
         }
-      } catch {
-        // non-blocking
-      } finally {
-        setLoading(false);
-      }
+      } catch { /* non-blocking */ }
+      finally { setLoading(false); }
     }
     void load();
   }, []);
 
-  // NPI
   useEffect(() => {
     fetch("/api/v1/npi")
       .then((r) => r.json())
@@ -194,47 +157,101 @@ export default function ProfilePage() {
       .finally(() => setNpiLoading(false));
   }, []);
 
-  // Bank items
-  useEffect(() => {
-    if (!isSupabaseConfigured()) { setBankLoading(false); return; }
-    const supabase = createClient();
-    void (async () => {
-      try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) return;
-        const { data: rows } = await supabase
-          .from("cv_item_metadata")
-          .select("id, evidence_unit_id, item_type, structured_data, display_label, created_at")
-          .eq("user_id", user.id)
-          .order("created_at", { ascending: false });
-        if (rows) setBankItems(rows as BankItem[]);
-      } catch {
-        // non-blocking
-      } finally {
-        setBankLoading(false);
+  // ── Load bank items ─────────────────────────────────────────────────────
+
+  const loadBank = useCallback(async () => {
+    try {
+      const res = await fetch("/api/v1/profile/items");
+      if (!res.ok) return;
+      const data = (await res.json()) as { items?: BankItem[] };
+      const grouped: Record<string, BankItem[]> = {};
+      for (const sec of PROFILE_SECTIONS) grouped[sec.id] = [];
+      for (const item of data.items ?? []) {
+        for (const sec of PROFILE_SECTIONS) {
+          if ((sec.types as string[]).includes(item.item_type)) {
+            grouped[sec.id]!.push(item);
+            break;
+          }
+        }
       }
-    })();
+      setBankBySec(grouped);
+    } finally {
+      setBankLoading(false);
+    }
   }, []);
 
-  function itemsForTypes(types: CvItemType[]): BankItem[] {
-    return bankItems.filter((item) => (types as string[]).includes(item.item_type));
+  useEffect(() => { void loadBank(); }, [loadBank]);
+
+  // ── Load pending items ─────────────────────────────────────────────────
+
+  const loadPending = useCallback(async () => {
+    try {
+      const res = await fetch("/api/v1/profile/pending");
+      if (!res.ok) return;
+      const data = (await res.json()) as { pending?: PendingItem[]; migration_pending?: boolean };
+      if (!data.migration_pending) setPendingItems(data.pending ?? []);
+    } catch { /* non-blocking */ }
+  }, []);
+
+  useEffect(() => { void loadPending(); }, [loadPending]);
+
+  // ── Delete handler ──────────────────────────────────────────────────────
+
+  async function handleDelete(item: BankItem) {
+    if (!confirm(`Delete "${itemLabel(item)}"? This also removes it from the lattice.`)) return;
+    const res = await fetch(`/api/v1/profile/items/${item.id}`, { method: "DELETE" });
+    if (res.ok) void loadBank();
   }
+
+  // ── Drag-drop handlers for section cards ───────────────────────────────
+
+  function handleDragOver(e: React.DragEvent, secId: string) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    setDragOverSec(secId);
+  }
+
+  function handleDragLeave() { setDragOverSec(null); }
+
+  function handleDrop(e: React.DragEvent, sec: ProfileSection) {
+    e.preventDefault();
+    setDragOverSec(null);
+    const activityId = e.dataTransfer.getData("activity_id");
+    const rawText = e.dataTransfer.getData("raw_text");
+    if (!activityId) return;
+
+    if (sec.types.length === 1) {
+      // Auto-place with the only type
+      void placeFromActivity(activityId, sec.types[0]!, rawText.slice(0, 120));
+    } else {
+      setDropModal({ sectionId: sec.id, activityId, rawText });
+    }
+  }
+
+  async function placeFromActivity(activityId: string, itemType: CvItemType, displayLabel: string) {
+    const res = await fetch("/api/v1/profile/items/from-activity", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ activity_id: activityId, item_type: itemType, display_label: displayLabel }),
+    });
+    if (res.ok) {
+      setPendingItems((prev) => prev.filter((p) => p.id !== activityId));
+      void loadBank();
+    }
+  }
+
+  // ── Render ──────────────────────────────────────────────────────────────
 
   return (
     <div className="mx-auto max-w-3xl space-y-6 pb-16">
 
       {/* Header card */}
       <div className="overflow-hidden rounded-2xl border border-cx-forest-dark/10 bg-white shadow-sm">
-        {/* Banner */}
-        <div className="h-28 bg-gradient-to-r from-fis-gold/20 via-fis-gold/10 to-white" />
-
+        <div className="h-24 bg-gradient-to-r from-fis-gold/20 via-fis-gold/10 to-white" />
         <div className="px-6 pb-6">
-          {/* Avatar row */}
-          <div className="relative -mt-12 mb-4 flex items-end justify-between">
-            <div className="relative">
-              <div className="rounded-full ring-4 ring-white">
-                <UserAvatar src={avatarUrl} name={displayName} size="lg" />
-              </div>
+          <div className="relative -mt-10 mb-4 flex items-end justify-between">
+            <div className="rounded-full ring-4 ring-white">
+              <UserAvatar src={avatarUrl} name={displayName} size="lg" />
             </div>
             {npiStatus?.npi_verified && (
               <div className="flex items-center gap-1.5 rounded-full bg-fis-gold/10 px-3 py-1.5 text-xs font-medium text-fis-gold">
@@ -243,33 +260,23 @@ export default function ProfilePage() {
               </div>
             )}
           </div>
-
           {loading ? (
-            <div className="h-10 w-48 animate-pulse rounded-lg bg-neutral-100" />
+            <div className="h-8 w-48 animate-pulse rounded-lg bg-neutral-100" />
           ) : (
             <>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-semibold text-cx-forest-dark">
-                  {displayName ?? "Your name"}
-                </h1>
-                {npiStatus?.npi_verified && (
-                  <Shield size={15} className="shrink-0 text-fis-gold" aria-label="NPI verified" />
-                )}
+                <h1 className="text-xl font-semibold text-cx-forest-dark">{displayName ?? "Your name"}</h1>
+                {npiStatus?.npi_verified && <Shield size={14} className="shrink-0 text-fis-gold" />}
               </div>
-              {headline && (
-                <p className="mt-1 text-sm text-cx-forest-dark/70">{headline}</p>
-              )}
+              {headline && <p className="mt-0.5 text-sm text-cx-forest-dark/70">{headline}</p>}
               {location && (
                 <div className="mt-1 flex items-center gap-1 text-xs text-cx-forest-dark/50">
-                  <MapPin size={12} />
-                  {location}
+                  <MapPin size={11} /> {location}
                 </div>
               )}
             </>
           )}
-
-          {/* Open to — Phase 0 placeholder */}
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-4">
             <span className="rounded-full border border-fis-gold/40 px-3 py-1 text-xs text-fis-gold/80">
               Open to opportunities
             </span>
@@ -277,25 +284,54 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* Bank section cards */}
-      {PROFILE_SECTIONS.map(({ title, icon: Icon, types, emptyLabel }) => {
-        const items = itemsForTypes(types as CvItemType[]);
+      {/* CV upload */}
+      <CvUploadPanel onComplete={loadPending} />
+
+      {/* Pending tray (shown when items exist) */}
+      <PendingTray
+        items={pendingItems}
+        onItemPlaced={(id) => {
+          setPendingItems((prev) => prev.filter((p) => p.id !== id));
+          void loadBank();
+        }}
+      />
+
+      {/* Section cards */}
+      {PROFILE_SECTIONS.map((sec) => {
+        const Icon = SECTION_ICONS[sec.id] ?? Star;
+        const items = bankBySec[sec.id] ?? [];
+        const isDragTarget = dragOverSec === sec.id;
+
         return (
           <div
-            key={title}
-            className="rounded-2xl border border-cx-forest-dark/10 bg-white p-6 shadow-sm"
+            key={sec.id}
+            onDragOver={(e) => handleDragOver(e, sec.id)}
+            onDragLeave={handleDragLeave}
+            onDrop={(e) => handleDrop(e, sec)}
+            className={`rounded-2xl border bg-white p-6 shadow-sm transition-colors ${
+              isDragTarget
+                ? "border-fis-gold bg-fis-gold/5"
+                : "border-cx-forest-dark/10"
+            }`}
           >
             <div className="mb-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Icon size={16} className="shrink-0 text-fis-gold" />
-                <h2 className="text-sm font-semibold text-cx-forest-dark">{title}</h2>
+                <h2 className="text-sm font-semibold text-cx-forest-dark">{sec.title}</h2>
                 {items.length > 0 && (
                   <span className="rounded-full bg-fis-gold/10 px-2 py-0.5 text-[10px] font-medium text-fis-gold">
                     {items.length}
                   </span>
                 )}
               </div>
-              {/* Phase 1: Add button + drag-drop */}
+              <button
+                type="button"
+                onClick={() => setAddModal({ section: sec })}
+                className="flex items-center gap-1.5 rounded-lg border border-fis-gold/30 px-3 py-1.5 text-xs font-medium text-fis-gold transition-colors hover:bg-fis-gold/10"
+              >
+                <Plus size={13} />
+                Add
+              </button>
             </div>
 
             {bankLoading ? (
@@ -305,27 +341,60 @@ export default function ProfilePage() {
                 ))}
               </div>
             ) : items.length === 0 ? (
-              <div className="flex flex-col items-start gap-2 rounded-xl border border-dashed border-cx-forest-dark/15 p-4">
-                <p className="text-xs text-cx-forest-dark/50">{emptyLabel}</p>
-                <button
-                  type="button"
-                  onClick={openMak}
-                  className="flex items-center gap-1.5 text-xs font-medium text-fis-gold transition-opacity hover:opacity-80"
-                >
-                  <MessageCircle size={12} />
-                  Capture with Mak
-                </button>
+              <div
+                className={`flex flex-col items-start gap-2 rounded-xl border border-dashed px-4 py-4 transition-colors ${
+                  isDragTarget
+                    ? "border-fis-gold bg-fis-gold/5"
+                    : "border-cx-forest-dark/15"
+                }`}
+              >
+                {isDragTarget ? (
+                  <p className="text-xs font-medium text-fis-gold">Drop here to place</p>
+                ) : (
+                  <p className="text-xs text-cx-forest-dark/50">{sec.emptyLabel}</p>
+                )}
               </div>
             ) : (
               <ul className="divide-y divide-cx-forest-dark/6">
                 {items.map((item) => (
-                  <li key={item.id} className="py-3 first:pt-0 last:pb-0">
-                    <p className="text-sm font-medium text-cx-forest-dark">{itemLabel(item)}</p>
-                    {itemSub(item) && (
-                      <p className="mt-0.5 text-xs text-cx-forest-dark/55">{itemSub(item)}</p>
-                    )}
+                  <li
+                    key={item.id}
+                    className="group flex items-start gap-3 py-3 first:pt-0 last:pb-0"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-cx-forest-dark truncate">{itemLabel(item)}</p>
+                      {itemSub(item) && (
+                        <p className="mt-0.5 text-xs text-cx-forest-dark/55">{itemSub(item)}</p>
+                      )}
+                    </div>
+                    <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+                      <button
+                        type="button"
+                        onClick={() => setEditModal({ section: sec, item })}
+                        className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-forest-dark"
+                        title="Edit"
+                      >
+                        <Pencil size={13} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => void handleDelete(item)}
+                        className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-red-50 hover:text-red-500"
+                        title="Delete"
+                      >
+                        <Trash2 size={13} />
+                      </button>
+                    </div>
+
                   </li>
                 ))}
+
+                {/* Drag-over zone at bottom of non-empty card */}
+                {isDragTarget && (
+                  <li className="py-2 text-center text-xs font-medium text-fis-gold">
+                    Drop to add here
+                  </li>
+                )}
               </ul>
             )}
           </div>
@@ -350,6 +419,79 @@ export default function ProfilePage() {
         )}
       </div>
 
+      {/* Add modal */}
+      {addModal && (
+        <ItemFormModal
+          section={addModal.section}
+          initialType={addModal.initialType}
+          onSave={(item) => {
+            setBankBySec((prev) => {
+              const sec = addModal.section;
+              return { ...prev, [sec.id]: [item, ...(prev[sec.id] ?? [])] };
+            });
+            setAddModal(null);
+          }}
+          onClose={() => setAddModal(null)}
+        />
+      )}
+
+      {/* Edit modal */}
+      {editModal && (
+        <ItemFormModal
+          section={editModal.section}
+          item={editModal.item}
+          onSave={(updated) => {
+            setBankBySec((prev) => {
+              const secId = editModal.section.id;
+              return {
+                ...prev,
+                [secId]: (prev[secId] ?? []).map((i) => (i.id === updated.id ? updated : i)),
+              };
+            });
+            setEditModal(null);
+          }}
+          onClose={() => setEditModal(null)}
+        />
+      )}
+
+      {/* Drop type picker for multi-type sections */}
+      {dropModal && (() => {
+        const sec = PROFILE_SECTIONS.find((s) => s.id === dropModal.sectionId)!;
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+            <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl">
+              <h3 className="mb-3 text-sm font-semibold text-cx-forest-dark">
+                Select type for {sec.title}
+              </h3>
+              <p className="mb-4 text-xs text-cx-forest-dark/60 line-clamp-2">
+                &ldquo;{dropModal.rawText.slice(0, 100)}&rdquo;
+              </p>
+              <div className="space-y-2">
+                {sec.types.map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    onClick={() => {
+                      void placeFromActivity(dropModal.activityId, t, dropModal.rawText.slice(0, 120));
+                      setDropModal(null);
+                    }}
+                    className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-left text-sm text-cx-forest-dark transition-colors hover:border-fis-gold hover:bg-fis-gold/5"
+                  >
+                    {ITEM_TYPE_LABELS[t]}
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() => setDropModal(null)}
+                className="mt-3 w-full text-xs text-cx-forest-dark/50 hover:text-cx-forest-dark"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

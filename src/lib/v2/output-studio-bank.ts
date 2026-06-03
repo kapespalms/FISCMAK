@@ -131,6 +131,21 @@ export async function updateBankItem(userId: string, id: string, patch: BankItem
   return mapBankRow(data);
 }
 
+/**
+ * Delete a bank item by deleting its parent evidence_unit.
+ * ON DELETE CASCADE removes cv_item_metadata + evidence_cell_weights automatically,
+ * so the item disappears from both the profile and the lattice heatmap.
+ */
+export async function deleteBankItem(userId: string, evidenceUnitId: string): Promise<void> {
+  const supabase = await createClient();
+  const { error } = await supabase
+    .from("evidence_unit")
+    .delete()
+    .eq("id", evidenceUnitId)
+    .eq("user_id", userId);
+  if (error) throw error;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mapBankRow(row: any): BankItem {
   const eu = row.evidence_unit ?? {};
