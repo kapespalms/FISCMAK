@@ -48,6 +48,16 @@
   --cx-page-muted: #f4f5f4;
   --cx-tab-rail: #e8ecea;
   --radius-button: 6px;
+  /* FISCMAK v3 palette — Part XXIX */
+  --fis-gold: #AC8636;
+  --fis-green: #3C8A60;
+  --fis-blue-muted: #5E7E96;
+  --fis-clay: #C28D6C;
+  /* Rail surface tokens */
+  --rail-bg: #ffffff;
+  --rail-border: #e5e7eb;
+  --rail-item-hover: #f9f7f4;
+  --rail-item-active-bg: #fdf8f0;
 }
 
 .dark {
@@ -132,6 +142,15 @@
   --color-marketing-accent: #a9ff5c;
   --color-marketing-cream: #f1fbe7;
   --color-marketing-gold: #d4c574;
+  /* FISCMAK v3 palette */
+  --color-fis-gold: var(--fis-gold);
+  --color-fis-green: var(--fis-green);
+  --color-fis-blue-muted: var(--fis-blue-muted);
+  --color-fis-clay: var(--fis-clay);
+  --color-rail-bg: var(--rail-bg);
+  --color-rail-border: var(--rail-border);
+  --color-rail-item-hover: var(--rail-item-hover);
+  --color-rail-item-active-bg: var(--rail-item-active-bg);
   --font-sans: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -815,6 +834,53 @@ input[type="reset"]:not([data-preserve-radius]) {
 
 .cx-top-nav-tab:active {
   transform: scale(0.98);
+}
+
+/* ── FISCMAK v3 Nav Rail (Phase 0) ──────────────────────────────────── */
+.cx-nav-rail {
+  background: var(--rail-bg);
+  border-right: 1px solid var(--rail-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 3.5rem; /* 56px */
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.cx-nav-rail-item {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: background-color 120ms ease, color 120ms ease;
+  border-left: 2px solid transparent;
+}
+
+.cx-nav-rail-item:hover {
+  background: var(--rail-item-hover);
+  color: #374151;
+}
+
+.cx-nav-rail-item-active {
+  background: var(--rail-item-active-bg);
+  color: var(--fis-gold);
+  border-left-color: var(--fis-gold);
+}
+
+.cx-nav-rail-divider {
+  width: 1.75rem;
+  height: 1px;
+  background: var(--rail-border);
+  margin: 0.25rem 0;
+  flex-shrink: 0;
 }
 
 /* Forest sidebar + Coach Mak — unified dark column */

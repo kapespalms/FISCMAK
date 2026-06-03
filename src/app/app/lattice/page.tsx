@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { LatticeView } from "@/components/workspace/LatticeView";
 
 export default function LatticePage() {
-  redirect("/app/objective?tab=lattice");
+  return <LatticeView />;
 }

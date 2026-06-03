@@ -1,92 +1,127 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Camera, Search, User } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { CardSection } from "@/components/ui/CardSection";
-import { PageShell } from "@/components/layout/PageShell";
+import { useEffect, useState } from "react";
+import {
+  BadgeCheck,
+  BookOpen,
+  Briefcase,
+  Camera,
+  FlaskConical,
+  GraduationCap,
+  Heart,
+  MapPin,
+  Medal,
+  MessageCircle,
+  Mic,
+  Shield,
+  Star,
+  Users,
+} from "lucide-react";
 import { NpiRegistryPanel, type NpiRegistryStatus } from "@/components/profile/NpiRegistryPanel";
 import { UserAvatar } from "@/components/profile/UserAvatar";
-import { SpecialtyIntakeFields } from "@/components/onboarding/SpecialtyIntakeFields";
-import { PROFILE_MAK } from "@/lib/card-mak-prompts";
+import { useAppShell } from "@/components/layout/AppShell";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import {
   AVATAR_CHANGED_EVENT,
   getProfileAvatarUrl,
   hasCustomProfileAvatar,
-  processAvatarFile,
   resolveProfileAvatarUrl,
 } from "@/lib/profile-avatar";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import {
-  combineName,
-  splitTrustedName,
   trustedNameFromOAuthMetadata,
+  combineName,
 } from "@/lib/auth/trusted-name";
 import type { Profile } from "@/lib/types/database";
-import { CAREER_LEVELS, type CareerLevel } from "@/lib/v2/onboarding-options";
-import {
-  defaultTrainingComplete,
-  migrateLegacySpecialty,
-} from "@/lib/v2/specialty-hierarchy";
-import { BoardOfDirectorsPanel } from "@/components/profile/BoardOfDirectorsPanel";
-import { CareerPortfolioPanel } from "@/components/profile/CareerPortfolioPanel";
-import { AcademicDossierPanel } from "@/components/profile/AcademicDossierPanel";
-import type { BoardProfileView } from "@/lib/v2/career-board-models";
-import type { AppUser } from "@/lib/v2/types";
+import type { CvItemType, BankItem } from "@/lib/v2/output-studio-bank";
 
-function splitName(full: string | null | undefined): { first: string; last: string } {
-  return splitTrustedName(full);
+/** Groups of CV item types shown as section cards */
+const PROFILE_SECTIONS: {
+  title: string;
+  icon: React.ElementType;
+  types: CvItemType[];
+  emptyLabel: string;
+}[] = [
+  {
+    title: "Experience",
+    icon: Briefcase,
+    types: ["CV-LEAD", "CV-COMM-INST", "CV-COMM-NATL"],
+    emptyLabel: "Capture a clinical or leadership role",
+  },
+  {
+    title: "Education & Credentials",
+    icon: GraduationCap,
+    types: ["CV-DEG", "CV-LIC", "CV-CERT", "CV-SKILL"],
+    emptyLabel: "Add a degree, license, or certification",
+  },
+  {
+    title: "Publications",
+    icon: BookOpen,
+    types: ["CV-PUB-ORIG", "CV-PUB-REV", "CV-PUB-CASE", "CV-PUB-CHAP", "CV-PUB-EDIT", "CV-PUB-ABS"],
+    emptyLabel: "Add a publication or abstract",
+  },
+  {
+    title: "Presentations",
+    icon: Mic,
+    types: ["CV-PRES-NATL", "CV-PRES-REG", "CV-PRES-INST", "CV-PRES-POST", "CV-PRES-INV"],
+    emptyLabel: "Add a presentation or poster",
+  },
+  {
+    title: "Teaching",
+    icon: Users,
+    types: ["CV-TEACH-UME", "CV-TEACH-GME", "CV-TEACH-CME", "CV-CURR", "CV-CURR-MAT", "CV-MENTOR"],
+    emptyLabel: "Capture a teaching activity",
+  },
+  {
+    title: "Research & QI",
+    icon: FlaskConical,
+    types: ["CV-RES-PROJ", "CV-GRANT", "CV-QI"],
+    emptyLabel: "Add a research project, grant, or QI initiative",
+  },
+  {
+    title: "Service & Leadership",
+    icon: Heart,
+    types: ["CV-PEER", "CV-ADVOCACY"],
+    emptyLabel: "Capture a committee, peer review, or advocacy role",
+  },
+  {
+    title: "Recognition",
+    icon: Star,
+    types: ["CV-AWARD", "CV-MEDIA", "CV-MEM"],
+    emptyLabel: "Add an award, media mention, or membership",
+  },
+];
+
+function itemLabel(item: BankItem): string {
+  const sd = item.structured_data as Record<string, unknown> | null;
+  if (typeof sd?.title === "string" && sd.title) return sd.title;
+  if (item.display_label) return item.display_label;
+  return item.item_type;
+}
+
+function itemSub(item: BankItem): string | null {
+  const sd = item.structured_data as Record<string, unknown> | null;
+  if (typeof sd?.organization === "string" && sd.organization) return sd.organization;
+  if (typeof sd?.journal === "string" && sd.journal) return sd.journal;
+  if (typeof sd?.venue === "string" && sd.venue) return sd.venue;
+  return null;
 }
 
 export default function ProfilePage() {
-  const fileRef = useRef<HTMLInputElement>(null);
-  const [saved, setSaved] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
-  const [avatarError, setAvatarError] = useState<string | null>(null);
+  const { openMak } = useAppShell();
 
-  const [baseSpecialty, setBaseSpecialty] = useState("");
-  const [subspecialty, setSubspecialty] = useState("");
-  const [trainingComplete, setTrainingComplete] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+  const [displayName, setDisplayName] = useState<string | null>(null);
+  const [headline, setHeadline] = useState<string | null>(null);
+  const [location, setLocation] = useState<string | null>(null);
 
   const [npiStatus, setNpiStatus] = useState<NpiRegistryStatus | null>(null);
   const [npiLoading, setNpiLoading] = useState(true);
-  const [board, setBoard] = useState<BoardProfileView | null>(null);
-  const [boardLoading, setBoardLoading] = useState(true);
 
-  const [form, setForm] = useState({
-    first_name: "",
-    last_name: "",
-    career_stage: CAREER_LEVELS[3] as CareerLevel,
-    institution_name: "",
-    department_name: "",
-    goals: "",
-  });
-  const [namePrefilled, setNamePrefilled] = useState(false);
+  const [bankItems, setBankItems] = useState<BankItem[]>([]);
+  const [bankLoading, setBankLoading] = useState(true);
 
-  function applySpecialtyFromUser(user: Pick<AppUser, "base_specialty" | "subspecialty" | "specialty" | "subspecialty_training_complete" | "career_stage">) {
-    const normalized = user.base_specialty
-      ? {
-          base_specialty: user.base_specialty,
-          subspecialty: user.subspecialty ?? null,
-          subspecialty_training_complete: Boolean(user.subspecialty_training_complete),
-        }
-      : migrateLegacySpecialty(user.specialty ?? null);
-
-    if (normalized.base_specialty) {
-      setBaseSpecialty(normalized.base_specialty);
-    }
-    if (normalized.subspecialty) {
-      setSubspecialty(normalized.subspecialty);
-      setTrainingComplete(
-        user.subspecialty_training_complete ??
-          defaultTrainingComplete(user.career_stage, normalized.subspecialty),
-      );
-    }
-  }
-
+  // Avatar
   useEffect(() => {
     setAvatarUrl(getProfileAvatarUrl());
     function onAvatarChange(e: Event) {
@@ -97,346 +132,214 @@ export default function ProfilePage() {
     return () => window.removeEventListener(AVATAR_CHANGED_EVENT, onAvatarChange);
   }, []);
 
+  // Profile header data
   useEffect(() => {
     async function load() {
       try {
         const meRes = await fetch("/api/v1/users/me");
-        const me = (await meRes.json()) as AppUser & { institution?: string | null };
+        const me = await meRes.json() as Record<string, unknown>;
+        const nameParts = typeof me.name === "string" ? me.name.trim() : "";
+        if (nameParts) setDisplayName(nameParts);
 
-        setForm((f) => ({
-          ...f,
-          career_stage: (me.career_stage as CareerLevel) ?? f.career_stage,
-          institution_name: me.institution ?? f.institution_name,
-        }));
-        applySpecialtyFromUser(me);
+        const specialty = (me.base_specialty ?? me.specialty ?? "") as string;
+        const institution = (me.institution ?? "") as string;
+        if (specialty || institution) {
+          setHeadline([specialty, institution].filter(Boolean).join(" · "));
+        }
 
         if (isSupabaseConfigured()) {
           const supabase = createClient();
-          const {
-            data: { user },
-          } = await supabase.auth.getUser();
+          const { data: { user } } = await supabase.auth.getUser();
           const oauthName = trustedNameFromOAuthMetadata(
             user?.user_metadata as Record<string, unknown> | undefined,
           );
-          if (oauthName?.first) {
-            setForm((f) => ({
-              ...f,
-              first_name: oauthName.first,
-              last_name: oauthName.last,
-            }));
-            setNamePrefilled(true);
+          if (oauthName?.first && !nameParts) {
+            setDisplayName(combineName(oauthName.first, oauthName.last));
           }
           if (user) {
             const { data } = await supabase
               .from("profiles")
-              .select("*")
+              .select("first_name, last_name, institution_name, department_name, photo_url")
               .eq("id", user.id)
               .maybeSingle();
             if (data) {
               const p = data as Profile;
               if (p.first_name?.trim()) {
-                setForm((f) => ({
-                  ...f,
-                  first_name: p.first_name ?? f.first_name,
-                  last_name: p.last_name ?? f.last_name,
-                  institution_name: p.institution_name ?? f.institution_name,
-                  department_name: p.department_name ?? "",
-                  goals: p.goals ?? "",
-                }));
-                setNamePrefilled(true);
-              } else {
-                setForm((f) => ({
-                  ...f,
-                  institution_name: p.institution_name ?? f.institution_name,
-                  department_name: p.department_name ?? "",
-                  goals: p.goals ?? "",
-                }));
+                setDisplayName(combineName(p.first_name ?? "", p.last_name ?? ""));
+              }
+              if (p.institution_name) {
+                setLocation(p.institution_name);
               }
               if (p.photo_url && !hasCustomProfileAvatar()) {
                 setAvatarUrl(resolveProfileAvatarUrl(p.photo_url));
               }
-              if (!me.base_specialty && p.specialty) {
-                applySpecialtyFromUser({ ...me, specialty: p.specialty });
-              }
             }
-          }
-        } else if (me.name?.trim() && me.tier1_complete) {
-          const { first, last } = splitName(me.name);
-          if (first) {
-            setForm((f) => ({ ...f, first_name: first, last_name: last }));
-            setNamePrefilled(true);
           }
         }
       } catch {
-        setError("Could not load profile.");
+        // non-blocking
       } finally {
         setLoading(false);
       }
     }
-
     void load();
   }, []);
 
-  useEffect(() => {
-    fetch("/api/v1/career-board")
-      .then((r) => r.json())
-      .then((data: { board?: BoardProfileView | null }) => setBoard(data.board ?? null))
-      .catch(() => setBoard(null))
-      .finally(() => setBoardLoading(false));
-  }, []);
-
+  // NPI
   useEffect(() => {
     fetch("/api/v1/npi")
       .then((r) => r.json())
-      .then((data: NpiRegistryStatus) => setNpiStatus(data))
+      .then((d: NpiRegistryStatus) => setNpiStatus(d))
       .catch(() => setNpiStatus(null))
       .finally(() => setNpiLoading(false));
   }, []);
 
-  function pickBase(value: string) {
-    setBaseSpecialty(value);
-    setSubspecialty("");
-    setTrainingComplete(false);
-  }
-
-  function pickSubspecialty(value: string) {
-    setSubspecialty(value);
-    setTrainingComplete(defaultTrainingComplete(form.career_stage, value));
-  }
-
-  async function handleAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    e.target.value = "";
-    if (!file) return;
-    setAvatarError(null);
-    try {
-      await processAvatarFile(file);
-      setAvatarUrl(getProfileAvatarUrl());
-    } catch (err) {
-      setAvatarError(err instanceof Error ? err.message : "Could not update photo.");
-    }
-  }
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(null);
-
-    if (!baseSpecialty) {
-      setError("Select a base specialty from the list.");
-      return;
-    }
-
-    const fullName = combineName(form.first_name, form.last_name);
-    const meRes = await fetch("/api/v1/users/me", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: fullName || undefined,
-        base_specialty: baseSpecialty,
-        subspecialty: subspecialty || null,
-        subspecialty_training_complete: subspecialty ? trainingComplete : false,
-        career_stage: form.career_stage,
-        institution: form.institution_name || undefined,
-      }),
-    });
-    const meData = await meRes.json();
-    if (!meRes.ok) {
-      setError(meData.message ?? "Could not save career profile.");
-      return;
-    }
-
-    if (isSupabaseConfigured()) {
-      const supabase = createClient();
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (user) {
-        const { error: upsertError } = await supabase.from("profiles").upsert({
-          id: user.id,
-          first_name: form.first_name,
-          last_name: form.last_name,
-          specialty: meData.specialty ?? baseSpecialty,
-          career_phase: form.career_stage,
-          institution_name: form.institution_name,
-          department_name: form.department_name,
-          goals: form.goals,
-          updated_at: new Date().toISOString(),
-        });
-        if (upsertError) {
-          setError(upsertError.message);
-          return;
-        }
+  // Bank items
+  useEffect(() => {
+    if (!isSupabaseConfigured()) { setBankLoading(false); return; }
+    const supabase = createClient();
+    void (async () => {
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data: rows } = await supabase
+          .from("cv_item_metadata")
+          .select("id, evidence_unit_id, item_type, structured_data, display_label, created_at")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false });
+        if (rows) setBankItems(rows as BankItem[]);
+      } catch {
+        // non-blocking
+      } finally {
+        setBankLoading(false);
       }
-    }
+    })();
+  }, []);
 
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2000);
+  function itemsForTypes(types: CvItemType[]): BankItem[] {
+    return bankItems.filter((item) => (types as string[]).includes(item.item_type));
   }
 
   return (
-    <PageShell
-      eyebrow="Account"
-      title="Profile"
-      maxWidth="md"
-    >
-      {error && (
-        <p className="cx-alert-banner mb-6 px-4 py-3 text-sm">{error}</p>
-      )}
+    <div className="mx-auto max-w-3xl space-y-6 pb-16">
 
-      <CardSection
-        eyebrow="Account"
-        title="Profile photo"
-        description="Shown in the top bar. JPG or PNG, under 2 MB."
-        icon={Camera}
-      >
-        <div className="flex flex-wrap items-center gap-4">
-          <UserAvatar
-            src={avatarUrl}
-            name={`${form.first_name} ${form.last_name}`.trim() || null}
-            size="lg"
-          />
-          <div className="space-y-2">
-            <Button type="button" variant="secondary" onClick={() => fileRef.current?.click()}>
-              Change photo
-            </Button>
-            {avatarError && <p className="text-sm text-cx-attention">{avatarError}</p>}
-          </div>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="image/*"
-            className="sr-only"
-            aria-hidden
-            onChange={(e) => void handleAvatarChange(e)}
-          />
-        </div>
-      </CardSection>
+      {/* Header card */}
+      <div className="overflow-hidden rounded-2xl border border-cx-forest-dark/10 bg-white shadow-sm">
+        {/* Banner */}
+        <div className="h-28 bg-gradient-to-r from-fis-gold/20 via-fis-gold/10 to-white" />
 
-      <CardSection
-        eyebrow="Account"
-        title="Career context"
-        description="Specialty hierarchy matches onboarding — base residency program plus optional fellowship."
-        icon={User}
-        mak={PROFILE_MAK.context}
-      >
-        {loading ? (
-          <p className="text-sm text-cx-forest-dark/70">Loading profile…</p>
-        ) : (
-          <form onSubmit={(e) => void handleSubmit(e)} className="space-y-5">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Input
-                label="First name"
-                id="first"
-                value={form.first_name}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, first_name: e.target.value }))
-                }
-                readOnly={namePrefilled}
-              />
-              <Input
-                label="Last name"
-                id="last"
-                value={form.last_name}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, last_name: e.target.value }))
-                }
-                readOnly={namePrefilled}
-              />
+        <div className="px-6 pb-6">
+          {/* Avatar row */}
+          <div className="relative -mt-12 mb-4 flex items-end justify-between">
+            <div className="relative">
+              <div className="rounded-full ring-4 ring-white">
+                <UserAvatar src={avatarUrl} name={displayName} size="lg" />
+              </div>
             </div>
-            {namePrefilled && (
-              <p className="text-xs text-cx-forest-dark/60">
-                Pre-filled from your sign-in or program roster.
-              </p>
+            {npiStatus?.npi_verified && (
+              <div className="flex items-center gap-1.5 rounded-full bg-fis-gold/10 px-3 py-1.5 text-xs font-medium text-fis-gold">
+                <BadgeCheck size={13} />
+                NPI verified
+              </div>
             )}
+          </div>
 
-            <SpecialtyIntakeFields
-              baseSpecialty={baseSpecialty}
-              onPickBase={pickBase}
-              subspecialty={subspecialty}
-              onPickSubspecialty={pickSubspecialty}
-              trainingComplete={trainingComplete}
-              onTrainingCompleteChange={setTrainingComplete}
-              careerStage={form.career_stage}
-            />
+          {loading ? (
+            <div className="h-10 w-48 animate-pulse rounded-lg bg-neutral-100" />
+          ) : (
+            <>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-semibold text-cx-forest-dark">
+                  {displayName ?? "Your name"}
+                </h1>
+                {npiStatus?.npi_verified && (
+                  <Shield size={15} className="shrink-0 text-fis-gold" aria-label="NPI verified" />
+                )}
+              </div>
+              {headline && (
+                <p className="mt-1 text-sm text-cx-forest-dark/70">{headline}</p>
+              )}
+              {location && (
+                <div className="mt-1 flex items-center gap-1 text-xs text-cx-forest-dark/50">
+                  <MapPin size={12} />
+                  {location}
+                </div>
+              )}
+            </>
+          )}
 
-            <div>
-              <label htmlFor="career-stage" className="text-cx-label">
-                Career level
-              </label>
-              <select
-                id="career-stage"
-                value={form.career_stage}
-                onChange={(e) => {
-                  const career_stage = e.target.value as CareerLevel;
-                  setForm((f) => ({ ...f, career_stage }));
-                  if (subspecialty) {
-                    setTrainingComplete(defaultTrainingComplete(career_stage, subspecialty));
-                  }
-                }}
-                className="mt-2 min-h-11 w-full rounded-xl border border-cx-forest-dark/20 px-4 text-cx-forest-dark"
-              >
-                {CAREER_LEVELS.map((level) => (
-                  <option key={level} value={level}>
-                    {level}
-                  </option>
+          {/* Open to — Phase 0 placeholder */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="rounded-full border border-fis-gold/40 px-3 py-1 text-xs text-fis-gold/80">
+              Open to opportunities
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bank section cards */}
+      {PROFILE_SECTIONS.map(({ title, icon: Icon, types, emptyLabel }) => {
+        const items = itemsForTypes(types as CvItemType[]);
+        return (
+          <div
+            key={title}
+            className="rounded-2xl border border-cx-forest-dark/10 bg-white p-6 shadow-sm"
+          >
+            <div className="mb-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Icon size={16} className="shrink-0 text-fis-gold" />
+                <h2 className="text-sm font-semibold text-cx-forest-dark">{title}</h2>
+                {items.length > 0 && (
+                  <span className="rounded-full bg-fis-gold/10 px-2 py-0.5 text-[10px] font-medium text-fis-gold">
+                    {items.length}
+                  </span>
+                )}
+              </div>
+              {/* Phase 1: Add button + drag-drop */}
+            </div>
+
+            {bankLoading ? (
+              <div className="space-y-2">
+                {[1, 2].map((i) => (
+                  <div key={i} className="h-9 w-full animate-pulse rounded-lg bg-neutral-100" />
                 ))}
-              </select>
-            </div>
+              </div>
+            ) : items.length === 0 ? (
+              <div className="flex flex-col items-start gap-2 rounded-xl border border-dashed border-cx-forest-dark/15 p-4">
+                <p className="text-xs text-cx-forest-dark/50">{emptyLabel}</p>
+                <button
+                  type="button"
+                  onClick={openMak}
+                  className="flex items-center gap-1.5 text-xs font-medium text-fis-gold transition-opacity hover:opacity-80"
+                >
+                  <MessageCircle size={12} />
+                  Capture with Mak
+                </button>
+              </div>
+            ) : (
+              <ul className="divide-y divide-cx-forest-dark/6">
+                {items.map((item) => (
+                  <li key={item.id} className="py-3 first:pt-0 last:pb-0">
+                    <p className="text-sm font-medium text-cx-forest-dark">{itemLabel(item)}</p>
+                    {itemSub(item) && (
+                      <p className="mt-0.5 text-xs text-cx-forest-dark/55">{itemSub(item)}</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        );
+      })}
 
-            <Input
-              label="Institution"
-              id="institution"
-              value={form.institution_name}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, institution_name: e.target.value }))
-              }
-            />
-            <Input
-              label="Department"
-              id="department"
-              value={form.department_name}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, department_name: e.target.value }))
-              }
-            />
-            <div>
-              <label htmlFor="goals" className="text-cx-label">
-                Career goals (notes)
-              </label>
-              <textarea
-                id="goals"
-                value={form.goals}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, goals: e.target.value }))
-                }
-                rows={4}
-                className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-4 text-cx-forest-dark"
-                placeholder="Free-form notes — structured goals live on Strategy."
-              />
-            </div>
-            <Button type="submit">{saved ? "Saved" : "Save profile"}</Button>
-          </form>
-        )}
-      </CardSection>
-
-      <BoardOfDirectorsPanel board={board} loading={boardLoading} />
-
-      <CareerPortfolioPanel />
-
-      <AcademicDossierPanel />
-
-      <CardSection
-        eyebrow="Verification"
-        title="NPI registry lookup"
-        description={
-          npiStatus?.npi_verified
-            ? "Your NPI is verified against the CMS NPPES registry."
-            : "Add your NPI to verify your provider record against the CMS NPPES registry."
-        }
-        icon={Search}
-      >
+      {/* NPI verification */}
+      <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-6 shadow-sm">
+        <div className="mb-4 flex items-center gap-2">
+          <Medal size={16} className="shrink-0 text-fis-gold" />
+          <h2 className="text-sm font-semibold text-cx-forest-dark">NPI Verification</h2>
+        </div>
         {npiLoading ? (
-          <p className="text-sm text-cx-forest-dark/70">Loading NPI status…</p>
+          <div className="h-8 w-40 animate-pulse rounded-lg bg-neutral-100" />
         ) : (
           <NpiRegistryPanel
             status={npiStatus}
@@ -445,7 +348,8 @@ export default function ProfilePage() {
             onVerified={(next) => setNpiStatus(next)}
           />
         )}
-      </CardSection>
-    </PageShell>
+      </div>
+
+    </div>
   );
 }

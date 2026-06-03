@@ -21,8 +21,7 @@ import {
 } from "@/lib/mak-panel-preference";
 import { formatDisplayName } from "@/lib/mak-greeting";
 import { useIsMobile } from "@/lib/use-media-query";
-import { IconSidebar } from "@/components/layout/IconSidebar";
-import { TopNavBar } from "@/components/layout/TopNavBar";
+import { NavRail } from "@/components/layout/NavRail";
 import { MakPanel } from "@/components/layout/MakPanel";
 import { AnalyticsProvider } from "@/components/layout/AnalyticsProvider";
 import { LayOfTheLandTour } from "@/components/onboarding/LayOfTheLandTour";
@@ -196,10 +195,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <AppShellContext.Provider value={value}>
-      <div className="flex h-screen overflow-hidden bg-cx-forest-dark">
+      <div className="flex h-screen overflow-hidden bg-rail-bg">
         {!isOnboardingRoute && (
-          <div className="flex h-full shrink-0">
-            <IconSidebar />
+          <>
+            <NavRail />
             <MakPanel
               open={makOpen}
               pendingFlow={pendingFlow}
@@ -211,11 +210,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               initialMessage={pendingInitialMessage}
               onInitialMessageHandled={() => setPendingInitialMessage(null)}
             />
-          </div>
+          </>
         )}
         <LayOfTheLandTour open={tourOpen} onClose={() => setTourOpen(false)} />
         <div className="flex min-w-0 flex-1 flex-col">
-          {!isOnboardingRoute && <TopNavBar />}
           <div className="cx-main-shell flex min-h-0 flex-1 flex-col">
             <AnalyticsProvider>
               <main className="font-futura-book min-h-0 flex-1 overflow-auto p-4 md:p-8">

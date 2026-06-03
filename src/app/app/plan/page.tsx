@@ -1,10 +1,6 @@
-import { Suspense } from "react";
-import { StrategyWorkspace } from "@/components/workspace/StrategyWorkspace";
+import { redirect } from "next/navigation";
 
+/** SOAP route retired in v3. Goals is the new home for strategy. */
 export default function PlanPage() {
-  return (
-    <Suspense fallback={<p className="text-sm text-cx-forest-dark/70">Loading…</p>}>
-      <StrategyWorkspace />
-    </Suspense>
-  );
+  redirect("/app/goals");
 }

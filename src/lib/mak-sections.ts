@@ -8,13 +8,20 @@ import {
   DASHBOARD_MECE_OPTIONS,
 } from "@/lib/v2/dashboard-mak-menu";
 
+/** v3 rail sections */
 export type AppSection =
   | "dashboard"
+  | "lattice"
+  | "wellbeing"
+  | "goals"
+  | "output"
+  | "training"
+  | "profile"
+  // SOAP sections kept as internal aliases — components still reference them
   | "subjective"
   | "objective"
   | "assessment"
-  | "plan"
-  | "output";
+  | "plan";
 
 export type MakSectionConfig = {
   greeting: string;
@@ -155,11 +162,18 @@ export const SECTION_TO_FLOW: Record<
   Exclude<AppSection, "dashboard">,
   "discuss" | "review" | "assess" | "plan" | "create"
 > = {
+  // v3 sections
+  lattice:   "review",
+  wellbeing: "discuss",
+  goals:     "plan",
+  output:    "create",
+  training:  "discuss",
+  profile:   "review",
+  // SOAP aliases
   subjective: "discuss",
-  objective: "review",
+  objective:  "review",
   assessment: "assess",
-  plan: "plan",
-  output: "create",
+  plan:       "plan",
 };
 
 export type MakFlowIntent =
@@ -187,6 +201,37 @@ export type MakFlowIntent =
   | (typeof FIVE_OPTIONS)[number]["id"];
 
 export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
+  // v3 sections
+  lattice: {
+    greeting: "Here's your Career Lattice — patterns across competency domains and career identities.",
+    quickOptions: ["Show my strongest domains", "What should I capture next?", "Open list view"],
+    placeholder: "Ask about your lattice…",
+    mode: "Analyst",
+  },
+  wellbeing: {
+    greeting: "How are you doing? I can walk you through a check-in or review your trends.",
+    quickOptions: ["Start a pulse check-in", "Review my FCWI", "Quarterly snapshot"],
+    placeholder: "Talk about how you're doing…",
+    mode: "Coach",
+  },
+  goals: {
+    greeting: "Here are your goals across the four horizons. Let's work on what matters most.",
+    quickOptions: ["Set a new goal", "Review 3-month goals", "Explore career directions"],
+    placeholder: "Talk through your goals…",
+    mode: "Strategist",
+  },
+  training: {
+    greeting: "Here's your training dashboard — milestones, rotations, and CCC prep.",
+    quickOptions: ["Current rotation", "Milestone check-in", "CCC prep"],
+    placeholder: "Ask about your training…",
+    mode: "Coach",
+  },
+  profile: {
+    greeting: "This is your Profile — the bank made human. Add or review your career story.",
+    quickOptions: ["Upload my CV", "Add an accomplishment", "Review bank items"],
+    placeholder: "Ask about your profile…",
+    mode: "Documenter",
+  },
   dashboard: {
     greeting: DASHBOARD_MECE_GREETING,
     quickOptions: DASHBOARD_MECE_OPTIONS.map((o) => o.label),
@@ -305,15 +350,21 @@ const LEGACY_PATH_MAP: Record<string, AppSection> = {
 };
 
 export function sectionFromPath(pathname: string): AppSection {
-  if (pathname.startsWith("/app/dashboard") || pathname === "/app") {
-    return "dashboard";
-  }
+  if (pathname.startsWith("/app/dashboard") || pathname === "/app") return "dashboard";
+  // v3 routes — checked first
+  if (pathname.startsWith("/app/lattice")) return "lattice";
+  if (pathname.startsWith("/app/wellbeing")) return "wellbeing";
+  if (pathname.startsWith("/app/goals")) return "goals";
+  if (pathname.startsWith("/app/output")) return "output";
+  if (pathname.startsWith("/app/training")) return "training";
+  if (pathname.startsWith("/app/profile")) return "profile";
+  if (pathname.startsWith("/app/settings")) return "profile";
+  // SOAP aliases (routes redirect, but components may still call this)
   if (pathname.startsWith("/app/subjective")) return "subjective";
   if (pathname.startsWith("/app/objective")) return "objective";
   if (pathname.startsWith("/app/assessment")) return "assessment";
   if (pathname.startsWith("/app/plan")) return "plan";
-  if (pathname.startsWith("/app/jobs")) return "plan";
-  if (pathname.startsWith("/app/output")) return "output";
+  if (pathname.startsWith("/app/jobs")) return "goals";
 
   for (const [prefix, section] of Object.entries(LEGACY_PATH_MAP)) {
     if (pathname === prefix || pathname.startsWith(`${prefix}/`)) {
@@ -325,11 +376,18 @@ export function sectionFromPath(pathname: string): AppSection {
 }
 
 const MAK_CONTEXT_LABELS: Record<Exclude<AppSection, "subjective">, string> = {
+  // v3 sections
   dashboard: "Career conversation",
-  objective: SOAP_TAB.objective.nav,
+  lattice:   "Career Lattice",
+  wellbeing: "Well-being",
+  goals:     "Goals",
+  output:    "Output Studio",
+  training:  "Training",
+  profile:   "Profile",
+  // SOAP aliases
+  objective:  SOAP_TAB.objective.nav,
   assessment: SOAP_TAB.assessment.nav,
-  plan: SOAP_TAB.plan.nav,
-  output: SOAP_TAB.output.nav,
+  plan:       SOAP_TAB.plan.nav,
 };
 
 export function sectionNavShortLabel(
@@ -338,7 +396,16 @@ export function sectionNavShortLabel(
 ): string {
   if (section === "subjective") return subjectiveNavLabel(displayName);
   if (section === "dashboard") return "Dashboard";
-  return SOAP_TAB[section as SoapSectionKey].nav;
+  // v3 sections
+  if (section === "lattice") return "Lattice";
+  if (section === "wellbeing") return "Well-being";
+  if (section === "goals") return "Goals";
+  if (section === "output") return "Output Studio";
+  if (section === "training") return "Training";
+  if (section === "profile") return "Profile";
+  // SOAP aliases fallback
+  const soapKey = section as SoapSectionKey;
+  return SOAP_TAB[soapKey]?.nav ?? section;
 }
 
 export function makContextLabel(section: AppSection, displayName?: string | null): string {

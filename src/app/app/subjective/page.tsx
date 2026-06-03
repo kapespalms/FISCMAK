@@ -1,5 +1,6 @@
-import { SubjectiveWorkspace } from "@/components/workspace/SubjectiveWorkspace";
+import { redirect } from "next/navigation";
 
+/** SOAP route retired in v3. Dashboard is the new home. */
 export default function SubjectivePage() {
-  return <SubjectiveWorkspace />;
+  redirect("/app/dashboard");
 }

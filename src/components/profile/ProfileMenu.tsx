@@ -69,7 +69,7 @@ export function ProfileMenu() {
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-[calc(100%+8px)] z-50 min-w-[200px] overflow-hidden rounded-xl border border-cx-forest-dark/15 bg-white py-1 shadow-lg"
+          className="absolute bottom-0 left-full ml-2 z-50 min-w-[200px] overflow-hidden rounded-xl border border-cx-forest-dark/15 bg-white py-1 shadow-lg"
         >
           <div className="border-b border-cx-forest-dark/10 px-4 py-3">
             <p className="truncate text-sm font-semibold text-cx-forest-dark">

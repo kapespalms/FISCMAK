@@ -1,10 +1,6 @@
-import { Suspense } from "react";
-import { ObjectiveWorkspace } from "@/components/workspace/ObjectiveWorkspace";
+import { redirect } from "next/navigation";
 
+/** SOAP route retired in v3. Lattice is the new home for career evidence. */
 export default function ObjectivePage() {
-  return (
-    <Suspense fallback={<p className="text-sm text-cx-forest-dark/70">Loading…</p>}>
-      <ObjectiveWorkspace />
-    </Suspense>
-  );
+  redirect("/app/lattice");
 }

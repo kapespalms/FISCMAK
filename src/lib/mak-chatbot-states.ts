@@ -85,12 +85,19 @@ export type MakChatState =
   | "A-PromotionReadiness";
 
 export const DEFAULT_CHAT_STATE: Record<AppSection, MakChatState> = {
+  // v3 sections
   dashboard: "S-Welcome",
+  lattice:   "O-Review",
+  wellbeing: "S-Welcome",
+  goals:     "P-GoalTrack",
+  output:    "O-Generate",
+  training:  "S-Welcome",
+  profile:   "S-Welcome",
+  // SOAP aliases
   subjective: "S-Welcome",
-  objective: "O-Review",
+  objective:  "O-Review",
   assessment: "A-Synthesis",
-  plan: "P-GoalTrack",
-  output: "O-Generate",
+  plan:       "P-GoalTrack",
 };
 
 export function resolveChatState(input: {
@@ -195,30 +202,46 @@ export function sectionSystemPrompt(
   const safety = `Escalation protocols (9 triggers): (1) PFI burnout ≥ threshold → wellness resources; (2) mMBI ≥ 'A few times a week' → wellness; (3) crisis language → 988 + Physician Support Line, pause all coaching; (4) career alignment <40% for 2Q → mentor; (5) goal stalled 2Q → restructure/replace/coach; (6) desire to leave medicine → structured exploration, never dissuade, wellness first if PFI elevated; (7) invisible work >20 hrs/week → workload summary + urgent Sustainability Goal; (8) minority tax (DEI >4 hrs + URiM + unreasonable >3.5) → DEI portfolio + mentor; (9) rapid metric decline >15 percentile points → follow-up + goal adjustment.`;
 
   const bySection: Record<AppSection, string> = {
+    // v3 sections
     dashboard:
       pack === "trainee"
         ? "Career snapshot hub for a trainee. Guide toward rotation debriefs, narrative anchor, portfolio capture, and application documents."
-        : "You are at the career snapshot hub. Summarize SOAPO bands briefly and guide the physician to the right tab.",
-    subjective:
+        : "You are at the career snapshot hub. Summarize the lattice bands briefly and guide the physician to the right section.",
+    lattice:
       pack === "trainee"
-        ? "Professional perspective check-in for a trainee. Ask about career direction, specialty fit, and training trajectory — not promotion readiness."
-        : "Gate entry: professional career perspective check-in. Ask about professional trajectory, task alignment, career direction. Use validated instruments conversationally (PFI, BITS, Career Aspirations, UWES-9).",
-    objective:
-      pack === "trainee"
-        ? "Career Data vault for a trainee. Flag portfolio evidence, rotation debriefs, clinical skills evaluations, and items for ILP or applications."
-        : "Gate entry: present Career Data vault changes since last quarter. Flag new items and items needing confirmation.",
-    assessment:
-      pack === "trainee"
-        ? "Synthesize training progress, career themes from debriefs, and competency growth — avoid advancement-readiness framing unless fellow."
-        : "Gate entry: synthesize Career Health Score and Career Map in plain language. Highlight improvements, areas needing attention, and career alignment.",
-    plan:
+        ? "Career Lattice for a trainee. Flag portfolio evidence, rotation debriefs, clinical skills evaluations, and items for ILP or applications."
+        : "Career Lattice view. Present bank items, flag new captures needing confirmation, highlight density patterns.",
+    wellbeing:
+      "Well-being section. Support check-in instruments (pulse, FCWI, quarterly snapshot) and surface Mak observations. Follow distress-detection rules (MDT ≥4 → resource link, no auto-report).",
+    goals:
       pack === "trainee"
         ? "Career strategy for training: SMART goals aligned with ILP, scholarly plans, and application timelines."
-        : "Gate entry: review Development, Maintenance, and Sustainability goals with milestone progress. Support goal modification (objective, milestones, scope) and replacement with SMART restructuring.",
+        : "Goals section: review the four horizons (3mo/1yr/5yr/10yr), WOOP/SMART cards, momentum indicators. Support goal creation and review.",
     output:
       pack === "trainee"
-        ? "Document generation for trainees: CV, personal statement, letter-writer packet, fellowship narrative. Use captured rotation debriefs and narrative anchor. If the physician uploaded their own template for this document type, co-author into their structure — do not replace it."
-        : "Gate entry: document library and generation flows — CV update, cover letter, personal statement, advancement readiness report, career brief, workload summary. If a user-uploaded template is present, draft collaboratively into their format.",
+        ? "Document generation for trainees: CV, personal statement, letter-writer packet, fellowship narrative. Use captured rotation debriefs and narrative anchor."
+        : "Output Studio: document library and generation flows — CV, cover letter, personal statement, dossier, career brief.",
+    training:
+      "Training dashboard for institution-tied trainees. Support rotation debriefs, milestone check-ins, CCC prep. Map everything back to the lattice.",
+    profile:
+      "Profile section — the bank made human. Help the physician capture new items, review what's in the bank, or set up autofill from a CV.",
+    // SOAP aliases (kept for backward compat)
+    subjective:
+      pack === "trainee"
+        ? "Professional perspective check-in for a trainee."
+        : "Professional career perspective check-in. Ask about trajectory, task alignment, career direction.",
+    objective:
+      pack === "trainee"
+        ? "Career Data vault for a trainee."
+        : "Career Data vault. Flag new items and items needing confirmation.",
+    assessment:
+      pack === "trainee"
+        ? "Synthesize training progress and competency growth."
+        : "Synthesize Career Map in plain language. Highlight improvements and career alignment.",
+    plan:
+      pack === "trainee"
+        ? "Career strategy for training: SMART goals aligned with ILP."
+        : "Review Development, Maintenance, and Sustainability goals with milestone progress.",
   };
 
   const byState: Partial<Record<MakChatState, string>> = {
