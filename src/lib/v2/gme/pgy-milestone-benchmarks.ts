@@ -35,9 +35,9 @@ export function heatmapCellFlag(
 }
 
 export const HEATMAP_CELL_STYLES: Record<HeatmapCellFlag, string> = {
-  above: "bg-[#5FD65F]/30 text-cx-forest-dark",
-  on_track: "bg-cx-forest-dark/10 text-cx-forest-dark",
-  watch: "bg-amber-100 text-amber-950",
-  gap: "bg-red-100 text-red-900",
-  missing: "bg-cx-forest-dark/5 text-cx-forest-dark/40",
+  above:    "bg-[#AC8636]/20 text-[#20201D]",   // gold — value/exceeds
+  on_track: "bg-[#6E93B8]/25 text-[#20201D]",   // steel-light — on track
+  watch:    "bg-[#E7DEC9]/60 text-[#20201D]",   // sand — approaching
+  gap:      "bg-[#C28D6C]/25 text-[#20201D]",   // clay tint — below expected
+  missing:  "bg-cx-forest-dark/5 text-cx-forest-dark/40",
 };

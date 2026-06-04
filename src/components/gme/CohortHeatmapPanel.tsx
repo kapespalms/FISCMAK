@@ -101,7 +101,7 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
         </Button>
       </div>
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
 
       {dashboard && (
         <div className="mt-4 space-y-3 text-sm">
@@ -157,10 +157,10 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
           )}
 
           <div className="flex flex-wrap gap-3 text-[11px] text-cx-forest-dark/60">
-            <span className="rounded px-2 py-0.5 bg-[#5FD65F]/30">Above expected</span>
-            <span className="rounded px-2 py-0.5 bg-cx-forest-dark/10">On track</span>
-            <span className="rounded px-2 py-0.5 bg-amber-100">Watch</span>
-            <span className="rounded px-2 py-0.5 bg-red-100">Gap</span>
+            <span className="rounded px-2 py-0.5 bg-[#AC8636]/20">Above expected</span>
+            <span className="rounded px-2 py-0.5 bg-[#6E93B8]/25">On track</span>
+            <span className="rounded px-2 py-0.5 bg-[#E7DEC9]/60">Watch</span>
+            <span className="rounded px-2 py-0.5 bg-[#C28D6C]/25">Gap</span>
           </div>
 
           {dashboard.equity_alerts.length > 0 && (
