@@ -26,6 +26,7 @@ The visual palette is LOCKED. White / warm-white base; restrained; muted; never 
 
 - **Energizing (aliveness)** = `#3C8A60` muted sage — the reserved hero, used sparingly. **NEVER** neon green (`#5FD65F`, `#3BA33B`, etc.).
 - **Draining** = `#C28D6C` soft clay. **RED IS BANNED** — never `red-*`, never `#xx0000`. Clay is quiet, not an alarm.
+- **THE ONE RED EXCEPTION (founder decision, 2026-06-04):** genuine **crisis / distress / safety surfaces** may use dark red via the `--cx-attention` token (`#9b2c2c`) — e.g., the MDT≥4 escalation banner, crisis-resource prompts. This is *only* for true safety alerts a physician must not miss; never for "draining," errors, or decoration. Everywhere else, red stays banned.
 - **Evidence density** = steel ramp `#E6ECF0` → `#C2D0DD` → `#6E93B8` → `#34597A`. **Never** near-black navy (`#143060`) and never royal/bright blue.
 - **Value / treasury accent** = gold `#AC8636` (wordmark, primary action, active nav, transfer markers) — the single accent. Muted, not flashy.
 - **Neutral / "present but unmarked"** = the muted steel substrate or sand `#E7DEC9` / gray `#9A968C`. **Never amber/`amber-*`.**
