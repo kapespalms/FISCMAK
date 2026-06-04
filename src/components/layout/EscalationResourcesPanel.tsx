@@ -60,7 +60,7 @@ export function EscalationResourcesPanel({
         {isCrisis ? (
           <Phone className="mt-0.5 shrink-0 text-cx-attention" size={18} />
         ) : (
-          <AlertTriangle className="mt-0.5 shrink-0 text-[#C28D6C]" size={18} />
+          <AlertTriangle className="mt-0.5 shrink-0 text-cx-attention" size={18} />
         )}
         <div className="min-w-0 flex-1">
           <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
