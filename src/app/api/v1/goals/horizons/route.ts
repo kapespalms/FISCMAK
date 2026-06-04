@@ -39,7 +39,7 @@ export async function GET() {
       .select(
         "id, user_id, horizon, framework, domain_index, " +
         "specific, measurable, achievable, relevant, time_bound, implementation_intention, " +
-        "wish, outcome, obstacle, plan, " +
+        "wish, outcome, obstacle, plan, description, " +
         "created_at, updated_at",
       )
       .eq("user_id", auth.userId)
@@ -64,7 +64,7 @@ export async function GET() {
         framework:    (row.framework as GoalFramework) ?? HORIZON_FRAMEWORK[h],
         domain_index: row.domain_index as number | null,
         title:        "",
-        description:  null,
+        description:  row.description as string | null,
         specific:     row.specific as string | null,
         measurable:   row.measurable as string | null,
         achievable:   row.achievable as string | null,
@@ -151,10 +151,11 @@ export async function POST(request: Request) {
         outcome:      body.outcome?.trim() || null,
         obstacle:     body.obstacle?.trim() || null,
         plan:         body.plan?.trim() || null,
+        description:  body.description?.trim() || null,
         created_at:   now,
         updated_at:   now,
       })
-      .select("id, horizon, framework, domain_index, specific, measurable, achievable, relevant, time_bound, implementation_intention, wish, outcome, obstacle, plan, created_at, updated_at")
+      .select("id, horizon, framework, domain_index, specific, measurable, achievable, relevant, time_bound, implementation_intention, wish, outcome, obstacle, plan, description, created_at, updated_at")
       .single();
 
     if (error) return jsonError("db_error", error.message, 500);
@@ -162,13 +163,14 @@ export async function POST(request: Request) {
     const goal: GoalRecord = {
       id: data.id as string, user_id: auth.userId, horizon: body.horizon as GoalHorizon,
       framework, domain_index: data.domain_index as number | null,
-      title: "", description: null,
+      title: "",
       specific: data.specific as string | null, measurable: data.measurable as string | null,
       achievable: data.achievable as string | null, relevant: data.relevant as string | null,
       time_bound: data.time_bound as string | null,
       implementation_intention: data.implementation_intention as string | null,
       wish: data.wish as string | null, outcome: data.outcome as string | null,
       obstacle: data.obstacle as string | null, plan: data.plan as string | null,
+      description: data.description as string | null,
       created_at: data.created_at as string, updated_at: data.updated_at as string,
     };
     goal.title = deriveTitle(goal);

@@ -15,15 +15,15 @@ type DashboardGoalCardProps = {
 };
 
 const borderColors = {
-  primary: "border-l-cx-forest-dark",
-  attention: "border-l-amber-500",
-  success: "border-l-[#5FD65F]",
+  primary:   "border-l-cx-forest-dark",
+  attention: "border-l-[#C28D6C]",   // clay — soft concern, red/amber banned
+  success:   "border-l-[#6E93B8]",   // steel — positive progress, neon green banned
 };
 
 const fillClasses = {
-  primary: "bg-cx-forest-dark",
-  attention: "bg-amber-500",
-  success: "bg-[#5FD65F]",
+  primary:   "bg-cx-forest-dark",
+  attention: "bg-[#C28D6C]",
+  success:   "bg-[#6E93B8]",
 };
 
 export function DashboardGoalCard({
@@ -69,7 +69,7 @@ export function DashboardGoalCard({
       </div>
 
       {goal.stalled && (
-        <p className="mt-2 flex items-center gap-1.5 text-xs text-amber-600">
+        <p className="mt-2 flex items-center gap-1.5 text-xs text-[#C28D6C]">
           <StatusIndicator status="attention" size={14} />
           Needs attention
         </p>
