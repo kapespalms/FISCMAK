@@ -60,15 +60,15 @@ export function ResidencyHubWorkspace() {
     <div className="space-y-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
             {program?.institution_name ?? "University Hospitals"}
           </p>
           <h1 className="text-page-title">Rotations</h1>
-          <p className="mt-2 max-w-2xl text-sm text-cx-forest-dark/75">
+          <p className="mt-2 max-w-2xl text-sm text-cx-text/75">
             Rotation guides, prep checklists, and site logistics.{" "}
             <Link
               href="/app/residency/electives"
-              className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+              className="font-medium text-cx-text underline-offset-2 hover:underline"
             >
               Elective catalog
             </Link>
@@ -76,7 +76,7 @@ export function ResidencyHubWorkspace() {
         </div>
         <Link
           href="/app/dashboard"
-          className="text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+          className="text-sm font-medium text-cx-text underline-offset-2 hover:underline"
         >
           ← Dashboard
         </Link>
@@ -91,12 +91,12 @@ export function ResidencyHubWorkspace() {
 
           const inner = (
             <>
-              <div className="text-cx-forest-dark/70">
+              <div className="text-cx-text/70">
                 <Icon className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-cx-forest-dark">{title}</p>
-                <p className="text-xs text-cx-forest-dark/60">{description}</p>
+                <p className="text-sm font-semibold text-cx-text">{title}</p>
+                <p className="text-xs text-cx-text/60">{description}</p>
               </div>
             </>
           );
@@ -134,11 +134,11 @@ export function ResidencyHubWorkspace() {
       {isSearching ? (
         <section className="space-y-4">
           {searchResults.length === 0 ? (
-            <p className="text-sm text-cx-forest-dark/60">No matches — try a rotation name, topic, or elective.</p>
+            <p className="text-sm text-cx-text/60">No matches — try a rotation name, topic, or elective.</p>
           ) : (
             searchResults.map((group) => (
               <div key={group.type}>
-                <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+                <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-text/55">
                   {group.label} ({group.items.length})
                 </h2>
                 <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -149,9 +149,9 @@ export function ResidencyHubWorkspace() {
                           href={residencyPageHref(page.slug)}
                           className="block rounded-xl border border-cx-forest-dark/10 px-4 py-3 text-sm hover:border-cx-forest-dark/25 hover:bg-white"
                         >
-                          <span className="font-medium text-cx-forest-dark">{page.title}</span>
+                          <span className="font-medium text-cx-text">{page.title}</span>
                           {!page.seeded && (
-                            <span className="ml-2 text-xs text-cx-forest-dark/50">(coming soon)</span>
+                            <span className="ml-2 text-xs text-cx-text/50">(coming soon)</span>
                           )}
                         </Link>
                       </li>
@@ -165,8 +165,8 @@ export function ResidencyHubWorkspace() {
                           rel="noopener noreferrer"
                           className="block rounded-xl border border-cx-forest-dark/10 px-4 py-3 text-sm hover:border-cx-forest-dark/25 hover:bg-white"
                         >
-                          <span className="font-medium text-cx-forest-dark">{doc.title}</span>
-                          <span className="mt-0.5 block text-xs text-cx-forest-dark/55">
+                          <span className="font-medium text-cx-text">{doc.title}</span>
+                          <span className="mt-0.5 block text-xs text-cx-text/55">
                             {doc.categoryTitle}
                           </span>
                         </a>
@@ -179,8 +179,8 @@ export function ResidencyHubWorkspace() {
                           href={`/app/residency/electives?highlight=${encodeURIComponent(entry.id)}`}
                           className="block rounded-xl border border-cx-forest-dark/10 px-4 py-3 text-sm hover:border-cx-forest-dark/25 hover:bg-white"
                         >
-                          <span className="font-medium text-cx-forest-dark">{entry.name}</span>
-                          <span className="mt-0.5 block text-xs text-cx-forest-dark/55">
+                          <span className="font-medium text-cx-text">{entry.name}</span>
+                          <span className="mt-0.5 block text-xs text-cx-text/55">
                             {entry.category}
                             {entry.location ? ` · ${entry.location}` : ""}
                           </span>
@@ -195,7 +195,7 @@ export function ResidencyHubWorkspace() {
       ) : (
         <>
           <section id="rotations" className="scroll-mt-24 space-y-5">
-            <h2 className="text-sm font-semibold text-cx-forest-dark">
+            <h2 className="text-sm font-semibold text-cx-text">
               {rotationPages.length} rotations
             </h2>
             {categories.map((category) => {
@@ -205,7 +205,7 @@ export function ResidencyHubWorkspace() {
               if (pages.length === 0) return null;
               return (
                 <div key={category.id}>
-                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-text/55">
                     {category.title}
                   </h3>
                   <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

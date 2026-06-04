@@ -90,7 +90,7 @@ export function JobsWorkspace({ embedded = false }: JobsWorkspaceProps) {
   const body = (
     <>
       {!embedded && (
-        <Link href="/app/plan" className="mb-6 inline-block text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark">
+        <Link href="/app/plan" className="mb-6 inline-block text-sm font-medium text-cx-text/70 hover:text-cx-text">
           Back to strategy
         </Link>
       )}
@@ -112,7 +112,7 @@ export function JobsWorkspace({ embedded = false }: JobsWorkspaceProps) {
       </div>
 
       {loading ? (
-        <p className="text-sm text-cx-forest-dark/70">Loading matches…</p>
+        <p className="text-sm text-cx-text/70">Loading matches…</p>
       ) : list.length === 0 ? (
         <CardSection
           eyebrow="Job search"

@@ -39,7 +39,7 @@ export function SignOutButton({
           disabled={signingOut}
           onClick={() => void handleSignOut()}
           className={cn(
-            "inline-flex items-center gap-2 rounded-xl border border-cx-forest-dark/20 bg-white px-4 py-2.5 text-sm font-medium text-cx-forest-dark transition hover:bg-cx-forest-dark/5 disabled:opacity-60",
+            "inline-flex items-center gap-2 rounded-xl border border-cx-forest-dark/20 bg-white px-4 py-2.5 text-sm font-medium text-cx-text transition hover:bg-cx-forest-dark/5 disabled:opacity-60",
             className,
           )}
         >
@@ -47,7 +47,7 @@ export function SignOutButton({
           {signingOut ? "Signing out…" : "Sign out"}
         </button>
         {error ? <p className="text-sm text-cx-attention">{error}</p> : null}
-        <p className="text-xs text-cx-forest-dark/60">
+        <p className="text-xs text-cx-text/60">
           Ends your session on this device. You will need to sign in again to access your workspace.
         </p>
       </div>
@@ -63,7 +63,7 @@ export function SignOutButton({
         disabled={signingOut}
         onClick={() => void handleSignOut()}
         className={cn(
-          "flex w-full items-center gap-2.5 border-t border-cx-forest-dark/10 px-4 py-2.5 text-sm text-cx-forest-dark/70 transition-colors hover:bg-cx-forest-dark/5 hover:text-cx-forest-dark disabled:opacity-60",
+          "flex w-full items-center gap-2.5 border-t border-cx-forest-dark/10 px-4 py-2.5 text-sm text-cx-text/70 transition-colors hover:bg-cx-forest-dark/5 hover:text-cx-text disabled:opacity-60",
           className,
         )}
       >

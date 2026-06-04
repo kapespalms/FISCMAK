@@ -14,8 +14,8 @@ export function AgendaCard({ dueItem, onContinue, loading }: Props) {
   return (
     <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-5 shadow-sm">
       <div className="mb-3 flex items-center gap-2">
-        <Calendar size={15} className="text-cx-forest-dark/50" />
-        <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+        <Calendar size={15} className="text-cx-text/50" />
+        <span className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
           This week
         </span>
       </div>
@@ -27,9 +27,9 @@ export function AgendaCard({ dueItem, onContinue, loading }: Props) {
           <p className="text-[10px] font-medium uppercase tracking-wide text-fis-gold">
             {dueItem.label}
           </p>
-          <p className="mt-1 text-sm font-semibold text-cx-forest-dark">{dueItem.title}</p>
+          <p className="mt-1 text-sm font-semibold text-cx-text">{dueItem.title}</p>
           {dueItem.detail && (
-            <p className="mt-0.5 text-xs text-cx-forest-dark/60">{dueItem.detail}</p>
+            <p className="mt-0.5 text-xs text-cx-text/60">{dueItem.detail}</p>
           )}
           {onContinue && (
             <button
@@ -47,7 +47,7 @@ export function AgendaCard({ dueItem, onContinue, loading }: Props) {
             <CheckCircle2 size={15} />
             <span>All caught up this week</span>
           </div>
-          <p className="text-xs text-cx-forest-dark/50">
+          <p className="text-xs text-cx-text/50">
             No check-ins or reviews due right now.
           </p>
         </div>
@@ -55,7 +55,7 @@ export function AgendaCard({ dueItem, onContinue, loading }: Props) {
 
       {/* Calendar stub */}
       <div className="mt-4 rounded-xl border border-dashed border-cx-forest-dark/10 px-4 py-3 text-center">
-        <p className="text-xs text-cx-forest-dark/40">Google Calendar · Outlook</p>
+        <p className="text-xs text-cx-text/40">Google Calendar · Outlook</p>
         <Link
           href="/app/settings"
           className="mt-0.5 block text-[11px] font-medium text-fis-gold hover:opacity-80"

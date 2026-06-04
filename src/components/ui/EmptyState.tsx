@@ -38,7 +38,7 @@ export function EmptyState({
       )}
       <div className="relative max-w-lg">
         <h2 className="text-section-header">{title}</h2>
-        <p className="mt-2 text-sm text-cx-forest-dark/70">{description}</p>
+        <p className="mt-2 text-sm text-cx-text/70">{description}</p>
         {actionLabel && actionHref && (
           <Link href={actionHref} className="mt-4 inline-block">
             <Button>{actionLabel}</Button>

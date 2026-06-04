@@ -38,7 +38,7 @@ export default function KpAdminPage() {
   if (status === "loading") {
     return (
       <PageShell eyebrow="Admin" title="KP Admin" subtitle="Loading…" maxWidth="md">
-        <p className="text-sm text-cx-forest-dark/70">Checking access…</p>
+        <p className="text-sm text-cx-text/70">Checking access…</p>
       </PageShell>
     );
   }

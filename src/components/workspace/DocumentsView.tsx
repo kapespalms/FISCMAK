@@ -99,8 +99,8 @@ export function DocumentsView() {
   return (
     <div className="space-y-6">
       <div className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] px-4 py-4">
-        <p className="font-semibold text-cx-forest-dark">CV workspace</p>
-        <p className="mt-1 text-sm text-cx-forest-dark/70">
+        <p className="font-semibold text-cx-text">CV workspace</p>
+        <p className="mt-1 text-sm text-cx-text/70">
           Structured drafts, merge sources, and live preview — open the full Documents hub.
         </p>
         <a
@@ -128,8 +128,8 @@ export function DocumentsView() {
           htmlFor="file-upload-objective"
           className="flex cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] px-6 py-10 transition-colors hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/[0.06]"
         >
-          <Upload className="text-cx-forest-dark" size={28} />
-          <p className="mt-3 font-semibold text-cx-forest-dark">Drop or click to upload CV</p>
+          <Upload className="text-cx-text" size={28} />
+          <p className="mt-3 font-semibold text-cx-text">Drop or click to upload CV</p>
           <input
             ref={fileInputRef}
             id="file-upload-objective"
@@ -141,7 +141,7 @@ export function DocumentsView() {
           />
         </label>
         {processing && (
-          <p className="mt-4 text-center text-sm text-cx-forest-dark/70">
+          <p className="mt-4 text-center text-sm text-cx-text/70">
             Processing document and syncing MemPalace…
           </p>
         )}
@@ -168,9 +168,9 @@ export function DocumentsView() {
       </CardSection>
 
       <CardSection eyebrow="Library" title="Uploaded documents" mak={OBJECTIVE_MAK.documents}>
-        {loading && <p className="text-sm text-cx-forest-dark/70">Loading…</p>}
+        {loading && <p className="text-sm text-cx-text/70">Loading…</p>}
         {!loading && documents.length === 0 && (
-          <p className="text-sm text-cx-forest-dark/70">No documents yet.</p>
+          <p className="text-sm text-cx-text/70">No documents yet.</p>
         )}
         <div className="space-y-3">
         {documents.map((doc) => (
@@ -179,10 +179,10 @@ export function DocumentsView() {
             className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-4"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="font-semibold text-cx-forest-dark">{doc.document_type}</p>
+              <p className="font-semibold text-cx-text">{doc.document_type}</p>
               <Badge>{doc.extraction_status}</Badge>
             </div>
-            <p className="mt-2 text-xs text-cx-forest-dark/70">
+            <p className="mt-2 text-xs text-cx-text/70">
               Uploaded {new Date(doc.uploaded_at).toLocaleDateString()}
             </p>
           </div>

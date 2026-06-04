@@ -146,7 +146,7 @@ export function PromotionNarrativeWizard({
   }
 
   if (loading || !data || !sectionMeta) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading promotion narrative…</p>;
+    return <p className="text-sm text-cx-text/70">Loading promotion narrative…</p>;
   }
 
   const sectionTitle = sectionMeta.title;
@@ -158,14 +158,14 @@ export function PromotionNarrativeWizard({
     <div className="flex min-h-0 flex-1 flex-col gap-4 lg:flex-row">
       <aside className="w-full shrink-0 space-y-3 lg:w-72">
         <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-3">
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Promotion track
           </label>
           <select
             value={trackId}
             disabled={trackSaving}
             onChange={(e) => void changeTrack(e.target.value as PromotionTrackId)}
-            className="w-full rounded-md border border-cx-forest-dark/15 bg-white px-2 py-1.5 text-sm text-cx-forest-dark"
+            className="w-full rounded-md border border-cx-forest-dark/15 bg-white px-2 py-1.5 text-sm text-cx-text"
           >
             {PROMOTION_TRACKS.map((t) => (
               <option key={t.id} value={t.id}>
@@ -173,12 +173,12 @@ export function PromotionNarrativeWizard({
               </option>
             ))}
           </select>
-          <p className="text-xs text-cx-forest-dark/60">{trackDef.primaryDomain}</p>
-          <p className="text-xs text-cx-forest-dark/60">{trackDef.typicalLength}</p>
+          <p className="text-xs text-cx-text/60">{trackDef.primaryDomain}</p>
+          <p className="text-xs text-cx-text/60">{trackDef.typicalLength}</p>
         </div>
 
         <div className="flex items-center justify-between px-1">
-          <p className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <p className="text-xs font-semibold uppercase text-cx-text/70">
             {data.sections.length} sections
           </p>
           <Badge energy={data.overall_completion >= 70 ? "energizing" : "neutral"}>
@@ -192,8 +192,8 @@ export function PromotionNarrativeWizard({
             onClick={() => setActive(s.section)}
             className={`w-full rounded-md border px-3 py-2 text-left text-sm ${
               active === s.section
-                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-forest-dark"
-                : "border-cx-forest-dark/15 text-cx-forest-dark hover:bg-cx-forest-dark/[0.04]"
+                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-text"
+                : "border-cx-forest-dark/15 text-cx-text hover:bg-cx-forest-dark/[0.04]"
             }`}
           >
             <div className="flex items-start justify-between gap-2">
@@ -204,7 +204,7 @@ export function PromotionNarrativeWizard({
                 </span>
               )}
             </div>
-            <p className="text-xs text-cx-forest-dark/70">
+            <p className="text-xs text-cx-text/70">
               {s.completion_percentage}% · ~{s.target_words} words
             </p>
           </button>
@@ -224,19 +224,19 @@ export function PromotionNarrativeWizard({
         <button
           type="button"
           onClick={() => setTipsOpen((o) => !o)}
-          className="text-left text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          className="text-left text-xs font-medium text-cx-text/70 hover:text-cx-text"
         >
           {tipsOpen ? "Hide" : "Show"} track writing tips
         </button>
         {tipsOpen && (
-          <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+          <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
             {trackDef.trackTips.map((tip) => (
               <li key={tip}>{tip}</li>
             ))}
           </ul>
         )}
 
-        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
           {prompts.map((p) => (
             <li key={p}>{p}</li>
           ))}
@@ -247,11 +247,11 @@ export function PromotionNarrativeWizard({
           onChange={(e) => setDraft(e.target.value)}
           rows={14}
           placeholder={placeholder}
-          className="min-h-[280px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-forest-dark"
+          className="min-h-[280px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-text"
         />
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             {wordCount} / {targetWords} words
           </p>
           <div className="flex gap-2">

@@ -15,12 +15,12 @@ export function DashboardDueNow({
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#AC8636]/35 bg-[#AC8636]/10 px-4 py-3">
       <div className="min-w-0">
-        <p className="text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
+        <p className="text-[10px] font-medium uppercase tracking-wide text-cx-text/70">
           Due now · {item.label}
         </p>
-        <p className="text-sm font-semibold text-cx-forest-dark">{item.title}</p>
+        <p className="text-sm font-semibold text-cx-text">{item.title}</p>
         {item.detail && (
-          <p className="mt-0.5 line-clamp-2 text-xs text-cx-forest-dark/70">{item.detail}</p>
+          <p className="mt-0.5 line-clamp-2 text-xs text-cx-text/70">{item.detail}</p>
         )}
       </div>
       <button

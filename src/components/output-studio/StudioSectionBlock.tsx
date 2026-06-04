@@ -85,7 +85,7 @@ export function StudioSectionBlock({ section, onChange, focused, onFocus }: Stud
         <button
           type="button"
           onClick={(e) => { e.stopPropagation(); setCollapsed((c) => !c); }}
-          className="text-cx-forest-dark/50 hover:text-cx-forest-dark/80"
+          className="text-cx-text/50 hover:text-cx-text/80"
           title={collapsed ? "Expand section" : "Collapse section"}
         >
           {collapsed ? <ChevronRight size={14} /> : <ChevronDown size={14} />}
@@ -93,12 +93,12 @@ export function StudioSectionBlock({ section, onChange, focused, onFocus }: Stud
 
         <span className={cn(
           "flex-1 text-sm font-semibold",
-          section.enabled ? "text-cx-forest-dark" : "text-cx-forest-dark/50",
+          section.enabled ? "text-cx-text" : "text-cx-text/50",
         )}>
           {section.label}
         </span>
 
-        <span className="rounded-full bg-cx-forest-dark/8 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/50">
+        <span className="rounded-full bg-cx-forest-dark/8 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-cx-text/50">
           {section.type.replace(/_/g, " ")}
         </span>
 
@@ -110,8 +110,8 @@ export function StudioSectionBlock({ section, onChange, focused, onFocus }: Stud
           className={cn(
             "flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium transition-colors",
             section.enabled
-              ? "bg-cx-forest-dark/10 text-cx-forest-dark hover:bg-cx-forest-dark/15"
-              : "bg-cx-forest-dark/5 text-cx-forest-dark/40 hover:bg-cx-forest-dark/10",
+              ? "bg-cx-forest-dark/10 text-cx-text hover:bg-cx-forest-dark/15"
+              : "bg-cx-forest-dark/5 text-cx-text/40 hover:bg-cx-forest-dark/10",
           )}
         >
           {section.enabled ? (
@@ -143,10 +143,10 @@ export function StudioSectionBlock({ section, onChange, focused, onFocus }: Stud
                 editor={editor}
                 className={cn(
                   "prose prose-sm max-w-none",
-                  "prose-headings:text-cx-forest-dark prose-p:text-cx-forest-dark/90",
-                  "prose-li:text-cx-forest-dark/90",
+                  "prose-headings:text-cx-text prose-p:text-cx-text/90",
+                  "prose-li:text-cx-text/90",
                   "[&_.ProseMirror]:min-h-[60px] [&_.ProseMirror]:outline-none",
-                  "[&_.ProseMirror_p.is-editor-empty:first-child::before]:text-cx-forest-dark/30",
+                  "[&_.ProseMirror_p.is-editor-empty:first-child::before]:text-cx-text/30",
                   "[&_.ProseMirror_p.is-editor-empty:first-child::before]:content-['Add_content_here...']",
                   "[&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none",
                   "[&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left",
@@ -154,7 +154,7 @@ export function StudioSectionBlock({ section, onChange, focused, onFocus }: Stud
                 )}
               />
             ) : (
-              <p className="text-xs text-cx-forest-dark/40 italic">
+              <p className="text-xs text-cx-text/40 italic">
                 Section hidden — toggle On to include in document.
               </p>
             )}
@@ -162,7 +162,7 @@ export function StudioSectionBlock({ section, onChange, focused, onFocus }: Stud
 
           {/* Provenance count */}
           {section.provenance_ids.length > 0 && (
-            <div className="border-t border-cx-forest-dark/8 px-4 py-1.5 text-[10px] text-cx-forest-dark/40">
+            <div className="border-t border-cx-forest-dark/8 px-4 py-1.5 text-[10px] text-cx-text/40">
               {section.provenance_ids.length} source{section.provenance_ids.length !== 1 ? "s" : ""} · assembled from bank
             </div>
           )}

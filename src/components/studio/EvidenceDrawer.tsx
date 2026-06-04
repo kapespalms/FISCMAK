@@ -36,7 +36,7 @@ export function EvidenceDrawer({
           key={item.id}
           className="cx-surface-elevated rounded-xl p-4 shadow-sm"
         >
-          <p className="line-clamp-3 text-sm font-medium text-cx-forest-dark">{item.raw_text}</p>
+          <p className="line-clamp-3 text-sm font-medium text-cx-text">{item.raw_text}</p>
           <div className="mt-2 flex flex-wrap gap-1">
             {item.primary_domain && (
               <Badge className="text-xs">{item.primary_domain}</Badge>
@@ -50,7 +50,7 @@ export function EvidenceDrawer({
               </Badge>
             )}
           </div>
-          <p className="mt-1 text-xs text-cx-forest-dark/70">{item.activity_date}</p>
+          <p className="mt-1 text-xs text-cx-text/70">{item.activity_date}</p>
           <div className="mt-2 flex flex-col gap-1">
             <Button
               variant="link"

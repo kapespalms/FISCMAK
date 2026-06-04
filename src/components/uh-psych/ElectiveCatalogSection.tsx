@@ -70,22 +70,22 @@ export function ElectiveCatalogSection() {
   return (
     <div className="space-y-5">
       <section className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5">
-        <h2 className="text-base font-semibold text-cx-forest-dark">Elective process</h2>
+        <h2 className="text-base font-semibold text-cx-text">Elective process</h2>
         <dl className="mt-3 divide-y divide-cx-forest-dark/8 text-sm">
           <div className="grid gap-1 py-2 sm:grid-cols-[minmax(8rem,30%)_1fr] sm:gap-4">
-            <dt className="font-medium text-cx-forest-dark/70">PGY3/4 coordinator</dt>
+            <dt className="font-medium text-cx-text/70">PGY3/4 coordinator</dt>
             <dd>{coordination.pgy3_4_coordinator}</dd>
           </div>
           <div className="grid gap-1 py-2 sm:grid-cols-[minmax(8rem,30%)_1fr] sm:gap-4">
-            <dt className="font-medium text-cx-forest-dark/70">Requests</dt>
+            <dt className="font-medium text-cx-text/70">Requests</dt>
             <dd>{coordination.elective_request_contact}</dd>
           </div>
           <div className="grid gap-1 py-2 sm:grid-cols-[minmax(8rem,30%)_1fr] sm:gap-4">
-            <dt className="font-medium text-cx-forest-dark/70">Deadline</dt>
+            <dt className="font-medium text-cx-text/70">Deadline</dt>
             <dd>{coordination.deadline_weeks_before} weeks before start</dd>
           </div>
         </dl>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/75">
+        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-cx-text/75">
           {coordination.process_notes.map((note) => (
             <li key={note}>{note}</li>
           ))}
@@ -95,8 +95,8 @@ export function ElectiveCatalogSection() {
       <section className="space-y-3">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="text-base font-semibold text-cx-forest-dark">Master catalog</h2>
-            <p className="text-xs text-cx-forest-dark/60">
+            <h2 className="text-base font-semibold text-cx-text">Master catalog</h2>
+            <p className="text-xs text-cx-text/60">
               {total} options · {displayResults.length} shown
               {highlightId ? " · catalog match highlighted" : ""}
             </p>
@@ -104,7 +104,7 @@ export function ElectiveCatalogSection() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <label className="min-w-[12rem] flex-1 text-xs font-medium text-cx-forest-dark/70">
+          <label className="min-w-[12rem] flex-1 text-xs font-medium text-cx-text/70">
             Search
             <input
               type="search"
@@ -114,7 +114,7 @@ export function ElectiveCatalogSection() {
               className="mt-1 block w-full rounded-lg border border-cx-forest-dark/15 px-3 py-2 text-sm"
             />
           </label>
-          <label className="text-xs font-medium text-cx-forest-dark/70">
+          <label className="text-xs font-medium text-cx-text/70">
             Category
             <select
               value={category}
@@ -129,7 +129,7 @@ export function ElectiveCatalogSection() {
               ))}
             </select>
           </label>
-          <label className="text-xs font-medium text-cx-forest-dark/70">
+          <label className="text-xs font-medium text-cx-text/70">
             Timeframe
             <select
               value={timeframe}
@@ -144,7 +144,7 @@ export function ElectiveCatalogSection() {
               <option value="either">Either</option>
             </select>
           </label>
-          <label className="text-xs font-medium text-cx-forest-dark/70">
+          <label className="text-xs font-medium text-cx-text/70">
             Patient care
             <select
               value={patientCare}
@@ -166,18 +166,18 @@ export function ElectiveCatalogSection() {
           <table className="min-w-full text-left text-sm">
             <thead className="border-b border-cx-forest-dark/10 bg-cx-forest-dark/[0.03]">
               <tr>
-                <th className="px-3 py-2.5 font-semibold text-cx-forest-dark">Elective</th>
-                <th className="px-3 py-2.5 font-semibold text-cx-forest-dark">Category</th>
-                <th className="px-3 py-2.5 font-semibold text-cx-forest-dark">Location</th>
-                <th className="px-3 py-2.5 font-semibold text-cx-forest-dark">Faculty</th>
-                <th className="px-3 py-2.5 font-semibold text-cx-forest-dark">Timeframe</th>
-                <th className="px-3 py-2.5 font-semibold text-cx-forest-dark">Care</th>
+                <th className="px-3 py-2.5 font-semibold text-cx-text">Elective</th>
+                <th className="px-3 py-2.5 font-semibold text-cx-text">Category</th>
+                <th className="px-3 py-2.5 font-semibold text-cx-text">Location</th>
+                <th className="px-3 py-2.5 font-semibold text-cx-text">Faculty</th>
+                <th className="px-3 py-2.5 font-semibold text-cx-text">Timeframe</th>
+                <th className="px-3 py-2.5 font-semibold text-cx-text">Care</th>
               </tr>
             </thead>
             <tbody>
               {displayResults.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-3 py-8 text-center text-cx-forest-dark/60">
+                  <td colSpan={6} className="px-3 py-8 text-center text-cx-text/60">
                     No electives match your filters.
                   </td>
                 </tr>
@@ -194,34 +194,34 @@ export function ElectiveCatalogSection() {
                       {entry.rotation_code ? (
                         <Link
                           href={residencyPageHref(entry.rotation_code)}
-                          className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+                          className="font-medium text-cx-text underline-offset-2 hover:underline"
                         >
                           {entry.name}
                         </Link>
                       ) : (
-                        <p className="font-medium text-cx-forest-dark">{entry.name}</p>
+                        <p className="font-medium text-cx-text">{entry.name}</p>
                       )}
                       {entry.notes && (
-                        <p className="mt-0.5 text-xs text-cx-forest-dark/60">{entry.notes}</p>
+                        <p className="mt-0.5 text-xs text-cx-text/60">{entry.notes}</p>
                       )}
                       {entry.contact && (
-                        <p className="mt-0.5 text-xs text-cx-forest-dark/55">{entry.contact}</p>
+                        <p className="mt-0.5 text-xs text-cx-text/55">{entry.contact}</p>
                       )}
                     </td>
-                    <td className="px-3 py-2.5 text-cx-forest-dark/80">{entry.category}</td>
-                    <td className="px-3 py-2.5 text-cx-forest-dark/75">{entry.location ?? "—"}</td>
-                    <td className="px-3 py-2.5 text-cx-forest-dark/75">
+                    <td className="px-3 py-2.5 text-cx-text/80">{entry.category}</td>
+                    <td className="px-3 py-2.5 text-cx-text/75">{entry.location ?? "—"}</td>
+                    <td className="px-3 py-2.5 text-cx-text/75">
                       {entry.faculty?.join(", ") ?? "—"}
                     </td>
-                    <td className="px-3 py-2.5 text-cx-forest-dark/75">
+                    <td className="px-3 py-2.5 text-cx-text/75">
                       {TIMEFRAME_LABELS[entry.timeframe]}
                       {entry.schedule ? (
-                        <span className="mt-0.5 block text-xs text-cx-forest-dark/55">
+                        <span className="mt-0.5 block text-xs text-cx-text/55">
                           {entry.schedule}
                         </span>
                       ) : null}
                     </td>
-                    <td className="px-3 py-2.5 text-cx-forest-dark/75">
+                    <td className="px-3 py-2.5 text-cx-text/75">
                       {PATIENT_CARE_LABELS[entry.patient_care]}
                     </td>
                   </tr>

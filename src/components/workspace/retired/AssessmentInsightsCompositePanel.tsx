@@ -75,11 +75,11 @@ export function AssessmentInsightsCompositePanel({
         <ul className="space-y-3 text-sm">
           {insights.recognition_gaps.map((g) => (
             <li key={g.domain} className="rounded-xl border border-cx-forest-dark/15 p-3">
-              <p className="font-medium text-cx-forest-dark">{g.domain}</p>
-              <p className="mt-1 text-cx-forest-dark/70">
+              <p className="font-medium text-cx-text">{g.domain}</p>
+              <p className="mt-1 text-cx-text/70">
                 Conversation: {g.from_conversation}
               </p>
-              <p className="text-cx-forest-dark/70">CV: {g.documented_on_cv}</p>
+              <p className="text-cx-text/70">CV: {g.documented_on_cv}</p>
             </li>
           ))}
         </ul>

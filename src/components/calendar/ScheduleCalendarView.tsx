@@ -74,12 +74,12 @@ function MonthMiniGrid({
   const cellClass = cellSizeClass(span, variant);
   return (
     <div className={monthWidthClass(span, variant)}>
-      <h3 className="font-futura-medium mb-1 truncate text-center text-sm text-cx-forest-dark">
+      <h3 className="font-futura-medium mb-1 truncate text-center text-sm text-cx-text">
         {span === 1 ? grid.label : grid.label.replace(/\s+\d{4}$/, "")}
       </h3>
       <div className="grid grid-cols-7 gap-px text-center font-futura-book text-black/70">
         {WEEKDAYS.map((d) => (
-          <div key={d} className="text-[10px] font-futura-medium uppercase text-cx-forest-dark">
+          <div key={d} className="text-[10px] font-futura-medium uppercase text-cx-text">
             {span > 6 ? d.charAt(0) : d}
           </div>
         ))}
@@ -129,7 +129,7 @@ function ExportButtons({ exportPath }: { exportPath: string }) {
       <a
         href={exportPath}
         download
-        className="font-futura-medium rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-sm text-cx-forest-dark hover:bg-cx-forest-dark/5"
+        className="font-futura-medium rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-sm text-cx-text hover:bg-cx-forest-dark/5"
       >
         iCal (.ics)
       </a>
@@ -137,7 +137,7 @@ function ExportButtons({ exportPath }: { exportPath: string }) {
         href={googleCalendarSubscribeUrl(icsUrl)}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-futura-medium rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-sm text-cx-forest-dark hover:bg-cx-forest-dark/5"
+        className="font-futura-medium rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-sm text-cx-text hover:bg-cx-forest-dark/5"
       >
         Google Calendar
       </a>
@@ -145,7 +145,7 @@ function ExportButtons({ exportPath }: { exportPath: string }) {
         href={outlookSubscribeUrl(icsUrl)}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-futura-medium rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-sm text-cx-forest-dark hover:bg-cx-forest-dark/5"
+        className="font-futura-medium rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-sm text-cx-text hover:bg-cx-forest-dark/5"
       >
         Outlook
       </a>
@@ -242,7 +242,7 @@ export function ScheduleCalendarView({
     <section className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-4 md:p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="font-futura-medium text-lg text-cx-forest-dark md:text-xl">
+          <h2 className="font-futura-medium text-lg text-cx-text md:text-xl">
             {variant === "page" ? "Schedule" : "Your rotation schedule"}
           </h2>
           {programLabel && (
@@ -259,7 +259,7 @@ export function ScheduleCalendarView({
         {variant === "dashboard" && (
           <Link
             href="/app/schedule?tab=blocks"
-            className="font-futura-medium shrink-0 text-sm text-cx-forest-dark underline-offset-2 hover:underline"
+            className="font-futura-medium shrink-0 text-sm text-cx-text underline-offset-2 hover:underline"
           >
             Open full calendar →
           </Link>
@@ -270,10 +270,10 @@ export function ScheduleCalendarView({
 
       {selectedAssignment && (variant === "dashboard" || pageView === "month") && (
         <div className="mt-3 rounded-lg border border-cx-forest-dark/12 bg-white px-3 py-2">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-cx-text/50">
             Selected day
           </p>
-          <p className="text-sm font-medium text-cx-forest-dark">
+          <p className="text-sm font-medium text-cx-text">
             {parseIsoDate(selectedDay).toLocaleDateString(undefined, {
               weekday: "long",
               month: "short",
@@ -281,7 +281,7 @@ export function ScheduleCalendarView({
             })}
             {selectedDay === todayIso ? " · Today" : ""}
           </p>
-          <p className="text-sm text-cx-forest-dark/75">
+          <p className="text-sm text-cx-text/75">
             {selectedAssignment.rotation_label}
           </p>
         </div>
@@ -291,7 +291,7 @@ export function ScheduleCalendarView({
         <button
           type="button"
           onClick={() => shiftAnchor(-1)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-cx-forest-dark/20 text-cx-forest-dark hover:bg-cx-forest-dark/5"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-cx-forest-dark/20 text-cx-text hover:bg-cx-forest-dark/5"
           aria-label="Previous month"
         >
           <ChevronLeft size={18} />
@@ -309,7 +309,7 @@ export function ScheduleCalendarView({
         <button
           type="button"
           onClick={() => shiftAnchor(1)}
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-cx-forest-dark/20 text-cx-forest-dark hover:bg-cx-forest-dark/5"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-cx-forest-dark/20 text-cx-text hover:bg-cx-forest-dark/5"
           aria-label="Next month"
         >
           <ChevronRight size={18} />
@@ -325,7 +325,7 @@ export function ScheduleCalendarView({
                 className={`font-futura-medium rounded-lg px-2.5 py-1.5 text-sm ${
                   span === option
                     ? "bg-cx-forest-dark text-white"
-                    : "border border-cx-forest-dark/20 text-cx-forest-dark hover:bg-cx-forest-dark/5"
+                    : "border border-cx-forest-dark/20 text-cx-text hover:bg-cx-forest-dark/5"
                 }`}
               >
                 {option} mo
@@ -342,7 +342,7 @@ export function ScheduleCalendarView({
                 className={`font-futura-medium rounded-lg px-3 py-1.5 text-sm capitalize ${
                   pageView === v
                     ? "bg-cx-forest-dark text-white"
-                    : "border border-cx-forest-dark/20 text-cx-forest-dark hover:bg-cx-forest-dark/5"
+                    : "border border-cx-forest-dark/20 text-cx-text hover:bg-cx-forest-dark/5"
                 }`}
               >
                 {v}
@@ -381,7 +381,7 @@ export function ScheduleCalendarView({
 
       {variant === "page" && pageView === "day" && (
         <div className="mt-4 rounded-xl border border-cx-forest-dark/15 p-5">
-          <p className="font-futura-medium text-lg text-cx-forest-dark">
+          <p className="font-futura-medium text-lg text-cx-text">
             {parseIsoDate(selectedDay).toLocaleDateString(undefined, {
               weekday: "long",
               month: "long",
@@ -468,7 +468,7 @@ export function ScheduleCalendarView({
         <ScheduleCategoryLegend />
       ) : (
         <details className="mt-3 border-t border-cx-forest-dark/10 pt-3">
-          <summary className="cursor-pointer font-futura-medium text-xs text-cx-forest-dark/70">
+          <summary className="cursor-pointer font-futura-medium text-xs text-cx-text/70">
             Customize colors
           </summary>
           <ScheduleKey
@@ -482,7 +482,7 @@ export function ScheduleCalendarView({
 
       {(hasProgramBlocks || userEvents.length > 0) && (
         <div className="mt-4 border-t border-cx-forest-dark/10 pt-4">
-          <p className="font-futura-medium mb-2 text-sm text-cx-forest-dark">Add to your calendar</p>
+          <p className="font-futura-medium mb-2 text-sm text-cx-text">Add to your calendar</p>
           <ExportButtons exportPath="/api/v1/onboarding/schedule/export" />
         </div>
       )}

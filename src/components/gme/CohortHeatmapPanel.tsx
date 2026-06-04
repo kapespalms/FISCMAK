@@ -71,8 +71,8 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · Cohort</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">Milestone heatmap</h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">Milestone heatmap</h3>
+      <p className="mt-2 text-sm text-cx-text/75">
         Subcompetency × trainee view from imported MedHub evals and self-ratings. Colors compare
         against PGY-expected milestone levels.
       </p>
@@ -105,19 +105,19 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
 
       {dashboard && (
         <div className="mt-4 space-y-3 text-sm">
-          <p className="text-cx-forest-dark/70">
+          <p className="text-cx-text/70">
             {dashboard.summary.trainee_count} trainee(s) · {dashboard.summary.total_evaluations}{" "}
             eval(s) · cohort avg {dashboard.summary.cohort_avg_milestone ?? "—"} · narrative
             quality {dashboard.narrative_quality_pct}%
           </p>
 
           {!dashboard.trainees.length ? (
-            <p className="text-cx-forest-dark/60">No linked trainees — import MedHub CSV first.</p>
+            <p className="text-cx-text/60">No linked trainees — import MedHub CSV first.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="min-w-[720px] text-left text-xs">
                 <thead>
-                  <tr className="border-b border-cx-forest-dark/15 text-cx-forest-dark/55">
+                  <tr className="border-b border-cx-forest-dark/15 text-cx-text/55">
                     <th className="sticky left-0 bg-white py-2 pr-2">Trainee</th>
                     {subs.map((sub) => (
                       <th key={sub.id} className="px-1 py-2 text-center" title={sub.name}>
@@ -131,7 +131,7 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
                     <tr key={trainee.user_id} className="border-b border-cx-forest-dark/8">
                       <td className="sticky left-0 bg-white py-2 pr-2 font-medium">
                         {trainee.initials ?? "—"}
-                        <span className="block text-[10px] text-cx-forest-dark/50">
+                        <span className="block text-[10px] text-cx-text/50">
                           {trainee.pgy_level ?? "PGY ?"}
                         </span>
                       </td>
@@ -156,7 +156,7 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
             </div>
           )}
 
-          <div className="flex flex-wrap gap-3 text-[11px] text-cx-forest-dark/60">
+          <div className="flex flex-wrap gap-3 text-[11px] text-cx-text/60">
             <span className="rounded px-2 py-0.5 bg-[#AC8636]/20">Above expected</span>
             <span className="rounded px-2 py-0.5 bg-[#6E93B8]/25">On track</span>
             <span className="rounded px-2 py-0.5 bg-[#E7DEC9]/60">Watch</span>
@@ -164,8 +164,8 @@ export function CohortHeatmapPanel({ programSlug }: CohortHeatmapPanelProps) {
           </div>
 
           {dashboard.equity_alerts.length > 0 && (
-            <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-xs text-cx-forest-dark/75">
-              <p className="font-semibold text-cx-forest-dark">Equity guardrail</p>
+            <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-xs text-cx-text/75">
+              <p className="font-semibold text-cx-text">Equity guardrail</p>
               {dashboard.equity_alerts.map((alert) => (
                 <p key={alert.metric} className="mt-1">
                   {alert.note}

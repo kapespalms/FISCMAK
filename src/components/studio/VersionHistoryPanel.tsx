@@ -28,7 +28,7 @@ export function VersionHistoryPanel({
         {versions.slice(0, 5).map((v) => (
           <li
             key={v.id}
-            className="flex items-center justify-between gap-2 text-xs text-cx-forest-dark/70"
+            className="flex items-center justify-between gap-2 text-xs text-cx-text/70"
           >
             <span>
               v{v.version_number} ·{" "}

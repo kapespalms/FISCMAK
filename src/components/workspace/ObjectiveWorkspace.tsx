@@ -42,7 +42,7 @@ export function ObjectiveWorkspace() {
   }, []);
 
   if (!mounted) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading…</p>;
+    return <p className="text-sm text-cx-text/70">Loading…</p>;
   }
 
   return (
@@ -78,7 +78,7 @@ export function ObjectiveWorkspace() {
         {tab === "documents" && (
           <>
             <DocumentsView />
-            <p className="mt-4 text-center text-sm text-cx-forest-dark/65">
+            <p className="mt-4 text-center text-sm text-cx-text/65">
               <a href="/app/documents" className="font-medium underline">
                 Open full Documents workspace →
               </a>

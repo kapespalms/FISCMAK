@@ -139,8 +139,8 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
     <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-6 shadow-sm">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-semibold text-cx-forest-dark">Pending Items</h2>
-          <p className="mt-0.5 text-xs text-cx-forest-dark/55">
+          <h2 className="text-sm font-semibold text-cx-text">Pending Items</h2>
+          <p className="mt-0.5 text-xs text-cx-text/55">
             Confirm to add to your profile bank, or dismiss to remove.
           </p>
         </div>
@@ -178,15 +178,15 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
                     value={editLabel}
                     onChange={(e) => setEditLabel(e.target.value)}
                     maxLength={255}
-                    className="w-full rounded-lg border border-[#AC8636]/40 bg-white px-2.5 py-1.5 text-sm text-cx-forest-dark focus:border-[#AC8636] focus:outline-none"
+                    className="w-full rounded-lg border border-[#AC8636]/40 bg-white px-2.5 py-1.5 text-sm text-cx-text focus:border-[#AC8636] focus:outline-none"
                     autoFocus
                   />
                 ) : (
-                  <p className="text-sm text-cx-forest-dark line-clamp-2">
+                  <p className="text-sm text-cx-text line-clamp-2">
                     {item.raw_text ?? "(no text)"}
                   </p>
                 )}
-                <div className="flex flex-wrap items-center gap-2 text-[10px] text-cx-forest-dark/45">
+                <div className="flex flex-wrap items-center gap-2 text-[10px] text-cx-text/45">
                   {sourceBadge(item)}
                   {item.primary_track && <span>{item.primary_track}</span>}
                   {item.primary_domain && <span>· {item.primary_domain}</span>}
@@ -210,7 +210,7 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
                     title="Edit label"
                     disabled={isBusy}
                     onClick={() => startEdit(item)}
-                    className="rounded-lg p-1 text-neutral-300 transition-colors hover:bg-neutral-100 hover:text-cx-forest-dark disabled:opacity-40"
+                    className="rounded-lg p-1 text-neutral-300 transition-colors hover:bg-neutral-100 hover:text-cx-text disabled:opacity-40"
                   >
                     <Pencil size={13} />
                   </button>
@@ -225,7 +225,7 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
                     if (sec) handleMoveTo(item, sec);
                     e.target.value = "";
                   }}
-                  className="cursor-pointer rounded-lg border border-neutral-200 bg-white px-2 py-1 text-xs text-cx-forest-dark focus:border-[#AC8636] focus:outline-none disabled:opacity-40"
+                  className="cursor-pointer rounded-lg border border-neutral-200 bg-white px-2 py-1 text-xs text-cx-text focus:border-[#AC8636] focus:outline-none disabled:opacity-40"
                 >
                   <option value="" disabled>
                     {isEditing ? (
@@ -259,7 +259,7 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
           <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-cx-forest-dark">
+              <h3 className="text-sm font-semibold text-cx-text">
                 Select type for {typePicker.section.title}
               </h3>
               <button
@@ -270,7 +270,7 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
                 <X size={15} />
               </button>
             </div>
-            <p className="mb-4 text-xs text-cx-forest-dark/60 line-clamp-2">
+            <p className="mb-4 text-xs text-cx-text/60 line-clamp-2">
               &ldquo;{typePicker.label.slice(0, 100)}&rdquo;
             </p>
             <div className="space-y-2">
@@ -282,7 +282,7 @@ export function PendingTray({ items, onItemPlaced }: PendingTrayProps) {
                   onClick={() =>
                     void placeItem(typePicker.activityId, t, typePicker.label)
                   }
-                  className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-left text-sm text-cx-forest-dark transition-colors hover:border-[#AC8636] hover:bg-[#AC8636]/5 disabled:opacity-50"
+                  className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-left text-sm text-cx-text transition-colors hover:border-[#AC8636] hover:bg-[#AC8636]/5 disabled:opacity-50"
                 >
                   {ITEM_TYPE_LABELS[t]}
                 </button>

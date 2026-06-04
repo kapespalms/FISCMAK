@@ -125,14 +125,14 @@ export function TraineeMilestoneHeatmapCard() {
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · Milestones</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">My milestone heatmap</h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">My milestone heatmap</h3>
+      <p className="mt-2 text-sm text-cx-text/75">
         MedHub outpatient form subcompetencies vs PGY {pgyLevel ?? "—"} expected levels. Faculty
         ratings take precedence over self-ratings when both exist.
       </p>
 
       {prite && (
-        <p className="mt-2 text-xs text-cx-forest-dark/60">
+        <p className="mt-2 text-xs text-cx-text/60">
           Latest PRITE ({prite.exam_year}): {prite.overall_percentile ?? "—"}th percentile
         </p>
       )}
@@ -175,7 +175,7 @@ export function TraineeMilestoneHeatmapCard() {
       {view === "current" && <HeatmapGrid cells={cells} />}
       {view === "longitudinal" && activePeriod && (
         <>
-          <p className="mt-3 text-xs text-cx-forest-dark/60">
+          <p className="mt-3 text-xs text-cx-text/60">
             {activePeriod.period_label}: {activePeriod.rated_count} of {activePeriod.total_count}{" "}
             subcompetencies rated
           </p>

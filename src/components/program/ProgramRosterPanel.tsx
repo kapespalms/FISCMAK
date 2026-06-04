@@ -85,7 +85,7 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <p className="text-cx-label uppercase">GME · Roster</p>
-              <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+              <h3 className="mt-1 text-lg font-semibold text-cx-text">
                 Residents by PGY
               </h3>
             </div>
@@ -95,11 +95,11 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
           </div>
 
           {error && (
-            <p className="mt-3 text-sm text-cx-forest-dark/70">{error}</p>
+            <p className="mt-3 text-sm text-cx-text/70">{error}</p>
           )}
 
           {!loading && !error && residents.length === 0 && (
-            <p className="mt-4 text-sm text-cx-forest-dark/60">
+            <p className="mt-4 text-sm text-cx-text/60">
               No residents linked to this program yet — import MedHub CSV or add trainees via
               invite.
             </p>
@@ -107,13 +107,13 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
 
           {byPgy.map(([pgy, group]) => (
             <div key={pgy} className="mt-6">
-              <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+              <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-text/55">
                 {pgy}
               </h4>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[560px] text-sm">
                   <thead>
-                    <tr className="border-b border-cx-forest-dark/10 text-left text-xs text-cx-forest-dark/50">
+                    <tr className="border-b border-cx-forest-dark/10 text-left text-xs text-cx-text/50">
                       <th className="pb-2 pr-4 font-medium">Resident</th>
                       <th className="pb-2 pr-4 font-medium">Evaluations</th>
                       <th className="pb-2 pr-4 font-medium">Pre-CCC</th>
@@ -129,7 +129,7 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
                         onClick={() => router.push(`/app/program/residents/${r.user_id}`)}
                       >
                         <td className="py-2.5 pr-4">
-                          <span className="font-medium text-cx-forest-dark">
+                          <span className="font-medium text-cx-text">
                             {r.name ?? r.initials ?? "—"}
                           </span>
                         </td>
@@ -139,7 +139,7 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
                               {r.eval_count} eval{r.eval_count !== 1 ? "s" : ""}
                             </span>
                           ) : (
-                            <span className="text-xs text-cx-forest-dark/40">No data</span>
+                            <span className="text-xs text-cx-text/40">No data</span>
                           )}
                         </td>
                         <td className="py-2.5 pr-4">
@@ -148,13 +148,13 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
                               Ready
                             </span>
                           ) : (
-                            <span className="text-xs text-cx-forest-dark/40">Pending</span>
+                            <span className="text-xs text-cx-text/40">Pending</span>
                           )}
                         </td>
                         <td className="py-2.5 pr-4">
                           <IlpBadge active={r.ilp_active_count} draft={r.ilp_draft_count} />
                         </td>
-                        <td className="py-2.5 text-xs text-cx-forest-dark/40">Phase 2</td>
+                        <td className="py-2.5 text-xs text-cx-text/40">Phase 2</td>
                       </tr>
                     ))}
                   </tbody>
@@ -167,7 +167,7 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
 
       {tab === "cohort" && (
         <div className="space-y-3">
-          <p className="text-sm text-cx-forest-dark/60">
+          <p className="text-sm text-cx-text/60">
             De-identified milestone heatmap · aggregates of ≥5 required for PGY-subgroup comparison
             · trainee initials only · no well-being data
           </p>
@@ -180,10 +180,10 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
 
 function IlpBadge({ active, draft }: { active: number; draft: number }) {
   if (active === 0 && draft === 0) {
-    return <span className="text-xs text-cx-forest-dark/40">None</span>;
+    return <span className="text-xs text-cx-text/40">None</span>;
   }
   return (
-    <span className={cn("text-xs", active > 0 ? "text-fis-gold" : "text-cx-forest-dark/60")}>
+    <span className={cn("text-xs", active > 0 ? "text-fis-gold" : "text-cx-text/60")}>
       {active > 0 && `${active} active`}
       {active > 0 && draft > 0 && " · "}
       {draft > 0 && `${draft} pending`}

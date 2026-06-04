@@ -113,7 +113,7 @@ export function CareerDataReconcilePanel() {
   }
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading items pending review…</p>;
+    return <p className="text-sm text-cx-text/70">Loading items pending review…</p>;
   }
 
   if (!items.length) {
@@ -188,7 +188,7 @@ export function CareerDataReconcilePanel() {
                 className="rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-4 text-sm"
               >
                 <div className="flex flex-wrap items-center gap-2">
-                  <p className="font-semibold text-cx-forest-dark">{item.label}</p>
+                  <p className="font-semibold text-cx-text">{item.label}</p>
                   {pill && (
                     <span
                       className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${pill.className}`}
@@ -197,7 +197,7 @@ export function CareerDataReconcilePanel() {
                     </span>
                   )}
                 </div>
-                <p className="mt-1 text-sm text-cx-forest-dark/80">{item.detail}</p>
+                <p className="mt-1 text-sm text-cx-text/80">{item.detail}</p>
                 <p className="mt-1 text-cx-label">Source: {item.source}</p>
                 <div className="mt-3 flex gap-2">
                   <Button onClick={() => setStatus(item.id, "confirmed")}>Confirm</Button>
@@ -213,17 +213,17 @@ export function CareerDataReconcilePanel() {
 
       {manuallyReviewed.length > 0 && (
         <div className={pending.length > 0 || autoConfirmed.length > 0 ? "mt-6 border-t border-cx-forest-dark/10 pt-4" : ""}>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
             Manually reviewed
           </p>
           <ul className="mt-3 space-y-2">
             {manuallyReviewed.map((item) => (
               <li
                 key={item.id}
-                className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-sm text-cx-forest-dark/80"
+                className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-sm text-cx-text/80"
               >
-                <span className="font-medium text-cx-forest-dark">{item.label}</span>
-                <span className="ml-2 text-xs capitalize text-cx-forest-dark/55">{item.status}</span>
+                <span className="font-medium text-cx-text">{item.label}</span>
+                <span className="ml-2 text-xs capitalize text-cx-text/55">{item.status}</span>
               </li>
             ))}
           </ul>

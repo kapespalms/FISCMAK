@@ -36,7 +36,7 @@ export function KpAdminSettingsLink() {
     >
       <Link
         href="/app/kp-admin"
-        className="inline-flex text-sm font-semibold text-cx-forest-dark underline underline-offset-2 hover:text-cx-forest-dark/80"
+        className="inline-flex text-sm font-semibold text-cx-text underline underline-offset-2 hover:text-cx-text/80"
       >
         Open KP Admin Dashboard →
       </Link>

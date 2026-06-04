@@ -132,7 +132,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
         title="Yearly check-in complete"
         icon={CalendarClock}
       >
-        <pre className="whitespace-pre-wrap text-sm text-cx-forest-dark/80">{summary}</pre>
+        <pre className="whitespace-pre-wrap text-sm text-cx-text/80">{summary}</pre>
         <Button variant="secondary" className="mt-4" onClick={() => setSummary(null)}>
           Done
         </Button>
@@ -173,11 +173,11 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
       icon={CalendarClock}
       footer={
         status.days_since_last != null ? (
-          <p className="text-xs text-cx-forest-dark/70">
+          <p className="text-xs text-cx-text/70">
             Last annual refresh: {status.days_since_last} days ago · ~{status.estimated_minutes} min
           </p>
         ) : (
-          <p className="text-xs text-cx-forest-dark/70">~{status.estimated_minutes} min</p>
+          <p className="text-xs text-cx-text/70">~{status.estimated_minutes} min</p>
         )
       }
     >
@@ -192,7 +192,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
         </div>
       ) : (
         <div className="space-y-3">
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">3-year career objective</span>
             <textarea
               value={careerObjective}
@@ -202,7 +202,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Track energy (1–10)</span>
             <input
               type="number"
@@ -213,7 +213,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Unrecognized work (hours/week)</span>
             <input
               type="number"
@@ -223,7 +223,7 @@ export function AnnualRefreshPanel({ status, onComplete, onBeginWithMak }: Props
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Goal review summary</span>
             <textarea
               value={goalReview}

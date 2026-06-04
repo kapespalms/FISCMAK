@@ -60,7 +60,7 @@ export function ReconciliationItemCard({
         {verified && npiStatus?.npi ? `NPI ${npiStatus.npi} verified` : item.label}
       </p>
       {!verified && (
-        <p className={cn("mt-2 text-sm", luxury ? "text-gray-400" : "text-cx-forest-dark/80")}>
+        <p className={cn("mt-2 text-sm", luxury ? "text-gray-400" : "text-cx-text/80")}>
           {item.detail}
         </p>
       )}

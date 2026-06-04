@@ -30,11 +30,11 @@ export function MetricRow({
   return (
     <div className="rounded-xl border border-cx-forest-dark/10 bg-white p-4 shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <p className="text-sm font-semibold text-cx-forest-dark">{label}</p>
+        <p className="text-sm font-semibold text-cx-text">{label}</p>
         {status && <StatusChip status={status} />}
       </div>
-      <p className="mt-2 text-sm leading-relaxed text-cx-forest-dark/80">{summary}</p>
-      {trend && <p className="mt-1 text-xs text-cx-forest-dark/60">{trend}</p>}
+      <p className="mt-2 text-sm leading-relaxed text-cx-text/80">{summary}</p>
+      {trend && <p className="mt-1 text-xs text-cx-text/60">{trend}</p>}
       {(technical || sourceAttribution) && (
         <TechnicalDetailToggle technical={technical} sources={sourceAttribution} />
       )}
@@ -42,7 +42,7 @@ export function MetricRow({
         <div className="mt-3 border-t border-cx-forest-dark/15 pt-3">
           <MakDiscussLink
             mak={mak}
-            className="text-cx-forest-dark hover:text-cx-forest-dark/80"
+            className="text-cx-text hover:text-cx-text/80"
           />
         </div>
       )}

@@ -61,7 +61,7 @@ export function DualLatticeGrid({
           {model.colLabels.map((label) => (
             <div
               key={label}
-              className="flex items-end justify-center px-1 pb-1 text-center text-[10px] font-semibold leading-tight text-cx-forest-dark/65"
+              className="flex items-end justify-center px-1 pb-1 text-center text-[10px] font-semibold leading-tight text-cx-text/65"
               style={{ minHeight: colHeaderHeight }}
             >
               {label.split(" ")[0]}
@@ -76,7 +76,7 @@ export function DualLatticeGrid({
 
           {Array.from({ length: rowCount }, (_, ri) => (
             <Fragment key={model.rowLabels[ri]}>
-              <div className="flex items-center justify-end pr-2 text-right text-[10px] font-medium leading-tight text-cx-forest-dark/60">
+              <div className="flex items-center justify-end pr-2 text-right text-[10px] font-medium leading-tight text-cx-text/60">
                 {model.rowLabels[ri]}
               </div>
               {Array.from({ length: colCount }, (_, ci) => {

@@ -72,7 +72,7 @@ function Toolbar() {
           key={label}
           type="button"
           onClick={cmd}
-          className="min-h-9 min-w-9 rounded-md border border-cx-forest-dark/20 bg-white px-2 text-sm font-semibold text-cx-forest-dark hover:bg-cx-forest-dark/5"
+          className="min-h-9 min-w-9 rounded-md border border-cx-forest-dark/20 bg-white px-2 text-sm font-semibold text-cx-text hover:bg-cx-forest-dark/5"
         >
           {label}
         </button>
@@ -241,7 +241,7 @@ export const StudioLexicalEditor = forwardRef<StudioEditorHandle, Props>(
               <ContentEditable className="min-h-[400px] resize-none px-6 py-4 text-base outline-none" />
             }
             placeholder={
-              <div className="pointer-events-none absolute left-6 top-4 text-cx-forest-dark/50">
+              <div className="pointer-events-none absolute left-6 top-4 text-cx-text/50">
                 Select a template and click Generate, or start writing…
               </div>
             }

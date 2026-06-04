@@ -66,13 +66,13 @@ export function FcwiForm({ frequencyTier = "monthly", onSaved }: Props) {
             {/* Visual divider + scale header when scale type changes */}
             {scaleChanged && (
               <div className={cn("mb-4", item.item !== 1 && "border-t border-cx-forest-dark/10 pt-5")}>
-                <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/50">
+                <p className="text-xs font-medium uppercase tracking-wide text-cx-text/50">
                   {SCALE_HEADER[item.scale]}
                 </p>
               </div>
             )}
             <div className="space-y-2">
-              <p className="text-sm text-cx-forest-dark">{item.text}</p>
+              <p className="text-sm text-cx-text">{item.text}</p>
               <div className="flex flex-wrap gap-2">
                 {labels.map(({ value, label }) => {
                   const selected = ratings[item.item] === value;
@@ -85,7 +85,7 @@ export function FcwiForm({ frequencyTier = "monthly", onSaved }: Props) {
                         "rounded-lg border px-3 py-1.5 text-xs font-medium transition-all",
                         selected
                           ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                          : "border-cx-forest-dark/20 text-cx-forest-dark/60 hover:border-cx-forest-dark/50 hover:text-cx-forest-dark",
+                          : "border-cx-forest-dark/20 text-cx-text/60 hover:border-cx-forest-dark/50 hover:text-cx-text",
                       )}
                     >
                       {label}
@@ -108,7 +108,7 @@ export function FcwiForm({ frequencyTier = "monthly", onSaved }: Props) {
           "rounded-xl px-6 py-3 text-sm font-medium transition-all",
           allAnswered && !saving
             ? "bg-cx-forest-dark text-white hover:opacity-90"
-            : "cursor-not-allowed bg-cx-forest-dark/20 text-cx-forest-dark/40",
+            : "cursor-not-allowed bg-cx-forest-dark/20 text-cx-text/40",
         )}
       >
         {saving ? "Saving…" : "Submit check-in"}

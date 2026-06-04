@@ -16,8 +16,8 @@ export default function AppError({
 
   return (
     <div className="flex min-h-[50vh] flex-col items-center justify-center gap-4 p-8 text-center">
-      <h1 className="text-xl font-semibold text-cx-forest-dark">Something went wrong</h1>
-      <p className="max-w-md text-sm text-cx-forest-dark/70">
+      <h1 className="text-xl font-semibold text-cx-text">Something went wrong</h1>
+      <p className="max-w-md text-sm text-cx-text/70">
         We couldn&apos;t load this page. Try again, or sign in from the home page.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3">
@@ -30,7 +30,7 @@ export default function AppError({
         </button>
         <Link
           href="/login"
-          className="text-sm font-medium text-cx-forest-dark underline hover:no-underline"
+          className="text-sm font-medium text-cx-text underline hover:no-underline"
         >
           Sign in
         </Link>

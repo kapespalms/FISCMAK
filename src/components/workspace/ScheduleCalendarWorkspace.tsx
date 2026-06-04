@@ -52,7 +52,7 @@ export function ScheduleCalendarWorkspace({ embedded = false }: { embedded?: boo
       {!embedded && (
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
+            <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-text">
               Schedule
             </p>
             <h1 className="text-page-title">Your calendar</h1>
@@ -63,7 +63,7 @@ export function ScheduleCalendarWorkspace({ embedded = false }: { embedded?: boo
           </div>
           <Link
             href="/app/dashboard"
-            className="font-futura-medium text-sm text-cx-forest-dark underline-offset-2 hover:underline"
+            className="font-futura-medium text-sm text-cx-text underline-offset-2 hover:underline"
           >
             ← Dashboard
           </Link>

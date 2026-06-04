@@ -73,11 +73,11 @@ export function WellbeingWorkspace() {
           }
         >
           {loading ? (
-            <p className="text-sm text-cx-forest-dark/50">Loading…</p>
+            <p className="text-sm text-cx-text/50">Loading…</p>
           ) : snapshotStatus?.due ? (
             <QuarterlySnapshotForm onSaved={() => void loadStatus()} />
           ) : (
-            <p className="text-sm text-cx-forest-dark/60">
+            <p className="text-sm text-cx-text/60">
               Completed {snapshotStatus?.last_completed ? formatDate(snapshotStatus.last_completed) : ""}. Next snapshot due in about 3 months.
             </p>
           )}
@@ -99,11 +99,11 @@ export function WellbeingWorkspace() {
         }
       >
         {loading ? (
-          <p className="text-sm text-cx-forest-dark/50">Loading…</p>
+          <p className="text-sm text-cx-text/50">Loading…</p>
         ) : pulseStatus?.due ? (
           <WeeklyPulseForm onSaved={() => void loadStatus()} />
         ) : (
-          <p className="text-sm text-cx-forest-dark/60">
+          <p className="text-sm text-cx-text/60">
             {pulseStatus?.latest
               ? `Completed ${formatDate(pulseStatus.latest.recorded_at)}. Your next pulse will be ready in about a week.`
               : "No pulse check-ins yet."}
@@ -126,11 +126,11 @@ export function WellbeingWorkspace() {
         }
       >
         {loading ? (
-          <p className="text-sm text-cx-forest-dark/50">Loading…</p>
+          <p className="text-sm text-cx-text/50">Loading…</p>
         ) : fcwiStatus?.due ? (
           <FcwiForm onSaved={() => void loadStatus()} frequencyTier="monthly" />
         ) : (
-          <p className="text-sm text-cx-forest-dark/60">
+          <p className="text-sm text-cx-text/60">
             {fcwiStatus?.latest
               ? `Completed ${formatDate(fcwiStatus.latest.recorded_at)}. Your next check-in will be ready in about a month.`
               : "No monthly check-ins yet."}

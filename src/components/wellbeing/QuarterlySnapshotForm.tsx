@@ -29,7 +29,7 @@ function StepProgress({ current }: { current: number }) {
               i < current ? "bg-cx-forest-dark" : i === current ? "bg-cx-forest-dark/50" : "bg-cx-forest-dark/15",
             )}
           />
-          <span className={cn("text-xs", i === current ? "text-cx-forest-dark font-medium" : "text-cx-forest-dark/40")}>
+          <span className={cn("text-xs", i === current ? "text-cx-text font-medium" : "text-cx-text/40")}>
             {label}
           </span>
         </div>
@@ -131,7 +131,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
     }
   }
 
-  if (loading) return <p className="text-sm text-cx-forest-dark/50">Loading…</p>;
+  if (loading) return <p className="text-sm text-cx-text/50">Loading…</p>;
 
   const ftePctTotal = [clinicalPct, teachingPct, researchPct, adminPct]
     .map((v) => parseFloat(v) || 0)
@@ -144,12 +144,12 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
       {/* Step 0 — Energy rankings */}
       {step === 0 && (
         <div className="space-y-4">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             How is each area of your work feeling right now? 1 = very draining · 5 = very energizing.
           </p>
           {DOMAIN_IDENTITIES.map((domain) => (
             <div key={domain.index} className="flex items-center gap-3">
-              <span className="w-40 shrink-0 text-sm text-cx-forest-dark">{domain.name}</span>
+              <span className="w-40 shrink-0 text-sm text-cx-text">{domain.name}</span>
               <div className="flex gap-1.5">
                 {([1, 2, 3, 4, 5] as const).map((n) => (
                   <button
@@ -160,7 +160,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
                       "h-8 w-8 rounded-lg border text-xs font-medium transition-all",
                       energyRankings[domain.index] === n
                         ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                        : "border-cx-forest-dark/20 text-cx-forest-dark/60 hover:border-cx-forest-dark/40",
+                        : "border-cx-forest-dark/20 text-cx-text/60 hover:border-cx-forest-dark/40",
                     )}
                   >
                     {n}
@@ -175,7 +175,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
       {/* Step 1 — FTE / Role composition */}
       {step === 1 && (
         <div className="space-y-4">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             Has your role composition changed? Update or confirm the percentages below.
           </p>
           <div className="grid grid-cols-2 gap-3">
@@ -186,7 +186,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
               ["Admin", adminPct, setAdminPct],
             ] as [string, string, (v: string) => void][]).map(([label, value, setter]) => (
               <div key={label}>
-                <p className="mb-1 text-xs text-cx-forest-dark/60">{label}</p>
+                <p className="mb-1 text-xs text-cx-text/60">{label}</p>
                 <input
                   type="number"
                   min={0}
@@ -194,15 +194,15 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
                   value={value}
                   onChange={(e) => setter(e.target.value)}
                   placeholder="0"
-                  className="w-full rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-forest-dark placeholder:text-cx-forest-dark/30 focus:border-cx-forest-dark/40 focus:outline-none"
+                  className="w-full rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-text placeholder:text-cx-text/30 focus:border-cx-forest-dark/40 focus:outline-none"
                 />
               </div>
             ))}
           </div>
           {[clinicalPct, teachingPct, researchPct, adminPct].some(Boolean) && (
-            <p className="text-xs text-cx-forest-dark/50">
+            <p className="text-xs text-cx-text/50">
               Total:{" "}
-              <span className={Math.abs(ftePctTotal - 100) > 1 ? "text-[#C28D6C]" : "text-cx-forest-dark"}>
+              <span className={Math.abs(ftePctTotal - 100) > 1 ? "text-[#C28D6C]" : "text-cx-text"}>
                 {ftePctTotal}%
               </span>
               {" "}(should equal 100%)
@@ -214,26 +214,26 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
       {/* Step 2 — Goal review */}
       {step === 2 && (
         <div className="space-y-4">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             Review your current goals. Are they still relevant? Any progress to note?
           </p>
           {ctx?.goals && ctx.goals.length > 0 ? (
             <ul className="space-y-2">
               {ctx.goals.map((g) => (
                 <li key={g.id} className="rounded-xl border border-cx-forest-dark/10 px-4 py-3">
-                  <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/50">{g.horizon}</p>
-                  <p className="mt-1 text-sm text-cx-forest-dark">{g.specific ?? g.wish ?? "—"}</p>
+                  <p className="text-xs font-medium uppercase tracking-wide text-cx-text/50">{g.horizon}</p>
+                  <p className="mt-1 text-sm text-cx-text">{g.specific ?? g.wish ?? "—"}</p>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm text-cx-forest-dark/50">
+            <p className="text-sm text-cx-text/50">
               No goals on record yet. You can add goals in your career plan.
             </p>
           )}
           <div>
-            <label className="text-sm text-cx-forest-dark" htmlFor="goal-note">
-              Note on your goals <span className="text-cx-forest-dark/50">(optional)</span>
+            <label className="text-sm text-cx-text" htmlFor="goal-note">
+              Note on your goals <span className="text-cx-text/50">(optional)</span>
             </label>
             <textarea
               id="goal-note"
@@ -241,7 +241,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
               value={goalNote}
               onChange={(e) => setGoalNote(e.target.value)}
               placeholder="Progress, pivots, or anything you want to remember…"
-              className="mt-1 w-full resize-none rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-forest-dark placeholder:text-cx-forest-dark/30 focus:border-cx-forest-dark/40 focus:outline-none"
+              className="mt-1 w-full resize-none rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-text placeholder:text-cx-text/30 focus:border-cx-forest-dark/40 focus:outline-none"
             />
           </div>
         </div>
@@ -250,11 +250,11 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
       {/* Step 3 — Setting update */}
       {step === 3 && (
         <div className="space-y-5">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             Has your practice context changed? Confirm or update below.
           </p>
           <div>
-            <p className="mb-2 text-sm text-cx-forest-dark">Practice setting</p>
+            <p className="mb-2 text-sm text-cx-text">Practice setting</p>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {PRACTICE_SETTINGS.map((s) => (
                 <button
@@ -265,7 +265,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
                     "rounded-lg border px-3 py-2 text-sm transition-all",
                     practiceSetting === s
                       ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                      : "border-cx-forest-dark/20 text-cx-forest-dark/70 hover:border-cx-forest-dark/40",
+                      : "border-cx-forest-dark/20 text-cx-text/70 hover:border-cx-forest-dark/40",
                   )}
                 >
                   {s}
@@ -274,8 +274,8 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
             </div>
           </div>
           <div>
-            <p className="mb-2 text-sm text-cx-forest-dark">
-              Clinical site <span className="text-cx-forest-dark/50">(optional)</span>
+            <p className="mb-2 text-sm text-cx-text">
+              Clinical site <span className="text-cx-text/50">(optional)</span>
             </p>
             <div className="grid grid-cols-2 gap-2">
               {CLINICAL_SETTINGS.map((s) => (
@@ -287,7 +287,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
                     "rounded-lg border px-3 py-2 text-sm transition-all",
                     clinicalSetting === s
                       ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                      : "border-cx-forest-dark/20 text-cx-forest-dark/70 hover:border-cx-forest-dark/40",
+                      : "border-cx-forest-dark/20 text-cx-text/70 hover:border-cx-forest-dark/40",
                   )}
                 >
                   {s}
@@ -306,7 +306,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
           <button
             type="button"
             onClick={() => setStep((s) => s - 1)}
-            className="rounded-xl border border-cx-forest-dark/20 px-5 py-2.5 text-sm font-medium text-cx-forest-dark hover:border-cx-forest-dark/40"
+            className="rounded-xl border border-cx-forest-dark/20 px-5 py-2.5 text-sm font-medium text-cx-text hover:border-cx-forest-dark/40"
           >
             Back
           </button>
@@ -328,7 +328,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
               "rounded-xl px-6 py-2.5 text-sm font-medium transition-all",
               !saving
                 ? "bg-cx-forest-dark text-white hover:opacity-90"
-                : "cursor-not-allowed bg-cx-forest-dark/20 text-cx-forest-dark/40",
+                : "cursor-not-allowed bg-cx-forest-dark/20 text-cx-text/40",
             )}
           >
             {saving ? "Saving…" : "Complete snapshot"}

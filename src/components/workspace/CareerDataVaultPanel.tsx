@@ -45,7 +45,7 @@ export function CareerDataVaultPanel() {
   const loading = analyticsLoading || profileLoading;
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading Career Data vault…</p>;
+    return <p className="text-sm text-cx-text/70">Loading Career Data vault…</p>;
   }
 
   const vault = analytics?.career_vault;
@@ -84,9 +84,9 @@ export function CareerDataVaultPanel() {
         mak={OBJECTIVE_MAK.vault}
       >
         {vault.changes_since_quarter && (
-          <p className="text-sm font-medium text-cx-forest-dark">{vault.changes_since_quarter}</p>
+          <p className="text-sm font-medium text-cx-text">{vault.changes_since_quarter}</p>
         )}
-        <div className="mt-3 flex flex-wrap gap-2 text-xs text-cx-forest-dark/70">
+        <div className="mt-3 flex flex-wrap gap-2 text-xs text-cx-text/70">
           {vault.sources.map((s) => (
             <Badge key={s}>{s}</Badge>
           ))}
@@ -128,7 +128,7 @@ export function CareerDataVaultPanel() {
             "Help me verify my professional identifiers — NPI, ORCID, and what's linked correctly.",
           )}
         >
-          <ul className="space-y-1 text-sm text-cx-forest-dark/80">
+          <ul className="space-y-1 text-sm text-cx-text/80">
             {vault.npi_verified && <li>NPI verified via NPPES</li>}
             {vault.orcid && <li>ORCID: {vault.orcid}</li>}
           </ul>
@@ -146,7 +146,7 @@ export function CareerDataVaultPanel() {
             "Discuss my academic profile focus and which output templates fit my promotion path.",
           )}
           footer={
-            <p className="text-xs text-cx-forest-dark/70">
+            <p className="text-xs text-cx-text/70">
               Primary output templates: {academic.outputTemplates.join(" · ")}
             </p>
           }

@@ -33,10 +33,10 @@ export default function SettingsPage() {
         icon={Shield}
         mak={SETTINGS_MAK.privacy}
       >
-        <p className="text-sm text-cx-forest-dark/80">Share my data with my institution?</p>
+        <p className="text-sm text-cx-text/80">Share my data with my institution?</p>
         <label className="mt-4 flex items-center gap-3">
           <input type="checkbox" className="h-5 w-5 rounded border-cx-forest-dark/30" />
-          <span className="text-sm text-cx-forest-dark">No (default) — keep my data private</span>
+          <span className="text-sm text-cx-text">No (default) — keep my data private</span>
         </label>
       </CardSection>
     </PageShell>

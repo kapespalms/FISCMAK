@@ -46,7 +46,7 @@ function OrigamiAxis({ axis }: { axis: OrigamiAxisData }) {
     // No data yet — show placeholder track
     return (
       <div className="flex items-center gap-3">
-        <span className="w-52 shrink-0 text-right text-[11px] font-medium text-cx-forest-dark/50">
+        <span className="w-52 shrink-0 text-right text-[11px] font-medium text-cx-text/50">
           {label}
         </span>
         <div
@@ -63,7 +63,7 @@ function OrigamiAxis({ axis }: { axis: OrigamiAxisData }) {
             }}
           />
         </div>
-        <span className="w-20 text-[10px] text-cx-forest-dark/35">no data yet</span>
+        <span className="w-20 text-[10px] text-cx-text/35">no data yet</span>
       </div>
     );
   }
@@ -79,7 +79,7 @@ function OrigamiAxis({ axis }: { axis: OrigamiAxisData }) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="w-52 shrink-0 text-right text-[11px] font-medium text-cx-forest-dark/70">
+      <span className="w-52 shrink-0 text-right text-[11px] font-medium text-cx-text/70">
         {label}
       </span>
       <div
@@ -156,7 +156,7 @@ function Sparkline({ points, max, reverse, label }: {
             no data
           </text>
         </svg>
-        <span className="text-[9px] text-cx-forest-dark/40">{label}</span>
+        <span className="text-[9px] text-cx-text/40">{label}</span>
       </div>
     );
   }
@@ -198,7 +198,7 @@ function Sparkline({ points, max, reverse, label }: {
           <circle cx={lastPt.x} cy={lastPt.y} r={3} fill="rgb(52,115,105)" stroke="white" strokeWidth={1} />
         )}
       </svg>
-      <span className="text-[9px] text-cx-forest-dark/55">{label}</span>
+      <span className="text-[9px] text-cx-text/55">{label}</span>
     </div>
   );
 }
@@ -208,7 +208,7 @@ function TrendLines({ trends }: { trends: TrendPoint[] }) {
 
   return (
     <div className="mt-5 space-y-2 border-t border-cx-forest-dark/10 pt-4">
-      <p className="text-[10px] font-semibold uppercase tracking-widest text-cx-forest-dark/40">
+      <p className="text-[10px] font-semibold uppercase tracking-widest text-cx-text/40">
         Trends over time
       </p>
       <div className="flex flex-wrap gap-6">
@@ -222,7 +222,7 @@ function TrendLines({ trends }: { trends: TrendPoint[] }) {
           />
         ))}
       </div>
-      <p className="text-[9px] text-cx-forest-dark/35">
+      <p className="text-[9px] text-cx-text/35">
         Each dot is one weekly check-in · {trends.length} recorded
       </p>
     </div>
@@ -237,16 +237,16 @@ function TrendLines({ trends }: { trends: TrendPoint[] }) {
 function DistressResourceLink() {
   return (
     <div className="mt-4 rounded-lg border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] px-4 py-3">
-      <p className="text-sm text-cx-forest-dark/80">
+      <p className="text-sm text-cx-text/80">
         Some responses suggest you may benefit from speaking with a colleague or wellness resource.
       </p>
-      <p className="mt-1 text-xs text-cx-forest-dark/55">
+      <p className="mt-1 text-xs text-cx-text/55">
         This reflection is just for you — nothing is shared automatically.{" "}
         <a
           href="https://www.acgme.org/residents-and-fellows/physician-well-being-resources/"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-cx-forest-dark/80"
+          className="underline hover:text-cx-text/80"
         >
           Wellness resources
         </a>
@@ -272,12 +272,12 @@ export function WellbeingOrigamiPlot() {
   }, []);
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/50">Loading…</p>;
+    return <p className="text-sm text-cx-text/50">Loading…</p>;
   }
 
   if (!data || !data.has_data) {
     return (
-      <p className="text-sm text-cx-forest-dark/60">
+      <p className="text-sm text-cx-text/60">
         Patterns across your check-ins will appear here once you have completed a few regular check-ins.
       </p>
     );
@@ -295,7 +295,7 @@ export function WellbeingOrigamiPlot() {
 
       {/* Plain-language summary — no instrument names, no raw numbers */}
       {data.summary && !data.mdt_flag && (
-        <p className="mt-3 text-xs text-cx-forest-dark/60">{data.summary}</p>
+        <p className="mt-3 text-xs text-cx-text/60">{data.summary}</p>
       )}
 
       {/* Longitudinal trend lines — separate from origami, as specified */}

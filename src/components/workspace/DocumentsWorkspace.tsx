@@ -322,8 +322,8 @@ export function DocumentsWorkspace() {
                 htmlFor="documents-upload"
                 className="flex cursor-pointer flex-col items-center rounded-xl border-2 border-dashed border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] px-6 py-10 transition-colors hover:border-cx-forest-dark/40"
               >
-                <Upload className="text-cx-forest-dark" size={28} />
-                <p className="mt-3 font-semibold text-cx-forest-dark">Upload source file</p>
+                <Upload className="text-cx-text" size={28} />
+                <p className="mt-3 font-semibold text-cx-text">Upload source file</p>
                 <input
                   ref={fileInputRef}
                   id="documents-upload"
@@ -335,7 +335,7 @@ export function DocumentsWorkspace() {
                 />
               </label>
               {processing && (
-                <p className="mt-3 text-sm text-cx-forest-dark/70">Processing…</p>
+                <p className="mt-3 text-sm text-cx-text/70">Processing…</p>
               )}
               <form
                 className="mt-6 space-y-3"
@@ -359,9 +359,9 @@ export function DocumentsWorkspace() {
               </form>
             </CardSection>
 
-            {loading && <p className="text-sm text-cx-forest-dark/70">Loading sources…</p>}
+            {loading && <p className="text-sm text-cx-text/70">Loading sources…</p>}
             {!loading && sources.length === 0 && (
-              <p className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-8 text-center text-sm text-cx-forest-dark/70">
+              <p className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-8 text-center text-sm text-cx-text/70">
                 No sources yet. Upload a CV to get started.
               </p>
             )}
@@ -382,10 +382,10 @@ export function DocumentsWorkspace() {
                       onChange={() => toggleSource(doc.document_id)}
                     />
                     <div className="min-w-0 flex-1">
-                      <p className="font-semibold text-cx-forest-dark">
+                      <p className="font-semibold text-cx-text">
                         {doc.document_label ?? doc.file_name ?? doc.document_type}
                       </p>
-                      <p className="text-xs text-cx-forest-dark/60">
+                      <p className="text-xs text-cx-text/60">
                         {new Date(doc.uploaded_at).toLocaleDateString()} ·{" "}
                         {doc.extraction_status}
                       </p>
@@ -422,9 +422,9 @@ export function DocumentsWorkspace() {
                 Merge from sources
               </Button>
             </div>
-            {loading && <p className="text-sm text-cx-forest-dark/70">Loading drafts…</p>}
+            {loading && <p className="text-sm text-cx-text/70">Loading drafts…</p>}
             {!loading && drafts.length === 0 && (
-              <p className="rounded-xl border border-cx-forest-dark/10 px-4 py-8 text-center text-sm text-cx-forest-dark/70">
+              <p className="rounded-xl border border-cx-forest-dark/10 px-4 py-8 text-center text-sm text-cx-text/70">
                 No drafts yet. Create one or merge uploaded sources.
               </p>
             )}
@@ -437,14 +437,14 @@ export function DocumentsWorkspace() {
                   onClick={() => setActiveDraftId(doc.document_id)}
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="font-semibold text-cx-forest-dark">
+                    <p className="font-semibold text-cx-text">
                       {doc.draft_title ?? doc.document_label ?? "CV Draft"}
                     </p>
                     {(doc.incomplete_count ?? 0) > 0 && (
                       <Badge>{doc.incomplete_count} to fix</Badge>
                     )}
                   </div>
-                  <p className="mt-1 text-xs text-cx-forest-dark/60">
+                  <p className="mt-1 text-xs text-cx-text/60">
                     Updated {new Date(doc.uploaded_at).toLocaleDateString()}
                   </p>
                 </button>
@@ -455,7 +455,7 @@ export function DocumentsWorkspace() {
 
         {activeBucket === "templates" && (
           <div className="space-y-4">
-            <p className="text-sm text-cx-forest-dark/75">
+            <p className="text-sm text-cx-text/75">
               Reuse Output Studio user templates. Manage seeds in{" "}
               <Link href="/app/output" className="font-medium underline">
                 Output Studio
@@ -463,7 +463,7 @@ export function DocumentsWorkspace() {
               .
             </p>
             {templates.length === 0 && (
-              <p className="rounded-xl border border-cx-forest-dark/10 px-4 py-8 text-center text-sm text-cx-forest-dark/70">
+              <p className="rounded-xl border border-cx-forest-dark/10 px-4 py-8 text-center text-sm text-cx-text/70">
                 No saved templates yet. Seed a template from a vault document in Output Studio.
               </p>
             )}
@@ -472,8 +472,8 @@ export function DocumentsWorkspace() {
                 key={t.template_type}
                 className="rounded-xl border border-cx-forest-dark/15 p-4"
               >
-                <p className="font-semibold text-cx-forest-dark">{t.label}</p>
-                <p className="text-sm text-cx-forest-dark/65">
+                <p className="font-semibold text-cx-text">{t.label}</p>
+                <p className="text-sm text-cx-text/65">
                   {t.file_name} · {t.word_count} words · {t.source}
                 </p>
               </div>
@@ -485,9 +485,9 @@ export function DocumentsWorkspace() {
           <div className="space-y-4">
             {generated.length === 0 ? (
               <div className="flex flex-col items-center rounded-xl border border-dashed border-cx-forest-dark/20 px-6 py-12 text-center">
-                <FolderOpen className="text-cx-forest-dark/40" size={40} />
-                <p className="mt-4 font-medium text-cx-forest-dark">Exports coming soon</p>
-                <p className="mt-2 max-w-md text-sm text-cx-forest-dark/65">
+                <FolderOpen className="text-cx-text/40" size={40} />
+                <p className="mt-4 font-medium text-cx-text">Exports coming soon</p>
+                <p className="mt-2 max-w-md text-sm text-cx-text/65">
                   PDF and DOCX export will appear here when generated from Output Studio or this
                   workspace.
                 </p>

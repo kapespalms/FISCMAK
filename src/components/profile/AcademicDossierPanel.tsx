@@ -99,7 +99,7 @@ export function AcademicDossierPanel() {
   }
 
   if (loading || !data) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading academic dossier…</p>;
+    return <p className="text-sm text-cx-text/70">Loading academic dossier…</p>;
   }
 
   const stageLabel =
@@ -119,7 +119,7 @@ export function AcademicDossierPanel() {
     >
       <div className="flex flex-wrap items-end gap-3">
         <div className="min-w-[200px] flex-1">
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Dossier stage
           </label>
           <select
@@ -142,12 +142,12 @@ export function AcademicDossierPanel() {
       <button
         type="button"
         onClick={() => setPrinciplesOpen((o) => !o)}
-        className="text-left text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+        className="text-left text-xs font-medium text-cx-text/70 hover:text-cx-text"
       >
         {principlesOpen ? "Hide" : "Show"} design principles
       </button>
       {principlesOpen && (
-        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
           {DOSSIER_DESIGN_PRINCIPLES.map((p) => (
             <li key={p}>{p}</li>
           ))}
@@ -168,8 +168,8 @@ export function AcademicDossierPanel() {
                 onClick={() => setOpenSections((o) => ({ ...o, [sectionRow.id]: !open }))}
                 className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left"
               >
-                <span className="text-sm font-semibold text-cx-forest-dark">{sectionRow.title}</span>
-                <span className="flex items-center gap-2 text-xs text-cx-forest-dark/60">
+                <span className="text-sm font-semibold text-cx-text">{sectionRow.title}</span>
+                <span className="flex items-center gap-2 text-xs text-cx-text/60">
                   {sectionRow.items.length > 0 ? `${done}/${sectionRow.items.length}` : "—"}
                   <ChevronDown size={14} className={cn("transition-transform", open && "rotate-180")} />
                 </span>
@@ -201,7 +201,7 @@ export function AcademicDossierPanel() {
           onClick={() => setSupportOpen((o) => !o)}
           className="flex w-full items-center justify-between px-3 py-2 text-left"
         >
-          <span className="text-sm font-semibold text-cx-forest-dark">
+          <span className="text-sm font-semibold text-cx-text">
             Supporting documents (maintain alongside dossier)
           </span>
           <ChevronDown size={14} className={cn("transition-transform", supportOpen && "rotate-180")} />
@@ -226,11 +226,11 @@ export function AcademicDossierPanel() {
           onClick={() => setGuidelinesOpen((o) => !o)}
           className="flex w-full items-center justify-between px-3 py-2 text-left"
         >
-          <span className="text-sm font-semibold text-cx-forest-dark">Formatting guidelines</span>
+          <span className="text-sm font-semibold text-cx-text">Formatting guidelines</span>
           <ChevronDown size={14} className={cn("transition-transform", guidelinesOpen && "rotate-180")} />
         </button>
         {guidelinesOpen && (
-          <ul className="list-disc space-y-1 border-t border-cx-forest-dark/10 px-3 py-3 pl-8 text-sm text-cx-forest-dark/70">
+          <ul className="list-disc space-y-1 border-t border-cx-forest-dark/10 px-3 py-3 pl-8 text-sm text-cx-text/70">
             {data.formatting_guidelines.map((g) => (
               <li key={g}>{g}</li>
             ))}
@@ -260,7 +260,7 @@ function DossierItemEditor({
 
   return (
     <div className="space-y-1.5">
-      <label className="flex cursor-pointer items-start gap-2 text-sm text-cx-forest-dark">
+      <label className="flex cursor-pointer items-start gap-2 text-sm text-cx-text">
         <input
           type="checkbox"
           checked={item.checked}
@@ -271,7 +271,7 @@ function DossierItemEditor({
         <span>
           {item.label}
           {item.hint && (
-            <span className="mt-0.5 block text-xs text-cx-forest-dark/60">{item.hint}</span>
+            <span className="mt-0.5 block text-xs text-cx-text/60">{item.hint}</span>
           )}
         </span>
       </label>
@@ -283,7 +283,7 @@ function DossierItemEditor({
         }}
         rows={2}
         placeholder="Content, metrics, links, or draft notes…"
-        className="w-full rounded-md border border-cx-forest-dark/10 bg-white px-2 py-1.5 text-xs text-cx-forest-dark"
+        className="w-full rounded-md border border-cx-forest-dark/10 bg-white px-2 py-1.5 text-xs text-cx-text"
       />
     </div>
   );

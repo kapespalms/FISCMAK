@@ -33,7 +33,7 @@ function StrategyWorkspaceInner() {
   }, []);
 
   if (!mounted) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading…</p>;
+    return <p className="text-sm text-cx-text/70">Loading…</p>;
   }
 
   const title =
@@ -83,7 +83,7 @@ function StrategyWorkspaceInner() {
 
 export function StrategyWorkspace() {
   return (
-    <Suspense fallback={<p className="text-sm text-cx-forest-dark/70">Loading…</p>}>
+    <Suspense fallback={<p className="text-sm text-cx-text/70">Loading…</p>}>
       <StrategyWorkspaceInner />
     </Suspense>
   );

@@ -255,8 +255,8 @@ export function KpAdminGmePanel() {
     <div className="space-y-6">
       <Card>
         <p className="text-cx-label uppercase">GME pilot</p>
-        <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">MedHub CSV import</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="mt-1 text-lg font-semibold text-cx-text">MedHub CSV import</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Upload outpatient or rotation eval exports. Example format:{" "}
           <code className="text-xs">docs/seeds/examples/uh_medhub_outpatient_eval_wide.csv</code>
         </p>
@@ -278,22 +278,22 @@ export function KpAdminGmePanel() {
           <Button onClick={() => void submitImport()} disabled={importing}>
             {importing ? "Importing…" : "Import CSV"}
           </Button>
-          {importResult && <p className="text-sm text-cx-forest-dark/80">{importResult}</p>}
+          {importResult && <p className="text-sm text-cx-text/80">{importResult}</p>}
         </div>
       </Card>
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">Import history</h3>
+        <h3 className="text-lg font-semibold text-cx-text">Import history</h3>
         {imports.length === 0 ? (
-          <p className="mt-2 text-sm text-cx-forest-dark/70">No imports yet.</p>
+          <p className="mt-2 text-sm text-cx-text/70">No imports yet.</p>
         ) : (
           <ul className="mt-3 space-y-2 text-sm">
             {imports.map((row) => (
               <li key={row.import_id} className="rounded-lg border border-cx-forest-dark/10 px-3 py-2">
-                <p className="font-medium text-cx-forest-dark">
+                <p className="font-medium text-cx-text">
                   {row.file_name ?? "import.csv"} · {row.row_count ?? 0} rows
                 </p>
-                <p className="text-xs text-cx-forest-dark/60">
+                <p className="text-xs text-cx-text/60">
                   {new Date(row.imported_at).toLocaleString()}
                   {row.quality_report?.forms?.length
                     ? ` · ${row.quality_report.forms.join(", ")}`
@@ -306,8 +306,8 @@ export function KpAdminGmePanel() {
       </Card>
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">MedHub live sync</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">MedHub live sync</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Pilot uses CSV import by default. Live sync requires{" "}
           <code className="text-xs">MEDHUB_API_URL</code> +{" "}
           <code className="text-xs">MEDHUB_API_KEY</code> env vars.
@@ -315,12 +315,12 @@ export function KpAdminGmePanel() {
         <Button className="mt-3" variant="secondary" onClick={() => void triggerMedhubSync()}>
           Check sync status
         </Button>
-        {syncResult && <p className="mt-2 text-sm text-cx-forest-dark/80">{syncResult}</p>}
+        {syncResult && <p className="mt-2 text-sm text-cx-text/80">{syncResult}</p>}
       </Card>
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">PRITE scores import</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">PRITE scores import</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Example:{" "}
           <code className="text-xs">docs/seeds/examples/uh_prite_scores_wide.csv</code>
         </p>
@@ -334,14 +334,14 @@ export function KpAdminGmePanel() {
         <Button className="mt-3" variant="secondary" onClick={() => void submitPriteImport()}>
           Import PRITE CSV
         </Button>
-        {priteResult && <p className="mt-2 text-sm text-cx-forest-dark/80">{priteResult}</p>}
+        {priteResult && <p className="mt-2 text-sm text-cx-text/80">{priteResult}</p>}
       </Card>
 
       <CohortHeatmapPanel programSlug={programSlug} />
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">Batch pre-CCC (cohort)</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">Batch pre-CCC (cohort)</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Load pre-CCC snapshots for all trainees linked to the program or import.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -362,10 +362,10 @@ export function KpAdminGmePanel() {
           <ul className="mt-4 space-y-2 text-sm">
             {batchSummaries.map((s) => (
               <li key={s.trainee_user_id ?? s.trainee_initials} className="rounded-lg border border-cx-forest-dark/10 px-3 py-2">
-                <p className="font-medium text-cx-forest-dark">
+                <p className="font-medium text-cx-text">
                   {s.trainee_initials ?? "—"} · PGY {s.pgy_level ?? "—"}
                 </p>
-                <p className="text-xs text-cx-forest-dark/60">
+                <p className="text-xs text-cx-text/60">
                   {s.evaluations.length} eval(s) · avg {s.milestone_overview.average_across_evals ?? "—"} ·{" "}
                   {s.prite_scores.exams.length ? `PRITE ${s.prite_scores.exams[0]?.overall_percentile ?? "—"}th` : "no PRITE"} ·{" "}
                   {s.ilp_status.active_count} active ILP goal(s)
@@ -377,8 +377,8 @@ export function KpAdminGmePanel() {
       </Card>
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">ILP review (PD)</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">ILP review (PD)</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Approve trainee draft goals after CCC co-production.
         </p>
         <input
@@ -388,15 +388,15 @@ export function KpAdminGmePanel() {
           className="cx-field mt-3 w-full max-w-md font-mono text-xs"
         />
         {ilpLoading ? (
-          <p className="mt-3 text-sm text-cx-forest-dark/70">Loading ILP goals…</p>
+          <p className="mt-3 text-sm text-cx-text/70">Loading ILP goals…</p>
         ) : ilpGoals.length === 0 ? (
-          <p className="mt-3 text-sm text-cx-forest-dark/70">No ILP goals for this trainee.</p>
+          <p className="mt-3 text-sm text-cx-text/70">No ILP goals for this trainee.</p>
         ) : (
           <ul className="mt-3 space-y-3 text-sm">
             {ilpGoals.map((goal) => (
               <li key={goal.goal_id} className="rounded-lg border border-cx-forest-dark/10 px-3 py-2">
-                <p className="font-medium text-cx-forest-dark">{goal.goal_text}</p>
-                <p className="mt-1 text-xs text-cx-forest-dark/60">
+                <p className="font-medium text-cx-text">{goal.goal_text}</p>
+                <p className="mt-1 text-xs text-cx-text/60">
                   {goal.status} · {goal.source ?? "unknown source"}
                 </p>
                 {goal.status === "draft" && (
@@ -412,12 +412,12 @@ export function KpAdminGmePanel() {
             ))}
           </ul>
         )}
-        {ilpMessage && <p className="mt-3 text-sm text-cx-forest-dark/80">{ilpMessage}</p>}
+        {ilpMessage && <p className="mt-3 text-sm text-cx-text/80">{ilpMessage}</p>}
       </Card>
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">Coordinator prep-time survey</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">Coordinator prep-time survey</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Pilot metric: compare manual CCC prep minutes vs FISCMAK-assisted prep.
         </p>
         <div className="mt-4 grid max-w-md gap-3 text-sm">
@@ -459,7 +459,7 @@ export function KpAdminGmePanel() {
           <Button variant="secondary" onClick={() => void submitSurvey()}>
             Submit survey
           </Button>
-          {surveySaved && <p className="text-cx-forest-dark/80">{surveySaved}</p>}
+          {surveySaved && <p className="text-cx-text/80">{surveySaved}</p>}
         </div>
       </Card>
 

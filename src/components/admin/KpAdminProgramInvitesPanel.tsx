@@ -58,8 +58,8 @@ export function KpAdminProgramInvitesPanel() {
   return (
     <Card>
       <p className="text-cx-label uppercase">Program invites</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">Resident join links</h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">Resident join links</h3>
+      <p className="mt-2 text-sm text-cx-text/75">
         One invite token per resident slot. UH Psychiatry uses full rotation seeds; blank pathways
         ship without institution-specific documents until you add them.
       </p>
@@ -83,7 +83,7 @@ export function KpAdminProgramInvitesPanel() {
       </div>
 
       {summary && (
-        <p className="mt-3 text-sm text-cx-forest-dark/80">
+        <p className="mt-3 text-sm text-cx-text/80">
           {summary.available} available · {summary.used} used · {summary.total} total slots
         </p>
       )}
@@ -93,7 +93,7 @@ export function KpAdminProgramInvitesPanel() {
       {tokens.length > 0 && (
         <div className="mt-4 max-h-80 overflow-auto rounded-xl border border-cx-forest-dark/10">
           <table className="w-full text-left text-sm">
-            <thead className="sticky top-0 bg-cx-surface/95 text-xs uppercase text-cx-forest-dark/60">
+            <thead className="sticky top-0 bg-cx-surface/95 text-xs uppercase text-cx-text/60">
               <tr>
                 <th className="px-3 py-2">Slot</th>
                 <th className="px-3 py-2">Initials</th>
@@ -124,7 +124,7 @@ export function KpAdminProgramInvitesPanel() {
         </div>
       )}
 
-      <p className="mt-3 text-xs text-cx-forest-dark/60">
+      <p className="mt-3 text-xs text-cx-text/60">
         Generate or refresh tokens: <code className="font-futura-book tracking-wide">npm run db:invite-tokens -- --all</code>
       </p>
     </Card>

@@ -112,9 +112,9 @@ export function GoalSettingPanel({
 
   return (
     <Card>
-      <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">Step 7 of 7</p>
+      <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">Step 7 of 7</p>
       <h1 className="mt-1 text-page-title">Career Strategy</h1>
-      <p className="mt-2 text-sm text-cx-forest-dark/80">
+      <p className="mt-2 text-sm text-cx-text/80">
         Based on your Career Profile, the platform suggests three goals — Development,
         Maintenance, and Sustainability — each with quarterly SMART milestones. Review each
         and confirm, modify, or replace.
@@ -129,13 +129,13 @@ export function GoalSettingPanel({
               <p className="text-cx-label uppercase">{GOAL_FRAMEWORK_LABELS[goal.type].label}</p>
               {goal.status && <StatusChip status={goal.status} />}
             </div>
-            <h3 className="mt-2 font-semibold text-cx-forest-dark">{goal.title}</h3>
-            <p className="mt-2 text-sm text-cx-forest-dark/80">
-              <span className="font-medium text-cx-forest-dark">Rationale: </span>
+            <h3 className="mt-2 font-semibold text-cx-text">{goal.title}</h3>
+            <p className="mt-2 text-sm text-cx-text/80">
+              <span className="font-medium text-cx-text">Rationale: </span>
               {goal.rationale}
             </p>
             {goal.progress != null && (
-              <p className="mt-2 text-sm text-cx-forest-dark">Progress: {goal.progress}%</p>
+              <p className="mt-2 text-sm text-cx-text">Progress: {goal.progress}%</p>
             )}
             {goal.latticeCells && goal.latticeCells.length > 0 && (
               <p className="mt-2 text-cx-label">
@@ -154,13 +154,13 @@ export function GoalSettingPanel({
                   <li key={m}>
                     <button
                       type="button"
-                      className="flex items-start gap-2 text-left text-cx-forest-dark hover:text-cx-forest-dark/80"
+                      className="flex items-start gap-2 text-left text-cx-text hover:text-cx-text/80"
                       onClick={() => toggleMilestone(gi, mi)}
                     >
                       {done ? (
                         <Check size={16} className="mt-0.5 shrink-0 text-cx-success" />
                       ) : (
-                        <Square size={16} className="mt-0.5 shrink-0 text-cx-forest-dark/60" />
+                        <Square size={16} className="mt-0.5 shrink-0 text-cx-text/60" />
                       )}
                       <span>{text}</span>
                     </button>
@@ -189,9 +189,9 @@ export function GoalSettingPanel({
             </div>
             {modifyType === goal.type && (
               <div className="cx-surface-elevated mt-4 rounded-xl p-4 text-sm">
-                <p className="whitespace-pre-line text-sm text-cx-forest-dark/80">{GOAL_MODIFY_PROMPT}</p>
+                <p className="whitespace-pre-line text-sm text-cx-text/80">{GOAL_MODIFY_PROMPT}</p>
                 <textarea
-                  className="mt-3 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-forest-dark"
+                  className="mt-3 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-text"
                   rows={2}
                   placeholder={GOAL_REPLACE_PROMPT}
                   value={replaceText}

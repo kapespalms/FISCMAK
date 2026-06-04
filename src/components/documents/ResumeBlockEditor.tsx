@@ -114,13 +114,13 @@ export function ResumeBlockEditor({
           )}
         >
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+            <span className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
               {block.type}
             </span>
             <div className="flex items-center gap-1">
               <button
                 type="button"
-                className="rounded p-1 text-cx-forest-dark/60 hover:bg-cx-forest-dark/10"
+                className="rounded p-1 text-cx-text/60 hover:bg-cx-forest-dark/10"
                 onClick={() => moveBlock(block.id, -1)}
                 disabled={index === 0}
                 aria-label="Move up"
@@ -129,7 +129,7 @@ export function ResumeBlockEditor({
               </button>
               <button
                 type="button"
-                className="rounded p-1 text-cx-forest-dark/60 hover:bg-cx-forest-dark/10"
+                className="rounded p-1 text-cx-text/60 hover:bg-cx-forest-dark/10"
                 onClick={() => moveBlock(block.id, 1)}
                 disabled={index === content.blocks.length - 1}
                 aria-label="Move down"
@@ -152,7 +152,7 @@ export function ResumeBlockEditor({
           {block.type === "header" && (
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="block text-sm">
-                <span className="text-cx-forest-dark/70">Name</span>
+                <span className="text-cx-text/70">Name</span>
                 <input
                   className="cx-field mt-1 w-full"
                   value={block.name}
@@ -162,7 +162,7 @@ export function ResumeBlockEditor({
                 />
               </label>
               <label className="block text-sm">
-                <span className="text-cx-forest-dark/70">Specialty</span>
+                <span className="text-cx-text/70">Specialty</span>
                 <input
                   className="cx-field mt-1 w-full"
                   value={block.specialty ?? ""}
@@ -180,7 +180,7 @@ export function ResumeBlockEditor({
             <div className="space-y-3">
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="block text-sm sm:col-span-2">
-                  <span className="text-cx-forest-dark/70">Role</span>
+                  <span className="text-cx-text/70">Role</span>
                   <input
                     className="cx-field mt-1 w-full"
                     value={block.role}
@@ -190,7 +190,7 @@ export function ResumeBlockEditor({
                   />
                 </label>
                 <label className="block text-sm">
-                  <span className="text-cx-forest-dark/70">Organization</span>
+                  <span className="text-cx-text/70">Organization</span>
                   <input
                     className="cx-field mt-1 w-full"
                     value={block.organization}
@@ -202,7 +202,7 @@ export function ResumeBlockEditor({
                   />
                 </label>
                 <label className="block text-sm">
-                  <span className="text-cx-forest-dark/70">Dates (display)</span>
+                  <span className="text-cx-text/70">Dates (display)</span>
                   <input
                     className="cx-field mt-1 w-full"
                     value={block.dates.display}
@@ -231,7 +231,7 @@ export function ResumeBlockEditor({
                 </label>
               </div>
               <div>
-                <p className="text-sm text-cx-forest-dark/70">Bullets</p>
+                <p className="text-sm text-cx-text/70">Bullets</p>
                 {block.bullets.map((bullet, bi) => (
                   <div key={bi} className="mt-2 flex gap-2">
                     <textarea
@@ -268,7 +268,7 @@ export function ResumeBlockEditor({
           {block.type === "education" && (
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="block text-sm">
-                <span className="text-cx-forest-dark/70">Degree</span>
+                <span className="text-cx-text/70">Degree</span>
                 <input
                   className="cx-field mt-1 w-full"
                   value={block.degree}
@@ -278,7 +278,7 @@ export function ResumeBlockEditor({
                 />
               </label>
               <label className="block text-sm">
-                <span className="text-cx-forest-dark/70">Institution</span>
+                <span className="text-cx-text/70">Institution</span>
                 <input
                   className="cx-field mt-1 w-full"
                   value={block.institution}
@@ -290,7 +290,7 @@ export function ResumeBlockEditor({
                 />
               </label>
               <label className="block text-sm sm:col-span-2">
-                <span className="text-cx-forest-dark/70">Dates (display)</span>
+                <span className="text-cx-text/70">Dates (display)</span>
                 <input
                   className="cx-field mt-1 w-full"
                   value={block.dates.display}
@@ -309,7 +309,7 @@ export function ResumeBlockEditor({
 
           {block.type === "skills" && (
             <label className="block text-sm">
-              <span className="text-cx-forest-dark/70">Items (comma-separated)</span>
+              <span className="text-cx-text/70">Items (comma-separated)</span>
               <input
                 className="cx-field mt-1 w-full"
                 value={block.items.join(", ")}

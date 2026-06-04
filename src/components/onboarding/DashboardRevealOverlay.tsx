@@ -30,21 +30,21 @@ export function DashboardRevealOverlay({ onComplete }: DashboardRevealOverlayPro
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-cx-forest-dark/70 p-6">
       <div className="max-w-lg rounded-2xl bg-white p-8 shadow-xl">
-        <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+        <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">
           Step 6 of 7 · Dashboard reveal
         </p>
-        <h2 className="mt-2 text-xl font-semibold text-cx-forest-dark">Your Career Dashboard</h2>
-        <p className="mt-2 text-sm text-cx-forest-dark/80">
+        <h2 className="mt-2 text-xl font-semibold text-cx-text">Your Career Dashboard</h2>
+        <p className="mt-2 text-sm text-cx-text/80">
           Each section is available from the top navigation bar.
         </p>
         <div className="mt-6 rounded-2xl border-2 border-cx-forest-dark/20 bg-cx-forest-dark/[0.04] p-5">
-          <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+          <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">
             Band {index + 1} of 5
           </p>
           <p className="mt-1 text-lg font-semibold text-[#AC8636]">
             {band.letter} — {band.title}
           </p>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">{band.detail}</p>
+          <p className="mt-2 text-sm text-cx-text/80">{band.detail}</p>
         </div>
         <div className="mt-6 flex gap-3">
           {!isLast ? (

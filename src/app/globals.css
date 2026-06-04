@@ -1,52 +1,67 @@
 @import "tailwindcss";
 
 /* Loveable Design Framework — visual language tokens */
+/* ── Token audit (Ticket 12 — warm foundation) ─────────────────────────────
+   Old → New
+   #f7fafc (cool blue-white base/surface)  → #FCFBF7 (warm white)
+   #edf2f7 (cool blue-white canvas)        → #F4EFE6 (warm paper)
+   #1a365d (navy primary/text)             → #20201D (ink)
+   #2b6cb0 (royal blue accent)             → #AC8636 (gold)
+   #c4a35a (off-gold developing)           → #AC8636 (gold)
+   #276749 (forest green strong/positive)  → #3C8A60 (sage)
+   #718096 (cool blue-gray muted)          → #9A968C (warm muted)
+   #e2e8f0 (cool blue-gray border)         → #ECE8DF (warm hairline)
+   #ebf4ff (light blue soft)               → #F5EDD8 (warm gold tint)
+   #9b2c2c (crisis red —cx-attention)      → KEPT (founder safety exception)
+   #243b31 (cx-forest-dark marketing dark) → FLAGGED — unchanged (marketing chrome)
+   #edf7f1 (fiscmak-green-light)           → FLAGGED — ambiguous, unchanged
+   ────────────────────────────────────────────────────────────────────────── */
 :root {
-  --background: #f7fafc;
-  --foreground: #1a365d;
-  --fm-primary: #1a365d;
-  --fm-strong: #276749;
-  --fm-developing: #c4a35a;
+  --background: #FCFBF7;
+  --foreground: #20201D;
+  --fm-primary: #20201D;
+  --fm-strong: #3C8A60;
+  --fm-developing: #AC8636;
   --fm-attention: #9b2c2c;
-  --fm-neutral: #718096;
-  --fm-background: #f7fafc;
-  --fm-surface: #ffffff;
-  --fm-accent: #2b6cb0;
-  --fm-border: #e2e8f0;
-  --fm-muted: #718096;
+  --fm-neutral: #9A968C;
+  --fm-background: #FCFBF7;
+  --fm-surface: #FCFBF7;
+  --fm-accent: #AC8636;
+  --fm-border: #ECE8DF;
+  --fm-muted: #9A968C;
   /* Legacy aliases — map to design system */
-  --fiscmak-green: #276749;
-  --fiscmak-green-dark: #1a365d;
-  --fiscmak-green-light: #edf7f1;
+  --fiscmak-green: #3C8A60;
+  --fiscmak-green-dark: #20201D;
+  --fiscmak-green-light: #edf7f1; /* FLAGGED: ambiguous role — left unchanged */
   --fiscmak-red: #9b2c2c;
-  --fiscmak-amber: #c4a35a;
-  --fiscmak-border: #e2e8f0;
-  --fiscmak-muted: #718096;
-  --fiscmak-subtle: #f7fafc;
-  --fiscmak-surface: #ffffff;
-  --fiscmak-ink: #1a365d;
+  --fiscmak-amber: #AC8636;
+  --fiscmak-border: #ECE8DF;
+  --fiscmak-muted: #9A968C;
+  --fiscmak-subtle: #FCFBF7;
+  --fiscmak-surface: #FCFBF7;
+  --fiscmak-ink: #20201D;
   /* App shell tokens — Loveable Design Framework */
-  --cx-cream: #f7fafc;
-  --cx-light-blue: #edf2f7;
-  --cx-white: #ffffff;
-  --cx-text: #1a365d;
-  --cx-text-secondary: #718096;
-  --cx-primary: #1a365d;
-  --cx-accent: #2b6cb0;
-  --cx-accent-soft: #ebf4ff;
-  --cx-success: #276749;
+  --cx-cream: #FCFBF7;
+  --cx-light-blue: #F4EFE6;
+  --cx-white: #FCFBF7;
+  --cx-text: #20201D;
+  --cx-text-secondary: #9A968C;
+  --cx-primary: #20201D;
+  --cx-accent: #AC8636;
+  --cx-accent-soft: #F5EDD8;
+  --cx-success: #3C8A60;
   --cx-attention: #9b2c2c;
-  --cx-developing: #c4a35a;
-  --cx-border: #e2e8f0;
-  --cx-nav-active: #1a365d;
-  --cx-mak-bubble: #ebf4ff;
-  --cx-user-bubble: #e2e8f0;
-  --cx-gradient-from: #f7fafc;
-  --cx-gradient-to: #edf2f7;
-  /* Reference dashboard chrome */
+  --cx-developing: #AC8636;
+  --cx-border: #ECE8DF;
+  --cx-nav-active: #20201D;
+  --cx-mak-bubble: #F5EDD8;
+  --cx-user-bubble: #E7DEC9;
+  --cx-gradient-from: #FCFBF7;
+  --cx-gradient-to: #F4EFE6;
+  /* Reference dashboard chrome — FLAGGED: cx-forest-dark (#243b31) unchanged (marketing/dark chrome) */
   --cx-forest-dark: #243b31;
-  --cx-page-muted: #f4f5f4;
-  --cx-tab-rail: #e8ecea;
+  --cx-page-muted: #F4EFE6;
+  --cx-tab-rail: #E7DEC9;
   --radius-button: 6px;
   /* FISCMAK v3 palette — Part XXIX */
   --fis-gold: #AC8636;
@@ -54,50 +69,50 @@
   --fis-blue-muted: #5E7E96;
   --fis-clay: #C28D6C;
   /* Rail surface tokens */
-  --rail-bg: #ffffff;
-  --rail-border: #e5e7eb;
-  --rail-item-hover: #f9f7f4;
+  --rail-bg: #FCFBF7;
+  --rail-border: #ECE8DF;
+  --rail-item-hover: #F7F3EB;
   --rail-item-active-bg: #fdf8f0;
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #e2e8f0;
-  --fm-background: #0f172a;
-  --fm-surface: #1a2332;
-  --fm-border: #2d3748;
-  --fm-primary: #e2e8f0;
-  --fm-strong: #48bb78;
-  --fm-developing: #d4a574;
-  --fm-attention: #fc8181;
-  --fm-neutral: #94a3b8;
-  --fm-accent: #63b3ed;
-  --fiscmak-subtle: #0f172a;
-  --fiscmak-surface: #1a2332;
-  --fiscmak-border: #2d3748;
-  --fiscmak-ink: #e2e8f0;
-  --fiscmak-muted: #94a3b8;
-  --fiscmak-green-light: #1a2e25;
-  --cx-cream: #1e293b;
-  --cx-light-blue: #141b26;
-  --cx-white: #1a2332;
-  --cx-text: #e2e8f0;
-  --cx-text-secondary: #94a3b8;
-  --cx-primary: #e2e8f0;
-  --cx-accent: #63b3ed;
-  --cx-accent-soft: #1e3a5f;
-  --cx-success: #48bb78;
-  --cx-attention: #fc8181;
-  --cx-developing: #d4a574;
-  --cx-border: #2d3748;
-  --cx-nav-active: #2b6cb0;
-  --cx-mak-bubble: #1e293b;
-  --cx-user-bubble: #2d3748;
-  --cx-gradient-from: #0f172a;
-  --cx-gradient-to: #1a2332;
-  --cx-forest-dark: #1a2e24;
-  --cx-page-muted: #121a16;
-  --cx-tab-rail: #1e2e26;
+  --background: #191917;
+  --foreground: #F0EDE6;
+  --fm-background: #191917;
+  --fm-surface: #242220;
+  --fm-border: #3A3630;
+  --fm-primary: #F0EDE6;
+  --fm-strong: #5CAF84;
+  --fm-developing: #C8A050;
+  --fm-attention: #fc8181; /* kept: dark-mode crisis red needs higher brightness for contrast */
+  --fm-neutral: #A8A49C;
+  --fm-accent: #C9A050;
+  --fiscmak-subtle: #191917;
+  --fiscmak-surface: #242220;
+  --fiscmak-border: #3A3630;
+  --fiscmak-ink: #F0EDE6;
+  --fiscmak-muted: #A8A49C;
+  --fiscmak-green-light: #1a2e25; /* FLAGGED: unchanged — dark surface for sage-related elements */
+  --cx-cream: #252320;
+  --cx-light-blue: #1C1B19;
+  --cx-white: #242220;
+  --cx-text: #F0EDE6;
+  --cx-text-secondary: #A8A49C;
+  --cx-primary: #F0EDE6;
+  --cx-accent: #C9A050;
+  --cx-accent-soft: #2A2416;
+  --cx-success: #5CAF84;
+  --cx-attention: #fc8181; /* kept: dark-mode crisis red */
+  --cx-developing: #C8A050;
+  --cx-border: #3A3630;
+  --cx-nav-active: #242220;
+  --cx-mak-bubble: #252320;
+  --cx-user-bubble: #3A3630;
+  --cx-gradient-from: #191917;
+  --cx-gradient-to: #242220;
+  --cx-forest-dark: #1a2e24; /* FLAGGED: unchanged — marketing/dark chrome */
+  --cx-page-muted: #161513;
+  --cx-tab-rail: #252220;
 }
 
 @theme inline {
@@ -151,11 +166,11 @@
   --color-rail-border: var(--rail-border);
   --color-rail-item-hover: var(--rail-item-hover);
   --color-rail-item-active-bg: var(--rail-item-active-bg);
-  --font-sans: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-futura-pt-book), "Jost", "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
-  font-family: var(--font-futura-pt-book), "Futura PT", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-futura-pt-book), "Jost", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
@@ -245,15 +260,15 @@ button {
 
 @keyframes cell-glow {
   0% {
-    box-shadow: 0 0 0 0 rgba(30, 58, 95, 0.5);
+    box-shadow: 0 0 0 0 rgba(32, 32, 29, 0.4);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 8px 2px rgba(30, 58, 95, 0.45);
+    box-shadow: 0 0 8px 2px rgba(32, 32, 29, 0.35);
     transform: scale(1.15);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(30, 58, 95, 0);
+    box-shadow: 0 0 0 0 rgba(32, 32, 29, 0);
     transform: scale(1);
   }
 }
@@ -316,13 +331,13 @@ button {
   background: var(--cx-white);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(26, 54, 93, 0.06), 0 4px 12px rgba(26, 54, 93, 0.04);
+  box-shadow: 0 6px 24px -12px rgba(122, 117, 106, 0.18);
   border: 1px solid var(--cx-border);
   transition: box-shadow 0.2s ease;
 }
 
 .cx-card:hover {
-  box-shadow: 0 2px 8px rgba(26, 54, 93, 0.08), 0 8px 24px rgba(26, 54, 93, 0.06);
+  box-shadow: 0 8px 32px -10px rgba(122, 117, 106, 0.24);
 }
 
 .cx-card-dark {
@@ -701,11 +716,11 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .cx-section-surface {
-  background: #ffffff;
+  background: #FCFBF7;
   border: 1px solid color-mix(in srgb, var(--cx-forest-dark) 10%, transparent);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(36, 59, 49, 0.04);
+  box-shadow: 0 6px 24px -12px rgba(122, 117, 106, 0.14);
 }
 
 .cx-nav-pill {
@@ -1183,8 +1198,8 @@ input[type="reset"]:not([data-preserve-radius]) {
 /* Shared elevated surface */
 .cx-surface-elevated {
   border: 1px solid color-mix(in srgb, var(--cx-forest-dark) 12%, transparent);
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(36, 59, 49, 0.04);
+  background: #FCFBF7;
+  box-shadow: 0 6px 24px -12px rgba(122, 117, 106, 0.14);
 }
 
 .cx-alert-banner {

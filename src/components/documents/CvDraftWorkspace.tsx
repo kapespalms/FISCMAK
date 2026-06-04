@@ -151,7 +151,7 @@ export function CvDraftWorkspace({
         <button
           type="button"
           onClick={onBack}
-          className="text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          className="text-sm font-medium text-cx-text/70 hover:text-cx-text"
         >
           ← Documents hub
         </button>
@@ -160,15 +160,15 @@ export function CvDraftWorkspace({
             type="button"
             onClick={() => void handleExportPdf()}
             disabled={exportingPdf}
-            className="rounded-lg border border-cx-forest-dark/20 px-3 py-1.5 text-sm font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5 disabled:opacity-60"
+            className="rounded-lg border border-cx-forest-dark/20 px-3 py-1.5 text-sm font-medium text-cx-text hover:bg-cx-forest-dark/5 disabled:opacity-60"
           >
             {exportingPdf ? "Exporting…" : "Download PDF"}
           </button>
           <span
             className={cn(
               "text-xs font-medium",
-              saveStatus === "saved" && "text-cx-forest-dark/50",
-              saveStatus === "saving" && "text-cx-forest-dark/70",
+              saveStatus === "saved" && "text-cx-text/50",
+              saveStatus === "saving" && "text-cx-text/70",
               saveStatus === "unsaved" && "text-[#C28D6C]",
             )}
           >
@@ -179,7 +179,7 @@ export function CvDraftWorkspace({
 
       <div className="flex flex-wrap items-end gap-4">
         <label className="min-w-[200px] flex-1 text-sm">
-          <span className="text-cx-forest-dark/70">Draft title</span>
+          <span className="text-cx-text/70">Draft title</span>
           <input
             className="cx-field mt-1 w-full text-lg font-semibold"
             value={title}
@@ -196,7 +196,7 @@ export function CvDraftWorkspace({
                 "rounded-md px-3 py-1.5 text-sm capitalize",
                 themeKey === key
                   ? "bg-cx-forest-dark text-white"
-                  : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/5",
+                  : "text-cx-text/70 hover:bg-cx-forest-dark/5",
               )}
               onClick={() => handleThemeChange(key)}
             >
@@ -222,7 +222,7 @@ export function CvDraftWorkspace({
 
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="min-h-[480px] rounded-2xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.02] p-4 lg:p-6">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-cx-text/50">
             Editor
           </p>
           <ResumeBlockEditor
@@ -233,7 +233,7 @@ export function CvDraftWorkspace({
           />
         </div>
         <div className="rounded-2xl border border-cx-forest-dark/10 bg-gradient-to-b from-cx-page-muted to-white p-6 lg:p-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-cx-text/50">
             Preview
           </p>
           <ResumePreview

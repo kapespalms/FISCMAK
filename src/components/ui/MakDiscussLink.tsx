@@ -43,7 +43,7 @@ export function MakDiscussLink({
         type="button"
         onClick={handleClick}
         className={cn(
-          "font-futura-medium inline-flex items-center rounded-full border border-dashed border-cx-forest-dark/30 bg-white px-2 py-0.5 text-[11px] text-cx-forest-dark transition-colors hover:border-cx-forest-dark/50 hover:bg-cx-forest-dark/5",
+          "font-futura-medium inline-flex items-center rounded-full border border-dashed border-cx-forest-dark/30 bg-white px-2 py-0.5 text-[11px] text-cx-text transition-colors hover:border-cx-forest-dark/50 hover:bg-cx-forest-dark/5",
           className,
         )}
       >
@@ -58,11 +58,11 @@ export function MakDiscussLink({
         type="button"
         onClick={handleClick}
         className={cn(
-          "inline-flex items-center gap-1.5 cx-btn border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-xs font-medium text-cx-forest-dark transition-colors hover:border-cx-forest-dark/35 hover:bg-cx-forest-dark/5",
+          "inline-flex items-center gap-1.5 cx-btn border border-cx-forest-dark/20 bg-white px-3 py-1.5 text-xs font-medium text-cx-text transition-colors hover:border-cx-forest-dark/35 hover:bg-cx-forest-dark/5",
           className,
         )}
       >
-        <MessageCircle size={14} className="shrink-0 text-cx-forest-dark" aria-hidden />
+        <MessageCircle size={14} className="shrink-0 text-cx-text" aria-hidden />
         {label}
       </button>
     );
@@ -73,7 +73,7 @@ export function MakDiscussLink({
       type="button"
       onClick={handleClick}
       className={cn(
-        "inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark transition-colors hover:text-cx-forest-dark/80",
+        "inline-flex items-center gap-1.5 text-sm font-medium text-cx-text transition-colors hover:text-cx-text/80",
         className,
       )}
     >

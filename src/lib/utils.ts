@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function energyCellClass(energy: string | null, count: number): string {
   if (count === 0) {
-    return "border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] text-cx-forest-dark/30";
+    return "border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] text-cx-text/30";
   }
   if (energy === "very_draining" || energy === "draining") {
     return "border-[#A9744F] bg-[#C28D6C] text-white";           // fis-clay — no red

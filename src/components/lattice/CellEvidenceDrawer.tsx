@@ -69,9 +69,9 @@ export function CellEvidenceDrawer({ cell, onClose }: Props) {
         <div className="flex items-start justify-between border-b border-neutral-100 px-5 py-4">
           <div>
             <p className="text-xs font-medium text-fis-gold uppercase tracking-wide">Cell Evidence</p>
-            <h2 className="mt-0.5 text-sm font-semibold text-cx-forest-dark leading-snug">
+            <h2 className="mt-0.5 text-sm font-semibold text-cx-text leading-snug">
               {skillName}
-              <span className="mx-1.5 text-cx-forest-dark/30">×</span>
+              <span className="mx-1.5 text-cx-text/30">×</span>
               {domainName}
             </h2>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
@@ -91,7 +91,7 @@ export function CellEvidenceDrawer({ cell, onClose }: Props) {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-cx-forest-dark"
+            className="rounded-lg p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-cx-text"
           >
             <X size={16} />
           </button>
@@ -100,7 +100,7 @@ export function CellEvidenceDrawer({ cell, onClose }: Props) {
         {/* Content */}
         <div className="flex-1 overflow-y-auto px-5 py-4">
           {loading && (
-            <div className="flex items-center gap-2 text-sm text-cx-forest-dark/50">
+            <div className="flex items-center gap-2 text-sm text-cx-text/50">
               <Loader2 size={14} className="animate-spin" />
               Loading evidence…
             </div>
@@ -108,7 +108,7 @@ export function CellEvidenceDrawer({ cell, onClose }: Props) {
           {error && <p className="text-xs text-[#C28D6C]">{error}</p>}
 
           {!loading && !error && items.length === 0 && (
-            <p className="text-sm text-cx-forest-dark/50">
+            <p className="text-sm text-cx-text/50">
               No confirmed evidence in this cell yet.
             </p>
           )}
@@ -122,7 +122,7 @@ export function CellEvidenceDrawer({ cell, onClose }: Props) {
                     key={item.evidence_unit_id + i}
                     className="rounded-xl border border-neutral-100 bg-neutral-50 p-3"
                   >
-                    <p className="text-sm font-medium text-cx-forest-dark leading-snug">
+                    <p className="text-sm font-medium text-cx-text leading-snug">
                       {itemLabel(item)}
                     </p>
                     <div className="mt-1.5 flex flex-wrap items-center gap-1.5">

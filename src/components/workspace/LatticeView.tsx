@@ -25,7 +25,7 @@ function LatticeLegend({ kind }: { kind: "fiscmak" | "acgme" }) {
       ? "Quantity (forest green, light → dark)"
       : "Quantity (lime → teal → navy)";
   return (
-    <div className="flex flex-wrap gap-x-6 gap-y-2 text-[11px] text-cx-forest-dark/65">
+    <div className="flex flex-wrap gap-x-6 gap-y-2 text-[11px] text-cx-text/65">
       <span>{quantityLabel}</span>
       <span className="inline-flex items-center gap-1">
         <span className="h-3 w-3 rounded ring-2 ring-[#C9A227]/80" /> Gold = energizing
@@ -90,7 +90,7 @@ export function LatticeView() {
   return (
     <div className="space-y-4">
       <section>
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-cx-forest-dark/50">
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-cx-text/50">
           Evidence Density — click any cell to explore
         </p>
         <LatticeHeatmapV3 onCellClick={(cell) => setDrawerCell(cell)} />
@@ -123,7 +123,7 @@ export function LatticeView() {
                 "rounded-md px-3 py-1.5 text-xs font-medium transition-colors",
                 timeframe === opt.value
                   ? "bg-cx-forest-dark text-white"
-                  : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/5",
+                  : "text-cx-text/70 hover:bg-cx-forest-dark/5",
               )}
             >
               {opt.label}
@@ -140,7 +140,7 @@ export function LatticeView() {
                 "rounded-md px-3 py-1.5 text-xs font-medium",
                 tab === "fiscmak"
                   ? "bg-cx-forest-dark text-white"
-                  : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/5",
+                  : "text-cx-text/70 hover:bg-cx-forest-dark/5",
               )}
             >
               FISCMAK
@@ -152,7 +152,7 @@ export function LatticeView() {
                 "rounded-md px-3 py-1.5 text-xs font-medium",
                 tab === "acgme"
                   ? "bg-cx-forest-dark text-white"
-                  : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/5",
+                  : "text-cx-text/70 hover:bg-cx-forest-dark/5",
               )}
             >
               ACGME
@@ -162,14 +162,14 @@ export function LatticeView() {
       </div>
 
       {loading ? (
-        <p className="text-sm text-cx-forest-dark/70">Loading lattice…</p>
+        <p className="text-sm text-cx-text/70">Loading lattice…</p>
       ) : error ? (
         <p className="text-sm text-[#C28D6C]">{error}</p>
       ) : activeModel ? (
         <>
           <LatticeLegend kind={activeModel.kind} />
           <DualLatticeGrid model={activeModel} />
-          <p className="text-xs text-cx-forest-dark/55">
+          <p className="text-xs text-cx-text/55">
             Tap any square for a detail card with mapped activities and document excerpts. Cross-mapping
             is allowed when content matches the skills/tasks ontology.
           </p>

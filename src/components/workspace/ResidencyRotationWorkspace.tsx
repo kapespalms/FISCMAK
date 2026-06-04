@@ -66,14 +66,14 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
         <div>
           <Link
             href="/app/uh-psych"
-            className="text-xs font-medium text-cx-forest-dark/60 hover:text-cx-forest-dark"
+            className="text-xs font-medium text-cx-text/60 hover:text-cx-text"
           >
             ← Rotations
           </Link>
           <h1 className="mt-1 text-page-title">{page.title}</h1>
-          {page.subtitle && <p className="mt-1 text-sm text-cx-forest-dark/70">{page.subtitle}</p>}
+          {page.subtitle && <p className="mt-1 text-sm text-cx-text/70">{page.subtitle}</p>}
           {page.lastUpdated && (
-            <p className="mt-1 text-xs text-cx-forest-dark/50">Last updated {page.lastUpdated}</p>
+            <p className="mt-1 text-xs text-cx-text/50">Last updated {page.lastUpdated}</p>
           )}
           {!page.seeded && (
             <p className="mt-2 rounded-lg bg-[#E7DEC9]/50 px-3 py-2 text-sm text-[#20201D]">
@@ -93,7 +93,7 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
       )}
 
       {page.overviewText && sections.length === 0 && !isElectivesPage && (
-        <p className="text-sm leading-relaxed text-cx-forest-dark/80">{page.overviewText}</p>
+        <p className="text-sm leading-relaxed text-cx-text/80">{page.overviewText}</p>
       )}
 
       <div className="space-y-3">
@@ -109,10 +109,10 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
             >
               <SectionContent sectionId={sectionId} items={items} overviewText={page.overviewText} />
               {sectionId === "schedule" && page.slug === "call" && (
-                <p className="mt-3 text-xs text-cx-forest-dark/60">
+                <p className="mt-3 text-xs text-cx-text/60">
                   <Link
                     href="/app/schedule?tab=call"
-                    className="font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+                    className="font-medium text-cx-text underline-offset-2 hover:underline"
                   >
                     Open CMC call schedule grid →
                   </Link>
@@ -138,7 +138,7 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
 
       {driveFiles.length > 0 && (
         <section className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5">
-          <h2 className="text-base font-semibold text-cx-forest-dark">Downloads</h2>
+          <h2 className="text-base font-semibold text-cx-text">Downloads</h2>
           <ul className="mt-3 space-y-2">
             {driveFiles.map((file) => (
               <li key={file.url}>
@@ -147,7 +147,7 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
                   {...(file.isExternal
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-cx-text underline-offset-2 hover:underline"
                 >
                   {file.label}
                   {file.isExternal && <ExternalLink className="h-3.5 w-3.5" aria-hidden />}
@@ -161,12 +161,12 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
       {isElectivesPage && <ContentGapsSection admin />}
 
       <nav className="flex flex-wrap gap-2 border-t border-cx-forest-dark/10 pt-4 text-xs">
-        <span className="text-cx-forest-dark/50">Jump to:</span>
+        <span className="text-cx-text/50">Jump to:</span>
         {sections.map((id) => (
           <a
             key={id}
             href={`#${id}`}
-            className="rounded-full border border-cx-forest-dark/15 px-2.5 py-0.5 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
+            className="rounded-full border border-cx-forest-dark/15 px-2.5 py-0.5 text-cx-text/80 hover:bg-cx-forest-dark/5"
           >
             {ROTATION_SECTION_LABELS[id]}
           </a>
@@ -174,13 +174,13 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
         {curriculum && (
           <a
             href="#curriculum-goals"
-            className="rounded-full border border-cx-forest-dark/15 px-2.5 py-0.5 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
+            className="rounded-full border border-cx-forest-dark/15 px-2.5 py-0.5 text-cx-text/80 hover:bg-cx-forest-dark/5"
           >
             Curriculum & goals
           </a>
         )}
         {curriculumMeta && !curriculum && (
-          <span className="rounded-full border border-cx-forest-dark/15 px-2.5 py-0.5 text-cx-forest-dark/60">
+          <span className="rounded-full border border-cx-forest-dark/15 px-2.5 py-0.5 text-cx-text/60">
             MedHub objectives
           </span>
         )}
@@ -206,15 +206,15 @@ function SectionContent({
   }
 
   if (items.length === 1 && !items[0].includes("•") && items[0].length > 120) {
-    return <p className="text-sm leading-relaxed text-cx-forest-dark/85">{items[0]}</p>;
+    return <p className="text-sm leading-relaxed text-cx-text/85">{items[0]}</p>;
   }
 
   if (isOverviewDuplicate && overviewText) {
-    return <p className="text-sm leading-relaxed text-cx-forest-dark/85">{overviewText}</p>;
+    return <p className="text-sm leading-relaxed text-cx-text/85">{overviewText}</p>;
   }
 
   return (
-    <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-cx-forest-dark/85">
+    <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-cx-text/85">
       {items.map((item) => (
         <li key={item}>{item}</li>
       ))}
@@ -243,7 +243,7 @@ function LabeledRows({ items }: { items: string[] }) {
 
   if (!allLabeled) {
     return (
-      <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-cx-forest-dark/85">
+      <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-cx-text/85">
         {items.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -255,8 +255,8 @@ function LabeledRows({ items }: { items: string[] }) {
     <dl className="divide-y divide-cx-forest-dark/8 text-sm">
       {rows.map(({ item, parsed }) => (
         <div key={item} className="grid gap-1 py-2.5 sm:grid-cols-[minmax(8rem,30%)_1fr] sm:gap-4">
-          <dt className="font-medium text-cx-forest-dark/70">{parsed!.label}</dt>
-          <dd className="text-cx-forest-dark/85">{parsed!.value}</dd>
+          <dt className="font-medium text-cx-text/70">{parsed!.label}</dt>
+          <dd className="text-cx-text/85">{parsed!.value}</dd>
         </div>
       ))}
     </dl>

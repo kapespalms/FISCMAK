@@ -30,11 +30,11 @@ export function OnboardingProfileSection({
   const header = (
     <>
       {step && (
-        <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-forest-dark">
+        <p className="font-futura-medium text-sm uppercase tracking-wide text-cx-text">
           {step}
         </p>
       )}
-      <h2 className="font-futura-medium text-xl text-cx-forest-dark">{title}</h2>
+      <h2 className="font-futura-medium text-xl text-cx-text">{title}</h2>
       {description && (
         <p className="font-futura-book mt-2 text-base leading-relaxed text-black">{description}</p>
       )}
@@ -58,7 +58,7 @@ export function OnboardingProfileSection({
           <div className="min-w-0 flex-1">{header}</div>
           <ChevronDown
             className={cn(
-              "mt-1 h-5 w-5 shrink-0 text-cx-forest-dark/50 transition-transform",
+              "mt-1 h-5 w-5 shrink-0 text-cx-text/50 transition-transform",
               open && "rotate-180",
             )}
             aria-hidden
@@ -82,7 +82,7 @@ export function OnboardingProfileSubheading({
 }) {
   return (
     <div className="pt-1">
-      <h3 className="font-futura-medium text-base text-cx-forest-dark">{title}</h3>
+      <h3 className="font-futura-medium text-base text-cx-text">{title}</h3>
       {description && (
         <p className="font-futura-book mt-1 text-base leading-relaxed text-black">{description}</p>
       )}
@@ -104,7 +104,7 @@ export function OnboardingFieldLabel({
   children: React.ReactNode;
 }) {
   return (
-    <label htmlFor={htmlFor} className="font-futura-medium block text-base text-cx-forest-dark">
+    <label htmlFor={htmlFor} className="font-futura-medium block text-base text-cx-text">
       {children}
     </label>
   );

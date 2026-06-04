@@ -79,8 +79,8 @@ function CardsWithLink({
   );
 }
 
-const messageBody = "font-futura-medium text-sm leading-relaxed text-cx-forest-dark";
-const messageLead = "font-futura-medium text-sm leading-relaxed text-cx-forest-dark";
+const messageBody = "font-futura-medium text-sm leading-relaxed text-cx-text";
+const messageLead = "font-futura-medium text-sm leading-relaxed text-cx-text";
 
 function MakOverview() {
   return (
@@ -160,15 +160,15 @@ function NameOverview() {
         <p>We were too busy illuminating the C in your career.</p>
       </div>
       <p>
-        <span className="text-cx-forest-dark">FISC</span> (fiscus) — the hidden treasury of
+        <span className="text-cx-text">FISC</span> (fiscus) — the hidden treasury of
         expertise, dedication, and time.
       </p>
       <p>
-        <span className="text-cx-forest-dark">Silent C</span> — the invisible work that never makes
+        <span className="text-cx-text">Silent C</span> — the invisible work that never makes
         the CV.
       </p>
       <p>
-        <span className="text-cx-forest-dark">MAK</span> (mahk) — maximus: professional agency,
+        <span className="text-cx-text">MAK</span> (mahk) — maximus: professional agency,
         fully realized.
       </p>
       <div className="flex flex-col items-end gap-2.5 sm:flex-row sm:items-center">
@@ -293,7 +293,7 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
           <div className="min-w-0 flex-1">
             <MakAssistantBubble variant="app" className="landing-mak-bubble w-fit max-w-full">
               <p className="font-futura-medium text-sm leading-relaxed">
-                Hi — I&apos;m <span className="text-cx-forest-dark">Mak</span>. I&apos;m the co-pilot
+                Hi — I&apos;m <span className="text-cx-text">Mak</span>. I&apos;m the co-pilot
                 on your journey through medicine.
               </p>
               <p className="mt-2 font-futura-medium text-sm opacity-80">
@@ -311,13 +311,13 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
                       "flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md border px-3 py-2 font-futura-bold text-[11px] uppercase tracking-wide transition sm:text-xs",
                       activeTopic === opt.id
                         ? "border-cx-forest-dark bg-cx-forest-dark text-white shadow-sm"
-                        : "border-cx-forest-dark/20 bg-white text-cx-forest-dark shadow-sm hover:border-cx-forest-dark/35 hover:bg-[#eef0ee]",
+                        : "border-cx-forest-dark/20 bg-white text-cx-text shadow-sm hover:border-cx-forest-dark/35 hover:bg-[#eef0ee]",
                     )}
                   >
                     <span
                       className={cn(
                         "font-mono text-[9px]",
-                        activeTopic === opt.id ? "text-white/60" : "text-cx-forest-dark/45",
+                        activeTopic === opt.id ? "text-white/60" : "text-cx-text/45",
                       )}
                     >
                       &gt;
@@ -342,7 +342,7 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
             disabled
             data-no-glass
             aria-hidden
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-[#e8eaec] text-cx-forest-dark opacity-50"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-[#e8eaec] text-cx-text opacity-50"
           >
             <Plus size={16} />
           </button>
@@ -351,7 +351,7 @@ export function LandingMakConsole({ visible, className }: LandingMakConsoleProps
             disabled
             value=""
             placeholder={MAK_INPUT_PLACEHOLDER}
-            className="cx-mak-panel-input h-9 min-h-9 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-3 text-xs text-cx-forest-dark shadow-sm opacity-70 sm:h-10 sm:min-h-10 sm:px-4 sm:text-sm"
+            className="cx-mak-panel-input h-9 min-h-9 flex-1 rounded-[20px] border border-cx-forest-dark/10 bg-white px-3 text-xs text-cx-text shadow-sm opacity-70 sm:h-10 sm:min-h-10 sm:px-4 sm:text-sm"
             aria-label={`Message to ${MAK_DISPLAY_NAME}`}
           />
           <MakHexMicButton

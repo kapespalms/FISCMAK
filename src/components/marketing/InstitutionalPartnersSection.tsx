@@ -31,12 +31,12 @@ export function InstitutionalPartnersSection() {
   return (
     <section id="institutions" aria-label="Institutional partnerships" className="px-5 py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-futura-bold mb-4 text-4xl text-cx-forest-dark md:text-5xl">
+        <h2 className="font-futura-bold mb-4 text-4xl text-cx-text md:text-5xl">
           INSTITUTIONAL
           <br />
           <span className="text-marketing-accent">PARTNERSHIPS</span>
         </h2>
-        <p className="mb-12 text-lg text-cx-forest-dark/65">
+        <p className="mb-12 text-lg text-cx-text/65">
           GME programs use FISCMAK for MedHub import, pre-CCC synthesis, milestone tracking, and
           resident career development — starting with UH Psychiatry.
         </p>

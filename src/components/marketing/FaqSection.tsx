@@ -47,12 +47,12 @@ export function FaqSection() {
   return (
     <section id="faq" aria-label="Frequently asked questions" className="px-5 py-20">
       <div className="mx-auto max-w-4xl">
-        <h2 className="font-futura-bold mb-4 text-4xl text-cx-forest-dark md:text-5xl">
+        <h2 className="font-futura-bold mb-4 text-4xl text-cx-text md:text-5xl">
           Frequently Asked
           <br />
           <span className="text-marketing-accent">Questions</span>
         </h2>
-        <p className="mb-12 text-lg text-cx-forest-dark/65">
+        <p className="mb-12 text-lg text-cx-text/65">
           Common questions about career intelligence, privacy, and getting started.
         </p>
 

@@ -21,7 +21,7 @@ function LatticeContent() {
     <div className="space-y-5">
       {/* Map | List toggle */}
       <div className="flex items-center gap-3">
-        <h1 className="text-lg font-semibold text-cx-forest-dark">Lattice</h1>
+        <h1 className="text-lg font-semibold text-cx-text">Lattice</h1>
         <div className="flex gap-0.5 rounded-lg border border-cx-forest-dark/10 bg-white/60 p-0.5">
           {(["map", "list"] as const).map((v) => (
             <button
@@ -32,7 +32,7 @@ function LatticeContent() {
                 "rounded-md px-4 py-1.5 text-xs font-medium transition-colors capitalize",
                 view === v
                   ? "bg-cx-forest-dark text-white"
-                  : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/5",
+                  : "text-cx-text/70 hover:bg-cx-forest-dark/5",
               )}
             >
               {v}
@@ -48,7 +48,7 @@ function LatticeContent() {
 
 export default function LatticePage() {
   return (
-    <Suspense fallback={<div className="text-sm text-cx-forest-dark/50">Loading…</div>}>
+    <Suspense fallback={<div className="text-sm text-cx-text/50">Loading…</div>}>
       <LatticeContent />
     </Suspense>
   );

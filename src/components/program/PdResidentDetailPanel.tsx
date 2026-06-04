@@ -41,7 +41,7 @@ export function PdResidentDetailPanel({
     <div className="space-y-5">
       <Link
         href="/app/program"
-        className="inline-flex items-center gap-1.5 text-sm text-cx-forest-dark/60 hover:text-cx-forest-dark"
+        className="inline-flex items-center gap-1.5 text-sm text-cx-text/60 hover:text-cx-text"
       >
         <ArrowLeft size={14} />
         Back to roster
@@ -129,16 +129,16 @@ function PdMilestonePanel({
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · Milestones</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">
         Milestone heatmap — PGY {pgyLevel ?? "—"}
       </h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <p className="mt-2 text-sm text-cx-text/75">
         {evalCount} faculty eval{evalCount !== 1 ? "s" : ""} · faculty ratings take precedence over
         self-ratings · current period only
       </p>
 
       {prite && (
-        <p className="mt-1 text-xs text-cx-forest-dark/60">
+        <p className="mt-1 text-xs text-cx-text/60">
           Latest PRITE ({prite.exam_year}): {prite.overall_percentile ?? "—"}th percentile
         </p>
       )}
@@ -172,7 +172,7 @@ function PdMilestonePanel({
       )}
 
       {!loading && cells.length === 0 && (
-        <p className="mt-4 text-sm text-cx-forest-dark/60">
+        <p className="mt-4 text-sm text-cx-text/60">
           No milestone data for this resident yet — import MedHub CSV first.
         </p>
       )}
@@ -236,10 +236,10 @@ function PdIlpPanel({
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · ILP</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">
         Individual Learning Plan
       </h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <p className="mt-2 text-sm text-cx-text/75">
         Approve draft goals after CCC co-production. Current period only.
       </p>
 
@@ -248,11 +248,11 @@ function PdIlpPanel({
       </Button>
 
       {message && (
-        <p className="mt-3 text-sm text-cx-forest-dark/80">{message}</p>
+        <p className="mt-3 text-sm text-cx-text/80">{message}</p>
       )}
 
       {!loading && goals.length === 0 && !message && (
-        <p className="mt-3 text-sm text-cx-forest-dark/60">No ILP goals for current period.</p>
+        <p className="mt-3 text-sm text-cx-text/60">No ILP goals for current period.</p>
       )}
 
       {goals.length > 0 && (
@@ -262,8 +262,8 @@ function PdIlpPanel({
               key={goal.goal_id}
               className="rounded-lg border border-cx-forest-dark/10 px-3 py-2"
             >
-              <p className="font-medium text-cx-forest-dark">{goal.goal_text}</p>
-              <p className="mt-1 text-xs text-cx-forest-dark/60">
+              <p className="font-medium text-cx-text">{goal.goal_text}</p>
+              <p className="mt-1 text-xs text-cx-text/60">
                 {goal.status} · {goal.source ?? "trainee"}
               </p>
               {goal.status === "draft" && (

@@ -21,9 +21,9 @@ function ResourceListItem({
   resource: (typeof PRIMARY_CRISIS_RESOURCES)[number];
 }) {
   return (
-    <li className="text-sm text-cx-forest-dark/80">
-      <span className="font-medium text-cx-forest-dark">{resource.label}</span>
-      <span className="text-cx-forest-dark/70"> — {formatResourceContact(resource)}</span>
+    <li className="text-sm text-cx-text/80">
+      <span className="font-medium text-cx-text">{resource.label}</span>
+      <span className="text-cx-text/70"> — {formatResourceContact(resource)}</span>
       {resource.url && (
         <>
           {" "}
@@ -31,7 +31,7 @@ function ResourceListItem({
             href={resource.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-cx-forest-dark underline underline-offset-2"
+            className="font-medium text-cx-text underline underline-offset-2"
           >
             Link
           </a>
@@ -63,10 +63,10 @@ export function EscalationResourcesPanel({
           <AlertTriangle className="mt-0.5 shrink-0 text-cx-attention" size={18} />
         )}
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+          <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">
             {isCrisis ? "Crisis support" : "Professional support recommended"}
           </p>
-          <p className="mt-1 text-sm text-cx-forest-dark">{escalation.message}</p>
+          <p className="mt-1 text-sm text-cx-text">{escalation.message}</p>
           {isCrisis && (
             <div className="mt-3 space-y-3">
               <ul className="space-y-2">
@@ -74,8 +74,8 @@ export function EscalationResourcesPanel({
                   <ResourceListItem key={r.id} resource={r} />
                 ))}
               </ul>
-              <details className="text-sm text-cx-forest-dark/80">
-                <summary className="cursor-pointer font-medium text-cx-forest-dark">
+              <details className="text-sm text-cx-text/80">
+                <summary className="cursor-pointer font-medium text-cx-text">
                   More support resources
                 </summary>
                 <ul className="mt-2 space-y-2 pl-1">
@@ -95,7 +95,7 @@ export function EscalationResourcesPanel({
                     href={a.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1 text-xs font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5"
+                    className="rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1 text-xs font-medium text-cx-text hover:bg-cx-forest-dark/5"
                   >
                     {a.action}
                   </a>
@@ -103,7 +103,7 @@ export function EscalationResourcesPanel({
                   <Link
                     key={a.action}
                     href={a.url}
-                    className="rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1 text-xs font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5"
+                    className="rounded-full border border-cx-forest-dark/20 bg-white px-3 py-1 text-xs font-medium text-cx-text hover:bg-cx-forest-dark/5"
                   >
                     {a.action}
                   </Link>
@@ -112,7 +112,7 @@ export function EscalationResourcesPanel({
             </div>
           )}
           {escalation.pauseCareerCoaching && !isCrisis && (
-            <p className="mt-2 text-xs text-cx-forest-dark/70">
+            <p className="mt-2 text-xs text-cx-text/70">
               Career-focused coaching is paused until you acknowledge these resources.
             </p>
           )}

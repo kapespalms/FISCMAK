@@ -20,10 +20,10 @@ export function CreditLimitModal({ open, onClose, upgradePrompt }: CreditLimitMo
       aria-labelledby="credit-limit-title"
     >
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
-        <h2 id="credit-limit-title" className="text-lg font-semibold text-cx-forest-dark">
+        <h2 id="credit-limit-title" className="text-lg font-semibold text-cx-text">
           Free messages used
         </h2>
-        <p className="mt-2 text-sm text-cx-forest-dark/80">
+        <p className="mt-2 text-sm text-cx-text/80">
           {upgradePrompt ??
             "You've used your free AI coaching messages for now. Upgrade to Premium for unlimited Mak conversations."}
         </p>

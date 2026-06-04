@@ -15,8 +15,8 @@ function DetailRow({ label, value }: { label: string; value?: string | null }) {
   if (value == null || value === "") return null;
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 text-sm">
-      <span className="text-cx-forest-dark/60">{label}</span>
-      <span className="font-medium text-cx-forest-dark">{value}</span>
+      <span className="text-cx-text/60">{label}</span>
+      <span className="font-medium text-cx-text">{value}</span>
     </div>
   );
 }
@@ -35,13 +35,13 @@ function RoleCard({
   if (!card) {
     return (
       <div className="rounded-xl border border-dashed border-cx-forest-dark/20 bg-cx-forest-dark/[0.02] p-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/70">
+        <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/70">
           {title}
         </p>
-        <p className="mt-2 text-sm text-cx-forest-dark/60">{emptyLabel}</p>
+        <p className="mt-2 text-sm text-cx-text/60">{emptyLabel}</p>
         <MakDiscussLink
           mak={PROFILE_MAK.boardBuilding}
-          className="mt-3 inline-block text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+          className="mt-3 inline-block text-sm font-medium text-cx-text hover:text-cx-text/80"
         />
       </div>
     );
@@ -49,7 +49,7 @@ function RoleCard({
 
   return (
     <div className="rounded-xl border border-cx-forest-dark/12 bg-white p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/70">
+      <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/70">
         {title}
       </p>
       <div className="mt-3 space-y-2">
@@ -103,12 +103,12 @@ function CoachSlotRow({ slot }: { slot: CoachSlotView }) {
 
   return (
     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5 text-sm">
-      <span className="text-cx-forest-dark/60">{slot.domain} Coach</span>
+      <span className="text-cx-text/60">{slot.domain} Coach</span>
       <span
         className={
           slot.status === "searching"
-            ? "italic text-cx-forest-dark/50"
-            : "font-medium text-cx-forest-dark"
+            ? "italic text-cx-text/50"
+            : "font-medium text-cx-text"
         }
       >
         {value}
@@ -120,7 +120,7 @@ function CoachSlotRow({ slot }: { slot: CoachSlotView }) {
 function CoachesBlock({ coaches }: { coaches: CoachSlotView[] }) {
   return (
     <div className="rounded-xl border border-cx-forest-dark/12 bg-white p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/70">
+      <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/70">
         Coaches (multiple)
       </p>
       <div className="mt-3 space-y-2">
@@ -131,7 +131,7 @@ function CoachesBlock({ coaches }: { coaches: CoachSlotView[] }) {
       {coaches.some((s) => s.status === "searching") && (
         <MakDiscussLink
           mak={PROFILE_MAK.boardBuilding}
-          className="mt-3 inline-block text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+          className="mt-3 inline-block text-sm font-medium text-cx-text hover:text-cx-text/80"
         />
       )}
     </div>
@@ -155,24 +155,24 @@ export function BoardOfDirectorsPanel({ board, loading }: BoardOfDirectorsPanelP
         board ? (
           <MakDiscussLink
             mak={PROFILE_MAK.boardBuilding}
-            className="text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+            className="text-sm font-medium text-cx-text hover:text-cx-text/80"
           />
         ) : undefined
       }
     >
       {loading && (
-        <p className="text-sm text-cx-forest-dark/70">Loading your Board…</p>
+        <p className="text-sm text-cx-text/70">Loading your Board…</p>
       )}
 
       {!loading && !board && (
         <div className="space-y-3">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             Map who fills each role — or where you have gaps. Most physicians have mentors but
             lack sponsors.
           </p>
           <MakDiscussLink
             mak={PROFILE_MAK.board}
-            className="inline-block text-sm font-semibold text-cx-forest-dark hover:text-cx-forest-dark/80"
+            className="inline-block text-sm font-semibold text-cx-text hover:text-cx-text/80"
           />
         </div>
       )}

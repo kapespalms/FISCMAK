@@ -26,18 +26,18 @@ export function EducationHubWorkspace() {
     <div className="space-y-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
             {program?.institution_name ?? "University Hospitals"}
           </p>
           <h1 className="text-page-title">Read</h1>
-          <p className="mt-2 max-w-2xl text-sm text-cx-forest-dark/75">
+          <p className="mt-2 max-w-2xl text-sm text-cx-text/75">
             {EDUCATION_CATEGORIES.reduce((n, c) => n + c.documents.length, 0)} documents — landmark
             articles, psychopharmacology, patient handouts, and core readings.
           </p>
         </div>
         <Link
           href="/app/dashboard"
-          className="text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+          className="text-sm font-medium text-cx-text underline-offset-2 hover:underline"
         >
           ← Dashboard
         </Link>
@@ -57,7 +57,7 @@ export function EducationHubWorkspace() {
         </div>
         <Link
           href="/app/uh-psych"
-          className="shrink-0 rounded-lg border border-cx-forest-dark/15 px-3 py-2 text-sm font-medium text-cx-forest-dark hover:bg-white/80"
+          className="shrink-0 rounded-lg border border-cx-forest-dark/15 px-3 py-2 text-sm font-medium text-cx-text hover:bg-white/80"
         >
           Rotations
         </Link>
@@ -70,7 +70,7 @@ export function EducationHubWorkspace() {
 
       {isSearching ? (
         <section className="space-y-3">
-          <h2 className="text-sm font-semibold text-cx-forest-dark">
+          <h2 className="text-sm font-semibold text-cx-text">
             {searchResults.length} document{searchResults.length === 1 ? "" : "s"}
           </h2>
           <DocumentList
@@ -85,7 +85,7 @@ export function EducationHubWorkspace() {
           <button
             type="button"
             onClick={() => setSelectedCategoryId(null)}
-            className="inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            className="inline-flex items-center gap-1 text-sm font-medium text-cx-text/70 hover:text-cx-text"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden />
             All categories
@@ -93,9 +93,9 @@ export function EducationHubWorkspace() {
           <div className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h2 className="text-lg font-semibold text-cx-forest-dark">{selectedCategory.title}</h2>
-                <p className="mt-1 text-sm text-cx-forest-dark/70">{selectedCategory.description}</p>
-                <p className="mt-1 text-xs text-cx-forest-dark/50">
+                <h2 className="text-lg font-semibold text-cx-text">{selectedCategory.title}</h2>
+                <p className="mt-1 text-sm text-cx-text/70">{selectedCategory.description}</p>
+                <p className="mt-1 text-xs text-cx-text/50">
                   {selectedCategory.documents.length} documents
                 </p>
               </div>
@@ -118,9 +118,9 @@ export function EducationHubWorkspace() {
               onClick={() => setSelectedCategoryId(category.id)}
               className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5 text-left transition hover:border-cx-forest-dark/25 hover:shadow-sm"
             >
-              <h2 className="text-base font-semibold text-cx-forest-dark">{category.title}</h2>
-              <p className="mt-1 line-clamp-2 text-sm text-cx-forest-dark/70">{category.description}</p>
-              <p className="mt-2 text-xs font-medium text-cx-forest-dark/55">
+              <h2 className="text-base font-semibold text-cx-text">{category.title}</h2>
+              <p className="mt-1 line-clamp-2 text-sm text-cx-text/70">{category.description}</p>
+              <p className="mt-2 text-xs font-medium text-cx-text/55">
                 {category.documents.length} documents →
               </p>
             </button>
@@ -167,7 +167,7 @@ function CategoryDocuments({
       {groups.map(([subcategory, documents]) => (
         <div key={subcategory || "root"}>
           {subcategory ? (
-            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-text/55">
               {subcategory}
             </h3>
           ) : null}
@@ -180,7 +180,7 @@ function CategoryDocuments({
 
 function DocumentList({ documents }: { documents: DocRow[] }) {
   if (documents.length === 0) {
-    return <p className="text-sm text-cx-forest-dark/60">No documents match your search.</p>;
+    return <p className="text-sm text-cx-text/60">No documents match your search.</p>;
   }
 
   return (
@@ -194,19 +194,19 @@ function DocumentList({ documents }: { documents: DocRow[] }) {
             rel="noopener noreferrer"
             className="flex items-start gap-3 px-4 py-3 transition hover:bg-cx-forest-dark/[0.03]"
           >
-            <FileText className="mt-0.5 h-4 w-4 shrink-0 text-cx-forest-dark/50" aria-hidden />
+            <FileText className="mt-0.5 h-4 w-4 shrink-0 text-cx-text/50" aria-hidden />
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-medium text-cx-forest-dark">{doc.title}</p>
+              <p className="text-sm font-medium text-cx-text">{doc.title}</p>
               {doc.description && (
-                <p className="mt-0.5 text-xs text-cx-forest-dark/60">{doc.description}</p>
+                <p className="mt-0.5 text-xs text-cx-text/60">{doc.description}</p>
               )}
               {(doc.subcategory || doc.categoryLabel) && (
-                <p className="mt-0.5 text-xs text-cx-forest-dark/45">
+                <p className="mt-0.5 text-xs text-cx-text/45">
                   {[doc.subcategory, doc.categoryLabel].filter(Boolean).join(" · ")}
                 </p>
               )}
             </div>
-            <Download className="h-4 w-4 shrink-0 text-cx-forest-dark/40" aria-hidden />
+            <Download className="h-4 w-4 shrink-0 text-cx-text/40" aria-hidden />
           </a>
         </li>
       ))}

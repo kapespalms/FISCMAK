@@ -122,7 +122,7 @@ export function NpiRegistryPanel({
       type="button"
       disabled={verifying || skipping}
       onClick={() => void skipForNow()}
-      className="text-sm font-medium text-cx-forest-dark/80 underline hover:text-cx-forest-dark"
+      className="text-sm font-medium text-cx-text/80 underline hover:text-cx-text"
     >
       {skipping ? "Skipping…" : "Skip for now"}
     </button>
@@ -130,7 +130,7 @@ export function NpiRegistryPanel({
 
   if (verified && status) {
     return (
-      <div className="space-y-2 text-sm text-cx-forest-dark">
+      <div className="space-y-2 text-sm text-cx-text">
         <p>
           <span className="font-semibold">NPI:</span> {status.npi}
         </p>
@@ -150,7 +150,7 @@ export function NpiRegistryPanel({
             href={registryUrl ?? status.registry_url ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block font-medium text-cx-forest-dark underline hover:text-cx-forest-dark/80"
+            className="inline-block font-medium text-cx-text underline hover:text-cx-text/80"
           >
             View in CMS NPPES registry
           </a>
@@ -189,12 +189,12 @@ export function NpiRegistryPanel({
         </Button>
       </div>
       {verifyMessage && (
-        <p className="rounded-md border border-cx-success/30 bg-cx-success/10 px-3 py-2 text-sm text-cx-forest-dark">
+        <p className="rounded-md border border-cx-success/30 bg-cx-success/10 px-3 py-2 text-sm text-cx-text">
           {verifyMessage}
         </p>
       )}
       {verifyError && (
-        <p className="rounded-md border border-cx-attention/30 bg-cx-attention/10 px-3 py-2 text-sm text-cx-forest-dark">
+        <p className="rounded-md border border-cx-attention/30 bg-cx-attention/10 px-3 py-2 text-sm text-cx-text">
           {verifyError}
         </p>
       )}
@@ -203,7 +203,7 @@ export function NpiRegistryPanel({
           href={registryUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block text-sm font-medium text-cx-forest-dark underline hover:text-cx-forest-dark/80"
+          className="inline-block text-sm font-medium text-cx-text underline hover:text-cx-text/80"
         >
           View in CMS NPPES registry
         </a>

@@ -134,7 +134,7 @@ export function TagTypeaheadInput({
                   "rounded-full p-0.5 transition-colors",
                   luxury
                     ? "text-fis-gold hover:text-white"
-                    : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/10 hover:text-cx-forest-dark",
+                    : "text-cx-text/70 hover:bg-cx-forest-dark/10 hover:text-cx-text",
                 )}
                 aria-label={`Remove ${tag}`}
               >
@@ -164,7 +164,7 @@ export function TagTypeaheadInput({
               "min-w-[8rem] flex-1 border-0 bg-transparent p-1 py-1 outline-none focus:ring-0",
               luxury
                 ? "text-sm text-white placeholder:text-gray-600"
-                : "text-base text-black placeholder:text-cx-forest-dark/45",
+                : "text-base text-black placeholder:text-cx-text/45",
             )}
             autoComplete="off"
             role="combobox"

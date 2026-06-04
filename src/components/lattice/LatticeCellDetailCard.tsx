@@ -55,17 +55,17 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-3 top-3 rounded-md p-1 text-cx-forest-dark/50 hover:bg-cx-forest-dark/5 hover:text-cx-forest-dark"
+          className="absolute right-3 top-3 rounded-md p-1 text-cx-text/50 hover:bg-cx-forest-dark/5 hover:text-cx-text"
           aria-label="Close"
         >
           <X className="h-4 w-4" />
         </button>
 
-        <h3 id="lattice-cell-title" className="pr-8 text-lg font-semibold text-cx-forest-dark">
+        <h3 id="lattice-cell-title" className="pr-8 text-lg font-semibold text-cx-text">
           {title}
         </h3>
 
-        <p className="mt-2 text-sm text-cx-forest-dark/70">
+        <p className="mt-2 text-sm text-cx-text/70">
           {cell.count} mapped item{cell.count === 1 ? "" : "s"} in this window · relative intensity{" "}
           {Math.round(cell.relativeIntensity * 100)}%
           {cell.maxDevelopmentLevel > 0
@@ -92,7 +92,7 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
             ) : null}
           </div>
         ) : (
-          <p className="mt-4 text-sm text-cx-forest-dark/75">
+          <p className="mt-4 text-sm text-cx-text/75">
             No evidence mapped here yet. Log activities, add calendar events with Mak,
             complete self-assessment, or upload career documents — mapped skills and tasks will
             appear when they match this cell.
@@ -106,19 +106,19 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
                 key={item.id}
                 className="rounded-lg border border-cx-forest-dark/10 bg-cx-cream/40 p-3"
               >
-                <div className="flex flex-wrap items-center gap-2 text-[11px] font-medium uppercase tracking-wide text-cx-forest-dark/50">
+                <div className="flex flex-wrap items-center gap-2 text-[11px] font-medium uppercase tracking-wide text-cx-text/50">
                   <span>{evidenceSourceLabel(item.source)}</span>
                   {item.date ? <span>{item.date}</span> : null}
                   {item.developmentLevel > 0 ? (
                     <span>Level {item.developmentLevel}</span>
                   ) : null}
                 </div>
-                <p className="mt-1 text-xs text-cx-forest-dark/55">{item.sourceLabel}</p>
-                <p className="mt-2 text-sm leading-relaxed text-cx-forest-dark/85">
+                <p className="mt-1 text-xs text-cx-text/55">{item.sourceLabel}</p>
+                <p className="mt-2 text-sm leading-relaxed text-cx-text/85">
                   {item.rawText}
                 </p>
                 {item.energy ? (
-                  <p className="mt-2 text-xs text-cx-forest-dark/60">
+                  <p className="mt-2 text-xs text-cx-text/60">
                     Energy: {energyLabel(item.energy)}
                   </p>
                 ) : null}

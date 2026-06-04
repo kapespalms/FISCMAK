@@ -34,24 +34,24 @@ export function ResidencyScheduleWorkspace() {
   }, []);
 
   if (!mounted) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading…</p>;
+    return <p className="text-sm text-cx-text/70">Loading…</p>;
   }
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
             {program?.institution_name ?? "University Hospitals"}
           </p>
           <h1 className="text-page-title">Schedule</h1>
-          <p className="mt-2 max-w-2xl text-sm text-cx-forest-dark/75">
+          <p className="mt-2 max-w-2xl text-sm text-cx-text/75">
             Block rotations, call coverage, and external calendar links — one place.
           </p>
         </div>
         <Link
           href="/app/uh-psych"
-          className="text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+          className="text-sm font-medium text-cx-text underline-offset-2 hover:underline"
         >
           ← Rotations
         </Link>
@@ -88,21 +88,21 @@ export function ResidencyScheduleWorkspace() {
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 px-4 py-4 transition hover:bg-cx-forest-dark/[0.03]"
                   >
-                    <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-cx-forest-dark/50" aria-hidden />
+                    <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-cx-text/50" aria-hidden />
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-cx-forest-dark">{link.label}</p>
-                      <p className="mt-0.5 text-sm text-cx-forest-dark/70">{link.description}</p>
+                      <p className="text-sm font-semibold text-cx-text">{link.label}</p>
+                      <p className="mt-0.5 text-sm text-cx-text/70">{link.description}</p>
                       {link.note && (
-                        <p className="mt-1 text-xs text-cx-forest-dark/55">{link.note}</p>
+                        <p className="mt-1 text-xs text-cx-text/55">{link.note}</p>
                       )}
                     </div>
                   </a>
                 ) : (
                   <div className="px-4 py-4">
-                    <p className="text-sm font-semibold text-cx-forest-dark">{link.label}</p>
-                    <p className="mt-0.5 text-sm text-cx-forest-dark/70">{link.description}</p>
+                    <p className="text-sm font-semibold text-cx-text">{link.label}</p>
+                    <p className="mt-0.5 text-sm text-cx-text/70">{link.description}</p>
                     {link.note && (
-                      <p className="mt-1 text-xs text-cx-forest-dark/55">{link.note}</p>
+                      <p className="mt-1 text-xs text-cx-text/55">{link.note}</p>
                     )}
                   </div>
                 )}

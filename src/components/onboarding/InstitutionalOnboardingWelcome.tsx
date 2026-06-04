@@ -41,8 +41,8 @@ export function InstitutionalOnboardingWelcome({
     <Card>
       <p className="text-cx-label uppercase">Step 1 of 7 · Program onboarding</p>
       <h1 className="mt-1 text-page-title">{program.display_title}</h1>
-      <p className="mt-3 text-sm text-cx-forest-dark/80">{program.welcome_blurb}</p>
-      <p className="mt-2 text-xs text-cx-forest-dark/60">
+      <p className="mt-3 text-sm text-cx-text/80">{program.welcome_blurb}</p>
+      <p className="mt-2 text-xs text-cx-text/60">
         {program.institution_name} · Academic year {program.academic_year}
       </p>
 
@@ -56,14 +56,14 @@ export function InstitutionalOnboardingWelcome({
               ✓
             </span>
             <div>
-              <p className="font-semibold text-cx-forest-dark">{item.title}</p>
-              <p className="text-sm text-cx-forest-dark/70">{item.detail}</p>
+              <p className="font-semibold text-cx-text">{item.title}</p>
+              <p className="text-sm text-cx-text/70">{item.detail}</p>
             </div>
           </li>
         ))}
       </ul>
 
-      <p className="mt-6 text-sm text-cx-forest-dark/80">
+      <p className="mt-6 text-sm text-cx-text/80">
         Profile setup takes about 10 minutes. Your program affiliation is recorded for contextual
         prompts — your private reflections stay yours unless you choose to share.
       </p>

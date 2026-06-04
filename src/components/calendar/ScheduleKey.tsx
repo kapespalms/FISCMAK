@@ -25,7 +25,7 @@ export function ScheduleKey({
 
   return (
     <div className="mt-3 border-t border-cx-forest-dark/10 pt-3">
-      <p className="font-futura-medium mb-1.5 text-xs text-cx-forest-dark">Schedule Key</p>
+      <p className="font-futura-medium mb-1.5 text-xs text-cx-text">Schedule Key</p>
       <div className="flex flex-wrap items-center gap-1.5">
         {programRotations.map((r) => (
           <label

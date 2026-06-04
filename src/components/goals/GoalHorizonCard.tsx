@@ -31,26 +31,26 @@ function GoalContent({ goal }: { goal: GoalRecord }) {
       <div className="space-y-2 text-sm">
         {goal.wish && (
           <div>
-            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">Wish</span>
-            <p className="mt-0.5 text-cx-forest-dark">{goal.wish}</p>
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">Wish</span>
+            <p className="mt-0.5 text-cx-text">{goal.wish}</p>
           </div>
         )}
         {goal.outcome && (
           <div>
-            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">Outcome</span>
-            <p className="mt-0.5 text-cx-forest-dark/80">{goal.outcome}</p>
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">Outcome</span>
+            <p className="mt-0.5 text-cx-text/80">{goal.outcome}</p>
           </div>
         )}
         {goal.obstacle && (
           <div>
-            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">Obstacle</span>
-            <p className="mt-0.5 text-cx-forest-dark/70">{goal.obstacle}</p>
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">Obstacle</span>
+            <p className="mt-0.5 text-cx-text/70">{goal.obstacle}</p>
           </div>
         )}
         {goal.plan && (
           <div>
-            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">Plan</span>
-            <p className="mt-0.5 text-cx-forest-dark/70">{goal.plan}</p>
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">Plan</span>
+            <p className="mt-0.5 text-cx-text/70">{goal.plan}</p>
           </div>
         )}
       </div>
@@ -59,7 +59,7 @@ function GoalContent({ goal }: { goal: GoalRecord }) {
 
   if (fw === "legacy") {
     return (
-      <p className="text-sm italic text-cx-forest-dark/80">
+      <p className="text-sm italic text-cx-text/80">
         {goal.description ?? "(no statement yet)"}
       </p>
     );
@@ -82,10 +82,10 @@ function GoalContent({ goal }: { goal: GoalRecord }) {
       {rows.map(({ label, value }) =>
         value ? (
           <div key={label} className="flex gap-2 text-sm">
-            <span className="w-20 shrink-0 text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40 pt-0.5">
+            <span className="w-20 shrink-0 text-[10px] font-semibold uppercase tracking-wide text-cx-text/40 pt-0.5">
               {label}
             </span>
-            <span className="text-cx-forest-dark/80">{value}</span>
+            <span className="text-cx-text/80">{value}</span>
           </div>
         ) : null,
       )}
@@ -123,14 +123,14 @@ export function GoalHorizonCard({ horizon, goals, onAdd, onEdit, onDelete }: Pro
       <div className="flex items-start justify-between px-5 pt-5 pb-3">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-sm font-semibold text-cx-forest-dark">
+            <h2 className="text-sm font-semibold text-cx-text">
               {HORIZON_LABELS[horizon]}
             </h2>
             <span className="rounded-full bg-fis-gold/10 px-2 py-0.5 text-[10px] font-medium text-fis-gold">
               {FRAMEWORK_BADGE[framework]}
             </span>
           </div>
-          <p className="mt-0.5 text-[11px] text-cx-forest-dark/50">
+          <p className="mt-0.5 text-[11px] text-cx-text/50">
             {HORIZON_DESCRIPTIONS[horizon]}
           </p>
         </div>
@@ -157,7 +157,7 @@ export function GoalHorizonCard({ horizon, goals, onAdd, onEdit, onDelete }: Pro
                   <button
                     type="button"
                     onClick={() => onEdit(goal)}
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-cx-forest-dark/50 transition-colors hover:bg-neutral-100 hover:text-cx-forest-dark"
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-cx-text/50 transition-colors hover:bg-neutral-100 hover:text-cx-text"
                   >
                     <Pencil size={12} />
                     Edit
@@ -165,7 +165,7 @@ export function GoalHorizonCard({ horizon, goals, onAdd, onEdit, onDelete }: Pro
                   <button
                     type="button"
                     onClick={() => onDelete(goal.id)}
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-cx-forest-dark/50 transition-colors hover:bg-[#C28D6C]/10 hover:text-[#C28D6C]"
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-cx-text/50 transition-colors hover:bg-[#C28D6C]/10 hover:text-[#C28D6C]"
                   >
                     <Trash2 size={12} />
                     Delete
@@ -189,7 +189,7 @@ export function GoalHorizonCard({ horizon, goals, onAdd, onEdit, onDelete }: Pro
             className="flex w-full flex-col items-center gap-1.5 rounded-xl border border-dashed border-cx-forest-dark/15 py-8 text-center transition-colors hover:border-fis-gold/40 hover:bg-fis-gold/5"
           >
             <Plus size={16} className="text-fis-gold/60" />
-            <span className="text-xs text-cx-forest-dark/50">
+            <span className="text-xs text-cx-text/50">
               {HORIZON_DESCRIPTIONS[horizon]}
             </span>
             <span className="text-xs font-medium text-fis-gold">Set goal</span>

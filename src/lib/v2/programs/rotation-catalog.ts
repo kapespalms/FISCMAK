@@ -127,5 +127,5 @@ export function rotationTone(code: string): string {
   if (code === "vacation" || code === "extra_duty" || code === "call" || code === "nf") {
     return "bg-gray-100 text-gray-700 border-gray-200";
   }
-  return "bg-cx-forest-dark/10 text-cx-forest-dark border-cx-forest-dark/15";
+  return "bg-cx-forest-dark/10 text-cx-text border-cx-forest-dark/15";
 }

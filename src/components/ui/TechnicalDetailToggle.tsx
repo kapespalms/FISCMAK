@@ -23,7 +23,7 @@ export function TechnicalDetailToggle({
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex min-h-[44px] items-center gap-1 text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark hover:underline"
+        className="flex min-h-[44px] items-center gap-1 text-xs font-medium text-cx-text/70 hover:text-cx-text hover:underline"
       >
         {open ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
         Show technical detail
@@ -35,8 +35,8 @@ export function TechnicalDetailToggle({
             <dl className="space-y-1 text-xs">
               {entries.map(([key, value]) => (
                 <div key={key} className="flex gap-2">
-                  <dt className="shrink-0 font-futura-book tracking-wide text-cx-forest-dark/60">{key}:</dt>
-                  <dd className="break-all text-cx-forest-dark">
+                  <dt className="shrink-0 font-futura-book tracking-wide text-cx-text/60">{key}:</dt>
+                  <dd className="break-all text-cx-text">
                     {Array.isArray(value) ? value.join(", ") : String(value)}
                   </dd>
                 </div>

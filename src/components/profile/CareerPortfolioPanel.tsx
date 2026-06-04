@@ -103,7 +103,7 @@ export function CareerPortfolioPanel() {
   }
 
   if (loading || !data) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading career portfolio…</p>;
+    return <p className="text-sm text-cx-text/70">Loading career portfolio…</p>;
   }
 
   const stageLabel = CAREER_PORTFOLIO_STAGES.find((s) => s.id === data.stage_id)?.label ?? data.stage_id;
@@ -122,7 +122,7 @@ export function CareerPortfolioPanel() {
     >
       <div className="flex flex-wrap items-end gap-3">
         <div className="min-w-[200px] flex-1">
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Portfolio stage
           </label>
           <select
@@ -145,12 +145,12 @@ export function CareerPortfolioPanel() {
       <button
         type="button"
         onClick={() => setPrinciplesOpen((o) => !o)}
-        className="text-left text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+        className="text-left text-xs font-medium text-cx-text/70 hover:text-cx-text"
       >
         {principlesOpen ? "Hide" : "Show"} design principles
       </button>
       {principlesOpen && (
-        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
           {PORTFOLIO_DESIGN_PRINCIPLES.map((p) => (
             <li key={p}>{p}</li>
           ))}
@@ -171,8 +171,8 @@ export function CareerPortfolioPanel() {
                 onClick={() => setOpenDomains((o) => ({ ...o, [domain.id]: !open }))}
                 className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left"
               >
-                <span className="text-sm font-semibold text-cx-forest-dark">{domain.title}</span>
-                <span className="flex items-center gap-2 text-xs text-cx-forest-dark/60">
+                <span className="text-sm font-semibold text-cx-text">{domain.title}</span>
+                <span className="flex items-center gap-2 text-xs text-cx-text/60">
                   {done}/{domain.items.length}
                   <ChevronDown size={14} className={cn("transition-transform", open && "rotate-180")} />
                 </span>
@@ -204,7 +204,7 @@ export function CareerPortfolioPanel() {
           onClick={() => setCrossOpen((o) => !o)}
           className="flex w-full items-center justify-between px-3 py-2 text-left"
         >
-          <span className="text-sm font-semibold text-cx-forest-dark">
+          <span className="text-sm font-semibold text-cx-text">
             Cross-cutting elements (all stages)
           </span>
           <ChevronDown size={14} className={cn("transition-transform", crossOpen && "rotate-180")} />
@@ -252,7 +252,7 @@ function PortfolioItemEditor({
 
   return (
     <div className="space-y-1.5">
-      <label className="flex cursor-pointer items-start gap-2 text-sm text-cx-forest-dark">
+      <label className="flex cursor-pointer items-start gap-2 text-sm text-cx-text">
         <input
           type="checkbox"
           checked={item.checked}
@@ -263,7 +263,7 @@ function PortfolioItemEditor({
         <span>
           {item.label}
           {item.hint && (
-            <span className="mt-0.5 block text-xs text-cx-forest-dark/60">{item.hint}</span>
+            <span className="mt-0.5 block text-xs text-cx-text/60">{item.hint}</span>
           )}
         </span>
       </label>
@@ -275,7 +275,7 @@ function PortfolioItemEditor({
         }}
         rows={2}
         placeholder="Evidence, metrics, links, or notes…"
-        className="w-full rounded-md border border-cx-forest-dark/10 bg-white px-2 py-1.5 text-xs text-cx-forest-dark"
+        className="w-full rounded-md border border-cx-forest-dark/10 bg-white px-2 py-1.5 text-xs text-cx-text"
       />
     </div>
   );

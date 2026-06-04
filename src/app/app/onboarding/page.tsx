@@ -4,7 +4,7 @@ import { Touchpoint1Onboarding } from "@/components/onboarding/Touchpoint1Onboar
 function OnboardingFallback() {
   return (
     <div className="flex flex-1 items-center justify-center p-8">
-      <p className="text-cx-forest-dark/70">Loading onboarding…</p>
+      <p className="text-cx-text/70">Loading onboarding…</p>
     </div>
   );
 }

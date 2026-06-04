@@ -46,17 +46,17 @@ export function SchedulePositionBanner({ compact = false }: { compact?: boolean 
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <p className="text-[10px] font-semibold uppercase tracking-wide text-cx-text/50">
             Today · {today}
             {data.pgy_level ? ` · ${data.pgy_level}` : ""}
           </p>
           {data.current?.matched ? (
-            <p className="mt-0.5 text-sm font-semibold text-cx-forest-dark">
+            <p className="mt-0.5 text-sm font-semibold text-cx-text">
               <span className="mr-1.5 inline-block rounded bg-cx-forest-dark px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
                 Now
               </span>
               {data.current.rotation_label}
-              <span className="ml-1 font-normal text-cx-forest-dark/60">
+              <span className="ml-1 font-normal text-cx-text/60">
                 through {data.current.end_date}
                 {typeof data.current.days_remaining === "number"
                   ? ` · ${data.current.days_remaining}d left`
@@ -64,11 +64,11 @@ export function SchedulePositionBanner({ compact = false }: { compact?: boolean 
               </span>
             </p>
           ) : (
-            <p className="mt-0.5 text-sm text-cx-forest-dark/70">Between blocks — see schedule below.</p>
+            <p className="mt-0.5 text-sm text-cx-text/70">Between blocks — see schedule below.</p>
           )}
           {data.next?.matched && (
-            <p className="mt-1 text-xs text-cx-forest-dark/75">
-              <span className="font-semibold text-cx-forest-dark">Up next:</span>{" "}
+            <p className="mt-1 text-xs text-cx-text/75">
+              <span className="font-semibold text-cx-text">Up next:</span>{" "}
               {data.next.rotation_label} · starts {data.next.start_date}
             </p>
           )}
@@ -76,7 +76,7 @@ export function SchedulePositionBanner({ compact = false }: { compact?: boolean 
         {!compact && (
           <Link
             href="/app/schedule?tab=blocks"
-            className="shrink-0 text-xs font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+            className="shrink-0 text-xs font-medium text-cx-text underline-offset-2 hover:underline"
           >
             Full schedule →
           </Link>

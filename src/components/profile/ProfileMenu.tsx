@@ -72,7 +72,7 @@ export function ProfileMenu() {
           className="absolute bottom-0 left-full ml-2 z-50 min-w-[200px] overflow-hidden rounded-xl border border-cx-forest-dark/15 bg-white py-1 shadow-lg"
         >
           <div className="border-b border-cx-forest-dark/10 px-4 py-3">
-            <p className="truncate text-sm font-semibold text-cx-forest-dark">
+            <p className="truncate text-sm font-semibold text-cx-text">
               {displayName ?? "Your account"}
             </p>
             {error && <p className="mt-1 text-xs text-cx-attention">{error}</p>}
@@ -81,36 +81,36 @@ export function ProfileMenu() {
             href="/app/profile"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-forest-dark transition-colors hover:bg-cx-forest-dark/5"
+            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-text transition-colors hover:bg-cx-forest-dark/5"
           >
-            <User size={16} className="text-cx-forest-dark/60" />
+            <User size={16} className="text-cx-text/60" />
             Profile
           </Link>
           <Link
             href="/app/settings"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-forest-dark transition-colors hover:bg-cx-forest-dark/5"
+            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-text transition-colors hover:bg-cx-forest-dark/5"
           >
-            <Settings size={16} className="text-cx-forest-dark/60" />
+            <Settings size={16} className="text-cx-text/60" />
             Settings
           </Link>
           <button
             type="button"
             role="menuitem"
             onClick={() => fileRef.current?.click()}
-            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-forest-dark transition-colors hover:bg-cx-forest-dark/5"
+            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-text transition-colors hover:bg-cx-forest-dark/5"
           >
-            <Camera size={16} className="text-cx-forest-dark/60" />
+            <Camera size={16} className="text-cx-text/60" />
             Change photo
           </button>
           <Link
             href="/"
             role="menuitem"
             onClick={() => setOpen(false)}
-            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-forest-dark transition-colors hover:bg-cx-forest-dark/5"
+            className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-cx-text transition-colors hover:bg-cx-forest-dark/5"
           >
-            <Home size={16} className="text-cx-forest-dark/60" />
+            <Home size={16} className="text-cx-text/60" />
             Back to home
             <span className="sr-only"> (stays signed in)</span>
           </Link>

@@ -70,7 +70,7 @@ export function MarketingHeroSection({
 
           <div className={institutionLabel ? "mt-4" : undefined}>
             <MarketingHeroHeadline
-              className={isJoin ? "text-cx-forest-dark" : undefined}
+              className={isJoin ? "text-cx-text" : undefined}
             />
           </div>
 

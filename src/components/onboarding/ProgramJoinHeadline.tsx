@@ -14,7 +14,7 @@ type ProgramJoinHeadlineProps = {
 
 function renderHeadline(parts: Headline, variant: "marketing" | "onboarding") {
   const isMarketing = variant === "marketing";
-  const suffixClass = isMarketing ? "text-white" : "text-cx-forest-dark";
+  const suffixClass = isMarketing ? "text-white" : "text-cx-text";
 
   if (parts.isUh) {
     return (

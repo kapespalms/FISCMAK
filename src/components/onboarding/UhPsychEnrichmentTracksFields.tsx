@@ -47,7 +47,7 @@ function TrackCard({
         <span
           className={cn(
             "font-futura-medium block text-base",
-            luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+            luxury ? "text-[#D4AF37]" : "text-cx-text",
           )}
         >
           {track.title}
@@ -96,7 +96,7 @@ export function UhPsychEnrichmentTracksFields({
           <p
             className={cn(
               "font-futura-medium text-base",
-              luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+              luxury ? "text-[#D4AF37]" : "text-cx-text",
             )}
           >
             UH Psychiatry program tracks

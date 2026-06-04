@@ -18,7 +18,7 @@ export function ScheduleCategoryLegend() {
 
   return (
     <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-cx-forest-dark/10 pt-3">
-      <span className="font-futura-medium text-[11px] uppercase tracking-wide text-cx-forest-dark/55">
+      <span className="font-futura-medium text-[11px] uppercase tracking-wide text-cx-text/55">
         By type
       </span>
       {entries.map(([key, color]) => (

@@ -6,7 +6,7 @@ import { OnboardingGuard } from "@/components/onboarding/OnboardingGuard";
 function OnboardingGuardFallback() {
   return (
     <div className="flex flex-1 items-center justify-center p-8">
-      <p className="text-cx-forest-dark/70">Loading…</p>
+      <p className="text-cx-text/70">Loading…</p>
     </div>
   );
 }

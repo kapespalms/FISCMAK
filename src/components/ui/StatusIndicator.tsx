@@ -10,10 +10,10 @@ const CONFIG: Record<
   { Icon: typeof Check; className: string; label: string }
 > = {
   done: { Icon: Check, className: "text-cx-success", label: "Done" },
-  active: { Icon: ArrowRight, className: "text-cx-forest-dark", label: "Active" },
+  active: { Icon: ArrowRight, className: "text-cx-text", label: "Active" },
   attention: { Icon: AlertTriangle, className: "text-cx-attention", label: "Attention" },
-  locked: { Icon: Circle, className: "text-cx-forest-dark/50", label: "Locked" },
-  upcoming: { Icon: CircleDot, className: "text-cx-forest-dark", label: "Upcoming" },
+  locked: { Icon: Circle, className: "text-cx-text/50", label: "Locked" },
+  upcoming: { Icon: CircleDot, className: "text-cx-text", label: "Upcoming" },
 };
 
 type StatusIndicatorProps = {

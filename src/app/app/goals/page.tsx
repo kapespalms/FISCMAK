@@ -74,7 +74,7 @@ function GoalsContent() {
     <div className="space-y-5">
       {/* Header + Goals | Directions toggle */}
       <div className="flex items-center gap-4">
-        <h1 className="text-lg font-semibold text-cx-forest-dark">Goals</h1>
+        <h1 className="text-lg font-semibold text-cx-text">Goals</h1>
         <div className="flex gap-0.5 rounded-lg border border-cx-forest-dark/10 bg-white/60 p-0.5">
           {(["goals", "directions"] as const).map((v) => (
             <button
@@ -85,7 +85,7 @@ function GoalsContent() {
                 "rounded-md px-4 py-1.5 text-xs font-medium transition-colors capitalize",
                 view === v
                   ? "bg-cx-forest-dark text-white"
-                  : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/5",
+                  : "text-cx-text/70 hover:bg-cx-forest-dark/5",
               )}
             >
               {v}
@@ -95,7 +95,7 @@ function GoalsContent() {
       </div>
 
       {migrationPending && (
-        <div className="rounded-xl border border-fis-gold/30 bg-fis-gold/5 px-4 py-3 text-xs text-cx-forest-dark/70">
+        <div className="rounded-xl border border-fis-gold/30 bg-fis-gold/5 px-4 py-3 text-xs text-cx-text/70">
           Goal records migration not yet applied — goals will save once migration 20260539 is run.
           You can still set goals; they&apos;ll persist after migration.
         </div>
@@ -140,7 +140,7 @@ function GoalsContent() {
 
 export default function GoalsPage() {
   return (
-    <Suspense fallback={<div className="text-sm text-cx-forest-dark/50">Loading…</div>}>
+    <Suspense fallback={<div className="text-sm text-cx-text/50">Loading…</div>}>
       <GoalsContent />
     </Suspense>
   );

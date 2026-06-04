@@ -15,10 +15,10 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  draft: "bg-cx-forest-dark/10 text-cx-forest-dark/70",
-  review_ready: "bg-[#6E93B8]/20 text-cx-forest-dark",
-  exported: "bg-cx-forest-dark/20 text-cx-forest-dark",
-  archived: "bg-cx-forest-dark/5 text-cx-forest-dark/40",
+  draft: "bg-cx-forest-dark/10 text-cx-text/70",
+  review_ready: "bg-[#6E93B8]/20 text-cx-text",
+  exported: "bg-cx-forest-dark/20 text-cx-text",
+  archived: "bg-cx-forest-dark/5 text-cx-text/40",
 };
 
 type SaveFn = (sections: SectionContent[], status: string) => Promise<void>;
@@ -80,7 +80,7 @@ export function StudioTipTapEditor({ document, onBack, onSave, onExport }: Studi
         <button
           type="button"
           onClick={onBack}
-          className="flex items-center gap-1.5 text-sm text-cx-forest-dark/60 hover:text-cx-forest-dark"
+          className="flex items-center gap-1.5 text-sm text-cx-text/60 hover:text-cx-text"
         >
           <ArrowLeft size={14} />
           All documents
@@ -89,8 +89,8 @@ export function StudioTipTapEditor({ document, onBack, onSave, onExport }: Studi
         <span className="h-4 w-px bg-cx-forest-dark/15" aria-hidden />
 
         <div className="flex-1 min-w-0">
-          <h2 className="truncate text-base font-semibold text-cx-forest-dark">{document.title}</h2>
-          <p className="text-xs text-cx-forest-dark/50">
+          <h2 className="truncate text-base font-semibold text-cx-text">{document.title}</h2>
+          <p className="text-xs text-cx-text/50">
             Generated {new Date(document.generated_at).toLocaleDateString()} ·{" "}
             {document.document_type.replace(/_/g, " ")} ·{" "}
             {document.evidence_snapshot_ids.length} source{document.evidence_snapshot_ids.length !== 1 ? "s" : ""}
@@ -116,12 +116,12 @@ export function StudioTipTapEditor({ document, onBack, onSave, onExport }: Studi
           {saveError && <span className="text-xs text-[#C28D6C]">{saveError}</span>}
           {exportError && <span className="text-xs text-[#C28D6C]">{exportError}</span>}
           {!dirty && !saving && (
-            <span className="flex items-center gap-1 text-xs text-cx-forest-dark/40">
+            <span className="flex items-center gap-1 text-xs text-cx-text/40">
               <CheckCircle size={12} /> Saved
             </span>
           )}
           {dirty && !saving && (
-            <span className="flex items-center gap-1 text-xs text-cx-forest-dark/50">
+            <span className="flex items-center gap-1 text-xs text-cx-text/50">
               <Clock size={12} /> Unsaved
             </span>
           )}
@@ -176,7 +176,7 @@ export function StudioTipTapEditor({ document, onBack, onSave, onExport }: Studi
               <button
                 type="button"
                 onClick={() => setShowHidden((v) => !v)}
-                className="text-xs text-cx-forest-dark/50 hover:text-cx-forest-dark underline"
+                className="text-xs text-cx-text/50 hover:text-cx-text underline"
               >
                 {showHidden
                   ? `Hide ${hiddenSections.length} off section${hiddenSections.length !== 1 ? "s" : ""}`
@@ -187,7 +187,7 @@ export function StudioTipTapEditor({ document, onBack, onSave, onExport }: Studi
         </div>
 
         {/* Deferred notice */}
-        <div className="mt-6 rounded-lg border border-dashed border-cx-forest-dark/15 p-3 text-xs text-cx-forest-dark/40">
+        <div className="mt-6 rounded-lg border border-dashed border-cx-forest-dark/15 p-3 text-xs text-cx-text/40">
           <span className="font-medium">Deferred (not yet built):</span> Edit with Mak (LLM revision per block) ·
           PDF export · Representative publication asterisk · APT annotation fields
         </div>

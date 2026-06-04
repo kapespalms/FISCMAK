@@ -129,14 +129,14 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
         <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4">
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-base font-semibold text-cx-forest-dark">
+              <h2 className="text-base font-semibold text-cx-text">
                 {isEdit ? "Edit" : "Add"} {HORIZON_LABELS[horizon]} goal
               </h2>
               <span className="rounded-full bg-fis-gold/10 px-2 py-0.5 text-[10px] font-medium text-fis-gold">
                 {FRAMEWORK_BADGE[framework]}
               </span>
             </div>
-            <p className="mt-0.5 text-[11px] text-cx-forest-dark/50">
+            <p className="mt-0.5 text-[11px] text-cx-text/50">
               {horizon === "3mo" && "Short-term, concrete, outcome-focused."}
               {horizon === "1yr" && "Mid-term with a concrete when/then plan."}
               {horizon === "5yr" && "Obstacle-aware long-range aspiration."}
@@ -146,7 +146,7 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-forest-dark"
+            className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-text"
           >
             <X size={18} />
           </button>
@@ -155,12 +155,12 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
         <form onSubmit={(e) => void handleSubmit(e)} className="max-h-[70vh] overflow-y-auto px-6 py-5 space-y-4">
           {fields.map((f, i) => (
             <div key={f.key}>
-              <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
+              <label className="mb-1.5 block text-xs font-medium text-cx-text/70">
                 {f.label}
                 {f.required && <span className="ml-0.5 text-[#C28D6C]">*</span>}
               </label>
               {f.hint && (
-                <p className="mb-1.5 text-[10px] text-cx-forest-dark/45">{f.hint}</p>
+                <p className="mb-1.5 text-[10px] text-cx-text/45">{f.hint}</p>
               )}
               {f.multiline ? (
                 <textarea
@@ -169,7 +169,7 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
                   onChange={(e) => setValues((v) => ({ ...v, [f.key]: e.target.value }))}
                   rows={3}
                   required={f.required}
-                  className="w-full resize-none rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-forest-dark placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+                  className="w-full resize-none rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-text placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
                 />
               ) : (
                 <input
@@ -178,7 +178,7 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
                   value={values[f.key] ?? ""}
                   onChange={(e) => setValues((v) => ({ ...v, [f.key]: e.target.value }))}
                   required={f.required}
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-forest-dark placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-text placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
                 />
               )}
             </div>
@@ -190,7 +190,7 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
             <button
               type="button"
               onClick={onClose}
-              className="rounded-xl border border-neutral-200 px-4 py-2 text-sm text-cx-forest-dark transition-colors hover:bg-neutral-50"
+              className="rounded-xl border border-neutral-200 px-4 py-2 text-sm text-cx-text transition-colors hover:bg-neutral-50"
             >
               Cancel
             </button>

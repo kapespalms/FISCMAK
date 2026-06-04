@@ -43,13 +43,13 @@ export function DashboardGoalCard({
         borderColors[goal.borderColor],
       )}
     >
-      <p className={cn("font-bold text-cx-forest-dark", compact ? "text-sm" : "text-lg")}>
+      <p className={cn("font-bold text-cx-text", compact ? "text-sm" : "text-lg")}>
         {goal.typeLabel}
       </p>
 
       <h3
         className={cn(
-          "mt-1 line-clamp-2 font-semibold text-cx-forest-dark",
+          "mt-1 line-clamp-2 font-semibold text-cx-text",
           compact ? "text-xs" : "text-base",
         )}
       >
@@ -64,7 +64,7 @@ export function DashboardGoalCard({
               style={{ width: `${Math.max(goal.percent, 4)}%` }}
             />
           </div>
-          <span className="shrink-0 text-xs font-semibold text-cx-forest-dark">{goal.percent}%</span>
+          <span className="shrink-0 text-xs font-semibold text-cx-text">{goal.percent}%</span>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export function DashboardGoalCard({
           <button
             type="button"
             onClick={() => onDetails(goal.id)}
-            className="rounded-full border border-cx-forest-dark/20 px-3 py-1.5 text-xs font-semibold text-cx-forest-dark hover:bg-cx-forest-dark/5"
+            className="rounded-full border border-cx-forest-dark/20 px-3 py-1.5 text-xs font-semibold text-cx-text hover:bg-cx-forest-dark/5"
           >
             Details
           </button>
@@ -107,14 +107,14 @@ export function DashboardGoalsGrid({
     if (inline) return null;
     return (
       <section aria-labelledby="goals-heading">
-        <h2 id="goals-heading" className="text-xl font-semibold text-cx-forest-dark">
+        <h2 id="goals-heading" className="text-xl font-semibold text-cx-text">
           Your Goals
         </h2>
         <div className="mt-6 rounded-xl bg-white p-5 shadow-sm">
-          <p className="text-sm text-cx-forest-dark/70">No active goals yet.</p>
+          <p className="text-sm text-cx-text/70">No active goals yet.</p>
           <Link
             href="/app/goals"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:underline"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:underline"
           >
             Set goals <ArrowRight size={14} />
           </Link>
@@ -127,10 +127,10 @@ export function DashboardGoalsGrid({
     return (
       <div className="cx-dashboard-panel rounded-xl bg-white p-3 shadow-sm">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="text-sm font-bold text-cx-forest-dark">Goals</h3>
+          <h3 className="text-sm font-bold text-cx-text">Goals</h3>
           <Link
             href="/app/goals"
-            className="inline-flex items-center gap-0.5 text-[10px] font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            className="inline-flex items-center gap-0.5 text-[10px] font-medium text-cx-text/70 hover:text-cx-text"
           >
             Strategy
             <ArrowRight size={12} />
@@ -147,7 +147,7 @@ export function DashboardGoalsGrid({
 
   return (
     <section aria-labelledby="goals-heading">
-      <h2 id="goals-heading" className="text-xl font-semibold text-cx-forest-dark">
+      <h2 id="goals-heading" className="text-xl font-semibold text-cx-text">
         Your Goals
       </h2>
       <div className="mt-6 grid justify-items-center gap-6 sm:grid-cols-2 xl:grid-cols-3">

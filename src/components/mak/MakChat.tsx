@@ -65,7 +65,7 @@ export function MakChat() {
               className={`max-w-[80%] rounded-lg px-4 py-3 text-sm ${
                 msg.role === "user"
                   ? "bg-cx-forest-dark text-white"
-                  : "border border-cx-forest-dark/10 bg-white text-cx-forest-dark"
+                  : "border border-cx-forest-dark/10 bg-white text-cx-text"
               }`}
             >
               {msg.content}
@@ -73,7 +73,7 @@ export function MakChat() {
           </div>
         ))}
         {loading && (
-          <p className="text-sm text-cx-forest-dark/70">Mak is thinking…</p>
+          <p className="text-sm text-cx-text/70">Mak is thinking…</p>
         )}
       </div>
       <div className="flex gap-2 border-t border-cx-forest-dark/15 p-4">
@@ -82,7 +82,7 @@ export function MakChat() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && send()}
           placeholder="Share what's happening in your career…"
-          className="min-h-11 flex-1 rounded-md border border-cx-forest-dark/20 bg-white px-4 py-2 text-cx-forest-dark focus:border-cx-forest-dark focus:outline-none"
+          className="min-h-11 flex-1 rounded-md border border-cx-forest-dark/20 bg-white px-4 py-2 text-cx-text focus:border-cx-forest-dark focus:outline-none"
           aria-label="Message to Mak"
         />
         <Button onClick={send} disabled={loading}>

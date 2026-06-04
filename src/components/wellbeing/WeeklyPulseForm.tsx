@@ -21,7 +21,7 @@ function RatingRow({
 }) {
   return (
     <div className="space-y-2">
-      <p className="text-sm text-cx-forest-dark">{question}</p>
+      <p className="text-sm text-cx-text">{question}</p>
       <div className="flex flex-wrap gap-2">
         {labels.map((label, i) => (
           <button
@@ -32,7 +32,7 @@ function RatingRow({
               "rounded-lg border px-3 py-1.5 text-xs font-medium transition-all",
               value === i
                 ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                : "border-cx-forest-dark/20 text-cx-forest-dark/60 hover:border-cx-forest-dark/50 hover:text-cx-forest-dark",
+                : "border-cx-forest-dark/20 text-cx-text/60 hover:border-cx-forest-dark/50 hover:text-cx-text",
             )}
           >
             {label}
@@ -103,7 +103,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
   if (saved && showResources) {
     return (
       <div className="space-y-4">
-        <p className="text-sm text-cx-forest-dark">
+        <p className="text-sm text-cx-text">
           Check-in saved. Based on your responses, you may find the resources below helpful.
           These are confidential — nothing here is reported to your institution.
         </p>
@@ -111,7 +111,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
         <button
           type="button"
           onClick={onSaved}
-          className="text-sm font-medium text-cx-forest-dark underline underline-offset-2 hover:text-cx-forest-dark/80"
+          className="text-sm font-medium text-cx-text underline underline-offset-2 hover:text-cx-text/80"
         >
           Continue
         </button>
@@ -142,10 +142,10 @@ export function WeeklyPulseForm({ onSaved }: Props) {
 
       {/* MDT 0–10 — "moral distress" is clinically understood language; "MDT" instrument name never shown */}
       <div className="space-y-2">
-        <p className="text-sm text-cx-forest-dark">
+        <p className="text-sm text-cx-text">
           How much moral distress did you experience at work this week?
         </p>
-        <p className="text-xs text-cx-forest-dark/50">0 = none · 10 = unbearable</p>
+        <p className="text-xs text-cx-text/50">0 = none · 10 = unbearable</p>
         <div className="flex flex-wrap gap-1.5">
           {MDT_RANGE.map((n) => (
             <button
@@ -156,7 +156,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
                 "h-9 w-9 rounded-lg border text-xs font-medium transition-all",
                 mdt === n
                   ? "border-cx-forest-dark bg-cx-forest-dark text-white"
-                  : "border-cx-forest-dark/20 text-cx-forest-dark/60 hover:border-cx-forest-dark/50 hover:text-cx-forest-dark",
+                  : "border-cx-forest-dark/20 text-cx-text/60 hover:border-cx-forest-dark/50 hover:text-cx-text",
               )}
             >
               {n}
@@ -166,8 +166,8 @@ export function WeeklyPulseForm({ onSaved }: Props) {
       </div>
 
       <div className="space-y-1">
-        <label className="text-sm text-cx-forest-dark" htmlFor="energy-boost">
-          What gave you energy this week? <span className="text-cx-forest-dark/50">(optional)</span>
+        <label className="text-sm text-cx-text" htmlFor="energy-boost">
+          What gave you energy this week? <span className="text-cx-text/50">(optional)</span>
         </label>
         <textarea
           id="energy-boost"
@@ -175,13 +175,13 @@ export function WeeklyPulseForm({ onSaved }: Props) {
           value={energyBoost}
           onChange={(e) => setEnergyBoost(e.target.value)}
           placeholder="A task, conversation, patient, moment…"
-          className="w-full resize-none rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-forest-dark placeholder:text-cx-forest-dark/30 focus:border-cx-forest-dark/40 focus:outline-none"
+          className="w-full resize-none rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-text placeholder:text-cx-text/30 focus:border-cx-forest-dark/40 focus:outline-none"
         />
       </div>
 
       <div className="space-y-1">
-        <label className="text-sm text-cx-forest-dark" htmlFor="energy-drain">
-          What drained your energy most? <span className="text-cx-forest-dark/50">(optional)</span>
+        <label className="text-sm text-cx-text" htmlFor="energy-drain">
+          What drained your energy most? <span className="text-cx-text/50">(optional)</span>
         </label>
         <textarea
           id="energy-drain"
@@ -189,7 +189,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
           value={energyDrain}
           onChange={(e) => setEnergyDrain(e.target.value)}
           placeholder="A task, situation, system, interaction…"
-          className="w-full resize-none rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-forest-dark placeholder:text-cx-forest-dark/30 focus:border-cx-forest-dark/40 focus:outline-none"
+          className="w-full resize-none rounded-xl border border-cx-forest-dark/15 bg-transparent px-4 py-3 text-sm text-cx-text placeholder:text-cx-text/30 focus:border-cx-forest-dark/40 focus:outline-none"
         />
       </div>
 
@@ -200,7 +200,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
           onChange={(e) => setInvisibleFlag(e.target.checked)}
           className="mt-0.5 accent-cx-forest-dark"
         />
-        <span className="text-sm text-cx-forest-dark/80">
+        <span className="text-sm text-cx-text/80">
           Some of this work felt unrecognized or uncounted.
         </span>
       </label>
@@ -215,7 +215,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
           "rounded-xl px-6 py-3 text-sm font-medium transition-all",
           allRated && !saving
             ? "bg-cx-forest-dark text-white hover:opacity-90"
-            : "cursor-not-allowed bg-cx-forest-dark/20 text-cx-forest-dark/40",
+            : "cursor-not-allowed bg-cx-forest-dark/20 text-cx-text/40",
         )}
       >
         {saving ? "Saving…" : "Submit pulse check-in"}

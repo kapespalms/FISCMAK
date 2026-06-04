@@ -39,5 +39,5 @@ export const HEATMAP_CELL_STYLES: Record<HeatmapCellFlag, string> = {
   on_track: "bg-[#6E93B8]/25 text-[#20201D]",   // steel-light — on track
   watch:    "bg-[#E7DEC9]/60 text-[#20201D]",   // sand — approaching
   gap:      "bg-[#C28D6C]/25 text-[#20201D]",   // clay tint — below expected
-  missing:  "bg-cx-forest-dark/5 text-cx-forest-dark/40",
+  missing:  "bg-cx-forest-dark/5 text-cx-text/40",
 };

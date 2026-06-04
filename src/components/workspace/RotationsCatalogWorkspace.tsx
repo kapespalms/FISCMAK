@@ -12,7 +12,7 @@ export function RotationsCatalogWorkspace({ programSlug }: RotationsCatalogWorks
   const program = getProgramBySlug(programSlug);
   if (!program) {
     return (
-      <p className="text-sm text-cx-forest-dark/70">Program rotations catalog is not available.</p>
+      <p className="text-sm text-cx-text/70">Program rotations catalog is not available.</p>
     );
   }
 
@@ -22,20 +22,20 @@ export function RotationsCatalogWorkspace({ programSlug }: RotationsCatalogWorks
     <div className="space-y-8">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
             {program.institution_name}
           </p>
           <h1 className="text-page-title">{program.program_name} rotations</h1>
         </div>
-        <Link href="/app/dashboard" className="text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline">
+        <Link href="/app/dashboard" className="text-sm font-medium text-cx-text underline-offset-2 hover:underline">
           ← Dashboard
         </Link>
       </div>
 
       {sections.map((section) => (
         <section key={section.id} className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-5">
-          <h2 className="text-lg font-semibold text-cx-forest-dark">{section.title}</h2>
-          <p className="mt-2 text-sm text-cx-forest-dark/75">{section.description}</p>
+          <h2 className="text-lg font-semibold text-cx-text">{section.title}</h2>
+          <p className="mt-2 text-sm text-cx-text/75">{section.description}</p>
           {section.rotations.length > 0 && (
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {section.rotations.map((r) => (
@@ -45,7 +45,7 @@ export function RotationsCatalogWorkspace({ programSlug }: RotationsCatalogWorks
                 >
                   <span className="font-medium">{r.label}</span>
                   {r.category && (
-                    <span className="mt-0.5 block text-xs capitalize text-cx-forest-dark/55">
+                    <span className="mt-0.5 block text-xs capitalize text-cx-text/55">
                       {r.category.replace(/_/g, " ")}
                     </span>
                   )}

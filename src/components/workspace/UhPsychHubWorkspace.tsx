@@ -68,18 +68,18 @@ export function UhPsychHubWorkspace() {
     <div className="space-y-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
             {program?.institution_name ?? "University Hospitals"}
           </p>
           <h1 className="text-page-title">UH Psych Hub</h1>
-          <p className="mt-2 max-w-2xl text-sm text-cx-forest-dark/75">
+          <p className="mt-2 max-w-2xl text-sm text-cx-text/75">
             Rotations, schedule, readings, and program requirements — one place for CMC psychiatry
             residents.
           </p>
         </div>
         <Link
           href="/app/dashboard"
-          className="text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+          className="text-sm font-medium text-cx-text underline-offset-2 hover:underline"
         >
           ← Dashboard
         </Link>
@@ -92,10 +92,10 @@ export function UhPsychHubWorkspace() {
             href={href}
             className="flex gap-3 rounded-xl border border-cx-forest-dark/15 bg-white/90 p-3 transition hover:border-cx-forest-dark/25 hover:shadow-sm"
           >
-            <Icon className="mt-0.5 h-5 w-5 text-cx-forest-dark/60" aria-hidden />
+            <Icon className="mt-0.5 h-5 w-5 text-cx-text/60" aria-hidden />
             <div>
-              <p className="text-sm font-semibold text-cx-forest-dark">{label}</p>
-              <p className="text-xs text-cx-forest-dark/60">{detail}</p>
+              <p className="text-sm font-semibold text-cx-text">{label}</p>
+              <p className="text-xs text-cx-text/60">{detail}</p>
             </div>
           </Link>
         ))}
@@ -149,11 +149,11 @@ export function UhPsychHubWorkspace() {
       {isSearching ? (
         <section className="space-y-4">
           {searchResults.length === 0 ? (
-            <p className="text-sm text-cx-forest-dark/60">No matches — try a rotation name or topic.</p>
+            <p className="text-sm text-cx-text/60">No matches — try a rotation name or topic.</p>
           ) : (
             searchResults.map((group) => (
               <div key={group.type}>
-                <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+                <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-cx-text/55">
                   {group.label} ({group.items.length})
                 </h2>
                 <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -164,7 +164,7 @@ export function UhPsychHubWorkspace() {
                           href={residencyPageHref(page.slug)}
                           className="block rounded-xl border border-cx-forest-dark/10 px-4 py-3 text-sm hover:border-cx-forest-dark/25 hover:bg-white"
                         >
-                          <span className="font-medium text-cx-forest-dark">{page.title}</span>
+                          <span className="font-medium text-cx-text">{page.title}</span>
                         </Link>
                       </li>
                     ))}
@@ -177,7 +177,7 @@ export function UhPsychHubWorkspace() {
                           rel="noopener noreferrer"
                           className="block rounded-xl border border-cx-forest-dark/10 px-4 py-3 text-sm hover:border-cx-forest-dark/25 hover:bg-white"
                         >
-                          <span className="font-medium text-cx-forest-dark">{doc.title}</span>
+                          <span className="font-medium text-cx-text">{doc.title}</span>
                         </a>
                       </li>
                     ))}
@@ -188,7 +188,7 @@ export function UhPsychHubWorkspace() {
                           href={`/app/uh-psych/electives?highlight=${encodeURIComponent(entry.id)}`}
                           className="block rounded-xl border border-cx-forest-dark/10 px-4 py-3 text-sm hover:border-cx-forest-dark/25 hover:bg-white"
                         >
-                          <span className="font-medium text-cx-forest-dark">{entry.name}</span>
+                          <span className="font-medium text-cx-text">{entry.name}</span>
                         </Link>
                       </li>
                     ))}
@@ -202,7 +202,7 @@ export function UhPsychHubWorkspace() {
           <RotationGrid slugs={[...UH_PROGRAM_ADMIN_SLUGS]} />
           <Link
             href="/app/uh-psych/electives"
-            className="inline-flex text-sm font-medium text-cx-forest-dark underline-offset-2 hover:underline"
+            className="inline-flex text-sm font-medium text-cx-text underline-offset-2 hover:underline"
           >
             Master elective catalog (62 options) →
           </Link>
@@ -213,12 +213,12 @@ export function UhPsychHubWorkspace() {
         <section className="space-y-6">
           {hubSections.map((section) => (
             <div key={section.id}>
-              <h2 className="mb-2 text-sm font-semibold text-cx-forest-dark">{section.title}</h2>
+              <h2 className="mb-2 text-sm font-semibold text-cx-text">{section.title}</h2>
               <RotationGrid slugs={section.slugs} />
             </div>
           ))}
           {tab === "pgy34" && (
-            <p className="text-sm text-cx-forest-dark/70">
+            <p className="text-sm text-cx-text/70">
               PGY3/4 weekly outpatient schedules are set every 6–12 months with your mentor. See{" "}
               <Link href="/app/schedule?tab=blocks" className="font-medium underline-offset-2 hover:underline">
                 block calendar

@@ -87,7 +87,7 @@ export function PremiumUpgradePanel() {
           </Button>
         </div>
       ) : (
-        <p className="text-sm text-cx-forest-dark/70">
+        <p className="text-sm text-cx-text/70">
           Stripe is not configured yet. Add STRIPE_SECRET_KEY and price IDs to enable checkout.
         </p>
       )}

@@ -31,7 +31,7 @@ export function UserAvatar({ src, name, size = "sm", className }: UserAvatarProp
   return (
     <span
       className={cn(
-        "relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-cx-forest-dark/10 font-semibold text-cx-forest-dark ring-1 ring-cx-forest-dark/15",
+        "relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-cx-forest-dark/10 font-semibold text-cx-text ring-1 ring-cx-forest-dark/15",
         SIZE[size],
         className,
       )}

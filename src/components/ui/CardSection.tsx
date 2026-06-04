@@ -41,7 +41,7 @@ export function CardSectionHeader({
       <div className="flex min-w-0 items-start gap-3">
         {Icon && (
           <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cx-forest-dark/10 text-cx-forest-dark"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cx-forest-dark/10 text-cx-text"
             aria-hidden
           >
             <Icon size={20} strokeWidth={2} />
@@ -49,13 +49,13 @@ export function CardSectionHeader({
         )}
         <div className="min-w-0">
           {eyebrow && (
-            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">
               {eyebrow}
             </p>
           )}
           <h2
             className={cn(
-              "font-semibold text-cx-forest-dark",
+              "font-semibold text-cx-text",
               compact ? "text-base" : "mt-0.5 text-xl",
               eyebrow && !compact && "mt-1",
             )}
@@ -65,7 +65,7 @@ export function CardSectionHeader({
           {description && (
             <p
               className={cn(
-                "text-sm text-cx-forest-dark/70",
+                "text-sm text-cx-text/70",
                 compact ? "mt-1" : "mt-1.5",
               )}
             >
@@ -119,7 +119,7 @@ export function CardSection({
           {mak && (
             <MakDiscussLink
               mak={mak}
-              className="text-cx-forest-dark hover:text-cx-forest-dark/80"
+              className="text-cx-text hover:text-cx-text/80"
             />
           )}
           {footer}

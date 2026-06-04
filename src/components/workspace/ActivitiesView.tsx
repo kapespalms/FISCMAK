@@ -168,11 +168,11 @@ export function ActivitiesView() {
 
         {lastClassification && (
           <div className="mt-4 rounded-xl border border-l-4 border-cx-forest-dark/15 border-l-[#AC8636] bg-cx-forest-dark/[0.03] p-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">Classification</p>
-            <p className="mt-1 font-semibold text-cx-forest-dark">
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">Classification</p>
+            <p className="mt-1 font-semibold text-cx-text">
               {lastClassification.primary_domain} × {lastClassification.primary_track}
             </p>
-            <p className="mt-1 text-sm text-cx-forest-dark/80">
+            <p className="mt-1 text-sm text-cx-text/80">
               {Math.round(lastClassification.confidence_score * 100)}% confidence
             </p>
           </div>
@@ -184,9 +184,9 @@ export function ActivitiesView() {
         title="Recent activities"
         mak={OBJECTIVE_MAK.activities}
       >
-        {loading && <p className="text-sm text-cx-forest-dark/70">Loading…</p>}
+        {loading && <p className="text-sm text-cx-text/70">Loading…</p>}
         {!loading && activities.length === 0 && (
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             No activities yet. Log your first one above or through Mak.
           </p>
         )}
@@ -204,7 +204,7 @@ export function ActivitiesView() {
                     : ""
             }`}
           >
-            <p className="text-sm text-cx-forest-dark">{a.raw_text}</p>
+            <p className="text-sm text-cx-text">{a.raw_text}</p>
             <div className="mt-3 flex flex-wrap gap-2">
               <Badge energy={badgeEnergy(a.energy_valence)}>
                 {a.energy_valence?.replace(/_/g, " ") ?? "—"}
@@ -213,7 +213,7 @@ export function ActivitiesView() {
               {a.primary_track && <Badge>{a.primary_track}</Badge>}
               {a.input_source === "mak_capture" && <Badge>Mak</Badge>}
               {isUnconfirmedMakCapture(a) && <Badge>Needs confirm</Badge>}
-              <span className="text-xs text-cx-forest-dark/70">{a.activity_date}</span>
+              <span className="text-xs text-cx-text/70">{a.activity_date}</span>
             </div>
             {isUnconfirmedMakCapture(a) && (
               <Button

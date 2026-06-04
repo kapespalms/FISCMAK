@@ -107,12 +107,12 @@ export function RotationLogPanel({
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · Training</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">{title}</h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">{description}</p>
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">{title}</h3>
+      <p className="mt-2 text-sm text-cx-text/75">{description}</p>
 
       <form onSubmit={(e) => void handleSubmit(e)} className="mt-4 space-y-3">
         <label className="block text-sm">
-          <span className="text-cx-forest-dark/70">Rotation name *</span>
+          <span className="text-cx-text/70">Rotation name *</span>
           <input
             className="cx-field mt-1 w-full"
             value={rotationName}
@@ -135,7 +135,7 @@ export function RotationLogPanel({
 
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block text-sm">
-            <span className="text-cx-forest-dark/70">PGY level</span>
+            <span className="text-cx-text/70">PGY level</span>
             <input
               className="cx-field mt-1 w-full"
               value={pgyLevel}
@@ -144,7 +144,7 @@ export function RotationLogPanel({
             />
           </label>
           <label className="block text-sm">
-            <span className="text-cx-forest-dark/70">Site</span>
+            <span className="text-cx-text/70">Site</span>
             <input
               className="cx-field mt-1 w-full"
               value={site}
@@ -156,7 +156,7 @@ export function RotationLogPanel({
 
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block text-sm">
-            <span className="text-cx-forest-dark/70">Start date</span>
+            <span className="text-cx-text/70">Start date</span>
             <input
               type="date"
               className="cx-field mt-1 w-full"
@@ -165,7 +165,7 @@ export function RotationLogPanel({
             />
           </label>
           <label className="block text-sm">
-            <span className="text-cx-forest-dark/70">End date</span>
+            <span className="text-cx-text/70">End date</span>
             <input
               type="date"
               className="cx-field mt-1 w-full"
@@ -176,7 +176,7 @@ export function RotationLogPanel({
         </div>
 
         <label className="block text-sm">
-          <span className="text-cx-forest-dark/70">Notes (optional)</span>
+          <span className="text-cx-text/70">Notes (optional)</span>
           <textarea
             className="cx-field mt-1 min-h-[72px] w-full"
             value={notes}
@@ -194,13 +194,13 @@ export function RotationLogPanel({
       {message && <p className="mt-3 text-sm text-emerald-800">{message}</p>}
 
       <div className="mt-6 border-t border-cx-forest-dark/10 pt-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+        <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
           Your log
         </p>
         {loading ? (
-          <p className="mt-2 text-sm text-cx-forest-dark/60">Loading…</p>
+          <p className="mt-2 text-sm text-cx-text/60">Loading…</p>
         ) : entries.length === 0 ? (
-          <p className="mt-2 text-sm text-cx-forest-dark/60">
+          <p className="mt-2 text-sm text-cx-text/60">
             No rotations logged yet — add your current or upcoming block above.
           </p>
         ) : (
@@ -210,14 +210,14 @@ export function RotationLogPanel({
                 key={entry.entry_id}
                 className="rounded-lg border border-cx-forest-dark/10 px-3 py-2 text-sm"
               >
-                <p className="font-medium text-cx-forest-dark">{entry.rotation_name}</p>
-                <p className="mt-0.5 text-xs text-cx-forest-dark/60">
+                <p className="font-medium text-cx-text">{entry.rotation_name}</p>
+                <p className="mt-0.5 text-xs text-cx-text/60">
                   {[entry.pgy_level, formatDateRange(entry), entry.site]
                     .filter(Boolean)
                     .join(" · ")}
                 </p>
                 {entry.notes && (
-                  <p className="mt-1 text-xs leading-relaxed text-cx-forest-dark/70">
+                  <p className="mt-1 text-xs leading-relaxed text-cx-text/70">
                     {entry.notes}
                   </p>
                 )}

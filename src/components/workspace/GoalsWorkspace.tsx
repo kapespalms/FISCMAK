@@ -250,7 +250,7 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
                 onChange={(e) => setForm((f) => ({ ...f, goal_title: e.target.value }))}
               />
               <div>
-                <label htmlFor="desc" className="text-sm font-semibold text-cx-forest-dark">
+                <label htmlFor="desc" className="text-sm font-semibold text-cx-text">
                   Description
                 </label>
                 <textarea
@@ -260,11 +260,11 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
                   onChange={(e) =>
                     setForm((f) => ({ ...f, goal_description: e.target.value }))
                   }
-                  className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-forest-dark"
+                  className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-text"
                 />
               </div>
               <div>
-                <label htmlFor="actions" className="text-sm font-semibold text-cx-forest-dark">
+                <label htmlFor="actions" className="text-sm font-semibold text-cx-text">
                   Milestones (one per line)
                 </label>
                 <textarea
@@ -274,11 +274,11 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
                   onChange={(e) =>
                     setForm((f) => ({ ...f, recommended_actions: e.target.value }))
                   }
-                  className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-forest-dark"
+                  className="mt-2 w-full rounded-xl border border-cx-forest-dark/20 p-3 text-sm text-cx-text"
                 />
               </div>
               <div>
-                <label htmlFor="status" className="text-sm font-semibold text-cx-forest-dark">
+                <label htmlFor="status" className="text-sm font-semibold text-cx-text">
                   Status
                 </label>
                 <select
@@ -290,7 +290,7 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
                       status: e.target.value as CareerGoal["status"],
                     }))
                   }
-                  className="mt-2 min-h-11 w-full rounded-xl border border-cx-forest-dark/20 px-4 text-sm text-cx-forest-dark"
+                  className="mt-2 min-h-11 w-full rounded-xl border border-cx-forest-dark/20 px-4 text-sm text-cx-text"
                 >
                   {GOAL_STATUSES.map((s) => (
                     <option key={s} value={s}>
@@ -311,7 +311,7 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
       )}
 
       {loading && (
-        <p className="text-sm text-cx-forest-dark/70">Loading goals…</p>
+        <p className="text-sm text-cx-text/70">Loading goals…</p>
       )}
 
       {!loading && sortedGoals.length === 0 && (
@@ -349,10 +349,10 @@ export function GoalsWorkspace({ embedded = false }: GoalsWorkspaceProps) {
       </div>
 
       {!embedded && !loading && sortedGoals.length > 0 && (
-        <p className="mt-8 text-center text-sm text-cx-forest-dark/70">
+        <p className="mt-8 text-center text-sm text-cx-text/70">
           <Link
             href="/app/plan?tab=pathways"
-            className="inline-flex items-center gap-1 font-medium text-cx-forest-dark hover:underline"
+            className="inline-flex items-center gap-1 font-medium text-cx-text hover:underline"
           >
             Pathways & position search
             <ArrowRight size={14} />

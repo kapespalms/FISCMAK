@@ -45,16 +45,16 @@ export function MiniLattice({
       {showHeader && (
         <div className="mb-2 flex items-center gap-2">
           <div
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-cx-forest-dark/10 text-cx-forest-dark"
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-cx-forest-dark/10 text-cx-text"
             aria-hidden
           >
             <Grid3x3 size={14} strokeWidth={2} />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
+            <p className="text-[10px] font-medium uppercase tracking-wide text-cx-text/70">
               Career lattice
             </p>
-            <p className="text-xs font-semibold text-cx-forest-dark">
+            <p className="text-xs font-semibold text-cx-text">
               {activeCells > 0 ? `${activeCells} active cells` : "No activity yet"}
             </p>
           </div>
@@ -100,7 +100,7 @@ export function MiniLattice({
 
       <Link
         href={href}
-        className="mt-2 inline-flex items-center gap-1 text-[10px] font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+        className="mt-2 inline-flex items-center gap-1 text-[10px] font-medium text-cx-text/70 hover:text-cx-text"
       >
         Full lattice
         <ChevronRight size={12} />

@@ -273,8 +273,8 @@ export function OutputStudioWorkspace() {
             onClick={() => setActiveView(view)}
             className={`rounded-md px-4 py-1.5 text-sm font-medium transition-colors ${
               activeView === view
-                ? "bg-white text-cx-forest-dark shadow-sm"
-                : "text-cx-forest-dark/60 hover:text-cx-forest-dark"
+                ? "bg-white text-cx-text shadow-sm"
+                : "text-cx-text/60 hover:text-cx-text"
             }`}
           >
             {label}
@@ -303,10 +303,10 @@ export function OutputStudioWorkspace() {
           mak={OUTPUT_MAK.career_data_source}
         >
           {outputContext.enrichment_delta && (
-            <p className="text-sm font-medium text-cx-forest-dark">{outputContext.enrichment_delta}</p>
+            <p className="text-sm font-medium text-cx-text">{outputContext.enrichment_delta}</p>
           )}
           {(outputContext.career_vault?.pending_review ?? 0) > 0 && (
-            <p className="mt-2 text-xs text-cx-forest-dark/70">
+            <p className="mt-2 text-xs text-cx-text/70">
               {outputContext.career_vault?.pending_review} item(s) pending review — reconcile in
               Career Data before finalizing documents.
             </p>
@@ -329,8 +329,8 @@ export function OutputStudioWorkspace() {
             onClick={() => setSelected(t.id)}
             className={`w-full rounded-lg px-3 py-2 text-left text-sm ${
               selected === t.id
-                ? "bg-cx-forest-dark/10 font-semibold text-cx-forest-dark"
-                : "text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
+                ? "bg-cx-forest-dark/10 font-semibold text-cx-text"
+                : "text-cx-text/80 hover:bg-cx-forest-dark/5"
             }`}
           >
             {t.name}
@@ -338,7 +338,7 @@ export function OutputStudioWorkspace() {
         ))}
         {v2Templates.length > 0 && (
           <>
-            <h2 className="mt-4 px-2 text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+            <h2 className="mt-4 px-2 text-xs font-medium uppercase tracking-wide text-cx-text/70">
               Spec templates
             </h2>
             {v2Templates.map((t) => (
@@ -363,7 +363,7 @@ export function OutputStudioWorkspace() {
                   )
                 }
                 title={t.description}
-                className="w-full rounded-lg px-3 py-2 text-left text-sm text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
+                className="w-full rounded-lg px-3 py-2 text-left text-sm text-cx-text/80 hover:bg-cx-forest-dark/5"
               >
                 {t.name}
               </button>
@@ -393,11 +393,11 @@ export function OutputStudioWorkspace() {
         <OutputUserTemplatePanel templateType={selected} templateName={template.name} />
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-text/70">
               Active template
             </p>
-            <h2 className="text-xl font-semibold text-cx-forest-dark">{template.name}</h2>
-            <p className="text-sm text-cx-forest-dark/70">
+            <h2 className="text-xl font-semibold text-cx-text">{template.name}</h2>
+            <p className="text-sm text-cx-text/70">
               {isPromotionWizard
                 ? "Track-specific promotion wizard — section by section"
                 : isCareerNarrativeWizard
@@ -412,7 +412,7 @@ export function OutputStudioWorkspace() {
             </p>
             <MakDiscussLink
               mak={OUTPUT_MAK.template(template.name, selected)}
-              className="mt-2 text-cx-forest-dark hover:text-cx-forest-dark/80"
+              className="mt-2 text-cx-text hover:text-cx-text/80"
             />
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -498,7 +498,7 @@ export function OutputStudioWorkspace() {
               setSaveStatus((s) => (s === "saved" ? "unsaved" : s));
             }}
           />
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-cx-forest-dark/15 px-4 py-2 text-sm text-cx-forest-dark/70">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-cx-forest-dark/15 px-4 py-2 text-sm text-cx-text/70">
             <span className={overLimit ? "font-medium text-cx-attention" : ""}>
               {wordCount} / {template.words} words
               {overLimit && " — over recommended limit"}

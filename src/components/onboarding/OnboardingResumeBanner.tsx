@@ -33,7 +33,7 @@ export function OnboardingResumeBanner({
     <div
       role="status"
       className={cn(
-        "mb-4 flex items-start justify-between gap-3 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] px-4 py-3 text-sm text-cx-forest-dark/90",
+        "mb-4 flex items-start justify-between gap-3 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] px-4 py-3 text-sm text-cx-text/90",
         className,
       )}
     >
@@ -41,7 +41,7 @@ export function OnboardingResumeBanner({
       <button
         type="button"
         onClick={dismiss}
-        className="shrink-0 rounded-md p-1 text-cx-forest-dark/60 hover:bg-cx-forest-dark/10 hover:text-cx-forest-dark"
+        className="shrink-0 rounded-md p-1 text-cx-text/60 hover:bg-cx-forest-dark/10 hover:text-cx-text"
         aria-label="Dismiss"
       >
         <X size={16} />

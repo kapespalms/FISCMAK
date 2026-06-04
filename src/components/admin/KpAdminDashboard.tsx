@@ -60,26 +60,26 @@ function KpAdminEvaluationPanel() {
   return (
     <Card>
       <p className="text-cx-label uppercase">Internal · your evaluation</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">
         User evaluation & lattice coverage
       </h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <p className="mt-2 text-sm text-cx-text/75">
         Mirrors your profile, self-assessment instruments, touchpoint answers, goals, and how they
         populate the career lattice — for KP admin review only.
       </p>
 
       {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
-      {!data && !error && <p className="mt-3 text-sm text-cx-forest-dark/70">Loading…</p>}
+      {!data && !error && <p className="mt-3 text-sm text-cx-text/70">Loading…</p>}
 
       {evaluation && (
         <div className="mt-4 space-y-4">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-              <p className="text-xs uppercase text-cx-forest-dark/60">Profile</p>
-              <p className="mt-1 text-sm font-medium text-cx-forest-dark">
+              <p className="text-xs uppercase text-cx-text/60">Profile</p>
+              <p className="mt-1 text-sm font-medium text-cx-text">
                 {evaluation.profile.specialty ?? "—"}
               </p>
-              <p className="text-xs text-cx-forest-dark/65">
+              <p className="text-xs text-cx-text/65">
                 {evaluation.profile.career_track ?? "No primary track"}
                 {evaluation.profile.current_rotation
                   ? ` · ${evaluation.profile.current_rotation}`
@@ -87,11 +87,11 @@ function KpAdminEvaluationPanel() {
               </p>
             </div>
             <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-              <p className="text-xs uppercase text-cx-forest-dark/60">Self-assessment</p>
+              <p className="text-xs uppercase text-cx-text/60">Self-assessment</p>
               <p className="mt-1 text-xl font-semibold">
                 {evaluation.instruments.answered}/{evaluation.instruments.total}
               </p>
-              <p className="text-xs text-cx-forest-dark/65">
+              <p className="text-xs text-cx-text/65">
                 {evaluation.instruments.complete
                   ? "Complete"
                   : evaluation.instruments.pending_cluster
@@ -100,18 +100,18 @@ function KpAdminEvaluationPanel() {
               </p>
             </div>
             <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-              <p className="text-xs uppercase text-cx-forest-dark/60">Lattice evidence</p>
+              <p className="text-xs uppercase text-cx-text/60">Lattice evidence</p>
               <p className="mt-1 text-xl font-semibold">{evaluation.lattice_coverage.evidence_total}</p>
-              <p className="text-xs text-cx-forest-dark/65">
+              <p className="text-xs text-cx-text/65">
                 {evaluation.lattice_coverage.populated_domain_count}/8 domains populated
               </p>
             </div>
             <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-              <p className="text-xs uppercase text-cx-forest-dark/60">Touchpoints</p>
+              <p className="text-xs uppercase text-cx-text/60">Touchpoints</p>
               <p className="mt-1 text-xl font-semibold">
                 {evaluation.touchpoint_assessments.completed}
               </p>
-              <p className="text-xs text-cx-forest-dark/65">
+              <p className="text-xs text-cx-text/65">
                 {evaluation.touchpoint_assessments.total_answered_questions} captured answers
               </p>
             </div>
@@ -119,8 +119,8 @@ function KpAdminEvaluationPanel() {
 
           {evaluation.instruments.scores.length > 0 ? (
             <div>
-              <p className="text-sm font-semibold text-cx-forest-dark">Instrument summaries</p>
-              <ul className="mt-2 space-y-2 text-sm text-cx-forest-dark/80">
+              <p className="text-sm font-semibold text-cx-text">Instrument summaries</p>
+              <ul className="mt-2 space-y-2 text-sm text-cx-text/80">
                 {evaluation.instruments.scores.map((score) => (
                   <li
                     key={score.instrument_id}
@@ -128,7 +128,7 @@ function KpAdminEvaluationPanel() {
                   >
                     <span className="font-medium">{score.name}</span>
                     {score.interpretation ? (
-                      <p className="mt-1 text-cx-forest-dark/75">{score.interpretation}</p>
+                      <p className="mt-1 text-cx-text/75">{score.interpretation}</p>
                     ) : null}
                   </li>
                 ))}
@@ -137,13 +137,13 @@ function KpAdminEvaluationPanel() {
           ) : null}
 
           <div>
-            <p className="text-sm font-semibold text-cx-forest-dark">Lattice sources</p>
+            <p className="text-sm font-semibold text-cx-text">Lattice sources</p>
             <div className="mt-2 flex flex-wrap gap-2 text-xs">
               {Object.entries(evaluation.lattice_coverage.by_source).map(([source, count]) =>
                 count > 0 ? (
                   <span
                     key={source}
-                    className="rounded-full bg-cx-forest-dark/[0.06] px-2 py-0.5 capitalize text-cx-forest-dark/75"
+                    className="rounded-full bg-cx-forest-dark/[0.06] px-2 py-0.5 capitalize text-cx-text/75"
                   >
                     {source}: {count}
                   </span>
@@ -151,7 +151,7 @@ function KpAdminEvaluationPanel() {
               )}
             </div>
             {evaluation.lattice_coverage.populated_domains.length > 0 ? (
-              <p className="mt-2 text-xs text-cx-forest-dark/65">
+              <p className="mt-2 text-xs text-cx-text/65">
                 Domains with evidence:{" "}
                 {evaluation.lattice_coverage.populated_domains.join(", ")}
               </p>
@@ -160,31 +160,31 @@ function KpAdminEvaluationPanel() {
 
           {evaluation.evaluation_framework ? (
             <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-3 text-sm">
-              <p className="font-semibold text-cx-forest-dark">GME evaluation framework</p>
-              <p className="mt-1 text-cx-forest-dark/75">
+              <p className="font-semibold text-cx-text">GME evaluation framework</p>
+              <p className="mt-1 text-cx-text/75">
                 {evaluation.evaluation_framework.primary_name}
                 {evaluation.evaluation_framework.subspecialty
                   ? ` · ${evaluation.evaluation_framework.subspecialty}`
                   : ""}
               </p>
-              <p className="text-xs text-cx-forest-dark/60">
+              <p className="text-xs text-cx-text/60">
                 Milestones: {evaluation.evaluation_framework.milestone_status ?? "—"}
               </p>
             </div>
           ) : null}
 
           <div className="rounded-lg border border-cx-forest-dark/10 px-3 py-3">
-            <p className="text-sm font-semibold text-cx-forest-dark">Mak feedback</p>
+            <p className="text-sm font-semibold text-cx-text">Mak feedback</p>
             {evaluation.mak_feedback ? (
               <>
-                <p className="mt-2 text-sm text-cx-forest-dark/80">
+                <p className="mt-2 text-sm text-cx-text/80">
                   👍 {evaluation.mak_feedback.thumbs_up} · 👎 {evaluation.mak_feedback.thumbs_down}
                   {evaluation.mak_feedback.recent_snippet_count > 0
                     ? ` · ${evaluation.mak_feedback.recent_snippet_count} total ratings`
                     : ""}
                 </p>
                 {evaluation.mak_feedback.recent_snippets.length > 0 ? (
-                  <ul className="mt-2 space-y-2 text-xs text-cx-forest-dark/70">
+                  <ul className="mt-2 space-y-2 text-xs text-cx-text/70">
                     {evaluation.mak_feedback.recent_snippets.map((row, i) => (
                       <li key={`${row.created_at}-${i}`} className="rounded-md bg-cx-forest-dark/[0.04] px-2 py-1.5">
                         <span className="font-medium">
@@ -198,11 +198,11 @@ function KpAdminEvaluationPanel() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-1 text-xs text-cx-forest-dark/60">No ratings yet.</p>
+                  <p className="mt-1 text-xs text-cx-text/60">No ratings yet.</p>
                 )}
               </>
             ) : (
-              <p className="mt-1 text-xs text-cx-forest-dark/60">
+              <p className="mt-1 text-xs text-cx-text/60">
                 Feedback table not loaded (migration or service role).
               </p>
             )}
@@ -233,10 +233,10 @@ function KpAdminInternalCoachingPanel() {
   return (
     <Card>
       <p className="text-cx-label uppercase">Internal · Mak input only</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">
         Invisible workload signals (never user-facing)
       </h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <p className="mt-2 text-sm text-cx-text/75">
         S-Index and related CV-regex inputs improve Mak coaching quality silently. Physicians
         never see these metrics — doing so would risk invisibility work (hiding effort from
         tracking). KP Admin mirrors what Mak receives server-side.
@@ -244,45 +244,45 @@ function KpAdminInternalCoachingPanel() {
 
       {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
       {!data && !error && (
-        <p className="mt-3 text-sm text-cx-forest-dark/70">Loading…</p>
+        <p className="mt-3 text-sm text-cx-text/70">Loading…</p>
       )}
 
       {tracking && (
         <div className="mt-4 space-y-4">
-          <p className="rounded-lg bg-cx-forest-dark/[0.04] px-3 py-2 font-futura-book tracking-wide text-xs text-cx-forest-dark/80">
+          <p className="rounded-lg bg-cx-forest-dark/[0.04] px-3 py-2 font-futura-book tracking-wide text-xs text-cx-text/80">
             {tracking.metric.formula_summary}
           </p>
 
           {!tracking.available ? (
-            <p className="text-sm text-cx-forest-dark/70">Upload a CV to compute internal signals.</p>
+            <p className="text-sm text-cx-text/70">Upload a CV to compute internal signals.</p>
           ) : (
             <>
               <div className="grid gap-3 sm:grid-cols-4">
                 <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-                  <p className="text-xs uppercase text-cx-forest-dark/60">S-Index (dev)</p>
+                  <p className="text-xs uppercase text-cx-text/60">S-Index (dev)</p>
                   <p className="text-xl font-semibold">{tracking.s_index}</p>
                 </div>
                 <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-                  <p className="text-xs uppercase text-cx-forest-dark/60">Footprint band</p>
+                  <p className="text-xs uppercase text-cx-text/60">Footprint band</p>
                   <p className="text-sm font-semibold capitalize">{tracking.service_footprint_band}</p>
                 </div>
                 <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-                  <p className="text-xs uppercase text-cx-forest-dark/60">Recognition gap</p>
+                  <p className="text-xs uppercase text-cx-text/60">Recognition gap</p>
                   <p className="text-sm font-semibold capitalize">{tracking.workload_recognition_gap}</p>
                 </div>
                 <div className="rounded-xl border border-cx-forest-dark/10 px-3 py-3">
-                  <p className="text-xs uppercase text-cx-forest-dark/60">Mak escalation</p>
+                  <p className="text-xs uppercase text-cx-text/60">Mak escalation</p>
                   <p className="text-xl font-semibold">{mak?.escalation_level ?? "—"}/4</p>
                 </div>
               </div>
 
               {mak?.hints?.length ? (
                 <div>
-                  <p className="text-sm font-semibold text-cx-forest-dark">Mak coaching hints (paraphrase only)</p>
-                  <ul className="mt-2 space-y-2 text-sm text-cx-forest-dark/80">
+                  <p className="text-sm font-semibold text-cx-text">Mak coaching hints (paraphrase only)</p>
+                  <ul className="mt-2 space-y-2 text-sm text-cx-text/80">
                     {mak.hints.map((h) => (
                       <li key={`${h.technique}-${h.hint.slice(0, 24)}`} className="rounded-lg border border-cx-forest-dark/10 px-3 py-2">
-                        <span className="text-xs uppercase text-cx-forest-dark/55">{h.technique}</span>
+                        <span className="text-xs uppercase text-cx-text/55">{h.technique}</span>
                         <p className="mt-1">{h.hint}</p>
                       </li>
                     ))}
@@ -332,7 +332,7 @@ function RetiredSurfacePreview({ componentId }: { componentId: string }) {
   }
 
   return (
-    <p className="text-sm text-cx-forest-dark/70">Preview not wired for this component.</p>
+    <p className="text-sm text-cx-text/70">Preview not wired for this component.</p>
   );
 }
 
@@ -341,8 +341,8 @@ export function KpAdminDashboard() {
     <div className="space-y-8">
       <Card>
         <p className="text-cx-label uppercase">KP Admin</p>
-        <h2 className="mt-1 text-lg font-semibold text-cx-forest-dark">Founder tools</h2>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h2 className="mt-1 text-lg font-semibold text-cx-text">Founder tools</h2>
+        <p className="mt-2 text-sm text-cx-text/75">
           Internal Mak inputs and retired surfaces — not linked in user onboarding or navigation.
         </p>
       </Card>
@@ -358,8 +358,8 @@ export function KpAdminDashboard() {
       <KpAdminInternalCoachingPanel />
 
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">Retired surfaces</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">Retired surfaces</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Historical UI removed from user flows per evidence review.
         </p>
       </Card>
@@ -370,8 +370,8 @@ export function KpAdminDashboard() {
             <p className="text-xs font-semibold uppercase tracking-wide text-[#20201D]">
               Retired · {surface.retiredAt}
             </p>
-            <h3 className="mt-1 font-semibold text-cx-forest-dark">{surface.title}</h3>
-            <p className="mt-1 text-sm text-cx-forest-dark/75">{surface.reason}</p>
+            <h3 className="mt-1 font-semibold text-cx-text">{surface.title}</h3>
+            <p className="mt-1 text-sm text-cx-text/75">{surface.reason}</p>
           </div>
           <RetiredSurfacePreview componentId={surface.component} />
         </section>

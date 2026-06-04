@@ -13,7 +13,7 @@ export function DashboardMakButton({ className }: { className?: string }) {
       type="button"
       onClick={() => openDashboardMakMenu(startMakFlow)}
       className={cn(
-        "inline-flex w-full items-center justify-center gap-2 bg-[#AC8636] px-4 py-2.5 text-sm font-semibold text-cx-forest-dark transition-colors hover:bg-[#AC8636]/90",
+        "inline-flex w-full items-center justify-center gap-2 bg-[#AC8636] px-4 py-2.5 text-sm font-semibold text-cx-text transition-colors hover:bg-[#AC8636]/90",
         className,
       )}
     >

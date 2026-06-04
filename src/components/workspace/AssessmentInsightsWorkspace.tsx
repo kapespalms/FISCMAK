@@ -50,7 +50,7 @@ export function AssessmentInsightsWorkspace() {
   }
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading your career insights…</p>;
+    return <p className="text-sm text-cx-text/70">Loading your career insights…</p>;
   }
 
   if (!insights) {
@@ -89,7 +89,7 @@ export function AssessmentInsightsWorkspace() {
         icon={Target}
         mak={ASSESSMENT_MAK.career_pattern}
         footer={
-          <p className="text-xs font-medium text-cx-forest-dark/70">
+          <p className="text-xs font-medium text-cx-text/70">
             Conversation coverage: {insights.conversation_coverage_pct}% of coaching signals captured
           </p>
         }
@@ -111,20 +111,20 @@ export function AssessmentInsightsWorkspace() {
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <p className="font-semibold text-cx-forest-dark">{tp.title}</p>
-                  <p className="text-xs text-cx-forest-dark/70">{tp.category}</p>
+                  <p className="font-semibold text-cx-text">{tp.title}</p>
+                  <p className="text-xs text-cx-text/70">{tp.category}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   {statusBadge(tp.status)}
-                  <span className="text-xs text-cx-forest-dark/60">{tp.coverage_pct}% captured</span>
+                  <span className="text-xs text-cx-text/60">{tp.coverage_pct}% captured</span>
                   <MakDiscussLink
                     mak={ASSESSMENT_MAK.touchpoint(tp.number, tp.title)}
-                    className="text-xs text-cx-forest-dark hover:text-cx-forest-dark/80"
+                    className="text-xs text-cx-text hover:text-cx-text/80"
                   />
                 </div>
               </div>
               {tp.insights.length > 0 && (
-                <ul className="mt-3 space-y-1 text-sm text-cx-forest-dark/70">
+                <ul className="mt-3 space-y-1 text-sm text-cx-text/70">
                   {tp.insights.map((line) => (
                     <li key={line}>• {line}</li>
                   ))}
@@ -137,8 +137,8 @@ export function AssessmentInsightsWorkspace() {
                       key={s.label}
                       className="rounded-md bg-cx-forest-dark/[0.04] px-3 py-2 text-xs"
                     >
-                      <p className="font-medium text-cx-forest-dark">{s.label}</p>
-                      <p className="mt-0.5 text-cx-forest-dark/70">{s.value}</p>
+                      <p className="font-medium text-cx-text">{s.label}</p>
+                      <p className="mt-0.5 text-cx-text/70">{s.value}</p>
                     </div>
                   ))}
                 </div>
@@ -168,8 +168,8 @@ export function AssessmentInsightsWorkspace() {
                   }`}
                 />
                 <div>
-                  <p className="font-medium text-cx-forest-dark">{s.domain}</p>
-                  <p className="text-cx-forest-dark/70">{s.note}</p>
+                  <p className="font-medium text-cx-text">{s.domain}</p>
+                  <p className="text-cx-text/70">{s.note}</p>
                 </div>
               </li>
             ))}

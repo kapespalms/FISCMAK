@@ -20,14 +20,14 @@ export function MakLikertChips({ scale, disabled, onSelect }: MakLikertChipsProp
             type="button"
             disabled={disabled}
             onClick={() => onSelect(value)}
-            className="min-w-[2.25rem] rounded-lg border border-cx-forest-dark/20 bg-white px-2.5 py-1.5 text-sm font-semibold text-cx-forest-dark transition hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/5 disabled:opacity-50"
+            className="min-w-[2.25rem] rounded-lg border border-cx-forest-dark/20 bg-white px-2.5 py-1.5 text-sm font-semibold text-cx-text transition hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/5 disabled:opacity-50"
             aria-label={`Rate ${value} of ${scale.max}`}
           >
             {value}
           </button>
         ))}
       </div>
-      <p className="text-[11px] leading-snug text-cx-forest-dark/60">{scale.anchors}</p>
+      <p className="text-[11px] leading-snug text-cx-text/60">{scale.anchors}</p>
     </div>
   );
 }

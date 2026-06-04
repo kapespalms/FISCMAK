@@ -41,13 +41,13 @@ export function PathwaysExplorer({ embedded = false }: PathwaysExplorerProps) {
       {!embedded && (
         <Link
           href="/app/plan"
-          className="mb-6 inline-block text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          className="mb-6 inline-block text-sm font-medium text-cx-text/70 hover:text-cx-text"
         >
           Back to strategy
         </Link>
       )}
 
-      {loading && <p className="text-sm text-cx-forest-dark/70">Loading pathways…</p>}
+      {loading && <p className="text-sm text-cx-text/70">Loading pathways…</p>}
 
       {!loading && pathways.length === 0 && (
         <CardSection
@@ -71,7 +71,7 @@ export function PathwaysExplorer({ embedded = false }: PathwaysExplorerProps) {
             footer={
               <Link
                 href="/app/plan?tab=jobs"
-                className="inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+                className="inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-text/80"
               >
                 View job matches
                 <ChevronRight size={16} />
@@ -89,7 +89,7 @@ export function PathwaysExplorer({ embedded = false }: PathwaysExplorerProps) {
                 mak={PATHWAYS_MAK.pathway(pathway.pathway_type, pathway.description ?? "")}
                 footer={
                   pathway.open_positions != null ? (
-                    <p className="text-xs text-cx-forest-dark/60">
+                    <p className="text-xs text-cx-text/60">
                       {pathway.open_positions} open position
                       {pathway.open_positions === 1 ? "" : "s"}
                     </p>
@@ -103,7 +103,7 @@ export function PathwaysExplorer({ embedded = false }: PathwaysExplorerProps) {
                     </Badge>
                   )}
                   {pathway.salary_range && (
-                    <span className="text-sm text-cx-forest-dark/80">{pathway.salary_range}</span>
+                    <span className="text-sm text-cx-text/80">{pathway.salary_range}</span>
                   )}
                 </div>
               </CardSection>

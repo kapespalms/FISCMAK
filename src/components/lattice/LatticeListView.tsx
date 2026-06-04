@@ -85,7 +85,7 @@ export function LatticeListView() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search accomplishments…"
-            className="w-full rounded-xl border border-neutral-200 py-2 pl-9 pr-3 text-sm text-cx-forest-dark placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+            className="w-full rounded-xl border border-neutral-200 py-2 pl-9 pr-3 text-sm text-cx-text placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
           />
         </div>
         <div className="flex items-center gap-1.5">
@@ -93,13 +93,13 @@ export function LatticeListView() {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as "date_desc" | "date_asc")}
-            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs text-cx-forest-dark focus:border-fis-gold focus:outline-none"
+            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs text-cx-text focus:border-fis-gold focus:outline-none"
           >
             <option value="date_desc">Newest first</option>
             <option value="date_asc">Oldest first</option>
           </select>
         </div>
-        <span className="text-xs text-cx-forest-dark/50">{total} item{total !== 1 ? "s" : ""}</span>
+        <span className="text-xs text-cx-text/50">{total} item{total !== 1 ? "s" : ""}</span>
       </div>
 
       {/* List */}
@@ -111,7 +111,7 @@ export function LatticeListView() {
         </div>
       ) : items.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-cx-forest-dark/15 py-12 text-center">
-          <p className="text-sm text-cx-forest-dark/50">
+          <p className="text-sm text-cx-text/50">
             {query ? "No items match your search." : "No confirmed evidence yet — upload a CV or add items manually on your profile."}
           </p>
         </div>
@@ -126,7 +126,7 @@ export function LatticeListView() {
                 className="group flex items-start gap-3 rounded-xl border border-neutral-100 bg-white px-4 py-3 shadow-sm transition-shadow hover:shadow-md"
               >
                 <div className="flex-1 min-w-0 space-y-1.5">
-                  <p className="text-sm font-medium text-cx-forest-dark truncate">
+                  <p className="text-sm font-medium text-cx-text truncate">
                     {itemLabel(item)}
                   </p>
                   <div className="flex flex-wrap items-center gap-1.5">
@@ -157,7 +157,7 @@ export function LatticeListView() {
                   <button
                     type="button"
                     onClick={() => setEditItem(item)}
-                    className="shrink-0 rounded-lg px-3 py-1.5 text-xs text-cx-forest-dark/50 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-neutral-100 hover:text-cx-forest-dark"
+                    className="shrink-0 rounded-lg px-3 py-1.5 text-xs text-cx-text/50 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-neutral-100 hover:text-cx-text"
                   >
                     Edit
                   </button>

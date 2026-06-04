@@ -47,7 +47,7 @@ export function UhProgramGate({ children, title = "UH Psychiatry" }: UhProgramGa
 
   if (state === "loading") {
     return (
-      <div className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-8 text-center text-sm text-cx-forest-dark/70">
+      <div className="rounded-2xl border border-cx-forest-dark/15 bg-white/80 p-8 text-center text-sm text-cx-text/70">
         Loading program access…
       </div>
     );

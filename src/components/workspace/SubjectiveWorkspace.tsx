@@ -95,7 +95,7 @@ export function SubjectiveWorkspace() {
   const unrecognized = health?.wellbeing_metrics.find((m) => m.id === "unrecognized_work");
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading…</p>;
+    return <p className="text-sm text-cx-text/70">Loading…</p>;
   }
 
   const subtitle = [
@@ -219,7 +219,7 @@ export function SubjectiveWorkspace() {
         footer={
           <Link
             href="/app/plan"
-            className="inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:text-cx-forest-dark/80"
+            className="inline-flex items-center gap-1 text-sm font-medium text-cx-text hover:text-cx-text/80"
           >
             View sustainability goals
             <ChevronRight size={16} />

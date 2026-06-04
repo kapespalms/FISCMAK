@@ -265,12 +265,12 @@ export default function ProfilePage() {
           ) : (
             <>
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-semibold text-cx-forest-dark">{displayName ?? "Your name"}</h1>
+                <h1 className="text-xl font-semibold text-cx-text">{displayName ?? "Your name"}</h1>
                 {npiStatus?.npi_verified && <Shield size={14} className="shrink-0 text-fis-gold" />}
               </div>
-              {headline && <p className="mt-0.5 text-sm text-cx-forest-dark/70">{headline}</p>}
+              {headline && <p className="mt-0.5 text-sm text-cx-text/70">{headline}</p>}
               {location && (
-                <div className="mt-1 flex items-center gap-1 text-xs text-cx-forest-dark/50">
+                <div className="mt-1 flex items-center gap-1 text-xs text-cx-text/50">
                   <MapPin size={11} /> {location}
                 </div>
               )}
@@ -317,7 +317,7 @@ export default function ProfilePage() {
             <div className="mb-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Icon size={16} className="shrink-0 text-fis-gold" />
-                <h2 className="text-sm font-semibold text-cx-forest-dark">{sec.title}</h2>
+                <h2 className="text-sm font-semibold text-cx-text">{sec.title}</h2>
                 {items.length > 0 && (
                   <span className="rounded-full bg-fis-gold/10 px-2 py-0.5 text-[10px] font-medium text-fis-gold">
                     {items.length}
@@ -351,7 +351,7 @@ export default function ProfilePage() {
                 {isDragTarget ? (
                   <p className="text-xs font-medium text-fis-gold">Drop here to place</p>
                 ) : (
-                  <p className="text-xs text-cx-forest-dark/50">{sec.emptyLabel}</p>
+                  <p className="text-xs text-cx-text/50">{sec.emptyLabel}</p>
                 )}
               </div>
             ) : (
@@ -362,16 +362,16 @@ export default function ProfilePage() {
                     className="group flex items-start gap-3 py-3 first:pt-0 last:pb-0"
                   >
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-cx-forest-dark truncate">{itemLabel(item)}</p>
+                      <p className="text-sm font-medium text-cx-text truncate">{itemLabel(item)}</p>
                       {itemSub(item) && (
-                        <p className="mt-0.5 text-xs text-cx-forest-dark/55">{itemSub(item)}</p>
+                        <p className="mt-0.5 text-xs text-cx-text/55">{itemSub(item)}</p>
                       )}
                     </div>
                     <div className="flex shrink-0 items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
                       <button
                         type="button"
                         onClick={() => setEditModal({ section: sec, item })}
-                        className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-forest-dark"
+                        className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-text"
                         title="Edit"
                       >
                         <Pencil size={13} />
@@ -405,7 +405,7 @@ export default function ProfilePage() {
       <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-6 shadow-sm">
         <div className="mb-4 flex items-center gap-2">
           <Medal size={16} className="shrink-0 text-fis-gold" />
-          <h2 className="text-sm font-semibold text-cx-forest-dark">NPI Verification</h2>
+          <h2 className="text-sm font-semibold text-cx-text">NPI Verification</h2>
         </div>
         {npiLoading ? (
           <div className="h-8 w-40 animate-pulse rounded-lg bg-neutral-100" />
@@ -460,10 +460,10 @@ export default function ProfilePage() {
         return (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
             <div className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl">
-              <h3 className="mb-3 text-sm font-semibold text-cx-forest-dark">
+              <h3 className="mb-3 text-sm font-semibold text-cx-text">
                 Select type for {sec.title}
               </h3>
-              <p className="mb-4 text-xs text-cx-forest-dark/60 line-clamp-2">
+              <p className="mb-4 text-xs text-cx-text/60 line-clamp-2">
                 &ldquo;{dropModal.rawText.slice(0, 100)}&rdquo;
               </p>
               <div className="space-y-2">
@@ -475,7 +475,7 @@ export default function ProfilePage() {
                       void placeFromActivity(dropModal.activityId, t, dropModal.rawText.slice(0, 120));
                       setDropModal(null);
                     }}
-                    className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-left text-sm text-cx-forest-dark transition-colors hover:border-fis-gold hover:bg-fis-gold/5"
+                    className="w-full rounded-xl border border-neutral-200 px-4 py-2.5 text-left text-sm text-cx-text transition-colors hover:border-fis-gold hover:bg-fis-gold/5"
                   >
                     {ITEM_TYPE_LABELS[t]}
                   </button>
@@ -484,7 +484,7 @@ export default function ProfilePage() {
               <button
                 type="button"
                 onClick={() => setDropModal(null)}
-                className="mt-3 w-full text-xs text-cx-forest-dark/50 hover:text-cx-forest-dark"
+                className="mt-3 w-full text-xs text-cx-text/50 hover:text-cx-text"
               >
                 Cancel
               </button>

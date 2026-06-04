@@ -70,10 +70,10 @@ export function CvUploadPanel({ onComplete }: CvUploadPanelProps) {
       className="group relative flex flex-col items-center gap-3 rounded-2xl border-2 border-dashed border-fis-gold/30 bg-fis-gold/5 px-6 py-8 text-center transition-colors hover:border-fis-gold/60"
     >
       <Upload size={22} className="text-fis-gold/60" />
-      <p className="text-sm font-medium text-cx-forest-dark">
+      <p className="text-sm font-medium text-cx-text">
         {status === "uploading" ? "Parsing your CV…" : "Upload a CV to autofill your profile"}
       </p>
-      <p className="text-xs text-cx-forest-dark/50">
+      <p className="text-xs text-cx-text/50">
         {status === "uploading"
           ? `${progress ?? 0}% complete`
           : "Drag a file here or click to browse — .pdf, .docx, .txt"}

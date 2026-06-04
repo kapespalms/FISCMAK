@@ -43,16 +43,16 @@ export function ProgramJoinSection({
                 </Link>
                 <Link
                   href={loginHref}
-                  className="font-futura-bold cx-btn inline-block border border-cx-forest-dark/30 px-8 py-4 text-center text-cx-forest-dark transition hover:border-cx-forest-dark"
+                  className="font-futura-bold cx-btn inline-block border border-cx-forest-dark/30 px-8 py-4 text-center text-cx-text transition hover:border-cx-forest-dark"
                 >
                   Sign in
                 </Link>
               </div>
               {altPathHref ? (
-                <p className="mt-4 text-sm text-cx-forest-dark/60">
+                <p className="mt-4 text-sm text-cx-text/60">
                   <Link
                     href={altPathHref}
-                    className="text-cx-forest-dark/75 underline hover:text-cx-forest-dark"
+                    className="text-cx-text/75 underline hover:text-cx-text"
                   >
                     {altPathCopy}
                   </Link>
@@ -61,20 +61,20 @@ export function ProgramJoinSection({
             </>
           ) : (
             <>
-              <p className="max-w-xl text-lg leading-relaxed text-cx-forest-dark/80">
+              <p className="max-w-xl text-lg leading-relaxed text-cx-text/80">
                 {unavailableMessage ??
                   "This invite link is no longer available. Contact your program coordinator for a new link."}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href={loginHref}
-                  className="font-futura-bold cx-btn inline-block border border-cx-forest-dark/30 px-8 py-4 text-center text-cx-forest-dark transition hover:border-cx-forest-dark"
+                  className="font-futura-bold cx-btn inline-block border border-cx-forest-dark/30 px-8 py-4 text-center text-cx-text transition hover:border-cx-forest-dark"
                 >
                   Sign in
                 </Link>
                 <Link
                   href={programJoinHref ?? "/join/uh/psychiatry"}
-                  className="font-futura-bold cx-btn inline-block px-8 py-4 text-center text-cx-forest-dark/60 underline transition hover:text-cx-forest-dark"
+                  className="font-futura-bold cx-btn inline-block px-8 py-4 text-center text-cx-text/60 underline transition hover:text-cx-text"
                 >
                   Program join page
                 </Link>

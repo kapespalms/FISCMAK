@@ -48,7 +48,7 @@ export function WellbeingReadingCard({ pulseDue, fcwiDue, pulseMdt, pulseDate, l
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <HeartPulse size={15} className="text-fis-green" />
-          <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <span className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
             Well-being
           </span>
         </div>
@@ -65,7 +65,7 @@ export function WellbeingReadingCard({ pulseDue, fcwiDue, pulseMdt, pulseDate, l
             <span className="text-xl" aria-hidden="true">{reading.icon}</span>
             <p className={`text-sm font-semibold ${reading.color}`}>{reading.text}</p>
           </div>
-          <p className="mt-1 text-xs text-cx-forest-dark/55">{reading.sub}</p>
+          <p className="mt-1 text-xs text-cx-text/55">{reading.sub}</p>
           {pulseDate && (
             <p className="mt-1.5 text-[10px] text-neutral-400">
               Last: {new Date(pulseDate).toLocaleDateString()}

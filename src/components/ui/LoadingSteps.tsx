@@ -18,8 +18,8 @@ export function LoadingSteps({ steps, className }: { steps: Step[]; className?: 
           className={cn(
             "flex items-center gap-2 text-sm",
             step.status === "done" && "text-cx-success",
-            step.status === "active" && "font-medium text-cx-forest-dark",
-            step.status === "pending" && "text-cx-forest-dark/50",
+            step.status === "active" && "font-medium text-cx-text",
+            step.status === "pending" && "text-cx-text/50",
           )}
         >
           {step.status === "done" ? (

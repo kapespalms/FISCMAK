@@ -428,11 +428,11 @@ export function DashboardWorkspace() {
 
             {/* Greeting */}
             <div className="mb-6">
-              <h1 className="text-xl font-semibold text-cx-forest-dark">
+              <h1 className="text-xl font-semibold text-cx-text">
                 Good {timeOfDayGreeting()}, {displayName ?? headerModel.displayName}
               </h1>
               {headerModel.profileLine && (
-                <p className="mt-0.5 text-sm text-cx-forest-dark/60">{headerModel.profileLine}</p>
+                <p className="mt-0.5 text-sm text-cx-text/60">{headerModel.profileLine}</p>
               )}
             </div>
 
@@ -450,13 +450,13 @@ export function DashboardWorkspace() {
                 {/* Mini-lattice */}
                 <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-5 shadow-sm">
                   <div className="mb-3 flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
                       Career lattice
                     </span>
                   </div>
                   {analytics.dashboard_lattice.length === 0 ? (
                     <div className="rounded-xl border border-dashed border-cx-forest-dark/15 py-8 text-center">
-                      <p className="mb-2 text-xs text-cx-forest-dark/50">Your lattice is empty</p>
+                      <p className="mb-2 text-xs text-cx-text/50">Your lattice is empty</p>
                       <button
                         type="button"
                         onClick={() => startMakFlow("capture")}
@@ -482,13 +482,13 @@ export function DashboardWorkspace() {
                 {/* Active goals */}
                 <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-5 shadow-sm">
                   <div className="mb-3 flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
                       Active goals
                     </span>
                   </div>
                   {goalCards.length === 0 ? (
                     <div className="rounded-xl border border-dashed border-cx-forest-dark/15 py-6 text-center">
-                      <p className="mb-2 text-xs text-cx-forest-dark/50">No goals set yet</p>
+                      <p className="mb-2 text-xs text-cx-text/50">No goals set yet</p>
                       <button
                         type="button"
                         onClick={() => startMakFlow("plan", "/app/goals", undefined, undefined, "set")}

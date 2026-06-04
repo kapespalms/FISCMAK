@@ -152,7 +152,7 @@ export function MilestoneSelfRatingPanel() {
   if (loading) {
     return (
       <Card>
-        <p className="text-sm text-cx-forest-dark/70">Loading milestone self-assessment…</p>
+        <p className="text-sm text-cx-text/70">Loading milestone self-assessment…</p>
       </Card>
     );
   }
@@ -164,10 +164,10 @@ export function MilestoneSelfRatingPanel() {
   return (
     <Card>
       <p className="text-cx-label uppercase">GME · Milestones</p>
-      <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">
+      <h3 className="mt-1 text-lg font-semibold text-cx-text">
         ACGME milestone self-assessment
       </h3>
-      <p className="mt-2 text-sm text-cx-forest-dark/75">
+      <p className="mt-2 text-sm text-cx-text/75">
         Rate all {subcompetencies.length} psychiatry subcompetencies (Tier 3 reflection). Compare
         against imported MedHub faculty ratings — discrepancies flag areas to discuss at CCC.
       </p>
@@ -182,12 +182,12 @@ export function MilestoneSelfRatingPanel() {
       </div>
 
       {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
-      {message && <p className="mt-3 text-sm text-cx-forest-dark/80">{message}</p>}
+      {message && <p className="mt-3 text-sm text-cx-text/80">{message}</p>}
 
       <div className="mt-5 overflow-x-auto">
         <table className="w-full min-w-[640px] text-left text-sm">
           <thead>
-            <tr className="border-b border-cx-forest-dark/15 text-xs uppercase text-cx-forest-dark/60">
+            <tr className="border-b border-cx-forest-dark/15 text-xs uppercase text-cx-text/60">
               <th className="py-2 pr-3">#</th>
               <th className="py-2 pr-3">Subcompetency</th>
               <th className="py-2 pr-3">Self</th>
@@ -201,10 +201,10 @@ export function MilestoneSelfRatingPanel() {
               const disc = discrepancyById.get(sub.id);
               return (
                 <tr key={sub.id} className="border-b border-cx-forest-dark/8 align-top">
-                  <td className="py-2 pr-3 text-cx-forest-dark/60">{sub.number}</td>
+                  <td className="py-2 pr-3 text-cx-text/60">{sub.number}</td>
                   <td className="py-2 pr-3">
-                    <p className="font-medium text-cx-forest-dark">{sub.name}</p>
-                    <p className="text-xs text-cx-forest-dark/55">
+                    <p className="font-medium text-cx-text">{sub.name}</p>
+                    <p className="text-xs text-cx-text/55">
                       {sub.acgme_competency_key.toUpperCase()}
                       {sub.medhub_outpatient_form ? " · MedHub form" : ""}
                     </p>
@@ -244,7 +244,7 @@ export function MilestoneSelfRatingPanel() {
 
       {ilpGoals.length > 0 && (
         <div className="mt-6">
-          <p className="font-semibold text-cx-forest-dark">ILP goals</p>
+          <p className="font-semibold text-cx-text">ILP goals</p>
           <ul className="mt-3 space-y-3">
             {ilpGoals.map((goal) => (
               <li
@@ -256,12 +256,12 @@ export function MilestoneSelfRatingPanel() {
                     {goal.status}
                   </Badge>
                   {goal.source === "system_draft" && (
-                    <span className="text-xs text-cx-forest-dark/55">System draft</span>
+                    <span className="text-xs text-cx-text/55">System draft</span>
                   )}
                 </div>
-                <p className="mt-1 text-cx-forest-dark">{goal.goal_text}</p>
+                <p className="mt-1 text-cx-text">{goal.goal_text}</p>
                 {goal.resources && (
-                  <p className="mt-1 text-xs text-cx-forest-dark/60">Resources: {goal.resources}</p>
+                  <p className="mt-1 text-xs text-cx-text/60">Resources: {goal.resources}</p>
                 )}
               </li>
             ))}

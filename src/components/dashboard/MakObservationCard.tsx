@@ -35,7 +35,7 @@ export function MakObservationCard({ weekCount, pendingCount, overrideText }: Pr
           <MessageCircle size={17} className="text-fis-gold" />
         </div>
         <div className="flex-1">
-          <p className="text-sm font-medium text-cx-forest-dark">{text}</p>
+          <p className="text-sm font-medium text-cx-text">{text}</p>
           <div className="mt-2 flex flex-wrap items-center gap-3">
             <button
               type="button"
@@ -60,7 +60,7 @@ export function MakObservationCard({ weekCount, pendingCount, overrideText }: Pr
       <button
         type="button"
         onClick={openMak}
-        className="mt-3 w-full rounded-xl border border-cx-forest-dark/10 bg-neutral-50 px-4 py-2.5 text-left text-sm text-cx-forest-dark/40 transition-colors hover:border-fis-gold/40 hover:bg-fis-gold/5 hover:text-cx-forest-dark/70"
+        className="mt-3 w-full rounded-xl border border-cx-forest-dark/10 bg-neutral-50 px-4 py-2.5 text-left text-sm text-cx-text/40 transition-colors hover:border-fis-gold/40 hover:bg-fis-gold/5 hover:text-cx-text/70"
       >
         What did you work on today?
       </button>

@@ -221,13 +221,13 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
       <div className="w-full max-w-lg rounded-2xl bg-white shadow-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-neutral-100 px-6 py-4">
-          <h2 className="text-base font-semibold text-cx-forest-dark">
+          <h2 className="text-base font-semibold text-cx-text">
             {isEdit ? "Edit item" : `Add to ${section.title}`}
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-forest-dark"
+            className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-cx-text"
           >
             <X size={18} />
           </button>
@@ -237,13 +237,13 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
           {/* Type selector */}
           {!isEdit && section.types.length > 1 && (
             <div>
-              <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
+              <label className="mb-1.5 block text-xs font-medium text-cx-text/70">
                 Type
               </label>
               <select
                 value={selectedType}
                 onChange={(e) => handleTypeChange(e.target.value as CvItemType)}
-                className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-forest-dark focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+                className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-text focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
               >
                 {section.types.map((t) => (
                   <option key={t} value={t}>
@@ -256,7 +256,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
 
           {/* Display label */}
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
+            <label className="mb-1.5 block text-xs font-medium text-cx-text/70">
               Display label <span className="text-[#C28D6C]">*</span>
             </label>
             <input
@@ -265,7 +265,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
               value={displayLabel}
               onChange={(e) => setDisplayLabel(e.target.value)}
               placeholder="Short title shown on your profile"
-              className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-forest-dark placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+              className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-text placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
               required
             />
           </div>
@@ -273,7 +273,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
           {/* Type-specific fields */}
           {currentFields.map((f) => (
             <div key={f.key}>
-              <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
+              <label className="mb-1.5 block text-xs font-medium text-cx-text/70">
                 {f.label} {f.required && <span className="text-[#C28D6C]">*</span>}
               </label>
               {f.multiline ? (
@@ -281,7 +281,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
                   value={fieldVal(f.key)}
                   onChange={(e) => setField(f.key, e.target.value)}
                   rows={3}
-                  className="w-full resize-none rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-forest-dark placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+                  className="w-full resize-none rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-text placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
                 />
               ) : (
                 <input
@@ -291,7 +291,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
                     if (f.key === "title") handleTitleChange(e.target.value);
                     else setField(f.key, e.target.value);
                   }}
-                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-forest-dark placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
+                  className="w-full rounded-xl border border-neutral-200 px-3 py-2 text-sm text-cx-text placeholder:text-neutral-400 focus:border-fis-gold focus:outline-none focus:ring-1 focus:ring-fis-gold"
                   required={f.required}
                 />
               )}
@@ -307,7 +307,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
             <button
               type="button"
               onClick={onClose}
-              className="rounded-xl border border-neutral-200 px-4 py-2 text-sm text-cx-forest-dark transition-colors hover:bg-neutral-50"
+              className="rounded-xl border border-neutral-200 px-4 py-2 text-sm text-cx-text transition-colors hover:bg-neutral-50"
             >
               Cancel
             </button>

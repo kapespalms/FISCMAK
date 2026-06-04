@@ -116,7 +116,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
         title="Check-in complete"
         icon={HeartPulse}
       >
-        <pre className="whitespace-pre-wrap text-sm text-cx-forest-dark/80">{summary}</pre>
+        <pre className="whitespace-pre-wrap text-sm text-cx-text/80">{summary}</pre>
         <Button variant="secondary" className="mt-4" onClick={() => setSummary(null)}>
           Done
         </Button>
@@ -157,7 +157,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       icon={HeartPulse}
       footer={
         status.days_since_last != null ? (
-          <p className="text-xs text-cx-forest-dark/70">
+          <p className="text-xs text-cx-text/70">
             Last pulse: {status.days_since_last} days ago
           </p>
         ) : undefined
@@ -175,7 +175,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
       ) : (
         <div className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="text-sm text-cx-forest-dark">
+            <label className="text-sm text-cx-text">
               <span className="font-semibold">Emotional exhaustion (0–4)</span>
               <input
                 type="number"
@@ -186,7 +186,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
                 className="cx-field mt-1 w-full"
               />
             </label>
-            <label className="text-sm text-cx-forest-dark">
+            <label className="text-sm text-cx-text">
               <span className="font-semibold">Depersonalization (0–4)</span>
               <input
                 type="number"
@@ -198,7 +198,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               />
             </label>
           </div>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Unrecognized work hours per week</span>
             <input
               type="number"
@@ -209,7 +209,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Biggest unrecognized work category this quarter</span>
             <input
               type="text"
@@ -219,7 +219,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">Energy for primary career track (1–10)</span>
             <input
               type="number"
@@ -230,7 +230,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
               className="cx-field mt-1 w-full"
             />
           </label>
-          <label className="block text-sm text-cx-forest-dark">
+          <label className="block text-sm text-cx-text">
             <span className="font-semibold">New achievements since last update (optional)</span>
             <textarea
               value={cvUpdate}

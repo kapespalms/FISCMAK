@@ -92,14 +92,14 @@ export function CoachingCadencePanel() {
         <div className="rounded-xl border border-[#3C8A60]/30 bg-[#3C8A60]/8 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
+              <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-cx-text/70">
                 <RotateCw size={12} aria-hidden />
                 Rotation debrief · {data.rotation_touchpoint.phase}
               </p>
-              <p className="mt-0.5 text-sm font-semibold text-cx-forest-dark">
+              <p className="mt-0.5 text-sm font-semibold text-cx-text">
                 {data.rotation_touchpoint.title}
               </p>
-              <p className="mt-0.5 text-xs text-cx-forest-dark/70">
+              <p className="mt-0.5 text-xs text-cx-text/70">
                 {data.rotation_touchpoint.detail}
               </p>
             </div>
@@ -118,15 +118,15 @@ export function CoachingCadencePanel() {
         <div className="rounded-xl border border-indigo-200/60 bg-indigo-50/40 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0 flex-1">
-              <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
+              <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-cx-text/70">
                 <CalendarDays size={12} aria-hidden />
                 {data.schedule_review.label}
               </p>
-              <p className="mt-0.5 text-sm font-semibold text-cx-forest-dark">
+              <p className="mt-0.5 text-sm font-semibold text-cx-text">
                 Review {data.schedule_review.events.length} event
                 {data.schedule_review.events.length === 1 ? "" : "s"} with Mak
               </p>
-              <p className="mt-0.5 text-xs text-cx-forest-dark/70">
+              <p className="mt-0.5 text-xs text-cx-text/70">
                 {data.schedule_review.period_start} – {data.schedule_review.period_end}
               </p>
               <ul className="mt-2 flex flex-wrap gap-1.5">
@@ -135,7 +135,7 @@ export function CoachingCadencePanel() {
                     <button
                       type="button"
                       onClick={() => beginScheduleReview(event)}
-                      className="font-futura-book rounded-full border border-indigo-200/80 bg-white px-2 py-0.5 text-[11px] text-cx-forest-dark hover:border-indigo-300 hover:bg-indigo-50"
+                      className="font-futura-book rounded-full border border-indigo-200/80 bg-white px-2 py-0.5 text-[11px] text-cx-text hover:border-indigo-300 hover:bg-indigo-50"
                       title={event.source_label}
                     >
                       {event.title}
@@ -152,12 +152,12 @@ export function CoachingCadencePanel() {
               >
                 Review all
               </button>
-              <label className="flex items-center gap-1.5 text-[10px] text-cx-forest-dark/70">
+              <label className="flex items-center gap-1.5 text-[10px] text-cx-text/70">
                 Cadence
                 <select
                   value={data.schedule_review_cadence}
                   onChange={(e) => updateCadence(e.target.value as ScheduleReviewCadence)}
-                  className="rounded border border-cx-forest-dark/15 bg-white px-1.5 py-0.5 text-[10px] text-cx-forest-dark"
+                  className="rounded border border-cx-forest-dark/15 bg-white px-1.5 py-0.5 text-[10px] text-cx-text"
                 >
                   {CADENCE_OPTIONS.map((opt) => (
                     <option key={opt.value} value={opt.value}>

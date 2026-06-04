@@ -57,12 +57,12 @@ export function OnboardingMilestoneTimeline({
       aria-label="Onboarding milestone timeline"
       className={cn(
         "w-full py-4 md:py-5",
-        dark ? "text-white" : "text-cx-forest-dark",
+        dark ? "text-white" : "text-cx-text",
       )}
     >
       <div className="flex w-full items-center justify-between gap-4">
         <p className="font-futura-bold text-lg tracking-[0.18em] md:text-xl">
-          <span className={dark ? "text-white" : "text-cx-forest-dark"}>FISC</span>
+          <span className={dark ? "text-white" : "text-cx-text"}>FISC</span>
           <span className="text-fis-gold">MAK</span>
         </p>
       </div>
@@ -102,7 +102,7 @@ export function OnboardingMilestoneTimeline({
                       !isCompleted &&
                       (dark
                         ? "border-white/20 bg-[#141722] text-white/40"
-                        : "border-cx-forest-dark/20 bg-white text-cx-forest-dark/40"),
+                        : "border-cx-forest-dark/20 bg-white text-cx-text/40"),
                   )}
                 >
                   {isCompleted ? (
@@ -122,9 +122,9 @@ export function OnboardingMilestoneTimeline({
                   <p
                     className={cn(
                       "font-futura-bold text-xs uppercase leading-tight tracking-wide md:text-sm",
-                      isActive && (dark ? "text-white" : "text-cx-forest-dark"),
-                      isCompleted && (dark ? "text-gray-300" : "text-cx-forest-dark/80"),
-                      !isActive && !isCompleted && (dark ? "text-white/40" : "text-cx-forest-dark/40"),
+                      isActive && (dark ? "text-white" : "text-cx-text"),
+                      isCompleted && (dark ? "text-gray-300" : "text-cx-text/80"),
+                      !isActive && !isCompleted && (dark ? "text-white/40" : "text-cx-text/40"),
                     )}
                   >
                     {milestone.label}

@@ -79,7 +79,7 @@ export function CareerStrategyGoalCard({
           <button
             type="button"
             onClick={onEdit}
-            className="flex items-center gap-1 text-sm text-cx-forest-dark hover:text-cx-forest-dark/80"
+            className="flex items-center gap-1 text-sm text-cx-text hover:text-cx-text/80"
           >
             <Pencil size={14} /> Edit
           </button>
@@ -107,7 +107,7 @@ export function CareerStrategyGoalCard({
           <button
             type="button"
             onClick={() => setAnatomyOpen((o) => !o)}
-            className="flex items-center gap-1 text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            className="flex items-center gap-1 text-xs font-medium text-cx-text/70 hover:text-cx-text"
           >
             <ChevronDown
               size={14}
@@ -124,13 +124,13 @@ export function CareerStrategyGoalCard({
                   if (!match) return null;
                   return (
                     <div key={match[1]}>
-                      <dt className="text-xs font-medium text-cx-forest-dark/60">{match[1]}</dt>
-                      <dd className="mt-0.5 text-cx-forest-dark">{match[2]}</dd>
+                      <dt className="text-xs font-medium text-cx-text/60">{match[1]}</dt>
+                      <dd className="mt-0.5 text-cx-text">{match[2]}</dd>
                     </div>
                   );
                 })
               ) : (
-                <p className="text-cx-forest-dark/70">
+                <p className="text-cx-text/70">
                   {archetypeDef.pattern}. Refine with Mak to fill in current state, target, timeline,
                   and the internal obstacle that usually derails this pattern.
                 </p>
@@ -142,8 +142,8 @@ export function CareerStrategyGoalCard({
 
       {currentMilestone && (
         <div className="mt-4 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-3">
-          <p className="text-xs font-medium text-cx-forest-dark/70">This quarter</p>
-          <p className="mt-1 text-sm text-cx-forest-dark">{currentMilestone.label}</p>
+          <p className="text-xs font-medium text-cx-text/70">This quarter</p>
+          <p className="mt-1 text-sm text-cx-text">{currentMilestone.label}</p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {MILESTONE_STATUSES.map((status) => (
               <button
@@ -151,7 +151,7 @@ export function CareerStrategyGoalCard({
                 type="button"
                 disabled={updating}
                 onClick={() => onMilestoneStatus(milestoneIndex, status)}
-                className="rounded-full border border-cx-forest-dark/20 bg-white px-2.5 py-1 text-xs capitalize text-cx-forest-dark transition-colors hover:border-cx-forest-dark/40 disabled:opacity-50"
+                className="rounded-full border border-cx-forest-dark/20 bg-white px-2.5 py-1 text-xs capitalize text-cx-text transition-colors hover:border-cx-forest-dark/40 disabled:opacity-50"
               >
                 {status.replace("_", " ")}
               </button>
@@ -165,7 +165,7 @@ export function CareerStrategyGoalCard({
           <button
             type="button"
             onClick={() => setMilestonesOpen((o) => !o)}
-            className="flex items-center gap-1 text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+            className="flex items-center gap-1 text-xs font-medium text-cx-text/70 hover:text-cx-text"
           >
             <ChevronDown
               size={14}
@@ -174,7 +174,7 @@ export function CareerStrategyGoalCard({
             All milestones ({goal.recommended_actions?.length})
           </button>
           {milestonesOpen && (
-            <ul className="mt-2 space-y-1 text-sm text-cx-forest-dark/70">
+            <ul className="mt-2 space-y-1 text-sm text-cx-text/70">
               {goal.recommended_actions!.map((item) => (
                 <li key={item} className="leading-snug">
                   {item}

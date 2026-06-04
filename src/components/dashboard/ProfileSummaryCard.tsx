@@ -15,7 +15,7 @@ function rowStatusClass(status?: ProfileRow["status"]): string {
   if (status === "strong") return "text-[#AC8636]";
   if (status === "developing") return "text-[#C28D6C]";
   if (status === "needs_attention") return "text-[#C28D6C]";
-  return "text-cx-forest-dark";
+  return "text-cx-text";
 }
 
 function formatTrackTitle(tracks: string[] | null | undefined): string {
@@ -40,21 +40,21 @@ function SummaryMiniCard({
     <div className="cx-dashboard-subpanel rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-2.5">
       <div className="flex items-start gap-2">
         <div
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-cx-forest-dark/10 text-cx-forest-dark"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-cx-forest-dark/10 text-cx-text"
           aria-hidden
         >
           <Icon size={14} strokeWidth={2} />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
+          <p className="text-[10px] font-medium uppercase tracking-wide text-cx-text/70">
             {label}
           </p>
           <div className="mt-0.5 flex items-center gap-1">
-            <p className="line-clamp-2 text-xs font-semibold text-cx-forest-dark">{value}</p>
+            <p className="line-clamp-2 text-xs font-semibold text-cx-text">{value}</p>
             {trailing}
           </div>
           {subtext && (
-            <p className="mt-0.5 text-[10px] text-cx-forest-dark/60">{subtext}</p>
+            <p className="mt-0.5 text-[10px] text-cx-text/60">{subtext}</p>
           )}
         </div>
       </div>
@@ -65,7 +65,7 @@ function SummaryMiniCard({
 function MetricCell({ row }: { row: ProfileRow }) {
   return (
     <div className="min-w-0">
-      <dt className="text-[10px] font-medium text-cx-forest-dark/70">{row.label}</dt>
+      <dt className="text-[10px] font-medium text-cx-text/70">{row.label}</dt>
       <dd className={cn("mt-0.5 text-xs font-semibold", rowStatusClass(row.status))}>
         {row.value}
       </dd>
@@ -100,13 +100,13 @@ export function ProfileSummaryCard({
     <div className={cn("cx-dashboard-panel rounded-xl bg-white p-3 shadow-sm", className)}>
       <div className="flex items-start gap-2.5">
         <div
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark/10 text-cx-forest-dark"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark/10 text-cx-text"
           aria-hidden
         >
           <UserCircle size={16} strokeWidth={2} />
         </div>
         <div className="min-w-0">
-          <h3 className="text-sm font-semibold text-cx-forest-dark">Profile</h3>
+          <h3 className="text-sm font-semibold text-cx-text">Profile</h3>
         </div>
       </div>
 

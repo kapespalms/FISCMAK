@@ -54,7 +54,7 @@ function QuadrantCell({ q, hasData }: { q: QuadrantShare; hasData: boolean }) {
     <div
       className={cn(
         "flex flex-col justify-between rounded-xl p-3 transition-all",
-        hasData ? meta.colorClass : "bg-cx-forest-dark/5 text-cx-forest-dark/40",
+        hasData ? meta.colorClass : "bg-cx-forest-dark/5 text-cx-text/40",
       )}
       style={{ minHeight: `${sizePct * 1.2}px` }}
     >
@@ -93,16 +93,16 @@ export function QuadrantSummaryV3({ prefetchedData }: Props) {
   }, [prefetchedData]);
 
   if (loading) {
-    return <p className="text-sm text-cx-forest-dark/50">Loading…</p>;
+    return <p className="text-sm text-cx-text/50">Loading…</p>;
   }
 
   if (!data || data.total_density === 0) {
     return (
       <div className="space-y-2">
-        <p className="text-sm text-cx-forest-dark/70">
+        <p className="text-sm text-cx-text/70">
           Your career picture will appear here once evidence is confirmed.
         </p>
-        <p className="text-xs text-cx-forest-dark/50">
+        <p className="text-xs text-cx-text/50">
           The four quadrants show how your work is distributed across visible and
           invisible, objective and subjective dimensions.
         </p>
@@ -121,11 +121,11 @@ export function QuadrantSummaryV3({ prefetchedData }: Props) {
       {/* Invisible-fraction headline — the "aha" */}
       {hasData && (
         <div className="rounded-xl border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] px-4 py-3">
-          <p className="text-sm text-cx-forest-dark">
-            <span className="text-2xl font-bold text-cx-forest-dark">{invisPct}%</span>
+          <p className="text-sm text-cx-text">
+            <span className="text-2xl font-bold text-cx-text">{invisPct}%</span>
             {" "}of your confirmed career evidence is invisible to institutional records.
           </p>
-          <p className="mt-1 text-xs text-cx-forest-dark/50">
+          <p className="mt-1 text-xs text-cx-text/50">
             Invisible work (objective + subjective) that accumulates live over time.
           </p>
         </div>
@@ -134,10 +134,10 @@ export function QuadrantSummaryV3({ prefetchedData }: Props) {
       {/* 2×2 grid */}
       <div className="grid grid-cols-2 gap-2">
         {/* Header labels */}
-        <p className="col-span-1 text-center text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">
+        <p className="col-span-1 text-center text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">
           Visible
         </p>
-        <p className="col-span-1 text-center text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">
+        <p className="col-span-1 text-center text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">
           Invisible
         </p>
 
@@ -151,13 +151,13 @@ export function QuadrantSummaryV3({ prefetchedData }: Props) {
       </div>
 
       {/* Row axis labels */}
-      <div className="grid grid-cols-[auto_1fr_1fr] items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-cx-forest-dark/40">
+      <div className="grid grid-cols-[auto_1fr_1fr] items-center gap-2 text-[10px] font-semibold uppercase tracking-wide text-cx-text/40">
         <span />
         <span className="text-center">Objective</span>
         <span className="text-center">Subjective</span>
       </div>
 
-      <p className="text-xs text-cx-forest-dark/40">
+      <p className="text-xs text-cx-text/40">
         Proportional to your confirmed evidence density. Invisible work grows as you log
         daily activities — this picture fills in over time.
       </p>

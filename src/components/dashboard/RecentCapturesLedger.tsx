@@ -28,8 +28,8 @@ export function RecentCapturesLedger({ items, loading }: Props) {
     <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-5 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Clock size={15} className="text-cx-forest-dark/50" />
-          <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+          <Clock size={15} className="text-cx-text/50" />
+          <span className="text-xs font-semibold uppercase tracking-wide text-cx-text/50">
             Recent captures
           </span>
         </div>
@@ -46,7 +46,7 @@ export function RecentCapturesLedger({ items, loading }: Props) {
         </div>
       ) : items.length === 0 ? (
         <div className="rounded-xl border border-dashed border-cx-forest-dark/15 py-6 text-center">
-          <p className="mb-2 text-xs text-cx-forest-dark/50">Nothing captured yet</p>
+          <p className="mb-2 text-xs text-cx-text/50">Nothing captured yet</p>
           <button
             type="button"
             onClick={openMak}
@@ -64,7 +64,7 @@ export function RecentCapturesLedger({ items, loading }: Props) {
                 className={`h-2 w-2 shrink-0 rounded-full ${QUADRANT_DOT[item.quadrant] ?? "bg-neutral-300"}`}
                 aria-hidden="true"
               />
-              <p className="flex-1 min-w-0 truncate text-xs text-cx-forest-dark">
+              <p className="flex-1 min-w-0 truncate text-xs text-cx-text">
                 {captureLabel(item)}
               </p>
               <span className="shrink-0 text-[10px] text-neutral-400">

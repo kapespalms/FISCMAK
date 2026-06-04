@@ -178,7 +178,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
   }
 
   if (loading || !data || !sectionMeta) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading cover letter…</p>;
+    return <p className="text-sm text-cx-text/70">Loading cover letter…</p>;
   }
 
   const ctx = data.contextual_guidance;
@@ -187,7 +187,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
     <div className="flex min-h-0 flex-1 flex-col gap-4 lg:flex-row">
       <aside className="w-full shrink-0 space-y-3 lg:w-80">
         <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-3">
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Career stage
           </label>
           <select
@@ -203,7 +203,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             ))}
           </select>
 
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Position type
           </label>
           <select
@@ -219,7 +219,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             ))}
           </select>
 
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Institutional setting
           </label>
           <select
@@ -235,7 +235,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             ))}
           </select>
 
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Specialty category
           </label>
           <select
@@ -251,21 +251,21 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             ))}
           </select>
 
-          <p className="text-xs text-cx-forest-dark/60">{stageDef?.emphasis}</p>
+          <p className="text-xs text-cx-text/60">{stageDef?.emphasis}</p>
         </div>
 
         <button
           type="button"
           onClick={() => setGuideOpen((o) => !o)}
-          className="w-full text-left text-xs font-semibold uppercase text-cx-forest-dark/70"
+          className="w-full text-left text-xs font-semibold uppercase text-cx-text/70"
         >
           {guideOpen ? "Hide" : "Show"} tailoring guide
         </button>
         {guideOpen && (
-          <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.02] p-3 text-xs text-cx-forest-dark/70">
-            <p className="font-medium text-cx-forest-dark">Narrative arc</p>
+          <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.02] p-3 text-xs text-cx-text/70">
+            <p className="font-medium text-cx-text">Narrative arc</p>
             <p className="italic">{ctx.narrativeArc}</p>
-            <p className="font-medium text-cx-forest-dark">Position ({positionLabel})</p>
+            <p className="font-medium text-cx-text">Position ({positionLabel})</p>
             <ul className="list-disc pl-4">
               {ctx.position.slice(0, 4).map((p) => (
                 <li key={p}>{p}</li>
@@ -273,7 +273,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             </ul>
             {ctx.specialty.sampleLanguage && (
               <>
-                <p className="font-medium text-cx-forest-dark">Specialty sample language</p>
+                <p className="font-medium text-cx-text">Specialty sample language</p>
                 <p className="italic">{ctx.specialty.sampleLanguage}</p>
               </>
             )}
@@ -281,7 +281,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
         )}
 
         <div className="flex items-center justify-between px-1">
-          <p className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <p className="text-xs font-semibold uppercase text-cx-text/70">
             {data.sections.length} sections · ~{draftWords} words
           </p>
           <Badge energy={data.overall_completion >= 70 ? "energizing" : "neutral"}>
@@ -295,12 +295,12 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             onClick={() => setActive(s.section)}
             className={`w-full rounded-md border px-3 py-2 text-left text-sm ${
               active === s.section
-                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-forest-dark"
-                : "border-cx-forest-dark/15 text-cx-forest-dark hover:bg-cx-forest-dark/[0.04]"
+                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-text"
+                : "border-cx-forest-dark/15 text-cx-text hover:bg-cx-forest-dark/[0.04]"
             }`}
           >
             <p>{s.title}</p>
-            <p className="text-xs text-cx-forest-dark/70">
+            <p className="text-xs text-cx-text/70">
               {s.completion_percentage}% · ~{s.target_words} words
             </p>
           </button>
@@ -310,7 +310,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
           <button
             type="button"
             onClick={() => setChecklistOpen((o) => !o)}
-            className="flex w-full items-center justify-between px-3 py-2 text-left text-sm font-semibold text-cx-forest-dark"
+            className="flex w-full items-center justify-between px-3 py-2 text-left text-sm font-semibold text-cx-text"
           >
             Submission checklist
           </button>
@@ -345,18 +345,18 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
         <button
           type="button"
           onClick={() => setTipsOpen((o) => !o)}
-          className="text-left text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          className="text-left text-xs font-medium text-cx-text/70 hover:text-cx-text"
         >
           {tipsOpen ? "Hide" : "Show"} universal tips & strategies
         </button>
         {tipsOpen && (
-          <div className="space-y-3 text-sm text-cx-forest-dark/70">
+          <div className="space-y-3 text-sm text-cx-text/70">
             <ul className="list-disc space-y-1 pl-5">
               {COVER_LETTER_UNIVERSAL_TIPS.map((tip) => (
                 <li key={tip}>{tip}</li>
               ))}
             </ul>
-            <p className="text-xs font-semibold uppercase text-cx-forest-dark/60">What to avoid</p>
+            <p className="text-xs font-semibold uppercase text-cx-text/60">What to avoid</p>
             <ul className="list-disc space-y-1 pl-5 text-xs">
               {data.advanced_strategies.avoid.map((a) => (
                 <li key={a}>{a}</li>
@@ -371,7 +371,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
         <button
           type="button"
           onClick={() => setSamplesOpen((o) => !o)}
-          className="text-left text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          className="text-left text-xs font-medium text-cx-text/70 hover:text-cx-text"
         >
           {samplesOpen ? "Hide" : "Show"} sample letters
         </button>
@@ -380,9 +380,9 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             {data.sample_letters.map((sample) => (
               <div
                 key={sample.id}
-                className="rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-3 text-sm text-cx-forest-dark/70"
+                className="rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-3 text-sm text-cx-text/70"
               >
-                <p className="font-medium text-cx-forest-dark">{sample.title}</p>
+                <p className="font-medium text-cx-text">{sample.title}</p>
                 <p className="mt-1 text-xs italic">{sample.excerpt}</p>
               </div>
             ))}
@@ -390,13 +390,13 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
         )}
 
         {sectionMeta.example && (
-          <div className="rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-3 text-sm text-cx-forest-dark/70">
-            <p className="text-xs font-semibold uppercase text-cx-forest-dark/60">Opening example</p>
+          <div className="rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/[0.03] p-3 text-sm text-cx-text/70">
+            <p className="text-xs font-semibold uppercase text-cx-text/60">Opening example</p>
             <p className="mt-1 italic">{sectionMeta.example}</p>
           </div>
         )}
 
-        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
           {sectionMeta.prompts.map((p) => (
             <li key={p}>{p}</li>
           ))}
@@ -407,11 +407,11 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
           onChange={(e) => setDraft(e.target.value)}
           rows={12}
           placeholder={sectionMeta.subtitle}
-          className="min-h-[240px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-forest-dark"
+          className="min-h-[240px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-text"
         />
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             {wordCount} / {targetWords} words (section) · {draftWords} total (target: one page)
           </p>
           <div className="flex gap-2">

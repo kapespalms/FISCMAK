@@ -32,15 +32,15 @@ export function PageShell({
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
           {eyebrow && (
-            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-text-secondary">
               {eyebrow}
             </p>
           )}
           {title ? (
-            <h1 className="text-[32px] font-bold leading-snug text-cx-forest-dark">{title}</h1>
+            <h1 className="text-[32px] font-bold leading-snug text-cx-text">{title}</h1>
           ) : null}
           {subtitle && (
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-cx-forest-dark/70">
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-cx-text-secondary">
               {subtitle}
             </p>
           )}

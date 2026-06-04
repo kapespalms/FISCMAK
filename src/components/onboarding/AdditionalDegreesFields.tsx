@@ -141,7 +141,7 @@ export function AdditionalDegreesFields({
             onClick={() => removeDegree(index)}
             className={cn(
               "text-sm underline-offset-2 hover:underline",
-              luxury ? "text-gray-500 hover:text-white" : "text-cx-forest-dark/70",
+              luxury ? "text-gray-500 hover:text-white" : "text-cx-text/70",
             )}
           >
             Remove degree

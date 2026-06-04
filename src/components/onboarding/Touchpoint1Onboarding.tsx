@@ -1185,7 +1185,7 @@ export function Touchpoint1Onboarding() {
       <>
       {step === "path" && bootstrappingPath && (
         <Card>
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             {pendingInviteToken
               ? "Activating your program invite…"
               : "Setting up your program on FISCMAK…"}
@@ -1195,8 +1195,8 @@ export function Touchpoint1Onboarding() {
 
       {step === "path" && !bootstrappingPath && pendingInviteToken && !pathChosen && (
         <Card>
-          <h2 className="text-lg font-semibold text-cx-forest-dark">Invite link required</h2>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
+          <h2 className="text-lg font-semibold text-cx-text">Invite link required</h2>
+          <p className="mt-2 text-sm text-cx-text/80">
             {error ||
               "We could not activate your program invite. Sign in, then open your personal invite link again."}
           </p>
@@ -1224,7 +1224,7 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+              className="mb-4 inline-flex items-center gap-1.5 text-sm font-medium text-cx-text/70 hover:text-cx-text"
             >
               <ChevronLeft size={16} />
               Back

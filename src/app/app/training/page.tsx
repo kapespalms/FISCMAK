@@ -13,8 +13,8 @@ export default function TrainingPage() {
           <GraduationCap size={28} className="text-fis-gold" />
         </div>
       </div>
-      <h1 className="mb-3 text-2xl font-semibold text-cx-forest-dark">Training Dashboard</h1>
-      <p className="text-sm text-cx-forest-dark/60">
+      <h1 className="mb-3 text-2xl font-semibold text-cx-text">Training Dashboard</h1>
+      <p className="text-sm text-cx-text/60">
         Your program dashboard — rotations, milestones, and CCC prep — will live here.
         This section is available for institution-tied trainee accounts.
       </p>

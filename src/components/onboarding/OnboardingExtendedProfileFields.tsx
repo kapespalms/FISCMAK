@@ -168,7 +168,7 @@ export function OnboardingExtendedProfileFields({
             <button
               type="button"
               onClick={() => removeDegree(index)}
-              className="text-sm text-cx-forest-dark/70 underline-offset-2 hover:underline"
+              className="text-sm text-cx-text/70 underline-offset-2 hover:underline"
             >
               Remove degree
             </button>
@@ -285,7 +285,7 @@ export function OnboardingExtendedProfileFields({
                 !interestInput.trim() ||
                 extracurricularInterests.length >= MAX_EXTRACURRICULAR_INTERESTS
               }
-              className="rounded-lg border border-cx-forest-dark/20 px-4 py-2 text-sm font-medium text-cx-forest-dark hover:bg-cx-forest-dark/5 disabled:opacity-40"
+              className="rounded-lg border border-cx-forest-dark/20 px-4 py-2 text-sm font-medium text-cx-text hover:bg-cx-forest-dark/5 disabled:opacity-40"
             >
               Add
             </button>

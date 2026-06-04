@@ -36,8 +36,8 @@ function ToolbarButton({ onClick, active, disabled, title, children }: ToolbarBu
       title={title}
       className={cn(
         "flex h-7 w-7 items-center justify-center rounded transition-colors",
-        "text-cx-forest-dark/70 hover:bg-cx-forest-dark/10 hover:text-cx-forest-dark",
-        active && "bg-cx-forest-dark/15 text-cx-forest-dark",
+        "text-cx-text/70 hover:bg-cx-forest-dark/10 hover:text-cx-text",
+        active && "bg-cx-forest-dark/15 text-cx-text",
         disabled && "pointer-events-none opacity-30",
       )}
     >

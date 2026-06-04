@@ -20,7 +20,7 @@ export function MakAssistantBubble({
           ? "border border-white/15 bg-white/[0.06] text-white/90"
           : variant === "dark"
             ? "border border-white/10 bg-[#141722] text-gray-200"
-            : "border border-cx-forest-dark/10 bg-[#f4f5f4] text-cx-forest-dark/90",
+            : "border border-cx-forest-dark/10 bg-[#f4f5f4] text-cx-text/90",
         className,
       )}
     >
@@ -42,7 +42,7 @@ export function MakUserBubble({
           ? "bg-marketing-accent/15 text-marketing-cream"
           : variant === "dark"
             ? "border border-[#A3E635]/40 bg-[#1C2030] text-white"
-            : "bg-[#67E151]/18 text-cx-forest-dark",
+            : "bg-[#67E151]/18 text-cx-text",
         className,
       )}
     >

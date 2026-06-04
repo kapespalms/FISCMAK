@@ -131,7 +131,7 @@ function TrackRow({
         type="button"
         className={cn(
           "cursor-grab touch-none px-1 active:cursor-grabbing",
-          luxury ? "text-gray-500" : "text-cx-forest-dark/45",
+          luxury ? "text-gray-500" : "text-cx-text/45",
         )}
         aria-label={`Drag to reorder ${row.track}`}
         onMouseDown={(e) => e.stopPropagation()}
@@ -141,7 +141,7 @@ function TrackRow({
       <span
         className={cn(
           "font-futura-bold w-8 shrink-0 text-center text-base tabular-nums",
-          luxury ? "text-fis-gold" : "text-cx-forest-dark",
+          luxury ? "text-fis-gold" : "text-cx-text",
         )}
       >
         {row.rank}
@@ -252,7 +252,7 @@ export function CareerTrackRankingFields({
 
   const columnLabelClass = cn(
     "font-futura-medium text-sm uppercase tracking-wide",
-    luxury ? "text-[#D4AF37]" : "text-cx-forest-dark",
+    luxury ? "text-[#D4AF37]" : "text-cx-text",
   );
 
   return (

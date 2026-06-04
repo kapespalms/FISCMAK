@@ -6,15 +6,15 @@ export function BlockScheduleLegend() {
 
   return (
     <section className="rounded-xl border border-cx-forest-dark/12 bg-cx-forest-dark/[0.02] px-4 py-3">
-      <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+      <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/55">
         Block code legend
       </p>
       <dl className="mt-2 grid gap-2 sm:grid-cols-2">
         {entries.map((entry) => (
           <div key={entry.code} className="text-sm">
-            <dt className="font-medium text-cx-forest-dark">{entry.label}</dt>
+            <dt className="font-medium text-cx-text">{entry.label}</dt>
             {entry.description && (
-              <dd className="text-xs text-cx-forest-dark/65">{entry.description}</dd>
+              <dd className="text-xs text-cx-text/65">{entry.description}</dd>
             )}
           </div>
         ))}

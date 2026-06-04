@@ -9,10 +9,10 @@ import type { GenerateOpts } from "@/lib/v2/output-studio-hook";
 import { FileText, Plus, Calendar, Loader2, Download } from "lucide-react";
 
 const STATUS_CHIP: Record<string, { label: string; cls: string }> = {
-  draft: { label: "Draft", cls: "bg-cx-forest-dark/10 text-cx-forest-dark/70" },
+  draft: { label: "Draft", cls: "bg-cx-forest-dark/10 text-cx-text/70" },
   review_ready: { label: "Ready", cls: "bg-[#3C8A60]/10 text-[#3C8A60]" },
-  exported: { label: "Exported", cls: "bg-cx-forest-dark/20 text-cx-forest-dark" },
-  archived: { label: "Archived", cls: "bg-cx-forest-dark/5 text-cx-forest-dark/40" },
+  exported: { label: "Exported", cls: "bg-cx-forest-dark/20 text-cx-text" },
+  archived: { label: "Archived", cls: "bg-cx-forest-dark/5 text-cx-text/40" },
 };
 
 type StudioDocumentListProps = {
@@ -68,8 +68,8 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate, onE
       {/* Generate actions */}
       <div className="flex flex-wrap items-start gap-3">
         <Card className="flex-1 min-w-[220px] p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/60">Full CV</p>
-          <p className="mt-1 text-sm text-cx-forest-dark/80">All bank items assembled by section.</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-cx-text/60">Full CV</p>
+          <p className="mt-1 text-sm text-cx-text/80">All bank items assembled by section.</p>
           <Button
             onClick={generateFullCv}
             disabled={generating}
@@ -84,8 +84,8 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate, onE
         </Card>
 
         <Card className="flex-1 min-w-[220px] p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/60">Monthly bullets</p>
-          <p className="mt-1 text-sm text-cx-forest-dark/80">Items captured since the first of this month.</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-cx-text/60">Monthly bullets</p>
+          <p className="mt-1 text-sm text-cx-text/80">Items captured since the first of this month.</p>
           <Button
             variant="secondary"
             onClick={generateMonthlyBullets}
@@ -107,14 +107,14 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate, onE
       {/* Document list */}
       <div className="flex-1 overflow-y-auto">
         {loading ? (
-          <div className="flex items-center justify-center py-12 text-cx-forest-dark/40">
+          <div className="flex items-center justify-center py-12 text-cx-text/40">
             <Loader2 size={20} className="animate-spin mr-2" /> Loading documents…
           </div>
         ) : documents.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-center">
-            <FileText size={40} className="mb-3 text-cx-forest-dark/20" />
-            <p className="text-base font-semibold text-cx-forest-dark/50">No documents yet</p>
-            <p className="mt-1 text-sm text-cx-forest-dark/40">
+            <FileText size={40} className="mb-3 text-cx-text/20" />
+            <p className="text-base font-semibold text-cx-text/50">No documents yet</p>
+            <p className="mt-1 text-sm text-cx-text/40">
               Generate a Full CV or Monthly Update above to get started.
             </p>
           </div>
@@ -134,17 +134,17 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate, onE
                   )}
                 >
                   <div className="flex items-start gap-3">
-                    <FileText size={18} className="mt-0.5 shrink-0 text-cx-forest-dark/30" />
+                    <FileText size={18} className="mt-0.5 shrink-0 text-cx-text/30" />
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="truncate text-sm font-semibold text-cx-forest-dark">
+                        <span className="truncate text-sm font-semibold text-cx-text">
                           {doc.title}
                         </span>
                         <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-medium", chip.cls)}>
                           {chip.label}
                         </span>
                       </div>
-                      <p className="mt-0.5 text-xs text-cx-forest-dark/50">
+                      <p className="mt-0.5 text-xs text-cx-text/50">
                         {doc.document_type.replace(/_/g, " ")} ·{" "}
                         {enabledSections} section{enabledSections !== 1 ? "s" : ""} ·{" "}
                         last edited {new Date(doc.last_edited_at).toLocaleDateString()}
@@ -156,7 +156,7 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate, onE
                       title="Export .docx"
                       disabled={exportingId === doc.id}
                       onClick={(e) => void handleExport(e, doc.id)}
-                      className="shrink-0 flex items-center justify-center rounded-lg p-1.5 text-cx-forest-dark/35 transition-colors hover:bg-cx-forest-dark/8 hover:text-fis-gold disabled:opacity-40"
+                      className="shrink-0 flex items-center justify-center rounded-lg p-1.5 text-cx-text/35 transition-colors hover:bg-cx-forest-dark/8 hover:text-fis-gold disabled:opacity-40"
                     >
                       {exportingId === doc.id ? (
                         <Loader2 size={15} className="animate-spin" />

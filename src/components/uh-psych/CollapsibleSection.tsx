@@ -28,9 +28,9 @@ export function CollapsibleSection({
         aria-expanded={open}
         aria-controls={`${id}-panel`}
       >
-        <h2 className="text-base font-semibold text-cx-forest-dark">{title}</h2>
+        <h2 className="text-base font-semibold text-cx-text">{title}</h2>
         <ChevronDown
-          className={cn("h-4 w-4 shrink-0 text-cx-forest-dark/50 transition-transform", open && "rotate-180")}
+          className={cn("h-4 w-4 shrink-0 text-cx-text/50 transition-transform", open && "rotate-180")}
           aria-hidden
         />
       </button>

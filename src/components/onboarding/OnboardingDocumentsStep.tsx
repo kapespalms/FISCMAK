@@ -368,7 +368,7 @@ export function OnboardingDocumentsStep({
       {!luxury && (
         <>
           <h1 className="text-page-title">Evidence Vault</h1>
-          <p className="mt-2 text-sm text-cx-forest-dark/80">
+          <p className="mt-2 text-sm text-cx-text/80">
             Drop CVs, certifications, and performance artifacts. Encrypted at rest.
           </p>
         </>
@@ -382,7 +382,7 @@ export function OnboardingDocumentsStep({
 
       <div className={cn("space-y-3", luxury ? "mt-0" : "mt-5")}>
         <div className="flex items-center justify-between gap-3">
-          <p className={cn("text-sm font-semibold", luxury ? "font-futura-bold uppercase tracking-[0.12em] text-[#D4AF37]" : "text-cx-forest-dark")}>
+          <p className={cn("text-sm font-semibold", luxury ? "font-futura-bold uppercase tracking-[0.12em] text-[#D4AF37]" : "text-cx-text")}>
             Uploaded documents
           </p>
           {documents.some((doc) => !isUploading(doc)) && (
@@ -393,7 +393,7 @@ export function OnboardingDocumentsStep({
                 "inline-flex items-center gap-1 text-sm font-medium transition-colors",
                 editMode
                   ? "text-[#d4c574] hover:text-[#d4c574]/80"
-                  : "text-cx-forest-dark hover:text-cx-forest-dark/80",
+                  : "text-cx-text hover:text-cx-text/80",
               )}
             >
               <Pencil size={14} />
@@ -408,7 +408,7 @@ export function OnboardingDocumentsStep({
               "rounded-xl border border-dashed px-3 py-4 text-sm",
               luxury
                 ? "border-white/10 text-gray-500"
-                : "border-cx-forest-dark/20 text-cx-forest-dark/70",
+                : "border-cx-forest-dark/20 text-cx-text/70",
             )}
           >
             No documents yet. Drop CVs, certifications, or other artifacts — or continue without uploading.
@@ -424,15 +424,15 @@ export function OnboardingDocumentsStep({
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div className="min-w-0">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/60">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/60">
                           {doc.typeLabel}
                         </p>
-                        <p className="truncate text-sm font-medium text-cx-forest-dark">{doc.fileName}</p>
+                        <p className="truncate text-sm font-medium text-cx-text">{doc.fileName}</p>
                       </div>
                       {doc.status === "error" ? (
                         <XCircle size={18} className="shrink-0 text-cx-attention" />
                       ) : (
-                        <Circle size={18} className="shrink-0 animate-pulse text-cx-forest-dark/40" />
+                        <Circle size={18} className="shrink-0 animate-pulse text-cx-text/40" />
                       )}
                     </div>
                     <div className="mt-3 h-2 overflow-hidden rounded-full bg-cx-forest-dark/10">
@@ -498,7 +498,7 @@ export function OnboardingDocumentsStep({
                                 </option>
                               ))}
                             </select>
-                            <p className="truncate text-sm font-medium text-cx-forest-dark">
+                            <p className="truncate text-sm font-medium text-cx-text">
                               {doc.fileName}
                             </p>
                             {draftOption?.requiresCustomLabel && (
@@ -537,10 +537,10 @@ export function OnboardingDocumentsStep({
                             }
                             className="w-full text-left"
                           >
-                            <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/60">
+                            <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/60">
                               {doc.typeLabel}
                             </p>
-                            <p className="truncate text-sm font-medium text-cx-forest-dark">
+                            <p className="truncate text-sm font-medium text-cx-text">
                               {doc.fileName}
                             </p>
                           </button>
@@ -570,11 +570,11 @@ export function OnboardingDocumentsStep({
 
       {selectedDocument && !editMode && (
         <div className="mt-4 rounded-lg border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/60">
+          <p className="text-xs font-semibold uppercase tracking-wide text-cx-text/60">
             Preview
           </p>
-          <p className="mt-1 text-sm font-medium text-cx-forest-dark">{selectedDocument.fileName}</p>
-          <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-cx-forest-dark/80">
+          <p className="mt-1 text-sm font-medium text-cx-text">{selectedDocument.fileName}</p>
+          <p className="mt-3 whitespace-pre-wrap text-sm leading-relaxed text-cx-text/80">
             {selectedDocument.preview || "Document uploaded and parsed successfully."}
           </p>
         </div>
@@ -641,11 +641,11 @@ export function OnboardingDocumentsStep({
                 ),
           )}
         >
-          <Upload className={luxury ? "text-fis-gold" : "text-cx-forest-dark"} size={24} />
+          <Upload className={luxury ? "text-fis-gold" : "text-cx-text"} size={24} />
           <p className={cn("mt-2 font-semibold", luxury && "font-futura-bold text-white")}>
             Drop files here or click to upload
           </p>
-          <p className={cn("text-sm", luxury ? "text-gray-500" : "text-cx-forest-dark/80")}>
+          <p className={cn("text-sm", luxury ? "text-gray-500" : "text-cx-text/80")}>
             {selectedDocOption?.label ?? "Documents"} · {ACCEPTED_CV_LABEL} · multiple files OK
           </p>
         </button>
@@ -685,7 +685,7 @@ export function OnboardingDocumentsStep({
               placeholder="Paste document content…"
             />
           )}
-          <p className={cn("text-xs", luxury ? "text-gray-500" : "text-cx-forest-dark/60")}>
+          <p className={cn("text-xs", luxury ? "text-gray-500" : "text-cx-text/60")}>
             Pasted text uploads automatically when you click away from this field.
           </p>
         </div>

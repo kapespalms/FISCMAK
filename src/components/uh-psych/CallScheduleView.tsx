@@ -129,14 +129,14 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
         <div>
           <Link
             href="/app/schedule?tab=links"
-            className="text-xs font-medium text-cx-forest-dark/60 hover:text-cx-forest-dark"
+            className="text-xs font-medium text-cx-text/60 hover:text-cx-text"
           >
             ← Schedule
           </Link>
           <h1 className="mt-1 text-page-title">CMC call schedule</h1>
         </div>
       )}
-      <p className="text-sm text-cx-forest-dark/70">
+      <p className="text-sm text-cx-text/70">
         Seeded coverage grid · live switches in QGenda
       </p>
 
@@ -149,7 +149,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
             className={`rounded-full px-3 py-1.5 text-xs font-medium ${
               view === id
                 ? "bg-cx-forest-dark text-white"
-                : "border border-cx-forest-dark/15 text-cx-forest-dark/80"
+                : "border border-cx-forest-dark/15 text-cx-text/80"
             }`}
           >
             {label}
@@ -162,7 +162,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
               setInitialsFilter(myInitials);
               setView("mine");
             }}
-            className="rounded-full border border-[#AC8636]/40 bg-[#AC8636]/10 px-3 py-1.5 text-xs font-medium text-cx-forest-dark"
+            className="rounded-full border border-[#AC8636]/40 bg-[#AC8636]/10 px-3 py-1.5 text-xs font-medium text-cx-text"
           >
             Use my initials ({myInitials})
           </button>
@@ -180,7 +180,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
             >
               <ChevronLeft size={18} />
             </button>
-            <p className="min-w-[10rem] text-center text-sm font-semibold text-cx-forest-dark">
+            <p className="min-w-[10rem] text-center text-sm font-semibold text-cx-text">
               {formatMonthLabel(monthAnchor.year, monthAnchor.month)}
             </p>
             <button
@@ -195,7 +195,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
 
           {monthWeekStrip.length > 0 && (
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-medium text-cx-forest-dark/55">Week</span>
+              <span className="text-xs font-medium text-cx-text/55">Week</span>
               <div className="flex flex-1 gap-1 overflow-x-auto">
                 {monthWeekStrip.map((d) => (
                   <button
@@ -207,8 +207,8 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                     }}
                     className={`min-w-[3.5rem] shrink-0 rounded-lg px-2 py-1.5 text-center text-xs ${
                       d === todayIso()
-                        ? "border border-[#AC8636]/50 bg-[#AC8636]/10 text-cx-forest-dark"
-                        : "border border-cx-forest-dark/10 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
+                        ? "border border-[#AC8636]/50 bg-[#AC8636]/10 text-cx-text"
+                        : "border border-cx-forest-dark/10 text-cx-text/80 hover:bg-cx-forest-dark/5"
                     }`}
                   >
                     {formatDisplayDate(d)}
@@ -222,7 +222,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
             <table className="min-w-full text-left text-xs">
               <thead className="border-b border-cx-forest-dark/10 bg-cx-forest-dark/[0.03]">
                 <tr>
-                  <th className="sticky left-0 z-10 min-w-[10rem] bg-cx-forest-dark/[0.03] px-2 py-2 font-semibold text-cx-forest-dark">
+                  <th className="sticky left-0 z-10 min-w-[10rem] bg-cx-forest-dark/[0.03] px-2 py-2 font-semibold text-cx-text">
                     Role
                   </th>
                   {monthGrid.dates.map((date) => {
@@ -231,7 +231,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                       <th
                         key={date}
                         className={`min-w-[2.25rem] px-1 py-2 text-center font-semibold ${
-                          isToday ? "bg-[#AC8636]/15 text-cx-forest-dark" : "text-cx-forest-dark/70"
+                          isToday ? "bg-[#AC8636]/15 text-cx-text" : "text-cx-text/70"
                         }`}
                       >
                         <span className="block text-[10px] uppercase">{weekdayLetter(date)}</span>
@@ -244,7 +244,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
               <tbody>
                 {monthGrid.rows.map((row) => (
                   <tr key={row.role} className="border-b border-cx-forest-dark/5">
-                    <td className="sticky left-0 z-10 bg-white px-2 py-2 font-medium text-cx-forest-dark/85">
+                    <td className="sticky left-0 z-10 bg-white px-2 py-2 font-medium text-cx-text/85">
                       {row.role.replace(/Psych Service Answering /i, "")}
                     </td>
                     {monthGrid.dates.map((date) => {
@@ -258,7 +258,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                           key={`${row.role}-${date}`}
                           className={`px-1 py-2 text-center align-middle ${
                             isToday ? "bg-[#AC8636]/10" : ""
-                          } ${isMine ? "font-semibold text-cx-forest-dark" : "text-cx-forest-dark/75"}`}
+                          } ${isMine ? "font-semibold text-cx-text" : "text-cx-text/75"}`}
                           title={cell?.shift ? `${cell.assignee_abbr} · ${cell.shift}` : undefined}
                         >
                           {cell?.assignee_abbr ?? "—"}
@@ -294,8 +294,8 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                     d === selectedDate
                       ? "bg-cx-forest-dark text-white"
                       : d === todayIso()
-                        ? "border border-[#AC8636]/50 bg-[#AC8636]/10 text-cx-forest-dark"
-                        : "border border-cx-forest-dark/10 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
+                        ? "border border-[#AC8636]/50 bg-[#AC8636]/10 text-cx-text"
+                        : "border border-cx-forest-dark/10 text-cx-text/80 hover:bg-cx-forest-dark/5"
                   }`}
                 >
                   {formatDisplayDate(d)}
@@ -313,7 +313,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
           </div>
 
           <div className="flex flex-wrap items-end gap-3">
-            <label className="text-xs font-medium text-cx-forest-dark/70">
+            <label className="text-xs font-medium text-cx-text/70">
               Filter initials
               <input
                 type="text"
@@ -329,24 +329,24 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-cx-forest-dark/10 bg-cx-forest-dark/[0.03]">
                 <tr>
-                  <th className="px-4 py-3 font-semibold text-cx-forest-dark">Role</th>
-                  <th className="px-4 py-3 font-semibold text-cx-forest-dark">Initials</th>
-                  <th className="px-4 py-3 font-semibold text-cx-forest-dark">Shift</th>
+                  <th className="px-4 py-3 font-semibold text-cx-text">Role</th>
+                  <th className="px-4 py-3 font-semibold text-cx-text">Initials</th>
+                  <th className="px-4 py-3 font-semibold text-cx-text">Shift</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredDay.length === 0 ? (
                   <tr>
-                    <td colSpan={3} className="px-4 py-8 text-center text-cx-forest-dark/60">
+                    <td colSpan={3} className="px-4 py-8 text-center text-cx-text/60">
                       No assignments for {formatDisplayDate(selectedDate)}.
                     </td>
                   </tr>
                 ) : (
                   filteredDay.map((row, i) => (
                     <tr key={`${row.role}-${i}`} className="border-b border-cx-forest-dark/5">
-                      <td className="px-4 py-3 text-cx-forest-dark/85">{row.role}</td>
-                      <td className="px-4 py-3 font-medium text-cx-forest-dark">{row.assignee_abbr}</td>
-                      <td className="px-4 py-3 text-cx-forest-dark/75">{row.shift ?? "—"}</td>
+                      <td className="px-4 py-3 text-cx-text/85">{row.role}</td>
+                      <td className="px-4 py-3 font-medium text-cx-text">{row.assignee_abbr}</td>
+                      <td className="px-4 py-3 text-cx-text/75">{row.shift ?? "—"}</td>
                     </tr>
                   ))
                 )}
@@ -359,31 +359,31 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
       {view === "mine" && (
         <div className="overflow-x-auto rounded-2xl border border-cx-forest-dark/15 bg-white">
           {!myInitials && !initialsFilter.trim() ? (
-            <p className="px-4 py-8 text-center text-sm text-cx-forest-dark/60">
+            <p className="px-4 py-8 text-center text-sm text-cx-text/60">
               Enter your roster initials above, or complete onboarding with your program invite.
             </p>
           ) : (
             <table className="min-w-full text-left text-sm">
               <thead className="border-b border-cx-forest-dark/10 bg-cx-forest-dark/[0.03]">
                 <tr>
-                  <th className="px-4 py-3 font-semibold text-cx-forest-dark">Date</th>
-                  <th className="px-4 py-3 font-semibold text-cx-forest-dark">Role</th>
-                  <th className="px-4 py-3 font-semibold text-cx-forest-dark">Shift</th>
+                  <th className="px-4 py-3 font-semibold text-cx-text">Date</th>
+                  <th className="px-4 py-3 font-semibold text-cx-text">Role</th>
+                  <th className="px-4 py-3 font-semibold text-cx-text">Shift</th>
                 </tr>
               </thead>
               <tbody>
                 {myAssignments.length === 0 ? (
                   <tr>
-                    <td colSpan={3} className="px-4 py-8 text-center text-cx-forest-dark/60">
+                    <td colSpan={3} className="px-4 py-8 text-center text-cx-text/60">
                       No assignments found for {myInitials ?? initialsFilter}.
                     </td>
                   </tr>
                 ) : (
                   myAssignments.map((row, i) => (
                     <tr key={`${row.date}-${row.role}-${i}`} className="border-b border-cx-forest-dark/5">
-                      <td className="px-4 py-3 text-cx-forest-dark">{formatDisplayDate(row.date)}</td>
-                      <td className="px-4 py-3 text-cx-forest-dark/85">{row.role}</td>
-                      <td className="px-4 py-3 text-cx-forest-dark/75">{row.shift ?? "—"}</td>
+                      <td className="px-4 py-3 text-cx-text">{formatDisplayDate(row.date)}</td>
+                      <td className="px-4 py-3 text-cx-text/85">{row.role}</td>
+                      <td className="px-4 py-3 text-cx-text/75">{row.shift ?? "—"}</td>
                     </tr>
                   ))
                 )}

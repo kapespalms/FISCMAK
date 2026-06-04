@@ -185,12 +185,12 @@ export function OutputUserTemplatePanel({
       }
     >
       {loading ? (
-        <p className="text-sm text-cx-forest-dark/60">Loading…</p>
+        <p className="text-sm text-cx-text/60">Loading…</p>
       ) : (
         <div className="space-y-4">
           {seedableDocuments.length > 0 && (
             <div className="space-y-2">
-              <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-cx-forest-dark/60">
+              <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-cx-text/60">
                 <FolderOpen size={14} />
                 From your Career Data
               </p>
@@ -199,7 +199,7 @@ export function OutputUserTemplatePanel({
                   value={selectedDocumentId}
                   disabled={uploading}
                   onChange={(e) => setSelectedDocumentId(e.target.value)}
-                  className="min-w-0 flex-1 rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-2 text-sm text-cx-forest-dark"
+                  className="min-w-0 flex-1 rounded-lg border border-cx-forest-dark/20 bg-white px-3 py-2 text-sm text-cx-text"
                 >
                   <option value="">Select an uploaded document…</option>
                   {seedableDocuments.map((doc) => (
@@ -219,7 +219,7 @@ export function OutputUserTemplatePanel({
               </div>
               <Link
                 href="/app/objective?tab=documents"
-                className="text-xs font-medium text-cx-forest-dark underline underline-offset-2 hover:text-cx-forest-dark/80"
+                className="text-xs font-medium text-cx-text underline underline-offset-2 hover:text-cx-text/80"
               >
                 Upload more in Career Data →
               </Link>
@@ -227,7 +227,7 @@ export function OutputUserTemplatePanel({
           )}
 
           {seedableDocuments.length === 0 && (
-            <p className="text-sm text-cx-forest-dark/70">
+            <p className="text-sm text-cx-text/70">
               No readable documents in Career Data yet.{" "}
               <Link
                 href="/app/objective?tab=documents"
@@ -240,7 +240,7 @@ export function OutputUserTemplatePanel({
           )}
 
           <div className="space-y-2 border-t border-cx-forest-dark/10 pt-3">
-            <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/60">
+            <p className="text-xs font-medium uppercase tracking-wide text-cx-text/60">
               Or upload a template
             </p>
             <input
@@ -263,13 +263,13 @@ export function OutputUserTemplatePanel({
 
           {hasSeed && (
             <div className="space-y-2 border-t border-cx-forest-dark/10 pt-3">
-              <p className="text-xs text-cx-forest-dark/70">
+              <p className="text-xs text-cx-text/70">
                 {template!.source === "vault" ? "From Career Data · " : "Uploaded template · "}
                 {template!.word_count.toLocaleString()} words ·{" "}
                 {new Date(template!.uploaded_at).toLocaleDateString()}
               </p>
               {template!.preview && (
-                <pre className="max-h-24 overflow-hidden whitespace-pre-wrap rounded-lg bg-white/80 p-3 text-xs text-cx-forest-dark/80">
+                <pre className="max-h-24 overflow-hidden whitespace-pre-wrap rounded-lg bg-white/80 p-3 text-xs text-cx-text/80">
                   {template!.preview}
                   {template!.preview.length >= 400 ? "…" : ""}
                 </pre>
@@ -282,7 +282,7 @@ export function OutputUserTemplatePanel({
           )}
 
           {!hasSeed && seedableDocuments.length > 0 && (
-            <p className="text-sm text-cx-forest-dark/70">
+            <p className="text-sm text-cx-text/70">
               Without a seed, Mak uses FISCMAK&apos;s default structure for this document type.
             </p>
           )}

@@ -206,7 +206,7 @@ export function IlpForm() {
   if (loading) {
     return (
       <Card>
-        <p className="text-sm text-cx-forest-dark/70">Loading ILP…</p>
+        <p className="text-sm text-cx-text/70">Loading ILP…</p>
       </Card>
     );
   }
@@ -242,20 +242,20 @@ export function IlpForm() {
       {/* ── Section 1: Career Goals ─────────────────────────────────── */}
       <Card>
         <p className="text-cx-label uppercase">ILP · Section 1</p>
-        <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">Career goals</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="mt-1 text-lg font-semibold text-cx-text">Career goals</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Reflect on your direction, this year's focus, and what's in your way.
         </p>
 
         <div className="mt-5 space-y-5">
           {(Object.keys(CAREER) as CareerKey[]).map((key) => (
             <div key={key}>
-              <label className="block text-sm font-medium text-cx-forest-dark">
+              <label className="block text-sm font-medium text-cx-text">
                 {CAREER_PROMPTS[key]}
               </label>
               {isFinalized && career[key].id ? (
-                <p className="mt-2 rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/3 px-3 py-2 text-sm text-cx-forest-dark">
-                  {career[key].text || <span className="text-cx-forest-dark/40">Not answered</span>}
+                <p className="mt-2 rounded-lg border border-cx-forest-dark/10 bg-cx-forest-dark/3 px-3 py-2 text-sm text-cx-text">
+                  {career[key].text || <span className="text-cx-text/40">Not answered</span>}
                 </p>
               ) : (
                 <textarea
@@ -280,17 +280,17 @@ export function IlpForm() {
             <Button onClick={() => void saveCareerGoals()} disabled={savingCareer}>
               {savingCareer ? "Saving…" : "Save career goals"}
             </Button>
-            {careerMsg && <p className="text-sm text-cx-forest-dark/70">{careerMsg}</p>}
+            {careerMsg && <p className="text-sm text-cx-text/70">{careerMsg}</p>}
           </div>
         )}
         {isFinalized && careerMsg && (
-          <p className="mt-3 text-sm text-cx-forest-dark/70">{careerMsg}</p>
+          <p className="mt-3 text-sm text-cx-text/70">{careerMsg}</p>
         )}
       </Card>
 
       {/* ── Section 2: Competency Self-Assessment ───────────────────── */}
       <div>
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/55">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-cx-text/55">
           ILP · Section 2 — Milestone self-assessment
         </p>
         <MilestoneSelfRatingPanel />
@@ -299,8 +299,8 @@ export function IlpForm() {
       {/* ── Section 3: SMART Goals ──────────────────────────────────── */}
       <Card>
         <p className="text-cx-label uppercase">ILP · Section 3</p>
-        <h3 className="mt-1 text-lg font-semibold text-cx-forest-dark">SMART goals</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="mt-1 text-lg font-semibold text-cx-text">SMART goals</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           Specific, Measurable, Achievable, Relevant, Time-bound learning goals for PD review and
           approval. Use "Draft from gaps" in Section 2 to pre-populate suggestions.
         </p>
@@ -308,7 +308,7 @@ export function IlpForm() {
         {smartMsg && <p className="mt-3 text-sm text-[#C28D6C]">{smartMsg}</p>}
 
         {smartGoals.length === 0 && !addingGoal && (
-          <p className="mt-4 text-sm text-cx-forest-dark/50">
+          <p className="mt-4 text-sm text-cx-text/50">
             No goals yet — add one below or use "Draft ILP from gaps" in the self-assessment.
           </p>
         )}
@@ -358,16 +358,16 @@ export function IlpForm() {
                 ) : (
                   <>
                     <div className="flex flex-wrap items-start justify-between gap-2">
-                      <p className="font-medium text-cx-forest-dark">{goal.goal_text}</p>
+                      <p className="font-medium text-cx-text">{goal.goal_text}</p>
                       <GoalStatusBadge status={goal.status} locked={locked} />
                     </div>
                     {goal.resources && !isSentinel(goal.resources) && (
-                      <p className="mt-1 text-xs text-cx-forest-dark/60">
+                      <p className="mt-1 text-xs text-cx-text/60">
                         Resources: {goal.resources}
                       </p>
                     )}
                     {goal.target_date && (
-                      <p className="mt-1 text-xs text-cx-forest-dark/60">
+                      <p className="mt-1 text-xs text-cx-text/60">
                         Target: {goal.target_date}
                       </p>
                     )}
@@ -388,7 +388,7 @@ export function IlpForm() {
                         </Button>
                         <button
                           type="button"
-                          className="text-xs text-cx-forest-dark/50 hover:text-[#C28D6C]"
+                          className="text-xs text-cx-text/50 hover:text-[#C28D6C]"
                           onClick={() => void deleteSmartGoal(goal.goal_id)}
                         >
                           Delete
@@ -417,7 +417,7 @@ export function IlpForm() {
 
         {addingGoal && (
           <div className="mt-4 space-y-3 rounded-xl border border-cx-forest-dark/10 p-4">
-            <p className="text-sm font-medium text-cx-forest-dark">New SMART goal</p>
+            <p className="text-sm font-medium text-cx-text">New SMART goal</p>
             <textarea
               className="cx-field w-full text-sm"
               rows={3}
@@ -451,15 +451,15 @@ export function IlpForm() {
 
       {/* ── Finalize ────────────────────────────────────────────────── */}
       <Card>
-        <h3 className="text-lg font-semibold text-cx-forest-dark">Finalize / submit for review</h3>
-        <p className="mt-2 text-sm text-cx-forest-dark/75">
+        <h3 className="text-lg font-semibold text-cx-text">Finalize / submit for review</h3>
+        <p className="mt-2 text-sm text-cx-text/75">
           When you are ready, submit your ILP for PD review. Your goals will be locked for editing
           and will appear in your program dashboard for approval. You may still add new goals after
           submission.
         </p>
 
         {finalizeMsg && (
-          <p className="mt-3 text-sm text-cx-forest-dark/80">{finalizeMsg}</p>
+          <p className="mt-3 text-sm text-cx-text/80">{finalizeMsg}</p>
         )}
 
         <Button
@@ -496,7 +496,7 @@ function GoalStatusBadge({ status, locked }: { status: string; locked: boolean }
     );
   }
   return (
-    <span className="shrink-0 rounded-full bg-cx-forest-dark/10 px-2 py-0.5 text-[11px] font-medium text-cx-forest-dark/60">
+    <span className="shrink-0 rounded-full bg-cx-forest-dark/10 px-2 py-0.5 text-[11px] font-medium text-cx-text/60">
       Draft
     </span>
   );

@@ -67,7 +67,7 @@ export function NavRail() {
           className="select-none font-bold tracking-widest"
           style={{ fontSize: "11px", letterSpacing: "0.12em" }}
         >
-          <span className="text-cx-forest-dark">F</span>
+          <span className="text-cx-text">F</span>
           <span className="text-fis-gold">M</span>
         </Link>
       </div>

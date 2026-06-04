@@ -152,7 +152,7 @@ export function IndustryCareerWizard({
   }
 
   if (loading || !data || !sectionMeta) {
-    return <p className="text-sm text-cx-forest-dark/70">Loading industry document…</p>;
+    return <p className="text-sm text-cx-text/70">Loading industry document…</p>;
   }
 
   const positioning = data.stage_positioning;
@@ -161,7 +161,7 @@ export function IndustryCareerWizard({
     <div className="flex min-h-0 flex-1 flex-col gap-4 lg:flex-row">
       <aside className="w-full shrink-0 space-y-3 lg:w-80">
         <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.03] p-3">
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Target industry
           </label>
           <select
@@ -176,9 +176,9 @@ export function IndustryCareerWizard({
               </option>
             ))}
           </select>
-          <p className="text-xs text-cx-forest-dark/60">{data.sector_roles}</p>
+          <p className="text-xs text-cx-text/60">{data.sector_roles}</p>
 
-          <label className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <label className="text-xs font-semibold uppercase text-cx-text/70">
             Career stage
           </label>
           <select
@@ -198,19 +198,19 @@ export function IndustryCareerWizard({
         <button
           type="button"
           onClick={() => setPositioningOpen((o) => !o)}
-          className="w-full text-left text-xs font-semibold uppercase text-cx-forest-dark/70"
+          className="w-full text-left text-xs font-semibold uppercase text-cx-text/70"
         >
           {positioningOpen ? "Hide" : "Show"} stage positioning
         </button>
         {positioningOpen && positioning && (
-          <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.02] p-3 text-xs text-cx-forest-dark/70">
-            <p className="font-medium text-cx-forest-dark">Strengths</p>
+          <div className="space-y-2 rounded-xl border border-cx-forest-dark/15 bg-cx-forest-dark/[0.02] p-3 text-xs text-cx-text/70">
+            <p className="font-medium text-cx-text">Strengths</p>
             <ul className="list-disc pl-4">
               {positioning.strengths.slice(0, 4).map((s) => (
                 <li key={s}>{s}</li>
               ))}
             </ul>
-            <p className="font-medium text-cx-forest-dark">Common roles</p>
+            <p className="font-medium text-cx-text">Common roles</p>
             <ul className="list-disc pl-4">
               {positioning.commonRoles.slice(0, 3).map((r) => (
                 <li key={r}>{r}</li>
@@ -218,7 +218,7 @@ export function IndustryCareerWizard({
             </ul>
             {!isResume && (
               <>
-                <p className="font-medium text-cx-forest-dark">Cover letter tips</p>
+                <p className="font-medium text-cx-text">Cover letter tips</p>
                 <ul className="list-disc pl-4">
                   {data.cover_letter_tips.map((t) => (
                     <li key={t}>{t}</li>
@@ -230,7 +230,7 @@ export function IndustryCareerWizard({
         )}
 
         <div className="flex items-center justify-between px-1">
-          <p className="text-xs font-semibold uppercase text-cx-forest-dark/70">
+          <p className="text-xs font-semibold uppercase text-cx-text/70">
             {data.sections.length} sections
           </p>
           <Badge energy={data.overall_completion >= 70 ? "energizing" : "neutral"}>
@@ -244,12 +244,12 @@ export function IndustryCareerWizard({
             onClick={() => setActive(s.section)}
             className={`w-full rounded-md border px-3 py-2 text-left text-sm ${
               active === s.section
-                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-forest-dark"
-                : "border-cx-forest-dark/15 text-cx-forest-dark hover:bg-cx-forest-dark/[0.04]"
+                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-text"
+                : "border-cx-forest-dark/15 text-cx-text hover:bg-cx-forest-dark/[0.04]"
             }`}
           >
             <p>{s.title}</p>
-            <p className="text-xs text-cx-forest-dark/70">
+            <p className="text-xs text-cx-text/70">
               {s.completion_percentage}% · ~{s.target_words} words
             </p>
           </button>
@@ -273,19 +273,19 @@ export function IndustryCareerWizard({
         <button
           type="button"
           onClick={() => setTipsOpen((o) => !o)}
-          className="text-left text-xs font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
+          className="text-left text-xs font-medium text-cx-text/70 hover:text-cx-text"
         >
           {tipsOpen ? "Hide" : "Show"} transition tips
         </button>
         {tipsOpen && (
-          <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+          <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
             {INDUSTRY_TRANSITION_TIPS.map((t) => (
               <li key={t}>{t}</li>
             ))}
           </ul>
         )}
 
-        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-forest-dark/70">
+        <ul className="list-disc space-y-1 pl-5 text-sm text-cx-text/70">
           {sectionMeta.prompts.map((p) => (
             <li key={p}>{p}</li>
           ))}
@@ -296,11 +296,11 @@ export function IndustryCareerWizard({
           onChange={(e) => setDraft(e.target.value)}
           rows={12}
           placeholder={sectionMeta.subtitle}
-          className="min-h-[240px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-forest-dark"
+          className="min-h-[240px] w-full flex-1 rounded-md border border-cx-forest-dark/15 bg-white p-4 text-base leading-relaxed text-cx-text"
         />
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <p className="text-sm text-cx-forest-dark/70">
+          <p className="text-sm text-cx-text/70">
             {wordCount} / {targetWords} words
             {isResume && " · target 1–2 pages total"}
           </p>
