@@ -6,8 +6,8 @@ import type { EngagementNotification } from "@/lib/v2/engagement-tracking";
 import { cn } from "@/lib/utils";
 
 function severityClass(severity: EngagementNotification["severity"]): string {
-  if (severity === "urgent") return "border-red-400/40 bg-red-500/10";
-  if (severity === "attention") return "border-amber-400/40 bg-amber-500/10";
+  if (severity === "urgent") return "border-[#C28D6C]/30 bg-[#C28D6C]/10";
+  if (severity === "attention") return "border-[#C28D6C]/30 bg-[#E7DEC9]/500/10";
   return "border-white/15 bg-white/5";
 }
 
@@ -32,7 +32,7 @@ export function DashboardAlerts({ items }: { items: EngagementNotification[] }) 
               <p className="text-sm font-semibold text-white">{item.title}</p>
               <p className="mt-0.5 line-clamp-2 text-xs text-white/70">{item.message}</p>
             </div>
-            <span className="inline-flex shrink-0 items-center gap-0.5 pt-1 text-[10px] font-medium text-[#5FD65F]">
+            <span className="inline-flex shrink-0 items-center gap-0.5 pt-1 text-[10px] font-medium text-[#3C8A60]">
               {item.actionLabel ?? "Open"}
               <ChevronRight size={12} aria-hidden />
             </span>

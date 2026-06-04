@@ -13,7 +13,7 @@ export function DashboardDueNow({
   onContinue: () => void;
 }) {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#5FD65F]/35 bg-[#5FD65F]/10 px-4 py-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#AC8636]/35 bg-[#AC8636]/10 px-4 py-3">
       <div className="min-w-0">
         <p className="text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">
           Due now · {item.label}

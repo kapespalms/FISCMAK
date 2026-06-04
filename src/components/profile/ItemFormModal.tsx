@@ -257,7 +257,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
           {/* Display label */}
           <div>
             <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
-              Display label <span className="text-red-500">*</span>
+              Display label <span className="text-[#C28D6C]">*</span>
             </label>
             <input
               ref={firstInputRef}
@@ -274,7 +274,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
           {currentFields.map((f) => (
             <div key={f.key}>
               <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
-                {f.label} {f.required && <span className="text-red-500">*</span>}
+                {f.label} {f.required && <span className="text-[#C28D6C]">*</span>}
               </label>
               {f.multiline ? (
                 <textarea
@@ -299,7 +299,7 @@ export function ItemFormModal({ section, item, initialType, onSave, onClose }: I
           ))}
 
           {error && (
-            <p className="text-xs text-red-600">{error}</p>
+            <p className="text-xs text-[#C28D6C]">{error}</p>
           )}
 
           {/* Actions */}

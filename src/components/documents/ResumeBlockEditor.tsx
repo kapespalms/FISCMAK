@@ -82,8 +82,8 @@ export function ResumeBlockEditor({
   return (
     <div className="space-y-4">
       {content.incomplete_fields.length > 0 && (
-        <div className="rounded-xl border border-amber-200/80 bg-amber-50/80 px-4 py-3">
-          <p className="text-sm font-semibold text-amber-900">
+        <div className="rounded-xl border border-[#C28D6C]/20 bg-[#E7DEC9]/40 px-4 py-3">
+          <p className="text-sm font-semibold text-[#20201D]">
             {content.incomplete_fields.length} item
             {content.incomplete_fields.length === 1 ? "" : "s"} need attention
           </p>
@@ -92,7 +92,7 @@ export function ResumeBlockEditor({
               <li key={`${f.block_id}-${f.field}`}>
                 <button
                   type="button"
-                  className="text-left text-sm text-amber-900 underline-offset-2 hover:underline"
+                  className="text-left text-sm text-[#20201D] underline-offset-2 hover:underline"
                   onClick={() => onHighlightBlock(f.block_id)}
                 >
                   {f.field} on block {f.block_id.slice(0, 8)}…
@@ -110,7 +110,7 @@ export function ResumeBlockEditor({
           id={`block-${block.id}`}
           className={cn(
             "rounded-xl border border-cx-forest-dark/12 bg-white/60 p-4 backdrop-blur-sm",
-            highlightBlockId === block.id && "ring-2 ring-amber-400/70",
+            highlightBlockId === block.id && "ring-2 ring-[#6E93B8]/60",
           )}
         >
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
@@ -139,7 +139,7 @@ export function ResumeBlockEditor({
               {block.type !== "header" && (
                 <button
                   type="button"
-                  className="rounded p-1 text-red-700/70 hover:bg-red-50"
+                  className="rounded p-1 text-[#C28D6C]/70 hover:bg-[#C28D6C]/10"
                   onClick={() => removeBlock(block.id)}
                   aria-label="Remove block"
                 >

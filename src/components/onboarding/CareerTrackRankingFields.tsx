@@ -141,7 +141,7 @@ function TrackRow({
       <span
         className={cn(
           "font-futura-bold w-8 shrink-0 text-center text-base tabular-nums",
-          luxury ? "text-[#A3E635]" : "text-cx-forest-dark",
+          luxury ? "text-fis-gold" : "text-cx-forest-dark",
         )}
       >
         {row.rank}

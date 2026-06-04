@@ -118,7 +118,7 @@ export function TagTypeaheadInput({
             className={cn(
               "inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-futura-medium tracking-wide",
               luxury
-                ? "rounded-lg border border-[#A3E635]/30 bg-[#14532D]/40 text-[#A3E635]"
+                ? "rounded-lg border border-[#A3E635]/30 bg-[#14532D]/40 text-fis-gold"
                 : "rounded-full border border-cx-forest-dark bg-cx-forest-dark/10 text-sm text-black",
             )}
           >
@@ -133,7 +133,7 @@ export function TagTypeaheadInput({
                 className={cn(
                   "rounded-full p-0.5 transition-colors",
                   luxury
-                    ? "text-[#A3E635] hover:text-white"
+                    ? "text-fis-gold hover:text-white"
                     : "text-cx-forest-dark/70 hover:bg-cx-forest-dark/10 hover:text-cx-forest-dark",
                 )}
                 aria-label={`Remove ${tag}`}

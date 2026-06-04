@@ -181,7 +181,7 @@ export function MilestoneSelfRatingPanel() {
         </Button>
       </div>
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
       {message && <p className="mt-3 text-sm text-cx-forest-dark/80">{message}</p>}
 
       <div className="mt-5 overflow-x-auto">

@@ -68,7 +68,7 @@ function KpAdminEvaluationPanel() {
         populate the career lattice — for KP admin review only.
       </p>
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
       {!data && !error && <p className="mt-3 text-sm text-cx-forest-dark/70">Loading…</p>}
 
       {evaluation && (
@@ -242,7 +242,7 @@ function KpAdminInternalCoachingPanel() {
         tracking). KP Admin mirrors what Mak receives server-side.
       </p>
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
       {!data && !error && (
         <p className="mt-3 text-sm text-cx-forest-dark/70">Loading…</p>
       )}
@@ -366,8 +366,8 @@ export function KpAdminDashboard() {
 
       {RETIRED_SURFACES.map((surface) => (
         <section key={surface.id} className="space-y-3">
-          <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-4 py-3">
-            <p className="text-xs font-semibold uppercase tracking-wide text-amber-800">
+          <div className="rounded-xl border border-[#C28D6C]/30 bg-[#E7DEC9]/500/5 px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#20201D]">
               Retired · {surface.retiredAt}
             </p>
             <h3 className="mt-1 font-semibold text-cx-forest-dark">{surface.title}</h3>

@@ -89,7 +89,7 @@ export function CoachingCadencePanel() {
   return (
     <div className="mt-4 space-y-3">
       {hasRotation && data.rotation_touchpoint && (
-        <div className="rounded-xl border border-[#5FD65F]/30 bg-[#5FD65F]/8 p-4">
+        <div className="rounded-xl border border-[#3C8A60]/30 bg-[#3C8A60]/8 p-4">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wide text-cx-forest-dark/70">

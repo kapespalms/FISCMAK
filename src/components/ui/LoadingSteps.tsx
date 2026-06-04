@@ -28,7 +28,7 @@ export function LoadingSteps({ steps, className }: { steps: Step[]; className?: 
             <span
               className={cn(
                 "inline-block h-4 w-4 shrink-0 rounded-full border-2",
-                step.status === "active" ? "border-[#5FD65F] animate-pulse" : "border-cx-forest-dark/20",
+                step.status === "active" ? "border-[#AC8636] animate-pulse" : "border-cx-forest-dark/20",
               )}
               aria-hidden
             />

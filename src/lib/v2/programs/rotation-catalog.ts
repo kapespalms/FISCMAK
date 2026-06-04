@@ -121,7 +121,7 @@ export function rotationTone(code: string): string {
   if (INPATIENT_CODES.has(code)) return "bg-violet-100 text-violet-900 border-violet-200";
   if (OUTPATIENT_CODES.has(code)) return "bg-sky-100 text-sky-900 border-sky-200";
   if (code === "cl" || code === "mpu_cl" || code === "child_cl") {
-    return "bg-amber-100 text-amber-900 border-amber-200";
+    return "bg-[#E7DEC9]/60 text-[#20201D] border-[#C28D6C]/20";
   }
   if (code === "elective" || code === "qi") return "bg-emerald-100 text-emerald-900 border-emerald-200";
   if (code === "vacation" || code === "extra_duty" || code === "call" || code === "nf") {

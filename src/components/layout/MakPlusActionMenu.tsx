@@ -184,7 +184,7 @@ export function MakPlusActionMenu({
                       item.onClick();
                     }}
                   >
-                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#0A0C10] text-[#A3E635]">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#0A0C10] text-fis-gold">
                       <Icon size={16} aria-hidden />
                     </span>
                     <span className="min-w-0">

@@ -98,7 +98,7 @@ export function FcwiForm({ frequencyTier = "monthly", onSaved }: Props) {
         );
       })}
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-[#C28D6C]">{error}</p>}
 
       <button
         type="button"

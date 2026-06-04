@@ -118,7 +118,7 @@ export function ActivitiesView() {
   return (
     <div className="space-y-6">
       {error && (
-        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+        <p className="rounded-xl border border-[#C28D6C]/20 bg-[#C28D6C]/8 px-4 py-3 text-sm text-[#C28D6C]">
           {error}
         </p>
       )}
@@ -167,7 +167,7 @@ export function ActivitiesView() {
         </form>
 
         {lastClassification && (
-          <div className="mt-4 rounded-xl border border-l-4 border-cx-forest-dark/15 border-l-[#5FD65F] bg-cx-forest-dark/[0.03] p-4">
+          <div className="mt-4 rounded-xl border border-l-4 border-cx-forest-dark/15 border-l-[#AC8636] bg-cx-forest-dark/[0.03] p-4">
             <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">Classification</p>
             <p className="mt-1 font-semibold text-cx-forest-dark">
               {lastClassification.primary_domain} × {lastClassification.primary_track}
@@ -196,7 +196,7 @@ export function ActivitiesView() {
             key={a.id}
             className={`cx-surface-elevated rounded-xl p-4 ${
               energyAccent(a.energy_valence) === "red"
-                ? "border-l-4 border-l-red-500"
+                ? "border-l-4 border-l-[#C28D6C]"
                 : energyAccent(a.energy_valence) === "green"
                   ? "border-l-4 border-l-cx-success"
                   : energyAccent(a.energy_valence) === "amber"

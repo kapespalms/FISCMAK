@@ -207,7 +207,7 @@ export function OnboardingWelcome({
           {tokenPreviewLabel ? (
             <p className="mt-2 text-sm text-zinc-600">{tokenPreviewLabel}</p>
           ) : null}
-          {tokenError ? <p className="mt-2 text-sm text-red-700">{tokenError}</p> : null}
+          {tokenError ? <p className="mt-2 text-sm text-[#C28D6C]">{tokenError}</p> : null}
         </div>
       ) : null}
 

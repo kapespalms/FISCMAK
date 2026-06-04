@@ -28,7 +28,7 @@ export function KpAdminFeedbackPanel() {
         Platform-wide thumbs up/down on Mak messages (last 500 ratings).
       </p>
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
       {!analytics && !error && (
         <p className="mt-3 text-sm text-cx-forest-dark/70">Loading…</p>
       )}

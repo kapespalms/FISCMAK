@@ -8,9 +8,9 @@ import type { TouchpointBarState } from "@/lib/v2/dashboard-redesign";
 const SEGMENT_LABELS = ["1", "2", "3", "4", "5", "6", "7"];
 
 function segmentClass(state: TouchpointBarState): string {
-  if (state === "done") return "bg-[#5FD65F]";
+  if (state === "done") return "bg-[#AC8636]";
   if (state === "active") {
-    return "bg-white ring-1 ring-[#5FD65F]/60 ring-offset-1 ring-offset-cx-forest-dark/80";
+    return "bg-white ring-1 ring-[#AC8636]/60 ring-offset-1 ring-offset-cx-forest-dark/80";
   }
   return "bg-white/20";
 }
@@ -42,7 +42,7 @@ export function TouchpointProgressStrip({
           {hasActive && (
             <>
               <span className="text-white/40">·</span>
-              <span className="text-[#5FD65F]">Check-in due</span>
+              <span className="text-[#AC8636]">Check-in due</span>
             </>
           )}
           <ChevronRight size={12} className="text-white/50" />

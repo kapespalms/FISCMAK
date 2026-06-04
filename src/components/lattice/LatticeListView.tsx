@@ -11,7 +11,7 @@ import type { LatticeListItem } from "@/app/api/v1/lattice/list/route";
 
 const QUADRANT_CHIPS: Record<string, { label: string; cls: string }> = {
   OV: { label: "OV", cls: "bg-emerald-50 text-emerald-700" },
-  OI: { label: "OI", cls: "bg-amber-50  text-amber-700"  },
+  OI: { label: "OI", cls: "bg-[#E7DEC9]/50  text-[#C28D6C]"  },
   SV: { label: "SV", cls: "bg-sky-50    text-sky-700"    },
   SI: { label: "SI", cls: "bg-violet-50 text-violet-700" },
 };
@@ -146,7 +146,7 @@ export function LatticeListView() {
                       </span>
                     ))}
                     {!item.physician_confirmed && (
-                      <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] text-amber-700">
+                      <span className="rounded-full bg-[#E7DEC9]/50 px-2 py-0.5 text-[10px] text-[#C28D6C]">
                         unconfirmed
                       </span>
                     )}

@@ -161,7 +161,7 @@ export function AssessmentInsightsWorkspace() {
                 <span
                   className={`mt-1 h-2 w-2 shrink-0 rounded-full ${
                     s.status === "strength"
-                      ? "bg-[#5FD65F]"
+                      ? "bg-[#AC8636]"
                       : s.status === "risk"
                         ? "bg-cx-attention"
                         : "bg-cx-forest-dark/40"

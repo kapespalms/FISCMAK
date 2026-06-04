@@ -41,7 +41,7 @@ function AcceptanceCheckbox({
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="mt-1 h-5 w-5 shrink-0 rounded border-gray-600 bg-transparent text-[#A3E635] accent-[#A3E635] focus:ring-0 focus:ring-offset-0"
+        className="mt-1 h-5 w-5 shrink-0 rounded border-gray-600 bg-transparent text-fis-gold accent-[#A3E635] focus:ring-0 focus:ring-offset-0"
       />
       <p className="text-base leading-relaxed text-gray-300 transition-colors group-hover:text-white">
         {children}
@@ -115,7 +115,7 @@ export function OnboardingTermsAcceptanceCard({
       </p>
 
       {error ? (
-        <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+        <p className="rounded-lg border border-[#C28D6C]/30 bg-[#C28D6C]/10 px-4 py-3 text-sm text-[#C28D6C]">
           {error}
         </p>
       ) : null}

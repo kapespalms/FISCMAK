@@ -140,7 +140,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
           onNotQuite={resetConfirm}
         />
         {error && (
-          <p className="mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+          <p className="mt-3 rounded-xl border border-[#C28D6C]/20 bg-[#C28D6C]/8 px-4 py-2 text-sm text-[#C28D6C]">
             {error}
           </p>
         )}
@@ -249,7 +249,7 @@ export function QuarterlyPulsePanel({ status, onComplete, onBeginWithMak }: Prop
             </Button>
           </div>
           {error && (
-            <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-800">
+            <p className="rounded-xl border border-[#C28D6C]/20 bg-[#C28D6C]/8 px-4 py-2 text-sm text-[#C28D6C]">
               {error}
             </p>
           )}

@@ -379,7 +379,7 @@ export default function ProfilePage() {
                       <button
                         type="button"
                         onClick={() => void handleDelete(item)}
-                        className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-red-50 hover:text-red-500"
+                        className="rounded-lg p-1.5 text-neutral-400 transition-colors hover:bg-[#C28D6C]/10 hover:text-[#C28D6C]"
                         title="Delete"
                       >
                         <Trash2 size={13} />

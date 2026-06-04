@@ -30,7 +30,7 @@ function confidencePill(item: ReconciliationItem): { label: string; className: s
   if (item.confidence === "manual_review" && item.status === "pending") {
     return {
       label: "Manual review needed",
-      className: "bg-amber-100 text-amber-900",
+      className: "bg-[#E7DEC9]/60 text-[#20201D]",
     };
   }
   return null;

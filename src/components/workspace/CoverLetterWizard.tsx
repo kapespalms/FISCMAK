@@ -295,7 +295,7 @@ export function CoverLetterWizard({ onFullDraft }: CoverLetterWizardProps) {
             onClick={() => setActive(s.section)}
             className={`w-full rounded-md border px-3 py-2 text-left text-sm ${
               active === s.section
-                ? "border-[#5FD65F] bg-[#5FD65F]/10 font-semibold text-cx-forest-dark"
+                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-forest-dark"
                 : "border-cx-forest-dark/15 text-cx-forest-dark hover:bg-cx-forest-dark/[0.04]"
             }`}
           >

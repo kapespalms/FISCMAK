@@ -84,7 +84,7 @@ export function InstitutionalStaffDirectory() {
 
   return (
     <div id="staff-directory" className="scroll-mt-24 space-y-4">
-      <div className="rounded-2xl border border-[#5FD65F]/35 bg-[#5FD65F]/10 px-4 py-3">
+      <div className="rounded-2xl border border-[#6E93B8]/35 bg-[#6E93B8]/10 px-4 py-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/70">
           Institutional on-boarding
         </p>

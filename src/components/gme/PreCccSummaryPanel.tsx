@@ -101,7 +101,7 @@ export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
         </Button>
       )}
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
 
       {summary && (
         <div className="mt-4 space-y-4 text-sm text-cx-forest-dark/85">
@@ -122,7 +122,7 @@ export function PreCccSummaryPanel(props: PreCccSummaryPanelProps) {
                   className={`rounded-full px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
                     summary.narrative_synthesis.ai_generated
                       ? "bg-cx-forest-dark/10 text-cx-forest-dark"
-                      : "bg-amber-100 text-amber-900"
+                      : "bg-[#E7DEC9]/60 text-[#20201D]"
                   }`}
                 >
                   {summary.narrative_synthesis.ai_generated ? "AI-enhanced" : "Rule-based"}

@@ -24,7 +24,7 @@ export function HubSearch({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-xl border border-cx-forest-dark/15 bg-white px-4 py-2.5 text-sm text-cx-forest-dark placeholder:text-cx-forest-dark/40 focus:border-cx-forest-dark/30 focus:outline-none focus:ring-2 focus:ring-[#5FD65F]/30"
+        className="w-full rounded-xl border border-cx-forest-dark/15 bg-white px-4 py-2.5 text-sm text-cx-forest-dark placeholder:text-cx-forest-dark/40 focus:border-cx-forest-dark/30 focus:outline-none focus:ring-2 focus:ring-[#AC8636]/30"
       />
     </div>
   );

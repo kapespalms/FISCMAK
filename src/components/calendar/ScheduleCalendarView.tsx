@@ -104,7 +104,7 @@ function MonthMiniGrid({
               onClick={() => onSelectDay?.(cell.iso)}
               className={`${cellClass} relative rounded-sm border font-futura-book leading-none transition-opacity ${
                 onSelectDay ? "cursor-pointer hover:opacity-90" : "cursor-default"
-              } ${selected ? "ring-2 ring-cx-forest-dark ring-offset-1" : isToday ? "ring-2 ring-[#5FD65F] ring-offset-1" : "border-transparent"}`}
+              } ${selected ? "ring-2 ring-cx-forest-dark ring-offset-1" : isToday ? "ring-2 ring-[#AC8636] ring-offset-1" : "border-transparent"}`}
               style={{ backgroundColor: bg, color: fg }}
             >
               <span className="block text-[10px] font-semibold">{cell.day}</span>

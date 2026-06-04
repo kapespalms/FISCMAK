@@ -190,7 +190,7 @@ export function RotationLogPanel({
         </Button>
       </form>
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
       {message && <p className="mt-3 text-sm text-emerald-800">{message}</p>}
 
       <div className="mt-6 border-t border-cx-forest-dark/10 pt-4">

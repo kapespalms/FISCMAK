@@ -641,7 +641,7 @@ export function OnboardingDocumentsStep({
                 ),
           )}
         >
-          <Upload className={luxury ? "text-[#A3E635]" : "text-cx-forest-dark"} size={24} />
+          <Upload className={luxury ? "text-fis-gold" : "text-cx-forest-dark"} size={24} />
           <p className={cn("mt-2 font-semibold", luxury && "font-futura-bold text-white")}>
             Drop files here or click to upload
           </p>
@@ -717,7 +717,7 @@ export function OnboardingDocumentsStep({
           className={cn(
             "mt-3 px-4 py-3 text-sm",
             luxury
-              ? "rounded-xl border border-red-500/30 bg-red-500/10 text-red-200"
+              ? "rounded-xl border border-[#C28D6C]/30 bg-[#C28D6C]/10 text-[#C28D6C]"
               : "cx-alert-banner",
           )}
         >

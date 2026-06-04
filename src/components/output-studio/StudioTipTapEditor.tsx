@@ -16,7 +16,7 @@ const STATUS_LABELS: Record<string, string> = {
 
 const STATUS_COLORS: Record<string, string> = {
   draft: "bg-cx-forest-dark/10 text-cx-forest-dark/70",
-  review_ready: "bg-[#5FD65F]/20 text-cx-forest-dark",
+  review_ready: "bg-[#6E93B8]/20 text-cx-forest-dark",
   exported: "bg-cx-forest-dark/20 text-cx-forest-dark",
   archived: "bg-cx-forest-dark/5 text-cx-forest-dark/40",
 };

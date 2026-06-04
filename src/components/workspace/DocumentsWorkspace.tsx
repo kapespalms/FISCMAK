@@ -264,7 +264,7 @@ export function DocumentsWorkspace() {
       <AcademicSoapSectionGate intent="review" />
 
       {error && (
-        <p className="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+        <p className="mb-4 rounded-xl border border-[#C28D6C]/20 bg-[#C28D6C]/8 px-4 py-3 text-sm text-[#C28D6C]">
           {error}
         </p>
       )}

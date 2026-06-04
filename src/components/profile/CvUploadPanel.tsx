@@ -89,7 +89,7 @@ export function CvUploadPanel({ onComplete }: CvUploadPanelProps) {
       )}
 
       {status === "error" && (
-        <div className="flex items-center gap-1.5 text-xs text-red-600">
+        <div className="flex items-center gap-1.5 text-xs text-[#C28D6C]">
           <AlertCircle size={13} />
           {errorMsg}
         </div>

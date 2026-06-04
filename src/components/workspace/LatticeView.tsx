@@ -164,7 +164,7 @@ export function LatticeView() {
       {loading ? (
         <p className="text-sm text-cx-forest-dark/70">Loading lattice…</p>
       ) : error ? (
-        <p className="text-sm text-red-700">{error}</p>
+        <p className="text-sm text-[#C28D6C]">{error}</p>
       ) : activeModel ? (
         <>
           <LatticeLegend kind={activeModel.kind} />

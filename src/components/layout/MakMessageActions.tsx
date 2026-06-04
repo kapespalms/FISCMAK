@@ -60,7 +60,7 @@ export function MakMessageActions({ content, section }: MakMessageActionsProps) 
         className={cn(
           "cx-mak-panel-icon-btn flex h-7 w-7 items-center justify-center rounded-md transition-colors",
           feedback === "up"
-            ? "text-[#A3E635]"
+            ? "text-fis-gold"
             : "text-gray-500 hover:text-gray-300",
         )}
         aria-label="Helpful"
@@ -75,7 +75,7 @@ export function MakMessageActions({ content, section }: MakMessageActionsProps) 
         className={cn(
           "cx-mak-panel-icon-btn flex h-7 w-7 items-center justify-center rounded-md transition-colors",
           feedback === "down"
-            ? "text-[#A3E635]"
+            ? "text-fis-gold"
             : "text-gray-500 hover:text-gray-300",
         )}
         aria-label="Not helpful"

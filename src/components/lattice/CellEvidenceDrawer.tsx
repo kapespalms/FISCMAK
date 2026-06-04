@@ -9,7 +9,7 @@ import type { CellEvidenceItem } from "@/app/api/v1/lattice/cells/[skill]/[domai
 
 const QUADRANT_LABELS: Record<string, { label: string; color: string }> = {
   OV: { label: "Objective · Visible",   color: "text-emerald-700 bg-emerald-50" },
-  OI: { label: "Objective · Invisible", color: "text-amber-700  bg-amber-50"   },
+  OI: { label: "Objective · Invisible", color: "text-[#C28D6C]  bg-[#E7DEC9]/50"   },
   SV: { label: "Stated · Visible",      color: "text-sky-700    bg-sky-50"     },
   SI: { label: "Stated · Invisible",    color: "text-violet-700 bg-violet-50"  },
 };
@@ -105,7 +105,7 @@ export function CellEvidenceDrawer({ cell, onClose }: Props) {
               Loading evidence…
             </div>
           )}
-          {error && <p className="text-xs text-red-600">{error}</p>}
+          {error && <p className="text-xs text-[#C28D6C]">{error}</p>}
 
           {!loading && !error && items.length === 0 && (
             <p className="text-sm text-cx-forest-dark/50">

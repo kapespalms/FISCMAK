@@ -20,13 +20,13 @@ function toWeatherReading({ pulseDue, fcwiDue, pulseMdt }: WellbeingData): {
   color: string;
 } {
   if (pulseDue && fcwiDue) {
-    return { icon: "⏰", text: "Check-in due", sub: "Weekly pulse + FCWI both overdue", color: "text-amber-700" };
+    return { icon: "⏰", text: "Check-in due", sub: "Weekly pulse + FCWI both overdue", color: "text-[#C28D6C]" };
   }
   if (pulseDue) {
-    return { icon: "⏰", text: "Pulse due", sub: "Weekly check-in is ready", color: "text-amber-600" };
+    return { icon: "⏰", text: "Pulse due", sub: "Weekly check-in is ready", color: "text-[#C28D6C]" };
   }
   if (fcwiDue) {
-    return { icon: "📋", text: "FCWI due", sub: "Monthly fulfillment check-in", color: "text-amber-600" };
+    return { icon: "📋", text: "FCWI due", sub: "Monthly fulfillment check-in", color: "text-[#C28D6C]" };
   }
   if (pulseMdt !== null && pulseMdt >= 4) {
     return { icon: "🌧", text: "Distress noted", sub: "Resources are available — you don't have to carry it alone", color: "text-sky-700" };

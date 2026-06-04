@@ -202,7 +202,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
           {[clinicalPct, teachingPct, researchPct, adminPct].some(Boolean) && (
             <p className="text-xs text-cx-forest-dark/50">
               Total:{" "}
-              <span className={Math.abs(ftePctTotal - 100) > 1 ? "text-amber-500" : "text-cx-forest-dark"}>
+              <span className={Math.abs(ftePctTotal - 100) > 1 ? "text-[#C28D6C]" : "text-cx-forest-dark"}>
                 {ftePctTotal}%
               </span>
               {" "}(should equal 100%)
@@ -299,7 +299,7 @@ export function QuarterlySnapshotForm({ onSaved }: Props) {
       )}
 
       {/* Navigation */}
-      {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-4 text-sm text-[#C28D6C]">{error}</p>}
 
       <div className="mt-6 flex gap-3">
         {step > 0 && (

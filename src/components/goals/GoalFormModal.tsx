@@ -157,7 +157,7 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
             <div key={f.key}>
               <label className="mb-1.5 block text-xs font-medium text-cx-forest-dark/70">
                 {f.label}
-                {f.required && <span className="ml-0.5 text-red-500">*</span>}
+                {f.required && <span className="ml-0.5 text-[#C28D6C]">*</span>}
               </label>
               {f.hint && (
                 <p className="mb-1.5 text-[10px] text-cx-forest-dark/45">{f.hint}</p>
@@ -184,7 +184,7 @@ export function GoalFormModal({ horizon, existing, onSave, onClose }: GoalFormMo
             </div>
           ))}
 
-          {error && <p className="text-xs text-red-600">{error}</p>}
+          {error && <p className="text-xs text-[#C28D6C]">{error}</p>}
 
           <div className="flex justify-end gap-2 pt-2">
             <button

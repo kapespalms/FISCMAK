@@ -152,7 +152,7 @@ export function AdditionalDegreesFields({
         <button
           type="button"
           onClick={addDegree}
-          className="rounded-xl border border-dashed border-white/15 px-4 py-3 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:border-[#A3E635]/40 hover:text-[#A3E635]"
+          className="rounded-xl border border-dashed border-white/15 px-4 py-3 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:border-[#A3E635]/40 hover:text-fis-gold"
         >
           Add degree
         </button>

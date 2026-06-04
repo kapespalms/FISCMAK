@@ -7,7 +7,7 @@ import type { RecentCapture } from "@/app/api/v1/dashboard/recent-captures/route
 
 const QUADRANT_DOT: Record<string, string> = {
   OV: "bg-emerald-400",
-  OI: "bg-amber-400",
+  OI: "bg-[#E7DEC9]",
   SV: "bg-sky-400",
   SI: "bg-violet-400",
 };

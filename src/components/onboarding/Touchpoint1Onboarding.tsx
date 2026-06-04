@@ -1480,7 +1480,7 @@ export function Touchpoint1Onboarding() {
                         return (
                           <p className="mt-2 text-xs text-gray-500">
                             Total:{" "}
-                            <span className={Math.abs(total - 100) > 1 ? "text-amber-400" : "text-[#A3E635]"}>
+                            <span className={Math.abs(total - 100) > 1 ? "text-[#C28D6C]" : "text-fis-gold"}>
                               {total}%
                             </span>
                             {" "}(should equal 100%)
@@ -1529,7 +1529,7 @@ export function Touchpoint1Onboarding() {
                                   className={cn(
                                     "h-8 w-8 rounded-lg border text-xs font-medium transition-all",
                                     energyRankings[domain.index] === n
-                                      ? "border-[#A3E635] bg-[#A3E635]/10 text-[#A3E635]"
+                                      ? "border-[#A3E635] bg-[#A3E635]/10 text-fis-gold"
                                       : "border-white/10 bg-[#0A0C10] text-gray-500 hover:border-white/20",
                                   )}
                                 >
@@ -1656,13 +1656,13 @@ export function Touchpoint1Onboarding() {
                       <div className="mt-3 flex flex-wrap gap-3 text-sm">
                         <Link
                           href="/app/contacts#staff-directory"
-                          className="font-medium text-[#A3E635] underline-offset-2 hover:underline"
+                          className="font-medium text-fis-gold underline-offset-2 hover:underline"
                         >
                           Program contacts
                         </Link>
                         <Link
                           href="/app/schedule?tab=blocks"
-                          className="font-medium text-[#A3E635] underline-offset-2 hover:underline"
+                          className="font-medium text-fis-gold underline-offset-2 hover:underline"
                         >
                           Block schedule
                         </Link>
@@ -1793,7 +1793,7 @@ export function Touchpoint1Onboarding() {
               </button>
             </div>
             {error && (
-              <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+              <p className="rounded-xl border border-[#C28D6C]/30 bg-[#C28D6C]/10 px-4 py-3 text-sm text-[#C28D6C]">
                 {error}
               </p>
             )}

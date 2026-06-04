@@ -12,9 +12,9 @@ import type { DashboardLatticeCell } from "@/lib/v2/dashboard-data";
 import { cn } from "@/lib/utils";
 
 function rowStatusClass(status?: ProfileRow["status"]): string {
-  if (status === "strong") return "text-[#5FD65F]";
-  if (status === "developing") return "text-amber-600";
-  if (status === "needs_attention") return "text-red-600";
+  if (status === "strong") return "text-[#AC8636]";
+  if (status === "developing") return "text-[#C28D6C]";
+  if (status === "needs_attention") return "text-[#C28D6C]";
   return "text-cx-forest-dark";
 }
 

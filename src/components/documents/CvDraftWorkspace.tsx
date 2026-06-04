@@ -169,7 +169,7 @@ export function CvDraftWorkspace({
               "text-xs font-medium",
               saveStatus === "saved" && "text-cx-forest-dark/50",
               saveStatus === "saving" && "text-cx-forest-dark/70",
-              saveStatus === "unsaved" && "text-amber-700",
+              saveStatus === "unsaved" && "text-[#C28D6C]",
             )}
           >
             {saveStatus === "saved" ? "Saved" : saveStatus === "saving" ? "Saving…" : "Unsaved changes"}
@@ -208,11 +208,11 @@ export function CvDraftWorkspace({
 
       {content.merge_flags && content.merge_flags.length > 0 && (
         <div
-          className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950"
+          className="rounded-xl border border-[#C28D6C]/20 bg-[#E7DEC9]/50 px-4 py-3 text-sm text-[#20201D]"
           role="status"
         >
           <p className="font-semibold">Review merged sources</p>
-          <ul className="mt-2 list-inside list-disc space-y-1 text-amber-900/90">
+          <ul className="mt-2 list-inside list-disc space-y-1 text-[#20201D]/90">
             {content.merge_flags.map((flag) => (
               <li key={flag}>{mergeFlagLabel(flag)}</li>
             ))}

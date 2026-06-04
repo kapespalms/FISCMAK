@@ -192,14 +192,14 @@ export function PromotionNarrativeWizard({
             onClick={() => setActive(s.section)}
             className={`w-full rounded-md border px-3 py-2 text-left text-sm ${
               active === s.section
-                ? "border-[#5FD65F] bg-[#5FD65F]/10 font-semibold text-cx-forest-dark"
+                ? "border-[#AC8636] bg-[#AC8636]/10 font-semibold text-cx-forest-dark"
                 : "border-cx-forest-dark/15 text-cx-forest-dark hover:bg-cx-forest-dark/[0.04]"
             }`}
           >
             <div className="flex items-start justify-between gap-2">
               <p>{s.title}</p>
               {s.emphasis === "primary" && (
-                <span className="shrink-0 text-[10px] font-semibold uppercase text-[#5FD65F]">
+                <span className="shrink-0 text-[10px] font-semibold uppercase text-[#AC8636]">
                   Primary
                 </span>
               )}

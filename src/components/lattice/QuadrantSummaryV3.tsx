@@ -19,7 +19,7 @@ const QUADRANT_META: Record<string, { label: string; axis: string; description: 
     label:       "Objective · Invisible",
     axis:        "OI",
     description: "Concrete work not captured in institutional records",
-    colorClass:  "bg-amber-400 text-amber-950",
+    colorClass:  "bg-[#E7DEC9] text-[#20201D]",
   },
   SV: {
     label:       "Subjective · Visible",

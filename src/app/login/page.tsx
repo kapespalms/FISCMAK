@@ -226,7 +226,7 @@ function LoginPageContent() {
           </h1>
           <p className="auth-muted font-futura-book mt-2 text-sm leading-relaxed">
             {!isSupabaseConfigured() && (
-              <span className="text-[#A3E635]">
+              <span className="text-fis-gold">
                 Demo mode: Supabase not configured — you&apos;ll enter the app without auth.{" "}
               </span>
             )}
@@ -295,7 +295,7 @@ function LoginPageContent() {
             ) : null}
 
             {error && (
-              <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm leading-relaxed text-red-200">
+              <p className="rounded-xl border border-[#C28D6C]/30 bg-[#C28D6C]/10 px-4 py-3 text-sm leading-relaxed text-[#C28D6C]">
                 {error}
               </p>
             )}
@@ -311,7 +311,7 @@ function LoginPageContent() {
             <p className="text-center">
               <Link
                 href="/forgot-password"
-                className="font-futura-medium text-sm text-gray-400 transition hover:text-[#A3E635]"
+                className="font-futura-medium text-sm text-gray-400 transition hover:text-fis-gold"
               >
                 Reset password
               </Link>
@@ -331,7 +331,7 @@ function LoginPageContent() {
           <p className="mt-6 text-center">
             <Link
               href="/"
-              className="font-futura-medium inline-flex items-center gap-1 text-sm text-gray-400 transition hover:text-[#A3E635]"
+              className="font-futura-medium inline-flex items-center gap-1 text-sm text-gray-400 transition hover:text-fis-gold"
             >
               <ChevronLeft size={16} />
               Back to home

@@ -41,7 +41,7 @@ export function DashboardRevealOverlay({ onComplete }: DashboardRevealOverlayPro
           <p className="text-xs font-medium uppercase tracking-wide text-cx-forest-dark/70">
             Band {index + 1} of 5
           </p>
-          <p className="mt-1 text-lg font-semibold text-[#5FD65F]">
+          <p className="mt-1 text-lg font-semibold text-[#AC8636]">
             {band.letter} — {band.title}
           </p>
           <p className="mt-2 text-sm text-cx-forest-dark/80">{band.detail}</p>

@@ -13,7 +13,7 @@ export function Badge({
 }) {
   const styles: Record<Energy, string> = {
     default: "bg-cx-forest-dark/10 text-cx-forest-dark",
-    energizing: "bg-[#5FD65F]/15 text-cx-success",
+    energizing: "bg-[#3C8A60]/15 text-cx-success",
     draining: "bg-fm-attention/10 text-fm-attention",
     neutral: "bg-fm-developing/15 text-fm-developing",
   };

@@ -205,7 +205,7 @@ export function WeeklyPulseForm({ onSaved }: Props) {
         </span>
       </label>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-[#C28D6C]">{error}</p>}
 
       <button
         type="button"

@@ -14,7 +14,7 @@ import { openDashboardMeceOption } from "@/lib/v2/dashboard-mak-menu";
 import { cn } from "@/lib/utils";
 
 const FOREST = "#243b31";
-const LIME = "#5FD65F";
+const LIME = "#AC8636";
 const TICK_COUNT = 72;
 /** 6 o'clock — fill ticks clockwise (increasing angle in SVG coordinates). */
 const GAUGE_START_ANGLE = Math.PI / 2;
@@ -29,8 +29,8 @@ function mixHex(from: string, to: string, t: number): string {
 }
 
 function TrendIcon({ trend }: { trend: DashboardHeaderModel["trend"] }) {
-  if (trend === "up") return <ArrowUp className="text-[#5FD65F]" size={14} />;
-  if (trend === "down") return <ArrowDown className="text-red-400" size={14} />;
+  if (trend === "up") return <ArrowUp className="text-[#3C8A60]" size={14} />;
+  if (trend === "down") return <ArrowDown className="text-[#C28D6C]" size={14} />;
   return <ArrowRight className="text-white/50" size={14} />;
 }
 
@@ -80,7 +80,7 @@ function CircularTickGauge({
     <button
       type="button"
       onClick={onDiscuss}
-      className="group flex w-full flex-col items-center rounded-xl cx-health-gauge bg-cx-forest-dark px-3 py-4 text-left transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5FD65F]"
+      className="group flex w-full flex-col items-center rounded-xl cx-health-gauge bg-cx-forest-dark px-3 py-4 text-left transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#AC8636]"
       aria-label={
         hasScore
           ? `Health score ${value} out of 100. Discuss with Mak.`
@@ -137,7 +137,7 @@ function CircularTickGauge({
         <p className="text-[10px] font-medium uppercase tracking-wider text-white/65">
           Health score
         </p>
-        <p className="mt-0.5 text-3xl font-bold leading-none text-[#5FD65F]">
+        <p className="mt-0.5 text-3xl font-bold leading-none text-[#AC8636]">
           {hasScore ? value : "—"}
         </p>
         {status && (

@@ -15,8 +15,8 @@ export function Card({
         glass
           ? "cx-glass-card border-cx-forest-dark/10"
           : "border-cx-forest-dark/10 bg-cx-white shadow-sm",
-        accent === "green" && "border-l-4 border-l-[#5FD65F]",
-        accent === "red" && "border-l-4 border-l-red-500",
+        accent === "green" && "border-l-4 border-l-[#3C8A60]",
+        accent === "red" && "border-l-4 border-l-[#C28D6C]",
         accent === "amber" && "border-l-4 border-l-cx-attention",
         className,
       )}

@@ -91,7 +91,7 @@ export function PremiumUpgradePanel() {
           Stripe is not configured yet. Add STRIPE_SECRET_KEY and price IDs to enable checkout.
         </p>
       )}
-      {error ? <p className="mt-3 text-sm text-red-700">{error}</p> : null}
+      {error ? <p className="mt-3 text-sm text-[#C28D6C]">{error}</p> : null}
     </CardSection>
   );
 }

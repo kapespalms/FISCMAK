@@ -436,7 +436,7 @@ export function OutputStudioWorkspace() {
               </>
             )}
             {exportMsg && (
-              <span className="text-sm text-[#5FD65F]">{exportMsg}</span>
+              <span className="text-sm text-[#AC8636]">{exportMsg}</span>
             )}
           </div>
         </div>

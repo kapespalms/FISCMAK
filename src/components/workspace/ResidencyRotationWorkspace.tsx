@@ -76,7 +76,7 @@ export function ResidencyRotationWorkspace({ page }: ResidencyRotationWorkspaceP
             <p className="mt-1 text-xs text-cx-forest-dark/50">Last updated {page.lastUpdated}</p>
           )}
           {!page.seeded && (
-            <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-900">
+            <p className="mt-2 rounded-lg bg-[#E7DEC9]/50 px-3 py-2 text-sm text-[#20201D]">
               Full guide migration in progress — Mak can still help with orientation and debrief
               questions.
             </p>

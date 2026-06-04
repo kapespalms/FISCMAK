@@ -62,7 +62,7 @@ export function DashboardWelcome({
 
   return (
     <header className="cx-dashboard-hero rounded-2xl bg-cx-forest-dark p-5 shadow-sm md:p-6">
-      <h1 className="text-[28px] font-bold leading-snug text-[#5FD65F] md:text-[32px]">
+      <h1 className="text-[28px] font-bold leading-snug text-[#AC8636] md:text-[32px]">
         {salutation}, {displayName}.
       </h1>
       {profileLine && (
@@ -73,7 +73,7 @@ export function DashboardWelcome({
         <div className="mt-4">
           <Link
             href="/app/uh-psych"
-            className="inline-flex w-full items-center justify-between rounded-xl border border-[#5FD65F]/35 bg-[#5FD65F]/10 px-4 py-3.5 transition hover:border-[#5FD65F]/55 hover:bg-[#5FD65F]/15 sm:w-auto sm:min-w-[280px]"
+            className="inline-flex w-full items-center justify-between rounded-xl border border-[#AC8636]/35 bg-[#AC8636]/10 px-4 py-3.5 transition hover:border-[#AC8636]/55 hover:bg-[#AC8636]/15 sm:w-auto sm:min-w-[280px]"
           >
             <span>
               <span className="block text-base font-semibold text-white">UH Psych Hub</span>
@@ -81,7 +81,7 @@ export function DashboardWelcome({
                 Rotations, schedule, readings, semi-annual prep
               </span>
             </span>
-            <span className="text-lg text-[#5FD65F]" aria-hidden>
+            <span className="text-lg text-[#AC8636]" aria-hidden>
               →
             </span>
           </Link>

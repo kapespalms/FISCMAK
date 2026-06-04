@@ -88,7 +88,7 @@ export function KpAdminProgramInvitesPanel() {
         </p>
       )}
 
-      {error && <p className="mt-3 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-3 text-sm text-[#C28D6C]">{error}</p>}
 
       {tokens.length > 0 && (
         <div className="mt-4 max-h-80 overflow-auto rounded-xl border border-cx-forest-dark/10">

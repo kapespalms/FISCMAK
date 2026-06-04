@@ -187,7 +187,7 @@ export function ElectiveCatalogSection() {
                     key={entry.id}
                     id={entry.id === highlightId ? "catalog-highlight" : undefined}
                     className={`border-b border-cx-forest-dark/5 align-top ${
-                      entry.id === highlightId ? "bg-[#5FD65F]/10" : ""
+                      entry.id === highlightId ? "bg-[#AC8636]/10" : ""
                     }`}
                   >
                     <td className="px-3 py-2.5">

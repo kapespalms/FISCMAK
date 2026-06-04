@@ -52,7 +52,7 @@ export function InstitutionalOnboardingWelcome({
             key={item.title}
             className="cx-surface-elevated flex gap-3 rounded-2xl px-4 py-3"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark text-sm font-bold text-[#5FD65F]">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark text-sm font-bold text-[#AC8636]">
               ✓
             </span>
             <div>

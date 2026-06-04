@@ -165,7 +165,7 @@ export function GoalHorizonCard({ horizon, goals, onAdd, onEdit, onDelete }: Pro
                   <button
                     type="button"
                     onClick={() => onDelete(goal.id)}
-                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-cx-forest-dark/50 transition-colors hover:bg-red-50 hover:text-red-600"
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs text-cx-forest-dark/50 transition-colors hover:bg-[#C28D6C]/10 hover:text-[#C28D6C]"
                   >
                     <Trash2 size={12} />
                     Delete

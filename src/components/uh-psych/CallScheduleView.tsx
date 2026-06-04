@@ -162,7 +162,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
               setInitialsFilter(myInitials);
               setView("mine");
             }}
-            className="rounded-full border border-[#5FD65F]/40 bg-[#5FD65F]/10 px-3 py-1.5 text-xs font-medium text-cx-forest-dark"
+            className="rounded-full border border-[#AC8636]/40 bg-[#AC8636]/10 px-3 py-1.5 text-xs font-medium text-cx-forest-dark"
           >
             Use my initials ({myInitials})
           </button>
@@ -207,7 +207,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                     }}
                     className={`min-w-[3.5rem] shrink-0 rounded-lg px-2 py-1.5 text-center text-xs ${
                       d === todayIso()
-                        ? "border border-[#5FD65F]/50 bg-[#5FD65F]/10 text-cx-forest-dark"
+                        ? "border border-[#AC8636]/50 bg-[#AC8636]/10 text-cx-forest-dark"
                         : "border border-cx-forest-dark/10 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
                     }`}
                   >
@@ -231,7 +231,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                       <th
                         key={date}
                         className={`min-w-[2.25rem] px-1 py-2 text-center font-semibold ${
-                          isToday ? "bg-[#5FD65F]/15 text-cx-forest-dark" : "text-cx-forest-dark/70"
+                          isToday ? "bg-[#AC8636]/15 text-cx-forest-dark" : "text-cx-forest-dark/70"
                         }`}
                       >
                         <span className="block text-[10px] uppercase">{weekdayLetter(date)}</span>
@@ -257,7 +257,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                         <td
                           key={`${row.role}-${date}`}
                           className={`px-1 py-2 text-center align-middle ${
-                            isToday ? "bg-[#5FD65F]/10" : ""
+                            isToday ? "bg-[#AC8636]/10" : ""
                           } ${isMine ? "font-semibold text-cx-forest-dark" : "text-cx-forest-dark/75"}`}
                           title={cell?.shift ? `${cell.assignee_abbr} · ${cell.shift}` : undefined}
                         >
@@ -294,7 +294,7 @@ export function CallScheduleView({ embedded = false }: { embedded?: boolean }) {
                     d === selectedDate
                       ? "bg-cx-forest-dark text-white"
                       : d === todayIso()
-                        ? "border border-[#5FD65F]/50 bg-[#5FD65F]/10 text-cx-forest-dark"
+                        ? "border border-[#AC8636]/50 bg-[#AC8636]/10 text-cx-forest-dark"
                         : "border border-cx-forest-dark/10 text-cx-forest-dark/80 hover:bg-cx-forest-dark/5"
                   }`}
                 >

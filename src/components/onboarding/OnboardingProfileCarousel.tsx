@@ -71,7 +71,7 @@ export function OnboardingProfileCarousel({
       <div key={current?.id}>{children}</div>
 
       {error ? (
-        <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-base text-red-200">
+        <p className="rounded-lg border border-[#C28D6C]/30 bg-[#C28D6C]/10 px-4 py-3 text-base text-[#C28D6C]">
           {error}
         </p>
       ) : null}

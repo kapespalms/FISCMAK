@@ -370,7 +370,7 @@ export function FiscMakLightBox({
               className={cn(
                 "truncate font-mono text-[8px] uppercase tracking-[0.16em] transition-all duration-300 sm:text-[9px]",
                 lightState === "on" && "text-marketing-accent drop-shadow-[0_0_5px_#a9ff5c]",
-                lightState === "warming" && "text-amber-400",
+                lightState === "warming" && "text-[#C28D6C]",
                 lightState === "off" && "text-zinc-700",
               )}
             >

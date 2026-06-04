@@ -73,7 +73,7 @@ export function CareerStrategyGoalCard({
       title={goal.goal_title}
       description={goal.goal_description ?? undefined}
       mak={makConfig}
-      action={<p className="text-sm font-semibold text-[#5FD65F]">{progress}%</p>}
+      action={<p className="text-sm font-semibold text-[#AC8636]">{progress}%</p>}
       footer={
         <>
           <button
@@ -87,7 +87,7 @@ export function CareerStrategyGoalCard({
             <button
               type="button"
               onClick={onDelete}
-              className="flex items-center gap-1 text-sm text-red-600 hover:text-red-700"
+              className="flex items-center gap-1 text-sm text-[#C28D6C] hover:text-[#C28D6C]"
             >
               <Trash2 size={14} /> Delete
             </button>

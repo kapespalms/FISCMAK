@@ -22,7 +22,7 @@ const cards = [
   {
     title: "SEAMLESSLY CONNECTING ACROSS INSTITUTIONS",
     body: "Consistent career development messaging across diverse residency programs and departments.",
-    className: "from-red-900 to-red-800 text-white",
+    className: "from-cx-forest-dark to-cx-forest-dark/85 text-white",
     bodyClass: "text-gray-300",
   },
 ];

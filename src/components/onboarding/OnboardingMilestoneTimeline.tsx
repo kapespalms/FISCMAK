@@ -63,7 +63,7 @@ export function OnboardingMilestoneTimeline({
       <div className="flex w-full items-center justify-between gap-4">
         <p className="font-futura-bold text-lg tracking-[0.18em] md:text-xl">
           <span className={dark ? "text-white" : "text-cx-forest-dark"}>FISC</span>
-          <span className="text-[#A3E635]">MAK</span>
+          <span className="text-fis-gold">MAK</span>
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export function OnboardingMilestoneTimeline({
                     isCompleted && "border-[#A3E635] bg-[#A3E635] text-[#0A0C10]",
                     isActive &&
                       !isCompleted &&
-                      "border-[#A3E635] bg-[#A3E635]/15 text-[#A3E635] shadow-[0_0_12px_rgba(163,230,53,0.35)]",
+                      "border-[#A3E635] bg-[#A3E635]/15 text-fis-gold shadow-[0_0_12px_rgba(163,230,53,0.35)]",
                     !isActive &&
                       !isCompleted &&
                       (dark

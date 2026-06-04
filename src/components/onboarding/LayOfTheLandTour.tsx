@@ -41,7 +41,7 @@ export function LayOfTheLandTour({ open, onClose }: LayOfTheLandTourProps) {
           {current.title}
         </h2>
         {current.highlight && (
-          <p className="mt-2 text-sm font-medium text-[#5FD65F]">{current.highlight}</p>
+          <p className="mt-2 text-sm font-medium text-[#AC8636]">{current.highlight}</p>
         )}
         <p className="mt-3 text-sm leading-relaxed text-cx-forest-dark/80">{current.body}</p>
 

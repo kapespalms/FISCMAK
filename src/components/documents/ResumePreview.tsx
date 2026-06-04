@@ -26,7 +26,7 @@ export function ResumePreview({ content, themeKey, highlightBlockId }: ResumePre
             key={block.id}
             className={cn(
               "rounded-md transition-colors",
-              highlighted && "bg-amber-50 ring-2 ring-amber-300/80",
+              highlighted && "bg-[#E7DEC9]/50 ring-2 ring-[#6E93B8]/50",
               spacious ? "mb-6" : "mb-4",
             )}
           >
@@ -62,7 +62,7 @@ export function ResumePreview({ content, themeKey, highlightBlockId }: ResumePre
                 <p
                   className={cn(
                     "text-sm",
-                    block.dates.incomplete ? "text-amber-700" : "text-cx-forest-dark/60",
+                    block.dates.incomplete ? "text-[#C28D6C]" : "text-cx-forest-dark/60",
                   )}
                 >
                   {block.dates.display || (block.dates.incomplete ? "Dates needed" : "")}
@@ -94,7 +94,7 @@ export function ResumePreview({ content, themeKey, highlightBlockId }: ResumePre
               <p
                 className={cn(
                   "text-sm",
-                  block.dates.incomplete ? "text-amber-700" : "text-cx-forest-dark/60",
+                  block.dates.incomplete ? "text-[#C28D6C]" : "text-cx-forest-dark/60",
                 )}
               >
                 {block.dates.display || (block.dates.incomplete ? "Dates needed" : "")}
