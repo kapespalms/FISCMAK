@@ -31,18 +31,17 @@ export function NavRail() {
   const pathname = usePathname();
   const { makOpen, toggleMak } = useAppShell();
   const [showProgram, setShowProgram] = useState(false);
+  const [showTraining, setShowTraining] = useState(false);
 
   useEffect(() => {
     fetch("/api/v1/programs/my-staff-context")
       .then((r) => r.json())
-      .then((data: { is_staff?: boolean }) => {
+      .then((data: { is_staff?: boolean; is_trainee?: boolean }) => {
         if (data.is_staff) setShowProgram(true);
+        if (data.is_trainee) setShowTraining(true);
       })
       .catch(() => undefined);
   }, []);
-
-  // Phase 1 will gate this on account.institution_tied
-  const showTraining = false;
 
   function isActive(href: string): boolean {
     if (href === "/app/dashboard") {

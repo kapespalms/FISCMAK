@@ -19,26 +19,57 @@ export async function GET() {
   if (isErrorResponse(auth)) return auth;
 
   if (!isSupabaseConfigured() || auth.demo) {
-    return jsonOk({ is_staff: true, program_id: FALLBACK_PROGRAM_ID, role: "program_director" });
+    return jsonOk({
+      is_staff: true,
+      is_trainee: true,
+      program_id: FALLBACK_PROGRAM_ID,
+      role: "program_director",
+    });
   }
 
   if (isKpAdminEmail(auth.email)) {
-    return jsonOk({ is_staff: true, program_id: FALLBACK_PROGRAM_ID, role: "program_director" });
+    return jsonOk({
+      is_staff: true,
+      is_trainee: false,
+      program_id: FALLBACK_PROGRAM_ID,
+      role: "program_director",
+    });
   }
 
   const supabase = await createClient();
-  const { data } = await supabase
-    .from("program_memberships")
-    .select("program_id, role")
-    .eq("user_id", auth.userId)
-    .eq("active", true)
-    .in("role", STAFF_ROLES)
-    .limit(1)
-    .maybeSingle();
+  const [{ data: staffData }, { data: traineeData }] = await Promise.all([
+    supabase
+      .from("program_memberships")
+      .select("program_id, role")
+      .eq("user_id", auth.userId)
+      .eq("active", true)
+      .in("role", STAFF_ROLES)
+      .limit(1)
+      .maybeSingle(),
+    supabase
+      .from("program_memberships")
+      .select("program_id")
+      .eq("user_id", auth.userId)
+      .eq("active", true)
+      .eq("role", "trainee")
+      .limit(1)
+      .maybeSingle(),
+  ]);
 
-  if (!data) {
-    return jsonOk({ is_staff: false, program_id: null, role: null });
+  let isTrainee = !!traineeData;
+  if (!isTrainee) {
+    const { data: userRow } = await supabase
+      .from("app_users")
+      .select("primary_program_id")
+      .eq("user_id", auth.userId)
+      .maybeSingle();
+    isTrainee = !!userRow?.primary_program_id;
   }
 
-  return jsonOk({ is_staff: true, program_id: data.program_id, role: data.role });
+  return jsonOk({
+    is_staff: !!staffData,
+    is_trainee: isTrainee,
+    program_id: staffData?.program_id ?? null,
+    role: staffData?.role ?? null,
+  });
 }
