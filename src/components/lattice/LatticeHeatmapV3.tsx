@@ -29,15 +29,15 @@ type CellWithScaffold = HeatmapCell & {
 };
 
 // ---------------------------------------------------------------------------
-// Density fill — CVD-safe sequential single-hue ramp (cream → deep navy)
-// Perceptually uniform; energy lives in the glyph, not the fill.
+// Density fill — locked steel ramp (#E6ECF0 → #34597A).
+// Muted, white-base; energy lives in the glyph, not the fill.
 // ---------------------------------------------------------------------------
 
 const DENSITY_RAMP: ReadonlyArray<{ t: number; r: number; g: number; b: number }> = [
-  { t: 0.00, r: 240, g: 245, b: 250 },
-  { t: 0.33, r: 176, g: 206, b: 234 },
-  { t: 0.67, r: 72,  g: 122, b: 180 },
-  { t: 1.00, r: 20,  g: 48,  b: 96  },
+  { t: 0.00, r: 230, g: 236, b: 240 }, // #E6ECF0
+  { t: 0.33, r: 194, g: 208, b: 221 }, // #C2D0DD
+  { t: 0.67, r: 110, g: 147, b: 184 }, // #6E93B8 — fis mid-blue
+  { t: 1.00, r: 52,  g: 89,  b: 122 }, // #34597A — fis deep steel
 ];
 
 function lerpN(a: number, b: number, t: number) {
@@ -69,17 +69,17 @@ function densityToStyle(dn: number): React.CSSProperties {
   return {
     backgroundColor: `rgb(${r},${g},${b})`,
     borderColor: `rgba(${r - 18},${g - 18},${b - 18},0.65)`,
-    color: dn >= 0.45 ? "white" : "rgb(24,45,78)",
+    color: dn >= 0.5 ? "white" : "#20201D",
   };
 }
 
 // ---------------------------------------------------------------------------
 // Energy glyph — muted corner dot, separate from fill
-// Top-left = energizing (green), top-right = draining (rose)
+// Top-left = energizing (fis-green = aliveness), top-right = draining (fis-clay)
 // ---------------------------------------------------------------------------
 
-const GLYPH_ENERGIZING = "rgb(74, 134, 74)";
-const GLYPH_DRAINING   = "rgb(172, 78, 78)";
+const GLYPH_ENERGIZING = "#3C8A60"; // --fis-green: reserved for aliveness/energizing
+const GLYPH_DRAINING   = "#C28D6C"; // --fis-clay:  reserved for draining
 
 function EnergyGlyph({ rank }: { rank: number | null }) {
   if (rank == null) return null;
@@ -142,9 +142,11 @@ function energyLabel(rank: number | null) {
 
 type Props = {
   prefetchedData?: HeatmapResult;
+  /** Called with the clicked HeatmapCell; parent opens the evidence drawer. */
+  onCellClick?: (cell: CellWithScaffold) => void;
 };
 
-export function LatticeHeatmapV3({ prefetchedData }: Props) {
+export function LatticeHeatmapV3({ prefetchedData, onCellClick }: Props) {
   const [data, setData] = useState<HeatmapResult | null>(prefetchedData ?? null);
   const [loading, setLoading] = useState(!prefetchedData);
   const [selected, setSelected] = useState<CellWithScaffold | null>(null);
@@ -232,17 +234,25 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
                   ? `${SKILLS[si]} × ${DOMAINS[di]} · density ${cell.density.toFixed(3)} · ${energyLabel(er)} · click to explore`
                   : `${SKILLS[si]} × ${DOMAINS[di]} · no evidence yet`;
 
+                // OI = "hidden gift": high objective evidence, invisible to institution
+                // Highlight with fis-green ring so physician can see underrecognised work.
+                const isOI = cell?.quadrant === "OI" && dn > 0.2;
+
                 return (
                   <button
                     key={`${si}-${di}`}
                     type="button"
-                    onClick={() => setSelected(cell ?? null)}
+                    onClick={() => {
+                      setSelected(cell ?? null);
+                      if (cell && onCellClick) onCellClick(cell);
+                    }}
                     title={titleText}
                     aria-label={ariaLabel}
                     className={cn(
                       "relative h-10 w-full rounded border text-[9px] font-semibold transition-all hover:ring-1 hover:ring-cx-forest-dark/40",
                       dn === 0 && "border-cx-forest-dark/10 bg-cx-forest-dark/5 text-transparent",
                       selected?.skill_index === si && selected?.domain_index === di && "ring-2 ring-cx-forest-dark",
+                      isOI && "ring-[3px] ring-[#3C8A60]",
                     )}
                     style={
                       dn > 0
@@ -261,7 +271,7 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
                           bottom: 2, right: 2,
                           fontSize: "7px",
                           lineHeight: 1,
-                          color: "rgb(180,150,30)",
+                          color: "#AC8636",
                         }}
                       >
                         ★
@@ -280,23 +290,30 @@ export function LatticeHeatmapV3({ prefetchedData }: Props) {
         <span className="flex items-center gap-1.5">
           <span
             className="inline-block h-3 w-3 rounded border"
-            style={{ backgroundColor: "rgb(72,122,180)", borderColor: "rgb(54,104,162)" }}
+            style={{ backgroundColor: "#6E93B8", borderColor: "#34597A" }}
           />
-          Evidence density (darker = denser)
+          Density (darker = more evidence)
         </span>
         <span className="flex items-center gap-1.5">
           <span
             className="inline-block h-2 w-2 rounded-full"
             style={{ backgroundColor: GLYPH_ENERGIZING }}
           />
-          Energizing (top-left dot)
+          Energizing (·)
         </span>
         <span className="flex items-center gap-1.5">
           <span
             className="inline-block h-2 w-2 rounded-full"
             style={{ backgroundColor: GLYPH_DRAINING }}
           />
-          Draining (top-right dot)
+          Draining (·)
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span
+            className="inline-block h-3 w-3 rounded border-2"
+            style={{ borderColor: "#3C8A60" }}
+          />
+          Hidden gift (invisible to institution)
         </span>
       </div>
 

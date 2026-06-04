@@ -19,6 +19,21 @@ For each task, output: Interpretation · Implementation Plan · Changed Files ·
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+<!-- BEGIN:fiscmak-palette-tokens -->
+# Locked palette — no red, no neon
+
+The visual palette is LOCKED. White / warm-white base; restrained; muted; never neon, bright, or alarm colors. Before adding ANY color, use these tokens. If a role you need isn't covered here, FLAG it — do not invent a color.
+
+- **Energizing (aliveness)** = `#3C8A60` muted sage — the reserved hero, used sparingly. **NEVER** neon green (`#5FD65F`, `#3BA33B`, etc.).
+- **Draining** = `#C28D6C` soft clay. **RED IS BANNED** — never `red-*`, never `#xx0000`. Clay is quiet, not an alarm.
+- **Evidence density** = steel ramp `#E6ECF0` → `#C2D0DD` → `#6E93B8` → `#34597A`. **Never** near-black navy (`#143060`) and never royal/bright blue.
+- **Value / treasury accent** = gold `#AC8636` (wordmark, primary action, active nav, transfer markers) — the single accent. Muted, not flashy.
+- **Neutral / "present but unmarked"** = the muted steel substrate or sand `#E7DEC9` / gray `#9A968C`. **Never amber/`amber-*`.**
+- **Ink** `#20201D` · **muted** `#75736C` · **hairline** `#E8E6DF`.
+
+Single source of truth for energy fills = `energyCellClass()` in `src/lib/utils.ts`; for density = `DENSITY_RAMP` in `LatticeHeatmapV3.tsx`. Both must use the tokens above. CVD-safe by construction (green + blue + clay, no red). Red, neon, and amber re-entering the lattice/dashboard is a regression — do not reintroduce.
+<!-- END:fiscmak-palette-tokens -->
+
 # FISCMAK agent compass
 
 Use this file as the always-on map. Detailed procedures live in `.cursor/skills/`; heavy delegation in `.cursor/agents/`.

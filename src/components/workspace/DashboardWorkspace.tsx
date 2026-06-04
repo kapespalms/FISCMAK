@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { DashboardWelcome } from "@/components/dashboard/DashboardWelcome";
+import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
 import { useAppShell } from "@/components/layout/AppShell";
 import { useAnalytics } from "@/components/layout/AnalyticsProvider";
 import { buildSoapDashboardBands } from "@/lib/v2/dashboard-snapshot";
@@ -14,12 +14,19 @@ import { fetchGoals, saveOnboardingGoalsFromProposal, type CareerGoal } from "@/
 import { GOAL_FRAMEWORK_LABELS } from "@/lib/v2/soap-tab-spec";
 import type { PracticeSetting, CareerStage, AcademicRank } from "@/lib/v2/onboarding-options";
 import { DashboardRevealOverlay } from "@/components/onboarding/DashboardRevealOverlay";
+import { MakObservationCard }    from "@/components/dashboard/MakObservationCard";
+import { WellbeingReadingCard }  from "@/components/dashboard/WellbeingReadingCard";
+import { RecentCapturesLedger }  from "@/components/dashboard/RecentCapturesLedger";
+import { AgendaCard }            from "@/components/dashboard/AgendaCard";
+import { MiniLattice }           from "@/components/dashboard/MiniLattice";
+import type { RecentCapturesResult } from "@/app/api/v1/dashboard/recent-captures/route";
 import {
   GoalSettingPanel,
   defaultProposedGoals,
   type ProposedGoal,
 } from "@/components/onboarding/GoalSettingPanel";
 import { buildCareerDirectionAnnualGreeting } from "@/lib/mak-chatbot-states";
+import { timeOfDayGreeting } from "@/lib/mak-greeting";
 import { SELF_ASSESSMENT_MAK_INTRO_KEY } from "@/lib/v2/onboarding-flow";
 import { initAnnualMakSession } from "@/lib/annual-mak-client";
 import { initQuarterlyMakSession } from "@/lib/quarterly-mak-client";
@@ -76,6 +83,36 @@ export function DashboardWorkspace() {
   >([]);
   const [scheduleProgramLabel, setScheduleProgramLabel] = useState<string | null>(null);
   const [scheduleCalendarEnabled, setScheduleCalendarEnabled] = useState(false);
+
+  // You / Your Week — additional data
+  const [recentCaptures, setRecentCaptures] = useState<RecentCapturesResult>({
+    recent: [], this_week_count: 0, pending_count: 0,
+  });
+  const [capturesLoading, setCapturesLoading] = useState(true);
+  const [pulseDue,    setPulseDue]    = useState(false);
+  const [fcwiDue,     setFcwiDue]     = useState(false);
+  const [pulseMdt,    setPulseMdt]    = useState<number | null>(null);
+  const [pulseDate,   setPulseDate]   = useState<string | null>(null);
+  const [wellbeingLoading, setWellbeingLoading] = useState(true);
+
+  useEffect(() => {
+    Promise.all([
+      fetch("/api/v1/dashboard/recent-captures").then((r) => r.json()),
+      fetch("/api/v1/wellbeing/pulse").then((r) => r.json()),
+      fetch("/api/v1/wellbeing/fcwi").then((r) => r.json()),
+    ]).then(([captures, pulse, fcwi]) => {
+      setRecentCaptures(captures as RecentCapturesResult);
+      setCapturesLoading(false);
+      setPulseDue(Boolean(pulse?.due));
+      setPulseMdt(typeof pulse?.latest?.mdt === "number" ? pulse.latest.mdt : null);
+      setPulseDate(pulse?.latest?.recorded_at ?? null);
+      setFcwiDue(Boolean(fcwi?.due));
+      setWellbeingLoading(false);
+    }).catch(() => {
+      setCapturesLoading(false);
+      setWellbeingLoading(false);
+    });
+  }, []);
 
   function refreshSchedule() {
     return fetch("/api/v1/onboarding/schedule")
@@ -322,39 +359,117 @@ export function DashboardWorkspace() {
         </div>
       )}
 
-      <div className="mx-auto max-w-[1200px]">
+      <div className="mx-auto max-w-[1280px]">
         {loading ? (
           <DashboardSkeleton />
         ) : !analytics || !headerModel ? (
           <div className="cx-alert-banner px-4 py-3 text-sm">
-            {touchpointError ?? "Could not load dashboard. Refresh the page or finish onboarding first."}
+            {touchpointError ?? "Could not load dashboard. Refresh or finish onboarding first."}
           </div>
         ) : (
           <>
             {touchpointError && (
               <div className="cx-alert-banner mb-4 px-4 py-3 text-sm">{touchpointError}</div>
             )}
-            <DashboardWelcome
-              displayName={headerModel.displayName}
-              tracks={
-                profile?.primary_career_track ? [profile.primary_career_track] : null
-              }
-              profileLine={institutionalProgramSlug ? null : headerModel.profileLine}
-              profileRows={profileRows}
-              header={headerModel}
-              nextMilestone={nextMilestone}
-              goals={goalCards}
-              touchpointStates={tpStates}
-              latticeCells={analytics.dashboard_lattice}
-              dueNow={dueNow}
-              secondaryAlerts={secondaryAlerts}
-              onDueNowContinue={handleDueNowContinue}
-              institutionalProgramSlug={institutionalProgramSlug}
-              scheduleBlocks={scheduleBlocks}
-              scheduleUserEvents={scheduleUserEvents}
-              scheduleProgramLabel={scheduleProgramLabel}
-              scheduleCalendarEnabled={scheduleCalendarEnabled}
-            />
+
+            {/* Greeting */}
+            <div className="mb-6">
+              <h1 className="text-xl font-semibold text-cx-forest-dark">
+                Good {timeOfDayGreeting()}, {displayName ?? headerModel.displayName}
+              </h1>
+              {headerModel.profileLine && (
+                <p className="mt-0.5 text-sm text-cx-forest-dark/60">{headerModel.profileLine}</p>
+              )}
+            </div>
+
+            {/* You / Your Week — two-column layout */}
+            <div className="grid gap-5 lg:grid-cols-[1fr_380px]">
+
+              {/* ── LEFT: You ─────────────────────────────────────────── */}
+              <div className="space-y-5">
+                {/* Mak observation + quick-capture */}
+                <MakObservationCard
+                  weekCount={recentCaptures.this_week_count}
+                  pendingCount={recentCaptures.pending_count}
+                />
+
+                {/* Mini-lattice */}
+                <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-5 shadow-sm">
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+                      Career lattice
+                    </span>
+                  </div>
+                  {analytics.dashboard_lattice.length === 0 ? (
+                    <div className="rounded-xl border border-dashed border-cx-forest-dark/15 py-8 text-center">
+                      <p className="mb-2 text-xs text-cx-forest-dark/50">Your lattice is empty</p>
+                      <button
+                        type="button"
+                        onClick={() => startMakFlow("capture")}
+                        className="text-xs font-medium text-fis-gold hover:opacity-80"
+                      >
+                        Upload a career doc →
+                      </button>
+                    </div>
+                  ) : (
+                    <MiniLattice cells={analytics.dashboard_lattice} showHeader={false} />
+                  )}
+                </div>
+
+                {/* Well-being reading */}
+                <WellbeingReadingCard
+                  pulseDue={pulseDue}
+                  fcwiDue={fcwiDue}
+                  pulseMdt={pulseMdt}
+                  pulseDate={pulseDate}
+                  loading={wellbeingLoading}
+                />
+
+                {/* Active goals */}
+                <div className="rounded-2xl border border-cx-forest-dark/10 bg-white p-5 shadow-sm">
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-cx-forest-dark/50">
+                      Active goals
+                    </span>
+                  </div>
+                  {goalCards.length === 0 ? (
+                    <div className="rounded-xl border border-dashed border-cx-forest-dark/15 py-6 text-center">
+                      <p className="mb-2 text-xs text-cx-forest-dark/50">No goals set yet</p>
+                      <button
+                        type="button"
+                        onClick={() => startMakFlow("plan", "/app/goals", undefined, undefined, "set")}
+                        className="text-xs font-medium text-fis-gold hover:opacity-80"
+                      >
+                        Set goals with Mak →
+                      </button>
+                    </div>
+                  ) : (
+                    <DashboardGoalsGrid
+                      goals={goalCards}
+                      onDetails={(id) =>
+                        startMakFlow("plan", "/app/goals", undefined, undefined, "modify", id)
+                      }
+                    />
+                  )}
+                </div>
+              </div>
+
+              {/* ── RIGHT: Your Week ──────────────────────────────────── */}
+              <div className="space-y-5">
+                {/* Agenda (due items + calendar stub) */}
+                <AgendaCard
+                  dueItem={dueNow}
+                  onContinue={dueNow ? handleDueNowContinue : undefined}
+                  loading={loading}
+                />
+
+                {/* Recent captures ledger */}
+                <RecentCapturesLedger
+                  items={recentCaptures.recent}
+                  loading={capturesLoading}
+                />
+              </div>
+            </div>
           </>
         )}
       </div>

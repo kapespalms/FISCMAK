@@ -26,7 +26,7 @@ function getCell(cells: LatticeCellState[], d: number, t: number): LatticeCellSt
 
 export function MiniLattice({
   cells,
-  href = "/app/objective?tab=lattice",
+  href = "/app/lattice",
   className,
   compact = false,
   showHeader = true,

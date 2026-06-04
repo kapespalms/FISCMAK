@@ -9,10 +9,10 @@ export function energyCellClass(energy: string | null, count: number): string {
     return "border-cx-forest-dark/15 bg-cx-forest-dark/[0.04] text-cx-forest-dark/30";
   }
   if (energy === "very_draining" || energy === "draining") {
-    return "border-red-600 bg-red-500/90 text-white";
+    return "border-[#A9744F] bg-[#C28D6C] text-white";           // fis-clay — no red
   }
   if (energy === "neutral") {
-    return "border-amber-500 bg-amber-400/90 text-cx-forest-dark";
+    return "border-[#34597A]/40 bg-[#6E93B8]/70 text-[#20201D]"; // neutral = muted steel substrate
   }
-  return "border-[#3BA33B] bg-[#5FD65F] text-cx-forest-dark";
+  return "border-[#2F6E4C] bg-[#3C8A60] text-white";             // fis-green — muted, not neon
 }

@@ -5,6 +5,9 @@ import { Grid3x3 } from "lucide-react";
 import { CardSection } from "@/components/ui/CardSection";
 import { DualLatticeGrid } from "@/components/lattice/DualLatticeGrid";
 import { LatticeHeatmapV3 } from "@/components/lattice/LatticeHeatmapV3";
+import { QuadrantSummaryV3 } from "@/components/lattice/QuadrantSummaryV3";
+import { CellEvidenceDrawer } from "@/components/lattice/CellEvidenceDrawer";
+import type { HeatmapCell } from "@/app/api/v1/lattice/heatmap/route";
 import { LATTICE_MAK } from "@/lib/card-mak-prompts";
 import type { LatticeDashboardResponse, LatticeTimeframe } from "@/lib/v2/lattice/types";
 import { cn } from "@/lib/utils";
@@ -41,6 +44,7 @@ export function LatticeView() {
   const [tab, setTab] = useState<"fiscmak" | "acgme">("fiscmak");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [drawerCell, setDrawerCell] = useState<HeatmapCell | null>(null);
 
   const load = useCallback(async (tf: LatticeTimeframe) => {
     setLoading(true);
@@ -87,10 +91,17 @@ export function LatticeView() {
     <div className="space-y-4">
       <section>
         <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-cx-forest-dark/50">
-          Evidence Density (v3)
+          Evidence Density — click any cell to explore
         </p>
-        <LatticeHeatmapV3 />
+        <LatticeHeatmapV3 onCellClick={(cell) => setDrawerCell(cell)} />
       </section>
+
+      <QuadrantSummaryV3 />
+
+      <CellEvidenceDrawer
+        cell={drawerCell}
+        onClose={() => setDrawerCell(null)}
+      />
 
       <CardSection
         compact
