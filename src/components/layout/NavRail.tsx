@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   FileText,
   GraduationCap,
@@ -10,6 +11,7 @@ import {
   LayoutDashboard,
   MessageCircle,
   Target,
+  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -28,6 +30,16 @@ const MAIN_NAV = [
 export function NavRail() {
   const pathname = usePathname();
   const { makOpen, toggleMak } = useAppShell();
+  const [showProgram, setShowProgram] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/v1/programs/my-staff-context")
+      .then((r) => r.json())
+      .then((data: { is_staff?: boolean }) => {
+        if (data.is_staff) setShowProgram(true);
+      })
+      .catch(() => undefined);
+  }, []);
 
   // Phase 1 will gate this on account.institution_tied
   const showTraining = false;
@@ -70,6 +82,21 @@ export function NavRail() {
               icon={GraduationCap}
               label="Training"
               active={isActive("/app/training")}
+            />
+          </div>
+          <div className="cx-nav-rail-divider" />
+        </>
+      )}
+
+      {/* Program — conditional, pinned top with divider, program-staff roles only */}
+      {showProgram && (
+        <>
+          <div className="mt-3 flex w-full flex-col items-center gap-1 px-2">
+            <RailItem
+              href="/app/program"
+              icon={Users}
+              label="Program"
+              active={isActive("/app/program")}
             />
           </div>
           <div className="cx-nav-rail-divider" />
