@@ -18,6 +18,7 @@ export type PendingItem = {
   primary_track: string | null;
   confidence_score: number | null;
   source_document_id: string | null;
+  input_source: string | null;
   created_at: string;
 };
 
@@ -29,7 +30,7 @@ export async function GET() {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("activity_entries")
-    .select("id, raw_text, primary_domain, primary_track, confidence_score, source_document_id, created_at")
+    .select("id, raw_text, primary_domain, primary_track, confidence_score, source_document_id, input_source, created_at")
     .eq("user_id", auth.userId)
     .eq("user_confirmed", false)
     .order("created_at", { ascending: false })

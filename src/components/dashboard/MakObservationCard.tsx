@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { useAppShell } from "@/components/layout/AppShell";
 
@@ -35,13 +36,23 @@ export function MakObservationCard({ weekCount, pendingCount, overrideText }: Pr
         </div>
         <div className="flex-1">
           <p className="text-sm font-medium text-cx-forest-dark">{text}</p>
-          <button
-            type="button"
-            onClick={openMak}
-            className="mt-2 text-xs font-medium text-fis-gold hover:opacity-80 transition-opacity"
-          >
-            Capture with Mak →
-          </button>
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={openMak}
+              className="text-xs font-medium text-fis-gold hover:opacity-80 transition-opacity"
+            >
+              Capture with Mak →
+            </button>
+            {pendingCount > 0 && (
+              <Link
+                href="/app/profile"
+                className="text-xs font-medium text-fis-gold hover:opacity-80 transition-opacity"
+              >
+                Review {pendingCount} pending →
+              </Link>
+            )}
+          </div>
         </div>
       </div>
 
