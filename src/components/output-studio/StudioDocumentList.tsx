@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import type { OutputDocument } from "@/lib/v2/output-studio-generate";
 import type { GenerateOpts } from "@/lib/v2/output-studio-hook";
-import { FileText, Plus, Calendar, Loader2 } from "lucide-react";
+import { FileText, Plus, Calendar, Loader2, Download } from "lucide-react";
 
 const STATUS_CHIP: Record<string, { label: string; cls: string }> = {
   draft: { label: "Draft", cls: "bg-cx-forest-dark/10 text-cx-forest-dark/70" },
@@ -20,11 +20,14 @@ type StudioDocumentListProps = {
   loading: boolean;
   onOpen: (doc: OutputDocument) => void;
   onGenerate: (opts: GenerateOpts) => Promise<{ document?: OutputDocument; error?: string }>;
+  onExport: (id: string, format: "docx") => Promise<{ error?: string }>;
 };
 
-export function StudioDocumentList({ documents, loading, onOpen, onGenerate }: StudioDocumentListProps) {
+export function StudioDocumentList({ documents, loading, onOpen, onGenerate, onExport }: StudioDocumentListProps) {
   const [generating, setGenerating] = useState(false);
   const [genError, setGenError] = useState<string | null>(null);
+  const [exportingId, setExportingId] = useState<string | null>(null);
+  const [exportError, setExportError] = useState<string | null>(null);
 
   async function handleGenerate(opts: GenerateOpts) {
     setGenerating(true);
@@ -42,6 +45,15 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate }: S
     const today = new Date();
     const title = `Academic CV — ${today.toLocaleDateString("en-US", { month: "long", year: "numeric" })}`;
     void handleGenerate({ document_type: "cv", title });
+  }
+
+  async function handleExport(e: React.MouseEvent, id: string) {
+    e.stopPropagation(); // don't open the document
+    setExportingId(id);
+    setExportError(null);
+    const result = await onExport(id, "docx");
+    setExportingId(null);
+    if (result.error) setExportError(result.error);
   }
 
   function generateMonthlyBullets() {
@@ -85,7 +97,10 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate }: S
         </Card>
 
         {genError && (
-          <p className="w-full text-sm text-red-500">{genError}</p>
+          <p className="w-full text-sm text-[#C28D6C]">{genError}</p>
+        )}
+        {exportError && (
+          <p className="w-full text-sm text-[#C28D6C]">{exportError}</p>
         )}
       </div>
 
@@ -135,6 +150,20 @@ export function StudioDocumentList({ documents, loading, onOpen, onGenerate }: S
                         last edited {new Date(doc.last_edited_at).toLocaleDateString()}
                       </p>
                     </div>
+                    {/* Export button */}
+                    <button
+                      type="button"
+                      title="Export .docx"
+                      disabled={exportingId === doc.id}
+                      onClick={(e) => void handleExport(e, doc.id)}
+                      className="shrink-0 flex items-center justify-center rounded-lg p-1.5 text-cx-forest-dark/35 transition-colors hover:bg-cx-forest-dark/8 hover:text-fis-gold disabled:opacity-40"
+                    >
+                      {exportingId === doc.id ? (
+                        <Loader2 size={15} className="animate-spin" />
+                      ) : (
+                        <Download size={15} />
+                      )}
+                    </button>
                   </div>
                 </button>
               );

@@ -22,6 +22,7 @@ export type UseOutputStudioResult = {
     id: string,
     patch: { sections?: SectionContent[]; status?: string; title?: string }
   ) => Promise<{ document?: OutputDocument; error?: string }>;
+  exportDocument: (id: string, format: "docx") => Promise<{ error?: string }>;
   reload: () => Promise<void>;
 };
 
@@ -88,5 +89,37 @@ export function useOutputStudio(): UseOutputStudioResult {
     []
   );
 
-  return { documents, bankItems, loading, error, generateDocument, updateDocument, reload };
+  const exportDocument = useCallback(
+    async (id: string, format: "docx"): Promise<{ error?: string }> => {
+      try {
+        const res = await fetch(
+          `/api/v1/output/studio/documents/${id}/export/${format}`,
+          { method: "POST" },
+        );
+        if (!res.ok) {
+          const data = (await res.json()) as { message?: string };
+          return { error: data.message ?? "Export failed." };
+        }
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = window.document.createElement("a");
+        const disposition = res.headers.get("Content-Disposition") ?? "";
+        const match = /filename="?([^"]+)"?/.exec(disposition);
+        a.download = match?.[1] ?? `document.${format}`;
+        a.href = url;
+        a.click();
+        URL.revokeObjectURL(url);
+        // Reflect the status change locally so the badge updates immediately.
+        setDocuments((prev) =>
+          prev.map((d) => (d.id === id ? { ...d, status: "exported" as const } : d)),
+        );
+        return {};
+      } catch {
+        return { error: "Export failed — network error." };
+      }
+    },
+    [],
+  );
+
+  return { documents, bankItems, loading, error, generateDocument, updateDocument, exportDocument, reload };
 }

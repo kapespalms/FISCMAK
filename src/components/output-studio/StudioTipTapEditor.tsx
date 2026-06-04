@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { StudioSectionBlock } from "@/components/output-studio/StudioSectionBlock";
 import type { OutputDocument, SectionContent } from "@/lib/v2/output-studio-generate";
-import { ArrowLeft, CheckCircle, Clock } from "lucide-react";
+import { ArrowLeft, CheckCircle, Clock, Download, Loader2 } from "lucide-react";
 
 const STATUS_LABELS: Record<string, string> = {
   draft: "Draft",
@@ -27,14 +27,17 @@ type StudioTipTapEditorProps = {
   document: OutputDocument;
   onBack: () => void;
   onSave: SaveFn;
+  onExport: () => Promise<{ error?: string }>;
 };
 
-export function StudioTipTapEditor({ document, onBack, onSave }: StudioTipTapEditorProps) {
+export function StudioTipTapEditor({ document, onBack, onSave, onExport }: StudioTipTapEditorProps) {
   const [sections, setSections] = useState<SectionContent[]>(document.sections);
   const [status, setStatus] = useState<string>(document.status);
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [exporting, setExporting] = useState(false);
+  const [exportError, setExportError] = useState<string | null>(null);
   const [focusedSection, setFocusedSection] = useState<string | null>(null);
   const [showHidden, setShowHidden] = useState(false);
 
@@ -55,6 +58,14 @@ export function StudioTipTapEditor({ document, onBack, onSave }: StudioTipTapEdi
       setSaving(false);
     }
   }, [sections, status, onSave]);
+
+  const handleExport = useCallback(async () => {
+    setExporting(true);
+    setExportError(null);
+    const result = await onExport();
+    setExporting(false);
+    if (result.error) setExportError(result.error);
+  }, [onExport]);
 
   const enabledSections = sections.filter((s) => s.enabled);
   const hiddenSections = sections.filter((s) => !s.enabled);
@@ -100,9 +111,10 @@ export function StudioTipTapEditor({ document, onBack, onSave }: StudioTipTapEdi
           ))}
         </select>
 
-        {/* Save */}
+        {/* Save + Export */}
         <div className="flex items-center gap-2">
-          {saveError && <span className="text-xs text-red-500">{saveError}</span>}
+          {saveError && <span className="text-xs text-[#C28D6C]">{saveError}</span>}
+          {exportError && <span className="text-xs text-[#C28D6C]">{exportError}</span>}
           {!dirty && !saving && (
             <span className="flex items-center gap-1 text-xs text-cx-forest-dark/40">
               <CheckCircle size={12} /> Saved
@@ -119,6 +131,22 @@ export function StudioTipTapEditor({ document, onBack, onSave }: StudioTipTapEdi
             className="h-8 min-h-0 px-4 py-0 text-sm"
           >
             {saving ? "Saving…" : "Save"}
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => void handleExport()}
+            disabled={exporting || dirty}
+            title={dirty ? "Save before exporting" : "Export .docx"}
+            className="h-8 min-h-0 px-3 py-0 text-sm"
+          >
+            {exporting ? (
+              <Loader2 size={14} className="animate-spin" />
+            ) : (
+              <span className="flex items-center gap-1.5">
+                <Download size={14} />
+                Export
+              </span>
+            )}
           </Button>
         </div>
       </div>
@@ -161,7 +189,7 @@ export function StudioTipTapEditor({ document, onBack, onSave }: StudioTipTapEdi
         {/* Deferred notice */}
         <div className="mt-6 rounded-lg border border-dashed border-cx-forest-dark/15 p-3 text-xs text-cx-forest-dark/40">
           <span className="font-medium">Deferred (not yet built):</span> Edit with Mak (LLM revision per block) ·
-          Export to .docx / PDF · Representative publication asterisk · APT annotation fields
+          PDF export · Representative publication asterisk · APT annotation fields
         </div>
       </div>
     </div>

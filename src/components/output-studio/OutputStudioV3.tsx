@@ -10,7 +10,7 @@ import type { OutputDocument, SectionContent } from "@/lib/v2/output-studio-gene
 // Documents list → select or generate → open editor.
 // Deferred: "Edit with Mak" (LLM revision), export to .docx/PDF.
 export function OutputStudioV3() {
-  const { documents, loading, generateDocument, updateDocument } = useOutputStudio();
+  const { documents, loading, generateDocument, updateDocument, exportDocument } = useOutputStudio();
   const [openDoc, setOpenDoc] = useState<OutputDocument | null>(null);
 
   // If the open doc has been updated, keep local state current
@@ -41,6 +41,7 @@ export function OutputStudioV3() {
           document={openDoc}
           onBack={handleBack}
           onSave={handleSave}
+          onExport={() => exportDocument(openDoc.id, "docx")}
         />
       </div>
     );
@@ -52,6 +53,7 @@ export function OutputStudioV3() {
       loading={loading}
       onOpen={handleOpen}
       onGenerate={generateDocument}
+      onExport={exportDocument}
     />
   );
 }
