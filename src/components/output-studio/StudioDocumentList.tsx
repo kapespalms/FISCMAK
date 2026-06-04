@@ -10,7 +10,7 @@ import { FileText, Plus, Calendar, Loader2, Download } from "lucide-react";
 
 const STATUS_CHIP: Record<string, { label: string; cls: string }> = {
   draft: { label: "Draft", cls: "bg-cx-forest-dark/10 text-cx-forest-dark/70" },
-  review_ready: { label: "Ready", cls: "bg-[#5FD65F]/20 text-cx-forest-dark" },
+  review_ready: { label: "Ready", cls: "bg-[#3C8A60]/10 text-[#3C8A60]" },
   exported: { label: "Exported", cls: "bg-cx-forest-dark/20 text-cx-forest-dark" },
   archived: { label: "Archived", cls: "bg-cx-forest-dark/5 text-cx-forest-dark/40" },
 };

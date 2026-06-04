@@ -110,6 +110,7 @@ async function main() {
   const hasJobSources = await tableExists(client, "job_sources");
   const hasSubscriptions = await tableExists(client, "user_subscriptions");
   const hasSpecialtyHierarchy = await columnExists(client, "app_users", "base_specialty");
+  const hasEvidenceCellWeights = await tableExists(client, "evidence_cell_weights");
 
   console.log("\nCurrent state:");
   console.log(`  app_users: ${hasAppUsers ? "yes" : "no"}`);
@@ -381,11 +382,15 @@ async function main() {
     requiresTable: "activity_entries",
   });
 
-  steps.push({
-    file: "docs/migrations/20260553_evidence_cell_weights.sql",
-    label: "evidence_cell_weights table — multi-domain lattice distribution (§8.2 resolved model)",
-    requiresTable: "evidence_unit",
-  });
+  if (!hasEvidenceCellWeights) {
+    steps.push({
+      file: "docs/migrations/20260553_evidence_cell_weights.sql",
+      label: "evidence_cell_weights table — multi-domain lattice distribution (§8.2 resolved model)",
+      requiresTable: "evidence_unit",
+    });
+  } else {
+    console.log("\n→ evidence_cell_weights — skipped (table exists)");
+  }
 
   steps.push({
     file: "docs/migrations/20260554_rename_evidence_axes.sql",
