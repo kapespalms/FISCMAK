@@ -252,7 +252,7 @@ export function LatticeHeatmapV3({ prefetchedData, onCellClick }: Props) {
                       "relative h-10 w-full rounded border text-[9px] font-semibold transition-all hover:ring-1 hover:ring-cx-forest-dark/40",
                       dn === 0 && "border-cx-forest-dark/10 bg-cx-forest-dark/5 text-transparent",
                       selected?.skill_index === si && selected?.domain_index === di && "ring-2 ring-cx-forest-dark",
-                      isOI && "ring-[3px] ring-[#3C8A60]",
+                      isOI && "ring-2 ring-[#3C8A60] ring-offset-1",
                     )}
                     style={
                       dn > 0
