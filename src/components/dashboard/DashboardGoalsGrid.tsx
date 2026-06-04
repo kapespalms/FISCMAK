@@ -113,7 +113,7 @@ export function DashboardGoalsGrid({
         <div className="mt-6 rounded-xl bg-white p-5 shadow-sm">
           <p className="text-sm text-cx-forest-dark/70">No active goals yet.</p>
           <Link
-            href="/app/plan"
+            href="/app/goals"
             className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-cx-forest-dark hover:underline"
           >
             Set goals <ArrowRight size={14} />
@@ -129,7 +129,7 @@ export function DashboardGoalsGrid({
         <div className="flex items-center justify-between gap-2">
           <h3 className="text-sm font-bold text-cx-forest-dark">Goals</h3>
           <Link
-            href="/app/plan"
+            href="/app/goals"
             className="inline-flex items-center gap-0.5 text-[10px] font-medium text-cx-forest-dark/70 hover:text-cx-forest-dark"
           >
             Strategy

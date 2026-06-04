@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { DashboardGoalsGrid } from "@/components/dashboard/DashboardGoalsGrid";
 import { useAppShell } from "@/components/layout/AppShell";
@@ -20,6 +20,8 @@ import { RecentCapturesLedger }  from "@/components/dashboard/RecentCapturesLedg
 import { AgendaCard }            from "@/components/dashboard/AgendaCard";
 import { MiniLattice }           from "@/components/dashboard/MiniLattice";
 import type { RecentCapturesResult } from "@/app/api/v1/dashboard/recent-captures/route";
+import type { GoalsByHorizon, GoalRecord } from "@/lib/v2/goal-records";
+import { HORIZON_LABELS } from "@/lib/v2/goal-records";
 import {
   GoalSettingPanel,
   defaultProposedGoals,
@@ -35,6 +37,7 @@ import {
   buildDashboardDueNow,
   buildDashboardSecondaryAlerts,
   buildGoalCards,
+  type GoalCardModel,
   buildProfileRows,
   buildProgressStatus,
   touchpointBarStates,
@@ -51,6 +54,25 @@ type ProfileState = {
   tier3_complete?: boolean;
   career_objective?: string | null;
 };
+
+// Adapts goal_records (v3 source of truth) → GoalCardModel for DashboardGoalsGrid.
+// Momentum (percent/stalled) is Phase 6; cards show all horizons flat, capped at 3.
+function goalRecordsToCardModels(grouped: GoalsByHorizon): GoalCardModel[] {
+  const all: GoalRecord[] = [
+    ...grouped["3mo"], ...grouped["1yr"], ...grouped["5yr"], ...grouped["10yr"],
+  ];
+  return all.slice(0, 3).map((g) => ({
+    id:            g.id,
+    type:          g.horizon,
+    typeLabel:     HORIZON_LABELS[g.horizon],
+    title:         (g.specific || g.wish || g.description || "(untitled)").slice(0, 120),
+    percent:       0,
+    nextMilestone: "No milestone due",
+    stalled:       false,
+    borderColor:   "primary" as const,
+    fillColor:     "primary" as const,
+  }));
+}
 
 function DashboardSkeleton() {
   return (
@@ -128,12 +150,30 @@ export function DashboardWorkspace() {
       .catch(() => undefined);
   }
 
+  // v3: goal_records is the source of truth for the dashboard goals card.
+  const [goalRecords, setGoalRecords] = useState<GoalsByHorizon>({
+    "3mo": [], "1yr": [], "5yr": [], "10yr": [],
+  });
+
+  const loadGoalRecords = useCallback(async () => {
+    try {
+      const res  = await fetch("/api/v1/goals/horizons");
+      const data = (await res.json()) as { goals?: GoalsByHorizon };
+      if (data.goals) setGoalRecords(data.goals);
+    } catch { /* non-blocking */ }
+  }, []);
+
   useEffect(() => {
+    void loadGoalRecords();
+    // Keep old goals path alive for SOAP consumers (retired in Phase 6)
     void fetchGoals().then(setGoals);
-    const onGoalsUpdated = () => void fetchGoals().then(setGoals);
+    const onGoalsUpdated = () => {
+      void loadGoalRecords();
+      void fetchGoals().then(setGoals);
+    };
     window.addEventListener("fiscmak:goals-updated", onGoalsUpdated);
     return () => window.removeEventListener("fiscmak:goals-updated", onGoalsUpdated);
-  }, []);
+  }, [loadGoalRecords]);
 
   useEffect(() => {
     const onScheduleUpdated = () => void refreshSchedule();
@@ -271,9 +311,10 @@ export function DashboardWorkspace() {
     return [...buildProfileRows(subjectiveMetrics), buildProgressStatus(analytics)];
   }, [analytics, headerModel, subjectiveMetrics]);
 
+  // goalCards now reads goal_records (v3 source of truth).
   const goalCards = useMemo(
-    () => buildGoalCards(goals, analytics?.goal_milestone_history ?? []),
-    [goals, analytics],
+    () => goalRecordsToCardModels(goalRecords),
+    [goalRecords],
   );
 
   const touchpointViews = useMemo(
@@ -344,13 +385,26 @@ export function DashboardWorkspace() {
               )
             }
             onConfirm={(confirmed) => {
+              // v3: write to goal_records (1yr/SMART_II — see FLAG in delivery report).
+              // specific = title (the goal itself); relevant = rationale (why it matters).
+              void Promise.all(
+                confirmed.map((g) =>
+                  fetch("/api/v1/goals/horizons", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      horizon:   "1yr",
+                      specific:  g.title,
+                      relevant:  g.rationale || undefined,
+                      time_bound: "1 year",
+                    }),
+                  }),
+                ),
+              ).then(() => void loadGoalRecords());
+
+              // Keep old stored_goals path alive for SOAP consumers (Phase 6 retires).
               const saved = saveOnboardingGoalsFromProposal(
-                confirmed.map((g) => ({
-                  type: g.type,
-                  title: g.title,
-                  rationale: g.rationale,
-                  milestones: g.milestones,
-                })),
+                confirmed.map((g) => ({ type: g.type, title: g.title, rationale: g.rationale, milestones: g.milestones })),
               );
               setGoals(saved);
               setOnboardingPhase(null);
