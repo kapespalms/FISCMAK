@@ -62,8 +62,8 @@ function TrainingCheckbox({
         "flex cursor-pointer items-start gap-3 rounded-xl border px-4 py-3",
         luxury
           ? checked
-            ? "border-[#A3E635]/40 bg-[#0A0C10]"
-            : "border-white/5 bg-[#0A0C10] hover:border-white/10"
+            ? "border-fis-gold/30 bg-fis-gold/5"
+            : "border-cx-forest-dark/15 bg-white hover:border-cx-forest-dark/30"
           : "border-cx-forest-dark/15 bg-cx-forest-dark/[0.03]",
       )}
     >
@@ -71,9 +71,9 @@ function TrainingCheckbox({
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className={cn("mt-1", luxury && "accent-[#A3E635]")}
+        className={cn("mt-1", luxury && "accent-fis-gold")}
       />
-      <span className={cn("font-futura-book text-base", luxury ? "text-gray-300" : "text-black")}>
+      <span className={cn("font-futura-book text-base", luxury ? "text-cx-text/80" : "text-black")}>
         <span
           className={cn(
             "font-futura-medium",
@@ -82,7 +82,7 @@ function TrainingCheckbox({
         >
           {title}
         </span>
-        <span className={cn("mt-0.5 block", luxury ? "text-gray-500" : "text-black")}>
+        <span className={cn("mt-0.5 block", luxury ? "text-cx-text/50" : "text-black")}>
           {description}
         </span>
       </span>

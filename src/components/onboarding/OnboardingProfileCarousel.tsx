@@ -61,7 +61,7 @@ export function OnboardingProfileCarousel({
             onClick={() => onIndexChange(i)}
             className={cn(
               "h-2 rounded-full transition-all",
-              i === index ? "w-8 bg-[#A3E635]" : "w-2 bg-white/20 hover:bg-white/35",
+              i === index ? "w-8 bg-fis-gold" : "w-2 bg-cx-forest-dark/20 hover:bg-cx-forest-dark/35",
             )}
             aria-label={`Go to ${card.label}`}
           />

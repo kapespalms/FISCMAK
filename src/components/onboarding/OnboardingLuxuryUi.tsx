@@ -3,10 +3,9 @@
 import { cn } from "@/lib/utils";
 
 export const LUXURY = {
-  bg: "#0A0C10",
-  panel: "#141722",
-  lime: "#A3E635",
-  gold: "#D4AF37",
+  bg: "#FCFBF7",
+  panel: "#FFFFFF",
+  gold: "#AC8636",
 } as const;
 
 export function LuxuryCardHeader({
@@ -20,12 +19,12 @@ export function LuxuryCardHeader({
   description?: string;
 }) {
   return (
-    <header className="space-y-3 font-futura-book">
-      <h1 className="font-futura-bold text-3xl uppercase leading-tight tracking-[0.12em] text-white md:text-4xl">
+    <header className="space-y-2 font-futura-book">
+      <h1 className="font-futura-bold text-2xl leading-tight tracking-[0.08em] text-cx-text md:text-3xl">
         {title}
       </h1>
       {description ? (
-        <p className="max-w-xl text-base leading-relaxed text-gray-400">{description}</p>
+        <p className="max-w-xl text-base leading-relaxed text-cx-text/60">{description}</p>
       ) : null}
     </header>
   );
@@ -35,21 +34,17 @@ export function LuxuryWorkspace({ children, className }: { children: React.React
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-white/10 bg-[#141722] p-8 shadow-[0_30px_60px_rgba(0,0,0,0.6)] md:p-12",
+        "relative overflow-hidden rounded-2xl border border-cx-forest-dark/10 bg-white p-8 shadow-[0_4px_24px_rgba(32,32,29,0.07)] md:p-12",
         className,
       )}
     >
-      <div
-        className="pointer-events-none absolute right-0 top-0 h-80 w-80 bg-[#0F3A20] opacity-15 blur-[100px]"
-        aria-hidden
-      />
       <div className="relative space-y-10">{children}</div>
     </div>
   );
 }
 
 export function LuxuryDivider() {
-  return <hr className="border-white/5" />;
+  return <hr className="border-cx-forest-dark/10" />;
 }
 
 export function LuxuryBlock({
@@ -63,7 +58,7 @@ export function LuxuryBlock({
 }) {
   return (
     <div className={cn("space-y-4", className)}>
-      <h3 className="font-futura-bold text-sm uppercase tracking-[0.15em] text-[#D4AF37]">{label}</h3>
+      <h3 className="font-futura-bold text-sm uppercase tracking-[0.15em] text-fis-gold">{label}</h3>
       {children}
     </div>
   );
@@ -90,8 +85,8 @@ export function LuxuryChoiceButton({
         "rounded-xl border p-4 text-sm font-futura-medium tracking-wide transition-all",
         mono && "font-mono text-xs font-bold tracking-wider",
         active
-          ? "border-[#A3E635] bg-[#1C2030] text-white shadow-[0_0_15px_rgba(163,230,53,0.1)]"
-          : "border-white/5 bg-[#0A0C10] text-gray-400 hover:border-white/10 hover:text-white",
+          ? "border-fis-gold bg-fis-gold/8 text-cx-text ring-1 ring-fis-gold/20"
+          : "border-cx-forest-dark/15 bg-white text-cx-text/70 hover:border-cx-forest-dark/30 hover:text-cx-text",
         className,
       )}
     >
@@ -126,7 +121,7 @@ export function LuxuryTextarea({
       onBlur={onBlur}
       placeholder={placeholder}
       className={cn(
-        "w-full resize-y rounded-xl border border-white/5 bg-[#0A0C10] px-5 py-4 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none",
+        "w-full resize-y rounded-xl border border-cx-forest-dark/20 bg-white px-5 py-4 text-sm text-cx-text transition-all placeholder:text-cx-text/40 focus:border-fis-gold focus:outline-none",
         className,
       )}
     />
@@ -160,7 +155,7 @@ export function LuxuryTextInput({
       onBlur={onBlur}
       placeholder={placeholder}
       className={cn(
-        "w-full rounded-xl border border-white/5 bg-[#0A0C10] px-5 py-4 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none",
+        "w-full rounded-xl border border-cx-forest-dark/20 bg-white px-5 py-4 text-sm text-cx-text transition-all placeholder:text-cx-text/40 focus:border-fis-gold focus:outline-none",
         readOnly && "opacity-70",
         className,
       )}
@@ -176,7 +171,7 @@ export function LuxuryHint({
   className?: string;
 }) {
   return (
-    <p className={cn("font-futura-book text-base leading-relaxed text-gray-400", className)}>
+    <p className={cn("font-futura-book text-base leading-relaxed text-cx-text/60", className)}>
       {children}
     </p>
   );
@@ -184,7 +179,7 @@ export function LuxuryHint({
 
 export function LuxuryInfoPanel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-gray-300">
+    <div className="rounded-xl border border-cx-forest-dark/10 bg-slate-50 px-4 py-3 text-sm text-cx-text/80">
       {children}
     </div>
   );
@@ -204,13 +199,13 @@ export function LuxuryNavFooter({
   showBack?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between gap-3 border-t border-white/5 pt-6">
+    <div className="flex items-center justify-between gap-3 border-t border-cx-forest-dark/10 pt-6">
       {showBack && onBack ? (
         <button
           type="button"
           onClick={onBack}
           disabled={backDisabled}
-          className="font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white disabled:opacity-40"
+          className="font-futura-medium text-sm uppercase tracking-wider text-cx-text/60 transition-colors hover:text-cx-text disabled:opacity-40"
         >
           Back
         </button>
@@ -221,7 +216,7 @@ export function LuxuryNavFooter({
         <button
           type="button"
           onClick={onNext}
-          className="rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 active:scale-[0.995]"
+          className="rounded-xl bg-cx-forest-dark px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-white shadow-sm transition-all hover:bg-cx-forest-dark/90 active:scale-[0.995]"
         >
           {nextLabel}
         </button>

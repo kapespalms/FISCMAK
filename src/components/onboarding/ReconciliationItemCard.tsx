@@ -41,18 +41,18 @@ export function ReconciliationItemCard({
       className={cn(
         "relative rounded-xl border p-5",
         luxury
-          ? "border-white/5 bg-[#0A0C10] shadow-none"
+          ? "border-cx-forest-dark/10 bg-white shadow-none"
           : "border-cx-forest-dark/15 bg-white shadow-sm",
       )}
     >
       {!isNpi && (
-        <p className={cn(luxury ? "font-futura-bold text-xs uppercase tracking-[0.15em] text-[#D4AF37]" : "text-cx-label uppercase")}>
+        <p className={cn(luxury ? "font-futura-bold text-xs uppercase tracking-[0.15em] text-fis-gold" : "text-cx-label uppercase")}>
           {item.source}
         </p>
       )}
       <p
         className={cn(
-          luxury ? "font-futura-bold text-lg text-white" : "text-cx-h3",
+          luxury ? "font-futura-bold text-lg text-cx-text" : "text-cx-h3",
           !isNpi && "mt-2",
           isNpi && !verified && "pr-28",
         )}
@@ -60,7 +60,7 @@ export function ReconciliationItemCard({
         {verified && npiStatus?.npi ? `NPI ${npiStatus.npi} verified` : item.label}
       </p>
       {!verified && (
-        <p className={cn("mt-2 text-sm", luxury ? "text-gray-400" : "text-cx-text/80")}>
+        <p className={cn("mt-2 text-sm", luxury ? "text-cx-text/60" : "text-cx-text/80")}>
           {item.detail}
         </p>
       )}

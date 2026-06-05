@@ -2,9 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import {
-  ONBOARDING_LIME,
   ONBOARDING_MILESTONES,
-  ONBOARDING_OBSIDIAN,
   firstStepInMilestone,
   milestoneIndexForStep,
 } from "@/lib/v2/onboarding-milestones";
@@ -26,7 +24,7 @@ export function OnboardingProgressStepper({
       aria-label="Onboarding progress"
       className="mx-auto w-full max-w-4xl px-4 py-4 md:py-5"
     >
-      <div className="flex flex-col gap-2 rounded-xl border border-slate-200/60 bg-slate-50 p-2 md:flex-row md:items-center md:justify-between md:gap-0">
+      <div className="flex flex-col gap-2 rounded-xl border border-cx-forest-dark/10 bg-white p-2 md:flex-row md:items-center md:justify-between md:gap-0">
         {ONBOARDING_MILESTONES.map((milestone, idx) => {
           const isActive = currentMilestone === milestone.id;
           const isCompleted = currentMilestone > milestone.id;
@@ -37,23 +35,17 @@ export function OnboardingProgressStepper({
               className={cn(
                 "flex w-full items-center gap-4 rounded-lg p-3 transition-all duration-200",
                 isActive
-                  ? "border border-slate-200 bg-white shadow-sm"
+                  ? "border border-cx-forest-dark/10 bg-[#FCFBF7] shadow-sm"
                   : "border border-transparent bg-transparent",
               )}
             >
               <div
                 className={cn(
                   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-bold transition-all duration-300",
-                  isCompleted && "border-[#0B0B0C] bg-[#0B0B0C] text-white",
-                  isActive &&
-                    "border-[#39FF14] bg-[#39FF14]/10 text-[#0B0B0C] shadow-sm shadow-[#39FF14]/20",
-                  !isActive && !isCompleted && "border-slate-200 bg-slate-100 text-slate-400",
+                  isCompleted && "border-fis-gold bg-fis-gold text-white",
+                  isActive && "border-fis-gold bg-fis-gold/10 text-fis-gold",
+                  !isActive && !isCompleted && "border-cx-forest-dark/20 bg-slate-50 text-cx-text/40",
                 )}
-                style={
-                  isActive
-                    ? { borderColor: ONBOARDING_LIME, color: ONBOARDING_OBSIDIAN }
-                    : undefined
-                }
                 aria-hidden
               >
                 {isCompleted ? (
@@ -78,9 +70,9 @@ export function OnboardingProgressStepper({
                 <span
                   className={cn(
                     "truncate text-sm font-semibold transition-colors duration-200",
-                    isActive && "text-slate-900",
-                    isCompleted && "text-slate-700",
-                    !isActive && !isCompleted && "text-slate-400",
+                    isActive && "text-cx-text",
+                    isCompleted && "text-cx-text/70",
+                    !isActive && !isCompleted && "text-cx-text/40",
                   )}
                 >
                   {milestone.label}
@@ -88,9 +80,8 @@ export function OnboardingProgressStepper({
                 <span
                   className={cn(
                     "truncate text-xs transition-colors duration-200",
-                    isActive ? "font-medium text-[#0B0B0C]" : "text-slate-400",
+                    isActive ? "font-medium text-fis-gold" : "text-cx-text/40",
                   )}
-                  style={isActive ? { color: ONBOARDING_OBSIDIAN } : undefined}
                 >
                   {milestone.subtitle}
                 </span>
@@ -118,7 +109,7 @@ export function OnboardingProgressStepper({
 
               {idx < ONBOARDING_MILESTONES.length - 1 ? (
                 <div
-                  className="hidden select-none items-center justify-center px-2 text-slate-300 md:flex"
+                  className="hidden select-none items-center justify-center px-2 text-cx-forest-dark/20 md:flex"
                   aria-hidden
                 >
                   <svg

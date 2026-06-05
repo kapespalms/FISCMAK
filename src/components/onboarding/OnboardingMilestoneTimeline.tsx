@@ -77,7 +77,7 @@ export function OnboardingMilestoneTimeline({
           aria-hidden
         />
         <div
-          className="absolute left-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-[#A3E635] transition-[width] duration-700 ease-out"
+          className="absolute left-0 top-1/2 h-0.5 -translate-y-1/2 rounded-full bg-fis-gold transition-[width] duration-700 ease-out"
           style={{ width: `${fillPercent}%` }}
           aria-hidden
         />
@@ -94,14 +94,14 @@ export function OnboardingMilestoneTimeline({
                 <div
                   className={cn(
                     "relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-xs font-futura-bold transition-all duration-500 md:h-9 md:w-9",
-                    isCompleted && "border-[#A3E635] bg-[#A3E635] text-[#0A0C10]",
+                    isCompleted && "border-fis-gold bg-fis-gold text-white",
                     isActive &&
                       !isCompleted &&
-                      "border-[#A3E635] bg-[#A3E635]/15 text-fis-gold shadow-[0_0_12px_rgba(163,230,53,0.35)]",
+                      "border-fis-gold bg-fis-gold/10 text-fis-gold shadow-none",
                     !isActive &&
                       !isCompleted &&
                       (dark
-                        ? "border-white/20 bg-[#141722] text-white/40"
+                        ? "border-cx-forest-dark/20 bg-white text-cx-text/40"
                         : "border-cx-forest-dark/20 bg-white text-cx-text/40"),
                   )}
                 >

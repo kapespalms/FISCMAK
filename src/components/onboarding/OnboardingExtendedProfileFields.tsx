@@ -66,7 +66,7 @@ export function OnboardingExtendedProfileFields({
   }
 
   function addDegree() {
-    onAdditionalDegreesChange([...additionalDegrees, { degree: "Master's" }]);
+    onAdditionalDegreesChange([...additionalDegrees, { degree: "Master's", _id: crypto.randomUUID() }]);
   }
 
   function updateDegree(index: number, patch: Partial<AdditionalDegreeEntry>) {
@@ -101,7 +101,7 @@ export function OnboardingExtendedProfileFields({
       >
         {additionalDegrees.map((entry, index) => (
           <div
-            key={index}
+            key={entry._id ?? String(index)}
             className="space-y-3 rounded-xl border border-cx-forest-dark/10 px-4 py-4"
           >
             <div>

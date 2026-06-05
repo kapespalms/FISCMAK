@@ -33,6 +33,7 @@ export const ADDITIONAL_DEGREE_TYPES = [
 export type AdditionalDegreeType = (typeof ADDITIONAL_DEGREE_TYPES)[number];
 
 export type AdditionalDegreeEntry = {
+  _id?: string;
   degree: AdditionalDegreeType;
   field?: string | null;
   institution?: string | null;

@@ -106,7 +106,7 @@ export function TagTypeaheadInput({
         className={cn(
           "mt-2 flex min-h-[3.5rem] flex-wrap items-center gap-2 px-3 py-2",
           luxury
-            ? "rounded-xl border border-white/5 bg-[#0A0C10]"
+            ? "rounded-xl border border-cx-forest-dark/20 bg-white"
             : "min-h-[2.75rem] rounded-lg border border-cx-forest-dark/20 bg-white",
           disabled && "opacity-60",
         )}
@@ -118,7 +118,7 @@ export function TagTypeaheadInput({
             className={cn(
               "inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-futura-medium tracking-wide",
               luxury
-                ? "rounded-lg border border-[#A3E635]/30 bg-[#14532D]/40 text-fis-gold"
+                ? "rounded-lg border border-fis-gold/30 bg-fis-gold/8 text-fis-gold"
                 : "rounded-full border border-cx-forest-dark bg-cx-forest-dark/10 text-sm text-black",
             )}
           >
@@ -133,7 +133,7 @@ export function TagTypeaheadInput({
                 className={cn(
                   "rounded-full p-0.5 transition-colors",
                   luxury
-                    ? "text-fis-gold hover:text-white"
+                    ? "text-fis-gold hover:text-cx-text"
                     : "text-cx-text/70 hover:bg-cx-forest-dark/10 hover:text-cx-text",
                 )}
                 aria-label={`Remove ${tag}`}
@@ -163,7 +163,7 @@ export function TagTypeaheadInput({
             className={cn(
               "min-w-[8rem] flex-1 border-0 bg-transparent p-1 py-1 outline-none focus:ring-0",
               luxury
-                ? "text-sm text-white placeholder:text-gray-600"
+                ? "text-sm text-cx-text placeholder:text-cx-text/40"
                 : "text-base text-black placeholder:text-cx-text/45",
             )}
             autoComplete="off"
@@ -182,7 +182,7 @@ export function TagTypeaheadInput({
           className={cn(
             "absolute z-20 mt-1 max-h-48 w-full overflow-y-auto rounded-md border shadow-md",
             luxury
-              ? "border-white/10 bg-[#141722]"
+              ? "border-cx-forest-dark/15 bg-white"
               : "border-cx-forest-dark/15 bg-white",
           )}
         >

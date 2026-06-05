@@ -45,6 +45,7 @@ type DocumentRow = SavedDocument | UploadingDocument;
 
 type OnboardingDocumentsStepProps = {
   onContinue: () => void;
+  onSkip?: () => void;
   continueDisabled?: boolean;
   variant?: "default" | "luxury";
 };
@@ -55,6 +56,7 @@ function isUploading(doc: DocumentRow): doc is UploadingDocument {
 
 export function OnboardingDocumentsStep({
   onContinue,
+  onSkip,
   continueDisabled = false,
   variant = "default",
 }: OnboardingDocumentsStepProps) {
@@ -382,7 +384,7 @@ export function OnboardingDocumentsStep({
 
       <div className={cn("space-y-3", luxury ? "mt-0" : "mt-5")}>
         <div className="flex items-center justify-between gap-3">
-          <p className={cn("text-sm font-semibold", luxury ? "font-futura-bold uppercase tracking-[0.12em] text-[#D4AF37]" : "text-cx-text")}>
+          <p className={cn("text-sm font-semibold", luxury ? "font-futura-bold uppercase tracking-[0.12em] text-fis-gold" : "text-cx-text")}>
             Uploaded documents
           </p>
           {documents.some((doc) => !isUploading(doc)) && (
@@ -584,7 +586,7 @@ export function OnboardingDocumentsStep({
         <div>
           <label
             htmlFor="tp1-doc-type"
-            className={cn("text-sm font-semibold", luxury && "font-futura-bold uppercase tracking-[0.12em] text-[#D4AF37]")}
+            className={cn("text-sm font-semibold", luxury && "font-futura-bold uppercase tracking-[0.12em] text-fis-gold")}
           >
             Document type
           </label>
@@ -596,7 +598,7 @@ export function OnboardingDocumentsStep({
               setCustomDocLabel("");
               setError("");
             }}
-            className={cn("mt-2 w-full", luxury ? "rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-white focus:border-[#A3E635] focus:outline-none" : "cx-field")}
+            className={cn("mt-2 w-full", luxury ? "rounded-xl border border-cx-forest-dark/20 bg-white px-4 py-3 text-sm text-cx-text focus:border-fis-gold focus:outline-none" : "cx-field")}
           >
             {ONBOARDING_DOCUMENT_TYPE_OPTIONS.map((option) => (
               <option key={option.id} value={option.id}>
@@ -632,8 +634,8 @@ export function OnboardingDocumentsStep({
             "flex w-full cursor-pointer flex-col items-center rounded-2xl border-2 border-dashed px-6 py-8 transition-colors",
             luxury
               ? cn(
-                  "border-white/10 bg-[#0A0C10] hover:border-[#A3E635]/40 hover:bg-[#1C2030]",
-                  dragActive && "border-[#A3E635] bg-[#1C2030]",
+                  "border-cx-forest-dark/20 bg-white hover:border-fis-gold/40 hover:bg-fis-gold/5",
+                  dragActive && "border-fis-gold bg-fis-gold/5",
                 )
               : cn(
                   "border-cx-forest-dark/25 bg-cx-forest-dark/[0.03] hover:border-cx-forest-dark/40 hover:bg-cx-forest-dark/5",
@@ -661,7 +663,7 @@ export function OnboardingDocumentsStep({
         <div className="space-y-2">
           <label
             htmlFor="tp1-paste"
-            className={cn("text-sm font-semibold", luxury && "font-futura-bold uppercase tracking-[0.12em] text-[#D4AF37]")}
+            className={cn("text-sm font-semibold", luxury && "font-futura-bold uppercase tracking-[0.12em] text-fis-gold")}
           >
             Or paste document text
           </label>
@@ -691,13 +693,13 @@ export function OnboardingDocumentsStep({
         </div>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 space-y-3">
         {luxury ? (
           <button
             type="button"
             onClick={onContinue}
             disabled={continueDisabled || isUploadingAny}
-            className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+            className="w-full rounded-xl bg-cx-forest-dark px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-white shadow-sm transition-all hover:bg-cx-forest-dark/90 disabled:opacity-40"
           >
             Continue
           </button>
@@ -709,6 +711,15 @@ export function OnboardingDocumentsStep({
           >
             Continue
           </Button>
+        )}
+        {onSkip && (
+          <button
+            type="button"
+            onClick={onSkip}
+            className="w-full py-2 text-sm text-cx-text/50 transition-colors hover:text-cx-text/80"
+          >
+            Skip for now — add documents anytime
+          </button>
         )}
       </div>
 

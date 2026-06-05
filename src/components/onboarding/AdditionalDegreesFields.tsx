@@ -29,7 +29,7 @@ export function AdditionalDegreesFields({
   const luxury = variant === "luxury";
 
   function addDegree() {
-    onChange([...value, { degree: "Master's" }]);
+    onChange([...value, { degree: "Master's", _id: crypto.randomUUID() }]);
   }
 
   function updateDegree(index: number, patch: Partial<AdditionalDegreeEntry>) {
@@ -54,10 +54,10 @@ export function AdditionalDegreesFields({
     <div className="space-y-4">
       {value.map((entry, index) => (
         <div
-          key={index}
+          key={entry._id ?? String(index)}
           className={cn(
             "space-y-3 rounded-xl border px-4 py-4",
-            luxury ? "border-white/10 bg-[#0A0C10]" : "border-cx-forest-dark/10",
+            luxury ? "border-cx-forest-dark/10 bg-[#FCFBF7]" : "border-cx-forest-dark/10",
           )}
         >
           <div>
@@ -152,7 +152,7 @@ export function AdditionalDegreesFields({
         <button
           type="button"
           onClick={addDegree}
-          className="rounded-xl border border-dashed border-white/15 px-4 py-3 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:border-[#A3E635]/40 hover:text-fis-gold"
+          className="rounded-xl border border-dashed border-cx-forest-dark/20 px-4 py-3 font-futura-medium text-sm uppercase tracking-wider text-cx-text/60 transition-colors hover:border-fis-gold/40 hover:text-fis-gold"
         >
           Add degree
         </button>

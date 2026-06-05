@@ -32,8 +32,8 @@ function AcceptanceCheckbox({
     <label
       htmlFor={id}
       className={cn(
-        "group flex cursor-pointer items-start gap-6 rounded-xl border bg-[#0A0C10] p-6 font-futura-book transition-all",
-        checked ? "border-[#A3E635]/40" : "border-white/5 hover:border-white/10",
+        "group flex cursor-pointer items-start gap-6 rounded-xl border bg-[#FCFBF7] p-6 font-futura-book transition-all",
+        checked ? "border-fis-gold/30 bg-fis-gold/5" : "border-cx-forest-dark/15 hover:border-cx-forest-dark/30",
       )}
     >
       <input
@@ -41,9 +41,9 @@ function AcceptanceCheckbox({
         type="checkbox"
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
-        className="mt-1 h-5 w-5 shrink-0 rounded border-gray-600 bg-transparent text-fis-gold accent-[#A3E635] focus:ring-0 focus:ring-offset-0"
+        className="mt-1 h-5 w-5 shrink-0 rounded border-cx-forest-dark/30 bg-transparent text-fis-gold accent-fis-gold focus:ring-0 focus:ring-offset-0"
       />
-      <p className="text-base leading-relaxed text-gray-300 transition-colors group-hover:text-white">
+      <p className="text-base leading-relaxed text-cx-text/80 transition-colors group-hover:text-cx-text">
         {children}
       </p>
     </label>
@@ -92,13 +92,13 @@ export function OnboardingTermsAcceptanceCard({
         </AcceptanceCheckbox>
       </div>
 
-      <p className="text-sm font-medium text-gray-400">
+      <p className="text-sm font-medium text-cx-text/60">
         {ACCEPTANCE_CARD_COPY.legalPrefix}{" "}
         <Link
           href="/legal/terms-of-service"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white underline underline-offset-4 transition-colors hover:text-[#D4AF37]"
+          className="text-cx-text underline underline-offset-4 transition-colors hover:text-fis-gold"
         >
           {ACCEPTANCE_CARD_COPY.termsLabel}
         </Link>{" "}
@@ -107,7 +107,7 @@ export function OnboardingTermsAcceptanceCard({
           href="/legal/privacy-policy"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white underline underline-offset-4 transition-colors hover:text-[#D4AF37]"
+          className="text-cx-text underline underline-offset-4 transition-colors hover:text-fis-gold"
         >
           {ACCEPTANCE_CARD_COPY.privacyLabel}
         </Link>
@@ -124,7 +124,7 @@ export function OnboardingTermsAcceptanceCard({
         type="button"
         onClick={onAccept}
         disabled={disabled || loading || !allChecked}
-        className="w-full rounded-xl bg-[#D4AF37] py-4.5 font-futura-bold text-sm uppercase tracking-widest text-[#0A0C10] shadow-[0_4px_20px_rgba(212,175,55,0.15)] transition-all hover:bg-[#c29f2e] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40"
+        className="w-full rounded-xl bg-fis-gold py-4.5 font-futura-bold text-sm uppercase tracking-widest text-white shadow-sm transition-all hover:bg-fis-gold/90 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-40"
       >
         {loading ? ACCEPTANCE_CARD_COPY.acceptButtonLoading : ACCEPTANCE_CARD_COPY.acceptButton}
       </button>

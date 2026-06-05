@@ -30,8 +30,8 @@ function TrackCard({
         "flex cursor-pointer gap-3 rounded-xl border px-4 py-3",
         luxury
           ? active
-            ? "border-[#A3E635]/40 bg-[#0A0C10]"
-            : "border-white/5 bg-[#0A0C10] hover:border-white/10"
+            ? "border-fis-gold/30 bg-fis-gold/5"
+            : "border-cx-forest-dark/15 bg-white hover:border-cx-forest-dark/30"
           : active
             ? "border-cx-forest-dark bg-cx-forest-dark/10"
             : "border-cx-forest-dark/15 hover:bg-cx-forest-dark/5",
@@ -41,13 +41,13 @@ function TrackCard({
         type="checkbox"
         checked={active}
         onChange={onToggle}
-        className={cn("mt-1 shrink-0", luxury && "accent-[#A3E635]")}
+        className={cn("mt-1 shrink-0", luxury && "accent-fis-gold")}
       />
       <span className="min-w-0">
         <span
           className={cn(
             "font-futura-medium block text-base",
-            luxury ? "text-[#D4AF37]" : "text-cx-text",
+            luxury ? "text-fis-gold" : "text-cx-text",
           )}
         >
           {track.title}
@@ -55,7 +55,7 @@ function TrackCard({
         <span
           className={cn(
             "font-futura-book mt-1 block text-sm leading-relaxed",
-            luxury ? "text-gray-400" : "text-black",
+            luxury ? "text-cx-text/60" : "text-black",
           )}
         >
           {track.description}
@@ -63,7 +63,7 @@ function TrackCard({
         <span
           className={cn(
             "font-futura-book mt-1 block text-sm",
-            luxury ? "text-gray-500" : "text-black",
+            luxury ? "text-cx-text/50" : "text-black",
           )}
         >
           {track.eligibility}
@@ -96,7 +96,7 @@ export function UhPsychEnrichmentTracksFields({
           <p
             className={cn(
               "font-futura-medium text-base",
-              luxury ? "text-[#D4AF37]" : "text-cx-text",
+              luxury ? "text-fis-gold" : "text-cx-text",
             )}
           >
             UH Psychiatry program tracks
@@ -104,7 +104,7 @@ export function UhPsychEnrichmentTracksFields({
           <p
             className={cn(
               "font-futura-book mt-1 text-base",
-              luxury ? "text-gray-500" : "text-black",
+              luxury ? "text-cx-text/50" : "text-black",
             )}
           >
             Optional enrichment pathways offered by your program.

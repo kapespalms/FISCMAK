@@ -71,18 +71,18 @@ function PrivacyVault({
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className="mt-8 rounded-r-xl border-l-[3px] border-[#39FF14] bg-zinc-100/90 px-6 py-5"
+      className="mt-8 rounded-r-xl border-l-[3px] border-fis-gold bg-[#FCFBF7] px-6 py-5"
     >
       <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-zinc-500">
         Secure disclosure
       </p>
-      <h2 id={`${id}-heading`} className="mt-1 text-base font-bold text-[#0B0B0C]">
+      <h2 id={`${id}-heading`} className="mt-1 text-base font-bold text-cx-text">
         {title}
       </h2>
       <ul className="mt-4 space-y-3">
         {disclosures.map((item) => (
           <li key={item.title} className="text-sm leading-snug text-zinc-700">
-            <span className="font-semibold text-[#0B0B0C]">{item.title}: </span>
+            <span className="font-semibold text-cx-text">{item.title}: </span>
             {item.detail}
           </li>
         ))}
@@ -109,7 +109,7 @@ export function OnboardingWelcome({
     <Card className="overflow-hidden border-zinc-200/80 bg-white px-7 py-8 sm:px-9 sm:py-10">
       {isInstitutional && program ? (
         <>
-          <h1 className="text-page-title text-[#0B0B0C]">Your Career Track Hub</h1>
+          <h1 className="text-page-title text-cx-text">Your Career Track Hub</h1>
           <div className="mt-3">
             <ProgramJoinHeadline program={program} variant="onboarding" className="text-lg" />
             <p className="mt-1 text-sm text-zinc-500">Academic year {program.academic_year}</p>
@@ -129,7 +129,7 @@ export function OnboardingWelcome({
         </>
       ) : (
         <>
-          <h1 className="text-page-title text-[#0B0B0C]">Your Personal Career Hub</h1>
+          <h1 className="text-page-title text-cx-text">Your Personal Career Hub</h1>
           <p className="mt-3 max-w-prose text-sm leading-relaxed text-zinc-600">
             Independent workspace. Your narrative, your data, your trajectory.
           </p>
@@ -153,11 +153,11 @@ export function OnboardingWelcome({
             key={milestone.id}
             className="flex gap-4 rounded-xl bg-white px-6 py-5 shadow-sm ring-1 ring-zinc-200/80"
           >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#0B0B0C] text-sm font-bold text-white">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cx-forest-dark text-sm font-bold text-white">
               {index + 1}
             </span>
             <div className="min-w-0">
-              <p className="font-semibold text-[#0B0B0C]">{milestone.label}</p>
+              <p className="font-semibold text-cx-text">{milestone.label}</p>
               <p className="mt-1 text-sm leading-snug text-zinc-600">
                 {milestoneDetail(milestone, isInstitutional)}
               </p>
@@ -182,7 +182,7 @@ export function OnboardingWelcome({
 
       {!isInstitutional && onInstitutionalTokenChange && onApplyInstitutionalToken ? (
         <div className="mt-8 rounded-xl border border-zinc-200 bg-zinc-50 px-5 py-5">
-          <p className="font-semibold text-[#0B0B0C]">Institutional token?</p>
+          <p className="font-semibold text-cx-text">Institutional token?</p>
           <p className="mt-1 text-xs text-zinc-500">Switch to your program workspace.</p>
           <div className="mt-3 flex flex-col gap-2 sm:flex-row">
             <input
@@ -214,7 +214,7 @@ export function OnboardingWelcome({
       <button
         type="button"
         onClick={onBegin}
-        className="mt-8 w-full rounded-md bg-[#0B0B0C] px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-[#39FF14] hover:text-[#0B0B0C]"
+        className="mt-8 w-full rounded-md bg-cx-forest-dark px-6 py-4 text-sm font-bold text-white transition-colors hover:bg-fis-gold"
       >
         Activate Hub
       </button>

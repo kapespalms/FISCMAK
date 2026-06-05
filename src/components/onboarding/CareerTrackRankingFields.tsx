@@ -120,8 +120,8 @@ function TrackRow({
         "flex items-center gap-2 rounded-xl border px-2 py-2",
         luxury
           ? dragging
-            ? "border-[#A3E635]/50 bg-[#1C2030] opacity-90"
-            : "border-white/5 bg-[#0A0C10]"
+            ? "border-fis-gold/40 bg-fis-gold/5 opacity-90"
+            : "border-cx-forest-dark/15 bg-white"
           : dragging
             ? "border-cx-forest-dark/40 bg-cx-forest-dark/10 opacity-80"
             : "border-cx-forest-dark/15 bg-white",
@@ -166,7 +166,7 @@ function TrackRow({
           className={cn(
             "w-[4.75rem] py-1.5 text-base",
             luxury
-              ? "rounded-lg border border-white/5 bg-[#141722] px-2 text-white placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
+              ? "rounded-lg border border-cx-forest-dark/20 bg-slate-50 px-2 text-cx-text placeholder:text-cx-text/40 focus:border-fis-gold focus:outline-none"
               : "cx-field text-black",
           )}
           aria-label={`${useFte ? "FTE" : "Hours per week"} for ${row.track}`}
@@ -252,7 +252,7 @@ export function CareerTrackRankingFields({
 
   const columnLabelClass = cn(
     "font-futura-medium text-sm uppercase tracking-wide",
-    luxury ? "text-[#D4AF37]" : "text-cx-text",
+    luxury ? "text-fis-gold" : "text-cx-text",
   );
 
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -175,6 +175,7 @@ export function Touchpoint1Onboarding() {
   const searchParams = useSearchParams();
   const [step, setStep] = useState<OnboardingStep>(() => resolveInitialStep(searchParams));
   const [bootstrapped, setBootstrapped] = useState(false);
+  const bootstrapStarted = useRef(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [onboardingPath, setOnboardingPath] = useState<OnboardingPath | null>(null);
@@ -191,9 +192,7 @@ export function Touchpoint1Onboarding() {
   const [welcomeTokenLabel, setWelcomeTokenLabel] = useState<string | null>(null);
   const [welcomeTokenError, setWelcomeTokenError] = useState<string | null>(null);
   const [welcomeTokenLoading, setWelcomeTokenLoading] = useState(false);
-  const [resumeProfileStep, setResumeProfileStep] = useState(false);
-  const [resumeDocumentsStep, setResumeDocumentsStep] = useState(false);
-  const [resumeInstrumentsStep, setResumeInstrumentsStep] = useState(false);
+  const [resumeStep, setResumeStep] = useState<OnboardingStep | null>(null);
   const [documentsProcessing, setDocumentsProcessing] = useState(false);
   const [coachMakConversationId, setCoachMakConversationId] = useState<string | null>(null);
 
@@ -239,35 +238,28 @@ export function Touchpoint1Onboarding() {
   const [termsDocumentOwnership, setTermsDocumentOwnership] = useState(false);
 
   const profileCarouselCards = useMemo((): ProfileCarouselCard[] => {
-    const cards: ProfileCarouselCard[] = [
+    return [
       {
-        id: "about",
-        label: "Name",
+        id: "identity",
+        label: "Your identity",
         sectionLabel: "",
-        title: "Name",
-      },
-      {
-        id: "specialty",
-        label: "Clinical profile",
-        sectionLabel: "",
-        title: "Clinical Profile",
+        title: "Your Identity",
+        description: "Name, career stage, and specialty — takes about 2 minutes.",
       },
       {
         id: "career",
         label: "Career direction",
         sectionLabel: "",
         title: "Career Direction",
-        description:
-          "Rank the career tracks from most energizing to least energizing. Estimate the number of hours you spend in each every week.",
+        description: "Rank from most energizing to least. Drag to reorder.",
       },
       {
         id: "acceptance",
-        label: "Account initialization",
+        label: "Account setup",
         sectionLabel: "",
         title: ACCEPTANCE_CARD_COPY.title,
       },
     ];
-    return cards;
   }, []);
 
   const activeProfileCardId = profileCarouselCards[profileCardIndex]?.id ?? "about";
@@ -549,18 +541,23 @@ export function Touchpoint1Onboarding() {
       const param = searchParams.get("step") as OnboardingStep | null;
       if (param && STEPS.some((s) => s.id === param)) {
         setStep(param);
-        setResumeProfileStep(
+        setResumeStep(
           param === "profile" &&
             !u.tier1_complete &&
-            (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED"),
+            (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED")
+            ? "profile"
+            : param === "documents"
+              ? "documents"
+              : param === "instruments"
+                ? "instruments"
+                : null,
         );
-        setResumeDocumentsStep(param === "documents");
-        setResumeInstrumentsStep(param === "instruments");
         return;
       }
 
       if (!u.path_chosen && !options?.pathResolved) {
         setStep("path");
+        setResumeStep(null);
         return;
       }
 
@@ -578,13 +575,17 @@ export function Touchpoint1Onboarding() {
         u.pending_reconcile_count ?? 0,
       );
       setStep(resolved);
-      setResumeProfileStep(
+      setResumeStep(
         resolved === "profile" &&
           !u.tier1_complete &&
-          (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED"),
+          (u.current_onboarding_step === 1 || u.onboarding_status !== "NOT_STARTED")
+          ? "profile"
+          : resolved === "documents"
+            ? "documents"
+            : resolved === "instruments"
+              ? "instruments"
+              : null,
       );
-      setResumeDocumentsStep(resolved === "documents");
-      setResumeInstrumentsStep(resolved === "instruments");
       router.replace(`/app/onboarding?step=${resolved}`);
     },
     [router, searchParams],
@@ -630,6 +631,8 @@ export function Touchpoint1Onboarding() {
   }
 
   useEffect(() => {
+    if (bootstrapStarted.current) return;
+    bootstrapStarted.current = true;
     void (async () => {
       rememberOnboardingEntry(window.location.search);
 
@@ -706,7 +709,12 @@ export function Touchpoint1Onboarding() {
         }
       }
       if (data.onboarding_metadata?.additional_degrees) {
-        setAdditionalDegrees(data.onboarding_metadata.additional_degrees);
+        setAdditionalDegrees(
+          (data.onboarding_metadata.additional_degrees as AdditionalDegreeEntry[]).map((e) => ({
+            ...e,
+            _id: e._id ?? crypto.randomUUID(),
+          })),
+        );
       }
       if (data.onboarding_metadata?.current_goal) {
         setCurrentGoal(data.onboarding_metadata.current_goal as CurrentGoal);
@@ -784,7 +792,8 @@ export function Touchpoint1Onboarding() {
     fetch("/api/v1/onboarding/reconciliation")
       .then((r) => r.json())
       .then((d) => {
-        setReconcileItems(d.items ?? []);
+        const rawItems: ReconcileItem[] = d.items ?? [];
+        setReconcileItems(Array.from(new Map(rawItems.map((i) => [i.id, i])).values()));
         if (typeof d.npi === "string") setSavedNpi(d.npi);
         setNpiStatus({
           npi: d.npi ?? null,
@@ -808,14 +817,11 @@ export function Touchpoint1Onboarding() {
   async function validateProfileCard(cardId: string): Promise<boolean> {
     setError("");
     const fullName = combineName(firstName, lastName);
-    if (cardId === "about") {
+    if (cardId === "identity") {
       if (!fullName.trim() || fullName.trim().length < 2) {
         setError("Enter your first and last name.");
         return false;
       }
-      return true;
-    }
-    if (cardId === "specialty") {
       const resolvedBase = showMedStudentFields
         ? specialtyInterests[0] ?? baseSpecialty
         : baseSpecialty;
@@ -970,7 +976,7 @@ export function Touchpoint1Onboarding() {
 
       const ratedDomains = Object.entries(energyRankings);
       if (ratedDomains.length > 0) {
-        fetch("/api/v1/onboarding/energy-ranking", {
+        const rankRes = await fetch("/api/v1/onboarding/energy-ranking", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -979,7 +985,11 @@ export function Touchpoint1Onboarding() {
               rank,
             })),
           }),
-        }).catch(console.error);
+        });
+        if (!rankRes.ok) {
+          setError("Energy rankings could not be saved — please try again before continuing.");
+          return;
+        }
       }
 
       setStep("documents");
@@ -1133,32 +1143,20 @@ export function Touchpoint1Onboarding() {
   }
 
   const showProgressStepper = pathChosen && step !== "path";
-  const timelineDark =
-    step === "profile" ||
-    step === "documents" ||
-    step === "reconcile" ||
-    step === "instruments";
+  const timelineDark = false;
 
   return (
     <>
       {!bootstrapped ? (
         <div className="flex flex-1 items-center justify-center p-8">
-          <p className="font-futura-book text-gray-400">Loading onboarding…</p>
+          <p className="font-futura-book text-cx-text/50">Loading onboarding…</p>
         </div>
       ) : showProgressStepper ? (
         <div
-          className={cn(
-            "-mx-4 -mt-4 flex min-h-[calc(100vh-2rem)] flex-col md:-mx-8 md:-mt-8",
-            timelineDark ? "bg-[#0A0C10]" : "bg-slate-50/50",
-          )}
+          className="-mx-4 -mt-4 flex min-h-[calc(100vh-2rem)] flex-col bg-[#FCFBF7] md:-mx-8 md:-mt-8"
         >
           <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6">
-            <div
-              className={cn(
-                "sticky top-0 z-50 -mx-6 border-b px-6 pb-1 pt-2",
-                timelineDark ? "border-white/10 bg-[#0A0C10]" : "border-slate-200/80 bg-white",
-              )}
-            >
+            <div className="sticky top-0 z-50 -mx-6 border-b border-cx-forest-dark/10 bg-[#FCFBF7] px-6 pb-1 pt-2">
               <OnboardingMilestoneTimeline
                 currentStep={step}
                 cardIndex={step === "profile" ? profileCardIndex : undefined}
@@ -1255,8 +1253,8 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "profile" && (
-        <div className="space-y-8 font-futura-book text-white">
-          {resumeProfileStep ? (
+        <div className="space-y-8 font-futura-book">
+          {resumeStep === "profile" ? (
             <OnboardingResumeBanner
               message="Welcome back. Finish your Core Profile."
               storageKey="fiscmak_onboarding_resume_profile"
@@ -1266,7 +1264,7 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-cx-text/50 transition-colors hover:text-cx-text"
             >
               <ChevronLeft size={16} />
               Back
@@ -1276,7 +1274,7 @@ export function Touchpoint1Onboarding() {
             <ProgramJoinHeadline
               program={programConfig}
               variant="onboarding"
-              className="mb-2 text-2xl !text-white [&_span]:!text-white"
+              className="mb-2 text-2xl"
             />
           )}
 
@@ -1293,8 +1291,9 @@ export function Touchpoint1Onboarding() {
             hideNav={activeProfileCardId === "acceptance"}
           >
             <LuxuryWorkspace>
-              {activeProfileCardId === "about" && (
+              {activeProfileCardId === "identity" && (
                 <>
+                  {/* Card 1 — Identity: name + career stage + specialty */}
                   <LuxuryBlock label="Name">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <LuxuryTextInput
@@ -1314,33 +1313,13 @@ export function Touchpoint1Onboarding() {
                     </div>
                   </LuxuryBlock>
 
-                  {!isInstitutional && (
-                    <>
-                      <LuxuryDivider />
-                      <LuxuryBlock label="Additional Degrees">
-                        <LuxuryHint className="mb-4">
-                          Optional — other degrees beyond your MD/DO.
-                        </LuxuryHint>
-                        <AdditionalDegreesFields
-                          value={additionalDegrees}
-                          onChange={setAdditionalDegrees}
-                          variant="luxury"
-                        />
-                      </LuxuryBlock>
-                    </>
-                  )}
-                </>
-              )}
+                  <LuxuryDivider />
 
-              {activeProfileCardId === "specialty" && (
-                <>
                   {institutionalCareerStageLocked ? (
                     <LuxuryInfoPanel>
-                      <span className="font-futura-medium text-[#D4AF37]">Career level:</span>{" "}
+                      <span className="font-futura-medium text-fis-gold">Career level:</span>{" "}
                       {careerLevel}
-                      <LuxuryHint className="mt-2">
-                        Set by your program affiliation.
-                      </LuxuryHint>
+                      <LuxuryHint className="mt-2">Set by your program affiliation.</LuxuryHint>
                     </LuxuryInfoPanel>
                   ) : (
                     <LuxuryBlock label="Career Level">
@@ -1400,192 +1379,11 @@ export function Touchpoint1Onboarding() {
                     </LuxuryBlock>
                   )}
 
-                  {showPracticeSetting && (
-                    <LuxuryBlock label="Practice Setting">
-                      <div className="grid grid-cols-2 gap-2">
-                        {PRACTICE_SETTINGS.map((s) => (
-                          <LuxuryChoiceButton
-                            key={s}
-                            active={practiceSetting === s}
-                            onClick={() => setPracticeSetting(s)}
-                          >
-                            {s}
-                          </LuxuryChoiceButton>
-                        ))}
-                      </div>
-                    </LuxuryBlock>
-                  )}
-
-                  {isInstitutional && (
-                    <LuxuryInfoPanel>
-                      <span className="font-futura-medium text-[#D4AF37]">Practice setting:</span>{" "}
-                      {programConfig?.default_practice_setting ?? practiceSetting}
-                      <LuxuryHint className="mt-2">
-                        Set by your program affiliation.
-                      </LuxuryHint>
-                    </LuxuryInfoPanel>
-                  )}
-
-                  {showPracticeSetting && (
-                    <LuxuryBlock label="Clinical Site (Optional)">
-                      <LuxuryHint className="mb-3">
-                        Where you primarily practice — helps calibrate your career lattice.
-                      </LuxuryHint>
-                      <div className="grid grid-cols-2 gap-2">
-                        {CLINICAL_SETTINGS.map((s) => (
-                          <LuxuryChoiceButton
-                            key={s}
-                            active={clinicalSetting === s}
-                            onClick={() => setClinicalSetting(s)}
-                          >
-                            {s}
-                          </LuxuryChoiceButton>
-                        ))}
-                      </div>
-                    </LuxuryBlock>
-                  )}
-
-                  {isAttendingCareerLevel(careerLevel) && !isInstitutional && (
-                    <LuxuryBlock label="Role Composition % (Optional)">
-                      <LuxuryHint className="mb-3">
-                        Approximate time in each area — helps calibrate your career lattice.
-                      </LuxuryHint>
-                      <div className="grid grid-cols-2 gap-3">
-                        {(
-                          [
-                            ["Clinical",  clinicalPct,  setClinicalPct],
-                            ["Teaching",  teachingPct,  setTeachingPct],
-                            ["Research",  researchPct,  setResearchPct],
-                            ["Admin",     adminPct,     setAdminPct],
-                          ] as [string, string, (v: string) => void][]
-                        ).map(([label, value, setter]) => (
-                          <div key={label}>
-                            <p className="mb-1 text-xs text-gray-500">{label}</p>
-                            <input
-                              type="number"
-                              min={0}
-                              max={100}
-                              value={value}
-                              onChange={(e) => setter(e.target.value)}
-                              placeholder="0"
-                              className="w-full rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                      {[clinicalPct, teachingPct, researchPct, adminPct].some(Boolean) && (() => {
-                        const total = [clinicalPct, teachingPct, researchPct, adminPct]
-                          .map((v) => parseFloat(v) || 0)
-                          .reduce((a, b) => a + b, 0);
-                        return (
-                          <p className="mt-2 text-xs text-gray-500">
-                            Total:{" "}
-                            <span className={Math.abs(total - 100) > 1 ? "text-[#C28D6C]" : "text-fis-gold"}>
-                              {total}%
-                            </span>
-                            {" "}(should equal 100%)
-                          </p>
-                        );
-                      })()}
-                    </LuxuryBlock>
-                  )}
-
-                  {isAttendingCareerLevel(careerLevel) && !isInstitutional && (
-                    <LuxuryBlock label="Years in Practice (Optional)">
-                      <input
-                        type="number"
-                        min={0}
-                        max={60}
-                        value={yearsInPractice}
-                        onChange={(e) => setYearsInPractice(e.target.value)}
-                        placeholder="e.g. 12"
-                        className="w-full rounded-xl border border-white/5 bg-[#0A0C10] px-5 py-4 text-sm text-white transition-all placeholder:text-gray-600 focus:border-[#A3E635] focus:outline-none"
-                      />
-                    </LuxuryBlock>
-                  )}
-
-                  {!showMedStudentFields && (
-                    <LuxuryBlock label="Domain Energy (Optional)">
-                      <LuxuryHint className="mb-3">
-                        Rate each area: 1 = very draining · 5 = very energizing. Skip any you&apos;re unsure about.
-                      </LuxuryHint>
-                      <div className="space-y-3">
-                        {DOMAIN_IDENTITIES.map((domain) => (
-                          <div key={domain.index} className="flex items-center gap-3">
-                            <span className="w-36 shrink-0 text-sm text-gray-300">
-                              {domain.name}
-                            </span>
-                            <div className="flex gap-1.5">
-                              {([1, 2, 3, 4, 5] as const).map((n) => (
-                                <button
-                                  key={n}
-                                  type="button"
-                                  onClick={() =>
-                                    setEnergyRankings((prev) => ({
-                                      ...prev,
-                                      [domain.index]: prev[domain.index] === n ? 0 : n,
-                                    }))
-                                  }
-                                  className={cn(
-                                    "h-8 w-8 rounded-lg border text-xs font-medium transition-all",
-                                    energyRankings[domain.index] === n
-                                      ? "border-[#A3E635] bg-[#A3E635]/10 text-fis-gold"
-                                      : "border-white/10 bg-[#0A0C10] text-gray-500 hover:border-white/20",
-                                  )}
-                                >
-                                  {n}
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </LuxuryBlock>
-                  )}
-
-                  {showAcademicRankField && (
-                    <LuxuryBlock label="Academic Rank (Optional)">
-                      <LuxuryHint className="mb-4">{ACADEMIC_RANK_HELPER}</LuxuryHint>
-                      <div className="grid gap-2 sm:grid-cols-2">
-                        <LuxuryChoiceButton
-                          active={!academicRank}
-                          onClick={() => setAcademicRank("")}
-                        >
-                          No rank selected
-                        </LuxuryChoiceButton>
-                        {ACADEMIC_RANKS.map((r) => (
-                          <LuxuryChoiceButton
-                            key={r}
-                            active={academicRank === r}
-                            onClick={() => setAcademicRank(r)}
-                          >
-                            {r}
-                          </LuxuryChoiceButton>
-                        ))}
-                        {ACADEMIC_RANK_SPECIAL.map((r) => (
-                          <LuxuryChoiceButton
-                            key={r}
-                            active={academicRank === r}
-                            onClick={() => setAcademicRank(r)}
-                          >
-                            {r}
-                          </LuxuryChoiceButton>
-                        ))}
-                      </div>
-                      {academicRank === "Other" && (
-                        <LuxuryTextInput
-                          value={academicRankOther}
-                          onChange={setAcademicRankOther}
-                          placeholder="Describe your academic title"
-                          className="mt-3"
-                        />
-                      )}
-                    </LuxuryBlock>
-                  )}
+                  <LuxuryDivider />
 
                   {isInstitutional && programConfig?.specialty_locked ? (
                     <LuxuryBlock label="Specialty">
-                      <p className="mb-4 text-base text-white">{programConfig.base_specialty}</p>
+                      <p className="mb-4 text-base text-cx-text">{programConfig.base_specialty}</p>
                       <SpecialtyIntakeFields
                         baseSpecialty={baseSpecialty}
                         onPickBase={pickBaseSpecialty}
@@ -1611,40 +1409,6 @@ export function Touchpoint1Onboarding() {
                       onSpecialtyInterestsChange={setSpecialtyInterests}
                       variant="luxury"
                     />
-                  )}
-
-                  {showSubspecialtyInterests &&
-                    (showMedStudentFields ? specialtyInterests.length > 0 : Boolean(baseSpecialty)) && (
-                      <OnboardingInterestsBlock
-                        baseSpecialty={
-                          showMedStudentFields ? specialtyInterests[0]! : baseSpecialty
-                        }
-                        baseSpecialties={showMedStudentFields ? specialtyInterests : undefined}
-                        careerStage={careerLevel}
-                        subspecialtyInterests={subspecialtyInterests}
-                        onSubspecialtyInterestsChange={setSubspecialtyInterests}
-                        showUhPsychTracks={
-                          isInstitutional && programConfig?.slug === "uh-psych-cmc"
-                        }
-                        uhPsychTracks={uhPsychEnrichmentTracks}
-                        onUhPsychTracksChange={setUhPsychEnrichmentTracks}
-                        variant="luxury"
-                      />
-                    )}
-
-                  {showNarrative && (
-                    <>
-                      <LuxuryDivider />
-                      <LuxuryBlock label={narrativePrompt}>
-                        <LuxuryTextarea
-                          id="specialty-origin"
-                          value={specialtyOrigin}
-                          onChange={setSpecialtyOrigin}
-                          placeholder="Optional — one sentence is enough."
-                        />
-                        <LuxuryHint className="mt-3">{NARRATIVE_HELPER}</LuxuryHint>
-                      </LuxuryBlock>
-                    </>
                   )}
 
                   {isInstitutional && (
@@ -1674,6 +1438,7 @@ export function Touchpoint1Onboarding() {
 
               {activeProfileCardId === "career" && (
                 <>
+                  {/* Card 2 — Career direction: track ranking + domain energy */}
                   <CareerTrackRankingFields
                     careerLevel={careerLevel}
                     value={careerTrackRankings}
@@ -1681,22 +1446,42 @@ export function Touchpoint1Onboarding() {
                     variant="luxury"
                   />
 
-                  {!isInstitutional && (
+                  {!showMedStudentFields && (
                     <>
                       <LuxuryDivider />
-                      <LuxuryBlock label="Current Goal">
-                        <LuxuryHint className="mb-4">
-                          What do you most want FISCMAK to help with right now?
+                      <LuxuryBlock label="Domain Energy (Optional)">
+                        <LuxuryHint className="mb-3">
+                          Rate each area: 1 = very draining · 5 = very energizing. Skip any you&apos;re unsure about.
                         </LuxuryHint>
-                        <div className="grid gap-2">
-                          {CURRENT_GOAL_OPTIONS.map((option) => (
-                            <LuxuryChoiceButton
-                              key={option}
-                              active={currentGoal === option}
-                              onClick={() => setCurrentGoal(option)}
-                            >
-                              {option}
-                            </LuxuryChoiceButton>
+                        <div className="space-y-3">
+                          {DOMAIN_IDENTITIES.map((domain) => (
+                            <div key={domain.index} className="flex items-center gap-3">
+                              <span className="w-36 shrink-0 text-sm text-cx-text/70">
+                                {domain.name}
+                              </span>
+                              <div className="flex gap-1.5">
+                                {([1, 2, 3, 4, 5] as const).map((n) => (
+                                  <button
+                                    key={n}
+                                    type="button"
+                                    onClick={() =>
+                                      setEnergyRankings((prev) => ({
+                                        ...prev,
+                                        [domain.index]: prev[domain.index] === n ? 0 : n,
+                                      }))
+                                    }
+                                    className={cn(
+                                      "h-8 w-8 rounded-lg border text-xs font-medium transition-all",
+                                      energyRankings[domain.index] === n
+                                        ? "border-fis-gold bg-fis-gold/10 text-fis-gold"
+                                        : "border-cx-forest-dark/20 bg-white text-cx-text/50 hover:border-cx-forest-dark/40",
+                                    )}
+                                  >
+                                    {n}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
                           ))}
                         </div>
                       </LuxuryBlock>
@@ -1706,6 +1491,7 @@ export function Touchpoint1Onboarding() {
               )}
 
               {activeProfileCardId === "acceptance" && (
+                /* Card 3 — Terms acceptance */
                 <OnboardingTermsAcceptanceCard
                   chatConfidential={termsChatConfidential}
                   summativeReports={termsSummativeReports}
@@ -1724,8 +1510,8 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "documents" && (
-        <div className="space-y-8 font-futura-book text-white">
-          {resumeDocumentsStep ? (
+        <div className="space-y-8 font-futura-book">
+          {resumeStep === "documents" ? (
             <OnboardingResumeBanner
               message={
                 documentsProcessing
@@ -1739,23 +1525,31 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-cx-text/50 transition-colors hover:text-cx-text"
             >
               <ChevronLeft size={16} />
               Back
             </button>
           )}
-          <OnboardingDocumentsStep variant="luxury" onContinue={goToReconcile} continueDisabled={loading} />
+          <OnboardingDocumentsStep
+            variant="luxury"
+            onContinue={goToReconcile}
+            onSkip={() => {
+              setStep("instruments");
+              router.replace("/app/onboarding?step=instruments");
+            }}
+            continueDisabled={loading}
+          />
         </div>
       )}
 
       {step === "reconcile" && (
-        <div className="space-y-8 font-futura-book text-white">
+        <div className="space-y-8 font-futura-book">
           {stepIndex > 0 && (
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-cx-text/50 transition-colors hover:text-cx-text"
             >
               <ChevronLeft size={16} />
               Back
@@ -1763,8 +1557,8 @@ export function Touchpoint1Onboarding() {
           )}
           <LuxuryWorkspace>
             <LuxuryCardHeader
-              title="Evidence Vault"
-              description="Confirm parsed data from your uploaded artifacts."
+              title="Review what we found in your CV"
+              description={`We extracted ${reconcileItems.length} item${reconcileItems.length !== 1 ? "s" : ""} — confirm the ones that look right. Any you skip will appear in your Profile for review anytime.`}
             />
 
             <ul className="space-y-4">
@@ -1782,14 +1576,14 @@ export function Touchpoint1Onboarding() {
               ))}
             </ul>
 
-            <div className="pt-2">
+            <div className="space-y-3 pt-2">
               <button
                 type="button"
                 onClick={submitReconciliation}
-                disabled={loading || !canContinueReconcile()}
-                className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+                disabled={loading}
+                className="w-full rounded-xl bg-cx-forest-dark px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-white shadow-sm transition-all hover:bg-cx-forest-dark/90 disabled:opacity-40"
               >
-                {loading ? "Saving…" : "Continue to Career Chat"}
+                {loading ? "Saving…" : "Continue to Meet Mak"}
               </button>
             </div>
             {error && (
@@ -1802,8 +1596,8 @@ export function Touchpoint1Onboarding() {
       )}
 
       {step === "instruments" && (
-        <div className="space-y-8 font-futura-book text-white">
-          {resumeInstrumentsStep && coachMakConversationId ? (
+        <div className="space-y-8 font-futura-book">
+          {resumeStep === "instruments" && coachMakConversationId ? (
             <OnboardingResumeBanner
               message={`Welcome back. Resume your Career Chat with ${MAK_DISPLAY_NAME}.`}
               storageKey="fiscmak_onboarding_resume_instruments"
@@ -1813,7 +1607,7 @@ export function Touchpoint1Onboarding() {
             <button
               type="button"
               onClick={goBackOneStep}
-              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-gray-400 transition-colors hover:text-white"
+              className="mb-4 inline-flex items-center gap-1.5 font-futura-medium text-sm uppercase tracking-wider text-cx-text/50 transition-colors hover:text-cx-text"
             >
               <ChevronLeft size={16} />
               Back
@@ -1821,30 +1615,32 @@ export function Touchpoint1Onboarding() {
           )}
           <LuxuryWorkspace>
             <LuxuryCardHeader
-              title="Career Chat"
-              description={`Initiate an intake chat for career exploration and empowerment with ${MAK_DISPLAY_NAME}.`}
+              title={`Meet ${MAK_DISPLAY_NAME}`}
+              description="A short intake conversation to personalize your career lattice — takes about 5 minutes."
             />
 
-            <ul className="space-y-2">
-              {instruments.map((inst) => (
-                <li
-                  key={inst.id}
-                  className="rounded-xl border border-white/5 bg-[#0A0C10] px-4 py-3 text-sm text-gray-300"
-                >
-                  <span className="font-futura-bold text-white">{inst.name}</span>
-                  <span className="text-gray-500">
-                    {" "}
-                    · {inst.items} items · ~{inst.minutes} min — {inst.description}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {instruments.length > 0 && (
+              <ul className="space-y-2">
+                {instruments.map((inst) => (
+                  <li
+                    key={inst.id}
+                    className="rounded-xl border border-cx-forest-dark/15 bg-slate-50 px-4 py-3 text-sm text-cx-text/80"
+                  >
+                    <span className="font-futura-bold text-cx-text">{inst.name}</span>
+                    <span className="text-cx-text/50">
+                      {" "}
+                      · {inst.items} items · ~{inst.minutes} min — {inst.description}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
 
             <button
               type="button"
               onClick={startMakConversation}
               disabled={loading}
-              className="w-full rounded-xl bg-white px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-[#0A0C10] shadow-[0_4px_20px_rgba(255,255,255,0.05)] transition-all hover:bg-gray-200 disabled:opacity-40"
+              className="w-full rounded-xl bg-cx-forest-dark px-10 py-4 font-futura-bold text-sm uppercase tracking-[0.2em] text-white shadow-sm transition-all hover:bg-cx-forest-dark/90 disabled:opacity-40"
             >
               {loading ? "Finishing…" : "Go to dashboard"}
             </button>

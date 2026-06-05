@@ -1,11 +1,13 @@
 import type { OnboardingWizardStep } from "@/lib/v2/onboarding-progress";
 
+/** @deprecated use warm design tokens instead */
 export const ONBOARDING_OBSIDIAN = "#0B0B0C";
+/** @deprecated use warm design tokens instead */
 export const ONBOARDING_LIME = "#39FF14";
 
 export type OnboardingMilestone = {
   id: 1 | 2 | 3;
-  label: "Core Profile" | "Evidence Vault" | "Career Chat";
+  label: string;
   subtitle: string;
   detail: string;
   steps: readonly OnboardingWizardStep[];
@@ -16,29 +18,29 @@ export const ONBOARDING_MILESTONES: readonly OnboardingMilestone[] = [
     id: 1,
     label: "Core Profile",
     subtitle: "About you",
-    detail: "Verify medical specialty, licensing state, and current practice structure.",
+    detail: "Name, career stage, specialty, and how you spend your time.",
     steps: ["welcome", "profile"],
   },
   {
     id: 2,
     label: "Evidence Vault",
-    subtitle: "Evidence & CVs",
-    detail: "Securely drop CVs, board certifications, and historical peer reviews.",
+    subtitle: "CV & docs",
+    detail: "Upload your CV or other documents — or skip and add anytime.",
     steps: ["documents", "reconcile"],
   },
   {
     id: 3,
-    label: "Career Chat",
-    subtitle: "Talk with Mak",
-    detail: "Initiate an intake chat for career exploration and empowerment.",
+    label: "Meet Mak",
+    subtitle: "Career chat",
+    detail: "A short intake conversation to personalize your career lattice.",
     steps: ["instruments"],
   },
 ] as const;
 
 export const INSTITUTIONAL_MILESTONE_DETAILS: Record<OnboardingMilestone["id"], string> = {
   1: "Confirm training program, PGY level, and hospital affiliation.",
-  2: "Upload CV, licensing documents, and prior evaluations.",
-  3: "Brief Mak intake for career exploration and empowerment.",
+  2: "Upload CV, licensing documents, and prior evaluations — or skip and add anytime.",
+  3: "A brief Mak intake to personalize your career lattice.",
 };
 
 export function milestoneIndexForStep(step: string): number {
