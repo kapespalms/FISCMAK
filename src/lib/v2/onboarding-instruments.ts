@@ -55,7 +55,7 @@ const WHO5_CLUSTERS: InstrumentCluster[] = [
     id: "who5-active",
     instrumentId: "who5",
     label: "Active and vigorous",
-    makPrompt: "",
+    makPrompt: "Over the same two weeks:",
     publishedStem: "I have felt active and vigorous. (0 = at no time, 5 = all of the time)",
     likertMax: 5,
   },
@@ -63,7 +63,7 @@ const WHO5_CLUSTERS: InstrumentCluster[] = [
     id: "who5-rested",
     instrumentId: "who5",
     label: "Woke up fresh and rested",
-    makPrompt: "",
+    makPrompt: "And:",
     publishedStem: "I woke up feeling fresh and rested. (0 = at no time, 5 = all of the time)",
     likertMax: 5,
   },
@@ -71,7 +71,7 @@ const WHO5_CLUSTERS: InstrumentCluster[] = [
     id: "who5-interest",
     instrumentId: "who5",
     label: "Daily life filled with interest",
-    makPrompt: "",
+    makPrompt: "Last one:",
     publishedStem: "My daily life has been filled with things that interest me. (0 = at no time, 5 = all of the time)",
     likertMax: 5,
   },
@@ -134,7 +134,7 @@ const PHQ2_CLUSTERS: InstrumentCluster[] = [
     id: "phq2-depression",
     instrumentId: "phq2",
     label: "Depressed mood",
-    makPrompt: "",
+    makPrompt: "And:",
     publishedStem:
       "Feeling down, depressed, or hopeless. (0 = not at all, 3 = nearly every day)",
     likertMax: 3,
@@ -170,8 +170,8 @@ const PIF_CLUSTERS: InstrumentCluster[] = [
     makPrompt: "One question about where you are with your identity as a physician:",
     publishedStem:
       "Where are you with your identity as a physician right now? " +
-      "(1 = Still figuring out who I am in medicine · 2 = Actively shaping it on my own terms · " +
-      "3 = Settled, and evolving it intentionally · 4 = Haven't really thought about it)",
+      "(1 = Still largely shaped by my role or training · 2 = Actively authoring it on my own terms · " +
+      "3 = Settled, and continuing to evolve it intentionally · 4 = Deeply integrated — my identity and work feel fully aligned)",
     likertMax: 4,
   },
 ];

@@ -253,6 +253,12 @@ async function main() {
   });
 
   steps.push({
+    file: "docs/migrations/20260531_quality_safety_track.sql",
+    label: "Quality/Safety track — align career tracks to v3 8-track model",
+    requiresTable: "app_users",
+  });
+
+  steps.push({
     file: "docs/migrations/20260531_gme_milestone_ilp.sql",
     label: "GME milestone self-ratings + ILP goals",
     requiresTable: "app_users",
