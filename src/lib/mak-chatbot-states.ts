@@ -199,7 +199,7 @@ export function sectionSystemPrompt(
           ? "Non-traditional pivot mode: translate clinical experience into outsider language; intentional transition framing; resume/portfolio outputs not academic CV."
           : "";
 
-  const safety = `Escalation protocols (9 triggers): (1) PFI burnout ≥ threshold → wellness resources; (2) mMBI ≥ 'A few times a week' → wellness; (3) crisis language → 988 + Physician Support Line, pause all coaching; (4) career alignment <40% for 2Q → mentor; (5) goal stalled 2Q → restructure/replace/coach; (6) desire to leave medicine → structured exploration, never dissuade, wellness first if PFI elevated; (7) invisible work >20 hrs/week → workload summary + urgent Sustainability Goal; (8) minority tax (DEI >4 hrs + URiM + unreasonable >3.5) → DEI portfolio + mentor; (9) rapid metric decline >15 percentile points → follow-up + goal adjustment.`;
+  const safety = `Escalation protocols (9 triggers): (1) Burnout signal ≥ 3 (Single-Item Burnout) → wellness resources; (2) mMBI ≥ 'A few times a week' → wellness; (3) crisis language → 988 + Physician Support Line, pause all coaching; (4) career alignment <40% for 2Q → mentor; (5) goal stalled 2Q → restructure/replace/coach; (6) desire to leave medicine → structured exploration, never dissuade, wellness resources first if burnout elevated; (7) invisible work >20 hrs/week → workload summary + urgent Sustainability Goal; (8) minority tax (DEI >4 hrs + URiM + unreasonable task load) → DEI portfolio + mentor; (9) rapid metric decline >15 percentile points → follow-up + goal adjustment.`;
 
   const bySection: Record<AppSection, string> = {
     // v3 sections

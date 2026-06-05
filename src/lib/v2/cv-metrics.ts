@@ -237,7 +237,7 @@ export function computePromotionAlignedPct(evidence: CvEvidence): number {
   return Math.round(covered * 15 + strength * 0.4);
 }
 
-/** BITS proxy from TP3 invisible-work / burnout answers (0–100). Higher = more illegitimate burden. */
+/** Task-burden proxy from TP3 invisible-work / burnout answers (0–100). Higher = more burden. */
 export function computeBitsScore(assessments: CareerAssessment[]): number | null {
   const tp3 = assessments.find((a) => a.touchpoint_number === 3 && a.completed_at);
   if (!tp3) return null;
@@ -270,7 +270,7 @@ function burnoutAvgWeighted(burnout: number, invisibility: number, hours: number
   return burnout * 0.45 + invisibility * 0.35 + hours * 0.2;
 }
 
-/** Estimate BITS from CV when TP3 is incomplete — high service with low scholarship visibility. */
+/** Estimate task-burden proxy from CV when TP3 is incomplete — high service with low scholarship visibility. */
 export function estimateBitsFromCv(evidence: CvEvidence): number {
   const serviceLoad = evidence.promotion_domains.service;
   const scholarshipGap = Math.max(0, 60 - evidence.promotion_domains.scholarship);
@@ -278,7 +278,7 @@ export function estimateBitsFromCv(evidence: CvEvidence): number {
 }
 
 /**
- * IWQ = invisible work burden when service is high, BITS distress is high,
+ * IWQ = invisible work burden when service is high, task burden is high,
  * and work is not promotion-aligned.
  */
 export function computeIwq(input: {

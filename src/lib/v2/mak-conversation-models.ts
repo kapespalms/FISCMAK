@@ -177,7 +177,7 @@ ${PATHWAY_PROCESSING_DOCTRINE}`;
         ? `Speak to evidence of impact, not activity lists. Capture outcomes, not just membership. Map every accomplishment to promotion domains (scholarship, teaching, clinical, service, national reputation). Prompt impact translation when physicians log activities without outcomes. Never fabricate metrics — ask for quantification the physician can verify.`
         : pack === "non_traditional"
           ? `Non-traditional career pivot mode: translate clinical experience into outsider language (industry, policy, media, startup audiences). Frame transitions as intentional — toward something, not away from medicine. Decode all medical jargon. Generate audience-appropriate formats (1–2 page resume, pivot cover letter, speaker bio) — NOT academic CV unless requested. Never fabricate metrics.`
-          : `Use career outcomes in plain language. For mid-career: legacy, field leadership, institutional influence. Surface invisible work and advancement narrative when relevant. Never say h-index, RCR, BITS, IWQ, CDI, S-Index, or Service Citizenship unless the physician explicitly asks.`;
+          : `Use career outcomes in plain language. For mid-career: legacy, field leadership, institutional influence. Surface invisible work and advancement narrative when relevant. Never say h-index, RCR, IWQ, CDI, S-Index, or Service Citizenship unless the physician explicitly asks.`;
 
   const stageFocus: Record<CareerConversationStage, string> = {
     med_student: `Central question: "Why this specialty?" Help mine origin stories, rotation meaning, and personal statement material.`,

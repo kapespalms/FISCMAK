@@ -1,5 +1,4 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
-import { PFI_ANCHORS } from "@/lib/v2/pfi-scale";
 import {
   ANNUAL_REFRESH_MODULES,
   type AnnualRefreshModule,
@@ -74,28 +73,28 @@ const MODULE_PROMPTS: Record<string, (name: string) => string> = {
 3. On a scale of 1–10, how energized do you feel about your current career track?`,
 
   work_engagement: () =>
-    `Work Engagement (UWES-9) — annual vigor check (S-7):
+    `Work engagement — annual vigor check (S-7):
 
-Rate each from 1 (never) to 7 (always):
+Three quick questions on a 1 (never) to 7 (always) scale:
 - At work, I feel bursting with energy
 - At my job, I feel strong and vigorous
 - When I get up in the morning, I feel like going to work
 
 Share your responses or a brief summary of your current work engagement.`,
 
-  pfi_full: () =>
-    `Baseline well-being — professional fulfillment (published PFI items):
+  wellbeing_check: () =>
+    `Annual well-being check-in — a few quick questions:
 
-We'll use the standard 0–4 scale (${PFI_ANCHORS}).
+1. Using your own definition, how burned out do you feel right now? (1 = not at all, 5 = completely burned out)
+2. Overall, how has your well-being been this past year? (0 = poor, 5 = excellent)
 
-Share how you've been feeling this year — or we'll walk through fulfillment and exhaustion items one at a time in the next messages.`,
+Share your responses or a brief summary.`,
 
-  bits_full: () =>
-    `Task Burden review (S-2 / BITS):
+  invisible_work_burden: () =>
+    `Task burden and invisible work review:
 
-1. How often do you receive tasks that seem unnecessary or outside your role?
-2. How often are you asked to do things that should be someone else's responsibility?
-3. Overall unreasonable task burden (1–5)?`,
+1. Roughly how many hours per week do you spend on unrecognized work — after-hours EHR, prior auth, informal mentoring, admin?
+2. Has that changed meaningfully this year?`,
 
   invisible_work_annual: () =>
     `Unrecognized Work annual review (S-3):

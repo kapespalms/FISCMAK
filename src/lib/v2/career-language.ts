@@ -12,8 +12,10 @@ export const METRIC_LABELS = {
   s_index: "Service Citizenship",
   wrvu: "Clinical Volume",
   sop_score: "Clinical Breadth",
-  pfi_burnout: "Burnout Risk",
-  pfi_fulfillment: "Professional Fulfillment",
+  burnout_signal: "Burnout Signal",
+  wellbeing_score: "Well-Being",
+  pfi_burnout: "Burnout Signal",       // deprecated alias — maps to burnout_signal
+  pfi_fulfillment: "Well-Being",        // deprecated alias — maps to wellbeing_score (WHO-5)
   bits_score: "Task Burden",
   iwq: "Unrecognized Work",
   cdi: "Career Health Score",
@@ -167,19 +169,23 @@ export function scoreToTrafficLight(score: number): TrafficLight {
   return "red";
 }
 
-export function burnoutRiskFromPfi(burnoutScore: number | null | undefined): {
+/**
+ * Professional sustainability signal from Single-Item Burnout (1–5 scale, West et al.).
+ * Threshold ≥ 3 = positive signal. Reads Single-Item Burnout (West et al.) 1–5 scale directly.
+ */
+export function burnoutRiskFromSignal(sibLevel: number | null | undefined): {
   status: MetricStatus;
   label: string;
   summary: string;
 } {
-  if (burnoutScore == null) {
+  if (sibLevel == null) {
     return {
       status: "stable",
       label: "Professional Sustainability",
       summary: "Complete your well-being check with Coach Mak to establish a baseline.",
     };
   }
-  if (burnoutScore >= 3.325) {
+  if (sibLevel >= 4) {
     return {
       status: "needs_attention",
       label: "Professional Sustainability",
@@ -187,12 +193,12 @@ export function burnoutRiskFromPfi(burnoutScore: number | null | undefined): {
         "Professional Sustainability: Needs Attention — elevated strain indicators suggest your energy and engagement may need structured support.",
     };
   }
-  if (burnoutScore >= 2.5) {
+  if (sibLevel >= 3) {
     return {
       status: "developing",
       label: "Professional Sustainability",
       summary:
-        "Professional Sustainability: Developing — monitor workload shifts and task burden as clinical demands change.",
+        "Professional Sustainability: Developing — monitor workload shifts as clinical demands change.",
     };
   }
   return {
@@ -202,6 +208,9 @@ export function burnoutRiskFromPfi(burnoutScore: number | null | undefined): {
       "Professional Sustainability: Strong — energy and engagement indicators are in a healthy range.",
   };
 }
+
+/** @deprecated Use burnoutRiskFromSignal — PFI was removed (licensed). */
+export const burnoutRiskFromPfi = burnoutRiskFromSignal;
 
 export function fulfillmentSummary(fulfillmentScore: number | null | undefined): string {
   if (fulfillmentScore == null) {

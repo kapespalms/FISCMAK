@@ -70,7 +70,7 @@ export const MAK_STATE_MACHINE: MakStateDefinition[] = [
     tab: "subjective",
     entryCondition: "After reconciliation",
     chatbotBehavior:
-      "Conversational questionnaire: PFI → BITS → Invisible Work → Career Direction → UWES-9",
+      "Conversational questionnaire: WHO-5 → Single-Item Burnout → PHQ-2 → Invisible Work → Career Direction",
     exitCondition: "All modules completed",
     nextState: "ONBOARDDASHBOARD",
   },
@@ -171,7 +171,7 @@ export const MAK_STATE_MACHINE: MakStateDefinition[] = [
     state: "ESCALATE_WELLNESS",
     tab: "Global",
     entryCondition:
-      "PFI threshold OR mMBI threshold OR rapid decline in sustainability metrics",
+      "Burnout signal threshold (SIB ≥ 3) OR PHQ-2 ≥ 3 OR mMBI threshold OR rapid decline in sustainability metrics",
     chatbotBehavior:
       "Display wellness resources. Pause career-focused conversation until acknowledged.",
     exitCondition: "Physician acknowledges resources",

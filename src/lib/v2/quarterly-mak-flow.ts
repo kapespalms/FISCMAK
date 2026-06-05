@@ -3,7 +3,6 @@ import {
   QUARTERLY_MODULES,
   type QuarterlyPulseModule,
 } from "@/lib/v2/quarterly-pulse";
-import { formatPfiQuarterlyScreenPrompt } from "@/lib/v2/onboarding-instruments";
 import type { PracticeSetting } from "@/lib/v2/onboarding-options";
 import { invisibleWorkPromptsForSetting } from "@/lib/v2/invisible-work-taxonomy";
 
@@ -71,7 +70,14 @@ const MODULE_PROMPTS: Record<
   string,
   (setting: PracticeSetting | null) => string
 > = {
-  pfi_screen: () => formatPfiQuarterlyScreenPrompt(),
+  burnout_screen: () =>
+    `Well-being check (S-1):
+
+Using your own definition of burnout, how would you rate your current level? (1–5)
+
+1 = No symptoms. 2 = Stressed but not burned out. 3 = Burning out, have symptoms. 4 = Symptoms persist, hard to function. 5 = Completely burned out.
+
+Share a number or a brief description of how you've been feeling.`,
 
   invisible_pulse: (setting) => {
     const prompts = invisibleWorkPromptsForSetting(setting);

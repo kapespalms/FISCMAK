@@ -256,15 +256,13 @@ export function computeTouchpoint1Dashboard(user: AppUser, cvText?: string | nul
     deployedInstruments(user.career_stage, user.practice_setting ?? null).map((i) => i.id);
   const answers = meta.instrument_answers ?? [];
   const instrumentScores = scoreAllInstruments(instrumentIds, answers);
-  const bits = instrumentScores.find((s) => s.instrumentId === "bits");
   const invisible = instrumentScores.find((s) => s.instrumentId === "invisible_work");
   const invisibleHours =
     typeof invisible?.raw.weekly_hours === "number" ? invisible.raw.weekly_hours : undefined;
 
   const cvMetrics = cvText ? computeCvMetrics(cvText, []) : null;
 
-  const iwq =
-    bits && invisible ? computeIwq(bits, invisible) : meta.iwq ?? null;
+  const iwq = invisible ? computeIwq(invisible) : meta.iwq ?? null;
 
   const cdiView = buildCareerHealthView({ user, cvMetrics });
 

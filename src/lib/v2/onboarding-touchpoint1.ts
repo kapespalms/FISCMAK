@@ -127,11 +127,11 @@ export function deployedInstruments(
   setting: PracticeSetting | null,
 ): OnboardingInstrument[] {
   const all: OnboardingInstrument[] = [
-    { id: "pfi", name: "Stanford PFI", items: 16, minutes: 3, description: "Burnout, fulfillment, and self-valuation" },
-    { id: "bits", name: "BITS", items: 8, minutes: 2, description: "Illegitimate tasks and invisible work burden" },
+    { id: "who5", name: "WHO-5 Well-Being Index", items: 5, minutes: 2, description: "General well-being (public domain)" },
+    { id: "single_item_burnout", name: "Single-Item Burnout", items: 1, minutes: 1, description: "Burnout level — West et al. (public domain)" },
+    { id: "phq2", name: "PHQ-2", items: 2, minutes: 1, description: "Depression screen — triggered follow-up only (WHO-5 low / MDT≥4 / crisis); not Day-0 universal" },
     { id: "career_aspirations", name: "Career Aspirations", items: 10, minutes: 3, description: "Tracks, goals, energizers and drainers" },
-    { id: "pif", name: "PIF Scale (Tagawa)", items: 15, minutes: 3, description: "Professional identity formation stage" },
-    { id: "uwes", name: "UWES-9", items: 9, minutes: 2, description: "Work engagement" },
+    { id: "pif", name: "Professional Identity", items: 1, minutes: 1, description: "Identity stage — FISCMAK-owned item" },
     { id: "invisible_work", name: "Invisible Work Log", items: 5, minutes: 2, description: "Estimated weekly invisible hours by category" },
     { id: "sop", name: "SOP Score (FM only)", items: 32, minutes: 5, description: "Scope of practice breadth" },
     { id: "career_environment", name: "Career Environment Context", items: 6, minutes: 2, description: "Schedule control, institutional anchoring, QoL, and values alignment" },
@@ -139,16 +139,19 @@ export function deployedInstruments(
 
   const include = new Set<string>();
 
-  // All levels get PFI + Career Aspirations + PIF per spec
-  include.add("pfi");
+  // Universal — all career levels
+  include.add("who5");
+  include.add("single_item_burnout");
+  // PHQ-2 is NOT added here — it is a triggered follow-up, not a Day-0 universal screen.
+  // Deploy it through the Ticket-17 well-being pathway when:
+  //   WHO-5 < 28 (concern band), OR weekly-pulse MDT ≥ 4, OR crisis-language detected.
+  // See scorePhq2 / PHQ2_CLUSTERS — the scoring infrastructure is in place; only the
+  // deployment point moves to triggered.
   include.add("career_aspirations");
   include.add("pif");
-  // All levels get career environment context (Day-0 universal — feeds Career Urgency + Environmental Dx)
   include.add("career_environment");
 
   if (level === "Resident" || level === "Fellow" || isEarlyOrMid(level)) {
-    include.add("bits");
-    include.add("uwes");
     include.add("invisible_work");
   }
 
@@ -161,8 +164,6 @@ export function deployedInstruments(
   }
 
   if (level === "Medical Student" || level === "Retired") {
-    include.delete("bits");
-    include.delete("uwes");
     include.delete("invisible_work");
   }
 

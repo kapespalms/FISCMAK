@@ -221,48 +221,31 @@ function instrumentEvidence(
   }
 
   for (const score of scores) {
-    if (score.instrumentId === "pfi") {
-      const burnout = score.raw.burnout ?? 0;
-      const fulfillment = score.raw.fulfillment ?? 0;
-      if (burnout >= 3) {
-        pushEvidence(out, {
-          id: "assessment-pfi-burnout",
-          source: "assessment",
-          sourceLabel: "Self-assessment · PFI burnout screen",
-          rawText: score.interpretation ?? "Elevated burnout signal from PFI.",
-          date,
-          energy: "draining",
-          developmentLevel: 2,
-          domainIndex: 7,
-          trackIndex: 7,
-        });
-      }
-      if (fulfillment >= 3) {
-        pushEvidence(out, {
-          id: "assessment-pfi-fulfillment",
-          source: "assessment",
-          sourceLabel: "Self-assessment · PFI fulfillment",
-          rawText: "Strong professional fulfillment signal.",
-          date,
-          energy: "energizing",
-          developmentLevel: 2,
-          domainIndex: 7,
-          trackIndex: fallbackTrack,
-        });
-      }
-    }
-
-    if (score.instrumentId === "bits" && (score.raw.unreasonable ?? 0) >= 3) {
+    if (score.instrumentId === "single_item_burnout" && (score.raw.level ?? 0) >= 3) {
       pushEvidence(out, {
-        id: "assessment-bits-burden",
+        id: "assessment-burnout-signal",
         source: "assessment",
-        sourceLabel: "Self-assessment · BITS workload",
-        rawText: score.interpretation ?? "Elevated unreasonable-task burden.",
+        sourceLabel: "Self-assessment · Burnout signal",
+        rawText: score.interpretation ?? "Positive burnout signal.",
         date,
         energy: "draining",
         developmentLevel: 2,
-        domainIndex: 3,
-        trackIndex: 0,
+        domainIndex: 7,
+        trackIndex: 7,
+      });
+    }
+
+    if (score.instrumentId === "who5" && (score.raw.percentage_score ?? 0) >= 52) {
+      pushEvidence(out, {
+        id: "assessment-wellbeing-adequate",
+        source: "assessment",
+        sourceLabel: "Self-assessment · Well-being",
+        rawText: score.interpretation ?? "Adequate well-being signal.",
+        date,
+        energy: "energizing",
+        developmentLevel: 2,
+        domainIndex: 7,
+        trackIndex: fallbackTrack,
       });
     }
 

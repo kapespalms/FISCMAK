@@ -26,7 +26,7 @@ export const QUESTION_BANK: QuestionDef[] = [
   { q_id: "Q2.10", touchpoint_number: 2, question_category: "INVENTORY", question: "Any quality improvement or patient safety innovations you led?", question_type: "text" },
   { q_id: "Q2.11", touchpoint_number: 2, question_category: "INVENTORY", question: "Any regional or national society leadership roles?", question_type: "text" },
   { q_id: "Q2.12", touchpoint_number: 2, question_category: "INVENTORY", question: "Board certification status and maintenance of certification?", question_type: "text" },
-  // TP3 — BURNOUT (8) — Q3.1–Q3.4 skipped when PFI captured (see question-bank-dedupe.ts)
+  // TP3 — BURNOUT (8) — Q3.1–Q3.4 skipped when Single-Item Burnout already captured (see question-bank-dedupe.ts)
   { q_id: "Q3.1", touchpoint_number: 3, question_category: "BURNOUT", question: "I feel emotionally exhausted from my work (1-5)", question_type: "likert" },
   { q_id: "Q3.2", touchpoint_number: 3, question_category: "BURNOUT", question: "I feel cynical about my work (1-5)", question_type: "likert" },
   { q_id: "Q3.3", touchpoint_number: 3, question_category: "BURNOUT", question: "I feel effective in my role (1-5, reverse scored)", question_type: "likert" },

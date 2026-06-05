@@ -339,7 +339,7 @@ export type WellbeingAssessment = {
   wb_id: string;
   physician_id: string;
   assessment_date: string;
-  instrument: "PFI" | "MBI" | "mMBI_screen" | "single_item";
+  instrument: "WHO5" | "MBI" | "mMBI_screen" | "single_item";
   burnout_score: number | null;
   fulfillment_score: number | null;
   interpersonal_disengagement_score: number | null;

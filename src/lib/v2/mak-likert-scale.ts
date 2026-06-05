@@ -1,4 +1,3 @@
-import { PFI_ANCHORS, PFI_LIKERT_MAX } from "@/lib/v2/pfi-scale";
 import type { InstrumentCluster } from "@/lib/v2/onboarding-instruments";
 
 export type MakLikertScalePayload = {
@@ -17,13 +16,15 @@ export function likertScaleForCluster(
   if (!cluster || cluster.likertMax <= 0) return null;
 
   const max = cluster.likertMax;
-  const min = cluster.instrumentId === "pfi" || max === PFI_LIKERT_MAX ? 0 : 1;
+  // WHO-5 and PHQ-2 start at 0; most others start at 1
+  const startsAtZero = ["who5", "phq2"].includes(cluster.instrumentId);
+  const min = startsAtZero ? 0 : 1;
 
   return {
     cluster_id: cluster.id,
     min,
     max,
-    anchors: max === PFI_LIKERT_MAX ? PFI_ANCHORS : `Rate from ${min} to ${max}.`,
+    anchors: `Rate from ${min} to ${max}.`,
     labels: GENERIC_LABELS.slice(min, max + 1),
   };
 }

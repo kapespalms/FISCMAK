@@ -1,7 +1,9 @@
 import type { AnnualRefreshAnswer } from "@/lib/v2/annual-refresh";
 import type { PulseAnswer } from "@/lib/v2/quarterly-pulse";
 import { INVISIBLE_WORK_CATEGORIES } from "@/lib/v2/invisible-work-taxonomy";
-import { clampPfiValue } from "@/lib/v2/pfi-scale";
+function clampScale(n: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, Math.round(n)));
+}
 
 function extractNumbers(text: string): number[] {
   return (text.match(/\b(\d+(?:\.\d+)?)\b/g) ?? [])
@@ -30,39 +32,17 @@ export function captureQuarterlyFromMessage(
   const numbers = extractNumbers(trimmed);
 
   switch (moduleId) {
-    case "pfi_screen": {
-      const answers: PulseAnswer[] = [];
-      if (numbers.length >= 2) {
-        answers.push(
-          {
-            module_id: "pfi_screen",
-            question_id: "exhaustion",
-            value: clampPfiValue(numbers[0]),
-            captured_at: capturedAt,
-          },
-          {
-            module_id: "pfi_screen",
-            question_id: "depersonalization",
-            value: clampPfiValue(numbers[1]),
-            captured_at: capturedAt,
-          },
-        );
-      } else if (numbers.length === 1) {
-        answers.push({
-          module_id: "pfi_screen",
-          question_id: "exhaustion",
-          value: clampPfiValue(numbers[0]),
+    case "burnout_screen": {
+      // Single-Item Burnout (West et al.): 1–5 scale
+      const level = numbers.find((n) => n >= 1 && n <= 5);
+      return [
+        {
+          module_id: "burnout_screen",
+          question_id: "sib_level",
+          value: level != null ? clampScale(level, 1, 5) : trimmed.slice(0, 500),
           captured_at: capturedAt,
-        });
-      } else {
-        answers.push({
-          module_id: "pfi_screen",
-          question_id: "exhaustion",
-          value: trimmed.slice(0, 500),
-          captured_at: capturedAt,
-        });
-      }
-      return answers;
+        },
+      ];
     }
     case "invisible_pulse": {
       const answers: PulseAnswer[] = [];
@@ -152,8 +132,8 @@ export function quarterlyModuleReady(moduleId: string, answers: PulseAnswer[]): 
   const forModule = answers.filter((a) => a.module_id === moduleId);
   if (!forModule.length) return false;
   switch (moduleId) {
-    case "pfi_screen":
-      return forModule.some((a) => a.question_id === "exhaustion");
+    case "burnout_screen":
+      return forModule.some((a) => a.question_id === "sib_level");
     case "invisible_pulse":
       return forModule.some(
         (a) => a.question_id === "weekly_hours" || a.question_id === "biggest_category",
@@ -209,8 +189,8 @@ export function captureAnnualFromMessage(
         },
       ];
     }
-    case "pfi_full":
-    case "bits_full":
+    case "wellbeing_check":
+    case "invisible_work_burden":
       return [
         {
           module_id: moduleId,

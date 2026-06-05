@@ -47,12 +47,14 @@ export function buildBaselineCheckinSummaryBullets(
     meta.instrument_ids ??
     deployedInstruments(user.career_stage, user.practice_setting).map((i) => i.id);
   const scores = scoreAllInstruments(instrumentIds, meta.instrument_answers ?? []);
-  const pfi = scores.find((s) => s.instrumentId === "pfi");
+  const sib = scores.find((s) => s.instrumentId === "single_item_burnout");
+  const who5 = scores.find((s) => s.instrumentId === "who5");
   const invisible = scores.find((s) => s.instrumentId === "invisible_work");
   const career = scores.find((s) => s.instrumentId === "career_aspirations");
 
-  if (pfi?.interpretation) {
-    bullets.push(`How work has felt: ${plainWellbeingLine(pfi.interpretation)}`);
+  const wellbeingInterpretation = sib?.interpretation ?? who5?.interpretation;
+  if (wellbeingInterpretation) {
+    bullets.push(`How work has felt: ${plainWellbeingLine(wellbeingInterpretation)}`);
   } else {
     bullets.push("How work has felt: captured from your baseline check-in.");
   }
@@ -101,7 +103,7 @@ export function buildBaselineCheckinSummaryBullets(
 
 function plainWellbeingLine(interpretation: string): string {
   return interpretation
-    .replace(/PFI|burnout score|\/100|percentile/gi, "")
+    .replace(/burnout score|\/100|percentile/gi, "")
     .replace(/\s+/g, " ")
     .trim();
 }

@@ -2,7 +2,7 @@ import type { AppUser, CareerAssessment } from "@/lib/v2/types";
 import type { PracticeSetting } from "@/lib/v2/onboarding-options";
 import type { CvMetrics } from "@/lib/v2/cv-metrics";
 import {
-  burnoutRiskFromPfi,
+  burnoutRiskFromSignal,
   careerHealthScoreSummary,
   careerLevelAspirationPrompt,
   careerLevelDashboardTitle,
@@ -68,17 +68,20 @@ function domainScoresFromData(input: {
   meta: OnboardingMetadata;
 }): Partial<Record<CdiDomainKey, number>> {
   const { user, cvMetrics, meta } = input;
-  const pfi = instrumentScore(meta, "pfi");
-  const bits = instrumentScore(meta, "bits");
+  const sib = instrumentScore(meta, "single_item_burnout");
+  const who5 = instrumentScore(meta, "who5");
   const invisible = instrumentScore(meta, "invisible_work");
   const career = instrumentScore(meta, "career_aspirations");
 
   const domains = cvMetrics?.domain_scores;
   const evidence = cvMetrics?.evidence;
 
-  const wellbeingScore = pfi
-    ? Math.max(0, Math.round(100 - (pfi.raw.burnout ?? 0) * 10))
-    : 50;
+  // Well-being: WHO-5 percentage score (0–100) preferred; SIB inverted as fallback
+  const wellbeingScore = who5?.raw.percentage_score != null
+    ? Math.round(who5.raw.percentage_score as number)
+    : sib?.raw.level != null
+      ? Math.max(0, Math.round(100 - ((sib.raw.level as number) - 1) * 25))
+      : 50;
 
   return {
     clinical_volume: domains ? Math.min(100, domains.clinical * 10) : 50,
@@ -100,14 +103,6 @@ function domainScoresFromData(input: {
     innovation_impact: evidence ? Math.min(100, evidence.qi_signals * 12 + 35) : 50,
     network_influence: cvMetrics?.s_index ?? 50,
     clinical_maintenance: domains ? Math.min(100, domains.clinical * 10) : 50,
-    ...(bits
-      ? {
-          wellbeing: Math.max(
-            0,
-            wellbeingScore - Math.round(((bits.raw.unreasonable ?? 0) + (bits.raw.unnecessary ?? 0)) * 3),
-          ),
-        }
-      : {}),
     ...(invisible?.raw.weekly_hours
       ? {
           professional_growth: Math.max(
@@ -131,8 +126,7 @@ function domainSummary(
   const specialty = user.specialty;
   const rank = user.academic_rank;
   const evidence = cvMetrics?.evidence;
-  const pfi = instrumentScore(meta, "pfi");
-  const bits = instrumentScore(meta, "bits");
+  const sib = instrumentScore(meta, "single_item_burnout");
   const invisible = instrumentScore(meta, "invisible_work");
 
   switch (key) {
@@ -166,7 +160,7 @@ function domainSummary(
         mentoringMentions: evidence?.mentoring_mentions,
       });
     case "wellbeing": {
-      const burnout = burnoutRiskFromPfi(pfi?.raw.burnout as number | undefined);
+      const burnout = burnoutRiskFromSignal(sib?.raw.level as number | undefined);
       return burnout.summary;
     }
     case "professional_growth":
@@ -193,8 +187,8 @@ function domainSummary(
         : "Clinical practice maintenance may be limited — worth tracking if clinical identity matters to you.";
     default:
       return taskBurdenSummary({
-        unnecessary: bits?.raw.unnecessary as number | undefined,
-        unreasonable: bits?.raw.unreasonable as number | undefined,
+        unnecessary: undefined,
+        unreasonable: undefined,
         weeklyHours: invisible?.raw.weekly_hours as number | undefined,
       });
   }
@@ -234,10 +228,10 @@ export function buildCareerHealthView(input: {
   const strongest = domains.filter((d) => d.status === "strong").slice(0, 2).map((d) => d.label);
   const growth = domains.filter((d) => d.status !== "strong").slice(-2).map((d) => d.label);
 
-  const pfi = instrumentScore(meta, "pfi");
-  const bits = instrumentScore(meta, "bits");
-  const invisible = instrumentScore(meta, "invisible_work");
-  const burnout = burnoutRiskFromPfi(pfi?.raw.burnout as number | undefined);
+  const sib2 = instrumentScore(meta, "single_item_burnout");
+  const who5_2 = instrumentScore(meta, "who5");
+  const invisible2 = instrumentScore(meta, "invisible_work");
+  const burnout = burnoutRiskFromSignal(sib2?.raw.level as number | undefined);
 
   const wellbeing_metrics: CareerHealthMetric[] = [
     {
@@ -247,50 +241,51 @@ export function buildCareerHealthView(input: {
       status: burnout.status,
       show_score: false,
       technical: {
-        backend_metric: "pfi_burnout",
-        pfi_burnout_score: pfi?.raw.burnout ?? null,
-        threshold_positive_screen: 3.325,
+        backend_metric: "burnout_signal",
+        sib_level: sib2?.raw.level ?? null,
+        threshold_positive: 3,
       },
     },
     {
-      id: "professional_fulfillment",
-      label: "Professional Fulfillment",
-      summary: fulfillmentSummary(pfi?.raw.fulfillment as number | undefined),
+      id: "wellbeing_score",
+      label: "Well-Being",
+      summary: fulfillmentSummary(
+        who5_2?.raw.percentage_score != null
+          ? Math.round((who5_2.raw.percentage_score as number) / 20)  // 0–100 → 0–5 for label compatibility
+          : undefined,
+      ),
       show_score: false,
       technical: {
-        backend_metric: "pfi_fulfillment",
-        pfi_fulfillment_score: pfi?.raw.fulfillment ?? null,
-        threshold_very_good: 3.0,
+        backend_metric: "wellbeing_score",
+        who5_pct: who5_2?.raw.percentage_score ?? null,
       },
     },
     {
       id: "task_burden",
       label: "Task Burden",
       summary: taskBurdenSummary({
-        unnecessary: bits?.raw.unnecessary as number | undefined,
-        unreasonable: bits?.raw.unreasonable as number | undefined,
-        weeklyHours: invisible?.raw.weekly_hours as number | undefined,
+        unnecessary: undefined,
+        unreasonable: undefined,
+        weeklyHours: invisible2?.raw.weekly_hours as number | undefined,
       }),
       show_score: false,
       technical: {
-        backend_metric: "bits_score",
-        bits_unnecessary: bits?.raw.unnecessary ?? null,
-        bits_unreasonable: bits?.raw.unreasonable ?? null,
+        backend_metric: "iwq",
       },
     },
     {
       id: "unrecognized_work",
       label: "Unrecognized Work",
       summary: unrecognizedWorkSummary({
-        weeklyHours: invisible?.raw.weekly_hours as number | undefined,
+        weeklyHours: invisible2?.raw.weekly_hours as number | undefined,
         specialty: user.specialty,
-        aboveAverage: (invisible?.raw.weekly_hours as number | undefined) != null &&
-          Number(invisible?.raw.weekly_hours) > 10,
+        aboveAverage: (invisible2?.raw.weekly_hours as number | undefined) != null &&
+          Number(invisible2?.raw.weekly_hours) > 10,
       }),
       show_score: false,
       technical: {
         backend_metric: "iwq",
-        invisible_weekly_hours: invisible?.raw.weekly_hours ?? null,
+        invisible_weekly_hours: invisible2?.raw.weekly_hours ?? null,
         s_index: cvMetrics?.s_index ?? null,
         iwq: cvMetrics?.iwq ?? meta.iwq ?? null,
       },
@@ -351,12 +346,13 @@ function buildDomainTechnical(
   }
 
   if (key === "wellbeing") {
-    const pfi = instrumentScore(meta, "pfi");
+    const sib3 = instrumentScore(meta, "single_item_burnout");
+    const who5_3 = instrumentScore(meta, "who5");
     return {
       ...base,
-      backend_metrics: ["pfi_burnout", "pfi_fulfillment", "pfi_self_valuation"],
-      pfi_burnout: pfi?.raw.burnout ?? null,
-      pfi_fulfillment: pfi?.raw.fulfillment ?? null,
+      backend_metrics: ["burnout_signal", "wellbeing_score"],
+      sib_level: sib3?.raw.level ?? null,
+      who5_pct: who5_3?.raw.percentage_score ?? null,
     };
   }
 

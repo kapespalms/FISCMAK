@@ -56,9 +56,9 @@ function invisibleHours(meta: OnboardingMetadata): number | null {
   return typeof v === "number" ? v : null;
 }
 
-function pfiBurnout(meta: OnboardingMetadata): number | null {
-  const pfi = instrumentScore(meta, "pfi");
-  const v = pfi?.raw.burnout;
+function sibBurnout(meta: OnboardingMetadata): number | null {
+  const sib = instrumentScore(meta, "single_item_burnout");
+  const v = sib?.raw.level;
   return typeof v === "number" ? v : null;
 }
 
@@ -83,7 +83,7 @@ export function buildCareerRecommendations(input: {
   const meta = getOnboardingMetadata(user);
   const recs: CareerRecommendation[] = [];
 
-  const burnout = pfiBurnout(meta);
+  const burnout = sibBurnout(meta);
   const energy = trackEnergy(meta);
   const invisible = invisibleHours(meta);
   const baselineInvisible = (meta.pulse_baseline?.invisible_hours as number | undefined) ?? invisible;
@@ -93,8 +93,8 @@ export function buildCareerRecommendations(input: {
     user.specialty,
   );
 
-  // Burnout red flag
-  if (burnout != null && burnout >= 3.325) {
+  // Burnout red flag — Single-Item Burnout ≥ 4 (symptoms persist / function impaired)
+  if (burnout != null && burnout >= 4) {
     recs.push({
       id: "burnout-red-flag",
       priority: "urgent",
@@ -104,22 +104,22 @@ export function buildCareerRecommendations(input: {
         "Your well-being check shows elevated burnout risk. This isn't a personal failing — it's often a systems problem worth naming and addressing.",
       coach_prompt:
         "Explore what's driving exhaustion right now: workload, role creep, moral injury, or loss of meaning. Offer one concrete boundary or delegation experiment.",
-      trigger: "PFI burnout screen ≥ 3.325",
+      trigger: "Single-Item Burnout ≥ 4",
       suggested_actions: [
         { action: "Talk about my energy", url: "/app/subjective" },
         { action: "Log invisible work", url: "/app/dashboard" },
       ],
     });
-  } else if (burnout != null && burnout >= 2.5) {
+  } else if (burnout != null && burnout >= 3) {
     recs.push({
       id: "burnout-moderate",
       priority: "high",
       category: "wellbeing",
       title: "Monitor your well-being",
       message:
-        "Your burnout risk is in the moderate range. Small shifts now can prevent a sharper decline during busy seasons.",
+        "Your burnout signal is in the moderate range. Small shifts now can prevent a sharper decline during busy seasons.",
       coach_prompt: "Ask what drained them most this month and whether any task could be delegated or eliminated.",
-      trigger: "PFI burnout screen 2.5–3.325",
+      trigger: "Single-Item Burnout = 3",
       suggested_actions: [{ action: "Discuss my energy", url: "/app/subjective" }],
     });
   }
@@ -167,18 +167,18 @@ export function buildCareerRecommendations(input: {
     });
   }
 
-  // Task burden (BITS)
-  const bits = instrumentScore(meta, "bits");
-  if (bits && (bits.raw.unreasonable as number) >= 3.5) {
+  // Task burden — high invisible work hours proxy
+  const invHours = invisibleHours(meta);
+  if (invHours != null && invHours > 15) {
     recs.push({
       id: "task-burden-high",
       priority: "high",
       category: "invisible_work",
       title: "Task burden is high",
       message:
-        "You're spending significant time on tasks that feel outside your core role. Naming this is the first step toward negotiating scope.",
-      coach_prompt: "Explore which tasks feel unreasonable vs unnecessary. Suggest one conversation with a supervisor or delegate.",
-      trigger: "BITS unreasonable subscale ≥ 3.5",
+        "You're spending significant time on unrecognized work outside your core role. Naming this is the first step toward negotiating scope.",
+      coach_prompt: "Explore which invisible-work categories are heaviest. Suggest one conversation with a supervisor or delegate.",
+      trigger: "Invisible hours > 15/week",
       suggested_actions: [{ action: "Discuss task burden with Mak", url: "/app/dashboard" }],
     });
   }

@@ -5,7 +5,7 @@
  *
  * Governance (§C, Part XIX):
  *  - NO composite score is ever returned or computed.
- *  - Instrument names (FCWI, EE, DP, MDT, PFI, MBI) never reach the UI via this route.
+ *  - Instrument names (FCWI, EE, DP, MDT, MBI) never reach the UI via this route.
  *  - MDT ≥ 4 sets mdt_flag; the UI shows a resource link — never auto-reported.
  *  - Physician-owned; no individual data goes to institution-facing surfaces.
  *

@@ -84,7 +84,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Exploration Goals",
     outputLead: "Basic CV + Personal Statement",
     outputTemplates: ["Basic CV", "Personal Statement", "Research Summary"],
-    instrumentEmphasis: ["career_explorer", "pfi_brief"],
+    instrumentEmphasis: ["career_explorer", "who5", "single_item_burnout"],
     invisibleWorkNote: "Minimal formal invisible work; establish baseline tracking.",
     development: [
       "Complete core clerkships with distinction",
@@ -110,7 +110,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Build Goals",
     outputLead: "CV + Application Materials",
     outputTemplates: ["Academic CV", "Personal Statement", "Letter of Intent"],
-    instrumentEmphasis: ["pfi_brief", "bits", "invisible_work"],
+    instrumentEmphasis: ["who5", "single_item_burnout", "phq2", "invisible_work"],
     invisibleWorkNote:
       "Documentation overspill and uncompensated teaching typically dominate during training.",
     development: [
@@ -138,7 +138,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Transition Goals",
     outputLead: "CV + Biosketch + Job Materials",
     outputTemplates: ["Academic CV", "NIH Biosketch", "Cover Letter", "Research Statement"],
-    instrumentEmphasis: ["pfi_brief", "bits", "invisible_work", "uwes_brief"],
+    instrumentEmphasis: ["who5", "single_item_burnout", "phq2", "invisible_work"],
     invisibleWorkNote:
       "Research coordination and manuscript mentoring often add invisible hours during fellowship.",
     development: [
@@ -166,7 +166,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Development Goal",
     outputLead: "CV + Biosketch",
     outputTemplates: ["Academic CV", "NIH Biosketch", "Promotion Narrative"],
-    instrumentEmphasis: ["pfi_full", "bits", "invisible_work", "uwes_brief"],
+    instrumentEmphasis: ["who5", "single_item_burnout", "phq2", "invisible_work"],
     invisibleWorkNote:
       "All categories emerge; documentation overspill and care coordination are often highest.",
     development: [
@@ -201,7 +201,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Development Goal",
     outputLead: "Promotion Dossier",
     outputTemplates: ["Promotion Dossier", "NIH Biosketch", "Leadership Statement"],
-    instrumentEmphasis: ["pfi_full", "bits", "invisible_work", "uwes_full"],
+    instrumentEmphasis: ["who5", "single_item_burnout", "phq2", "invisible_work"],
     invisibleWorkNote:
       "Administrative burden and care coordination often peak; highest burnout risk period.",
     development: [
@@ -236,7 +236,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Sustainability Goal",
     outputLead: "Narrative CV",
     outputTemplates: ["Narrative CV", "Legacy Statement", "Succession Plan"],
-    instrumentEmphasis: ["pfi_full", "uwes_brief", "invisible_work"],
+    instrumentEmphasis: ["who5", "single_item_burnout", "phq2", "invisible_work"],
     invisibleWorkNote:
       "Administrative burden and uncompensated mentoring shift toward advisory roles.",
     development: [
@@ -264,7 +264,7 @@ const LEVEL_BASES: Record<string, LevelBase> = {
     planLead: "Optional Engagement Goals",
     outputLead: "Legacy CV",
     outputTemplates: ["Legacy CV", "Board Biography"],
-    instrumentEmphasis: ["pfi_brief"],
+    instrumentEmphasis: ["who5", "single_item_burnout"],
     invisibleWorkNote: "Volunteer teaching and community service — intentional and optional.",
     development: [
       "Formalize advisory board roles",

@@ -1,12 +1,4 @@
 import type { CareerLevel, PracticeSetting } from "@/lib/v2/onboarding-options";
-import {
-  PFI_DEPERSONALIZATION_STEM,
-  PFI_EXHAUSTION_STEM,
-  PFI_FULFILLMENT_STEM,
-  PFI_SCALE_INSTRUCTION,
-  PFI_SELF_VALUATION_STEM,
-  pfiScreenPrompt,
-} from "@/lib/v2/pfi-scale";
 
 export type InstrumentCluster = {
   id: string;
@@ -20,38 +12,11 @@ export type InstrumentCluster = {
   likertMax: number;
 };
 
-const PFI_SCALE = PFI_SCALE_INSTRUCTION;
-
-/** Quarterly PFI 2-item screen — same stems and 0–4 scale as onboarding burnout clusters. */
-export const PFI_QUARTERLY_SCREEN_CLUSTERS: Pick<
-  InstrumentCluster,
-  "id" | "publishedStem" | "likertMax"
->[] = [
-  {
-    id: "pfi-burnout-exhaustion",
-    publishedStem: PFI_EXHAUSTION_STEM,
-    likertMax: 4,
-  },
-  {
-    id: "pfi-burnout-disengagement",
-    publishedStem: PFI_DEPERSONALIZATION_STEM,
-    likertMax: 4,
-  },
-];
-
 export function formatInstrumentCheckInDisplay(cluster: InstrumentCluster): string {
   if (cluster.likertMax === 0) {
     return `${cluster.makPrompt}\n\n"${cluster.publishedStem}"`;
   }
-  const scale =
-    cluster.likertMax === 4 && cluster.instrumentId === "pfi"
-      ? PFI_SCALE
-      : `Rate from 0 to ${cluster.likertMax}.`;
-  return `${cluster.makPrompt}\n\n"${cluster.publishedStem}"\n\n${scale}`;
-}
-
-export function formatPfiQuarterlyScreenPrompt(): string {
-  return pfiScreenPrompt();
+  return `${cluster.makPrompt}\n\n"${cluster.publishedStem}"\n\nRate from 0 to ${cluster.likertMax}.`;
 }
 
 export type InstrumentScore = {
@@ -62,58 +27,117 @@ export type InstrumentScore = {
   interpretation?: string;
 };
 
-const PFI_CLUSTERS: InstrumentCluster[] = [
+// ---------------------------------------------------------------------------
+// WHO-5 Well-Being Index (public domain — WHO Regional Office Europe 1998)
+// 5 items, 0–5 scale (0=At no time … 5=All of the time), past 2 weeks.
+// Raw sum 0–25; multiply ×4 for 0–100 percentage score.
+// ≥52 = adequate well-being; <28 = likely depression screen positive.
+// ---------------------------------------------------------------------------
+
+const WHO5_CLUSTERS: InstrumentCluster[] = [
   {
-    id: "pfi-fulfillment",
-    instrumentId: "pfi",
-    label: "Professional fulfillment",
-    makPrompt: "Here's a standard professional fulfillment question.",
-    publishedStem: PFI_FULFILLMENT_STEM,
-    likertMax: 4,
+    id: "who5-cheerful",
+    instrumentId: "who5",
+    label: "Cheerful and good spirits",
+    makPrompt: "A few quick questions about the past two weeks — there are no right answers:",
+    publishedStem: "I have felt cheerful and in good spirits. (0 = at no time, 5 = all of the time)",
+    likertMax: 5,
   },
   {
-    id: "pfi-burnout-exhaustion",
-    instrumentId: "pfi",
-    label: "Work exhaustion",
-    makPrompt: "Next, a standard work exhaustion question.",
-    publishedStem: PFI_EXHAUSTION_STEM,
-    likertMax: 4,
+    id: "who5-calm",
+    instrumentId: "who5",
+    label: "Calm and relaxed",
+    makPrompt: "Still thinking about the past two weeks:",
+    publishedStem: "I have felt calm and relaxed. (0 = at no time, 5 = all of the time)",
+    likertMax: 5,
   },
   {
-    id: "pfi-burnout-disengagement",
-    instrumentId: "pfi",
-    label: "Interpersonal disengagement",
-    makPrompt: "One more on how work affects your connections with others.",
-    publishedStem: PFI_DEPERSONALIZATION_STEM,
-    likertMax: 4,
+    id: "who5-active",
+    instrumentId: "who5",
+    label: "Active and vigorous",
+    makPrompt: "",
+    publishedStem: "I have felt active and vigorous. (0 = at no time, 5 = all of the time)",
+    likertMax: 5,
   },
   {
-    id: "pfi-self-valuation",
-    instrumentId: "pfi",
-    label: "Self-valuation",
-    makPrompt: "Last PFI question — how valued you feel at work.",
-    publishedStem: PFI_SELF_VALUATION_STEM,
-    likertMax: 4,
+    id: "who5-rested",
+    instrumentId: "who5",
+    label: "Woke up fresh and rested",
+    makPrompt: "",
+    publishedStem: "I woke up feeling fresh and rested. (0 = at no time, 5 = all of the time)",
+    likertMax: 5,
+  },
+  {
+    id: "who5-interest",
+    instrumentId: "who5",
+    label: "Daily life filled with interest",
+    makPrompt: "",
+    publishedStem: "My daily life has been filled with things that interest me. (0 = at no time, 5 = all of the time)",
+    likertMax: 5,
   },
 ];
 
-const BITS_CLUSTERS: InstrumentCluster[] = [
+// ---------------------------------------------------------------------------
+// Single-Item Burnout — West et al. 2009 (public domain, no permission needed).
+// "Using your own definition of burnout, how would you rate your current level?"
+// 1–5 labeled scale; score ≥ 3 = positive burnout signal.
+// Single-item burnout signal for Career Urgency.
+// ---------------------------------------------------------------------------
+
+const SINGLE_ITEM_BURNOUT_CLUSTERS: InstrumentCluster[] = [
   {
-    id: "bits-unnecessary",
-    instrumentId: "bits",
-    label: "Unnecessary tasks",
-    makPrompt: "A question about unnecessary tasks in your work.",
-    publishedStem: "I spend a lot of time on tasks that I think are unnecessary.",
+    id: "sib-level",
+    instrumentId: "single_item_burnout",
+    label: "Burnout level",
+    makPrompt:
+      "One question about how you've been feeling at work — use your own sense of what burnout means to you:",
+    publishedStem:
+      "Using your own definition of burnout, how would you rate your current level of burnout? " +
+      "(1 = I enjoy my work, no symptoms; 2 = Under stress but not burned out; " +
+      "3 = Definitely burning out, have symptoms; 4 = Symptoms won't go away, hard to function; " +
+      "5 = Completely burned out, may need help)",
     likertMax: 5,
   },
+];
+
+/** Quarterly single-item burnout screen cluster — used by the quarterly pulse check-in. */
+export const BURNOUT_QUARTERLY_SCREEN_CLUSTERS: Pick<
+  InstrumentCluster,
+  "id" | "publishedStem" | "likertMax"
+>[] = [
   {
-    id: "bits-unreasonable",
-    instrumentId: "bits",
-    label: "Unreasonable tasks",
-    makPrompt: "And one about tasks that feel unreasonable for your role.",
+    id: "sib-level",
     publishedStem:
-      "I spend a lot of time on tasks that are unreasonable given my training and role.",
+      "Using your own definition of burnout, how would you rate your current level of burnout? (1–5)",
     likertMax: 5,
+  },
+];
+
+// ---------------------------------------------------------------------------
+// PHQ-2 (Kroenke & Spitzer 2002 — public domain, no permission required).
+// 2 items, 0–3 scale (0=Not at all … 3=Nearly every day), past 2 weeks.
+// Score ≥ 3 → distress-routing trigger (Ticket 17); feeds PHQ-2 + MDT crisis gate.
+// ---------------------------------------------------------------------------
+
+const PHQ2_CLUSTERS: InstrumentCluster[] = [
+  {
+    id: "phq2-anhedonia",
+    instrumentId: "phq2",
+    label: "Anhedonia",
+    makPrompt:
+      "Two more questions about the past two weeks — these help me make sure I'm supporting you well:",
+    publishedStem:
+      "Little interest or pleasure in doing things. (0 = not at all, 3 = nearly every day)",
+    likertMax: 3,
+  },
+  {
+    id: "phq2-depression",
+    instrumentId: "phq2",
+    label: "Depressed mood",
+    makPrompt: "",
+    publishedStem:
+      "Feeling down, depressed, or hopeless. (0 = not at all, 3 = nearly every day)",
+    likertMax: 3,
   },
 ];
 
@@ -137,26 +161,18 @@ const CAREER_CLUSTERS: InstrumentCluster[] = [
   },
 ];
 
+/** FISCMAK-owned professional identity item — no external instrument reference. */
 const PIF_CLUSTERS: InstrumentCluster[] = [
   {
     id: "pif-stage",
     instrumentId: "pif",
-    label: "Identity formation",
-    makPrompt: "A question about how your professional identity is forming.",
+    label: "Professional identity stage",
+    makPrompt: "One question about where you are with your identity as a physician:",
     publishedStem:
-      "My professional identity is mostly shaped by others' expectations, authored by me, or transforming beyond either. (1 = others' expectations, 5 = self-transforming)",
-    likertMax: 5,
-  },
-];
-
-const UWES_CLUSTERS: InstrumentCluster[] = [
-  {
-    id: "uwes-engagement",
-    instrumentId: "uwes",
-    label: "Work engagement",
-    makPrompt: "A standard work engagement question.",
-    publishedStem: "I am enthusiastic about my job.",
-    likertMax: 6,
+      "Where are you with your identity as a physician right now? " +
+      "(1 = Still figuring out who I am in medicine · 2 = Actively shaping it on my own terms · " +
+      "3 = Settled, and evolving it intentionally · 4 = Haven't really thought about it)",
+    likertMax: 4,
   },
 ];
 
@@ -238,11 +254,11 @@ const CAREER_ENVIRONMENT_CLUSTERS: InstrumentCluster[] = [
 ];
 
 const ALL_CLUSTERS: InstrumentCluster[] = [
-  ...PFI_CLUSTERS,
-  ...BITS_CLUSTERS,
+  ...WHO5_CLUSTERS,
+  ...SINGLE_ITEM_BURNOUT_CLUSTERS,
+  ...PHQ2_CLUSTERS,
   ...CAREER_CLUSTERS,
   ...PIF_CLUSTERS,
-  ...UWES_CLUSTERS,
   ...INVISIBLE_CLUSTERS,
   ...CAREER_ENVIRONMENT_CLUSTERS,
 ];
@@ -258,53 +274,86 @@ export type InstrumentAnswer = {
   capturedAt: string;
 };
 
-export function scorePfi(answers: InstrumentAnswer[]): InstrumentScore {
+// ---------------------------------------------------------------------------
+// Scoring functions
+// ---------------------------------------------------------------------------
+
+export function scoreWho5(answers: InstrumentAnswer[]): InstrumentScore {
   const num = (id: string) => {
     const v = answers.find((a) => a.clusterId === id)?.value;
     return typeof v === "number" ? v : null;
   };
-  const fulfillment = num("pfi-fulfillment");
-  const exhaustion = num("pfi-burnout-exhaustion");
-  const disengagement = num("pfi-burnout-disengagement");
-  const selfVal = num("pfi-self-valuation");
-
-  const burnoutItems = [exhaustion, disengagement].filter((v): v is number => v != null);
-  const burnoutMean = burnoutItems.length
-    ? burnoutItems.reduce((s, v) => s + v, 0) / burnoutItems.length
-    : null;
-  const burnoutScore = burnoutMean != null ? burnoutMean * 2.5 : null;
-
+  const items = [
+    num("who5-cheerful"),
+    num("who5-calm"),
+    num("who5-active"),
+    num("who5-rested"),
+    num("who5-interest"),
+  ];
+  const answered = items.filter((v): v is number => v != null);
+  const rawSum = answered.length ? answered.reduce((s, v) => s + v, 0) : null;
+  // Pro-rate if < 5 items answered; ×4 to convert 0–25 to 0–100 percentage score
+  const prorated = rawSum != null && answered.length > 0 ? (rawSum / answered.length) * 5 : null;
+  const pct = prorated != null ? Math.round(prorated * 4) : null;
   return {
-    instrumentId: "pfi",
-    name: "Stanford PFI",
+    instrumentId: "who5",
+    name: "WHO-5 Well-Being Index",
     raw: {
-      fulfillment: fulfillment ?? 0,
-      burnout: burnoutScore ?? 0,
-      self_valuation: selfVal ?? 0,
+      raw_sum: rawSum ?? 0,
+      percentage_score: pct ?? 0,
+      items_answered: answered.length,
     },
-    composite: burnoutScore ?? undefined,
+    composite: pct ?? undefined,
     interpretation:
-      burnoutScore != null && burnoutScore >= 3.325
-        ? "Positive burnout screen — worth monitoring."
-        : fulfillment != null && fulfillment >= 3
-          ? "Strong professional fulfillment signal."
-          : "Baseline captured.",
+      pct == null
+        ? "Pending."
+        : pct < 28
+          ? "Well-being concern — consider reviewing resources."
+          : pct < 52
+            ? "Moderate well-being — worth monitoring."
+            : "Adequate well-being.",
   };
 }
 
-export function scoreBits(answers: InstrumentAnswer[]): InstrumentScore {
+/** Single-Item Burnout (West et al. 2009). Score ≥ 3 = positive burnout signal. */
+export function scoreSingleItemBurnout(answers: InstrumentAnswer[]): InstrumentScore {
+  const v = answers.find((a) => a.clusterId === "sib-level")?.value;
+  const score = typeof v === "number" ? v : null;
+  return {
+    instrumentId: "single_item_burnout",
+    name: "Single-Item Burnout",
+    raw: { level: score ?? 0 },
+    composite: score ?? undefined,
+    interpretation:
+      score == null
+        ? "Pending."
+        : score >= 3
+          ? "Positive burnout signal — worth monitoring."
+          : "Below burnout threshold — baseline captured.",
+  };
+}
+
+/**
+ * PHQ-2. Score ≥ 3 feeds distress routing (Ticket 17) alongside MDT.
+ * Not a diagnostic — a triage signal only.
+ */
+export function scorePhq2(answers: InstrumentAnswer[]): InstrumentScore {
   const num = (id: string) => {
     const v = answers.find((a) => a.clusterId === id)?.value;
     return typeof v === "number" ? v : null;
   };
-  const unnecessary = num("bits-unnecessary") ?? 0;
-  const unreasonable = num("bits-unreasonable") ?? 0;
+  const anhedonia = num("phq2-anhedonia") ?? 0;
+  const depression = num("phq2-depression") ?? 0;
+  const total = anhedonia + depression;
   return {
-    instrumentId: "bits",
-    name: "BITS",
-    raw: { unnecessary, unreasonable },
-    composite: (unnecessary + unreasonable) / 2,
-    interpretation: unreasonable >= 3.5 ? "Elevated unreasonable-task burden." : "Baseline captured.",
+    instrumentId: "phq2",
+    name: "PHQ-2",
+    raw: { anhedonia, depression, total },
+    composite: total,
+    interpretation:
+      total >= 3
+        ? "PHQ-2 positive — distress routing active."
+        : "PHQ-2 below threshold.",
   };
 }
 
@@ -325,22 +374,24 @@ export function scoreInvisibleWork(
   };
 }
 
-export function computeIwq(bits: InstrumentScore, invisible: InstrumentScore): number {
-  const unreasonable = bits.raw.unreasonable ?? 0;
-  const unnecessary = bits.raw.unnecessary ?? 0;
+/**
+ * IWQ — unrecognized-work burden, using invisible_work ratio only.
+ * Invisible-work ratio × 10 gives a 0–10 signal on a 50-hr week baseline.
+ */
+export function computeIwq(invisible: InstrumentScore): number {
   const ratio = invisible.raw.invisible_ratio ?? 0;
-  return unreasonable * 0.4 + unnecessary * 0.3 + ratio * 10 * 0.3;
+  return ratio * 10;
 }
 
 export function computeCdi(input: {
   setting: PracticeSetting | null;
-  pfi?: InstrumentScore;
-  bits?: InstrumentScore;
+  burnoutLevel?: number | null;
   sIndex?: number;
   clinicalProductivity?: number;
 }): { score: number; domains: Record<string, number> } {
-  const wellbeing = input.pfi
-    ? Math.max(0, 100 - (input.pfi.raw.burnout ?? 0) * 10)
+  // Wellbeing derived from Single-Item Burnout (1–5 → inverted 0–100)
+  const wellbeing = input.burnoutLevel != null
+    ? Math.max(0, Math.round(100 - (input.burnoutLevel - 1) * 25))
     : 50;
   const scholarly = Math.min(100, (input.sIndex ?? 30) * 2);
   const clinical = input.clinicalProductivity ?? 50;
@@ -435,7 +486,6 @@ export function scoreCareerEnvironment(answers: InstrumentAnswer[]): InstrumentS
   for (const [clusterId, key] of CLUSTERS) {
     const v = answers.find((a) => a.clusterId === clusterId)?.value;
     if (typeof v === "number") raw[key] = v;
-    // "skip" or absent → key omitted (not -1); callers must treat absence as unavailable
   }
   return {
     instrumentId: "career_environment",
@@ -449,23 +499,15 @@ export function scoreAllInstruments(
   answers: InstrumentAnswer[],
 ): InstrumentScore[] {
   const scores: InstrumentScore[] = [];
-  if (instrumentIds.includes("pfi")) scores.push(scorePfi(answers));
-  if (instrumentIds.includes("bits")) scores.push(scoreBits(answers));
+  if (instrumentIds.includes("who5")) scores.push(scoreWho5(answers));
+  if (instrumentIds.includes("single_item_burnout")) scores.push(scoreSingleItemBurnout(answers));
+  if (instrumentIds.includes("phq2")) scores.push(scorePhq2(answers));
   if (instrumentIds.includes("invisible_work")) scores.push(scoreInvisibleWork(answers));
-  if (instrumentIds.includes("uwes")) {
-    const v = answers.find((a) => a.clusterId === "uwes-engagement")?.value;
-    scores.push({
-      instrumentId: "uwes",
-      name: "UWES-9",
-      raw: { engagement: typeof v === "number" ? v : 0 },
-      composite: typeof v === "number" ? v : undefined,
-    });
-  }
   if (instrumentIds.includes("pif")) {
     const v = answers.find((a) => a.clusterId === "pif-stage")?.value;
     scores.push({
       instrumentId: "pif",
-      name: "PIF Scale",
+      name: "Professional Identity (FISCMAK)",
       raw: { stage: typeof v === "number" ? v : 0 },
       composite: typeof v === "number" ? v : undefined,
     });
@@ -489,7 +531,14 @@ export function scoreAllInstruments(
 
 export function instrumentProgress(
   instrumentIds: string[],
+): { total: number; answered: number; pendingCluster: InstrumentCluster | null };
+export function instrumentProgress(
+  instrumentIds: string[],
   answers: InstrumentAnswer[],
+): { total: number; answered: number; pendingCluster: InstrumentCluster | null };
+export function instrumentProgress(
+  instrumentIds: string[],
+  answers: InstrumentAnswer[] = [],
 ): { total: number; answered: number; pendingCluster: InstrumentCluster | null } {
   const clusters = clustersForInstruments(instrumentIds);
   const answeredIds = new Set(answers.map((a) => a.clusterId));

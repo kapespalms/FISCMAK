@@ -1,5 +1,4 @@
 import type { OnboardingMetadata } from "@/lib/v2/onboarding-compute";
-import { quarterlyBurnoutComposite } from "@/lib/v2/pfi-scale";
 
 export type QuarterlyPulseModule = {
   id: string;
@@ -11,11 +10,11 @@ export type QuarterlyPulseModule = {
 
 export const QUARTERLY_MODULES: QuarterlyPulseModule[] = [
   {
-    id: "pfi_screen",
+    id: "burnout_screen",
     name: "Well-being screen",
-    items: 2,
+    items: 1,
     minutes: 1,
-    description: "Quick burnout check — emotional exhaustion and depersonalization",
+    description: "Single-Item Burnout check (West et al. — public domain)",
   },
   {
     id: "invisible_pulse",
@@ -184,12 +183,9 @@ export function parsePulseAnswers(answers: PulseAnswer[]): Partial<PulseRecord> 
   const get = (module: string, q: string) =>
     answers.find((a) => a.module_id === module && a.question_id === q)?.value;
 
-  const exhaustion = Number(get("pfi_screen", "exhaustion"));
-  const depersonalization = Number(get("pfi_screen", "depersonalization"));
-  const burnout_screen =
-    !Number.isNaN(exhaustion) && !Number.isNaN(depersonalization)
-      ? Math.max(exhaustion, depersonalization)
-      : undefined;
+  // Single-Item Burnout (1–5); score ≥ 3 = positive signal
+  const sibRaw = Number(get("burnout_screen", "sib_level"));
+  const burnout_screen = !Number.isNaN(sibRaw) && sibRaw > 0 ? sibRaw : undefined;
 
   const invisible_hours = Number(get("invisible_pulse", "weekly_hours"));
   const track_energy = Number(get("career_momentum", "track_energy"));

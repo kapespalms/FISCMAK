@@ -15,7 +15,7 @@ export type EscalationAction =
   | "metric_followup";
 
 export type EscalationTriggerId =
-  | "pfi_burnout_threshold"
+  | "burnout_signal_elevated"
   | "mmbi_strain_screen"
   | "crisis_language"
   | "career_alignment_low"
@@ -46,9 +46,9 @@ export const ESCALATION_PROTOCOLS: EscalationProtocolRow[] = [
     priority: 1,
   },
   {
-    id: "pfi_burnout_threshold",
-    trigger: "PFI burnout subscale ≥ clinical threshold",
-    detectionMethod: "Automated scoring after questionnaire",
+    id: "burnout_signal_elevated",
+    trigger: "Single-Item Burnout ≥ 3 (West et al.) or PHQ-2 ≥ 3",
+    detectionMethod: "Automated scoring after instrument capture",
     chatbotResponse:
       "Your professional strain indicators are elevated. This is common among physicians and does not reflect a personal failing. The platform recommends connecting with a professional coach or your institution's faculty wellness program.",
     escalationAction:
@@ -61,7 +61,7 @@ export const ESCALATION_PROTOCOLS: EscalationProtocolRow[] = [
     detectionMethod: "Automated scoring after quarterly pulse",
     chatbotResponse:
       "Your quarterly strain screen indicates frequent work-related strain. This warrants attention. Consider connecting with a colleague, mentor, or professional support resource.",
-    escalationAction: "Same as PFI burnout — wellness resources",
+    escalationAction: "Same as burnout signal — wellness resources",
     priority: 3,
   },
   {
@@ -71,7 +71,7 @@ export const ESCALATION_PROTOCOLS: EscalationProtocolRow[] = [
     chatbotResponse:
       "Your total unrecognized professional work exceeds 20 hours/week — approximately 40% of a standard work week. This level is strongly associated with professional strain and career dissatisfaction. This warrants a direct conversation with departmental leadership about workload redistribution. The platform can generate a workload summary document to support that conversation.",
     escalationAction:
-      "Generate workload summary document (Output tab). Flag as urgent Sustainability Goal. If combined with elevated PFI, escalate to wellness resources.",
+      "Generate workload summary document (Output tab). Flag as urgent Sustainability Goal. If combined with elevated burnout signal, escalate to wellness resources.",
     priority: 4,
   },
   {
@@ -122,12 +122,15 @@ export const ESCALATION_PROTOCOLS: EscalationProtocolRow[] = [
     chatbotResponse:
       "Career transitions — including transitions out of clinical practice — are a normal part of professional development. Before making a major change, it may be helpful to explore whether the dissatisfaction is role-specific, setting-specific, or career-wide. The platform can help analyze this. Would you like to: (1) Explore alternative career tracks within medicine, (2) Explore alternative practice settings, (3) Connect with a career advisor for a confidential conversation?",
     escalationAction:
-      "Do NOT attempt to dissuade. Offer structured exploration. If combined with elevated PFI burnout score, prioritize wellness resources first.",
+      "Do NOT attempt to dissuade. Offer structured exploration. If combined with elevated burnout signal, prioritize wellness resources first.",
     priority: 9,
   },
 ];
 
-export const PFI_BURNOUT_THRESHOLD = 3.325;
+/** Single-Item Burnout threshold: score ≥ 3 = positive signal (West et al.). */
+export const BURNOUT_SIGNAL_THRESHOLD = 3;
+/** @deprecated Renamed to BURNOUT_SIGNAL_THRESHOLD — PFI removed (licensed). */
+export const PFI_BURNOUT_THRESHOLD = BURNOUT_SIGNAL_THRESHOLD;
 export const MMBI_STRAIN_PATTERN = /few times a week|every day|once a week/i;
 export const CAREER_ALIGNMENT_LOW = 40;
 export const STALLED_GOAL_QUARTERS = 2;
@@ -199,7 +202,7 @@ export function detectAllEscalations(input: EscalationInput): MakEscalation[] {
   const found: MakEscalation[] = [];
   const lower = input.message.toLowerCase();
   const pfiElevated =
-    input.burnoutScore != null && input.burnoutScore >= PFI_BURNOUT_THRESHOLD;
+    input.burnoutScore != null && input.burnoutScore >= BURNOUT_SIGNAL_THRESHOLD;
 
   if (CRISIS_LANGUAGE_PATTERN.test(lower)) {
     const ohio = input.preferOhioResources;
@@ -222,7 +225,7 @@ export function detectAllEscalations(input: EscalationInput): MakEscalation[] {
 
   if (pfiElevated) {
     found.push({
-      trigger: "pfi_burnout_threshold",
+      trigger: "burnout_signal_elevated",
       action: "wellness_resources",
       pauseCareerCoaching: true,
       message:
@@ -371,17 +374,16 @@ export function extractEscalationInputFromMetadata(
     | Record<string, { raw?: Record<string, number | string> }>
     | undefined;
 
-  const pfi = instrumentScores?.pfi?.raw;
-  const bits = instrumentScores?.bits?.raw;
+  const sib = instrumentScores?.single_item_burnout?.raw;
   const invisible = instrumentScores?.invisible_work?.raw;
 
   return {
     message,
     preferOhioResources: meta?.program_slug === "uh-psych-cmc",
-    burnoutScore: typeof pfi?.burnout === "number" ? pfi.burnout : null,
+    // Single-Item Burnout (1–5); ≥ 3 triggers wellness escalation
+    burnoutScore: typeof sib?.level === "number" ? sib.level : null,
     mmbiScreenLevel: typeof meta?.mmbi_screen === "string" ? meta.mmbi_screen : null,
-    unreasonableTaskScore:
-      typeof bits?.unreasonable === "number" ? bits.unreasonable : null,
+    unreasonableTaskScore: null,  // task-burden score retired; invisible_work ratio replaces burden signal
     invisibleWorkHours:
       typeof invisible?.weekly_hours === "number" ? invisible.weekly_hours : null,
     deiServiceHours:
