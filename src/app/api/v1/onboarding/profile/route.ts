@@ -53,6 +53,57 @@ import { FISCMAK_TERMS_VERSION } from "@/lib/legal/terms-content";
 import { createClient } from "@/lib/supabase/server";
 import { ensureAppUser } from "@/lib/v2/ensure-app-user";
 
+/** GET — return the deferred profile metadata fields for in-app editing. */
+export async function GET() {
+  const auth = await requireApiUser();
+  if (isErrorResponse(auth)) return auth;
+  const user = await getAppUser(auth.userId, auth.demo);
+  const meta = user ? getOnboardingMetadata(user) : {};
+  const rawMeta = meta as Record<string, unknown>;
+  return jsonOk({
+    additional_degrees: (rawMeta.additional_degrees as AdditionalDegreeEntry[] | undefined) ?? [],
+    current_goal: (rawMeta.current_goal as string | undefined) ?? null,
+    other_industries: (rawMeta.other_industries as string[] | undefined) ?? [],
+    extracurricular_interests: (rawMeta.extracurricular_interests as string[] | undefined) ?? [],
+    subspecialty_interests: (rawMeta.subspecialty_interests as string[] | undefined) ?? [],
+    years_in_practice: (rawMeta.years_in_practice as number | undefined) ?? null,
+    base_specialty: user?.base_specialty ?? null,
+    // F3/F4 FTE columns — direct on app_users, not in metadata
+    fte_actual: (user?.fte_actual as Record<string, number> | undefined) ?? null,
+    fte_expected: (user?.fte_expected as Record<string, number> | undefined) ?? null,
+  });
+}
+
+/** PATCH — merge deferred metadata fields + direct FTE columns; no required-field validation. */
+export async function PATCH(request: Request) {
+  const auth = await requireApiUser();
+  if (isErrorResponse(auth)) return auth;
+  const user = await getAppUser(auth.userId, auth.demo);
+  if (!user) return jsonOk({ error: "not_found" }, 404);
+
+  const body = (await request.json()) as Record<string, unknown>;
+  const priorMeta = getOnboardingMetadata(user) as Record<string, unknown>;
+
+  // Metadata fields (merged into onboarding_metadata JSONB)
+  const merged: Record<string, unknown> = { ...priorMeta };
+  if ("additional_degrees" in body) merged.additional_degrees = body.additional_degrees;
+  if ("current_goal" in body) merged.current_goal = body.current_goal ?? null;
+  if ("other_industries" in body) merged.other_industries = body.other_industries;
+  if ("extracurricular_interests" in body) merged.extracurricular_interests = body.extracurricular_interests;
+  if ("subspecialty_interests" in body) merged.subspecialty_interests = body.subspecialty_interests;
+  if ("years_in_practice" in body) merged.years_in_practice = body.years_in_practice ?? null;
+
+  // Direct-column FTE fields — F3 reads fte_actual; F4 reads fte_expected + fte_perceived
+  const directPatch: Partial<import("@/lib/v2/types").AppUser> = {
+    onboarding_metadata: merged as never,
+  };
+  if ("fte_actual" in body) directPatch.fte_actual = (body.fte_actual as Record<string, number> | null) ?? null;
+  if ("fte_expected" in body) directPatch.fte_expected = (body.fte_expected as Record<string, number> | null) ?? null;
+
+  await upsertAppUser(auth.userId, auth.email, directPatch, auth.demo);
+  return jsonOk({ ok: true });
+}
+
 export async function POST(request: Request) {
   try {
     return await handleProfilePost(request);

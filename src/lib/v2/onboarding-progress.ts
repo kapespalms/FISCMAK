@@ -64,7 +64,12 @@ export function resolveOnboardingWizardStep(
   }
 
   if (user.cv_uploaded && pendingReconcile > 0 && !user.tier2_complete) {
-    return "reconcile";
+    // Only force reconcile if the user hasn't advanced past the documents step.
+    // current_onboarding_step 3 means the user reached instruments — they chose
+    // to defer per-item review to the in-app pending tray.
+    if (!user.current_onboarding_step || user.current_onboarding_step < 3) {
+      return "reconcile";
+    }
   }
   if (!user.tier2_complete) {
     return "documents";

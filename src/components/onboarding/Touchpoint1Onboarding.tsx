@@ -1535,6 +1535,7 @@ export function Touchpoint1Onboarding() {
             variant="luxury"
             onContinue={goToReconcile}
             onSkip={() => {
+              void saveOnboardingProgress({ current_onboarding_step: 3 });
               setStep("instruments");
               router.replace("/app/onboarding?step=instruments");
             }}

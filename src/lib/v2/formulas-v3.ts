@@ -459,25 +459,124 @@ export type SevenGapResult = {
   available:         boolean;
 };
 
+// ---------------------------------------------------------------------------
+// Credential gap signals — per-domain strengthening credential table
+// (Founder table 2026-06-04; framing rule: strengthening signal, never a gate)
+//
+// Clinician (0) = baseline — MD/DO + board cert assumed present, never flagged.
+// For all other domains: gap = fraction of domain's signals absent from the user's
+// CV evidence (parsed degrees + free-text credential mentions).
+// available=false when the user has no evidence at all (thin profile ≠ failing).
+// ---------------------------------------------------------------------------
+
+type CredentialSignal = {
+  label: string;
+  /** Exact match on additional_degrees[].degree (e.g., "MPH", "MBA", "MEd", "PhD") */
+  exactDegreeTypes?: string[];
+  /** Case-insensitive substring match in compiled credential text */
+  keywords: string[];
+};
+
+const DOMAIN_CREDENTIAL_SIGNALS: CredentialSignal[][] = [
+  // 0 Clinician — baseline: MD/DO + board cert assumed present, never flagged
+  [],
+  // 1 Educator
+  [
+    {
+      label: "Master's in Health Professions Education (MHPE/MEd) or education fellowship",
+      exactDegreeTypes: ["MEd", "Master's"],
+      keywords: ["mhpe", "health professions education", "medical education certificate", "harvard macy", "teaching academy", "teaching fellowship", "education fellowship", "faculty development fellowship"],
+    },
+    {
+      label: "Formal teaching certificate or academic faculty appointment",
+      keywords: ["teaching certificate", "teaching award", "faculty appointment", "academic appointment", "associate professor", "assistant professor", "clinical professor"],
+    },
+  ],
+  // 2 Researcher
+  [
+    {
+      label: "Research degree (PhD or MSCR / MS in Clinical Research)",
+      exactDegreeTypes: ["PhD", "Master's"],
+      keywords: ["phd", "mscr", "ms in clinical research", "master of science in clinical research", "master of science in biostatistics", "research degree"],
+    },
+    {
+      label: "NIH career-development award (K-award) or grant PI",
+      keywords: ["k-award", "k award", "k01", "k08", "k23", "k99", "r01", "r21", "nih grant", "principal investigator", "grant pi", "career development award"],
+    },
+  ],
+  // 3 Administrator / Leader
+  [
+    {
+      label: "Business or management degree (MBA / MHA / MMM)",
+      exactDegreeTypes: ["MBA"],
+      keywords: ["mba", "mha", "mmm", "master of medical management", "master of health administration", "master of business administration", "master of healthcare"],
+    },
+    {
+      label: "Certified Physician Executive (CPE) or leadership fellowship",
+      keywords: ["cpe", "certified physician executive", "aapl", "elam", "executive leadership in academic medicine", "leadership fellowship", "administrative fellowship"],
+    },
+  ],
+  // 4 Advocate
+  [
+    {
+      label: "Public health degree (MPH or MS Public Health)",
+      exactDegreeTypes: ["MPH"],
+      keywords: ["mph", "master of public health", "master of science in public health", "ms public health"],
+    },
+    {
+      label: "Health policy fellowship",
+      keywords: ["rwjf", "robert wood johnson", "congressional fellowship", "health policy fellowship", "policy fellowship", "american college of physicians advocacy", "ama advocacy"],
+    },
+  ],
+  // 5 Innovator
+  [
+    {
+      label: "Clinical Informatics board certification (ABPM / ABP subspecialty)",
+      keywords: ["clinical informatics", "abpm", "abp informatics", "board certified in clinical informatics", "informatics certification"],
+    },
+    {
+      label: "MS Biomedical Informatics or design / innovation fellowship",
+      exactDegreeTypes: ["Master's"],
+      keywords: ["biomedical informatics", "health informatics", "ms informatics", "innovation fellowship", "design fellowship", "entrepreneurship fellowship"],
+    },
+  ],
+  // 6 Quality / Safety
+  [
+    {
+      label: "CPHQ or Certified Professional in Patient Safety (CPPS)",
+      keywords: ["cphq", "cpps", "certified professional in healthcare quality", "certified professional in patient safety", "patient safety certification"],
+    },
+    {
+      label: "IHI certification, Lean / Six Sigma, or MS Quality & Safety",
+      keywords: ["ihi", "improvement advisor", "lean", "six sigma", "quality improvement certification", "ms quality", "patient safety certificate", "ihi open school"],
+    },
+  ],
+  // 7 Wellness Champion
+  [
+    {
+      label: "Professional coaching certification (NBHWC / ICF) or physician well-being certificate",
+      keywords: ["nbhwc", "national board health wellness", "icf", "certified health coach", "lifestyle medicine", "ablm", "physician well-being", "well-being certificate", "coaching certification"],
+    },
+    {
+      label: "Public health degree (MPH) or Lifestyle Medicine board certification",
+      exactDegreeTypes: ["MPH"],
+      keywords: ["mph", "master of public health", "lifestyle medicine", "ablm"],
+    },
+  ],
+];
+
 /**
  * Seven-gap computation on a stated goal domain (Part XV + Appendix H).
  *
- * Computes all 7 gaps relative to the goal. Available counts per phase:
- *   Phase 5 (now): Skill, Knowledge, Evidence, Identity — data-driven from F1 + energy_rankings.
- *   Phase 5 (proposed, blocked): Credential — CIP-based estimate feasible IF founder provides
- *     per-domain credential requirement table; see description below.
- *   Phase 7: Language — vocabulary translation gap (Output Studio Rosetta Layer).
- *   Phase 6: Network — Mak coaching-probe data.
- *
- * Gap        | Source
- * -----------|--------------------------------------------------------------
- * Skill      | F1 density deficit at goal domain's primary skills
- * Knowledge  | Medical Knowledge density at goal domain
- * Evidence   | OV-quadrant density at goal domain
- * Identity   | Energy ranking alignment with goal domain
- * Language   | Rosetta Layer vocabulary translation — deferred Phase 7
- * Credential | CIP-based estimate possible (Phase 5, needs founder table) or O*NET Job Zones (Phase 2+)
- * Network    | Mak probes — deferred Phase 6
+ * Gap        | Source                                         | Status
+ * -----------|------------------------------------------------|--------
+ * Skill      | F1 density at goal domain's primary skills     | built
+ * Knowledge  | Medical Knowledge density at goal domain       | built
+ * Evidence   | OV-quadrant density at goal domain             | built
+ * Identity   | Energy ranking alignment with goal domain      | built
+ * Credential | CV credential signals vs domain table          | built (Phase 5)
+ * Language   | Rosetta Layer vocabulary translation           | Phase 7
+ * Network    | Mak coaching-probe data                        | Phase 6
  */
 export async function computeSevenGap(
   userId: string,
@@ -539,7 +638,7 @@ export async function computeSevenGap(
     .reduce((s, c) => s + c.density, 0);
   const evidenceGap = Math.min(1, Math.max(0, 1 - ovDensityAtGoal / maxDensity));
 
-  // ── Gap 4 (computed): Identity (energy ranking alignment) ─────────────────
+  // ── Gap 4: Identity (energy ranking alignment) ───────────────────────────
   const { data: rankings } = await supabase
     .from("energy_rankings")
     .select("domain_index, rank")
@@ -550,12 +649,95 @@ export async function computeSevenGap(
   // rank 5 = very energizing → gap 0; rank 1 = very draining → gap 1
   const identityGap = energyRank != null ? (5 - energyRank) / 4 : 0.5;
 
+  // ── Gap 5: Credential ─────────────────────────────────────────────────────
+  // Strengthening signal only — never a gate. Framing: "credentials common in
+  // this direction," never "you're missing" or "required."
+  // Clinician (0) = baseline assumed present; always gap 0.
+  // available=false when no evidence exists (thin profile ≠ failing).
+  let credentialScore = 0;
+  let credentialAvailable = false;
+  let credentialDescription = "";
+
+  if (goalDomainIndex === 0) {
+    // Clinician baseline — MD/DO + board cert assumed; never flag
+    credentialScore = 0;
+    credentialAvailable = true;
+    credentialDescription = "Clinician credentials (MD/DO + board certification) assumed present";
+  } else {
+    const signals = DOMAIN_CREDENTIAL_SIGNALS[goalDomainIndex] ?? [];
+
+    // Gather evidence: onboarding_metadata.additional_degrees + CV raw text
+    const { data: userRow } = await supabase
+      .from("app_users")
+      .select("onboarding_metadata")
+      .eq("user_id", userId)
+      .maybeSingle();
+
+    type DegreeEntry = { degree: string; field?: string | null; other_label?: string | null };
+    const meta = (userRow?.onboarding_metadata ?? {}) as Record<string, unknown>;
+    const additionalDegrees = (meta.additional_degrees as DegreeEntry[] | undefined) ?? [];
+
+    // Query activity_entries text for credential mentions (gracefully skip if migration pending)
+    let cvText = "";
+    try {
+      const { data: entries } = await supabase
+        .from("activity_entries")
+        .select("raw_text")
+        .eq("user_id", userId)
+        .limit(300);
+      cvText = (entries ?? [])
+        .map((e: { raw_text: string | null }) => e.raw_text ?? "")
+        .join(" ")
+        .toLowerCase();
+    } catch {
+      // activity_entries migration may not be applied; proceed without CV text
+    }
+
+    const degreeText = additionalDegrees
+      .map((d) => `${d.degree} ${d.field ?? ""} ${d.other_label ?? ""}`)
+      .join(" ")
+      .toLowerCase();
+    const allText = `${cvText} ${degreeText}`;
+
+    const hasAnyEvidence = additionalDegrees.length > 0 || cvText.length > 10;
+
+    if (!hasAnyEvidence || signals.length === 0) {
+      credentialAvailable = false;
+      credentialDescription = "Add your CV or degrees to see credential signals for this direction";
+    } else {
+      credentialAvailable = true;
+
+      const isPresent = (sig: CredentialSignal): boolean => {
+        const degreeMatch = sig.exactDegreeTypes?.some((dt) =>
+          additionalDegrees.some((d) => d.degree.toLowerCase() === dt.toLowerCase()),
+        ) ?? false;
+        const kwMatch = sig.keywords.some((kw) => allText.includes(kw.toLowerCase()));
+        return degreeMatch || kwMatch;
+      };
+
+      const presentCount = signals.filter(isPresent).length;
+      credentialScore = signals.length > 0
+        ? Math.max(0, 1 - presentCount / signals.length)
+        : 0;
+
+      if (credentialScore === 0) {
+        const presentLabels = signals.filter(isPresent).map((s) => s.label);
+        credentialDescription = `Credential signals present: ${presentLabels.join("; ")}`;
+      } else {
+        const absentLabels = signals.filter((s) => !isPresent(s)).map((s) => s.label);
+        credentialDescription = `Credentials that would strengthen this direction: ${absentLabels.join("; ")}`;
+      }
+    }
+  }
+
+  const DOMAIN_LABELS = ["Clinician","Educator","Researcher","Administrator/Leader","Advocate","Innovator","Quality/Safety","Wellness Champion"];
+
   const gaps: SevenGap[] = [
     {
       name:        "Skill",
       score:       skillGap,
       available:   true,
-      description: `Evidence density at ${goalPrimaryNames.join(", ")} in the ${goalDomainIndex < 8 ? ["Clinician","Educator","Researcher","Administrator/Leader","Advocate","Innovator","Quality/Safety","Wellness Champion"][goalDomainIndex] ?? "" : ""} domain`,
+      description: `Evidence density at ${goalPrimaryNames.join(", ")} in the ${DOMAIN_LABELS[goalDomainIndex] ?? ""} domain`,
     },
     {
       name:        "Knowledge",
@@ -578,31 +760,25 @@ export async function computeSevenGap(
         : "Rate your energy for this domain to compute identity gap",
     },
     {
+      name:        "Credential",
+      score:       credentialScore,
+      available:   credentialAvailable,
+      description: credentialDescription,
+    },
+    {
       name:        "Language",
       score:       0,
       available:   false,
-      // Spec Appendix H: Language gap = vocabulary translation fit (can the physician's
-      // work be articulated in the TARGET field's terminology — roadmap, sprint, user story?).
-      // Source: Output Studio Rosetta Layer concept→field translation (Phase 7).
-      // NOTE: Communication skill density is NOT a proxy — communication competency ≠
-      // vocabulary translation. Do not substitute without founder approval.
+      // Spec Appendix H: Language gap = vocabulary translation fit.
+      // Source: Output Studio Rosetta Layer — Phase 7.
+      // Communication skill density is NOT a proxy (competency ≠ vocabulary). Do not substitute.
       description: "Vocabulary translation gap (Rosetta Layer — Output Studio, Phase 7)",
-    },
-    {
-      name:        "Credential",
-      score:       0,
-      available:   false,
-      // Spec lists CIP as "Phase 1 — CV + gap" source (Appendix D Rosetta table).
-      // A Phase 5 CIP-based estimate is feasible: parse CV credential signals +
-      // a per-domain credential requirement table. BLOCKED pending founder input
-      // on required credentials per domain. Full O*NET Job Zone grounding: Phase 2+.
-      description: "Credential gap: CIP-based Phase 5 estimate possible — needs per-domain credential table from founder. O*NET Job Zones: Phase 2+",
     },
     {
       name:        "Network",
       score:       0,
       available:   false,
-      description: "Requires Mak coaching-probe data — deferred to Phase 6",
+      description: "Requires Mak coaching-probe data — Phase 6",
     },
   ];
 

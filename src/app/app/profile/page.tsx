@@ -23,6 +23,7 @@ import { UserAvatar } from "@/components/profile/UserAvatar";
 import { ItemFormModal } from "@/components/profile/ItemFormModal";
 import { PendingTray, type PendingItem } from "@/components/profile/PendingTray";
 import { CvUploadPanel } from "@/components/profile/CvUploadPanel";
+import { ProfileDetailsCard } from "@/components/profile/ProfileDetailsCard";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 import {
   AVATAR_CHANGED_EVENT,
@@ -286,6 +287,9 @@ export default function ProfilePage() {
 
       {/* CV upload */}
       <CvUploadPanel onComplete={loadPending} />
+
+      {/* Deferred profile fields from onboarding */}
+      <ProfileDetailsCard />
 
       {/* Pending tray (shown when items exist) */}
       <PendingTray
