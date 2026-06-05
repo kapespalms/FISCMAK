@@ -1,6 +1,6 @@
 # ACGME Milestone Coverage Report (§10C)
 
-Generated: 2026-06-05T16:38:54.051Z
+Generated: 2026-06-05T21:27:22.095Z
 
 ## Summary
 
@@ -24,8 +24,8 @@ O\*NET-only baseline (Ticket 9): median cosine = 0.997
 
 | Metric | Value | Subspecialty |
 |--------|-------|-------------|
-| Min cosine | 0.9818 | Electrophysiology |
-| Median cosine | 0.9976 | — |
+| Min cosine | 0.9579 | Urology / Pediatric |
+| Median cosine | 0.9977 | — |
 | Max cosine | 0.9981 | EM / Hospice & Palliative |
 
 ## Spot-Checks

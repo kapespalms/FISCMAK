@@ -1,12 +1,12 @@
 # Subspecialty Anchor Validation Report (9B)
 
-Generated: 2026-06-05T16:38:53.898Z
+Generated: 2026-06-05T21:27:21.929Z
 Total subspecialties: 166
-Validated (anchor in top-10 adjacency basket): 63
-Not in top-10: 103
+Validated (anchor in top-10 adjacency basket): 83
+Not in top-10: 83
   - Flagged SOC rows (computation uses substitute): 19
   - Excluded from pool (29-1xxx anchors, by design): 23
-  - Unflagged not in top-10 (alpha=0.20 blend too weak): 61
+  - Unflagged not in top-10 (alpha=0.20 blend too weak): 41
 
 ## Note on adjacency pool
 
@@ -32,105 +32,105 @@ the pool. "Anchor in top-10 = false" for these subspecialties is expected, not a
 
 | Subspecialty | Anchor SOC (CSV) | Effective SOC | Anchor In Top-10 | Anchor Rank | Notes |
 |---|---|---|---|---|---|
-| Electrophysiology | 17-2072.00 | 17-2072.00 | No | 18 |  |
-| Interventional Cardiology | 29-2031.00 | 29-2031.00 | No | 18 |  |
-| Advanced Heart Failure/Transplant | 21-1022.00 | 21-1022.00 | No | 16 |  |
-| Adult Congenital Heart | 25-1042.00 | 25-1042.00 | No | 17 |  |
-| Gastroenterology | 29-2034.00 | 29-2034.00 | No | 16 |  |
-| Hepatology/Transplant | 21-1022.00 | 21-1022.00 | Yes | 5 |  |
+| Electrophysiology | 17-2072.00 | 17-2072.00 | Yes | 3 |  |
+| Interventional Cardiology | 29-2031.00 | 29-2031.00 | Yes | 6 |  |
+| Advanced Heart Failure/Transplant | 21-1022.00 | 21-1022.00 | Yes | 3 |  |
+| Adult Congenital Heart | 25-1042.00 | 25-1042.00 | No | 14 |  |
+| Gastroenterology | 29-2034.00 | 29-2034.00 | No | 15 |  |
+| Hepatology/Transplant | 21-1022.00 | 21-1022.00 | Yes | 3 |  |
 | Pulmonary/Critical Care | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
-| Interventional Pulmonology | 29-2034.00 | 29-2034.00 | No | 16 |  |
-| Hematology/Oncology | 19-1042.00 | 19-1042.00 | Yes | 5 |  |
-| Endocrinology | 19-1042.00 | 19-1042.00 | Yes | 5 |  |
+| Interventional Pulmonology | 29-2034.00 | 29-2034.00 | No | 15 |  |
+| Hematology/Oncology | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
+| Endocrinology | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
 | Nephrology | 17-2112.00 | 17-2112.00 | No | — |  |
-| Rheumatology | 19-1042.00 | 19-1042.00 | Yes | 5 |  |
-| Infectious Disease | 19-1041.00 | 19-1041.00 | Yes | 7 |  |
-| Geriatric Medicine (IM) | 21-1015.00 | 21-1015.00 | No | 19 |  |
+| Rheumatology | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
+| Infectious Disease | 19-1041.00 | 19-1041.00 | Yes | 5 |  |
+| Geriatric Medicine (IM) | 21-1015.00 | 21-1015.00 | No | 14 |  |
 | Critical Care Medicine | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
-| Allergy & Immunology | 19-1042.00 | 19-1042.00 | Yes | 5 |  |
+| Allergy & Immunology | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
 | Clinical Informatics (IM) | 15-1252.00 | 15-1252.00 | No | — |  |
-| Hospice & Palliative (IM) | 21-1022.00 | 21-1022.00 | Yes | 5 |  |
+| Hospice & Palliative (IM) | 21-1022.00 | 21-1022.00 | Yes | 3 |  |
 | Sleep Medicine (IM) | 29-2099.00 | 29-2099.00 | No | — |  |
-| Hospital Medicine (Adult) | 11-9111.00 | 11-9111.00 | No | 15 |  |
-| FM / Geriatric Medicine | 21-1015.00 | 21-1015.00 | No | 19 |  |
-| FM / Sports Medicine | 29-9091.00 | 29-9091.00 | Yes | 7 |  |
-| FM / Hospice & Palliative | 21-1022.00 | 21-1022.00 | Yes | 5 |  |
-| FM / Addiction Medicine | 21-1011.00 | 21-1011.00 | No | 11 |  |
-| FM / Adolescent Medicine | 21-1012.00 | 21-1012.00 | No | 11 |  |
+| Hospital Medicine (Adult) | 11-9111.00 | 11-9111.00 | Yes | 10 |  |
+| FM / Geriatric Medicine | 21-1015.00 | 21-1015.00 | No | 15 |  |
+| FM / Sports Medicine | 29-9091.00 | 29-9091.00 | Yes | 6 |  |
+| FM / Hospice & Palliative | 21-1022.00 | 21-1022.00 | Yes | 3 |  |
+| FM / Addiction Medicine | 21-1011.00 | 21-1011.00 | Yes | 8 |  |
+| FM / Adolescent Medicine | 21-1012.00 | 21-1012.00 | Yes | 9 |  |
 | Neonatology | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
-| Peds Cardiology | 29-2031.00 | 29-2031.00 | Yes | 7 |  |
+| Peds Cardiology | 29-2031.00 | 29-2031.00 | Yes | 6 |  |
 | Peds Critical Care | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
 | Peds Emergency Medicine | 29-2041.00 | avg(29-2042.00,29-2043.00) | No | — | Flagged SOC — substitute used |
 | Peds GI | 29-2034.00 | 29-2034.00 | No | — |  |
-| Peds Heme/Onc | 19-1042.00 | 19-1042.00 | Yes | 10 |  |
-| Peds Endocrinology | 19-1042.00 | 19-1042.00 | Yes | 10 |  |
+| Peds Heme/Onc | 19-1042.00 | 19-1042.00 | Yes | 8 |  |
+| Peds Endocrinology | 19-1042.00 | 19-1042.00 | Yes | 8 |  |
 | Peds Pulmonology | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
 | Peds Nephrology | 17-2112.00 | 17-2112.00 | No | — |  |
-| Peds Rheumatology | 19-1042.00 | 19-1042.00 | Yes | 10 |  |
-| Peds Infectious Disease | 19-1041.00 | 19-1041.00 | No | 13 |  |
-| Developmental-Behavioral Peds | 19-3031.00 | 19-3033.00 | Yes | 7 | Flagged SOC — substitute used |
-| Adolescent Medicine | 21-1012.00 | 21-1012.00 | Yes | 9 |  |
+| Peds Rheumatology | 19-1042.00 | 19-1042.00 | Yes | 8 |  |
+| Peds Infectious Disease | 19-1041.00 | 19-1041.00 | Yes | 10 |  |
+| Developmental-Behavioral Peds | 19-3031.00 | 19-3033.00 | No | — | Flagged SOC — substitute used |
+| Adolescent Medicine | 21-1012.00 | 21-1012.00 | Yes | 6 |  |
 | Child Abuse Pediatrics | 19-4092.00 | 19-4092.00 | No | — |  |
 | Peds Hospital Medicine | 11-9111.00 | 11-9111.00 | No | — |  |
 | Child & Adolescent Psychiatry | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
-| Addiction Psychiatry | 21-1011.00 | 21-1011.00 | Yes | 4 |  |
+| Addiction Psychiatry | 21-1011.00 | 21-1011.00 | Yes | 2 |  |
 | Forensic Psychiatry | 19-4092.00 | 19-4092.00 | No | — |  |
-| Geriatric Psychiatry | 21-1015.00 | 21-1015.00 | No | 14 |  |
-| Consultation-Liaison Psychiatry | 11-9111.00 | 11-9111.00 | No | — |  |
-| Addiction Medicine (Psych) | 21-1011.00 | 21-1011.00 | Yes | 4 |  |
+| Geriatric Psychiatry | 21-1015.00 | 21-1015.00 | Yes | 10 |  |
+| Consultation-Liaison Psychiatry | 11-9111.00 | 11-9111.00 | No | 18 |  |
+| Addiction Medicine (Psych) | 21-1011.00 | 21-1011.00 | Yes | 2 |  |
 | Surgical Critical Care | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
 | Pediatric Surgery | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
 | Complex Surgical Oncology | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
-| Vascular Surgery | 17-2112.00 | 17-2112.00 | No | 18 |  |
+| Vascular Surgery | 17-2112.00 | 17-2112.00 | Yes | 1 |  |
 | Hand Surgery (Surgery) | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
-| Ortho / Sports Medicine | 29-9091.00 | 29-9091.00 | No | 12 |  |
-| Ortho / Spine | 17-2112.00 | 17-2112.00 | No | — |  |
+| Ortho / Sports Medicine | 29-9091.00 | 29-9091.00 | Yes | 3 |  |
+| Ortho / Spine | 17-2112.00 | 17-2112.00 | Yes | 6 |  |
 | Ortho / Hand | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
-| Ortho / Trauma | 29-2041.00 | avg(29-2042.00,29-2043.00) | Yes | 1 | Flagged SOC — substitute used |
+| Ortho / Trauma | 29-2041.00 | avg(29-2042.00,29-2043.00) | Yes | 3 | Flagged SOC — substitute used |
 | Ortho / Pediatric | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
-| Ortho / Adult Reconstruction | 17-2112.00 | 17-2112.00 | No | — |  |
-| Ortho / MSK Oncology | 19-1042.00 | 19-1042.00 | No | 13 |  |
+| Ortho / Adult Reconstruction | 17-2112.00 | 17-2112.00 | Yes | 6 |  |
+| Ortho / MSK Oncology | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
 | Otolaryngology (ENT) | 29-1029.00 | 29-1029.00 | No | — | 29-1xxx excluded from pool by design |
-| ENT / Neurotology | 17-2072.00 | 17-2072.00 | No | 18 |  |
+| ENT / Neurotology | 17-2072.00 | 17-2072.00 | Yes | 1 |  |
 | ENT / Pediatric ENT | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
 | ENT / Head & Neck Surg Onc | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
-| ENT / Facial Plastic | 27-1013.00 | 27-1013.00 | No | — |  |
+| ENT / Facial Plastic | 27-1013.00 | 27-1013.00 | Yes | 1 |  |
 | ENT / Laryngology | 29-1127.00 | 29-1127.00 | No | — | 29-1xxx excluded from pool by design |
-| ENT / Rhinology | 29-2034.00 | 29-2034.00 | Yes | 10 |  |
-| Urology | 17-2112.00 | 17-2112.00 | No | 18 |  |
+| ENT / Rhinology | 29-2034.00 | 29-2034.00 | Yes | 3 |  |
+| Urology | 17-2112.00 | 17-2112.00 | Yes | 1 |  |
 | Urology / Pediatric | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
 | Urology / Female Pelvic/Recon | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
-| Thoracic Surgery | 17-2112.00 | 17-2112.00 | No | 18 |  |
-| Congenital Cardiac Surgery | 17-2072.00 | 17-2072.00 | No | 18 |  |
-| Plastic Surgery | 27-1013.00 | 27-1013.00 | No | — |  |
+| Thoracic Surgery | 17-2112.00 | 17-2112.00 | Yes | 1 |  |
+| Congenital Cardiac Surgery | 17-2072.00 | 17-2072.00 | Yes | 1 |  |
+| Plastic Surgery | 27-1013.00 | 27-1013.00 | Yes | 1 |  |
 | Plastic / Hand Surgery | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
-| Plastic / Craniofacial | 17-2112.00 | 17-2112.00 | No | 18 |  |
+| Plastic / Craniofacial | 17-2112.00 | 17-2112.00 | Yes | 1 |  |
 | Plastic / Microsurgery | 51-9071.00 | 51-9071.00 | No | — |  |
-| Colorectal Surgery | 17-2112.00 | 17-2112.00 | No | 18 |  |
+| Colorectal Surgery | 17-2112.00 | 17-2112.00 | Yes | 1 |  |
 | EM / Medical Toxicology | 19-4092.00 | 19-4092.00 | No | — |  |
 | EM / Sports Medicine | 29-9091.00 | 29-9091.00 | Yes | 4 |  |
-| EM / Ultrasound | 29-2032.00 | 29-2032.00 | Yes | 7 |  |
+| EM / Ultrasound | 29-2032.00 | 29-2032.00 | Yes | 6 |  |
 | EM / EMS-Prehospital | 29-2041.00 | avg(29-2042.00,29-2043.00) | No | — | Flagged SOC — substitute used |
-| EM / Disaster Medicine | 13-1061.00 | 11-9161.00 | No | — | Flagged SOC — substitute used |
+| EM / Disaster Medicine | 13-1061.00 | 11-9161.00 | No | 15 | Flagged SOC — substitute used |
 | EM / Wilderness Medicine | 29-2041.00 | avg(29-2042.00,29-2043.00) | No | — | Flagged SOC — substitute used |
 | EM / Hospice & Palliative | 21-1022.00 | 21-1022.00 | Yes | 4 |  |
 | EM / Critical Care (EMCCM) | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
-| EM / Administration | 11-9111.00 | 11-9111.00 | No | 20 |  |
+| EM / Administration | 11-9111.00 | 11-9111.00 | No | 15 |  |
 | EM / Clinical Informatics | 15-1252.00 | 15-1252.00 | No | — |  |
 | Anes / Critical Care | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
 | Anes / Pain Medicine | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
 | Anes / Cardiac | 29-2031.00 | 29-2031.00 | Yes | 2 |  |
 | Anes / Pediatric | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
 | Anes / Neuroanesthesia | 17-2072.00 | 17-2072.00 | No | — |  |
-| Anes / Regional-Acute Pain | 29-2032.00 | 29-2032.00 | Yes | 5 |  |
+| Anes / Regional-Acute Pain | 29-2032.00 | 29-2032.00 | Yes | 4 |  |
 | Anes / Obstetric | 29-1161.00 | 29-1161.00 | No | — | 29-1xxx excluded from pool by design |
 | Anes / Perioperative Medicine | 11-9111.00 | 11-9111.00 | No | — |  |
-| Neuroradiology | 19-1042.00 | 19-1042.00 | Yes | 2 |  |
-| Musculoskeletal Radiology | 29-9091.00 | 29-9091.00 | No | — |  |
-| Breast Imaging | 19-1042.00 | 19-1042.00 | Yes | 2 |  |
+| Neuroradiology | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
+| Musculoskeletal Radiology | 29-9091.00 | 29-9091.00 | No | 18 |  |
+| Breast Imaging | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
 | Pediatric Radiology | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
 | Abdominal/Body Imaging | 29-2034.00 | 29-2034.00 | Yes | 5 |  |
-| Cardiothoracic Imaging | 29-2031.00 | 29-2031.00 | Yes | 1 |  |
+| Cardiothoracic Imaging | 29-2031.00 | 29-2031.00 | Yes | 2 |  |
 | Interventional Radiology | 17-2112.00 | 17-2112.00 | No | — |  |
 | Nuclear Medicine | 29-2033.00 | 29-2033.00 | Yes | 1 |  |
 | Radiation Oncology | 17-2199.00 | 17-2199.00 | No | — |  |
@@ -139,40 +139,40 @@ the pool. "Anchor in top-10 = false" for these subspecialties is expected, not a
 | Dermatopathology (Path) | 27-1013.00 | 27-1013.00 | No | — |  |
 | Neuropathology | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
 | Forensic Pathology | 19-4092.00 | 19-4092.00 | No | — |  |
-| Clinical Pathology/Lab Medicine | 11-9121.00 | 11-9121.00 | Yes | 7 |  |
+| Clinical Pathology/Lab Medicine | 11-9121.00 | 11-9121.00 | Yes | 6 |  |
 | Hematopathology | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
-| Clinical Chemistry | 19-2031.00 | 19-2031.00 | Yes | 7 |  |
+| Clinical Chemistry | 19-2031.00 | 19-2031.00 | Yes | 6 |  |
 | Microbiology (Path) | 19-1022.00 | 19-1022.00 | Yes | 1 |  |
-| Blood Banking/Transfusion | 11-9121.00 | 11-9121.00 | Yes | 7 |  |
+| Blood Banking/Transfusion | 11-9121.00 | 11-9121.00 | Yes | 6 |  |
 | Molecular Genetic Pathology | 15-2051.00 | 15-2051.00 | No | — |  |
 | Clinical Informatics (Path) | 15-1252.00 | 15-1252.00 | No | — |  |
-| Dermatopathology (Derm) | 19-1042.00 | 19-1042.00 | Yes | 4 |  |
+| Dermatopathology (Derm) | 19-1042.00 | 19-1042.00 | Yes | 5 |  |
 | Mohs/Procedural Dermatology | 51-9071.00 | 51-9071.00 | No | — |  |
 | Pediatric Dermatology | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
 | Cosmetic Dermatology | 27-1013.00 | 27-1013.00 | No | — |  |
 | Vascular Neurology/Stroke | 29-2041.00 | avg(29-2042.00,29-2043.00) | No | — | Flagged SOC — substitute used |
 | Epilepsy/Clinical Neurophysiology | 17-2072.00 | 17-2072.00 | No | — |  |
-| Neuromuscular Medicine | 19-1042.00 | 19-1042.00 | Yes | 9 |  |
-| Movement Disorders | 19-1042.00 | 19-1042.00 | Yes | 9 |  |
-| Behavioral Neurology/Neuropsychiatry | 19-3031.00 | 19-3033.00 | Yes | 5 | Flagged SOC — substitute used |
-| Neuro-oncology | 19-1042.00 | 19-1042.00 | Yes | 9 |  |
-| Headache Medicine | 21-1015.00 | 21-1015.00 | No | 20 |  |
-| Neuroimmunology/MS | 19-1042.00 | 19-1042.00 | Yes | 9 |  |
+| Neuromuscular Medicine | 19-1042.00 | 19-1042.00 | Yes | 6 |  |
+| Movement Disorders | 19-1042.00 | 19-1042.00 | Yes | 6 |  |
+| Behavioral Neurology/Neuropsychiatry | 19-3031.00 | 19-3033.00 | No | 20 | Flagged SOC — substitute used |
+| Neuro-oncology | 19-1042.00 | 19-1042.00 | Yes | 6 |  |
+| Headache Medicine | 21-1015.00 | 21-1015.00 | No | 16 |  |
+| Neuroimmunology/MS | 19-1042.00 | 19-1042.00 | Yes | 6 |  |
 | Autonomic Disorders | 17-2072.00 | 17-2072.00 | No | — |  |
 | Sleep Medicine (Neuro) | 29-2099.00 | 29-2099.00 | No | — |  |
 | Neurocritical Care | 29-1126.00 | 29-1126.00 | No | — | 29-1xxx excluded from pool by design |
 | Pain Medicine (Neuro) | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
-| Hospice & Palliative (Neuro) | 21-1022.00 | 21-1022.00 | No | 13 |  |
+| Hospice & Palliative (Neuro) | 21-1022.00 | 21-1022.00 | Yes | 9 |  |
 | Clinical Informatics (Neuro) | 15-1252.00 | 15-1252.00 | No | — |  |
-| Maternal-Fetal Medicine | 29-2032.00 | 29-2032.00 | Yes | 7 |  |
-| Reproductive Endocrinology/Infertility | 19-1042.00 | 19-1042.00 | Yes | 4 |  |
-| Gynecologic Oncology | 19-1042.00 | 19-1042.00 | Yes | 4 |  |
+| Maternal-Fetal Medicine | 29-2032.00 | 29-2032.00 | Yes | 6 |  |
+| Reproductive Endocrinology/Infertility | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
+| Gynecologic Oncology | 19-1042.00 | 19-1042.00 | Yes | 3 |  |
 | Female Pelvic Med/Recon Surgery | 29-1123.00 | 29-1123.00 | No | — | 29-1xxx excluded from pool by design |
-| Complex Family Planning | 21-1022.00 | 21-1022.00 | Yes | 10 |  |
+| Complex Family Planning | 21-1022.00 | 21-1022.00 | Yes | 6 |  |
 | Minimally Invasive Gyn Surgery | 17-2112.00 | 17-2112.00 | No | — |  |
 | Ophthalmology (general) | 29-1041.00 | 29-1041.00 | No | — | 29-1xxx excluded from pool by design |
 | Retina/Vitreous | 29-2034.00 | 29-2034.00 | Yes | 9 |  |
-| Glaucoma | 17-2112.00 | 17-2112.00 | Yes | 7 |  |
+| Glaucoma | 17-2112.00 | 17-2112.00 | Yes | 4 |  |
 | Cornea/External Disease | 19-1042.00 | 19-1042.00 | Yes | 1 |  |
 | Oculoplastics | 27-1013.00 | 27-1013.00 | No | — |  |
 | Pediatric Ophthalmology/Strabismus | 25-2054.00 | 25-2059.00 | No | — | Flagged SOC — substitute used |
@@ -187,12 +187,12 @@ the pool. "Anchor in top-10 = false" for these subspecialties is expected, not a
 | EMG/Electrodiagnostics | 17-2072.00 | 17-2072.00 | No | — |  |
 | Cancer Rehab | 21-1015.00 | 21-1015.00 | Yes | 2 |  |
 | Preventive Med/Public Health | 19-1041.00 | 19-1041.00 | Yes | 1 |  |
-| Occupational Medicine | 13-1041.00 | 13-1041.00 | No | 13 |  |
-| Aerospace Medicine | 17-2011.00 | 17-2011.00 | No | — |  |
+| Occupational Medicine | 13-1041.00 | 13-1041.00 | No | — |  |
+| Aerospace Medicine | 17-2011.00 | 17-2011.00 | No | 16 |  |
 | Undersea & Hyperbaric Medicine | 17-2199.00 | 17-2199.00 | No | — |  |
 | Addiction Medicine (Prev) | 21-1011.00 | 21-1011.00 | Yes | 2 |  |
 | Clinical Informatics (Prev) | 15-1252.00 | 15-1252.00 | No | — |  |
-| Medical Toxicology (Prev) | 19-4092.00 | 19-4092.00 | Yes | 7 |  |
+| Medical Toxicology (Prev) | 19-4092.00 | 19-4092.00 | Yes | 5 |  |
 | Medical Genetics (general) | 29-9092.00 | 29-9092.00 | Yes | 1 |  |
 | Biochemical Genetics | 19-2031.00 | 19-2031.00 | Yes | 3 |  |
 | Molecular Genetics | 15-2051.00 | 15-2051.00 | No | — |  |

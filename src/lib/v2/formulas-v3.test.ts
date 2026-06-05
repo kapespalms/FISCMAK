@@ -295,10 +295,10 @@ describe("directionalGap", () => {
 });
 
 describe("getSocVector — O*NET 30.3 seed", () => {
-  it("returns a 244-element vector for psychiatry (243 content-model + 1 Job Zone)", () => {
+  it("returns a 250-element vector for psychiatry (249 content-model + 1 Job Zone)", () => {
     const v = getSocVector("29-1223.00");
     expect(v).not.toBeNull();
-    expect(v!.length).toBe(244);
+    expect(v!.length).toBe(250);
   });
 
   it("all values in [0, 100] — dual-scale and single-scale both produce 0–100", () => {
@@ -318,7 +318,7 @@ describe("getDomainVector — domain fingerprints", () => {
   it("returns a vector for psychiatry × Educator domain", () => {
     const v = getDomainVector("29-1223.00", "Educator");
     expect(v).not.toBeNull();
-    expect(v!.length).toBe(244);
+    expect(v!.length).toBe(250);
   });
 
   it("domain vectors for the same SOC are not all identical", () => {

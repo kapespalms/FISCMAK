@@ -8,7 +8,7 @@
  *     V[s,d] = 100 × max(0,(Imp−1)/4) × max(0,(Lvl−1)/6)
  *     Combines Importance (1–5) × Level (0–7), each normalized to 0–1.
  *
- *   Single-scale (Work Context, Work Styles, RIASEC, Job Zones):
+ *   Single-scale (Work Context, Work Styles, Work Values, RIASEC, Job Zones):
  *     V[s,d] = ((x − min) / (max − min)) × 100
  *     Empirical min/max computed across all occupations.
  *
@@ -184,6 +184,7 @@ const DOMAIN_RANK_MATRIX = [
   [5,8,6,4,3,7,2],
 ];
 
+// LOCKED: 7 active ranks sum to 28 → denominator 28 for Σwᵣ=1.0. Do NOT use /35.
 // Σ(8−rank) for active ranks 1..7 = 28. Denominator 28 makes weights sum to 1.0 (true 50/50 blend).
 function rankWeight(rank) { return (8 - rank) / 28; }
 
@@ -201,6 +202,7 @@ const tsRows  = readSheet("Transferable Skills.xlsx");
 // Single-scale
 const wcRows  = readSheet("Work Context.xlsx").filter(r => r["Scale ID"] === "CX");
 const wsRows  = readSheet("Work Styles.xlsx").filter(r => r["Scale ID"] === "WI");
+const wvRows  = readSheet("Work Values.xlsx").filter(r => r["Scale ID"] === "EX");
 const oiRows  = readSheet("Career Interest Types.xlsx").filter(r => r["Scale ID"] === "OI");
 const jzRows  = readSheet("Job Zones.xlsx");
 const occRows = readSheet("Occupation Data.xlsx");
@@ -228,6 +230,7 @@ const CATALOG_CATEGORIES = [
   { cat: "TransferableSkills", rows: tsRows,  scale: "IM", type: "dual"   },
   { cat: "WorkContext",        rows: wcRows,  scale: "CX", type: "single" },
   { cat: "WorkStyles",         rows: wsRows,  scale: "WI", type: "single" },
+  { cat: "WorkValues",         rows: wvRows,  scale: "EX", type: "single" },
   { cat: "RIASEC",             rows: oiRows,  scale: "OI", type: "single" },
 ];
 // Job Zone: one synthetic element appended
@@ -265,12 +268,14 @@ function findDescriptorIdx(nameFrag) {
 
 const wcRange = { min: 1, max: 5 };  // Work Context CX (1–5 frequency/context)
 const wsRange = { min: 1, max: 5 };  // Work Styles WI  (1–5 importance)
+const wvRange = { min: 1, max: 7 };  // Work Values EX  (1–7 extent) — confirmed Scales Reference.xlsx
 const oiRange = { min: 1, max: 7 };  // RIASEC OI       (1–7 interest)
 const jzRange = { min: 1, max: 5 };  // Job Zone        (1–5)
 
 console.log("Single-scale declared anchors:");
 console.log(`  Work Context CX:  ${wcRange.min} – ${wcRange.max}`);
 console.log(`  Work Styles  WI:  ${wsRange.min} – ${wsRange.max}`);
+console.log(`  Work Values  EX:  ${wvRange.min} – ${wvRange.max}`);
 console.log(`  RIASEC       OI:  ${oiRange.min} – ${oiRange.max}`);
 
 function singleScale(val, { min, max }) {
@@ -326,6 +331,46 @@ function ingestSingleRows(rows) {
 }
 ingestSingleRows(wcRows);
 ingestSingleRows(wsRows);
+
+// Work Values file uses SOC 2010 codes (29-106x); build uses SOC 2018/2020 (29-12xx).
+// Remap old → new before ingesting. One-to-many entries handle proxy mappings
+// (Internists → Internal Medicine + Cardiology; Family → Family + Emergency Medicine).
+const WV_SOC_CROSSWALK = {
+  "29-1061.00": ["29-1211.00"],                    // Anesthesiologists
+  "29-1062.00": ["29-1215.00", "29-1214.00"],      // Family → Family Medicine + Emergency Medicine
+                                                   // PROXY (weak): EM values borrowed from Family Medicine
+                                                   // EM/FM differ most on autonomy, schedule control, working conditions
+                                                   // — exactly what Work Values measures. Replace with 2018
+                                                   // EM-specific profile when available.
+  "29-1063.00": ["29-1216.00", "29-1212.00"],      // Internists → Internal Medicine + Cardiology (reasonable: IM subspecialty)
+  "29-1064.00": ["29-1218.00"],                    // OB/GYN
+  "29-1065.00": ["29-1221.00"],                    // Pediatrics
+  "29-1066.00": ["29-1223.00"],                    // Psychiatrists
+  "29-1067.00": ["29-1249.00"],                    // Surgeons
+  "29-1069.01": ["29-1229.01"],                    // Allergists
+  "29-1069.02": ["29-1213.00"],                    // Dermatologists
+  "29-1069.03": ["29-1069.03"],                    // Hospitalists (code unchanged)
+  "29-1069.04": ["29-1217.00"],                    // Neurologists
+  "29-1069.06": ["29-1241.00"],                    // Ophthalmologists
+  "29-1069.07": ["29-1222.00"],                    // Pathologists
+  "29-1069.08": ["29-1229.04"],                    // PM&R
+  "29-1069.09": ["29-1229.05"],                    // Preventive Medicine
+  "29-1069.10": ["29-1224.00"],                    // Radiologists
+  "29-1069.12": ["29-1229.03"],                    // Urologists
+  "29-1022.00": ["29-1242.00"],                    // Oral/Maxillofacial → Ortho (proxy)
+};
+const wvRowsRemapped = [];
+for (const row of wvRows) {
+  const oldSoc = row["O*NET-SOC Code"];
+  const newSocs = WV_SOC_CROSSWALK[oldSoc];
+  if (newSocs) {
+    for (const newSoc of newSocs) wvRowsRemapped.push({ ...row, "O*NET-SOC Code": newSoc });
+  } else {
+    wvRowsRemapped.push(row); // non-physician SOCs with unchanged codes pass through
+  }
+}
+ingestSingleRows(wvRowsRemapped);
+
 ingestSingleRows(oiRows);
 
 // Job Zone index
@@ -344,7 +389,7 @@ const dualDescriptorIndices = new Set(
   descriptorCatalog.filter(d => ["Abilities","Knowledge","WorkActivities","EssentialSkills","TransferableSkills"].includes(d.category)).map(d => d.idx)
 );
 const singleDescriptorRows = new Map(
-  descriptorCatalog.filter(d => ["WorkContext","WorkStyles","RIASEC"].includes(d.category)).map(d => [d.elementId, { idx: d.idx, cat: d.category }])
+  descriptorCatalog.filter(d => ["WorkContext","WorkStyles","WorkValues","RIASEC"].includes(d.category)).map(d => [d.elementId, { idx: d.idx, cat: d.category }])
 );
 
 // ── build vectors for all SOCs ───────────────────────────────────────────────
@@ -354,7 +399,7 @@ console.log("Building descriptor vectors for all occupations…");
 // Catalog order: [dual descriptors..., single descriptors..., JobZone]
 // Build descriptor index ranges
 const dualCatalogDescs  = descriptorCatalog.filter(d => dualDescriptorIndices.has(d.idx));
-const singleCatalogDescs= descriptorCatalog.filter(d => ["WorkContext","WorkStyles","RIASEC"].includes(d.category));
+const singleCatalogDescs= descriptorCatalog.filter(d => ["WorkContext","WorkStyles","WorkValues","RIASEC"].includes(d.category));
 
 function buildVector(soc) {
   const v = new Float64Array(N); // default 0.0
@@ -374,6 +419,7 @@ function buildVector(soc) {
       let range;
       if (desc.category === "WorkContext") range = wcRange;
       else if (desc.category === "WorkStyles") range = wsRange;
+      else if (desc.category === "WorkValues") range = wvRange;
       else range = oiRange;
       v[desc.idx] = singleScale(raw, range);
     }
@@ -564,7 +610,7 @@ writeTs("descriptor-catalog.ts", BANNER +
   idx: number;
   elementId: string;
   title: string;
-  category: "Abilities"|"Knowledge"|"WorkActivities"|"EssentialSkills"|"TransferableSkills"|"WorkContext"|"WorkStyles"|"RIASEC"|"JobZone";
+  category: "Abilities"|"Knowledge"|"WorkActivities"|"EssentialSkills"|"TransferableSkills"|"WorkContext"|"WorkStyles"|"WorkValues"|"RIASEC"|"JobZone";
 };\n\n` +
   `export const DESCRIPTOR_CATALOG: readonly OnetDescriptor[] = ${JSON.stringify(descriptorCatalog, null, 2)} as const;\n\n` +
   `export const DESCRIPTOR_COUNT = ${N};\n\n` +
@@ -572,7 +618,7 @@ writeTs("descriptor-catalog.ts", BANNER +
   `export const NORMALIZATION_META = ${JSON.stringify({
     version: "O*NET 30.3",
     dualScale:   { formula: "100 × max(0,(Im-1)/4) × max(0,Lv/7)", categories: ["Abilities","Knowledge","WorkActivities","EssentialSkills","TransferableSkills"] },
-    singleScale: { formula: "((x-min)/(max-min))×100", ranges: { WorkContext: wcRange, WorkStyles: wsRange, RIASEC: oiRange, JobZone: jzRange } },
+    singleScale: { formula: "((x-min)/(max-min))×100", ranges: { WorkContext: wcRange, WorkStyles: wsRange, WorkValues: wvRange, RIASEC: oiRange, JobZone: jzRange } },
   }, null, 2)} as const;\n`
 );
 
@@ -1835,10 +1881,9 @@ console.log(`  ACGME slugs flagged (no FISCMAK mapping): ${flaggedAcgmeSlugs.len
 console.log("\n✓ Step 0B complete — O*NET 30.3 dual-scale normalization applied.");
 console.log(`  Descriptor dimensions: ${N}`);
 console.log(`    Dual-scale (Abilities + Knowledge + WorkActivities + Skills): ${dualCatalogDescs.length}`);
-console.log(`    Single-scale (WorkContext + WorkStyles + RIASEC + JobZone):   ${N - dualCatalogDescs.length}`);
+console.log(`    Single-scale (WorkContext + WorkStyles + WorkValues + RIASEC + JobZone): ${N - dualCatalogDescs.length}`);
 console.log(`  SOC vectors built: ${allVectors.size} total, ${Object.keys(neededVectors).length} bundled in TS`);
 console.log(`  Physician SOCs for variance: ${physVecs.length}`);
 console.log(`  Non-physician adjacency pool (Job Zone ≥ 3): ${candidatePool.length}`);
-console.log(`  Note: Work Values not present in O*NET 30.3 seed (VH/EX scales in reference only).`);
 console.log("  Attribution: O*NET 30.3 Database, U.S. DOL/ETA — CC-BY 4.0");
 console.log("  https://www.onetcenter.org/license_db.html");

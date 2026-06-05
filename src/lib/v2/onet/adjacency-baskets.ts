@@ -5,195 +5,200 @@
 
 export type AdjacentOccupation = { soc: string; title: string; similarity: number };
 
-/** Top-20 non-physician Job-Zone-≥3 adjacent occupations per physician SOC (cosine similarity on 244-dim vectors). */
+/** Top-20 non-physician Job-Zone-≥3 adjacent occupations per physician SOC (cosine similarity on 250-dim vectors). */
 export const ADJACENCY_BASKETS: Readonly<Record<string, readonly AdjacentOccupation[]>> = {
  "29-1211.00": [
   {
    "soc": "29-2099.01",
    "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9595
-  },
-  {
-   "soc": "29-9093.00",
-   "title": "Surgical Assistants",
-   "similarity": 0.9556
+   "similarity": 0.9598
   },
   {
    "soc": "29-2033.00",
    "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9522
+   "similarity": 0.9552
   },
   {
    "soc": "29-2031.00",
    "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9483
+   "similarity": 0.9508
   },
   {
    "soc": "29-2011.00",
    "title": "Medical and Clinical Laboratory Technologists",
-   "similarity": 0.9456
-  },
-  {
-   "soc": "29-2056.00",
-   "title": "Veterinary Technologists and Technicians",
-   "similarity": 0.9432
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9412
+   "similarity": 0.9464
   },
   {
    "soc": "29-2061.00",
    "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9404
+   "similarity": 0.9439
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9432
+  },
+  {
+   "soc": "29-2056.00",
+   "title": "Veterinary Technologists and Technicians",
+   "similarity": 0.9431
   },
   {
    "soc": "29-2055.00",
    "title": "Surgical Technologists",
-   "similarity": 0.94
-  },
-  {
-   "soc": "19-1022.00",
-   "title": "Microbiologists",
-   "similarity": 0.9373
+   "similarity": 0.9423
   },
   {
    "soc": "29-2091.00",
    "title": "Orthotists and Prosthetists",
-   "similarity": 0.9367
+   "similarity": 0.9414
+  },
+  {
+   "soc": "19-1022.00",
+   "title": "Microbiologists",
+   "similarity": 0.9408
   },
   {
    "soc": "29-2032.00",
    "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.9355
-  },
-  {
-   "soc": "29-2012.00",
-   "title": "Medical and Clinical Laboratory Technicians",
-   "similarity": 0.9331
+   "similarity": 0.94
   },
   {
    "soc": "29-2034.00",
    "title": "Radiologic Technologists and Technicians",
-   "similarity": 0.9327
-  },
-  {
-   "soc": "29-2035.00",
-   "title": "Magnetic Resonance Imaging Technologists",
-   "similarity": 0.9312
+   "similarity": 0.9357
   },
   {
    "soc": "25-1072.00",
    "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.931
+   "similarity": 0.9345
   },
   {
    "soc": "19-1042.00",
    "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.929
+   "similarity": 0.9326
   },
   {
    "soc": "29-2099.05",
    "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9272
+   "similarity": 0.9321
   },
   {
-   "soc": "31-9097.00",
-   "title": "Phlebotomists",
-   "similarity": 0.9268
+   "soc": "29-2012.00",
+   "title": "Medical and Clinical Laboratory Technicians",
+   "similarity": 0.9318
+  },
+  {
+   "soc": "29-2035.00",
+   "title": "Magnetic Resonance Imaging Technologists",
+   "similarity": 0.9317
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9283
   },
   {
    "soc": "31-9091.00",
    "title": "Dental Assistants",
-   "similarity": 0.9267
+   "similarity": 0.9275
+  },
+  {
+   "soc": "31-9097.00",
+   "title": "Phlebotomists",
+   "similarity": 0.9247
   }
  ],
  "29-1213.00": [
   {
    "soc": "29-2099.05",
    "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.958
+   "similarity": 0.9606
   },
   {
    "soc": "29-9099.01",
    "title": "Midwives",
-   "similarity": 0.9543
+   "similarity": 0.9552
   },
   {
    "soc": "29-2061.00",
    "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9489
+   "similarity": 0.9512
   },
   {
    "soc": "25-1072.00",
    "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9454
-  },
-  {
-   "soc": "29-2057.00",
-   "title": "Ophthalmic Medical Technicians",
-   "similarity": 0.9415
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9398
+   "similarity": 0.9478
   },
   {
    "soc": "11-9121.01",
    "title": "Clinical Research Coordinators",
-   "similarity": 0.939
+   "similarity": 0.9434
   },
   {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9376
+   "soc": "29-2057.00",
+   "title": "Ophthalmic Medical Technicians",
+   "similarity": 0.942
   },
   {
    "soc": "29-2091.00",
    "title": "Orthotists and Prosthetists",
-   "similarity": 0.9367
+   "similarity": 0.9413
   },
   {
-   "soc": "31-2021.00",
-   "title": "Physical Therapist Assistants",
-   "similarity": 0.932
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.94
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9379
   },
   {
    "soc": "29-2092.00",
    "title": "Hearing Aid Specialists",
-   "similarity": 0.931
+   "similarity": 0.9352
   },
   {
    "soc": "29-9091.00",
    "title": "Athletic Trainers",
-   "similarity": 0.9301
+   "similarity": 0.9349
   },
   {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9297
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9347
   },
   {
    "soc": "29-2032.00",
    "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.9291
+   "similarity": 0.9339
   },
   {
    "soc": "29-2033.00",
    "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9286
+   "similarity": 0.9336
   },
   {
    "soc": "25-1071.00",
    "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9285
+   "similarity": 0.9335
   },
   {
-   "soc": "31-9097.00",
-   "title": "Phlebotomists",
-   "similarity": 0.9284
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9329
+  },
+  {
+   "soc": "25-2023.00",
+   "title": "Career/Technical Education Teachers, Middle School",
+   "similarity": 0.9276
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9273
   },
   {
    "soc": "29-2035.00",
@@ -201,31 +206,1449 @@ export const ADJACENCY_BASKETS: Readonly<Record<string, readonly AdjacentOccupat
    "similarity": 0.9264
   },
   {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9254
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9224
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9248
   }
  ],
  "29-1214.00": [
   {
    "soc": "25-1072.00",
    "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9542
+   "similarity": 0.9565
   },
   {
    "soc": "29-2061.00",
    "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9525
+   "similarity": 0.9543
   },
   {
    "soc": "29-9099.01",
    "title": "Midwives",
+   "similarity": 0.9536
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.947
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9391
+  },
+  {
+   "soc": "29-2033.00",
+   "title": "Nuclear Medicine Technologists",
+   "similarity": 0.936
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.9347
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9346
+  },
+  {
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9328
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9315
+  },
+  {
+   "soc": "29-2032.00",
+   "title": "Diagnostic Medical Sonographers",
+   "similarity": 0.9314
+  },
+  {
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9308
+  },
+  {
+   "soc": "25-2023.00",
+   "title": "Career/Technical Education Teachers, Middle School",
+   "similarity": 0.9293
+  },
+  {
+   "soc": "21-1022.00",
+   "title": "Healthcare Social Workers",
+   "similarity": 0.9292
+  },
+  {
+   "soc": "25-2032.00",
+   "title": "Career/Technical Education Teachers, Secondary School",
+   "similarity": 0.9288
+  },
+  {
+   "soc": "29-2035.00",
+   "title": "Magnetic Resonance Imaging Technologists",
+   "similarity": 0.9284
+  },
+  {
+   "soc": "31-2011.00",
+   "title": "Occupational Therapy Assistants",
+   "similarity": 0.9282
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9272
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9252
+  },
+  {
+   "soc": "29-2056.00",
+   "title": "Veterinary Technologists and Technicians",
+   "similarity": 0.9249
+  }
+ ],
+ "29-1215.00": [
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9446
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9419
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9366
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9351
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.935
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9302
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9268
+  },
+  {
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9264
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9248
+  },
+  {
+   "soc": "21-1022.00",
+   "title": "Healthcare Social Workers",
+   "similarity": 0.9245
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9197
+  },
+  {
+   "soc": "29-2057.00",
+   "title": "Ophthalmic Medical Technicians",
+   "similarity": 0.9187
+  },
+  {
+   "soc": "31-9099.01",
+   "title": "Speech-Language Pathology Assistants",
+   "similarity": 0.9177
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9167
+  },
+  {
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9155
+  },
+  {
+   "soc": "29-2032.00",
+   "title": "Diagnostic Medical Sonographers",
+   "similarity": 0.9147
+  },
+  {
+   "soc": "21-1021.00",
+   "title": "Child, Family, and School Social Workers",
+   "similarity": 0.9144
+  },
+  {
+   "soc": "21-1012.00",
+   "title": "Educational, Guidance, and Career Counselors and Advisors",
+   "similarity": 0.9141
+  },
+  {
+   "soc": "21-1023.00",
+   "title": "Mental Health and Substance Abuse Social Workers",
+   "similarity": 0.914
+  },
+  {
+   "soc": "29-2033.00",
+   "title": "Nuclear Medicine Technologists",
+   "similarity": 0.9126
+  }
+ ],
+ "29-1216.00": [
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9606
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.959
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9458
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9439
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9428
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9402
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.9399
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9388
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.938
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.934
+  },
+  {
+   "soc": "29-2033.00",
+   "title": "Nuclear Medicine Technologists",
+   "similarity": 0.9338
+  },
+  {
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9334
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9333
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9328
+  },
+  {
+   "soc": "29-2032.00",
+   "title": "Diagnostic Medical Sonographers",
+   "similarity": 0.9314
+  },
+  {
+   "soc": "21-1022.00",
+   "title": "Healthcare Social Workers",
+   "similarity": 0.9308
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9301
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9295
+  },
+  {
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9294
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.9271
+  }
+ ],
+ "29-1217.00": [
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9649
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9574
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9566
+  },
+  {
+   "soc": "19-1041.00",
+   "title": "Epidemiologists",
+   "similarity": 0.9538
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9533
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9447
+  },
+  {
+   "soc": "25-1042.00",
+   "title": "Biological Science Teachers, Postsecondary",
+   "similarity": 0.9414
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.9382
+  },
+  {
+   "soc": "25-1193.00",
+   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
+   "similarity": 0.9375
+  },
+  {
+   "soc": "21-1023.00",
+   "title": "Mental Health and Substance Abuse Social Workers",
+   "similarity": 0.9341
+  },
+  {
+   "soc": "25-1066.00",
+   "title": "Psychology Teachers, Postsecondary",
+   "similarity": 0.9338
+  },
+  {
+   "soc": "11-9121.00",
+   "title": "Natural Sciences Managers",
+   "similarity": 0.9329
+  },
+  {
+   "soc": "11-9111.00",
+   "title": "Medical and Health Services Managers",
+   "similarity": 0.9324
+  },
+  {
+   "soc": "19-1029.03",
+   "title": "Geneticists",
+   "similarity": 0.932
+  },
+  {
+   "soc": "21-1011.00",
+   "title": "Substance Abuse and Behavioral Disorder Counselors",
+   "similarity": 0.9317
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9316
+  },
+  {
+   "soc": "19-3039.03",
+   "title": "Clinical Neuropsychologists",
+   "similarity": 0.9316
+  },
+  {
+   "soc": "21-1012.00",
+   "title": "Educational, Guidance, and Career Counselors and Advisors",
+   "similarity": 0.9315
+  },
+  {
+   "soc": "17-2112.01",
+   "title": "Human Factors Engineers and Ergonomists",
+   "similarity": 0.9311
+  },
+  {
+   "soc": "11-9033.00",
+   "title": "Education Administrators, Postsecondary",
+   "similarity": 0.931
+  }
+ ],
+ "29-1218.00": [
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9689
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9648
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9519
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9449
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9437
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9421
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9416
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.9404
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.939
+  },
+  {
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9377
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9348
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9335
+  },
+  {
+   "soc": "29-2033.00",
+   "title": "Nuclear Medicine Technologists",
+   "similarity": 0.9329
+  },
+  {
+   "soc": "29-2032.00",
+   "title": "Diagnostic Medical Sonographers",
+   "similarity": 0.9325
+  },
+  {
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9314
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.931
+  },
+  {
+   "soc": "25-2023.00",
+   "title": "Career/Technical Education Teachers, Middle School",
+   "similarity": 0.931
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9305
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.9293
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9287
+  }
+ ],
+ "29-1221.00": [
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9579
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.953
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9477
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9422
+  },
+  {
+   "soc": "21-1022.00",
+   "title": "Healthcare Social Workers",
+   "similarity": 0.9409
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9394
+  },
+  {
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9384
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9353
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9342
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9334
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.9312
+  },
+  {
+   "soc": "25-2051.00",
+   "title": "Special Education Teachers, Preschool",
+   "similarity": 0.9296
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9291
+  },
+  {
+   "soc": "31-2011.00",
+   "title": "Occupational Therapy Assistants",
+   "similarity": 0.9288
+  },
+  {
+   "soc": "25-2023.00",
+   "title": "Career/Technical Education Teachers, Middle School",
+   "similarity": 0.9278
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9271
+  },
+  {
+   "soc": "29-2053.00",
+   "title": "Psychiatric Technicians",
+   "similarity": 0.9265
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9255
+  },
+  {
+   "soc": "21-1023.00",
+   "title": "Mental Health and Substance Abuse Social Workers",
+   "similarity": 0.9233
+  },
+  {
+   "soc": "21-1012.00",
+   "title": "Educational, Guidance, and Career Counselors and Advisors",
+   "similarity": 0.9232
+  }
+ ],
+ "29-1222.00": [
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9667
+  },
+  {
+   "soc": "19-1022.00",
+   "title": "Microbiologists",
+   "similarity": 0.9643
+  },
+  {
+   "soc": "29-2011.01",
+   "title": "Cytogenetic Technologists",
+   "similarity": 0.9603
+  },
+  {
+   "soc": "19-1029.02",
+   "title": "Molecular and Cellular Biologists",
+   "similarity": 0.9539
+  },
+  {
+   "soc": "29-2011.02",
+   "title": "Cytotechnologists",
+   "similarity": 0.9507
+  },
+  {
+   "soc": "19-1029.03",
+   "title": "Geneticists",
+   "similarity": 0.9501
+  },
+  {
+   "soc": "29-2011.00",
+   "title": "Medical and Clinical Laboratory Technologists",
+   "similarity": 0.9447
+  },
+  {
+   "soc": "19-1021.00",
+   "title": "Biochemists and Biophysicists",
+   "similarity": 0.9404
+  },
+  {
+   "soc": "19-4021.00",
+   "title": "Biological Technicians",
+   "similarity": 0.9392
+  },
+  {
+   "soc": "19-2041.00",
+   "title": "Environmental Scientists and Specialists, Including Health",
+   "similarity": 0.9384
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9383
+  },
+  {
+   "soc": "19-2031.00",
+   "title": "Chemists",
+   "similarity": 0.9379
+  },
+  {
+   "soc": "11-9121.00",
+   "title": "Natural Sciences Managers",
+   "similarity": 0.9347
+  },
+  {
+   "soc": "19-1012.00",
+   "title": "Food Scientists and Technologists",
+   "similarity": 0.9338
+  },
+  {
+   "soc": "19-1041.00",
+   "title": "Epidemiologists",
+   "similarity": 0.9338
+  },
+  {
+   "soc": "17-2031.00",
+   "title": "Bioengineers and Biomedical Engineers",
+   "similarity": 0.9328
+  },
+  {
+   "soc": "29-2012.00",
+   "title": "Medical and Clinical Laboratory Technicians",
+   "similarity": 0.9297
+  },
+  {
+   "soc": "11-3051.01",
+   "title": "Quality Control Systems Managers",
+   "similarity": 0.9294
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.9277
+  },
+  {
+   "soc": "19-1029.01",
+   "title": "Bioinformatics Scientists",
+   "similarity": 0.9271
+  }
+ ],
+ "29-1223.00": [
+  {
+   "soc": "21-1023.00",
+   "title": "Mental Health and Substance Abuse Social Workers",
+   "similarity": 0.964
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9638
+  },
+  {
+   "soc": "21-1014.00",
+   "title": "Mental Health Counselors",
+   "similarity": 0.9627
+  },
+  {
+   "soc": "21-1022.00",
+   "title": "Healthcare Social Workers",
+   "similarity": 0.9608
+  },
+  {
+   "soc": "21-1013.00",
+   "title": "Marriage and Family Therapists",
+   "similarity": 0.9606
+  },
+  {
+   "soc": "21-1011.00",
+   "title": "Substance Abuse and Behavioral Disorder Counselors",
+   "similarity": 0.9534
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9533
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9492
+  },
+  {
+   "soc": "21-1012.00",
+   "title": "Educational, Guidance, and Career Counselors and Advisors",
+   "similarity": 0.9467
+  },
+  {
+   "soc": "21-1021.00",
+   "title": "Child, Family, and School Social Workers",
+   "similarity": 0.9455
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9429
+  },
+  {
+   "soc": "21-1015.00",
+   "title": "Rehabilitation Counselors",
+   "similarity": 0.937
+  },
+  {
+   "soc": "25-1066.00",
+   "title": "Psychology Teachers, Postsecondary",
+   "similarity": 0.9351
+  },
+  {
+   "soc": "25-1113.00",
+   "title": "Social Work Teachers, Postsecondary",
+   "similarity": 0.9334
+  },
+  {
+   "soc": "25-1193.00",
+   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
+   "similarity": 0.9322
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.9312
+  },
+  {
+   "soc": "25-1192.00",
+   "title": "Family and Consumer Sciences Teachers, Postsecondary",
+   "similarity": 0.9292
+  },
+  {
+   "soc": "11-9151.00",
+   "title": "Social and Community Service Managers",
+   "similarity": 0.9268
+  },
+  {
+   "soc": "11-9033.00",
+   "title": "Education Administrators, Postsecondary",
+   "similarity": 0.926
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.926
+  }
+ ],
+ "29-1224.00": [
+  {
+   "soc": "29-2033.00",
+   "title": "Nuclear Medicine Technologists",
+   "similarity": 0.9477
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.9469
+  },
+  {
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9426
+  },
+  {
+   "soc": "29-2032.00",
+   "title": "Diagnostic Medical Sonographers",
+   "similarity": 0.941
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9352
+  },
+  {
+   "soc": "29-2011.00",
+   "title": "Medical and Clinical Laboratory Technologists",
+   "similarity": 0.9346
+  },
+  {
+   "soc": "19-1022.00",
+   "title": "Microbiologists",
+   "similarity": 0.9345
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9344
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9342
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9339
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9337
+  },
+  {
+   "soc": "19-1029.02",
+   "title": "Molecular and Cellular Biologists",
+   "similarity": 0.9282
+  },
+  {
+   "soc": "29-2035.00",
+   "title": "Magnetic Resonance Imaging Technologists",
+   "similarity": 0.9266
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9265
+  },
+  {
+   "soc": "29-2034.00",
+   "title": "Radiologic Technologists and Technicians",
+   "similarity": 0.926
+  },
+  {
+   "soc": "29-2011.02",
+   "title": "Cytotechnologists",
+   "similarity": 0.9253
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9234
+  },
+  {
+   "soc": "17-2031.00",
+   "title": "Bioengineers and Biomedical Engineers",
+   "similarity": 0.9233
+  },
+  {
+   "soc": "29-2011.01",
+   "title": "Cytogenetic Technologists",
+   "similarity": 0.9233
+  },
+  {
+   "soc": "19-1029.03",
+   "title": "Geneticists",
+   "similarity": 0.9228
+  }
+ ],
+ "29-1229.00": [
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9748
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9644
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9634
+  },
+  {
+   "soc": "19-1041.00",
+   "title": "Epidemiologists",
+   "similarity": 0.9529
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9528
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9503
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.9472
+  },
+  {
+   "soc": "25-1193.00",
+   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
+   "similarity": 0.9471
+  },
+  {
+   "soc": "25-1042.00",
+   "title": "Biological Science Teachers, Postsecondary",
+   "similarity": 0.9468
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9448
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9435
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.9432
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9429
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.942
+  },
+  {
+   "soc": "25-1053.00",
+   "title": "Environmental Science Teachers, Postsecondary",
+   "similarity": 0.9419
+  },
+  {
+   "soc": "25-2023.00",
+   "title": "Career/Technical Education Teachers, Middle School",
+   "similarity": 0.9415
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9413
+  },
+  {
+   "soc": "11-9111.00",
+   "title": "Medical and Health Services Managers",
+   "similarity": 0.9409
+  },
+  {
+   "soc": "11-9121.00",
+   "title": "Natural Sciences Managers",
+   "similarity": 0.9409
+  },
+  {
+   "soc": "25-2032.00",
+   "title": "Career/Technical Education Teachers, Secondary School",
+   "similarity": 0.9405
+  }
+ ],
+ "29-1229.01": [
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9606
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9586
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9555
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9539
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9532
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9488
+  },
+  {
+   "soc": "19-1041.00",
+   "title": "Epidemiologists",
+   "similarity": 0.9465
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9406
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.94
+  },
+  {
+   "soc": "25-1193.00",
+   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
+   "similarity": 0.9387
+  },
+  {
+   "soc": "21-1012.00",
+   "title": "Educational, Guidance, and Career Counselors and Advisors",
+   "similarity": 0.938
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9367
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9366
+  },
+  {
+   "soc": "25-1192.00",
+   "title": "Family and Consumer Sciences Teachers, Postsecondary",
+   "similarity": 0.9351
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9348
+  },
+  {
+   "soc": "13-2099.04",
+   "title": "Fraud Examiners, Investigators and Analysts",
+   "similarity": 0.9342
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.934
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9334
+  },
+  {
+   "soc": "19-2041.00",
+   "title": "Environmental Scientists and Specialists, Including Health",
+   "similarity": 0.9333
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.933
+  }
+ ],
+ "29-1229.03": [
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
    "similarity": 0.9516
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.944
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9435
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.9417
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9417
+  },
+  {
+   "soc": "19-1022.00",
+   "title": "Microbiologists",
+   "similarity": 0.9363
+  },
+  {
+   "soc": "29-2033.00",
+   "title": "Nuclear Medicine Technologists",
+   "similarity": 0.9362
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9346
+  },
+  {
+   "soc": "29-2011.00",
+   "title": "Medical and Clinical Laboratory Technologists",
+   "similarity": 0.9333
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9283
+  },
+  {
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9271
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.927
+  },
+  {
+   "soc": "29-2035.00",
+   "title": "Magnetic Resonance Imaging Technologists",
+   "similarity": 0.9261
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9248
+  },
+  {
+   "soc": "29-2031.00",
+   "title": "Cardiovascular Technologists and Technicians",
+   "similarity": 0.9243
+  },
+  {
+   "soc": "19-1029.02",
+   "title": "Molecular and Cellular Biologists",
+   "similarity": 0.9229
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.921
+  },
+  {
+   "soc": "29-2032.00",
+   "title": "Diagnostic Medical Sonographers",
+   "similarity": 0.9209
+  },
+  {
+   "soc": "11-3051.01",
+   "title": "Quality Control Systems Managers",
+   "similarity": 0.9206
+  },
+  {
+   "soc": "29-2056.00",
+   "title": "Veterinary Technologists and Technicians",
+   "similarity": 0.9201
+  }
+ ],
+ "29-1229.04": [
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.974
+  },
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9694
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.9566
+  },
+  {
+   "soc": "29-2061.00",
+   "title": "Licensed Practical and Licensed Vocational Nurses",
+   "similarity": 0.9439
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.9438
+  },
+  {
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.9408
+  },
+  {
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.9404
+  },
+  {
+   "soc": "25-1193.00",
+   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
+   "similarity": 0.9404
+  },
+  {
+   "soc": "29-2099.05",
+   "title": "Ophthalmic Medical Technologists",
+   "similarity": 0.9396
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.939
+  },
+  {
+   "soc": "25-2023.00",
+   "title": "Career/Technical Education Teachers, Middle School",
+   "similarity": 0.9384
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.9381
+  },
+  {
+   "soc": "21-1022.00",
+   "title": "Healthcare Social Workers",
+   "similarity": 0.938
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9375
+  },
+  {
+   "soc": "29-9091.00",
+   "title": "Athletic Trainers",
+   "similarity": 0.9366
+  },
+  {
+   "soc": "21-1011.00",
+   "title": "Substance Abuse and Behavioral Disorder Counselors",
+   "similarity": 0.936
+  },
+  {
+   "soc": "31-9092.00",
+   "title": "Medical Assistants",
+   "similarity": 0.9356
+  },
+  {
+   "soc": "25-2032.00",
+   "title": "Career/Technical Education Teachers, Secondary School",
+   "similarity": 0.9343
+  },
+  {
+   "soc": "29-2099.01",
+   "title": "Neurodiagnostic Technologists",
+   "similarity": 0.934
+  },
+  {
+   "soc": "25-1042.00",
+   "title": "Biological Science Teachers, Postsecondary",
+   "similarity": 0.9335
+  }
+ ],
+ "29-1229.05": [
+  {
+   "soc": "19-1041.00",
+   "title": "Epidemiologists",
+   "similarity": 0.973
+  },
+  {
+   "soc": "25-1071.00",
+   "title": "Health Specialties Teachers, Postsecondary",
+   "similarity": 0.965
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9649
+  },
+  {
+   "soc": "25-1041.00",
+   "title": "Agricultural Sciences Teachers, Postsecondary",
+   "similarity": 0.9548
+  },
+  {
+   "soc": "11-9161.00",
+   "title": "Emergency Management Directors",
+   "similarity": 0.9539
+  },
+  {
+   "soc": "25-1042.00",
+   "title": "Biological Science Teachers, Postsecondary",
+   "similarity": 0.9535
+  },
+  {
+   "soc": "25-1193.00",
+   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
+   "similarity": 0.9534
+  },
+  {
+   "soc": "25-1053.00",
+   "title": "Environmental Science Teachers, Postsecondary",
+   "similarity": 0.9528
+  },
+  {
+   "soc": "11-9033.00",
+   "title": "Education Administrators, Postsecondary",
+   "similarity": 0.9517
+  },
+  {
+   "soc": "11-9121.00",
+   "title": "Natural Sciences Managers",
+   "similarity": 0.9509
+  },
+  {
+   "soc": "19-2041.00",
+   "title": "Environmental Scientists and Specialists, Including Health",
+   "similarity": 0.9508
+  },
+  {
+   "soc": "17-2112.01",
+   "title": "Human Factors Engineers and Ergonomists",
+   "similarity": 0.9503
+  },
+  {
+   "soc": "11-9111.00",
+   "title": "Medical and Health Services Managers",
+   "similarity": 0.9496
+  },
+  {
+   "soc": "13-1111.00",
+   "title": "Management Analysts",
+   "similarity": 0.9495
+  },
+  {
+   "soc": "21-1091.00",
+   "title": "Health Education Specialists",
+   "similarity": 0.9495
+  },
+  {
+   "soc": "29-9092.00",
+   "title": "Genetic Counselors",
+   "similarity": 0.948
+  },
+  {
+   "soc": "19-3032.00",
+   "title": "Industrial-Organizational Psychologists",
+   "similarity": 0.9467
+  },
+  {
+   "soc": "25-1051.00",
+   "title": "Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary",
+   "similarity": 0.9449
+  },
+  {
+   "soc": "25-1043.00",
+   "title": "Forestry and Conservation Science Teachers, Postsecondary",
+   "similarity": 0.9445
+  },
+  {
+   "soc": "25-9031.00",
+   "title": "Instructional Coordinators",
+   "similarity": 0.9445
+  }
+ ],
+ "29-1241.00": [
+  {
+   "soc": "29-9099.01",
+   "title": "Midwives",
+   "similarity": 0.9547
+  },
+  {
+   "soc": "25-1072.00",
+   "title": "Nursing Instructors and Teachers, Postsecondary",
+   "similarity": 0.9475
   },
   {
    "soc": "29-2099.01",
@@ -235,1419 +1658,6 @@ export const ADJACENCY_BASKETS: Readonly<Record<string, readonly AdjacentOccupat
   {
    "soc": "29-2099.05",
    "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9347
-  },
-  {
-   "soc": "29-9093.00",
-   "title": "Surgical Assistants",
-   "similarity": 0.932
-  },
-  {
-   "soc": "29-2033.00",
-   "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9319
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9306
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9305
-  },
-  {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9299
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9298
-  },
-  {
-   "soc": "29-9091.00",
-   "title": "Athletic Trainers",
-   "similarity": 0.9298
-  },
-  {
-   "soc": "29-2035.00",
-   "title": "Magnetic Resonance Imaging Technologists",
-   "similarity": 0.9283
-  },
-  {
-   "soc": "31-2021.00",
-   "title": "Physical Therapist Assistants",
-   "similarity": 0.9276
-  },
-  {
-   "soc": "29-2032.00",
-   "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.927
-  },
-  {
-   "soc": "31-9097.00",
-   "title": "Phlebotomists",
-   "similarity": 0.9268
-  },
-  {
-   "soc": "31-2011.00",
-   "title": "Occupational Therapy Assistants",
-   "similarity": 0.9259
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9257
-  },
-  {
-   "soc": "29-2056.00",
-   "title": "Veterinary Technologists and Technicians",
-   "similarity": 0.9244
-  },
-  {
-   "soc": "21-1022.00",
-   "title": "Healthcare Social Workers",
-   "similarity": 0.924
-  }
- ],
- "29-1215.00": [
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9426
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9375
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9373
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9337
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9313
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9309
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9308
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9248
-  },
-  {
-   "soc": "31-2021.00",
-   "title": "Physical Therapist Assistants",
-   "similarity": 0.923
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.921
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9199
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9191
-  },
-  {
-   "soc": "21-1022.00",
-   "title": "Healthcare Social Workers",
-   "similarity": 0.918
-  },
-  {
-   "soc": "29-2057.00",
-   "title": "Ophthalmic Medical Technicians",
-   "similarity": 0.9175
-  },
-  {
-   "soc": "19-3033.00",
-   "title": "Clinical and Counseling Psychologists",
-   "similarity": 0.9163
-  },
-  {
-   "soc": "29-2099.08",
-   "title": "Patient Representatives",
-   "similarity": 0.9133
-  },
-  {
-   "soc": "31-9099.01",
-   "title": "Speech-Language Pathology Assistants",
-   "similarity": 0.9128
-  },
-  {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.911
-  },
-  {
-   "soc": "29-9091.00",
-   "title": "Athletic Trainers",
-   "similarity": 0.9101
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9088
-  }
- ],
- "29-1216.00": [
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9596
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9586
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.954
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9501
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.943
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9406
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9398
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9384
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9356
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9348
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9342
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9331
-  },
-  {
-   "soc": "31-2021.00",
-   "title": "Physical Therapist Assistants",
-   "similarity": 0.9308
-  },
-  {
-   "soc": "29-2033.00",
-   "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9288
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9285
-  },
-  {
-   "soc": "29-9091.00",
-   "title": "Athletic Trainers",
-   "similarity": 0.9284
-  },
-  {
-   "soc": "29-2032.00",
-   "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.9264
-  },
-  {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9259
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9258
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9257
-  }
- ],
- "29-1217.00": [
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9693
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9641
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9624
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9567
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.955
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9517
-  },
-  {
-   "soc": "19-1041.00",
-   "title": "Epidemiologists",
-   "similarity": 0.9507
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9505
-  },
-  {
-   "soc": "19-3033.00",
-   "title": "Clinical and Counseling Psychologists",
-   "similarity": 0.9411
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9408
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.939
-  },
-  {
-   "soc": "25-1042.00",
-   "title": "Biological Science Teachers, Postsecondary",
-   "similarity": 0.9373
-  },
-  {
-   "soc": "25-1193.00",
-   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
-   "similarity": 0.935
-  },
-  {
-   "soc": "21-1023.00",
-   "title": "Mental Health and Substance Abuse Social Workers",
-   "similarity": 0.9308
-  },
-  {
-   "soc": "11-9121.00",
-   "title": "Natural Sciences Managers",
-   "similarity": 0.929
-  },
-  {
-   "soc": "25-1066.00",
-   "title": "Psychology Teachers, Postsecondary",
-   "similarity": 0.929
-  },
-  {
-   "soc": "21-1012.00",
-   "title": "Educational, Guidance, and Career Counselors and Advisors",
-   "similarity": 0.9287
-  },
-  {
-   "soc": "21-1011.00",
-   "title": "Substance Abuse and Behavioral Disorder Counselors",
-   "similarity": 0.9283
-  },
-  {
-   "soc": "11-9111.00",
-   "title": "Medical and Health Services Managers",
-   "similarity": 0.9282
-  },
-  {
-   "soc": "19-1029.03",
-   "title": "Geneticists",
-   "similarity": 0.9275
-  }
- ],
- "29-1218.00": [
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9692
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9637
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9509
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9435
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9429
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9414
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.941
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9392
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9371
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9369
-  },
-  {
-   "soc": "31-2021.00",
-   "title": "Physical Therapist Assistants",
-   "similarity": 0.9365
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9347
-  },
-  {
-   "soc": "21-1094.00",
-   "title": "Community Health Workers",
-   "similarity": 0.9315
-  },
-  {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9295
-  },
-  {
-   "soc": "29-2033.00",
-   "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9292
-  },
-  {
-   "soc": "29-2032.00",
-   "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.9289
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9288
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9279
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9267
-  },
-  {
-   "soc": "25-2023.00",
-   "title": "Career/Technical Education Teachers, Middle School",
-   "similarity": 0.9261
-  }
- ],
- "29-1221.00": [
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9575
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9523
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9462
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.939
-  },
-  {
-   "soc": "31-2021.00",
-   "title": "Physical Therapist Assistants",
-   "similarity": 0.9372
-  },
-  {
-   "soc": "21-1022.00",
-   "title": "Healthcare Social Workers",
-   "similarity": 0.9366
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9355
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9349
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9346
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9301
-  },
-  {
-   "soc": "29-2099.08",
-   "title": "Patient Representatives",
-   "similarity": 0.9297
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9295
-  },
-  {
-   "soc": "31-2011.00",
-   "title": "Occupational Therapy Assistants",
-   "similarity": 0.9288
-  },
-  {
-   "soc": "29-9091.00",
-   "title": "Athletic Trainers",
-   "similarity": 0.9287
-  },
-  {
-   "soc": "29-2053.00",
-   "title": "Psychiatric Technicians",
-   "similarity": 0.9277
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9268
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9265
-  },
-  {
-   "soc": "25-2051.00",
-   "title": "Special Education Teachers, Preschool",
-   "similarity": 0.9249
-  },
-  {
-   "soc": "21-1094.00",
-   "title": "Community Health Workers",
-   "similarity": 0.9235
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9232
-  }
- ],
- "29-1222.00": [
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9653
-  },
-  {
-   "soc": "19-1022.00",
-   "title": "Microbiologists",
-   "similarity": 0.9621
-  },
-  {
-   "soc": "29-2011.01",
-   "title": "Cytogenetic Technologists",
-   "similarity": 0.9585
-  },
-  {
-   "soc": "29-2036.00",
-   "title": "Medical Dosimetrists",
-   "similarity": 0.9567
-  },
-  {
-   "soc": "19-1029.02",
-   "title": "Molecular and Cellular Biologists",
-   "similarity": 0.9517
-  },
-  {
-   "soc": "29-2011.02",
-   "title": "Cytotechnologists",
-   "similarity": 0.9477
-  },
-  {
-   "soc": "19-1029.03",
-   "title": "Geneticists",
-   "similarity": 0.9472
-  },
-  {
-   "soc": "29-2011.00",
-   "title": "Medical and Clinical Laboratory Technologists",
-   "similarity": 0.9437
-  },
-  {
-   "soc": "19-1021.00",
-   "title": "Biochemists and Biophysicists",
-   "similarity": 0.9375
-  },
-  {
-   "soc": "19-4021.00",
-   "title": "Biological Technicians",
-   "similarity": 0.9372
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9343
-  },
-  {
-   "soc": "19-2041.00",
-   "title": "Environmental Scientists and Specialists, Including Health",
-   "similarity": 0.9343
-  },
-  {
-   "soc": "19-2031.00",
-   "title": "Chemists",
-   "similarity": 0.9341
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9335
-  },
-  {
-   "soc": "29-2012.00",
-   "title": "Medical and Clinical Laboratory Technicians",
-   "similarity": 0.9315
-  },
-  {
-   "soc": "11-9121.00",
-   "title": "Natural Sciences Managers",
-   "similarity": 0.931
-  },
-  {
-   "soc": "19-1012.00",
-   "title": "Food Scientists and Technologists",
-   "similarity": 0.9298
-  },
-  {
-   "soc": "19-1041.00",
-   "title": "Epidemiologists",
-   "similarity": 0.9294
-  },
-  {
-   "soc": "17-2112.02",
-   "title": "Validation Engineers",
-   "similarity": 0.9289
-  },
-  {
-   "soc": "17-2031.00",
-   "title": "Bioengineers and Biomedical Engineers",
-   "similarity": 0.9284
-  }
- ],
- "29-1223.00": [
-  {
-   "soc": "19-3033.00",
-   "title": "Clinical and Counseling Psychologists",
-   "similarity": 0.9717
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9646
-  },
-  {
-   "soc": "21-1023.00",
-   "title": "Mental Health and Substance Abuse Social Workers",
-   "similarity": 0.9631
-  },
-  {
-   "soc": "21-1014.00",
-   "title": "Mental Health Counselors",
-   "similarity": 0.9621
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9617
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9613
-  },
-  {
-   "soc": "21-1022.00",
-   "title": "Healthcare Social Workers",
-   "similarity": 0.9585
-  },
-  {
-   "soc": "21-1013.00",
-   "title": "Marriage and Family Therapists",
-   "similarity": 0.9582
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9517
-  },
-  {
-   "soc": "21-1011.00",
-   "title": "Substance Abuse and Behavioral Disorder Counselors",
-   "similarity": 0.9511
-  },
-  {
-   "soc": "19-3034.00",
-   "title": "School Psychologists",
-   "similarity": 0.9458
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9448
-  },
-  {
-   "soc": "21-1012.00",
-   "title": "Educational, Guidance, and Career Counselors and Advisors",
-   "similarity": 0.9435
-  },
-  {
-   "soc": "21-1021.00",
-   "title": "Child, Family, and School Social Workers",
-   "similarity": 0.943
-  },
-  {
-   "soc": "25-2058.00",
-   "title": "Special Education Teachers, Secondary School",
-   "similarity": 0.9409
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9408
-  },
-  {
-   "soc": "21-1015.00",
-   "title": "Rehabilitation Counselors",
-   "similarity": 0.9348
-  },
-  {
-   "soc": "25-1066.00",
-   "title": "Psychology Teachers, Postsecondary",
-   "similarity": 0.9296
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9292
-  },
-  {
-   "soc": "25-2056.00",
-   "title": "Special Education Teachers, Elementary School",
-   "similarity": 0.928
-  }
- ],
- "29-1224.00": [
-  {
-   "soc": "29-2036.00",
-   "title": "Medical Dosimetrists",
-   "similarity": 0.9498
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9454
-  },
-  {
-   "soc": "29-2033.00",
-   "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9452
-  },
-  {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9403
-  },
-  {
-   "soc": "29-2032.00",
-   "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.9376
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9324
-  },
-  {
-   "soc": "29-2011.00",
-   "title": "Medical and Clinical Laboratory Technologists",
-   "similarity": 0.9323
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9321
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9308
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9304
-  },
-  {
-   "soc": "19-1022.00",
-   "title": "Microbiologists",
-   "similarity": 0.9304
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9295
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9278
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9252
-  },
-  {
-   "soc": "19-1029.02",
-   "title": "Molecular and Cellular Biologists",
-   "similarity": 0.9251
-  },
-  {
-   "soc": "29-2035.00",
-   "title": "Magnetic Resonance Imaging Technologists",
-   "similarity": 0.9246
-  },
-  {
-   "soc": "29-2034.00",
-   "title": "Radiologic Technologists and Technicians",
-   "similarity": 0.9232
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9228
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9226
-  },
-  {
-   "soc": "29-2011.02",
-   "title": "Cytotechnologists",
-   "similarity": 0.9207
-  }
- ],
- "29-1229.00": [
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9747
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9648
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9618
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9612
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9581
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9548
-  },
-  {
-   "soc": "19-1041.00",
-   "title": "Epidemiologists",
-   "similarity": 0.9495
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9492
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9482
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9473
-  },
-  {
-   "soc": "25-1193.00",
-   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
-   "similarity": 0.9448
-  },
-  {
-   "soc": "21-1094.00",
-   "title": "Community Health Workers",
-   "similarity": 0.9432
-  },
-  {
-   "soc": "25-1042.00",
-   "title": "Biological Science Teachers, Postsecondary",
-   "similarity": 0.9428
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.942
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9417
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9399
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9396
-  },
-  {
-   "soc": "19-5011.00",
-   "title": "Occupational Health and Safety Specialists",
-   "similarity": 0.9391
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9389
-  },
-  {
-   "soc": "25-1053.00",
-   "title": "Environmental Science Teachers, Postsecondary",
-   "similarity": 0.9389
-  }
- ],
- "29-1229.01": [
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9584
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9579
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9573
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9546
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.953
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9524
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9513
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9505
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9466
-  },
-  {
-   "soc": "19-1041.00",
-   "title": "Epidemiologists",
-   "similarity": 0.9428
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9392
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9386
-  },
-  {
-   "soc": "29-2099.08",
-   "title": "Patient Representatives",
-   "similarity": 0.9379
-  },
-  {
-   "soc": "21-1012.00",
-   "title": "Educational, Guidance, and Career Counselors and Advisors",
-   "similarity": 0.9371
-  },
-  {
-   "soc": "25-1193.00",
-   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
-   "similarity": 0.9364
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9359
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9354
-  },
-  {
-   "soc": "29-2036.00",
-   "title": "Medical Dosimetrists",
-   "similarity": 0.9347
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9347
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9335
-  }
- ],
- "29-1229.03": [
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9495
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9429
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9426
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9409
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9384
-  },
-  {
-   "soc": "29-2033.00",
-   "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9333
-  },
-  {
-   "soc": "19-1022.00",
-   "title": "Microbiologists",
-   "similarity": 0.9322
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9322
-  },
-  {
-   "soc": "29-2011.00",
-   "title": "Medical and Clinical Laboratory Technologists",
-   "similarity": 0.9315
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9254
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9245
-  },
-  {
-   "soc": "29-2035.00",
-   "title": "Magnetic Resonance Imaging Technologists",
-   "similarity": 0.9239
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9231
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.923
-  },
-  {
-   "soc": "19-5011.00",
-   "title": "Occupational Health and Safety Specialists",
-   "similarity": 0.9225
-  },
-  {
-   "soc": "29-9093.00",
-   "title": "Surgical Assistants",
-   "similarity": 0.9224
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9223
-  },
-  {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9215
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9206
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9201
-  }
- ],
- "29-1229.04": [
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9737
-  },
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9698
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9584
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9533
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9519
-  },
-  {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9429
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9405
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9385
-  },
-  {
-   "soc": "21-1094.00",
-   "title": "Community Health Workers",
-   "similarity": 0.9384
-  },
-  {
-   "soc": "29-2091.00",
-   "title": "Orthotists and Prosthetists",
-   "similarity": 0.9373
-  },
-  {
-   "soc": "31-9092.00",
-   "title": "Medical Assistants",
-   "similarity": 0.9369
-  },
-  {
-   "soc": "25-1193.00",
-   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
-   "similarity": 0.9368
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9367
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9359
-  },
-  {
-   "soc": "21-1022.00",
-   "title": "Healthcare Social Workers",
-   "similarity": 0.9349
-  },
-  {
-   "soc": "25-2023.00",
-   "title": "Career/Technical Education Teachers, Middle School",
-   "similarity": 0.9348
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9348
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
-   "similarity": 0.9344
-  },
-  {
-   "soc": "25-2058.00",
-   "title": "Special Education Teachers, Secondary School",
-   "similarity": 0.9336
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9332
-  }
- ],
- "29-1229.05": [
-  {
-   "soc": "19-1041.00",
-   "title": "Epidemiologists",
-   "similarity": 0.9712
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9638
-  },
-  {
-   "soc": "25-1071.00",
-   "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.9629
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9609
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9551
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9543
-  },
-  {
-   "soc": "25-1041.00",
-   "title": "Agricultural Sciences Teachers, Postsecondary",
-   "similarity": 0.9515
-  },
-  {
-   "soc": "25-1193.00",
-   "title": "Recreation and Fitness Studies Teachers, Postsecondary",
-   "similarity": 0.9513
-  },
-  {
-   "soc": "11-9161.00",
-   "title": "Emergency Management Directors",
-   "similarity": 0.9509
-  },
-  {
-   "soc": "25-1053.00",
-   "title": "Environmental Science Teachers, Postsecondary",
-   "similarity": 0.9509
-  },
-  {
-   "soc": "21-1091.00",
-   "title": "Health Education Specialists",
-   "similarity": 0.9501
-  },
-  {
-   "soc": "25-1042.00",
-   "title": "Biological Science Teachers, Postsecondary",
-   "similarity": 0.9501
-  },
-  {
-   "soc": "11-9121.00",
-   "title": "Natural Sciences Managers",
-   "similarity": 0.9488
-  },
-  {
-   "soc": "11-9033.00",
-   "title": "Education Administrators, Postsecondary",
-   "similarity": 0.9481
-  },
-  {
-   "soc": "17-2112.01",
-   "title": "Human Factors Engineers and Ergonomists",
-   "similarity": 0.9477
-  },
-  {
-   "soc": "19-2041.00",
-   "title": "Environmental Scientists and Specialists, Including Health",
-   "similarity": 0.9475
-  },
-  {
-   "soc": "11-9111.00",
-   "title": "Medical and Health Services Managers",
-   "similarity": 0.9465
-  },
-  {
-   "soc": "13-1111.00",
-   "title": "Management Analysts",
-   "similarity": 0.9461
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.9444
-  },
-  {
-   "soc": "19-3032.00",
-   "title": "Industrial-Organizational Psychologists",
-   "similarity": 0.943
-  }
- ],
- "29-1241.00": [
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.9538
-  },
-  {
-   "soc": "29-2099.01",
-   "title": "Neurodiagnostic Technologists",
    "similarity": 0.946
   },
   {
@@ -1656,293 +1666,283 @@ export const ADJACENCY_BASKETS: Readonly<Record<string, readonly AdjacentOccupat
    "similarity": 0.9458
   },
   {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.9449
-  },
-  {
    "soc": "29-2032.00",
    "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.9429
-  },
-  {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.9427
+   "similarity": 0.9454
   },
   {
    "soc": "29-2061.00",
    "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.9414
+   "similarity": 0.9435
   },
   {
    "soc": "29-2031.00",
    "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.9373
+   "similarity": 0.9391
+  },
+  {
+   "soc": "11-9121.01",
+   "title": "Clinical Research Coordinators",
+   "similarity": 0.939
   },
   {
    "soc": "29-2011.00",
    "title": "Medical and Clinical Laboratory Technologists",
-   "similarity": 0.9367
+   "similarity": 0.9382
   },
   {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.9364
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.9349
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.9319
+   "soc": "19-1042.00",
+   "title": "Medical Scientists, Except Epidemiologists",
+   "similarity": 0.9326
   },
   {
    "soc": "29-2057.00",
    "title": "Ophthalmic Medical Technicians",
-   "similarity": 0.9299
-  },
-  {
-   "soc": "29-2036.00",
-   "title": "Medical Dosimetrists",
-   "similarity": 0.9293
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.9292
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.9286
-  },
-  {
-   "soc": "29-2092.00",
-   "title": "Hearing Aid Specialists",
-   "similarity": 0.9271
-  },
-  {
-   "soc": "29-2081.00",
-   "title": "Opticians, Dispensing",
-   "similarity": 0.9265
+   "similarity": 0.9317
   },
   {
    "soc": "19-1022.00",
    "title": "Microbiologists",
-   "similarity": 0.9264
+   "similarity": 0.9309
+  },
+  {
+   "soc": "29-2092.00",
+   "title": "Hearing Aid Specialists",
+   "similarity": 0.9308
   },
   {
    "soc": "29-2033.00",
    "title": "Nuclear Medicine Technologists",
-   "similarity": 0.9258
-  }
- ],
- "29-1242.00": [
-  {
-   "soc": "29-2043.00",
-   "title": "Paramedics",
-   "similarity": 0.8982
+   "similarity": 0.9293
   },
   {
-   "soc": "15-1299.06",
-   "title": "Digital Forensics Analysts",
-   "similarity": 0.8944
+   "soc": "29-2081.00",
+   "title": "Opticians, Dispensing",
+   "similarity": 0.9291
   },
   {
-   "soc": "29-2042.00",
-   "title": "Emergency Medical Technicians",
-   "similarity": 0.8911
-  },
-  {
-   "soc": "29-9021.00",
-   "title": "Health Information Technologists and Medical Registrars",
-   "similarity": 0.8839
-  },
-  {
-   "soc": "15-1299.04",
-   "title": "Penetration Testers",
-   "similarity": 0.8801
-  },
-  {
-   "soc": "15-1299.07",
-   "title": "Blockchain Engineers",
-   "similarity": 0.854
-  },
-  {
-   "soc": "13-2054.00",
-   "title": "Financial Risk Specialists",
-   "similarity": 0.8534
-  },
-  {
-   "soc": "19-4044.00",
-   "title": "Hydrologic Technicians",
-   "similarity": 0.8527
-  },
-  {
-   "soc": "13-2051.00",
-   "title": "Financial and Investment Analysts",
-   "similarity": 0.8357
-  },
-  {
-   "soc": "15-2051.00",
-   "title": "Data Scientists",
-   "similarity": 0.8356
-  },
-  {
-   "soc": "25-2055.00",
-   "title": "Special Education Teachers, Kindergarten",
-   "similarity": 0.8218
-  },
-  {
-   "soc": "17-3028.00",
-   "title": "Calibration Technologists and Technicians",
-   "similarity": 0.8161
-  },
-  {
-   "soc": "13-1082.00",
-   "title": "Project Management Specialists",
-   "similarity": 0.8121
-  },
-  {
-   "soc": "11-1031.00",
-   "title": "Legislators",
-   "similarity": 0.8106
-  },
-  {
-   "soc": "15-1255.00",
-   "title": "Web and Digital Interface Designers",
-   "similarity": 0.8005
-  },
-  {
-   "soc": "29-2072.00",
-   "title": "Medical Records Specialists",
-   "similarity": 0.7926
-  },
-  {
-   "soc": "27-4015.00",
-   "title": "Lighting Technicians",
-   "similarity": 0.7366
-  },
-  {
-   "soc": "11-2032.00",
-   "title": "Public Relations Managers",
-   "similarity": 0.7305
-  },
-  {
-   "soc": "53-1044.00",
-   "title": "First-Line Supervisors of Passenger Attendants",
-   "similarity": 0.7207
-  },
-  {
-   "soc": "29-2011.02",
-   "title": "Cytotechnologists",
-   "similarity": 0.3488
-  }
- ],
- "29-1249.00": [
-  {
-   "soc": "29-9099.01",
-   "title": "Midwives",
-   "similarity": 0.8697
-  },
-  {
-   "soc": "19-3039.03",
-   "title": "Clinical Neuropsychologists",
-   "similarity": 0.8583
-  },
-  {
-   "soc": "11-9121.01",
-   "title": "Clinical Research Coordinators",
-   "similarity": 0.8576
-  },
-  {
-   "soc": "25-1072.00",
-   "title": "Nursing Instructors and Teachers, Postsecondary",
-   "similarity": 0.853
-  },
-  {
-   "soc": "15-1211.01",
-   "title": "Health Informatics Specialists",
-   "similarity": 0.8523
-  },
-  {
-   "soc": "19-1042.00",
-   "title": "Medical Scientists, Except Epidemiologists",
-   "similarity": 0.8522
-  },
-  {
-   "soc": "29-2011.02",
-   "title": "Cytotechnologists",
-   "similarity": 0.8493
-  },
-  {
-   "soc": "19-3039.02",
-   "title": "Neuropsychologists",
-   "similarity": 0.8479
-  },
-  {
-   "soc": "29-9092.00",
-   "title": "Genetic Counselors",
-   "similarity": 0.8477
-  },
-  {
-   "soc": "29-2036.00",
-   "title": "Medical Dosimetrists",
-   "similarity": 0.8473
+   "soc": "29-2091.00",
+   "title": "Orthotists and Prosthetists",
+   "similarity": 0.929
   },
   {
    "soc": "25-1071.00",
    "title": "Health Specialties Teachers, Postsecondary",
-   "similarity": 0.845
+   "similarity": 0.9276
   },
   {
-   "soc": "29-2099.05",
-   "title": "Ophthalmic Medical Technologists",
-   "similarity": 0.8437
+   "soc": "31-2021.00",
+   "title": "Physical Therapist Assistants",
+   "similarity": 0.9274
   },
   {
-   "soc": "19-1029.03",
-   "title": "Geneticists",
-   "similarity": 0.84
+   "soc": "21-1094.00",
+   "title": "Community Health Workers",
+   "similarity": 0.926
+  }
+ ],
+ "29-1242.00": [
+  {
+   "soc": "13-2051.00",
+   "title": "Financial and Investment Analysts",
+   "similarity": 0.9041
   },
   {
-   "soc": "29-2032.00",
-   "title": "Diagnostic Medical Sonographers",
-   "similarity": 0.8398
+   "soc": "11-1031.00",
+   "title": "Legislators",
+   "similarity": 0.8886
   },
   {
-   "soc": "11-9121.00",
-   "title": "Natural Sciences Managers",
-   "similarity": 0.8392
+   "soc": "29-2043.00",
+   "title": "Paramedics",
+   "similarity": 0.6656
   },
   {
-   "soc": "19-1041.00",
-   "title": "Epidemiologists",
-   "similarity": 0.8385
+   "soc": "15-1299.06",
+   "title": "Digital Forensics Analysts",
+   "similarity": 0.6628
   },
   {
-   "soc": "29-2031.00",
-   "title": "Cardiovascular Technologists and Technicians",
-   "similarity": 0.838
+   "soc": "29-2042.00",
+   "title": "Emergency Medical Technicians",
+   "similarity": 0.6604
   },
   {
-   "soc": "19-1029.02",
-   "title": "Molecular and Cellular Biologists",
-   "similarity": 0.8365
+   "soc": "29-9021.00",
+   "title": "Health Information Technologists and Medical Registrars",
+   "similarity": 0.655
   },
   {
-   "soc": "29-2061.00",
-   "title": "Licensed Practical and Licensed Vocational Nurses",
-   "similarity": 0.8364
+   "soc": "15-1299.04",
+   "title": "Penetration Testers",
+   "similarity": 0.6522
   },
   {
-   "soc": "19-2041.00",
-   "title": "Environmental Scientists and Specialists, Including Health",
-   "similarity": 0.8358
+   "soc": "15-1299.07",
+   "title": "Blockchain Engineers",
+   "similarity": 0.6328
+  },
+  {
+   "soc": "13-2054.00",
+   "title": "Financial Risk Specialists",
+   "similarity": 0.6324
+  },
+  {
+   "soc": "19-4044.00",
+   "title": "Hydrologic Technicians",
+   "similarity": 0.6319
+  },
+  {
+   "soc": "15-2051.00",
+   "title": "Data Scientists",
+   "similarity": 0.6192
+  },
+  {
+   "soc": "25-2055.00",
+   "title": "Special Education Teachers, Kindergarten",
+   "similarity": 0.609
+  },
+  {
+   "soc": "17-3028.00",
+   "title": "Calibration Technologists and Technicians",
+   "similarity": 0.6048
+  },
+  {
+   "soc": "13-1082.00",
+   "title": "Project Management Specialists",
+   "similarity": 0.6018
+  },
+  {
+   "soc": "15-1255.00",
+   "title": "Web and Digital Interface Designers",
+   "similarity": 0.5932
+  },
+  {
+   "soc": "29-2072.00",
+   "title": "Medical Records Specialists",
+   "similarity": 0.5873
+  },
+  {
+   "soc": "27-4015.00",
+   "title": "Lighting Technicians",
+   "similarity": 0.5459
+  },
+  {
+   "soc": "11-2032.00",
+   "title": "Public Relations Managers",
+   "similarity": 0.5414
+  },
+  {
+   "soc": "53-1044.00",
+   "title": "First-Line Supervisors of Passenger Attendants",
+   "similarity": 0.534
+  },
+  {
+   "soc": "25-1022.00",
+   "title": "Mathematical Science Teachers, Postsecondary",
+   "similarity": 0.4492
+  }
+ ],
+ "29-1249.00": [
+  {
+   "soc": "13-2051.00",
+   "title": "Financial and Investment Analysts",
+   "similarity": 0.649
+  },
+  {
+   "soc": "11-1031.00",
+   "title": "Legislators",
+   "similarity": 0.6341
+  },
+  {
+   "soc": "13-1011.00",
+   "title": "Agents and Business Managers of Artists, Performers, and Athletes",
+   "similarity": 0.3345
+  },
+  {
+   "soc": "11-3111.00",
+   "title": "Compensation and Benefits Managers",
+   "similarity": 0.3216
+  },
+  {
+   "soc": "23-1023.00",
+   "title": "Judges, Magistrate Judges, and Magistrates",
+   "similarity": 0.3211
+  },
+  {
+   "soc": "13-1131.00",
+   "title": "Fundraisers",
+   "similarity": 0.3168
+  },
+  {
+   "soc": "25-3021.00",
+   "title": "Self-Enrichment Teachers",
+   "similarity": 0.3164
+  },
+  {
+   "soc": "27-1013.00",
+   "title": "Fine Artists, Including Painters, Sculptors, and Illustrators",
+   "similarity": 0.3146
+  },
+  {
+   "soc": "11-2021.00",
+   "title": "Marketing Managers",
+   "similarity": 0.3135
+  },
+  {
+   "soc": "25-3011.00",
+   "title": "Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors",
+   "similarity": 0.3132
+  },
+  {
+   "soc": "11-1011.03",
+   "title": "Chief Sustainability Officers",
+   "similarity": 0.3111
+  },
+  {
+   "soc": "11-9199.11",
+   "title": "Brownfield Redevelopment Specialists and Site Managers",
+   "similarity": 0.311
+  },
+  {
+   "soc": "11-9199.10",
+   "title": "Wind Energy Development Managers",
+   "similarity": 0.3107
+  },
+  {
+   "soc": "11-1021.00",
+   "title": "General and Operations Managers",
+   "similarity": 0.3101
+  },
+  {
+   "soc": "25-1065.00",
+   "title": "Political Science Teachers, Postsecondary",
+   "similarity": 0.3097
+  },
+  {
+   "soc": "21-2011.00",
+   "title": "Clergy",
+   "similarity": 0.308
+  },
+  {
+   "soc": "25-1123.00",
+   "title": "English Language and Literature Teachers, Postsecondary",
+   "similarity": 0.3077
+  },
+  {
+   "soc": "25-1112.00",
+   "title": "Law Teachers, Postsecondary",
+   "similarity": 0.3074
+  },
+  {
+   "soc": "13-1075.00",
+   "title": "Labor Relations Specialists",
+   "similarity": 0.3059
+  },
+  {
+   "soc": "19-3011.01",
+   "title": "Environmental Economists",
+   "similarity": 0.3059
   }
  ]
 };

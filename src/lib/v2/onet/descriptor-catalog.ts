@@ -7,7 +7,7 @@ export type OnetDescriptor = {
   idx: number;
   elementId: string;
   title: string;
-  category: "Abilities"|"Knowledge"|"WorkActivities"|"EssentialSkills"|"TransferableSkills"|"WorkContext"|"WorkStyles"|"RIASEC"|"JobZone";
+  category: "Abilities"|"Knowledge"|"WorkActivities"|"EssentialSkills"|"TransferableSkills"|"WorkContext"|"WorkStyles"|"WorkValues"|"RIASEC"|"JobZone";
 };
 
 export const DESCRIPTOR_CATALOG: readonly OnetDescriptor[] = [
@@ -1435,49 +1435,85 @@ export const DESCRIPTOR_CATALOG: readonly OnetDescriptor[] = [
   },
   {
     "idx": 237,
+    "elementId": "1.B.2.a",
+    "title": "Achievement",
+    "category": "WorkValues"
+  },
+  {
+    "idx": 238,
+    "elementId": "1.B.2.b",
+    "title": "Working Conditions",
+    "category": "WorkValues"
+  },
+  {
+    "idx": 239,
+    "elementId": "1.B.2.c",
+    "title": "Recognition",
+    "category": "WorkValues"
+  },
+  {
+    "idx": 240,
+    "elementId": "1.B.2.d",
+    "title": "Relationships",
+    "category": "WorkValues"
+  },
+  {
+    "idx": 241,
+    "elementId": "1.B.2.e",
+    "title": "Support",
+    "category": "WorkValues"
+  },
+  {
+    "idx": 242,
+    "elementId": "1.B.2.f",
+    "title": "Independence",
+    "category": "WorkValues"
+  },
+  {
+    "idx": 243,
     "elementId": "1.B.1.a",
     "title": "Realistic",
     "category": "RIASEC"
   },
   {
-    "idx": 238,
+    "idx": 244,
     "elementId": "1.B.1.b",
     "title": "Investigative",
     "category": "RIASEC"
   },
   {
-    "idx": 239,
+    "idx": 245,
     "elementId": "1.B.1.c",
     "title": "Artistic",
     "category": "RIASEC"
   },
   {
-    "idx": 240,
+    "idx": 246,
     "elementId": "1.B.1.d",
     "title": "Social",
     "category": "RIASEC"
   },
   {
-    "idx": 241,
+    "idx": 247,
     "elementId": "1.B.1.e",
     "title": "Enterprising",
     "category": "RIASEC"
   },
   {
-    "idx": 242,
+    "idx": 248,
     "elementId": "1.B.1.f",
     "title": "Conventional",
     "category": "RIASEC"
   },
   {
-    "idx": 243,
+    "idx": 249,
     "elementId": "JZ.1",
     "title": "Job Zone",
     "category": "JobZone"
   }
 ] as const;
 
-export const DESCRIPTOR_COUNT = 244;
+export const DESCRIPTOR_COUNT = 250;
 
 /** Normalization metadata for reference and DB validation. */
 export const NORMALIZATION_META = {
@@ -1502,6 +1538,10 @@ export const NORMALIZATION_META = {
       "WorkStyles": {
         "min": 1,
         "max": 5
+      },
+      "WorkValues": {
+        "min": 1,
+        "max": 7
       },
       "RIASEC": {
         "min": 1,
