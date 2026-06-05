@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { CohortHeatmapPanel } from "@/components/gme/CohortHeatmapPanel";
+import { CohortWellbeingPanel } from "@/components/gme/CohortWellbeingPanel";
 import { cn } from "@/lib/utils";
 
 type Resident = {
@@ -20,7 +21,7 @@ type Resident = {
   duty_hours_flag: null;
 };
 
-type Tab = "roster" | "cohort";
+type Tab = "roster" | "cohort" | "wellbeing";
 
 export function ProgramRosterPanel({ programId }: { programId: string }) {
   const router = useRouter();
@@ -77,6 +78,12 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
           onClick={() => setTab("cohort")}
         >
           Cohort view
+        </Button>
+        <Button
+          variant={tab === "wellbeing" ? "primary" : "secondary"}
+          onClick={() => setTab("wellbeing")}
+        >
+          Well-being
         </Button>
       </div>
 
@@ -173,6 +180,10 @@ export function ProgramRosterPanel({ programId }: { programId: string }) {
           </p>
           <CohortHeatmapPanel programSlug={programId} />
         </div>
+      )}
+
+      {tab === "wellbeing" && (
+        <CohortWellbeingPanel programSlug={programId} />
       )}
     </div>
   );

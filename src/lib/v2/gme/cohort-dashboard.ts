@@ -66,7 +66,7 @@ export type CohortEquityAlert = {
   note: string;
 };
 
-const EQUITY_MIN_CELL = 5;
+export const EQUITY_MIN_CELL = 5;
 
 function buildEquityAlerts(
   trainees: TraineeCohortInput[],
