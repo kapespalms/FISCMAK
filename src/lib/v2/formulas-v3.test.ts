@@ -9,6 +9,16 @@
 
 import { describe, expect, it } from "vitest";
 import { circlumplexProximity, dirCost } from "@/lib/v2/formulas-v3";
+import {
+  cosineSimilarity,
+  varWeightedCosine,
+  directionalGap,
+  getSocVector,
+  getDomainVector,
+  computeF8HobbyFit,
+  dirCostOnet,
+  DOMAIN_LABELS,
+} from "@/lib/v2/onet-engine";
 
 // ---------------------------------------------------------------------------
 // circlumplexProximity
@@ -223,5 +233,195 @@ describe("seven-gap score formulas", () => {
     for (let i = 0; i < gaps.length - 1; i++) {
       expect(gaps[i]).toBeGreaterThan(gaps[i + 1]!);
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// O*NET Engine — pure math helpers (O*NET 30.3 seed, no DB)
+// ---------------------------------------------------------------------------
+
+describe("cosineSimilarity", () => {
+  it("identical vectors → 1.0", () => {
+    const v = [0.5, 0.3, 0.8];
+    expect(cosineSimilarity(v, v)).toBeCloseTo(1.0, 10);
+  });
+
+  it("orthogonal vectors → 0", () => {
+    expect(cosineSimilarity([1, 0], [0, 1])).toBe(0);
+  });
+
+  it("zero vector → 0", () => {
+    expect(cosineSimilarity([0, 0, 0], [1, 2, 3])).toBe(0);
+  });
+
+  it("result in [0, 1] for non-negative vectors", () => {
+    const a = [0.2, 0.5, 0.8, 0.1];
+    const b = [0.9, 0.1, 0.3, 0.7];
+    const s = cosineSimilarity(a, b);
+    expect(s).toBeGreaterThanOrEqual(0);
+    expect(s).toBeLessThanOrEqual(1);
+  });
+});
+
+describe("directionalGap", () => {
+  it("identical vectors → 0", () => {
+    const v = [0.5, 0.8, 0.2];
+    expect(directionalGap(v, v)).toBe(0);
+  });
+
+  it("source fully covers target → 0", () => {
+    expect(directionalGap([1, 1, 1], [0.5, 0.5, 0.5])).toBe(0);
+  });
+
+  it("source at zero → 1 (target fully lacking)", () => {
+    expect(directionalGap([0, 0, 0], [0.5, 0.5, 0.5])).toBe(1);
+  });
+
+  it("is asymmetric", () => {
+    const a = [0.9, 0.1, 0.5];
+    const b = [0.2, 0.8, 0.3];
+    expect(directionalGap(a, b)).not.toBeCloseTo(directionalGap(b, a), 5);
+  });
+
+  it("result in [0, 1]", () => {
+    for (let t = 0; t < 10; t++) {
+      const a = Array.from({ length: 5 }, () => Math.random());
+      const b = Array.from({ length: 5 }, () => Math.random());
+      const g = directionalGap(a, b);
+      expect(g).toBeGreaterThanOrEqual(0);
+      expect(g).toBeLessThanOrEqual(1);
+    }
+  });
+});
+
+describe("getSocVector — O*NET 30.3 seed", () => {
+  it("returns a 243-element vector for psychiatry", () => {
+    const v = getSocVector("29-1223.00");
+    expect(v).not.toBeNull();
+    expect(v!.length).toBe(243);
+  });
+
+  it("all values normalized to [0, 1]", () => {
+    const v = getSocVector("29-1223.00")!;
+    for (const val of v) {
+      expect(val).toBeGreaterThanOrEqual(0);
+      expect(val).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it("returns null for an unknown SOC", () => {
+    expect(getSocVector("99-9999.00")).toBeNull();
+  });
+});
+
+describe("getDomainVector — domain fingerprints", () => {
+  it("returns a vector for psychiatry × Educator domain", () => {
+    const v = getDomainVector("29-1223.00", "Educator");
+    expect(v).not.toBeNull();
+    expect(v!.length).toBe(243);
+  });
+
+  it("domain vectors for the same SOC are not all identical", () => {
+    const v0 = getDomainVector("29-1223.00", "Clinician")!;
+    const v1 = getDomainVector("29-1223.00", "Researcher")!;
+    const sim = cosineSimilarity(v0, v1);
+    // Should be < 1 (different domains have different emphasis)
+    expect(sim).toBeLessThan(1.0);
+  });
+});
+
+describe("varWeightedCosine — discriminative weighting", () => {
+  it("same vector → 1.0", () => {
+    const v = getSocVector("29-1223.00")!;
+    expect(varWeightedCosine(v, v)).toBeCloseTo(1.0, 6);
+  });
+
+  it("different physician SOCs differ measurably", () => {
+    const psych  = getSocVector("29-1223.00")!;
+    const radiol = getSocVector("29-1224.00")!;
+    const sim = varWeightedCosine(psych, radiol);
+    expect(sim).toBeGreaterThan(0.5);   // both physicians — should be similar
+    expect(sim).toBeLessThan(1.0);      // but not identical
+  });
+});
+
+describe("dirCostOnet — O*NET directional gap for F7", () => {
+  it("same domain → 0", () => {
+    expect(dirCostOnet(0, 0, "29-1223.00")).toBe(0);
+    expect(dirCostOnet(3, 3, "29-1216.00")).toBe(0);
+  });
+
+  it("falls back to generic physician (29-1229) for unknown SOC", () => {
+    // getDomainVector falls back to 29-1229.00 rather than returning null
+    const result = dirCostOnet(0, 1, "99-9999.00");
+    expect(result).not.toBeNull();
+    expect(result!).toBeGreaterThanOrEqual(0);
+    expect(result!).toBeLessThanOrEqual(1);
+  });
+
+  it("all values in [0, 1] for known physician SOC", () => {
+    for (let s = 0; s < 8; s++) {
+      for (let t = 0; t < 8; t++) {
+        const c = dirCostOnet(s, t, "29-1223.00");
+        if (c !== null) {
+          expect(c).toBeGreaterThanOrEqual(0);
+          expect(c).toBeLessThanOrEqual(1);
+        }
+      }
+    }
+  });
+
+  it("is asymmetric (Dawson et al. 2021)", () => {
+    // Clinician→Quality/Safety vs Quality/Safety→Clinician should differ
+    const c01 = dirCostOnet(0, 6, "29-1223.00");
+    const c10 = dirCostOnet(6, 0, "29-1223.00");
+    expect(c01).not.toBeNull();
+    expect(c10).not.toBeNull();
+    expect(c01).not.toBeCloseTo(c10!, 5);
+  });
+});
+
+describe("computeF8HobbyFit — pure sync form", () => {
+  it("psychiatry + psychology-adjacent hobby → high bridge score", () => {
+    // Writing/journaling SOC (27-3043) should be close to psychiatry (language, social)
+    const result = computeF8HobbyFit("27-3043.00", "29-1223.00");
+    expect(result.available).toBe(true);
+    expect(result.bridge_score).toBeGreaterThan(0.7);
+  });
+
+  it("photography + radiology → higher bridge than photography + psychiatry", () => {
+    const r_rad   = computeF8HobbyFit("27-4021.00", "29-1224.00");
+    const r_psych = computeF8HobbyFit("27-4021.00", "29-1223.00");
+    expect(r_rad.available).toBe(true);
+    expect(r_psych.available).toBe(true);
+    // Radiology is more visual/imaging-centric → higher similarity to photography
+    expect(r_rad.bridge_score).toBeGreaterThan(r_psych.bridge_score);
+  });
+
+  it("returns available=false for unknown SOC", () => {
+    const result = computeF8HobbyFit("99-9999.00", "29-1223.00");
+    expect(result.available).toBe(false);
+  });
+
+  it("bridge score in [0, 1]", () => {
+    const hobbies = ["27-4021.00","27-2042.00","27-3043.00","29-9091.00","35-1011.00"];
+    for (const h of hobbies) {
+      const r = computeF8HobbyFit(h, "29-1223.00");
+      if (r.available) {
+        expect(r.bridge_score).toBeGreaterThanOrEqual(0);
+        expect(r.bridge_score).toBeLessThanOrEqual(1);
+      }
+    }
+  });
+});
+
+describe("DOMAIN_LABELS ordering", () => {
+  it("contains exactly 8 domain labels", () => {
+    expect(DOMAIN_LABELS).toHaveLength(8);
+  });
+
+  it("first label is Clinician, last is Wellness Champion", () => {
+    expect(DOMAIN_LABELS[0]).toBe("Clinician");
+    expect(DOMAIN_LABELS[7]).toBe("Wellness Champion");
   });
 });

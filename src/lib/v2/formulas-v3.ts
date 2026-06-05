@@ -4,6 +4,8 @@
  */
 
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { lookupSocCode }  from "@/lib/v2/specialty-soc-map";
+import { dirCostOnet }    from "@/lib/v2/onet-engine";
 
 // ---------------------------------------------------------------------------
 // Source reliability weights (Part VII)
@@ -404,8 +406,8 @@ export type F7Result = {
  *
  * Ranks evidence cells by transfer potential toward the stated goal domain.
  * Relevance = RIASEC Prediger circumplex proximity (Part IX, Intelligence Layer Spec §4).
- * DirCost = directional skill gap from source to target (Dawson et al. 2021).
- * O*NET descriptor grounding for DirCost deferred to Phase 2+.
+ * DirCost = O*NET descriptor directional gap when seed vectors are available (Phase 2+);
+ *   falls back to the skill-name proxy when the physician SOC is not seeded.
  */
 export async function computeF7TransferPotential(
   userId: string,
@@ -419,9 +421,24 @@ export async function computeF7TransferPotential(
     return { goal_domain_index: goalDomainIndex, cells: [], computed_at: now, available: false };
   }
 
+  // Resolve physician SOC for O*NET-grounded dirCost
+  const { data: user } = await supabase
+    .from("app_users")
+    .select("specialty")
+    .eq("user_id", userId)
+    .maybeSingle();
+  const specialty = (user?.specialty as string | null) ?? null;
+  const physSoc   = specialty ? lookupSocCode(specialty) : null;
+
   const cells: F7TransferCell[] = f1.cells.map((cell) => {
     const relevance = circlumplexProximity(cell.domain_index, goalDomainIndex);
-    const cost      = dirCost(cell.domain_index, goalDomainIndex);
+
+    // Use O*NET directional gap if available; fall back to skill-name proxy
+    const onetCost = physSoc
+      ? dirCostOnet(cell.domain_index, goalDomainIndex, physSoc)
+      : null;
+    const cost = onetCost ?? dirCost(cell.domain_index, goalDomainIndex);
+
     return {
       skill_index:    cell.skill_index,
       domain_index:   cell.domain_index,
@@ -789,3 +806,21 @@ export async function computeSevenGap(
     available:         true,
   };
 }
+
+// ---------------------------------------------------------------------------
+// F6 / F8 — re-exported from onet-engine for unified formula surface
+// ---------------------------------------------------------------------------
+
+export {
+  computeF6OccupationFit,
+  computeF8HobbyBridge,
+  computeAndStoreFingerprint,
+  DOMAIN_LABELS as ONET_DOMAIN_LABELS,
+} from "@/lib/v2/onet-engine";
+
+export type {
+  F6Result,
+  F6DomainScore,
+  F8Result,
+  FingerprintResult,
+} from "@/lib/v2/onet-engine";
