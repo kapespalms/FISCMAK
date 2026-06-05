@@ -82,6 +82,20 @@ export function buildBaselineCheckinSummaryBullets(
     bullets.push(`Career map theme: ${user.primary_career_track} track as a starting anchor.`);
   }
 
+  // Environmental context snapshot — only if any Day-0 env items were captured
+  const schedCtrl = meta.instrument_answers?.find((a) => a.clusterId === "env-schedule-control" && a.value !== "skip")?.value;
+  const itl = meta.instrument_answers?.find((a) => a.clusterId === "env-intent-to-leave" && a.value !== "skip")?.value;
+  if (typeof schedCtrl === "number" || typeof itl === "number") {
+    const parts: string[] = [];
+    if (typeof schedCtrl === "number") {
+      parts.push(schedCtrl >= 4 ? "good schedule control" : schedCtrl >= 3 ? "moderate schedule control" : "limited schedule control");
+    }
+    if (typeof itl === "number") {
+      parts.push(itl <= 2 ? "anchored at your institution" : itl >= 4 ? "open to a move" : "weighing your options");
+    }
+    if (parts.length) bullets.push(`Work situation: ${parts.join(", ")}.`);
+  }
+
   return bullets.slice(0, 5);
 }
 

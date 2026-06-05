@@ -172,6 +172,71 @@ const INVISIBLE_CLUSTERS: InstrumentCluster[] = [
   },
 ];
 
+/**
+ * Day-0 environmental context items — physician-owned, never institution-facing at individual level.
+ * Feeds Career Urgency and Environmental Diagnosis (Phase 5). All items are optional / skippable.
+ * "skip" values are stored and treated as null by formula consumers.
+ */
+const CAREER_ENVIRONMENT_CLUSTERS: InstrumentCluster[] = [
+  {
+    id: "env-schedule-control",
+    instrumentId: "career_environment",
+    label: "Schedule control",
+    makPrompt:
+      "One thing that shapes how sustainable work feels day-to-day is how much control you have over your time. This is just for context — no right answer:",
+    publishedStem:
+      "How much control do you have over your own schedule? (1 = very little, 5 = a lot)",
+    likertMax: 5,
+  },
+  {
+    id: "env-intent-to-leave",
+    instrumentId: "career_environment",
+    label: "Institutional anchoring",
+    makPrompt:
+      "I want to understand where you're anchored right now — completely yours, just helps me understand your starting point:",
+    publishedStem:
+      "How likely are you to leave your current institution within the next 2 years? (1 = very unlikely, 5 = very likely)",
+    likertMax: 5,
+  },
+  {
+    id: "env-qol-baseline",
+    instrumentId: "career_environment",
+    label: "Quality of life baseline",
+    makPrompt: "One more baseline before we move on — a simple anchor point:",
+    publishedStem:
+      "How would you rate your overall quality of life right now? (0 = poor, 10 = excellent)",
+    likertMax: 10,
+  },
+  {
+    id: "env-values-dept-alignment",
+    instrumentId: "career_environment",
+    label: "Department values fit",
+    makPrompt:
+      "A few quick questions about your work environment — this helps me understand the context you're navigating:",
+    publishedStem:
+      "The values of my department align with my own. (1 = strongly disagree, 5 = strongly agree)",
+    likertMax: 5,
+  },
+  {
+    id: "env-leaders-value-input",
+    instrumentId: "career_environment",
+    label: "Leadership recognition",
+    makPrompt: "Related to that:",
+    publishedStem:
+      "Leaders value my input. (1 = strongly disagree, 5 = strongly agree)",
+    likertMax: 5,
+  },
+  {
+    id: "env-org-goals-fit",
+    instrumentId: "career_environment",
+    label: "Organizational goal alignment",
+    makPrompt: "And one more on your environment:",
+    publishedStem:
+      "The organization's goals fit with my own. (1 = strongly disagree, 5 = strongly agree)",
+    likertMax: 5,
+  },
+];
+
 const ALL_CLUSTERS: InstrumentCluster[] = [
   ...PFI_CLUSTERS,
   ...BITS_CLUSTERS,
@@ -179,6 +244,7 @@ const ALL_CLUSTERS: InstrumentCluster[] = [
   ...PIF_CLUSTERS,
   ...UWES_CLUSTERS,
   ...INVISIBLE_CLUSTERS,
+  ...CAREER_ENVIRONMENT_CLUSTERS,
 ];
 
 export function clustersForInstruments(instrumentIds: string[]): InstrumentCluster[] {
@@ -327,6 +393,10 @@ export function extractClusterValue(
     const trimmed = message.trim();
     return trimmed.length > 8 ? trimmed : null;
   }
+  // Explicit skip/decline — physician may decline any item; record as "skip" so it advances
+  if (/\b(skip|pass|decline|rather not|prefer not|no answer|not comfortable|n\/a)\b/i.test(message)) {
+    return "skip";
+  }
   const max = cluster.likertMax;
   const m = message.match(new RegExp(`\\b(\\d+(?:\\.\\d+)?)\\s*(?:\\/\\s*${max})?\\b`));
   if (m) {
@@ -338,6 +408,40 @@ export function extractClusterValue(
   if (max <= 5 && /\bnever\b|\brarely\b/.test(lower)) return 1;
   if (max <= 5 && /\boften\b|\bconstantly\b|\bmost of the time\b/.test(lower)) return 4;
   return null;
+}
+
+/**
+ * Returns each career_environment item as a number in raw, or omits the key
+ * entirely if the item was skipped or not yet answered.
+ *
+ * CANONICAL SOURCE NOTE: Phase-5 formulas (Career Urgency, Environmental Dx)
+ * and the GME well-being aggregate must read the typed onboarding_metadata
+ * fields (schedule_control, intent_to_leave, …) — NOT this raw map — because
+ * those fields use null for "no data" while InstrumentScore.raw is
+ * Record<string,number> and cannot express null. Absent keys here mean "not
+ * captured"; any consumer that averages or thresholds this map would
+ * incorrectly treat a missing item as a real 0-scale value.
+ */
+export function scoreCareerEnvironment(answers: InstrumentAnswer[]): InstrumentScore {
+  const raw: Record<string, number> = {};
+  const CLUSTERS = [
+    ["env-schedule-control", "schedule_control"],
+    ["env-intent-to-leave", "intent_to_leave"],
+    ["env-qol-baseline", "qol_baseline"],
+    ["env-values-dept-alignment", "values_dept_alignment"],
+    ["env-leaders-value-input", "leaders_value_input"],
+    ["env-org-goals-fit", "org_goals_fit"],
+  ] as const;
+  for (const [clusterId, key] of CLUSTERS) {
+    const v = answers.find((a) => a.clusterId === clusterId)?.value;
+    if (typeof v === "number") raw[key] = v;
+    // "skip" or absent → key omitted (not -1); callers must treat absence as unavailable
+  }
+  return {
+    instrumentId: "career_environment",
+    name: "Career Environment Context",
+    raw,
+  };
 }
 
 export function scoreAllInstruments(
@@ -376,6 +480,9 @@ export function scoreAllInstruments(
       },
       composite: typeof energy === "number" ? energy : undefined,
     });
+  }
+  if (instrumentIds.includes("career_environment")) {
+    scores.push(scoreCareerEnvironment(answers));
   }
   return scores;
 }

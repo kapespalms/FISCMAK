@@ -13,6 +13,8 @@ import {
 type EscalationResourcesPanelProps = {
   escalation: MakEscalation;
   preferOhio?: boolean;
+  /** Called when the physician explicitly dismisses / acknowledges the panel. */
+  onDismiss?: () => void;
 };
 
 function ResourceListItem({
@@ -44,6 +46,7 @@ function ResourceListItem({
 export function EscalationResourcesPanel({
   escalation,
   preferOhio,
+  onDismiss,
 }: EscalationResourcesPanelProps) {
   const isCrisis = escalation.trigger === "crisis_language";
   const crisisResources = orderSupportResources({ preferOhio }).filter((r) =>
@@ -115,6 +118,17 @@ export function EscalationResourcesPanel({
             <p className="mt-2 text-xs text-cx-text/70">
               Career-focused coaching is paused until you acknowledge these resources.
             </p>
+          )}
+          {onDismiss && (
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={onDismiss}
+                className="text-xs font-medium text-cx-text/70 underline underline-offset-2 hover:text-cx-text/90"
+              >
+                {isCrisis ? "I've seen these resources — continue" : "Acknowledge and continue"}
+              </button>
+            </div>
           )}
         </div>
       </div>

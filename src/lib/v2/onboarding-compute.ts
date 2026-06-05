@@ -216,6 +216,16 @@ export type OnboardingMetadata = {
   output_user_templates?: import("@/lib/v2/output-user-templates").UserOutputTemplatesMap;
   /** Cached document→lattice evidence (invalidated when vault docs change) */
   lattice_document_cache?: import("@/lib/v2/lattice/document-cache").LatticeDocumentCache;
+  /**
+   * Day-0 environmental context — physician-owned, formula-readable by Phase 5
+   * (Career Urgency, Environmental Dx). null = item was skipped or not yet asked.
+   */
+  schedule_control?: number | null;
+  intent_to_leave?: number | null;
+  qol_baseline?: number | null;
+  values_dept_alignment?: number | null;
+  leaders_value_input?: number | null;
+  org_goals_fit?: number | null;
   /** GME trainee evaluation framework resolved at onboarding */
   evaluation_framework?: {
     primary_name?: string;
@@ -262,6 +272,14 @@ export function computeTouchpoint1Dashboard(user: AppUser, cvText?: string | nul
     ? computeInternalCoachingSignals(cvText, [])
     : null;
 
+  // Extract typed Day-0 env fields for Phase-5 formula access.
+  // null = not captured or skipped (formulas treat as unavailable, not 0).
+  const envAnswer = (id: string): number | null => {
+    const a = answers.find((x) => x.clusterId === id);
+    if (!a || a.value === "skip") return null;
+    return typeof a.value === "number" ? a.value : null;
+  };
+
   return {
     instrument_ids: instrumentIds,
     instrument_scores: Object.fromEntries(instrumentScores.map((s) => [s.instrumentId, s])),
@@ -273,6 +291,13 @@ export function computeTouchpoint1Dashboard(user: AppUser, cvText?: string | nul
       ? { invisible_hours: invisibleHours, captured_at: new Date().toISOString() }
       : undefined,
     computed_at: new Date().toISOString(),
+    // Day-0 environmental context — typed for Phase-5 formula consumption
+    schedule_control: envAnswer("env-schedule-control"),
+    intent_to_leave: envAnswer("env-intent-to-leave"),
+    qol_baseline: envAnswer("env-qol-baseline"),
+    values_dept_alignment: envAnswer("env-values-dept-alignment"),
+    leaders_value_input: envAnswer("env-leaders-value-input"),
+    org_goals_fit: envAnswer("env-org-goals-fit"),
     ...(internalSignals ? internalCoachingMetadataPatch(internalSignals) : {}),
   };
 }

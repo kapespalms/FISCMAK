@@ -474,6 +474,7 @@ export function MakPanel({
           action: data.escalation.action,
           pauseChatbot: data.escalation.pause_chatbot,
           pauseCareerCoaching: data.escalation.pause_career_coaching,
+          preferOhioResources: data.escalation.prefer_ohio_resources ?? false,
           message: data.escalation.message ?? "Professional support resources are available.",
           suggestedActions: data.suggested_actions,
         });
@@ -886,6 +887,7 @@ export function MakPanel({
           <EscalationResourcesPanel
             escalation={activeEscalation}
             preferOhio={activeEscalation.preferOhioResources}
+            onDismiss={() => setActiveEscalation(null)}
           />
         )}
         {messages.map((msg, i) => {

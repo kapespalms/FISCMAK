@@ -134,6 +134,7 @@ export function deployedInstruments(
     { id: "uwes", name: "UWES-9", items: 9, minutes: 2, description: "Work engagement" },
     { id: "invisible_work", name: "Invisible Work Log", items: 5, minutes: 2, description: "Estimated weekly invisible hours by category" },
     { id: "sop", name: "SOP Score (FM only)", items: 32, minutes: 5, description: "Scope of practice breadth" },
+    { id: "career_environment", name: "Career Environment Context", items: 6, minutes: 2, description: "Schedule control, institutional anchoring, QoL, and values alignment" },
   ];
 
   const include = new Set<string>();
@@ -142,6 +143,8 @@ export function deployedInstruments(
   include.add("pfi");
   include.add("career_aspirations");
   include.add("pif");
+  // All levels get career environment context (Day-0 universal — feeds Career Urgency + Environmental Dx)
+  include.add("career_environment");
 
   if (level === "Resident" || level === "Fellow" || isEarlyOrMid(level)) {
     include.add("bits");

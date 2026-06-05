@@ -2172,6 +2172,7 @@ export async function POST(request: Request) {
           message: escalation.message,
           pause_chatbot: escalation.pauseChatbot ?? false,
           pause_career_coaching: escalation.pauseCareerCoaching ?? false,
+          prefer_ohio_resources: escalation.preferOhioResources ?? false,
         }
       : null,
     global_state: globalState,
