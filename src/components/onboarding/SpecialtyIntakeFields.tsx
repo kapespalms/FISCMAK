@@ -77,7 +77,7 @@ function TrainingCheckbox({
         <span
           className={cn(
             "font-futura-medium",
-            luxury ? "text-[#D4AF37]" : "text-cx-text",
+            luxury ? "text-fis-gold" : "text-cx-text",
           )}
         >
           {title}

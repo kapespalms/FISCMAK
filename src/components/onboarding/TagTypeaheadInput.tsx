@@ -97,7 +97,7 @@ export function TagTypeaheadInput({
   return (
     <div className={cn("relative font-futura-book", className)}>
       {luxury ? (
-        <h3 className="font-futura-bold text-xs uppercase tracking-[0.15em] text-[#D4AF37]">{label}</h3>
+        <h3 className="font-futura-bold text-xs uppercase tracking-[0.15em] text-fis-gold">{label}</h3>
       ) : (
         <OnboardingFieldLabel htmlFor={inputId}>{label}</OnboardingFieldLabel>
       )}
@@ -193,8 +193,8 @@ export function TagTypeaheadInput({
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => addTag(suggestion)}
                 className={cn(
-                  "font-futura-book w-full px-4 py-2.5 text-left text-base hover:bg-white/5",
-                  luxury ? "text-gray-200" : "text-black hover:bg-cx-forest-dark/5",
+                  "font-futura-book w-full px-4 py-2.5 text-left text-base",
+                  luxury ? "text-cx-text hover:bg-cx-forest-dark/5" : "text-black hover:bg-cx-forest-dark/5",
                 )}
               >
                 {formatSuggestion(suggestion)}
@@ -208,8 +208,8 @@ export function TagTypeaheadInput({
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => addTag(trimmedQuery)}
                 className={cn(
-                  "font-futura-book w-full px-4 py-2.5 text-left text-base hover:bg-white/5",
-                  luxury ? "text-gray-200" : "text-black hover:bg-cx-forest-dark/5",
+                  "font-futura-book w-full px-4 py-2.5 text-left text-base",
+                  luxury ? "text-cx-text hover:bg-cx-forest-dark/5" : "text-black hover:bg-cx-forest-dark/5",
                 )}
               >
                 Add &ldquo;{formatTag(trimmedQuery)}&rdquo;
@@ -220,7 +220,7 @@ export function TagTypeaheadInput({
       )}
 
       {maxTags > 1 && (
-        <p className={cn("mt-1.5 text-sm", luxury ? "text-gray-500" : "text-black")}>
+        <p className={cn("mt-1.5 text-sm", luxury ? "text-cx-text/50" : "text-black")}>
           {value.length} of {maxTags} selected
         </p>
       )}
