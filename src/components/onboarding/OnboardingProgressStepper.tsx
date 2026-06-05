@@ -44,7 +44,7 @@ export function OnboardingProgressStepper({
                   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-bold transition-all duration-300",
                   isCompleted && "border-fis-gold bg-fis-gold text-white",
                   isActive && "border-fis-gold bg-fis-gold/10 text-fis-gold",
-                  !isActive && !isCompleted && "border-cx-forest-dark/20 bg-slate-50 text-cx-text/40",
+                  !isActive && !isCompleted && "border-cx-forest-dark/20 bg-[#F4EFE6]/60 text-cx-text/40",
                 )}
                 aria-hidden
               >

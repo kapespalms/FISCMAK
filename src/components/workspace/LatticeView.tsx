@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Grid3x3 } from "lucide-react";
+import { Card } from "@/components/ui/Card";
 import { CardSection } from "@/components/ui/CardSection";
 import { DualLatticeGrid } from "@/components/lattice/DualLatticeGrid";
 import { LatticeHeatmapV3 } from "@/components/lattice/LatticeHeatmapV3";
@@ -28,10 +29,10 @@ function LatticeLegend({ kind }: { kind: "fiscmak" | "acgme" }) {
     <div className="flex flex-wrap gap-x-6 gap-y-2 text-[11px] text-cx-text/65">
       <span>{quantityLabel}</span>
       <span className="inline-flex items-center gap-1">
-        <span className="h-3 w-3 rounded ring-2 ring-[#C9A227]/80" /> Gold = energizing
+        <span className="h-3 w-3 rounded ring-2 ring-fis-gold/75" /> Gold = energizing
       </span>
       <span className="inline-flex items-center gap-1">
-        <span className="h-3 w-3 rounded ring-2 ring-[#CC5500]/75" /> Burnt orange = draining
+        <span className="h-3 w-3 rounded ring-2 ring-fis-clay/70" /> Clay = draining
       </span>
       <span>Empty cells: light gray, smaller · Active: glow, larger</span>
     </div>
@@ -89,12 +90,16 @@ export function LatticeView() {
 
   return (
     <div className="space-y-4">
-      <section>
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-widest text-cx-text/50">
-          Evidence Density — click any cell to explore
-        </p>
-        <LatticeHeatmapV3 onCellClick={(cell) => setDrawerCell(cell)} />
-      </section>
+      <Card className="overflow-hidden p-0 shadow-[0_4px_24px_-8px_rgba(32,32,29,0.12),0_16px_48px_-16px_rgba(32,32,29,0.08)]">
+        <div className="border-b border-[#ECE8DF] px-6 py-3">
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-cx-text/50">
+            Evidence Density — click any cell to explore
+          </p>
+        </div>
+        <div className="p-4 md:p-6">
+          <LatticeHeatmapV3 onCellClick={(cell) => setDrawerCell(cell)} />
+        </div>
+      </Card>
 
       <QuadrantSummaryV3 />
 

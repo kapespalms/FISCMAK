@@ -18,17 +18,21 @@ const footerLinks: FooterLink[] = [
 
 export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
   return (
-    <footer id="contact" aria-label="Footer navigation" className="relative z-[1] border-t border-white/10">
+    <footer
+      id="contact"
+      aria-label="Footer navigation"
+      className="relative z-[1] border-t border-cx-forest-dark/10 bg-[#F4EFE6]"
+    >
       <ContactFormPopover />
 
       <div className="px-6 py-10 md:px-10 md:py-12">
         {!hideNav ? (
           <nav
             aria-label="Footer links"
-            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-400"
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-cx-text/50"
           >
             {footerLinks.map((item) => (
-              <Link key={item.label} href={item.href} className="hover:text-marketing-accent">
+              <Link key={item.label} href={item.href} className="transition hover:text-marketing-accent">
                 {item.label}
               </Link>
             ))}
@@ -41,11 +45,11 @@ export function MarketingFooter({ hideNav = false }: { hideNav?: boolean }) {
             aria-label="FISCMAK home"
             className="font-futura-bold text-2xl tracking-wide md:text-3xl"
           >
-            <span className="text-[#f1fbe7]">FISC</span>
+            <span className="text-cx-text">FISC</span>
             <span className="text-marketing-accent">MAK</span>
           </Link>
 
-          <p className="font-futura-medium text-sm text-gray-500">
+          <p className="font-futura-medium text-sm text-cx-text/40">
             FISCMAK LLC · {new Date().getFullYear()}
           </p>
         </div>

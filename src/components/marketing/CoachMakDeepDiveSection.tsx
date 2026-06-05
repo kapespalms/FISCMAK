@@ -29,19 +29,19 @@ export function CoachMakDeepDiveSection() {
         </>
       }
       description="Coach Mak is the guide inside the loop: coaching conversations when you need direction, and a lens on the mentoring you already do."
-      className="border-t border-white/[0.06] bg-white/[0.01]"
+      className="border-t border-cx-forest-dark/[0.07]"
     >
       <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-12">
         <div className="space-y-5">
           {COACH_PILLARS.map((pillar) => (
             <MarketingGlassPanel key={pillar.title} accent className="p-6 md:p-7">
-              <h3 className="font-futura-bold text-lg text-white">{pillar.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">{pillar.body}</p>
+              <h3 className="font-futura-bold text-lg text-cx-text">{pillar.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-cx-text/65">{pillar.body}</p>
             </MarketingGlassPanel>
           ))}
 
           <MarketingGlassPanel className="p-6 md:p-7">
-            <p className="font-futura-medium text-sm leading-relaxed text-white/65 md:text-base">
+            <p className="font-futura-medium text-sm leading-relaxed text-cx-text/60 md:text-base">
               Mak supplements your real mentors, sponsors, and coaches — it doesn&apos;t replace
               them. Think interim guidance and a private record until your board is full.
             </p>

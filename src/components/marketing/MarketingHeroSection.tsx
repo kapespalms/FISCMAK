@@ -9,20 +9,12 @@ import { institutionAccentClass } from "@/lib/v2/programs/institution-brand";
 import { joinInstitutionLabel } from "@/lib/v2/programs/program-join-display";
 import type { ResidencyProgram } from "@/lib/v2/programs/registry";
 
-function HeroTagline({
-  verb,
-  middle,
-  end,
-}: {
-  verb: string;
-  middle: string;
-  end: string;
-}) {
+function HeroTagline({ verb, middle, end }: { verb: string; middle: string; end: string }) {
   return (
-    <p className="font-futura-medium text-base leading-relaxed text-white/85 md:text-lg">
-      <span className="text-marketing-accent">{verb}</span>{" "}
-      <span className="text-white">{middle}</span>{" "}
-      <span className="text-marketing-gold">{end}</span>
+    <p className="font-futura-medium text-base leading-relaxed text-cx-text/70 md:text-lg">
+      <span className="font-futura-bold text-marketing-accent">{verb}</span>{" "}
+      <span className="text-cx-text">{middle}</span>{" "}
+      <span className="font-futura-bold text-cx-text">{end}</span>
     </p>
   );
 }
@@ -76,27 +68,28 @@ export function MarketingHeroSection({
 
           {!isJoin ? (
             <>
-              <p className="font-futura-medium mt-5 max-w-lg text-lg leading-relaxed text-white/75">
+              <p className="font-futura-medium mt-5 max-w-lg text-lg leading-relaxed text-cx-text/65">
                 FISCMAK helps physicians turn invisible work into career evidence, narrative, and
                 direction.
               </p>
 
-              <div className="mt-6 flex flex-col gap-2 border-t border-white/10 pt-6 md:gap-2.5">
+              <div className="mt-6 flex flex-col gap-2 border-t border-cx-forest-dark/10 pt-6 md:gap-2.5">
                 <HeroTagline verb="Capture" middle="the" end="invisible." />
-                <HeroTagline verb="Clarify" middle="your" end="direction." />
-                <HeroTagline verb="Build" middle="the career" end="you want." />
+                <HeroTagline verb="See" middle="your" end="pattern." />
+                <HeroTagline verb="Generate" middle="the" end="narrative." />
+                <HeroTagline verb="Direct" middle="the career" end="you want." />
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/app/onboarding"
-                  className="font-futura-bold cx-btn bg-marketing-accent px-6 py-3 text-sm text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none"
+                  className="font-futura-bold cx-btn bg-marketing-accent px-6 py-3 text-sm text-white shadow-[0_4px_16px_rgba(172,134,54,0.3)] transition hover:bg-fis-gold/90 hover:shadow-none"
                 >
                   Start Building
                 </Link>
                 <Link
                   href="#how-it-works"
-                  className="font-futura-bold cx-btn border border-white/20 bg-white/5 px-6 py-3 text-sm text-white backdrop-blur-sm transition hover:border-marketing-accent/40 hover:bg-white/10"
+                  className="font-futura-bold cx-btn border border-cx-forest-dark/20 bg-white/60 px-6 py-3 text-sm text-cx-text backdrop-blur-sm transition hover:border-marketing-accent/60 hover:bg-white/80"
                 >
                   See How It Works
                 </Link>
@@ -112,7 +105,7 @@ export function MarketingHeroSection({
         ) : (
           <MarketingGlassPanel className="relative flex items-center justify-center overflow-hidden p-5 sm:p-6 md:p-8">
             <div
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(169,255,92,0.12),transparent_68%)]"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(172,134,54,0.08),transparent_68%)]"
               aria-hidden
             />
             <div className="relative z-[1] w-full max-w-[min(100%,420px)]">
@@ -120,7 +113,7 @@ export function MarketingHeroSection({
                 src={LANDING_PANEL_SILENT_C_SRC}
                 alt="FISCMAK — career intelligence for physicians"
                 variant="hero"
-                className="marketing-glass shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                className="marketing-glass shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
               />
             </div>
           </MarketingGlassPanel>

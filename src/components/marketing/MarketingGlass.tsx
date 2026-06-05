@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Ambient marketing canvas — single dark surface with soft accent glows. */
+/** Ambient marketing canvas — warm-white surface with soft gold glow. */
 export function MarketingCanvas({
   children,
   className,
@@ -19,7 +19,7 @@ export function MarketingCanvas({
 type MarketingGlassPanelProps = {
   children: React.ReactNode;
   className?: string;
-  /** accent = subtle lime border glow */
+  /** accent = subtle gold border glow */
   accent?: boolean;
   as?: "div" | "article" | "section" | "li";
 };
@@ -73,14 +73,14 @@ export function MarketingSection({
         ) : null}
         <h2
           className={cn(
-            "font-futura-bold text-3xl text-white md:text-4xl lg:text-5xl",
+            "font-futura-bold text-3xl text-cx-text md:text-4xl lg:text-5xl",
             kicker ? "mt-3" : undefined,
           )}
         >
           {title}
         </h2>
         {description ? (
-          <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg">
+          <p className="font-futura-medium mt-4 max-w-2xl text-base leading-relaxed text-cx-text/60 md:text-lg">
             {description}
           </p>
         ) : null}

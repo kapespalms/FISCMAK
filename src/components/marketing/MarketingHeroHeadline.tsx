@@ -6,7 +6,7 @@ export const marketingHeroHeadlineClass =
 
 export function MarketingHeroHeadline({ className }: { className?: string }) {
   return (
-    <h1 className={cn("max-w-2xl text-white", marketingHeroHeadlineClass, className)}>
+    <h1 className={cn("max-w-2xl text-cx-text", marketingHeroHeadlineClass, className)}>
       <span className="block">
         What move <span className="text-marketing-accent">honors</span>
       </span>

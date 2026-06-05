@@ -48,18 +48,18 @@ type PillarKey = (typeof PILLARS)[number]["key"];
 
 function PillarDetail({ pillar }: { pillar: (typeof PILLARS)[number] }) {
   return (
-    <div className="pillar-detail-pop mt-3 space-y-2 border-t border-white/10 pt-3 text-left">
+    <div className="pillar-detail-pop mt-3 space-y-2 border-t border-cx-forest-dark/10 pt-3 text-left">
       <p className="font-futura-bold text-lg text-marketing-accent">{pillar.title}</p>
-      <p className="font-futura-medium text-xs italic text-white/50">{pillar.subtitle}</p>
-      <p className="font-futura-bold text-sm text-white md:text-base">{pillar.heading}</p>
+      <p className="font-futura-medium text-xs italic text-cx-text/45">{pillar.subtitle}</p>
+      <p className="font-futura-bold text-sm text-cx-text md:text-base">{pillar.heading}</p>
       <ul className="space-y-0.5">
         {pillar.traits.map((trait) => (
-          <li key={trait} className="font-futura-medium text-sm text-marketing-accent/95">
+          <li key={trait} className="font-futura-medium text-sm text-fis-gold">
             {trait}.
           </li>
         ))}
       </ul>
-      <p className="font-futura-medium text-sm leading-relaxed text-white/70">{pillar.footer}</p>
+      <p className="font-futura-medium text-sm leading-relaxed text-cx-text/65">{pillar.footer}</p>
     </div>
   );
 }
@@ -81,10 +81,10 @@ function PaintingButton({
         aria-expanded={selected}
         aria-label={`${pillar.title} — ${pillar.heading}`}
         className={cn(
-          "group w-full rounded-xl border bg-[#030303] p-1.5 text-left transition duration-300",
+          "group w-full rounded-xl border bg-white/70 p-1.5 text-left transition duration-300",
           selected
-            ? "border-marketing-accent/50 shadow-[0_0_24px_rgba(169,255,92,0.12)]"
-            : "border-white/10 hover:border-marketing-accent/30",
+            ? "border-marketing-accent/50 shadow-[0_4px_16px_rgba(172,134,54,0.18)]"
+            : "border-cx-forest-dark/12 hover:border-marketing-accent/35",
         )}
       >
         <MarketingPanelImage
@@ -114,17 +114,17 @@ export function FiscmakMeaningGlassSection() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-futura-bold text-2xl text-white md:text-3xl">
+            <h2 className="font-futura-bold text-2xl text-cx-text md:text-3xl">
               <span className="text-marketing-accent">FISC</span>
-              <span className="text-white">MAK</span>
+              <span className="text-cx-text">MAK</span>
             </h2>
-            <p className="font-futura-medium mt-1 text-sm text-white/60 md:text-base">
+            <p className="font-futura-medium mt-1 text-sm text-cx-text/55 md:text-base">
               Pronounced <span className="text-marketing-accent">[ FIZ-MAK ]</span>
             </p>
           </div>
           <Link
             href="/our-narrative"
-            className="font-futura-bold cx-btn shrink-0 self-start border border-white/20 bg-white/5 px-5 py-2.5 text-sm text-white backdrop-blur-sm transition hover:border-marketing-accent/40 hover:bg-white/10 sm:self-auto"
+            className="font-futura-bold cx-btn shrink-0 self-start border border-cx-forest-dark/20 bg-white/60 px-5 py-2.5 text-sm text-cx-text backdrop-blur-sm transition hover:border-marketing-accent/60 hover:bg-white/80 sm:self-auto"
           >
             Our Narrative
           </Link>
@@ -132,7 +132,7 @@ export function FiscmakMeaningGlassSection() {
 
         <MarketingGlassPanel accent className="mt-5 overflow-hidden p-6 md:p-8 lg:p-10">
           <div className="max-w-2xl">
-            <p className="font-futura-medium text-base leading-relaxed text-white/70">
+            <p className="font-futura-medium text-base leading-relaxed text-cx-text/65">
               By the standard rules of grammar, you should pronounce the C in FISC.
             </p>
             <p className="font-futura-medium mt-2 text-base leading-relaxed text-marketing-accent">

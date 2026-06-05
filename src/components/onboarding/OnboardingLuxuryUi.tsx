@@ -179,7 +179,7 @@ export function LuxuryHint({
 
 export function LuxuryInfoPanel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-xl border border-cx-forest-dark/10 bg-slate-50 px-4 py-3 text-sm text-cx-text/80">
+    <div className="rounded-xl border border-cx-forest-dark/10 bg-[#F4EFE6]/50 px-4 py-3 text-sm text-cx-text/80">
       {children}
     </div>
   );
