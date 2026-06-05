@@ -2,10 +2,10 @@ import Link from "next/link";
 import { MarketingGlassPanel } from "@/components/marketing/MarketingGlass";
 
 const FLOW_STEPS = [
-  { key: "capture", label: "Capture", line: "Log work before it fades." },
-  { key: "map", label: "Map", line: "See patterns in your arc." },
-  { key: "build", label: "Build", line: "Turn evidence into narrative." },
-  { key: "claim", label: "Claim Your Career", line: "Own the direction you've been building." },
+  { key: "capture", label: "Capture", line: "Log every contribution before it disappears." },
+  { key: "see", label: "See", line: "Find patterns across your entire record." },
+  { key: "generate", label: "Generate", line: "Turn evidence into narratives and documents." },
+  { key: "direct", label: "Direct", line: "Own the direction you've been building." },
 ] as const;
 
 export function FiscmakFlowSection() {
@@ -18,16 +18,16 @@ export function FiscmakFlowSection() {
       <div className="relative mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-futura-bold text-2xl text-white md:text-3xl">
-              The <span className="text-marketing-accent">FISCMAK</span> Flow
+            <h2 className="font-futura-bold text-2xl text-cx-text md:text-3xl">
+              The <span className="text-marketing-accent">FISCMAK</span> flow
             </h2>
-            <p className="font-futura-medium mt-1 max-w-xl text-sm text-white/60 md:text-base">
-              Invisible work → career clarity.
+            <p className="font-futura-medium mt-1 max-w-xl text-sm text-cx-text/55 md:text-base">
+              Invisible work into career clarity — four steps.
             </p>
           </div>
           <Link
             href="/how-it-works"
-            className="font-futura-bold cx-btn shrink-0 self-start border border-white/20 bg-white/5 px-5 py-2.5 text-sm text-white backdrop-blur-sm transition hover:border-marketing-accent/40 hover:bg-white/10 sm:self-auto"
+            className="font-futura-bold cx-btn shrink-0 self-start border border-cx-forest-dark/20 bg-white/60 px-5 py-2.5 text-sm text-cx-text backdrop-blur-sm transition hover:border-marketing-accent/60 hover:bg-white/80 sm:self-auto"
           >
             How It Works
           </Link>
@@ -42,12 +42,12 @@ export function FiscmakFlowSection() {
             {FLOW_STEPS.map((step, index) => (
               <li key={step.key} className="fiscmak-flow-step group">
                 <div className="flex items-baseline gap-2 md:flex-col md:items-start md:gap-1">
-                  <span className="font-futura-bold shrink-0 text-sm text-marketing-accent/80 md:text-base">
+                  <span className="font-futura-bold shrink-0 text-sm text-marketing-accent/70 md:text-base">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-futura-bold text-base text-white md:text-lg">{step.label}</h3>
-                    <p className="font-futura-medium mt-0.5 text-xs leading-snug text-white/55 md:text-sm">
+                    <h3 className="font-futura-bold text-base text-cx-text md:text-lg">{step.label}</h3>
+                    <p className="font-futura-medium mt-0.5 text-xs leading-snug text-cx-text/50 md:text-sm">
                       {step.line}
                     </p>
                   </div>

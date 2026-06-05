@@ -76,12 +76,12 @@ export function LatticeCellDetailCard({ cell, latticeKind, onClose }: Props) {
         {cell.count > 0 ? (
           <div className="mt-3 flex flex-wrap gap-2 text-xs">
             {cell.energizingCount > 0 ? (
-              <span className="rounded-full bg-[#C9A227]/15 px-2 py-0.5 text-[#8a6b12]">
+              <span className="rounded-full bg-fis-gold/15 px-2 py-0.5 text-fis-gold">
                 {cell.energizingCount} energizing
               </span>
             ) : null}
             {cell.drainingCount > 0 ? (
-              <span className="rounded-full bg-[#CC5500]/12 px-2 py-0.5 text-[#994000]">
+              <span className="rounded-full bg-fis-clay/15 px-2 py-0.5 text-fis-clay">
                 {cell.drainingCount} draining
               </span>
             ) : null}

@@ -556,10 +556,10 @@ export function OnboardingDocumentsStep({
                           onClick={() => void deleteDocument(doc.document_id)}
                           className="shrink-0 rounded-full transition-opacity hover:opacity-80 disabled:opacity-50"
                         >
-                          <CircleX size={18} className="text-[#d4c574]" />
+                          <CircleX size={18} className="text-fis-clay" />
                         </button>
                       ) : (
-                        <CheckCircle2 size={18} className="shrink-0 text-[#a9ff5c]" aria-hidden />
+                        <CheckCircle2 size={18} className="shrink-0 text-fis-gold" aria-hidden />
                       )}
                     </div>
                   </div>

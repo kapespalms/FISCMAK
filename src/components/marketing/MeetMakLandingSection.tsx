@@ -8,16 +8,17 @@ export function MeetMakLandingSection() {
       <div className="relative mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-futura-bold text-2xl text-white md:text-3xl">
+            <h2 className="font-futura-bold text-2xl text-cx-text md:text-3xl">
               Meet <span className="text-marketing-accent">Mak</span>
             </h2>
-            <p className="font-futura-medium mt-1 max-w-xl text-sm text-white/60 md:text-base">
-              Helping you navigate every move — goal-setting, mentorship, and career direction.
+            <p className="font-futura-medium mt-1 max-w-xl text-sm text-cx-text/55 md:text-base">
+              Conversational coaching — goal-setting, evidence capture, and career direction in
+              one place.
             </p>
           </div>
           <Link
             href="/meet-mak"
-            className="font-futura-bold cx-btn shrink-0 self-start bg-marketing-accent px-5 py-2.5 text-sm text-black shadow-[0_0_24px_rgba(169,255,92,0.25)] transition hover:bg-white hover:shadow-none sm:self-auto"
+            className="font-futura-bold cx-btn shrink-0 self-start bg-marketing-accent px-5 py-2.5 text-sm text-white shadow-[0_4px_16px_rgba(172,134,54,0.3)] transition hover:bg-fis-gold/90 hover:shadow-none sm:self-auto"
           >
             Meet Mak
           </Link>

@@ -6,7 +6,7 @@ import { useAppShell } from "@/components/layout/AppShell";
 import { CoachMakAvatar } from "@/components/brand/CoachMakAvatar";
 import { MAK_DISPLAY_NAME } from "@/lib/brand-assets";
 
-/** Slim left rail — Mak avatar + lime expand tab when panel is closed. */
+/** Slim left rail — Mak avatar + gold expand tab when panel is closed. */
 export function IconSidebar() {
   const { makOpen, toggleMak } = useAppShell();
 

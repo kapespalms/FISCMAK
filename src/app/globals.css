@@ -154,9 +154,9 @@
   --color-cx-forest-dark: var(--cx-forest-dark);
   --color-cx-page-muted: var(--cx-page-muted);
   --color-cx-tab-rail: var(--cx-tab-rail);
-  --color-marketing-accent: #a9ff5c;
-  --color-marketing-cream: #f1fbe7;
-  --color-marketing-gold: #d4c574;
+  --color-marketing-accent: #AC8636;
+  --color-marketing-cream: #FCFBF7;
+  --color-marketing-gold: #AC8636;
   /* FISCMAK v3 palette */
   --color-fis-gold: var(--fis-gold);
   --color-fis-green: var(--fis-green);
@@ -374,21 +374,21 @@ button {
     0 24px 48px rgba(36, 59, 49, 0.08);
 }
 
-/* Marketing site — light canvas, lime accent, Futura PT Bold (headline font) */
+/* Marketing site — warm-white canvas, gold accent, Jost */
 .marketing-page {
-  --marketing-accent: #a9ff5c;
-  --marketing-cream: #f1fbe7;
-  --marketing-gold: #d4c574;
+  --marketing-accent: #AC8636;
+  --marketing-cream: #FCFBF7;
+  --marketing-gold: #AC8636;
   background-color: transparent;
-  color: var(--cx-forest-dark);
-  font-family: var(--font-futura-pt-bold), "Futura PT", sans-serif;
+  color: var(--cx-text);
+  font-family: var(--font-futura-pt-bold), "Jost", sans-serif;
   font-weight: 700;
 }
 
 .marketing-page p,
 .marketing-page li,
 .marketing-page a:not(.cx-btn) {
-  color: var(--cx-forest-dark);
+  color: var(--cx-text);
 }
 
 /* Auth routes (/login, /forgot-password) — dark canvas, white copy in header + card */
@@ -427,14 +427,14 @@ button {
 }
 
 .marketing-site-footer {
-  background: #030303;
-  color: #ffffff;
+  background: #F4EFE6;
+  color: var(--cx-text);
 }
 
 .marketing-site-footer p,
 .marketing-site-footer li,
 .marketing-site-footer a:not(.cx-btn) {
-  color: #ffffff;
+  color: var(--cx-text);
 }
 
 /* Mak landing console — app-style bubbles need forest text, not marketing white */
@@ -581,10 +581,10 @@ input[type="reset"]:not([data-preserve-radius]) {
   color: var(--marketing-gold);
 }
 
-/* Marketing glassmorphism — light canvas + frosted panels (marketing routes only) */
+/* Marketing surface — warm-white canvas + elevated warm panels */
 .marketing-page .marketing-canvas {
-  background: #f7f8f6;
-  color: var(--cx-forest-dark);
+  background: #FCFBF7;
+  color: var(--cx-text);
 }
 
 .marketing-page .marketing-canvas-glow {
@@ -592,41 +592,37 @@ input[type="reset"]:not([data-preserve-radius]) {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 15% 10%, rgba(169, 255, 92, 0.12), transparent 55%),
-    radial-gradient(ellipse 60% 40% at 85% 25%, rgba(212, 197, 116, 0.08), transparent 50%),
-    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(169, 255, 92, 0.06), transparent 55%);
+    radial-gradient(ellipse 80% 50% at 15% 10%, rgba(172, 134, 54, 0.07), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 85% 25%, rgba(60, 138, 96, 0.04), transparent 50%),
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(172, 134, 54, 0.04), transparent 55%);
 }
 
 .marketing-glass {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.07) 0%,
-    rgba(255, 255, 255, 0.025) 100%
-  );
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(172, 134, 54, 0.14);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    0 2px 8px rgba(32, 32, 29, 0.04),
+    0 8px 24px rgba(32, 32, 29, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .marketing-glass-accent {
-  border-color: rgba(169, 255, 92, 0.25);
+  border-color: rgba(172, 134, 54, 0.28);
   box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(169, 255, 92, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+    0 4px 16px rgba(32, 32, 29, 0.06),
+    0 12px 40px rgba(32, 32, 29, 0.09),
+    0 0 0 1px rgba(172, 134, 54, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .marketing-glass-light {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(172, 134, 54, 0.14);
+  box-shadow: 0 4px 24px rgba(32, 32, 29, 0.08);
 }
 
 .marketing-glass-hover {
@@ -637,16 +633,11 @@ input[type="reset"]:not([data-preserve-radius]) {
 }
 
 .marketing-glass-hover:hover {
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.04) 100%
-  );
-  border-color: rgba(169, 255, 92, 0.32);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(172, 134, 54, 0.35);
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.55),
-    0 0 32px rgba(169, 255, 92, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    0 8px 32px rgba(32, 32, 29, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .fiscmak-flow-track {
@@ -658,8 +649,8 @@ input[type="reset"]:not([data-preserve-radius]) {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(169, 255, 92, 0.35) 15%,
-    rgba(169, 255, 92, 0.35) 85%,
+    rgba(172, 134, 54, 0.35) 15%,
+    rgba(172, 134, 54, 0.35) 85%,
     transparent
   );
   overflow: hidden;
@@ -671,7 +662,7 @@ input[type="reset"]:not([data-preserve-radius]) {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(169, 255, 92, 0.9),
+    rgba(172, 134, 54, 0.8),
     transparent
   );
   animation: fiscmak-flow-pulse 4s ease-in-out infinite;
@@ -694,10 +685,10 @@ input[type="reset"]:not([data-preserve-radius]) {
   }
 }
 
-/* Canva panel PNGs — knock out light matte on dark marketing canvas */
+/* Canva panel PNGs — warm canvas, preserve natural rendering */
 .marketing-panel-art {
-  mix-blend-mode: multiply;
-  filter: contrast(1.08) brightness(1.05);
+  mix-blend-mode: normal;
+  filter: contrast(1.04) brightness(1.02);
 }
 
 .pillar-detail-pop {
