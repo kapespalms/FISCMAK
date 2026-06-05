@@ -15,6 +15,7 @@ import { SOC_VECTORS }        from "@/lib/v2/onet/soc-vectors";
 import { VARIANCE_WEIGHTS }   from "@/lib/v2/onet/variance-weights";
 import { DOMAIN_FINGERPRINTS, DOMAIN_LABELS } from "@/lib/v2/onet/domain-fingerprints";
 import { ADJACENCY_BASKETS }  from "@/lib/v2/onet/adjacency-baskets";
+import { SUBSPECIALTY_FINGERPRINTS } from "@/lib/v2/onet/subspecialty-fingerprints";
 
 export { DOMAIN_LABELS };
 export type { AdjacentOccupation } from "@/lib/v2/onet/adjacency-baskets";
@@ -103,6 +104,59 @@ export function getAllDomainVectors(physSoc: string): ReadonlyArray<readonly num
   return DOMAIN_LABELS.map((l) => source[l]).filter((v): v is readonly number[] => !!v);
 }
 
+// ── Subspecialty fingerprint resolver ────────────────────────────────────────
+
+/**
+ * Resolves subspecialty-blended data when app_users.subspecialty is set and
+ * a precomputed fingerprint exists for that subspecialty.
+ *
+ * Returns the blended descriptor vector, domain fingerprint map, and adjacency
+ * basket from the subspecialty seed. Falls back to null on all three when:
+ *   - subspecialty is null/empty string
+ *   - subspecialty is not in SUBSPECIALTY_FINGERPRINTS
+ *   - the stored parent_soc doesn't match the expected parent SOC
+ *
+ * Callers should use the parent-SOC data path when usingSubspecialty = false.
+ */
+function resolveSubspecialty(
+  subspecialty: string | null,
+  parentSoc: string,
+): {
+  descriptorVector:      readonly number[] | null;
+  domainFingerprintsMap: Readonly<Record<string, readonly number[]>> | null;
+  adjacencyBasket:       readonly { soc: string; similarity: number }[] | null;
+  usingSubspecialty:     boolean;
+} {
+  const nullResult = {
+    descriptorVector:      null,
+    domainFingerprintsMap: null,
+    adjacencyBasket:       null,
+    usingSubspecialty:     false,
+  };
+
+  if (!subspecialty || subspecialty.trim() === "") return nullResult;
+
+  const fp = (SUBSPECIALTY_FINGERPRINTS as Record<string, {
+    parent_soc: string;
+    blended_vector: readonly number[];
+    domain_fingerprints: Readonly<Record<string, readonly number[]>>;
+    adjacency_basket: readonly { soc: string; title: string; similarity: number }[];
+  } | undefined>)[subspecialty];
+
+  if (!fp) return nullResult;
+
+  // Sanity-check: subspecialty's parent SOC should match the physician's SOC.
+  // If not (e.g., user changed specialty without clearing subspecialty), fall back.
+  if (fp.parent_soc !== parentSoc) return nullResult;
+
+  return {
+    descriptorVector:      fp.blended_vector,
+    domainFingerprintsMap: fp.domain_fingerprints,
+    adjacencyBasket:       fp.adjacency_basket,
+    usingSubspecialty:     true,
+  };
+}
+
 // ── F6 Person–Occupation Fit ─────────────────────────────────────────────────
 
 export type F6DomainScore = {
@@ -139,18 +193,22 @@ export async function computeF6OccupationFit(
   const attr  = "O*NET 30.3 Database, U.S. DOL/ETA, CC-BY 4.0 — onetcenter.org/license_db.html";
   const empty = { scores: [], physician_vector: null, soc_code: "", computed_at: now, available: false, attribution: attr };
 
-  // 1. Get specialty → SOC
+  // 1. Get specialty + subspecialty → SOC
   const { data: user } = await supabase
     .from("app_users")
-    .select("specialty")
+    .select("specialty, subspecialty")
     .eq("user_id", userId)
     .maybeSingle();
 
-  const specialty = (user?.specialty as string | null) ?? null;
+  const specialty    = (user?.specialty    as string | null) ?? null;
+  const subspecialty = (user?.subspecialty as string | null) ?? null;
   if (!specialty) return empty;
   const socCode = lookupSocCode(specialty);
 
-  // 2. Try personalized vector from onet_fingerprint first
+  // 2. Resolve subspecialty blended data if available
+  const subResult = resolveSubspecialty(subspecialty, socCode);
+
+  // 3. Try personalized vector from onet_fingerprint first
   const { data: fp } = await supabase
     .from("onet_fingerprint")
     .select("descriptor_vector")
@@ -161,13 +219,20 @@ export async function computeF6OccupationFit(
 
   const storedVec = (fp?.descriptor_vector as number[] | null) ?? null;
 
-  // Use stored personalized vector if present; else fall back to base SOC vector
-  const physVec: readonly number[] | null = storedVec ?? getSocVector(socCode);
+  // Physician vector priority:
+  //   1. Stored personalized vector (onet_fingerprint table)
+  //   2. Subspecialty blended vector (when subspecialty is set and fingerprint exists)
+  //   3. Parent SOC vector (fallback)
+  const physVec: readonly number[] | null =
+    storedVec ?? subResult.descriptorVector ?? getSocVector(socCode);
   if (!physVec) return { ...empty, soc_code: socCode };
 
-  // 3. Compute variance-weighted cosine against each domain fingerprint
+  // 4. Compute variance-weighted cosine against each domain fingerprint.
+  //    Use subspecialty domain fingerprints when available; otherwise parent SOC.
   const scores: F6DomainScore[] = DOMAIN_LABELS.map((label, idx) => {
-    const domainVec = getDomainVector(socCode, label);
+    const domainVec = subResult.usingSubspecialty
+      ? (subResult.domainFingerprintsMap?.[label] ?? getDomainVector(socCode, label))
+      : getDomainVector(socCode, label);
     if (!domainVec) return { domain_index: idx, domain_label: label, fit_score: 0, available: false };
     const fit = parseFloat(varWeightedCosine(physVec, domainVec).toFixed(4));
     return { domain_index: idx, domain_label: label, fit_score: fit, available: true };
@@ -302,23 +367,35 @@ export async function computeAndStoreFingerprint(
 ): Promise<FingerprintResult> {
   const now = new Date().toISOString();
 
-  // Get specialty
+  // Get specialty + subspecialty
   const { data: user } = await supabase
     .from("app_users")
-    .select("specialty")
+    .select("specialty, subspecialty")
     .eq("user_id", userId)
     .maybeSingle();
 
-  const specialty = (user?.specialty as string | null) ?? null;
-  const socCode   = specialty ? lookupSocCode(specialty) : "29-1229.00";
+  const specialty    = (user?.specialty    as string | null) ?? null;
+  const subspecialty = (user?.subspecialty as string | null) ?? null;
+  const socCode      = specialty ? lookupSocCode(specialty) : "29-1229.00";
 
-  const descVec  = getSocVector(socCode) ?? getSocVector("29-1229.00");
-  const basket   = (ADJACENCY_BASKETS as Record<string, ReadonlyArray<{ soc: string; similarity: number }>>)[socCode]
-                ?? (ADJACENCY_BASKETS as Record<string, ReadonlyArray<{ soc: string; similarity: number }>>)["29-1229.00"]
-                ?? [];
+  // Resolve subspecialty blended data if available
+  const subResult = resolveSubspecialty(subspecialty, socCode);
+
+  // Descriptor vector: subspecialty blended if available, else parent SOC
+  const descVec = subResult.usingSubspecialty
+    ? subResult.descriptorVector
+    : (getSocVector(socCode) ?? getSocVector("29-1229.00"));
+
+  // Adjacency basket: subspecialty basket if available, else parent SOC basket
+  const basketSource: ReadonlyArray<{ soc: string; similarity: number }> =
+    subResult.usingSubspecialty && subResult.adjacencyBasket
+      ? subResult.adjacencyBasket
+      : ((ADJACENCY_BASKETS as Record<string, ReadonlyArray<{ soc: string; similarity: number }>>)[socCode]
+        ?? (ADJACENCY_BASKETS as Record<string, ReadonlyArray<{ soc: string; similarity: number }>>)["29-1229.00"]
+        ?? []);
 
   const adjacentWeights: Record<string, number> = {};
-  for (const entry of basket) adjacentWeights[entry.soc] = entry.similarity;
+  for (const entry of basketSource) adjacentWeights[entry.soc] = entry.similarity;
 
   if (!descVec) {
     return { stored: false, descriptor_vector: null, adjacent_soc_weights: {}, soc_code: socCode, computed_at: now };

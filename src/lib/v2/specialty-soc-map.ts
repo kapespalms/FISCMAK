@@ -4,6 +4,8 @@
  * Falls back to 29-1229.00 (Physicians, All Other) for unmapped specialties.
  */
 const SPECIALTY_SOC_MAP: Record<string, string> = {
+  "cardiology":                                   "29-1212.00",
+  "cardiovascular disease":                       "29-1212.00",
   "anesthesiology":                               "29-1211.00",
   "dermatology":                                  "29-1213.00",
   "emergency medicine":                           "29-1214.00",
