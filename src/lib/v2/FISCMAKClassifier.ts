@@ -19,6 +19,7 @@
  */
 
 import { SupabaseClient } from "@supabase/supabase-js";
+import { makCategorySummary } from "@/lib/v2/category-summary";
 
 interface ClassificationRequest {
   userId: string;
@@ -655,8 +656,10 @@ export class FISCMAKClassifier {
 
     return {
       user_id: req.userId,
-      raw_text: req.rawText,
-      raw_text_tokens: req.rawText.split(/\s+/).length,
+      // raw_text now holds the category summary (controlled vocabulary), never the verbatim input.
+      // The verbatim user text is read in-memory to classify, then discarded — never persisted.
+      raw_text: makCategorySummary(primary?.activity_key ?? null, signals.map((s) => s.indicator_key)),
+      raw_text_tokens: 0, // not meaningful for category string; keep column populated
       input_source: req.inputSource || "chat",
       input_timestamp: new Date().toISOString(),
       detected_signals: signals.map((s) => s.indicator_id),

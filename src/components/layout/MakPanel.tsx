@@ -946,6 +946,11 @@ export function MakPanel({
             onAttachDocument={(file) => void attachDocument(file)}
             onAttachImage={(file) => void attachImage(file)}
           />
+          {activeFlowIntent === "capture" && (
+            <p className="px-3 pb-1 text-[11px] text-gray-500">
+              FISCMAK is for your career — never enter patient information.
+            </p>
+          )}
           <input
             ref={makInputRef}
             value={input}
@@ -956,7 +961,7 @@ export function MakPanel({
                 void sendMessage(input);
               }
             }}
-            placeholder={MAK_INPUT_PLACEHOLDER}
+            placeholder={activeFlowIntent === "capture" ? "What kind of work did you do?" : MAK_INPUT_PLACEHOLDER}
             disabled={loading || recording}
             className="cx-mak-panel-input h-10 min-h-10 flex-1 rounded-xl border-0 bg-transparent px-2 text-sm text-white placeholder:text-gray-500 focus:outline-none"
             aria-label={`Message to ${MAK_DISPLAY_NAME}`}

@@ -105,7 +105,7 @@ import {
   careerAlignmentFromHealth,
 } from "@/lib/mak-chatbot-states";
 import { logEscalationEngagementSignal } from "@/lib/v2/escalation-protocols";
-import { shouldCaptureActivityMessage } from "@/lib/v2/activity-capture";
+import { makCategorySummary, shouldCaptureActivityMessage } from "@/lib/v2/activity-capture";
 import {
   classifyChatMessage,
   persistClassificationActivity,
@@ -1190,7 +1190,10 @@ export async function POST(request: Request) {
           user_id: auth.userId,
           created_at: new Date().toISOString(),
           activity_date: new Date().toISOString().slice(0, 10),
-          raw_text: message.trim(),
+          // raw_text holds the category summary, never verbatim user input.
+          raw_text: chatClassification.activity_key
+            ? makCategorySummary(chatClassification.activity_key, chatClassification.detected_signals)
+            : "professional activity",
           input_source: "mak_capture",
           energy_valence: null,
           primary_domain: chatClassification.activity_key ?? null,
@@ -2078,6 +2081,10 @@ export async function POST(request: Request) {
     response = `${response}\n\n---\n\n${touchpointNextPrompt}`;
   }
 
+  // For capture turns, store the category summary instead of verbatim user text.
+  // Non-capture turns (coaching, career questions) persist verbatim — intended.
+  // NOTE: shouldCaptureActivityMessage is imported at the top of this file and is in scope here.
+  const isCaptureTurn = !!(chatClassification && shouldCaptureActivityMessage(message, flowIntent));
   const userMsg =
     message === "__welcome__"
       ? null
@@ -2085,7 +2092,12 @@ export async function POST(request: Request) {
           message_id: crypto.randomUUID(),
           user_id: auth.userId,
           role: "user" as const,
-          content: message,
+          content: isCaptureTurn
+            ? makCategorySummary(
+                chatClassification?.activity_key ?? null,
+                chatClassification?.detected_signals ?? [],
+              )
+            : message,
           section: context?.section ?? null,
           created_at: now,
         };

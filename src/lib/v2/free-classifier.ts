@@ -1,6 +1,7 @@
 /**
  * Free tier classifier — keyword-based signal detection, no API cost.
  */
+import { makCategorySummary } from "@/lib/v2/category-summary";
 
 export type FreeClassificationRequest = {
   userId: string;
@@ -192,8 +193,10 @@ export class FreeClassifier {
     const now = new Date().toISOString();
     return {
       user_id: request.userId,
-      raw_text: request.rawText,
-      raw_text_tokens: request.rawText.split(/\s+/).length,
+      // raw_text now holds the category summary (controlled vocabulary), never the verbatim input.
+      // The verbatim user text is read in-memory to classify, then discarded — never persisted.
+      raw_text: makCategorySummary(activity.key, signals),
+      raw_text_tokens: 0, // not meaningful for category string; keep column populated
       input_source: "chat",
       input_timestamp: now,
       detected_signal_keys: signals,

@@ -7,6 +7,10 @@ import { FreeClassifier } from "@/lib/v2/free-classifier";
 import { hasActiveSubscription } from "@/lib/v2/stripe-config";
 import { normalizeActivityForLattice } from "@/lib/v2/lattice/activity-normalize";
 import type { ActivityEntry, ClassificationResult } from "@/lib/types/database";
+// Import for internal use and re-export so callers (e.g. chat message route) can import
+// makCategorySummary from this module without adding a new dependency.
+import { makCategorySummary } from "@/lib/v2/category-summary";
+export { makCategorySummary };
 
 const SKIP_CAPTURE_MESSAGES = new Set([
   "Capture invisible work",
@@ -238,7 +242,12 @@ export async function captureActivityFromMak(params: {
     user_id: params.userId,
     created_at: new Date().toISOString(),
     activity_date: new Date().toISOString().slice(0, 10),
-    raw_text: params.text.trim(),
+    // raw_text now holds the category summary (controlled vocabulary), never the verbatim input.
+    // The verbatim user text is read in-memory to classify, then discarded — never persisted.
+    raw_text: makCategorySummary(
+      classification.primary_domain,
+      classification.scope ? [classification.scope] : [],
+    ),
     input_source: params.inputSource ?? "mak_capture",
     energy_valence: params.energyValence ?? null,
     primary_domain: classification.primary_domain,
