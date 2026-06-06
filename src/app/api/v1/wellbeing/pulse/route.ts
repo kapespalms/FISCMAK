@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";
+import { keywordPlacement } from "@/lib/v2/lattice/ontology-bridge";
 
 // 7-day window — weekly pulse
 const DUE_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
@@ -78,6 +79,34 @@ export async function POST(request: Request) {
   if (error) {
     console.error("[wellbeing/pulse] insert failed:", error.message);
     return jsonOk({ error: "save_error", message: "Could not save pulse check-in." }, 500);
+  }
+
+  // B3: Stage pulse free-text to activity_entries for classifier pipeline.
+  // Boost = energizing (OI quadrant candidate); drain = draining (SI quadrant candidate).
+  const stagingRows: Record<string, unknown>[] = [];
+  for (const [text, valence] of [
+    [energy_boost_task, "energizing"],
+    [energy_drain_task, "draining"],
+  ] as [string | null | undefined, string][]) {
+    if (!text?.trim()) continue;
+    const placement = keywordPlacement(text);
+    stagingRows.push({
+      id: crypto.randomUUID(),
+      user_id: auth.userId,
+      created_at: now,
+      activity_date: now.slice(0, 10),
+      raw_text: text.trim(),
+      input_source: "pulse",
+      energy_valence: valence,
+      primary_domain: placement ? String(placement.domainIndex) : null,
+      primary_track: placement ? String(placement.trackIndex) : null,
+      primary_domain_confidence: placement ? 0.6 : null,
+      primary_track_confidence: placement ? 0.6 : null,
+      confidence_score: placement ? 0.6 : 0.3,
+    });
+  }
+  if (stagingRows.length > 0) {
+    await supabase.from("activity_entries").insert(stagingRows);
   }
 
   return jsonOk({ saved: true, recorded_at: now, mdt });

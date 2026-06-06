@@ -257,3 +257,17 @@ export type AnalyticsDashboard = {
     };
   } | null;
 };
+
+
+export type NarrativeEvidenceRow = {
+  id: string;
+  user_id: string;
+  domain_index: number;
+  question_index: number;
+  response_text: string;
+  distress_flag: boolean;
+  energy_signal: number | null;
+  invisible_work_flag: boolean;
+  mak_session_id: string | null;
+  created_at: string;
+};

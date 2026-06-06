@@ -37,9 +37,11 @@ This is both the conformance test and the retirement criterion. Every step below
 ## PHASE B — Build the capture spine (the engine)
 *This is the C4 gap — the biggest vision-vs-build delta. Everything downstream needs it.*
 
+> **Sequencing (write-side vs. read-side):** **B1 is a PRE-CAPTURE GATE — it must ship before residents capture anything.** PHI is write-side: once unscrubbed text lands in the DB you can't un-store it cleanly (breach-class cleanup, not a refactor). **B2–B5 are read-side / enrichment and CAN be applied after launch** — captures taken under the simpler path reprocess cleanly through the classifier later, no migration pain.
+
 | # | Step | Status | Notes |
 |---|---|---|---|
-| B1 | **PHI-strip guardrail** — mandatory pass on every conversational turn, drop-on-doubt. Build FIRST. | ⬜ 🔒 | 🔒 decision: rules vs. LLM vs. both. Highest-risk surface. |
+| B1 | **PHI-strip guardrail (PRE-CAPTURE GATE)** — shared deterministic strip (regex → typed tokens: MRN / SSN / phone / email / DOB / name patterns) on every free-text turn, **before** classify/store; LLM is a second pass, **never LLM-only**. First reconcile with **Ticket 11** (verbatim-never-stored already shipped) — add the strip as defense-in-depth, don't rebuild. | ⬜ ✅ **decided** | **DECIDED: rules-first, LLM-backup.** A privacy office trusts a readable regex over a model. **Must land before any real resident capture.** Gate = standing Jane-Doe/MRN regression test (deterministic layer alone passes with model stubbed off). |
 | B2 | Wire **`narrative_evidence`** (table exists, zero code) — physician-only SI/subjective store. | ⬜ | |
 | B3 | **Pulse → pipeline.** Route weekly/monthly boost/drain free-text through the classifier (invisible-quadrant + energy-valence rules) → staging → confirm. | ⬜ | The free-text is already collected and currently dangling. |
 | B4 | **Mak → capture router.** Mak extracts per-lane (career item / patient-care aggregate / invisible+energy / hours / goal / direction) → same staging → confirm; Mak runs the conversational confirmation. | ⬜ | The "Mak = daily capture" vision. |
@@ -107,7 +109,7 @@ Everything on-spine: one capture → `evidence_unit` (three-layer) → many outp
 | Gate | Blocks | Question |
 |---|---|---|
 | Jobs / industry-career | A3, A4 | Remove, or feature-flag off for pilot? |
-| PHI-strip design | B1 | Rules-based, LLM, or both? Fail-safe? |
+| ~~PHI-strip design~~ ✅ **RESOLVED** | B1 | **Rules-first (deterministic, always-on) + LLM second pass — never LLM-only.** Fail-safe = the deterministic layer alone must pass the PHI test with the model stubbed off. Pre-capture gate. |
 | Energy model | C2 | Blend rule; one dot vs two; skill-energy storage location. |
 | Heat-map ramp | C3 | Navy vs treasury-gold. |
 | Hours home | F1 | Where stored; how surfaced to trainee/institution. |

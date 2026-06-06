@@ -12,6 +12,9 @@ import { computeAssessmentScore } from "@/lib/v2/formulas";
 import { getOnboardingMetadata } from "@/lib/v2/onboarding-compute";
 import { questionsForTouchpoint } from "@/lib/v2/question-bank";
 import type { AppUser, AssessmentAnswer, CareerAssessment } from "@/lib/v2/types";
+// A1: Stop superseded career_assessments writes from the Mak path. Mak-extracted answers
+// now stage to activity_entries. REST routes (/app/assessment) are marked deprecated but
+// still write to career_assessments until Phase B (capture spine) replaces the surface.
 
 export async function ensureTouchpointAssessment(
   userId: string,
@@ -36,10 +39,8 @@ export async function ensureTouchpointAssessment(
 
   if (demo) {
     getServerDemo(userId).assessments.push(row);
-  } else {
-    const supabase = await createClient();
-    await supabase.from("career_assessments").insert(row);
   }
+  // A1: Non-demo session lives in memory for this request; not persisted to career_assessments.
   return row;
 }
 
@@ -90,16 +91,23 @@ export async function applyExtractedAnswers(
     const state = getServerDemo(userId);
     const i = state.assessments.findIndex((a) => a.assessment_id === current.assessment_id);
     if (i >= 0) state.assessments[i] = current;
-  } else {
+  } else if (applied.length > 0) {
+    // A1: Route Mak-extracted answers to activity_entries staging instead of career_assessments.
     const supabase = await createClient();
-    await supabase
-      .from("career_assessments")
-      .update({
-        questions_answered: current.questions_answered,
-        completed_at: current.completed_at,
-        score: current.score,
-      })
-      .eq("assessment_id", current.assessment_id);
+    const now = new Date().toISOString();
+    const rows = applied.map((qId) => {
+      const entry = current.questions_answered.find((q) => q.q_id === qId);
+      return {
+        id: crypto.randomUUID(),
+        user_id: userId,
+        created_at: now,
+        activity_date: now.slice(0, 10),
+        raw_text: JSON.stringify({ q_id: qId, question: entry?.question ?? qId, answer: entry?.answer }),
+        input_source: "assessment",
+        confidence_score: 0.9,
+      };
+    });
+    await supabase.from("activity_entries").insert(rows);
   }
 
   return { applied, completed: done };

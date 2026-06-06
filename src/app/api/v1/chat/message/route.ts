@@ -106,6 +106,8 @@ import {
 } from "@/lib/mak-chatbot-states";
 import { logEscalationEngagementSignal } from "@/lib/v2/escalation-protocols";
 import { makCategorySummary, shouldCaptureActivityMessage } from "@/lib/v2/activity-capture";
+import { detectMakLane, STAGEABLE_LANES } from "@/lib/v2/mak-lane-router";
+import { isDuplicate } from "@/lib/v2/capture-dedup";
 import {
   classifyChatMessage,
   persistClassificationActivity,
@@ -1175,16 +1177,30 @@ export async function POST(request: Request) {
   ) {
     try {
       if (supabaseClient) {
+        // B4: Detect lane before classification to enrich activity_entry metadata.
+        const lane = detectMakLane(message);
+        const shouldStage = STAGEABLE_LANES.includes(lane.lane);
+
         chatClassification = await classifyChatMessage(supabaseClient, isPremium, {
           userId: auth.userId,
           rawText: message,
           userSpecialty: user.specialty,
           userRole: user.career_stage,
         });
-        await persistClassificationActivity(
-          supabaseClient,
-          chatClassification.activity_entry,
-        );
+        if (shouldStage) {
+          // B5: Dedup — skip staging if a near-identical entry was staged recently.
+          const dedup = await isDuplicate(supabaseClient, auth.userId, {
+            rawText: message,
+            activityKey: chatClassification.activity_key,
+            primaryDomain: chatClassification.activity_entry?.primary_domain as string | null,
+          });
+          if (!dedup.duplicate) {
+            await persistClassificationActivity(
+              supabaseClient,
+              chatClassification.activity_entry,
+            );
+          }
+        }
         activityCaptured = {
           id: crypto.randomUUID(),
           user_id: auth.userId,
@@ -1194,14 +1210,14 @@ export async function POST(request: Request) {
           raw_text: chatClassification.activity_key
             ? makCategorySummary(chatClassification.activity_key, chatClassification.detected_signals)
             : "professional activity",
-          input_source: "mak_capture",
-          energy_valence: null,
+          input_source: `mak_${lane.lane}`,
+          energy_valence: lane.energyValence,
           primary_domain: chatClassification.activity_key ?? null,
           primary_track: chatClassification.detected_signals[0] ?? null,
           primary_domain_confidence: 0.7,
           primary_track_confidence: 0.7,
-          scope: null,
-          evidence_strength: null,
+          scope: lane.scope,
+          evidence_strength: lane.invisibleWorkSignal ? "invisible" : null,
           confidence_score: 0.7,
         };
       }

@@ -135,6 +135,39 @@ F1–F7 formulas) can replace it. V3 code may read but should not write to this 
 Mak response improvement. No v3 replacement needed — it is not superseded by `narrative_evidence`.
 **What depends on it:** Mak message rating UI.
 
+### `output_documents`
+**What:** Output Studio document store — each row is a full document with `sections[]` (JSON), `document_type`, `status`, user ownership.
+**Why v3 still uses it:** The active v3 Output Studio (generate, list, export) reads and writes this table. It is the current document persistence layer.
+**What depends on it:** `output-studio-generate.ts`, `output-studio-export.ts`, all `/api/v1/output/studio/` routes.
+**Note:** Phase D roadmap will migrate document generation onto the `evidence_unit` bank. Until then, this is canonical for Output Studio documents.
+
+### `cv_item_metadata`
+**What:** Stores individual CV/profile items with structured metadata — source, domain, track, visibility, confidence — used as a staging layer between raw CV text and confirmed `evidence_unit` rows.
+**Why v3 still uses it:** Active lattice (cells, list view), profile items API, and recent-captures dashboard all read/write here.
+**What depends on it:** `/api/v1/lattice/cells/`, `/api/v1/lattice/list`, `/api/v1/profile/items/`, `/api/v1/dashboard/recent-captures`.
+
+### `promotion_dossier`
+**What:** Stores promotion package drafts — sections, status, document type (assistant professor → full professor), per-user.
+**Why v3 still uses it:** Output Studio promotion path reads/writes this table via `/api/v1/promotion/dossier/`.
+**What depends on it:** All promotion dossier API routes; narrative builder.
+
+### `narrative_progress`
+**What:** Tracks progress through promotion narrative sections — completed sections, word counts, last-edited timestamps.
+**Why v3 still uses it:** Written alongside `promotion_dossier` in the promotion narrative save flow.
+**What depends on it:** `/api/v1/promotion/narrative/[sectionId]/save`.
+
+### `mempalace_exports`
+**What:** Snapshot store for Mak's internal coaching memory — coaching summary, key facts (CDI, career track, practice setting), preferences, career evolution.
+**Why v3 still uses it:** `onboarding/compute` and `mempalace/sync` routes write snapshots here; Mak context assembly reads the latest snapshot.
+**What depends on it:** `/api/v1/mempalace/sync`, `/api/v1/onboarding/compute`, `fetchLatestMemPalace` in db.ts.
+**Note:** CDI key_fact in exports will become stale as A6 retires the CDI composite write — tolerated for now.
+
+### `profiles`
+**What:** Supabase-auth-triggered public profiles table (first_name, last_name, specialty, career_phase, institution_name, goals, photo_url). Populated via `ensure-user.ts` on first login.
+**Why v3 still uses it:** Profile page reads here; `ensure-user.ts` creates/updates on auth.
+**What depends on it:** `/app/profile` page; `src/lib/supabase/ensure-user.ts`.
+**Note:** `profiles` and `app_users` are a split-brain on identity data (A8, 🔒 founder-gated). Until resolved, treat `app_users` as canonical for career data and `profiles` as the auth/display layer.
+
 ---
 
 ## SECTION 3 — V2 TABLES / MODULES SUPERSEDED BY V3
@@ -156,6 +189,7 @@ to these; read access for migration/backfill only, and only when a ticket explic
 | `src/lib/v2/lattice/` modules (domain scoring, track alignment, lattice views) | Computed lattice scores from `activity_entries` → `lattice_positioning` | v3 intelligence layer (F1–F7 formulas, Part IX) writing to `lattice_cell` and `evidence_unit` — not yet built (Phase 5) |
 | `career_assessments` | Generic conversational assessment records from pre-v3 Mak (structured instrument Q&A) | `narrative_evidence` (SI probe responses) + `goal_records` (structured goals). Founder decision 2026-06-01: superseded. |
 | `jobs` / `job_sources` / `user_career_preferences` / `job_matches` / `user_saved_jobs` | Full v2 job-search and career-fit matching engine | **PARKED** — v2 out of scope for v3 core. Wire nothing to it. No v3 equivalent planned. Do not reference from v3 code. |
+| `user_job_matches` | Per-user saved/viewed job match records from v2 career-fit engine | **PARKED** with the jobs layer. `/api/v1/jobs/` routes still read/write but are gated for retirement (A3/A4). Do not add new v3 consumers. |
 
 ---
 

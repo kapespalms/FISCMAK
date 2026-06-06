@@ -16,7 +16,8 @@ import {
 } from "@/lib/v2/annual-refresh";
 import { recommendGoalFromInvisibleWork } from "@/lib/v2/invisible-work-taxonomy";
 import { fetchDocuments } from "@/lib/v2/db";
-import { burnoutRiskFromPfi } from "@/lib/v2/career-language";
+import { burnoutRiskFromSignal } from "@/lib/v2/career-language";
+import { BURNOUT_SIGNAL_THRESHOLD } from "@/lib/v2/escalation-protocols";
 import { runTouchpointSideEffects } from "@/lib/v2/touchpoint-side-effects";
 import { updateAlignmentTracking } from "@/lib/v2/career-alignment-tracking";
 import { careerAlignmentFromHealth } from "@/lib/mak-chatbot-states";
@@ -56,7 +57,7 @@ export async function submitQuarterlyPulse(input: {
     baseline.captured_at = now;
   }
 
-  const prevScore = meta.cdi?.score ?? null;
+  const prevScore = meta.pulse_history?.[0]?.career_health_score ?? null;
   const docs = await fetchDocuments(userId, demo);
   const cv = docs.find((d) => d.document_type === "CV");
   const cvMetrics = cv?.extracted_text ? computeCvMetrics(cv.extracted_text, []) : null;
@@ -68,7 +69,7 @@ export async function submitQuarterlyPulse(input: {
       ? ((parsed.invisible_hours - baseline.invisible_hours) / baseline.invisible_hours) * 100
       : null;
 
-  const burnout = burnoutRiskFromPfi(parsed.burnout_screen ?? null);
+  const burnout = burnoutRiskFromSignal(parsed.burnout_screen ?? null);
 
   const cvAchievement = answers.find((a) => a.module_id === "cv_update")?.value;
   const summary = buildQuarterlyPulseSummary({
@@ -108,10 +109,6 @@ export async function submitQuarterlyPulse(input: {
           pulse_baseline: baseline,
           pulse_history: [record, ...(meta.pulse_history ?? [])].slice(0, 8),
           last_quarterly_summary: summary,
-          cdi: {
-            score: newScore,
-            domains: Object.fromEntries(health.domains.map((d) => [d.label, d.score])),
-          },
           invisible_work_hours_by_category: invisibleWork.hoursByCategory,
           invisible_work_recommendations: invisibleRecommendations,
           touchpoint_session_answers: undefined,
@@ -145,7 +142,7 @@ export async function submitQuarterlyPulse(input: {
   });
 
   const triggers: string[] = [];
-  if (parsed.burnout_screen != null && parsed.burnout_screen >= 3.325) {
+  if (parsed.burnout_screen != null && parsed.burnout_screen >= BURNOUT_SIGNAL_THRESHOLD) {
     triggers.push("Full well-being assessment recommended at next login");
   }
   if (invisibleDeltaPct != null && invisibleDeltaPct > 25) {

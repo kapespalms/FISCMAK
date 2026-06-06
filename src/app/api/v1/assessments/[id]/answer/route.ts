@@ -1,3 +1,5 @@
+// DEPRECATED (A1): Still reads/writes career_assessments to keep /app/assessment functional.
+// Do not add new consumers. Remove when Phase B replaces the surface.
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { getAppUser, isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";

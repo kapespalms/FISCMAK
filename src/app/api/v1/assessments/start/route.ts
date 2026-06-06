@@ -1,3 +1,5 @@
+// DEPRECATED (A1): This route still writes to career_assessments to keep /app/assessment
+// functional until Phase B (capture spine) replaces the surface. Do not add new consumers.
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { isErrorResponse, jsonOk, requireApiUser } from "@/lib/v2/api-helpers";

@@ -9,6 +9,7 @@ import type {
   NarrativeProgress,
   PromotionDossier,
 } from "@/lib/v2/types";
+import type { NarrativeEvidenceRow } from "@/lib/v2/types";
 
 const KEY = "fiscmak_v2_demo";
 
@@ -22,6 +23,7 @@ type DemoState = {
   jobMatches: { job_id: string; match_score: number; viewed_at?: string; saved_at?: string }[];
   dossiers: PromotionDossier[];
   narrativeProgress: NarrativeProgress[];
+  narrativeEvidence: NarrativeEvidenceRow[];
 };
 
 function freshUser(userId: string, email = ""): AppUser {
@@ -72,6 +74,7 @@ function emptyState(userId: string, email?: string): DemoState {
     jobMatches: [],
     dossiers: [],
     narrativeProgress: [],
+    narrativeEvidence: [],
   };
 }
 
