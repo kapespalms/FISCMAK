@@ -98,9 +98,9 @@
 
 *Source: **Part X**. Deep ref: Mak question-framing is the LATER layer — design after the skeleton runs.*
 
-- [ ] **6.1 Goal architecture** (4 horizons: 3mo SMART, 1yr SMART+II, 5yr WOOP, 10yr legacy) → `goal_records`.
+- [x] **6.1 Goal architecture** (4 horizons: 3mo SMART, 1yr SMART+II, 5yr WOOP, 10yr legacy) → `goal_records`.
 - [ ] **6.2 Conversational engine shell** + Mak memory (themes, never raw transcripts).
-- [ ] **6.3 Adaptive SI probes** (8–12/domain/yr) → `narrative_evidence`. *(Probe wording = the deferred Mak-interaction work.)*
+- [x] **6.3 Adaptive SI probes** (8–12/domain/yr) → `narrative_evidence`. *(Probe wording = the deferred Mak-interaction work.)*
 - [ ] **6.4 Distress detection** (MDT embedded → resource link + pause, no auto-report).
 
 ---
