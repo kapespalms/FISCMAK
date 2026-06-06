@@ -203,6 +203,15 @@ import {
 } from "@/lib/v2/grow-exploration-mak-flow";
 import { buildGrowExplorationIntro } from "@/lib/v2/career-coaching-frameworks";
 import {
+  buildSiProbeIntro,
+  clearSiProbeSession,
+  getSiProbeSession,
+  initSiProbeSession,
+  processSiProbeTurn,
+  selectNextProbe,
+  type SiProbeTurnResult,
+} from "@/lib/v2/si-probe-mak-flow";
+import {
   buildScheduleEventsIntro,
   buildScheduleMakSystemContext,
   buildScheduleMemoryContext,
@@ -241,6 +250,7 @@ const API_GREETING_TOKENS = new Set([
   "__schedule_events__",
   "__schedule_review__",
   "__rotation_touchpoint__",
+  "__si_probe__",
 ]);
 
 type HistoryTurn = { role: "user" | "assistant"; content: string };
@@ -1247,6 +1257,32 @@ export async function POST(request: Request) {
     ? await hasActiveSubscription(supabaseClient, auth.userId)
     : false;
 
+  // 6.3: SI-probe conversational turn — writes to narrative_evidence (PHI-stripped).
+  // Must run after supabaseClient is available.
+  let siProbeTurn: SiProbeTurnResult | null = null;
+  if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    !isReviewEventToken(message) &&
+    getSiProbeSession(activeMeta)
+  ) {
+    siProbeTurn = await processSiProbeTurn({
+      message,
+      meta:    activeMeta,
+      userId:  auth.userId,
+      supabase: supabaseClient,
+      demo:    auth.demo,
+    });
+    activeMeta = siProbeTurn.meta;
+    await upsertAppUser(
+      auth.userId,
+      auth.email,
+      { onboarding_metadata: activeMeta as Record<string, unknown> },
+      auth.demo,
+    );
+  }
+
   if (
     user?.tier3_complete &&
     message &&
@@ -1654,6 +1690,26 @@ export async function POST(request: Request) {
       response = buildRotationDebriefIntro(touchpoint.rotation_label, touchpoint.phase);
       suggested_actions = [{ action: "Open Career Map", url: "/app/objective?tab=lattice" }];
     }
+  } else if (message === "__si_probe__" && user) {
+    // 6.3: Adaptive SI probe — select thinnest domain, init session, return question.
+    const probe = await selectNextProbe(auth.userId, supabaseClient, auth.demo);
+    if (probe) {
+      activeMeta = initSiProbeSession(activeMeta, probe);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+      response = buildSiProbeIntro(probe);
+      suggested_actions = [{ action: "Skip this question", url: "" }];
+    } else {
+      // All probes for every domain have been answered — should be rare.
+      activeMeta = clearSiProbeSession(activeMeta);
+      response =
+        "You've reflected on all the questions in the bank — that's thorough work. Check back after more career activity builds up.";
+      suggested_actions = [{ action: "Open Career Map", url: "/app/lattice" }];
+    }
   } else if (message === "__welcome__" && user) {
     const welcomeMeta = getOnboardingMetadata(user);
     if (
@@ -1692,6 +1748,9 @@ export async function POST(request: Request) {
   } else if (debriefTurn) {
     response = debriefTurn.response;
     suggested_actions = debriefTurn.suggested_actions;
+  } else if (siProbeTurn) {
+    response = siProbeTurn.response;
+    suggested_actions = siProbeTurn.suggested_actions;
   } else if (goalSettingTurn) {
     response = goalSettingTurn.response;
     suggested_actions = goalSettingTurn.suggested_actions;

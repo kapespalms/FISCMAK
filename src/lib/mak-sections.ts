@@ -198,6 +198,8 @@ export type MakFlowIntent =
   | "board_awareness"
   | "board_building"
   | "grow_exploration"
+  | "si_probe"
+  | "goal_horizon"
   | (typeof FIVE_OPTIONS)[number]["id"];
 
 export const MAK_SECTION_CONFIG: Record<AppSection, MakSectionConfig> = {
@@ -325,6 +327,8 @@ export const MAK_FLOW_GREETINGS: Record<MakFlowIntent, string> = {
   board_awareness: "__board_awareness__",
   board_building: "__board_building__",
   grow_exploration: "__grow_exploration__",
+  si_probe: "__si_probe__",
+  goal_horizon: "Let's set a goal for this horizon — one question at a time.",
   discuss: SOAP_TAB.subjective.chatEntry,
   review: SOAP_TAB.objective.chatEntry,
   assess: SOAP_TAB.assessment.chatEntry,

@@ -152,6 +152,8 @@ export type OnboardingMetadata = {
   career_board?: import("@/lib/v2/career-board-models").CareerBoardSnapshot;
   board_awareness_session?: import("@/lib/v2/career-board-mak-flow").BoardAwarenessSession;
   board_building_session?: import("@/lib/v2/career-board-mak-flow").BoardBuildingSession;
+  /** 6.3: Active SI-probe Mak session — cleared when probe is answered or skipped. */
+  si_probe_session?: import("@/lib/v2/si-probe-mak-flow").SiProbeSession;
   career_narrative?: {
     stage_id: import("@/lib/v2/career-narrative-templates").CareerNarrativeStageId;
     track_id: import("@/lib/v2/career-narrative-templates").CareerNarrativeTrackId;
