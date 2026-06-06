@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { getServerDemo } from "@/lib/v2/demo-store";
 import { CRISIS_LANGUAGE_PATTERN } from "@/lib/v2/escalation-protocols";
+import { stripPhi } from "@/lib/v2/phi-strip";
 import type { NarrativeEvidenceRow } from "@/lib/v2/types";
 
 export type { NarrativeEvidenceRow } from "@/lib/v2/types";
@@ -26,13 +27,15 @@ export async function writeNarrativeEvidence(
   input: NarrativeEvidenceInput,
   demo: boolean,
 ): Promise<NarrativeEvidenceRow> {
+  // B1: Strip PHI before storing — narrative_evidence holds verbatim SI responses.
+  const responseText = stripPhi(input.responseText).scrubbed;
   const row: NarrativeEvidenceRow = {
     id: crypto.randomUUID(),
     user_id: input.userId,
     domain_index: input.domainIndex,
     question_index: input.questionIndex,
-    response_text: input.responseText,
-    distress_flag: detectDistress(input.responseText),
+    response_text: responseText,
+    distress_flag: detectDistress(responseText),
     energy_signal: input.energySignal ?? null,
     invisible_work_flag: input.invisibleWorkFlag ?? false,
     mak_session_id: input.makSessionId ?? null,

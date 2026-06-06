@@ -74,6 +74,15 @@ import {
   processGoalSettingTurn,
   type GoalSettingTurnResult,
 } from "@/lib/v2/goal-setting-mak-flow";
+import {
+  buildGoalHorizonMakContext,
+  clearGoalHorizonSession,
+  getGoalHorizonSession,
+  initGoalHorizonSession,
+  processGoalHorizonTurn,
+  type GoalHorizonTurnResult,
+} from "@/lib/v2/goal-horizon-mak-flow";
+import type { GoalHorizon } from "@/lib/v2/goal-records";
 import { processAnnualMakTurn, processQuarterlyMakTurn } from "@/lib/v2/touchpoint-mak-orchestrator";
 import type { TouchpointSubmitResult } from "@/lib/v2/touchpoint-submit";
 import { touchpointsEligible } from "@/lib/v2/touchpoint-eligibility";
@@ -108,6 +117,8 @@ import { logEscalationEngagementSignal } from "@/lib/v2/escalation-protocols";
 import { makCategorySummary, shouldCaptureActivityMessage } from "@/lib/v2/activity-capture";
 import { detectMakLane, STAGEABLE_LANES } from "@/lib/v2/mak-lane-router";
 import { isDuplicate } from "@/lib/v2/capture-dedup";
+import { stripPhi } from "@/lib/v2/phi-strip";
+import { buildMakMemorySummary, extractThemesFromTurn } from "@/lib/v2/mak-theme-extract";
 import {
   classifyChatMessage,
   persistClassificationActivity,
@@ -253,7 +264,16 @@ function isReviewEventToken(message: string): boolean {
 export async function POST(request: Request) {
   const auth = await requireApiUser();
   if (isErrorResponse(auth)) return auth;
-  const { message, context, history } = await request.json();
+  const { message: rawMessage, context, history } = await request.json();
+
+  // B1: PHI-strip — deterministic defense-in-depth before any classify/store or LLM call.
+  // API greeting tokens are internal signals, not user text — skip them.
+  const message: string =
+    rawMessage && typeof rawMessage === "string" &&
+    !API_GREETING_TOKENS.has(rawMessage) &&
+    !isReviewEventToken(rawMessage)
+      ? stripPhi(rawMessage).scrubbed
+      : (rawMessage as string);
   const user = await getAppUser(auth.userId, auth.demo);
   const mp = await fetchLatestMemPalace(auth.userId, auth.demo);
   const assessments = await fetchAssessments(auth.userId, auth.demo);
@@ -1108,6 +1128,64 @@ export async function POST(request: Request) {
     );
   }
 
+  // 6.1: Horizon-aware goal conversation (writes to goal_records, not stored_goals).
+  let goalHorizonTurn: GoalHorizonTurnResult | null = null;
+  const goalHorizonRequested =
+    flowIntent === "goal_horizon" &&
+    typeof context?.goal_horizon === "string" &&
+    ["3mo", "1yr", "5yr", "10yr"].includes(context.goal_horizon as string);
+
+  if (
+    user &&
+    message &&
+    message !== "__welcome__" &&
+    supabaseClient &&
+    !auth.demo
+  ) {
+    let horizonSession = getGoalHorizonSession(activeMeta);
+
+    // Init session when requested and none is active
+    if (goalHorizonRequested && !horizonSession) {
+      const horizon = context.goal_horizon as GoalHorizon;
+      const domainIndex =
+        typeof context?.domain_index === "number" ? context.domain_index : null;
+      activeMeta = initGoalHorizonSession(activeMeta, horizon, domainIndex);
+      horizonSession = getGoalHorizonSession(activeMeta);
+      await upsertAppUser(
+        auth.userId,
+        auth.email,
+        { onboarding_metadata: activeMeta as Record<string, unknown> },
+        auth.demo,
+      );
+    }
+
+    if (horizonSession) {
+      goalHorizonTurn = await processGoalHorizonTurn({
+        message,
+        meta: activeMeta,
+        userId: auth.userId,
+        supabase: supabaseClient,
+      });
+      activeMeta = goalHorizonTurn.meta;
+      if (!goalHorizonTurn.complete) {
+        await upsertAppUser(
+          auth.userId,
+          auth.email,
+          { onboarding_metadata: activeMeta as Record<string, unknown> },
+          auth.demo,
+        );
+      } else {
+        // Session cleared in processGoalHorizonTurn — persist cleared state
+        await upsertAppUser(
+          auth.userId,
+          auth.email,
+          { onboarding_metadata: activeMeta as Record<string, unknown> },
+          auth.demo,
+        );
+      }
+    }
+  }
+
   let touchpointSubmitted: TouchpointSubmitResult | null = null;
   let touchpointNextPrompt: string | null = null;
 
@@ -1617,6 +1695,11 @@ export async function POST(request: Request) {
   } else if (goalSettingTurn) {
     response = goalSettingTurn.response;
     suggested_actions = goalSettingTurn.suggested_actions;
+  } else if (goalHorizonTurn) {
+    response = goalHorizonTurn.response;
+    suggested_actions = goalHorizonTurn.complete
+      ? [{ action: "View goals", url: "/app/plan" }]
+      : [];
   } else {
     const freeMessageBalance = getMessageBalance(
       activeMeta as Record<string, unknown>,
@@ -1936,6 +2019,7 @@ export async function POST(request: Request) {
             .map((e) => `${e.clinical_experience} → ${e.translated_framing}`)
             .join(" | ")}`
         : "",
+      user?.mak_memory_summary ? `Mak memory (themes): ${user.mak_memory_summary}` : "",
       mp?.coaching_summary ? `Memory: ${mp.coaching_summary}` : "",
       assessments.length
         ? `Completed touchpoints: ${assessments.filter((a) => a.completed_at).length}`
@@ -1956,6 +2040,7 @@ export async function POST(request: Request) {
       getGoalSettingSession(activeMeta)
         ? buildGoalSettingMakSystemContext(activeMeta, user?.career_stage)
         : "",
+      getGoalHorizonSession(activeMeta) ? buildGoalHorizonMakContext(activeMeta) : "",
       globalState === "ONBOARDRECONCILE" ? buildReconcileMakSystemContext(activeMeta) : "",
       flowIntent === "capture"
         ? buildStageAwareCapturePrompt(user?.career_stage, user?.practice_setting, pivotActive)
@@ -2158,6 +2243,29 @@ export async function POST(request: Request) {
     }
   }
 
+  // 6.2: Update Mak memory summary from this turn — themes only, never raw transcripts.
+  // Only runs on real user messages (not greeting tokens) and only for real DB sessions.
+  if (
+    user &&
+    message &&
+    !API_GREETING_TOKENS.has(message) &&
+    !isReviewEventToken(message) &&
+    !auth.demo &&
+    supabaseClient
+  ) {
+    try {
+      const newThemes = extractThemesFromTurn(message);
+      if (newThemes.length > 0) {
+        const updatedSummary = buildMakMemorySummary(user.mak_memory_summary ?? null, newThemes);
+        if (updatedSummary !== (user.mak_memory_summary ?? "")) {
+          await upsertAppUser(auth.userId, auth.email, { mak_memory_summary: updatedSummary }, false);
+        }
+      }
+    } catch (e) {
+      console.warn("[mak-memory] theme extraction failed:", e);
+    }
+  }
+
   let likert_scale: ReturnType<typeof likertScaleForCluster> = null;
   if (user && user.tier2_complete && !user.tier3_complete) {
     const latestUser = (await getAppUser(auth.userId, auth.demo)) ?? user;
@@ -2205,8 +2313,10 @@ export async function POST(request: Request) {
     goals_updated: Boolean(
       goalSettingTurn?.completed ||
         goalSettingTurn?.goals?.length ||
-        goalSettingTurn?.meta.stored_goals?.length,
+        goalSettingTurn?.meta.stored_goals?.length ||
+        goalHorizonTurn?.complete,
     ),
+    horizon_goal_saved: goalHorizonTurn?.saved_goal ?? null,
     schedule_updated: Boolean(scheduleEventSaved),
     coaching_cadence_updated: coachingCadenceUpdated,
     goals: goalSettingTurn?.goals ?? null,

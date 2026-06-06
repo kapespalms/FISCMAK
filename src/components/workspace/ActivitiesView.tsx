@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import type { ActivityEntry } from "@/lib/types/database";
 import type { ClassificationResult } from "@/lib/types/database";
 import { isUnconfirmedMakCapture } from "@/lib/v2/activity-confirm";
+import { CaptureTriage } from "@/components/workspace/CaptureTriage";
 
 export function ActivitiesView() {
   const [activities, setActivities] = useState<ActivityEntry[]>([]);
@@ -117,6 +118,9 @@ export function ActivitiesView() {
 
   return (
     <div className="space-y-6">
+      {/* C1: Confidence-triage gate — confirms pending Mak/pulse captures → evidence_unit */}
+      <CaptureTriage onConfirmed={loadActivities} />
+
       {error && (
         <p className="rounded-xl border border-[#C28D6C]/20 bg-[#C28D6C]/8 px-4 py-3 text-sm text-[#C28D6C]">
           {error}
