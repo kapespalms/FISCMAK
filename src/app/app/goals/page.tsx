@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { GoalHorizonCard } from "@/components/goals/GoalHorizonCard";
 import { GoalFormModal } from "@/components/goals/GoalFormModal";
 import { PathwaysExplorer } from "@/components/workspace/PathwaysExplorer";
+import { useAppShell } from "@/components/layout/AppShell";
 import type {
   GoalHorizon,
   GoalRecord,
@@ -20,9 +21,10 @@ const EMPTY_BY_HORIZON: GoalsByHorizon = {
 type ModalState = { horizon: GoalHorizon; existing?: GoalRecord } | null;
 
 function GoalsContent() {
-  const router       = useRouter();
-  const params       = useSearchParams();
-  const view         = (params.get("view") ?? "goals") as "goals" | "directions";
+  const router          = useRouter();
+  const params          = useSearchParams();
+  const view            = (params.get("view") ?? "goals") as "goals" | "directions";
+  const { startMakFlow } = useAppShell();
 
   const [byHorizon, setByHorizon] = useState<GoalsByHorizon>(EMPTY_BY_HORIZON);
   const [loading,   setLoading]   = useState(true);
@@ -92,6 +94,15 @@ function GoalsContent() {
             </button>
           ))}
         </div>
+        {view === "goals" && (
+          <button
+            type="button"
+            onClick={() => startMakFlow("si_probe")}
+            className="ml-auto rounded-lg border border-cx-forest-dark/15 px-3 py-1.5 text-xs text-cx-text/60 transition-colors hover:border-fis-gold/40 hover:bg-fis-gold/5 hover:text-fis-gold"
+          >
+            Reflect with Mak
+          </button>
+        )}
       </div>
 
       {migrationPending && (
